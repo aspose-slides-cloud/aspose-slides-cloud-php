@@ -80,7 +80,7 @@ class NotesSlideApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -232,7 +232,7 @@ class NotesSlideApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -381,7 +381,7 @@ class NotesSlideApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -458,7 +458,7 @@ class NotesSlideApi extends ApiBase
      *
      * @param  string $name The presentation name. (required)
      * @param  int $slide_index The slide index. (required)
-     * @param  int $format Export format. (required)
+     * @param  string $format Export format. (required)
      * @param  int $width (optional)
      * @param  int $height (optional)
      * @param  string $password Document password. (optional)
@@ -549,7 +549,7 @@ class NotesSlideApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -714,7 +714,7 @@ class NotesSlideApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {

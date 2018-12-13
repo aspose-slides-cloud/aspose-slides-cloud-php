@@ -45,22 +45,22 @@ class SizeType
     /**
      * Possible values of this enum
      */
-    const OnScreen = 0;
-    const LetterPaper = 1;
-    const A4Paper = 2;
-    const Slide35mm = 3;
-    const Overhead = 4;
-    const Banner = 5;
-    const Custom = 6;
-    const Ledger = 7;
-    const A3Paper = 8;
-    const B4IsoPaper = 9;
-    const B5IsoPaper = 10;
-    const B4JisPaper = 11;
-    const B5JisPaper = 12;
-    const HagakiCard = 13;
-    const OnScreen16x9 = 14;
-    const OnScreen16x10 = 15;
+    const ON_SCREEN = 'OnScreen';
+    const LETTER_PAPER = 'LetterPaper';
+    const A4_PAPER = 'A4Paper';
+    const SLIDE35MM = 'Slide35mm';
+    const OVERHEAD = 'Overhead';
+    const BANNER = 'Banner';
+    const CUSTOM = 'Custom';
+    const LEDGER = 'Ledger';
+    const A3_PAPER = 'A3Paper';
+    const B4_ISO_PAPER = 'B4IsoPaper';
+    const B5_ISO_PAPER = 'B5IsoPaper';
+    const B4_JIS_PAPER = 'B4JisPaper';
+    const B5_JIS_PAPER = 'B5JisPaper';
+    const HAGAKI_CARD = 'HagakiCard';
+    const ON_SCREEN16X9 = 'OnScreen16x9';
+    const ON_SCREEN16X10 = 'OnScreen16x10';
     
     /**
      * Gets allowable values of the enum
@@ -69,22 +69,22 @@ class SizeType
     public static function getAllowableEnumValues()
     {
         return [
-            self::OnScreen,
-            self::LetterPaper,
-            self::A4Paper,
-            self::Slide35mm,
-            self::Overhead,
-            self::Banner,
-            self::Custom,
-            self::Ledger,
-            self::A3Paper,
-            self::B4IsoPaper,
-            self::B5IsoPaper,
-            self::B4JisPaper,
-            self::B5JisPaper,
-            self::HagakiCard,
-            self::OnScreen16x9,
-            self::OnScreen16x10,
+            self::ON_SCREEN,
+            self::LETTER_PAPER,
+            self::A4_PAPER,
+            self::SLIDE35MM,
+            self::OVERHEAD,
+            self::BANNER,
+            self::CUSTOM,
+            self::LEDGER,
+            self::A3_PAPER,
+            self::B4_ISO_PAPER,
+            self::B5_ISO_PAPER,
+            self::B4_JIS_PAPER,
+            self::B5_JIS_PAPER,
+            self::HAGAKI_CARD,
+            self::ON_SCREEN16X9,
+            self::ON_SCREEN16X10,
         ];
     }
 }

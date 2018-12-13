@@ -63,13 +63,16 @@ class TestBase extends \PHPUnit_Framework_TestCase
     
     protected function initialize($functionName, $invalidFieldName, $invalidFieldValue)
     {
-
         if ($functionName == 'deleteSlidesCleanSlidesList' || $functionName == "putSlidesSlide") {
             $putRequest = new PutCreateRequest(
                 TestUtils::folderName."/test-unprotected.ppt", realpath(__DIR__.'/../..').'/TestData/test-unprotected.ppt');
             $this->storage->PutCreate($putRequest);
         }
-
+        if ($functionName == 'postSlidesDocument') {
+            $putRequest = new PutCreateRequest(
+                TestUtils::folderName."/".TestUtils::templateFileName, realpath(__DIR__.'/../..').'/TestData/'.TestUtils::templateFileName);
+            $this->storage->PutCreate($putRequest);
+        }
         if ($functionName == "postSlidesDocument") {
             $deleteRequest = new DeleteFileRequest(TestUtils::getFileUploadPath());
             $this->storage->DeleteFile($deleteRequest);
@@ -79,15 +82,16 @@ class TestBase extends \PHPUnit_Framework_TestCase
             $this->storage->DeleteFile($deleteRequest);
         }
         if ($invalidFieldName == "name") {
-            $deleteRequest = new DeleteFileRequest(TestUtils::getFileUploadPath()."invalid");
+            $deleteRequest = new DeleteFileRequest(TestUtils::folderName."/".$invalidFieldValue);
             $this->storage->DeleteFile($deleteRequest);
         }
-        if ($functionName == "putNewPresentation") {
+        if ($functionName == "putNewPresentation" || $functionName == "postSlidesDocument") {
             $deleteRequest = new DeleteFileRequest(TestUtils::folderName."invalid/".TestUtils::changedFileName);
+            $this->storage->DeleteFile($deleteRequest);
+            $deleteRequest = new DeleteFileRequest(TestUtils::folderName."/invalid".TestUtils::changedFileName);
             $this->storage->DeleteFile($deleteRequest);
             $deleteRequest = new DeleteFileRequest(TestUtils::folderName."/".TestUtils::changedFileName);
             $this->storage->DeleteFile($deleteRequest);
         }
-
     }
 }

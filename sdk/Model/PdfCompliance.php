@@ -45,8 +45,8 @@ class PdfCompliance
     /**
      * Possible values of this enum
      */
-    const Pdf15 = 0;
-    const PdfA1b = 1;
+    const PDF15 = 'Pdf15';
+    const PDF_A1B = 'PdfA1b';
     
     /**
      * Gets allowable values of the enum
@@ -55,8 +55,8 @@ class PdfCompliance
     public static function getAllowableEnumValues()
     {
         return [
-            self::Pdf15,
-            self::PdfA1b,
+            self::PDF15,
+            self::PDF_A1B,
         ];
     }
 }

@@ -304,9 +304,14 @@ class ObjectSerializer
 
             return new \SplFileObject($filename, 'r');
         } elseif (method_exists($class, 'getAllowableEnumValues')) {
-            if (!in_array($data, $class::getAllowableEnumValues())) {
-                $imploded = implode("', '", $class::getAllowableEnumValues());
-                throw new \InvalidArgumentException("Invalid value for enum '$class', must be one of: '$imploded'");
+            $allowableValues = $class::getAllowableEnumValues();
+            //TODO: remove this after SLIDESCLOUD-520 is fixed
+            if (is_int($data)) {
+                return $allowableValues[$data];
+            }
+            if (!in_array($data, $allowableValues)) {
+                $imploded = implode("', '", $allowableValues);
+                throw new \InvalidArgumentException("Invalid value '$data' for enum '$class', must be one of: '$imploded'");
             }
             return $data;
         } else {

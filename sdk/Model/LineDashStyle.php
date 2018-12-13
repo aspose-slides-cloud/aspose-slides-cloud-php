@@ -35,7 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * LineDashStyle Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Dash style of a line.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

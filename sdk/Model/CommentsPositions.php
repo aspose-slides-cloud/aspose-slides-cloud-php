@@ -45,9 +45,9 @@ class CommentsPositions
     /**
      * Possible values of this enum
      */
-    const None = 0;
-    const Bottom = 1;
-    const Right = 2;
+    const NONE = 'None';
+    const BOTTOM = 'Bottom';
+    const RIGHT = 'Right';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class CommentsPositions
     public static function getAllowableEnumValues()
     {
         return [
-            self::None,
-            self::Bottom,
-            self::Right,
+            self::NONE,
+            self::BOTTOM,
+            self::RIGHT,
         ];
     }
 }

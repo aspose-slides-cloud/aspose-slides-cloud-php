@@ -45,12 +45,12 @@ class TiffCompressionType
     /**
      * Possible values of this enum
      */
-    const Default = 0;
-    const None = 1;
-    const CCITT3 = 2;
-    const CCITT4 = 3;
-    const LZW = 4;
-    const RLE = 5;
+    const _DEFAULT = 'Default';
+    const NONE = 'None';
+    const CCITT3 = 'CCITT3';
+    const CCITT4 = 'CCITT4';
+    const LZW = 'LZW';
+    const RLE = 'RLE';
     
     /**
      * Gets allowable values of the enum
@@ -59,8 +59,8 @@ class TiffCompressionType
     public static function getAllowableEnumValues()
     {
         return [
-            self::Default,
-            self::None,
+            self::_DEFAULT,
+            self::NONE,
             self::CCITT3,
             self::CCITT4,
             self::LZW,

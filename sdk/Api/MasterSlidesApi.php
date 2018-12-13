@@ -80,7 +80,7 @@ class MasterSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -155,11 +155,11 @@ class MasterSlidesApi extends ApiBase
     /**
      * Create request for operation 'getMasterSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -232,7 +232,7 @@ class MasterSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -307,10 +307,10 @@ class MasterSlidesApi extends ApiBase
     /**
      * Create request for operation 'getMasterSlidesList'
      *
-     * @param  string $name The presentation name. (required)
+     * @param  string $name Document name. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -378,7 +378,7 @@ class MasterSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -453,15 +453,15 @@ class MasterSlidesApi extends ApiBase
     /**
      * Create request for operation 'postCopyMasterSlideFromSourcePresentation'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  string $clone_from Source presentation to clone masterSlide from. (required)
-     * @param  int $clone_from_position Position of cloning master slide. (required)
-     * @param  string $clone_from_password Source presentation password. (optional)
-     * @param  string $clone_from_storage Storage source presentation to clone masterSlide from. (optional)
-     * @param  bool $apply_to_all Apply cloned master slide to every existed slide. Optional parameter, false by default (optional, default to false)
-     * @param  string $password The presentation password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $name Document name. (required)
+     * @param  string $clone_from Name of the document to clone masterSlide from. (required)
+     * @param  int $clone_from_position Position of cloned master slide. (required)
+     * @param  string $clone_from_password Password for the document to clone masterSlide from. (optional)
+     * @param  string $clone_from_storage Storage of the document to clone masterSlide from. (optional)
+     * @param  bool $apply_to_all True to apply cloned master slide to every existing slide. (optional, default to false)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

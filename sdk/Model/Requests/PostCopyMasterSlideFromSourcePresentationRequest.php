@@ -34,62 +34,62 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostCopyMasterSlideFromSourcePresentationRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * Source presentation to clone masterSlide from.
+     * Name of the document to clone masterSlide from.
      */
     public $cloneFrom;
 
     /*
-     * Position of cloning master slide.
+     * Position of cloned master slide.
      */
     public $cloneFromPosition;
 
     /*
-     * Source presentation password.
+     * Password for the document to clone masterSlide from.
      */
     public $cloneFromPassword;
 
     /*
-     * Storage source presentation to clone masterSlide from.
+     * Storage of the document to clone masterSlide from.
      */
     public $cloneFromStorage;
 
     /*
-     * Apply cloned master slide to every existed slide. Optional parameter, false by default
+     * True to apply cloned master slide to every existing slide.
      */
     public $applyToAll;
 
     /*
-     * The presentation password.
+     * Document password.
      */
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PostCopyMasterSlideFromSourcePresentationRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param string $cloneFrom Source presentation to clone masterSlide from.
-     * @param int $cloneFromPosition Position of cloning master slide.
-     * @param string $cloneFromPassword Source presentation password.
-     * @param string $cloneFromStorage Storage source presentation to clone masterSlide from.
-     * @param bool $applyToAll Apply cloned master slide to every existed slide. Optional parameter, false by default
-     * @param string $password The presentation password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $name Document name.
+     * @param string $cloneFrom Name of the document to clone masterSlide from.
+     * @param int $cloneFromPosition Position of cloned master slide.
+     * @param string $cloneFromPassword Password for the document to clone masterSlide from.
+     * @param string $cloneFromStorage Storage of the document to clone masterSlide from.
+     * @param bool $applyToAll True to apply cloned master slide to every existing slide.
+     * @param string $password Document password.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword = null, $cloneFromStorage = null, $applyToAll = null, $password = null, $folder = null, $storage = null)
     {
@@ -105,7 +105,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -113,7 +113,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -121,7 +121,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Source presentation to clone masterSlide from.
+     * Name of the document to clone masterSlide from.
      */
     public function get_cloneFrom()
     {
@@ -129,7 +129,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Source presentation to clone masterSlide from.
+     * Name of the document to clone masterSlide from.
      */
     public function set_cloneFrom($value)
     {
@@ -137,7 +137,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Position of cloning master slide.
+     * Position of cloned master slide.
      */
     public function get_cloneFromPosition()
     {
@@ -145,7 +145,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Position of cloning master slide.
+     * Position of cloned master slide.
      */
     public function set_cloneFromPosition($value)
     {
@@ -153,7 +153,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Source presentation password.
+     * Password for the document to clone masterSlide from.
      */
     public function get_cloneFromPassword()
     {
@@ -161,7 +161,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Source presentation password.
+     * Password for the document to clone masterSlide from.
      */
     public function set_cloneFromPassword($value)
     {
@@ -169,7 +169,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Storage source presentation to clone masterSlide from.
+     * Storage of the document to clone masterSlide from.
      */
     public function get_cloneFromStorage()
     {
@@ -177,7 +177,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Storage source presentation to clone masterSlide from.
+     * Storage of the document to clone masterSlide from.
      */
     public function set_cloneFromStorage($value)
     {
@@ -185,7 +185,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Apply cloned master slide to every existed slide. Optional parameter, false by default
+     * True to apply cloned master slide to every existing slide.
      */
     public function get_applyToAll()
     {
@@ -193,7 +193,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Apply cloned master slide to every existed slide. Optional parameter, false by default
+     * True to apply cloned master slide to every existing slide.
      */
     public function set_applyToAll($value)
     {
@@ -201,7 +201,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * The presentation password.
+     * Document password.
      */
     public function get_password()
     {
@@ -209,7 +209,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -217,7 +217,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -225,7 +225,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -233,7 +233,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -241,7 +241,7 @@ class PostCopyMasterSlideFromSourcePresentationRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

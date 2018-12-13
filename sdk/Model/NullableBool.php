@@ -45,9 +45,9 @@ class NullableBool
     /**
      * Possible values of this enum
      */
-    const False = 0;
-    const True = 1;
-    const NotDefined = -1;
+    const FALSE = 'False';
+    const TRUE = 'True';
+    const NOT_DEFINED = 'NotDefined';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class NullableBool
     public static function getAllowableEnumValues()
     {
         return [
-            self::False,
-            self::True,
-            self::NotDefined,
+            self::FALSE,
+            self::TRUE,
+            self::NOT_DEFINED,
         ];
     }
 }

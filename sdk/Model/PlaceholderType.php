@@ -45,22 +45,22 @@ class PlaceholderType
     /**
      * Possible values of this enum
      */
-    const Title = 0;
-    const Body = 1;
-    const CenteredTitle = 2;
-    const Subtitle = 3;
-    const DateAndTime = 4;
-    const SlideNumber = 5;
-    const Footer = 6;
-    const Header = 7;
-    const Object = 8;
-    const Chart = 9;
-    const Table = 10;
-    const ClipArt = 11;
-    const Diagram = 12;
-    const Media = 13;
-    const SlideImage = 14;
-    const Picture = 15;
+    const TITLE = 'Title';
+    const BODY = 'Body';
+    const CENTERED_TITLE = 'CenteredTitle';
+    const SUBTITLE = 'Subtitle';
+    const DATE_AND_TIME = 'DateAndTime';
+    const SLIDE_NUMBER = 'SlideNumber';
+    const FOOTER = 'Footer';
+    const HEADER = 'Header';
+    const OBJECT = 'Object';
+    const CHART = 'Chart';
+    const TABLE = 'Table';
+    const CLIP_ART = 'ClipArt';
+    const DIAGRAM = 'Diagram';
+    const MEDIA = 'Media';
+    const SLIDE_IMAGE = 'SlideImage';
+    const PICTURE = 'Picture';
     
     /**
      * Gets allowable values of the enum
@@ -69,22 +69,22 @@ class PlaceholderType
     public static function getAllowableEnumValues()
     {
         return [
-            self::Title,
-            self::Body,
-            self::CenteredTitle,
-            self::Subtitle,
-            self::DateAndTime,
-            self::SlideNumber,
-            self::Footer,
-            self::Header,
-            self::Object,
-            self::Chart,
-            self::Table,
-            self::ClipArt,
-            self::Diagram,
-            self::Media,
-            self::SlideImage,
-            self::Picture,
+            self::TITLE,
+            self::BODY,
+            self::CENTERED_TITLE,
+            self::SUBTITLE,
+            self::DATE_AND_TIME,
+            self::SLIDE_NUMBER,
+            self::FOOTER,
+            self::HEADER,
+            self::OBJECT,
+            self::CHART,
+            self::TABLE,
+            self::CLIP_ART,
+            self::DIAGRAM,
+            self::MEDIA,
+            self::SLIDE_IMAGE,
+            self::PICTURE,
         ];
     }
 }

@@ -77,7 +77,7 @@ class GetSlidesDocumentWithFormatRequest
      * Initializes a new instance of the GetSlidesDocumentWithFormatRequest class.
      *  
      * @param string $name The document name.
-     * @param int $format The conversion format.
+     * @param string $format The conversion format.
      * @param int $jpegQuality Quality of the JPEG images inside PDF document.
      * @param string $password The document password.
      * @param string $storage Document&#39;s storage.

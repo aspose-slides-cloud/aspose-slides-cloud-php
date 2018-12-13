@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * SmartArtNode Class Doc Comment
  *
  * @category Class
+ * @description Smart art node.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -255,7 +256,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets nodes
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[] $nodes nodes
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[] $nodes Node list.
      *
      * @return $this
      */
@@ -303,7 +304,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets is_assistant
      *
-     * @param bool $is_assistant is_assistant
+     * @param bool $is_assistant True for and assistant node.
      *
      * @return $this
      */
@@ -327,7 +328,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Node text.
      *
      * @return $this
      */
@@ -351,7 +352,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets org_chart_layout
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OrganizationChartLayoutType $org_chart_layout org_chart_layout
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OrganizationChartLayoutType $org_chart_layout Organization chart layout type associated with current node.
      *
      * @return $this
      */

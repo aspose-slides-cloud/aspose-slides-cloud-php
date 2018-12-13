@@ -119,6 +119,7 @@ class TableStylePreset
     const DARK_STYLE2_ACCENT1_ACCENT2 = 'DarkStyle2Accent1Accent2';
     const DARK_STYLE2_ACCENT3_ACCENT4 = 'DarkStyle2Accent3Accent4';
     const DARK_STYLE2_ACCENT5_ACCENT6 = 'DarkStyle2Accent5Accent6';
+    const LIGHT_STYLE1_ACCENT5 = 'LightStyle1Accent5';
     const CUSTOM = 'Custom';
     
     /**
@@ -202,6 +203,7 @@ class TableStylePreset
             self::DARK_STYLE2_ACCENT1_ACCENT2,
             self::DARK_STYLE2_ACCENT3_ACCENT4,
             self::DARK_STYLE2_ACCENT5_ACCENT6,
+            self::LIGHT_STYLE1_ACCENT5,
             self::CUSTOM,
         ];
     }

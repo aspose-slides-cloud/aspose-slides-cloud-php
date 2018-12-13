@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ReplaceText Class Doc Comment
  *
  * @category Class
+ * @description Replace text task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -234,7 +235,7 @@ class ReplaceText extends Task
     /**
      * Sets old_text
      *
-     * @param string $old_text old_text
+     * @param string $old_text Text to be replaced.
      *
      * @return $this
      */
@@ -258,7 +259,7 @@ class ReplaceText extends Task
     /**
      * Sets new_text
      *
-     * @param string $new_text new_text
+     * @param string $new_text Text to replace with.
      *
      * @return $this
      */
@@ -282,7 +283,7 @@ class ReplaceText extends Task
     /**
      * Sets ignore_case
      *
-     * @param bool $ignore_case ignore_case
+     * @param bool $ignore_case True to ignore case in replace pattern search.
      *
      * @return $this
      */
@@ -306,7 +307,7 @@ class ReplaceText extends Task
     /**
      * Sets slide_position
      *
-     * @param int $slide_position slide_position
+     * @param int $slide_position One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
      *
      * @return $this
      */

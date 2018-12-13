@@ -180,6 +180,7 @@ class SmartArtLayoutType
     const VERTICAL_PICTURE_LIST = 'VerticalPictureList';
     const VERTICAL_PROCESS = 'VerticalProcess';
     const CUSTOM = 'Custom';
+    const PICTURE_ORGANIZATION_CHART = 'PictureOrganizationChart';
     
     /**
      * Gets allowable values of the enum
@@ -323,6 +324,7 @@ class SmartArtLayoutType
             self::VERTICAL_PICTURE_LIST,
             self::VERTICAL_PROCESS,
             self::CUSTOM,
+            self::PICTURE_ORGANIZATION_CHART,
         ];
     }
 }

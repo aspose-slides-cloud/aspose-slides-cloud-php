@@ -50,6 +50,7 @@ class TestUtils
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.ppt";
     public const changedFileName = "changedtest.ppt";
+    public const templateFileName = "TemplateCV.pptx";
 
     public static function getFileUploadPath()
     {
@@ -97,9 +98,6 @@ class TestUtils
             if ($functionName == "putNewPresentation") {
                 return self::changedFileName;
             }
-            if ($functionName == "getSlidesPlaceholder") {
-                return "placeholders.pptx";
-            }
             if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
                 return "test-unprotected.ppt";
             }
@@ -115,6 +113,9 @@ class TestUtils
             return "testProperty";
         }
         if ($name == "templatePath" || $name == "cloneFrom") {
+            if ($functionName == "postSlidesDocument") {
+                return self::folderName."/".self::templateFileName;
+            }
             return self::folderName."/".self::fileName;
         }
         if ($name == "path") {
@@ -148,7 +149,7 @@ class TestUtils
                 $shape = new Shape();
                 $shape->setText("testShape");
                 $shape->setType(ShapeType::SHAPE);
-                $shape->setShapeType(CombinedShapeType::BentArrow);
+                $shape->setShapeType(CombinedShapeType::BENT_ARROW);
                 $shape->setGeometryShapeType(GeometryShapeType::RECTANGLE);
                 return $shape;
             }
@@ -200,131 +201,130 @@ class TestUtils
         if ($type == "int[]") {
             return [1, 593];
         }
+        if ($name == "name") {
+            return "invalid".$value;
+        }
         return $value."invalid";
     }
 
     public static function assertSuccessfulException(Exception $ex, $functionName)
     {
-        if ($functionName != "postSlidesDocument") {
-            throw $ex;
-        }
+        throw $ex;
     }
 
     public static function assertException(ApiException $ex, $functionName, $fieldName)
     {
-        if ($functionName != "postSlidesDocument") {
-            if ($fieldName == "pipeline" || $fieldName == "options") {
-                Assert::assertEquals(500, $ex->getCode());
-            } else if ($fieldName == "path" && self::strEndsWith($functionName, 'AddNewShape')) {
-                Assert::assertEquals(405, $ex->getCode());
-            } else if ($fieldName == "format") {
-                Assert::assertTrue($ex->getCode() == 500 || $ex->getCode() == 400);
-            } else if (($fieldName == "name" || $fieldName == "propertyName" || $fieldName == "folder" || $fieldName == "cloneFrom")
-                && !((self::strStartsWith($functionName, 'post') || self::strStartsWith($functionName, 'put'))
-                    && !(self::strEndsWith($functionName, 'SaveAsTiff')
-                        || self::strEndsWith($functionName, 'SlidesSplit')
-                        || self::strEndsWith($functionName, 'SlideSize')
-                        || self::strEndsWith($functionName, 'LayoutSlide')
-                        || self::strEndsWith($functionName, 'SlideFromSourcePresentation')
-                        || self::strEndsWith($functionName, 'PresentationMerge')
-                        || self::strEndsWith($functionName, 'DocumentProperties')
-                        || self::strEndsWith($functionName, 'DocumentProperty')
-                        || self::strEndsWith($functionName, 'AddNewParagraph')
-                        || self::strEndsWith($functionName, 'AddNewPortion')
-                        || self::strEndsWith($functionName, 'AddNewShape')
-                        || self::strEndsWith($functionName, 'SaveAs')
-                        || self::strEndsWith($functionName, 'DocumentProperty')
-                        || self::strEndsWith($functionName, 'SetParagraphPortionProperties')
-                        || self::strEndsWith($functionName, 'SetParagraphProperties')
-                        || self::strEndsWith($functionName, 'SlideShapeInfo')
-                        || self::strEndsWith($functionName, 'ReorderPosition')
-                        || self::strEndsWith($functionName, 'SlidesSlide')
-                        || self::strEndsWith($functionName, 'Background')
-                        || self::strEndsWith($functionName, 'ReplaceText')
-                        || (strpos($functionName, 'NotesSlide') && !($functionName == 'postAddNotesSlide'))))) {
-                Assert::assertEquals(404, $ex->getCode());
-                if ($fieldName == "propertyName") {
-                   Assert::assertRegExp("/^Property [a-zA-Z]+ not found/", $ex->getResponseObject()->getMessage());
-                } else if ($functionName == "putNewPresentation") {
-                   Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
-                } else {
-                    Assert::assertContains("The specified key does not exist", $ex->getResponseObject()->getMessage());
-                }
+        if ($fieldName == "pipeline" || $fieldName == "options") {
+            Assert::assertEquals(500, $ex->getCode());
+        } else if ($fieldName == "path" && self::strEndsWith($functionName, 'AddNewShape')) {
+            Assert::assertEquals(405, $ex->getCode());
+        } else if ($fieldName == "format") {
+            Assert::assertTrue($ex->getCode() == 500 || $ex->getCode() == 400);
+        } else if (($fieldName == "name" || $fieldName == "propertyName" || $fieldName == "folder" || $fieldName == "cloneFrom")
+            && !((self::strStartsWith($functionName, 'post') || self::strStartsWith($functionName, 'put'))
+                && !(self::strEndsWith($functionName, 'SaveAsTiff')
+                    || self::strEndsWith($functionName, 'SlidesSplit')
+                    || self::strEndsWith($functionName, 'SlideSize')
+                    || self::strEndsWith($functionName, 'LayoutSlide')
+                    || self::strEndsWith($functionName, 'SlideFromSourcePresentation')
+                    || self::strEndsWith($functionName, 'PresentationMerge')
+                    || self::strEndsWith($functionName, 'DocumentProperties')
+                    || self::strEndsWith($functionName, 'DocumentProperty')
+                    || self::strEndsWith($functionName, 'AddNewParagraph')
+                    || self::strEndsWith($functionName, 'AddNewPortion')
+                    || self::strEndsWith($functionName, 'AddNewShape')
+                    || self::strEndsWith($functionName, 'SaveAs')
+                    || self::strEndsWith($functionName, 'DocumentProperty')
+                    || self::strEndsWith($functionName, 'SetParagraphPortionProperties')
+                    || self::strEndsWith($functionName, 'SetParagraphProperties')
+                    || self::strEndsWith($functionName, 'SlideShapeInfo')
+                    || self::strEndsWith($functionName, 'ReorderPosition')
+                    || self::strEndsWith($functionName, 'SlidesSlide')
+                    || self::strEndsWith($functionName, 'Background')
+                    || self::strEndsWith($functionName, 'ReplaceText')
+                    || (strpos($functionName, 'NotesSlide') && !($functionName == 'postAddNotesSlide'))))) {
+            Assert::assertEquals(404, $ex->getCode());
+            if ($fieldName == "propertyName") {
+               Assert::assertRegExp("/^Property [a-zA-Z]+ not found/", $ex->getResponseObject()->getMessage());
+            } else if ($functionName == "putNewPresentation") {
+               Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
             } else {
-                Assert::assertEquals(400, $ex->getCode());
-                if (self::strEndsWith(strtolower($fieldName), "password") && $functionName != "putSlidesDocumentFromHtml") {
-                    if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
-                        Assert::assertRegExp("/^An attempt was made to move the position before the beginning of the stream./", $ex->getResponseObject()->getMessage());
-                    } else if ($functionName == "postAddNotesSlide" || ($functionName == "putNewPresentation" && $fieldName == "templatePassword")) {
-                        Assert::assertRegExp("/^Object reference not set to an instance of an object./", $ex->getResponseObject()->getMessage());
-                    } else {
-                        Assert::assertRegExp("/^Invalid password./", $ex->getResponseObject()->getMessage());
-                    }
-                    //Assert::assertRegExp("/^An attempt was made to move the position before the beginning of the stream/", $ex->getResponseObject()->getMessage());
-                } else if ($functionName == "putNewPresentation" || $functionName == "putSlidesDocumentFromHtml") {
-                   Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "document") {
-                   Assert::assertRegExp("/^Can't read/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "sizeType") {
-                   Assert::assertRegExp("/^Index was outside the bounds of the array/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "to") {
-                   Assert::assertRegExp("/^Invalid 'to' parameter/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "index") {
-                   Assert::assertRegExp("/^Specified argument was out of the range of valid values/", $ex->getResponseObject()->getMessage());
-                } else if (($fieldName == "slideIndex"
-                       && ($functionName == "getSlidesSlideComments"
-                           || (self::strStartsWith($functionName, "getNotesSlide") && !self::strStartsWith($functionName, "getNotesSlideShape"))))
-                   || $fieldName == "cloneFromPosition"
-                   || $fieldName == "shapeToClone") {
-                   Assert::assertRegExp("/^Invalid index/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "slideIndex" || $fieldName == "slides") {
-                   Assert::assertRegExp("/^Wrong slide index/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "slideDto") {
-                   Assert::assertRegExp("/^DTO of the slide expected in request body/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "request"
-                   || $fieldName == "property"
-                   || $fieldName == "properties"
-                   || $functionName == "postAddNotesSlide") {
-                   Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "dto") {
-                   if (self::strEndsWith($functionName, 'AddNewParagraph')
-                       || self::strEndsWith($functionName, 'SetParagraphProperties')
-                       || self::strEndsWith($functionName, 'SetParagraphPortionProperties')
-                       || self::strEndsWith($functionName, 'SlideShapeInfo')
-                       || self::strStartsWith($functionName, 'putUpdateNotesSlideShape')) {
-                       Assert::assertRegExp("/^Shape dto is not specified/", $ex->getResponseObject()->getMessage());
-                   } else if (self::strEndsWith($functionName, 'AddNewPortion') || self::strEndsWith($functionName, 'AddNewShape')) {
-                       Assert::assertRegExp("/^Invalid shape's path/", $ex->getResponseObject()->getMessage());
-                   } else {
-                       Assert::assertRegExp("/^Value cannot be null/", $ex->getResponseObject()->getMessage());
-                   }
-                } else if ($fieldName == "path") {
-                   if (self::strEndsWith($functionName, "Shapes")) {
-                       Assert::assertRegExp("/^The request is invalid/", $ex->getResponseObject()->getMessage());
-                   } else {
-                       Assert::assertRegExp("/^The HTTP resource that matches the request URI/", $ex->getResponseObject()->getMessage());
-                   }
-                } else if ($fieldName == "shapeIndex" || $fieldName == "shapes") {
-                   Assert::assertRegExp("/^Wrong shape index/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "paragraphIndex" || $fieldName == "paragraphs") {
-                   Assert::assertRegExp("/^Wrong paragraph index/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "portionIndex" || $fieldName == "portions") {
-                   Assert::assertRegExp("/^Wrong portion index/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "newPosition" || ($fieldName == "position" && $functionName == "postSlidesReorderPosition")) {
-                   Assert::assertRegExp("/^Specified argument was out of the range of valid values/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "oldPosition") {
-                   Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "position") {
-                   Assert::assertRegExp("/^Index must be within the bounds of the List/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "slideToClone") {
-                   Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "placeholderIndex") {
-                   Assert::assertRegExp("/^Placeholder with specified index doesn't exist/", $ex->getResponseObject()->getMessage());
-                } else if ($fieldName == "color") {
-                   Assert::assertRegExp("/^Color must be in format/", $ex->getResponseObject()->getMessage());
+                Assert::assertContains("The specified key does not exist", $ex->getResponseObject()->getMessage());
+            }
+        } else {
+            Assert::assertEquals(400, $ex->getCode());
+            if (self::strEndsWith(strtolower($fieldName), "password") && $functionName != "putSlidesDocumentFromHtml") {
+                if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
+                    Assert::assertRegExp("/^An attempt was made to move the position before the beginning of the stream./", $ex->getResponseObject()->getMessage());
+                } else if ($functionName == "postAddNotesSlide" || ($functionName == "putNewPresentation" && $fieldName == "templatePassword")) {
+                    Assert::assertRegExp("/^Object reference not set to an instance of an object./", $ex->getResponseObject()->getMessage());
                 } else {
-                   Assert::assertRegExp("/^The specified storage was not found or is not associated with the application/", $ex->getResponseObject()->getMessage());
+                    Assert::assertRegExp("/^Invalid password./", $ex->getResponseObject()->getMessage());
                 }
+                //Assert::assertRegExp("/^An attempt was made to move the position before the beginning of the stream/", $ex->getResponseObject()->getMessage());
+            } else if ($functionName == "putNewPresentation" || $functionName == "putSlidesDocumentFromHtml") {
+                Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "document") {
+                Assert::assertRegExp("/^Can't read/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "to") {
+                Assert::assertRegExp("/^Invalid 'to' parameter/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "index") {
+                Assert::assertRegExp("/^Specified argument was out of the range of valid values/", $ex->getResponseObject()->getMessage());
+            } else if (($fieldName == "slideIndex"
+                   && ($functionName == "getSlidesSlideComments"
+                       || (self::strStartsWith($functionName, "getNotesSlide") && !self::strStartsWith($functionName, "getNotesSlideShape"))))
+                || $fieldName == "cloneFromPosition"
+                || $fieldName == "shapeToClone") {
+                Assert::assertRegExp("/^Invalid index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "slideIndex" || $fieldName == "slides") {
+                Assert::assertRegExp("/^Wrong slide index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "slideDto") {
+                Assert::assertRegExp("/^DTO of the slide expected in request body/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "request"
+                || $fieldName == "property"
+                || $fieldName == "properties"
+                || ($functionName == "postSlidesDocument"
+                    && ($fieldName == "data" || $fieldName == "storage" || $fieldName == "templatePath" || $fieldName == "templateStorage"))
+                || $functionName == "postAddNotesSlide") {
+                Assert::assertRegExp("/^Object reference not set to an instance of an object/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "dto") {
+                if (self::strEndsWith($functionName, 'AddNewParagraph')
+                    || self::strEndsWith($functionName, 'SetParagraphProperties')
+                    || self::strEndsWith($functionName, 'SetParagraphPortionProperties')
+                    || self::strEndsWith($functionName, 'SlideShapeInfo')
+                    || self::strStartsWith($functionName, 'putUpdateNotesSlideShape')) {
+                    Assert::assertRegExp("/^Shape dto is not specified/", $ex->getResponseObject()->getMessage());
+                } else if (self::strEndsWith($functionName, 'AddNewPortion') || self::strEndsWith($functionName, 'AddNewShape')) {
+                    Assert::assertRegExp("/^Invalid shape's path/", $ex->getResponseObject()->getMessage());
+                } else {
+                    Assert::assertRegExp("/^Value cannot be null/", $ex->getResponseObject()->getMessage());
+                }
+            } else if ($fieldName == "path") {
+                if (self::strEndsWith($functionName, "Shapes")) {
+                    Assert::assertRegExp("/^The request is invalid/", $ex->getResponseObject()->getMessage());
+                } else {
+                    Assert::assertRegExp("/^The HTTP resource that matches the request URI/", $ex->getResponseObject()->getMessage());
+                }
+            } else if ($fieldName == "shapeIndex" || $fieldName == "shapes") {
+                Assert::assertRegExp("/^Wrong shape index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "paragraphIndex" || $fieldName == "paragraphs") {
+                Assert::assertRegExp("/^Wrong paragraph index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "portionIndex" || $fieldName == "portions") {
+                Assert::assertRegExp("/^Wrong portion index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "newPosition" || ($fieldName == "position" && $functionName == "postSlidesReorderPosition")) {
+                Assert::assertRegExp("/^Specified argument was out of the range of valid values/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "oldPosition") {
+                Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "position") {
+                Assert::assertRegExp("/^Index must be within the bounds of the List/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "slideToClone") {
+                Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "placeholderIndex") {
+                Assert::assertRegExp("/^Placeholder with specified index doesn't exist/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "color") {
+                Assert::assertRegExp("/^Color must be in format/", $ex->getResponseObject()->getMessage());
+            } else {
+                Assert::assertRegExp("/^The specified storage was not found or is not associated with the application/", $ex->getResponseObject()->getMessage());
             }
         }
     }
@@ -336,11 +336,13 @@ class TestUtils
             && $fieldName != "height"
             && $fieldName != "propertyName"
             && $fieldName != "scaleType"
+            && $fieldName != "sizeType"
             && $fieldName != "scaleX"
             && $fieldName != "scaleY"
             && $fieldName != "bounds"
             && $fieldName != "outPath"
             && $fieldName != "fontsFolder"
+            && $fieldName != "isImageDataEmbedded"
             && $fieldName != "stream"
             && $fieldName != "html"
             && $fieldName != "options"
@@ -354,8 +356,9 @@ class TestUtils
             && $fieldName != "newValue"
             && $fieldName != "ignoreCase"
             && !($functionName == "getSlidesImageWithFormat" && $fieldName == "format")
-            && !($functionName == "putNewPresentation" && ($fieldName == "folder" || $fieldName == "password"))
+            && !(($functionName == "postSlidesDocument" || $functionName == "putNewPresentation") && ($fieldName == "folder" || $fieldName == "password"))
             && !($functionName == "putSlidesDocumentFromHtml" && $fieldName == "folder")
+            && !(($functionName == "putSlidesDocumentFromHtml" || $functionName == "putNewPresentation" || $functionName == "postSlidesDocument") && $fieldName == "name")
             && !($functionName == "postAddNotesSlide" && $fieldName == "dto")
             && !($functionName == "postSlidesReorderPosition" && ($fieldName == "position" || $fieldName == "slideToClone"))
             && !self::strEndsWith($functionName, 'SlidesSplit')) {

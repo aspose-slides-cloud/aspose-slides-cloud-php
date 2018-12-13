@@ -80,7 +80,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -205,7 +205,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -348,7 +348,7 @@ class DocumentApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -424,7 +424,7 @@ class DocumentApi extends ApiBase
      * Create request for operation 'getSlidesDocumentWithFormat'
      *
      * @param  string $name The document name. (required)
-     * @param  int $format The conversion format. (required)
+     * @param  string $format The conversion format. (required)
      * @param  int $jpeg_quality Quality of the JPEG images inside PDF document. (optional)
      * @param  string $password The document password. (optional)
      * @param  string $storage Document&#39;s storage. (optional)
@@ -515,7 +515,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -594,7 +594,7 @@ class DocumentApi extends ApiBase
      * @param  string $data (required)
      * @param  string $template_path Template file path. (required)
      * @param  string $template_storage Template storage name. (optional)
-     * @param  bool $is_image_data_embeeded Is Image Data Embeeded (optional, default to false)
+     * @param  bool $is_image_data_embedded Is Image Data Embedded (optional, default to false)
      * @param  string $password The document password. (optional)
      * @param  string $storage Document&#39;s storage. (optional)
      * @param  string $folder Document&#39;s folder. (optional)
@@ -631,8 +631,8 @@ class DocumentApi extends ApiBase
             $queryParams['templateStorage'] = ObjectSerializer::toQueryValue($request->templateStorage);
         }
         // query params
-        if ($request->isImageDataEmbeeded !== null) {
-            $queryParams['isImageDataEmbeeded'] = ObjectSerializer::toQueryValue($request->isImageDataEmbeeded);
+        if ($request->isImageDataEmbedded !== null) {
+            $queryParams['isImageDataEmbedded'] = ObjectSerializer::toQueryValue($request->isImageDataEmbedded);
         }
         // query params
         if ($request->password !== null) {
@@ -694,7 +694,7 @@ class DocumentApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -821,7 +821,7 @@ class DocumentApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -897,7 +897,7 @@ class DocumentApi extends ApiBase
      * Create request for operation 'postSlidesSaveAs'
      *
      * @param  string $name The presentation name (required)
-     * @param  int $format Export format (required)
+     * @param  string $format Export format (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Tiff export options (optional)
      * @param  string $password The password to open presentation. (optional)
      * @param  string $storage Document&#39;s storage. (optional)
@@ -996,7 +996,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1073,7 +1073,7 @@ class DocumentApi extends ApiBase
      *
      * @param  string $name The document name. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options (optional)
-     * @param  int $format The format. Default value is jpeg. (optional, default to 0)
+     * @param  string $format The format. Default value is jpeg. (optional, default to 0)
      * @param  int $width The width of created images. (optional)
      * @param  int $height The height of created images. (optional)
      * @param  int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document. (optional)
@@ -1185,7 +1185,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1356,7 +1356,7 @@ class DocumentApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1431,7 +1431,7 @@ class DocumentApi extends ApiBase
     /**
      * Create request for operation 'putSlidesConvert'
      *
-     * @param  int $format The format. (required)
+     * @param  string $format The format. (required)
      * @param  \SplFileObject $document (optional)
      * @param  string $password The document password. (optional)
      * @param  string $out_path Path to save result (optional)
@@ -1518,7 +1518,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1681,7 +1681,7 @@ class DocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1762,8 +1762,8 @@ class DocumentApi extends ApiBase
      * @param  string $folder The document folder. (optional)
      * @param  int $width Slide width. (optional, default to 0)
      * @param  int $height Slide height. (optional, default to 0)
-     * @param  int $size_type Standard slide size type. (optional)
-     * @param  int $scale_type Standard slide scale type. (optional, default to 0)
+     * @param  string $size_type Standard slide size type. (optional)
+     * @param  string $scale_type Standard slide scale type. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

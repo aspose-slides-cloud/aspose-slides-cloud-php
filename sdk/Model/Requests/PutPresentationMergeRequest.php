@@ -34,38 +34,38 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutPresentationMergeRequest
 {
     /*
-     * Original presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * with a list of presentations to merge.
+     * with a list of presentations and slide indices to merge.
      */
     public $request;
 
     /*
-     * Original presentation password.
+     * Document password.
      */
     public $password;
 
     /*
-     * The storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * The folder.
+     * Document folder.
      */
     public $folder;
 
     /*
      * Initializes a new instance of the PutPresentationMergeRequest class.
      *  
-     * @param string $name Original presentation name.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request with a list of presentations to merge.
-     * @param string $password Original presentation password.
-     * @param string $storage The storage.
-     * @param string $folder The folder.
+     * @param string $name Document name.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request with a list of presentations and slide indices to merge.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
      */
     public function __construct($name, $request = null, $password = null, $storage = null, $folder = null)
     {
@@ -77,7 +77,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * Original presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -85,7 +85,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * Original presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -93,7 +93,7 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * with a list of presentations to merge.
+     * with a list of presentations and slide indices to merge.
      */
     public function get_request()
     {
@@ -101,7 +101,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * with a list of presentations to merge.
+     * with a list of presentations and slide indices to merge.
      */
     public function set_request($value)
     {
@@ -109,7 +109,7 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * Original presentation password.
+     * Document password.
      */
     public function get_password()
     {
@@ -117,7 +117,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * Original presentation password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -125,7 +125,7 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * The storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -133,7 +133,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * The storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -141,7 +141,7 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * The folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -149,7 +149,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * The folder.
+     * Document folder.
      */
     public function set_folder($value)
     {

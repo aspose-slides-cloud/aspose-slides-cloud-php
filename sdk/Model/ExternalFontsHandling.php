@@ -45,9 +45,9 @@ class ExternalFontsHandling
     /**
      * Possible values of this enum
      */
-    const AddLinksToFontFiles = 0;
-    const Embed = 1;
-    const Vectorize = 2;
+    const ADD_LINKS_TO_FONT_FILES = 'AddLinksToFontFiles';
+    const EMBED = 'Embed';
+    const VECTORIZE = 'Vectorize';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class ExternalFontsHandling
     public static function getAllowableEnumValues()
     {
         return [
-            self::AddLinksToFontFiles,
-            self::Embed,
-            self::Vectorize,
+            self::ADD_LINKS_TO_FONT_FILES,
+            self::EMBED,
+            self::VECTORIZE,
         ];
     }
 }

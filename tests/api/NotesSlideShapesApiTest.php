@@ -1892,7 +1892,7 @@ class NotesSlideShapesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "name", "string");
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "slideIndex", "int");
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "shapeIndex", "int");
-        $testformat = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "format", "string");
         $testpassword = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "password", "string");
         $testfolder = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "folder", "string");
         $teststorage = TestUtils::getTestValue("getNotesSlideShapeWithFormat", "storage", "string");
@@ -1979,7 +1979,7 @@ class NotesSlideShapesApiTest extends TestBase
     public function testGetNotesSlideShapeWithFormatInvalidformat()
     {
         $request = $this->getGetNotesSlideShapeWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getNotesSlideShapeWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -2845,7 +2845,7 @@ class NotesSlideShapesApiTest extends TestBase
         $testname = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "name", "string");
         $testslideIndex = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "slideIndex", "int");
         $testshapeIndex = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "shapeIndex", "int");
-        $testformat = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "format", "int");
+        $testformat = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "format", "string");
         $testoptions = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "options", "\Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions");
         $testpassword = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "password", "string");
         $testfolder = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "folder", "string");
@@ -2933,7 +2933,7 @@ class NotesSlideShapesApiTest extends TestBase
     public function testPostNotesSlideShapeSaveAsInvalidformat()
     {
         $request = $this->getPostNotesSlideShapeSaveAsRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("postNotesSlideShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {

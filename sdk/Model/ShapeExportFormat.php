@@ -45,12 +45,12 @@ class ShapeExportFormat
     /**
      * Possible values of this enum
      */
-    const Jpeg = 0;
-    const Png = 1;
-    const Gif = 2;
-    const Bmp = 3;
-    const Tiff = 4;
-    const Svg = 5;
+    const JPEG = 'Jpeg';
+    const PNG = 'Png';
+    const GIF = 'Gif';
+    const BMP = 'Bmp';
+    const TIFF = 'Tiff';
+    const SVG = 'Svg';
     
     /**
      * Gets allowable values of the enum
@@ -59,12 +59,12 @@ class ShapeExportFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::Jpeg,
-            self::Png,
-            self::Gif,
-            self::Bmp,
-            self::Tiff,
-            self::Svg,
+            self::JPEG,
+            self::PNG,
+            self::GIF,
+            self::BMP,
+            self::TIFF,
+            self::SVG,
         ];
     }
 }

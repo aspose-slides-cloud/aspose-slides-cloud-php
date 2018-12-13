@@ -50,7 +50,7 @@ class ImagesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlidesImageWithFormat", "name", "string");
         $testindex = TestUtils::getTestValue("getSlidesImageWithFormat", "index", "int");
-        $testformat = TestUtils::getTestValue("getSlidesImageWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getSlidesImageWithFormat", "format", "string");
         $testpassword = TestUtils::getTestValue("getSlidesImageWithFormat", "password", "string");
         $testfolder = TestUtils::getTestValue("getSlidesImageWithFormat", "folder", "string");
         $teststorage = TestUtils::getTestValue("getSlidesImageWithFormat", "storage", "string");
@@ -115,7 +115,7 @@ class ImagesApiTest extends TestBase
     public function testGetSlidesImageWithFormatInvalidformat()
     {
         $request = $this->getGetSlidesImageWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getSlidesImageWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {

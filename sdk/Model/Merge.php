@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * Merge Class Doc Comment
  *
  * @category Class
+ * @description Merge presentations task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -216,7 +217,7 @@ class Merge extends Task
     /**
      * Sets presentations
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\MergingSource[] $presentations presentations
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MergingSource[] $presentations Information about documents and slides being merging sources.
      *
      * @return $this
      */

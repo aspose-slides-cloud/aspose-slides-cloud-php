@@ -66,7 +66,8 @@ class TiffExportOptions extends ExportOptions
         'notes_position' => '\Aspose\Slides\Cloud\Sdk\Model\NotesPositions',
         'comments_position' => '\Aspose\Slides\Cloud\Sdk\Model\CommentsPositions',
         'comments_area_width' => 'int',
-        'comments_area_color' => 'string'
+        'comments_area_color' => 'string',
+        'show_comments_by_no_author' => 'bool'
     ];
 
     /**
@@ -85,7 +86,8 @@ class TiffExportOptions extends ExportOptions
         'notes_position' => null,
         'comments_position' => null,
         'comments_area_width' => 'int32',
-        'comments_area_color' => null
+        'comments_area_color' => null,
+        'show_comments_by_no_author' => null
     ];
 
     /**
@@ -125,7 +127,8 @@ class TiffExportOptions extends ExportOptions
         'notes_position' => 'NotesPosition',
         'comments_position' => 'CommentsPosition',
         'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor'
+        'comments_area_color' => 'CommentsAreaColor',
+        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor'
     ];
 
     /**
@@ -144,7 +147,8 @@ class TiffExportOptions extends ExportOptions
         'notes_position' => 'setNotesPosition',
         'comments_position' => 'setCommentsPosition',
         'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor'
+        'comments_area_color' => 'setCommentsAreaColor',
+        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor'
     ];
 
     /**
@@ -163,7 +167,8 @@ class TiffExportOptions extends ExportOptions
         'notes_position' => 'getNotesPosition',
         'comments_position' => 'getCommentsPosition',
         'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor'
+        'comments_area_color' => 'getCommentsAreaColor',
+        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor'
     ];
 
     /**
@@ -233,6 +238,7 @@ class TiffExportOptions extends ExportOptions
         $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
         $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
         $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
+        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
     }
 
     /**
@@ -523,6 +529,30 @@ class TiffExportOptions extends ExportOptions
     public function setCommentsAreaColor($comments_area_color)
     {
         $this->container['comments_area_color'] = $comments_area_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_comments_by_no_author
+     *
+     * @return bool
+     */
+    public function getShowCommentsByNoAuthor()
+    {
+        return $this->container['show_comments_by_no_author'];
+    }
+
+    /**
+     * Sets show_comments_by_no_author
+     *
+     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     *
+     * @return $this
+     */
+    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    {
+        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
 
         return $this;
     }

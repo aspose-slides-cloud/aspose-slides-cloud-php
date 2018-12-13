@@ -54,9 +54,9 @@ class PostSlidesDocumentRequest
     public $templateStorage;
 
     /*
-     * Is Image Data Embeeded
+     * Is Image Data Embedded
      */
-    public $isImageDataEmbeeded;
+    public $isImageDataEmbedded;
 
     /*
      * The document password.
@@ -80,18 +80,18 @@ class PostSlidesDocumentRequest
      * @param string $data 
      * @param string $templatePath Template file path.
      * @param string $templateStorage Template storage name.
-     * @param bool $isImageDataEmbeeded Is Image Data Embeeded
+     * @param bool $isImageDataEmbedded Is Image Data Embedded
      * @param string $password The document password.
      * @param string $storage Document&#39;s storage.
      * @param string $folder Document&#39;s folder.
      */
-    public function __construct($name, $data, $templatePath, $templateStorage = null, $isImageDataEmbeeded = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $data, $templatePath, $templateStorage = null, $isImageDataEmbedded = null, $password = null, $storage = null, $folder = null)
     {
         $this->name = $name;
         $this->data = $data;
         $this->templatePath = $templatePath;
         $this->templateStorage = $templateStorage;
-        $this->isImageDataEmbeeded = $isImageDataEmbeeded;
+        $this->isImageDataEmbedded = $isImageDataEmbedded;
         $this->password = $password;
         $this->storage = $storage;
         $this->folder = $folder;
@@ -162,19 +162,19 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * Is Image Data Embeeded
+     * Is Image Data Embedded
      */
-    public function get_isImageDataEmbeeded()
+    public function get_isImageDataEmbedded()
     {
-        return $this->isImageDataEmbeeded;
+        return $this->isImageDataEmbedded;
     }
 
     /*
-     * Is Image Data Embeeded
+     * Is Image Data Embedded
      */
-    public function set_isImageDataEmbeeded($value)
+    public function set_isImageDataEmbedded($value)
     {
-        $this->isImageDataEmbeeded = $value;
+        $this->isImageDataEmbedded = $value;
         return $this;
     }
     /*

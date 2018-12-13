@@ -45,12 +45,12 @@ class PicturesCompression
     /**
      * Possible values of this enum
      */
-    const Dpi330 = 0;
-    const Dpi220 = 1;
-    const Dpi150 = 2;
-    const Dpi96 = 3;
-    const Dpi72 = 4;
-    const DocumentResolution = 5;
+    const DPI330 = 'Dpi330';
+    const DPI220 = 'Dpi220';
+    const DPI150 = 'Dpi150';
+    const DPI96 = 'Dpi96';
+    const DPI72 = 'Dpi72';
+    const DOCUMENT_RESOLUTION = 'DocumentResolution';
     
     /**
      * Gets allowable values of the enum
@@ -59,12 +59,12 @@ class PicturesCompression
     public static function getAllowableEnumValues()
     {
         return [
-            self::Dpi330,
-            self::Dpi220,
-            self::Dpi150,
-            self::Dpi96,
-            self::Dpi72,
-            self::DocumentResolution,
+            self::DPI330,
+            self::DPI220,
+            self::DPI150,
+            self::DPI96,
+            self::DPI72,
+            self::DOCUMENT_RESOLUTION,
         ];
     }
 }

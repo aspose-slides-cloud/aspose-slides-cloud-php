@@ -99,7 +99,7 @@ class GetShapeWithFormatRequest
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
      * @param int $shapeIndex Index of shape starting from 1
-     * @param int $format Export picture format.
+     * @param string $format Export picture format.
      * @param string $password Document password.
      * @param string $folder Presentation folder.
      * @param string $storage Presentation storage.

@@ -80,7 +80,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -232,7 +232,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -383,7 +383,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -532,7 +532,7 @@ class SlidesApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -609,7 +609,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name (required)
      * @param  int $slide_index (required)
-     * @param  int $format (required)
+     * @param  string $format (required)
      * @param  int $width (optional, default to 0)
      * @param  int $height (optional, default to 0)
      * @param  string $password (optional)
@@ -710,7 +710,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -862,7 +862,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1014,7 +1014,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1166,7 +1166,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1309,7 +1309,7 @@ class SlidesApi extends ApiBase
             $content = $responseBody; //stream goes to serializer
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1386,7 +1386,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name (required)
      * @param  int $slide_index (required)
-     * @param  int $format (required)
+     * @param  string $format (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options (optional)
      * @param  int $width (optional, default to 0)
      * @param  int $height (optional, default to 0)
@@ -1500,7 +1500,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1681,7 +1681,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -1846,7 +1846,7 @@ class SlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {

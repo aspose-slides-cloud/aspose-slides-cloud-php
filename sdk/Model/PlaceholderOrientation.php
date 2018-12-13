@@ -45,8 +45,8 @@ class PlaceholderOrientation
     /**
      * Possible values of this enum
      */
-    const Horizontal = 0;
-    const Vertical = 1;
+    const HORIZONTAL = 'Horizontal';
+    const VERTICAL = 'Vertical';
     
     /**
      * Gets allowable values of the enum
@@ -55,8 +55,8 @@ class PlaceholderOrientation
     public static function getAllowableEnumValues()
     {
         return [
-            self::Horizontal,
-            self::Vertical,
+            self::HORIZONTAL,
+            self::VERTICAL,
         ];
     }
 }

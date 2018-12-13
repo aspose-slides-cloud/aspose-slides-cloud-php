@@ -45,25 +45,25 @@ class SlideExportFormat
     /**
      * Possible values of this enum
      */
-    const Jpeg = 0;
-    const Png = 1;
-    const Gif = 2;
-    const Bmp = 3;
-    const Tiff = 4;
-    const Html = 5;
-    const Pdf = 6;
-    const Xps = 7;
-    const Pptx = 8;
-    const Odp = 9;
-    const Otp = 10;
-    const Ppt = 11;
-    const Pps = 12;
-    const Ppsx = 13;
-    const Pptm = 14;
-    const Ppsm = 15;
-    const Potx = 16;
-    const Potm = 17;
-    const Svg = 18;
+    const JPEG = 'Jpeg';
+    const PNG = 'Png';
+    const GIF = 'Gif';
+    const BMP = 'Bmp';
+    const TIFF = 'Tiff';
+    const HTML = 'Html';
+    const PDF = 'Pdf';
+    const XPS = 'Xps';
+    const PPTX = 'Pptx';
+    const ODP = 'Odp';
+    const OTP = 'Otp';
+    const PPT = 'Ppt';
+    const PPS = 'Pps';
+    const PPSX = 'Ppsx';
+    const PPTM = 'Pptm';
+    const PPSM = 'Ppsm';
+    const POTX = 'Potx';
+    const POTM = 'Potm';
+    const SVG = 'Svg';
     
     /**
      * Gets allowable values of the enum
@@ -72,25 +72,25 @@ class SlideExportFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::Jpeg,
-            self::Png,
-            self::Gif,
-            self::Bmp,
-            self::Tiff,
-            self::Html,
-            self::Pdf,
-            self::Xps,
-            self::Pptx,
-            self::Odp,
-            self::Otp,
-            self::Ppt,
-            self::Pps,
-            self::Ppsx,
-            self::Pptm,
-            self::Ppsm,
-            self::Potx,
-            self::Potm,
-            self::Svg,
+            self::JPEG,
+            self::PNG,
+            self::GIF,
+            self::BMP,
+            self::TIFF,
+            self::HTML,
+            self::PDF,
+            self::XPS,
+            self::PPTX,
+            self::ODP,
+            self::OTP,
+            self::PPT,
+            self::PPS,
+            self::PPSX,
+            self::PPTM,
+            self::PPSM,
+            self::POTX,
+            self::POTM,
+            self::SVG,
         ];
     }
 }

@@ -45,11 +45,11 @@ class ImagePixelFormat
     /**
      * Possible values of this enum
      */
-    const Format1bppIndexed = 1;
-    const Format4bppIndexed = 4;
-    const Format8bppIndexed = 8;
-    const Format24bppRgb = 24;
-    const Format32bppArgb = 32;
+    const FORMAT1BPP_INDEXED = 'Format1bppIndexed';
+    const FORMAT4BPP_INDEXED = 'Format4bppIndexed';
+    const FORMAT8BPP_INDEXED = 'Format8bppIndexed';
+    const FORMAT24BPP_RGB = 'Format24bppRgb';
+    const FORMAT32BPP_ARGB = 'Format32bppArgb';
     
     /**
      * Gets allowable values of the enum
@@ -58,11 +58,11 @@ class ImagePixelFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::Format1bppIndexed,
-            self::Format4bppIndexed,
-            self::Format8bppIndexed,
-            self::Format24bppRgb,
-            self::Format32bppArgb,
+            self::FORMAT1BPP_INDEXED,
+            self::FORMAT4BPP_INDEXED,
+            self::FORMAT8BPP_INDEXED,
+            self::FORMAT24BPP_RGB,
+            self::FORMAT32BPP_ARGB,
         ];
     }
 }

@@ -80,7 +80,7 @@ class ThemeApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -232,7 +232,7 @@ class ThemeApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -384,7 +384,7 @@ class ThemeApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -536,7 +536,7 @@ class ThemeApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {

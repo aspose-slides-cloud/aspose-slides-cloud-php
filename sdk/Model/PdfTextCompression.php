@@ -45,8 +45,8 @@ class PdfTextCompression
     /**
      * Possible values of this enum
      */
-    const None = 0;
-    const Flate = 1;
+    const NONE = 'None';
+    const FLATE = 'Flate';
     
     /**
      * Gets allowable values of the enum
@@ -55,8 +55,8 @@ class PdfTextCompression
     public static function getAllowableEnumValues()
     {
         return [
-            self::None,
-            self::Flate,
+            self::NONE,
+            self::FLATE,
         ];
     }
 }

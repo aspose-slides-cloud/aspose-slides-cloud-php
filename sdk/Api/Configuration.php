@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="Configuration.php">
+ * <copyright company="Aspose">
  *   Copyright (c) 2018 Aspose.Slides for Cloud
  * </copyright>
  * <summary>
@@ -25,6 +25,7 @@
  * </summary>
  * --------------------------------------------------------------------------------------------------------------------
  */
+
 
 namespace Aspose\Slides\Cloud\Sdk\Api;
 
@@ -135,7 +136,7 @@ class Configuration
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '18.8';
+    protected $clientVersion = '18.11.0';
 
     /*
      * Constructor
@@ -522,7 +523,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\Slides) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 18.8.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 18.11.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

@@ -88,7 +88,7 @@ class GetSlideWithFormatRequest
      *  
      * @param string $name 
      * @param int $slideIndex 
-     * @param int $format 
+     * @param string $format 
      * @param int $width 
      * @param int $height 
      * @param string $password 

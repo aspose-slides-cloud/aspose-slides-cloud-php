@@ -104,7 +104,7 @@ class PostNotesSlideShapeSaveAsRequest
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
      * @param int $shapeIndex Index of shape starting from 1
-     * @param int $format Export picture format.
+     * @param string $format Export picture format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options
      * @param string $password Document password.
      * @param string $folder Presentation folder.

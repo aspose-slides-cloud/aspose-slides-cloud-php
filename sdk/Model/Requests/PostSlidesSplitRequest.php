@@ -93,7 +93,7 @@ class PostSlidesSplitRequest
      *  
      * @param string $name The document name.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options
-     * @param int $format The format. Default value is jpeg.
+     * @param string $format The format. Default value is jpeg.
      * @param int $width The width of created images.
      * @param int $height The height of created images.
      * @param int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document.

@@ -1590,7 +1590,7 @@ class ShapesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getShapeWithFormat", "name", "string");
         $testslideIndex = TestUtils::getTestValue("getShapeWithFormat", "slideIndex", "int");
         $testshapeIndex = TestUtils::getTestValue("getShapeWithFormat", "shapeIndex", "int");
-        $testformat = TestUtils::getTestValue("getShapeWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getShapeWithFormat", "format", "string");
         $testpassword = TestUtils::getTestValue("getShapeWithFormat", "password", "string");
         $testfolder = TestUtils::getTestValue("getShapeWithFormat", "folder", "string");
         $teststorage = TestUtils::getTestValue("getShapeWithFormat", "storage", "string");
@@ -1677,7 +1677,7 @@ class ShapesApiTest extends TestBase
     public function testGetShapeWithFormatInvalidformat()
     {
         $request = $this->getGetShapeWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getShapeWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -2845,7 +2845,7 @@ class ShapesApiTest extends TestBase
         $testname = TestUtils::getTestValue("postShapeSaveAs", "name", "string");
         $testslideIndex = TestUtils::getTestValue("postShapeSaveAs", "slideIndex", "int");
         $testshapeIndex = TestUtils::getTestValue("postShapeSaveAs", "shapeIndex", "int");
-        $testformat = TestUtils::getTestValue("postShapeSaveAs", "format", "int");
+        $testformat = TestUtils::getTestValue("postShapeSaveAs", "format", "string");
         $testoptions = TestUtils::getTestValue("postShapeSaveAs", "options", "\Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions");
         $testpassword = TestUtils::getTestValue("postShapeSaveAs", "password", "string");
         $testfolder = TestUtils::getTestValue("postShapeSaveAs", "folder", "string");
@@ -2933,7 +2933,7 @@ class ShapesApiTest extends TestBase
     public function testPostShapeSaveAsInvalidformat()
     {
         $request = $this->getPostShapeSaveAsRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("postShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {

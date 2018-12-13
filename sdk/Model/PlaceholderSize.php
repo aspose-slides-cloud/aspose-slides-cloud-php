@@ -45,9 +45,9 @@ class PlaceholderSize
     /**
      * Possible values of this enum
      */
-    const Full = 0;
-    const Half = 1;
-    const Quarter = 2;
+    const FULL = 'Full';
+    const HALF = 'Half';
+    const QUARTER = 'Quarter';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class PlaceholderSize
     public static function getAllowableEnumValues()
     {
         return [
-            self::Full,
-            self::Half,
-            self::Quarter,
+            self::FULL,
+            self::HALF,
+            self::QUARTER,
         ];
     }
 }

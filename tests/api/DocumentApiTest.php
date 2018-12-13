@@ -171,7 +171,7 @@ class DocumentApiTest extends TestBase
     private function getGetSlidesDocumentWithFormatRequest()
     {
         $testname = TestUtils::getTestValue("getSlidesDocumentWithFormat", "name", "string");
-        $testformat = TestUtils::getTestValue("getSlidesDocumentWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getSlidesDocumentWithFormat", "format", "string");
         $testjpegQuality = TestUtils::getTestValue("getSlidesDocumentWithFormat", "jpegQuality", "int");
         $testpassword = TestUtils::getTestValue("getSlidesDocumentWithFormat", "password", "string");
         $teststorage = TestUtils::getTestValue("getSlidesDocumentWithFormat", "storage", "string");
@@ -222,7 +222,7 @@ class DocumentApiTest extends TestBase
     public function testGetSlidesDocumentWithFormatInvalidformat()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getSlidesDocumentWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -343,11 +343,11 @@ class DocumentApiTest extends TestBase
         $testdata = TestUtils::getTestValue("postSlidesDocument", "data", "string");
         $testtemplatePath = TestUtils::getTestValue("postSlidesDocument", "templatePath", "string");
         $testtemplateStorage = TestUtils::getTestValue("postSlidesDocument", "templateStorage", "string");
-        $testisImageDataEmbeeded = TestUtils::getTestValue("postSlidesDocument", "isImageDataEmbeeded", "bool");
+        $testisImageDataEmbedded = TestUtils::getTestValue("postSlidesDocument", "isImageDataEmbedded", "bool");
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", "string");
         $teststorage = TestUtils::getTestValue("postSlidesDocument", "storage", "string");
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", "string");
-        $request = new Requests\PostSlidesDocumentRequest($testname, $testdata, $testtemplatePath, $testtemplateStorage, $testisImageDataEmbeeded, $testpassword, $teststorage, $testfolder);
+        $request = new Requests\PostSlidesDocumentRequest($testname, $testdata, $testtemplatePath, $testtemplateStorage, $testisImageDataEmbedded, $testpassword, $teststorage, $testfolder);
         return $request;
     }
 
@@ -439,20 +439,20 @@ class DocumentApiTest extends TestBase
         }
     }
 
-    public function testPostSlidesDocumentInvalidisImageDataEmbeeded()
+    public function testPostSlidesDocumentInvalidisImageDataEmbedded()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->isImageDataEmbeeded = TestUtils::invalidizeValue("isImageDataEmbeeded", $request->isImageDataEmbeeded, "bool");
-        $this->initialize("postSlidesDocument", "isImageDataEmbeeded", $request->isImageDataEmbeeded);
+        $request->isImageDataEmbedded = TestUtils::invalidizeValue("isImageDataEmbedded", $request->isImageDataEmbedded, "bool");
+        $this->initialize("postSlidesDocument", "isImageDataEmbedded", $request->isImageDataEmbedded);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "isImageDataEmbeeded");
+            TestUtils::assertException($ex, "postSlidesDocument", "isImageDataEmbedded");
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "isImageDataEmbeeded");
+            TestUtils::assertResponse("postSlidesDocument", "isImageDataEmbedded");
         }
     }
 
@@ -554,7 +554,7 @@ class DocumentApiTest extends TestBase
     private function getPostSlidesSaveAsRequest()
     {
         $testname = TestUtils::getTestValue("postSlidesSaveAs", "name", "string");
-        $testformat = TestUtils::getTestValue("postSlidesSaveAs", "format", "int");
+        $testformat = TestUtils::getTestValue("postSlidesSaveAs", "format", "string");
         $testoptions = TestUtils::getTestValue("postSlidesSaveAs", "options", "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
         $testpassword = TestUtils::getTestValue("postSlidesSaveAs", "password", "string");
         $teststorage = TestUtils::getTestValue("postSlidesSaveAs", "storage", "string");
@@ -605,7 +605,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesSaveAsInvalidformat()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("postSlidesSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -724,7 +724,7 @@ class DocumentApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postSlidesSplit", "name", "string");
         $testoptions = TestUtils::getTestValue("postSlidesSplit", "options", "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
-        $testformat = TestUtils::getTestValue("postSlidesSplit", "format", "int");
+        $testformat = TestUtils::getTestValue("postSlidesSplit", "format", "string");
         $testwidth = TestUtils::getTestValue("postSlidesSplit", "width", "int");
         $testheight = TestUtils::getTestValue("postSlidesSplit", "height", "int");
         $testto = TestUtils::getTestValue("postSlidesSplit", "to", "int");
@@ -794,7 +794,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesSplitInvalidformat()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("postSlidesSplit", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -1114,7 +1114,7 @@ class DocumentApiTest extends TestBase
     }
     private function getPutSlidesConvertRequest()
     {
-        $testformat = TestUtils::getTestValue("putSlidesConvert", "format", "int");
+        $testformat = TestUtils::getTestValue("putSlidesConvert", "format", "string");
         $testdocument = TestUtils::getStreamValue();
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", "string");
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", "string");
@@ -1146,7 +1146,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesConvertInvalidformat()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("putSlidesConvert", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -1350,8 +1350,8 @@ class DocumentApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", "string");
         $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", "int");
         $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", "int");
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", "int");
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", "int");
+        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", "string");
+        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", "string");
         $request = new Requests\PutSlidesSlideSizeRequest($testname, $testpassword, $teststorage, $testfolder, $testwidth, $testheight, $testsizeType, $testscaleType);
         return $request;
     }
@@ -1481,7 +1481,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesSlideSizeInvalidsizeType()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->sizeType = TestUtils::invalidizeValue("sizeType", $request->sizeType, "int");
+        $request->sizeType = TestUtils::invalidizeValue("sizeType", $request->sizeType, "string");
         $this->initialize("putSlidesSlideSize", "sizeType", $request->sizeType);
         $needAssertResponse = false;
         try {
@@ -1498,7 +1498,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesSlideSizeInvalidscaleType()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->scaleType = TestUtils::invalidizeValue("scaleType", $request->scaleType, "int");
+        $request->scaleType = TestUtils::invalidizeValue("scaleType", $request->scaleType, "string");
         $this->initialize("putSlidesSlideSize", "scaleType", $request->scaleType);
         $needAssertResponse = false;
         try {

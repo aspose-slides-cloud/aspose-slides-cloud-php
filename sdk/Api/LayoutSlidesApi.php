@@ -80,7 +80,7 @@ class LayoutSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -155,11 +155,11 @@ class LayoutSlidesApi extends ApiBase
     /**
      * Create request for operation 'getLayoutSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index Index of the slide. (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -232,7 +232,7 @@ class LayoutSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -307,10 +307,10 @@ class LayoutSlidesApi extends ApiBase
     /**
      * Create request for operation 'getLayoutSlidesList'
      *
-     * @param  string $name The presentation name. (required)
+     * @param  string $name Document name. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -378,7 +378,7 @@ class LayoutSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -453,14 +453,14 @@ class LayoutSlidesApi extends ApiBase
     /**
      * Create request for operation 'postCopyLayoutSlideFromSourcePresentation'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  string $clone_from Source presentation to clone layoutSlide from. (required)
-     * @param  int $clone_from_position Position of cloning layout slide. (required)
-     * @param  string $clone_from_password Source presentation password. (optional)
-     * @param  string $clone_from_storage Storage source presentation to clone layoutSlide from. (optional)
-     * @param  string $password The presentation password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $name Document name. (required)
+     * @param  string $clone_from Name of the document to clone layoutSlide from. (required)
+     * @param  int $clone_from_position Position of cloned layout slide. (required)
+     * @param  string $clone_from_password Password for the document to clone layoutSlide from. (optional)
+     * @param  string $clone_from_storage Storage of the document to clone layoutSlide from. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -552,7 +552,7 @@ class LayoutSlidesApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -627,12 +627,12 @@ class LayoutSlidesApi extends ApiBase
     /**
      * Create request for operation 'putLayoutSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index Index of the slide update to. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\LayoutSlide $slide_dto (optional)
-     * @param  string $password The presentation password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\LayoutSlide $slide_dto Slide update data. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

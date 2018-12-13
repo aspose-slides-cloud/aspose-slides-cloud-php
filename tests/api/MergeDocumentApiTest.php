@@ -59,7 +59,7 @@ class MergeDocumentApiTest extends TestBase
 
     /**
      * Test case for postPresentationMerge
-     * Merge presentations.
+     * Merge the presentation with other presentations specified in the request parameter.
      */
     public function testPostPresentationMerge()
     {
@@ -174,7 +174,7 @@ class MergeDocumentApiTest extends TestBase
 
     /**
      * Test case for putPresentationMerge
-     * Merge presentations.
+     * Merge the presentation with other presentations or some of their slides specified in the request parameter.
      */
     public function testPutPresentationMerge()
     {

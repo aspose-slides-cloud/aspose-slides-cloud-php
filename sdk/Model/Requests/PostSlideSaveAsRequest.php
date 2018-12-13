@@ -93,7 +93,7 @@ class PostSlideSaveAsRequest
      *  
      * @param string $name 
      * @param int $slideIndex 
-     * @param int $format 
+     * @param string $format 
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options
      * @param int $width 
      * @param int $height 

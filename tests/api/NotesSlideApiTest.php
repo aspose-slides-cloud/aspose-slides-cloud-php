@@ -280,7 +280,7 @@ class NotesSlideApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideWithFormat", "name", "string");
         $testslideIndex = TestUtils::getTestValue("getNotesSlideWithFormat", "slideIndex", "int");
-        $testformat = TestUtils::getTestValue("getNotesSlideWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getNotesSlideWithFormat", "format", "string");
         $testwidth = TestUtils::getTestValue("getNotesSlideWithFormat", "width", "int");
         $testheight = TestUtils::getTestValue("getNotesSlideWithFormat", "height", "int");
         $testpassword = TestUtils::getTestValue("getNotesSlideWithFormat", "password", "string");
@@ -347,7 +347,7 @@ class NotesSlideApiTest extends TestBase
     public function testGetNotesSlideWithFormatInvalidformat()
     {
         $request = $this->getGetNotesSlideWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getNotesSlideWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {

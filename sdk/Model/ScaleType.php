@@ -45,9 +45,9 @@ class ScaleType
     /**
      * Possible values of this enum
      */
-    const DoNotScale = 0;
-    const EnsureFit = 1;
-    const Maximize = 2;
+    const DO_NOT_SCALE = 'DoNotScale';
+    const ENSURE_FIT = 'EnsureFit';
+    const MAXIMIZE = 'Maximize';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class ScaleType
     public static function getAllowableEnumValues()
     {
         return [
-            self::DoNotScale,
-            self::EnsureFit,
-            self::Maximize,
+            self::DO_NOT_SCALE,
+            self::ENSURE_FIT,
+            self::MAXIMIZE,
         ];
     }
 }

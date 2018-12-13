@@ -395,7 +395,7 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlideWithFormat", "name", "string");
         $testslideIndex = TestUtils::getTestValue("getSlideWithFormat", "slideIndex", "int");
-        $testformat = TestUtils::getTestValue("getSlideWithFormat", "format", "int");
+        $testformat = TestUtils::getTestValue("getSlideWithFormat", "format", "string");
         $testwidth = TestUtils::getTestValue("getSlideWithFormat", "width", "int");
         $testheight = TestUtils::getTestValue("getSlideWithFormat", "height", "int");
         $testpassword = TestUtils::getTestValue("getSlideWithFormat", "password", "string");
@@ -464,7 +464,7 @@ class SlidesApiTest extends TestBase
     public function testGetSlideWithFormatInvalidformat()
     {
         $request = $this->getGetSlideWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("getSlideWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
@@ -1042,7 +1042,7 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postSlideSaveAs", "name", "string");
         $testslideIndex = TestUtils::getTestValue("postSlideSaveAs", "slideIndex", "int");
-        $testformat = TestUtils::getTestValue("postSlideSaveAs", "format", "int");
+        $testformat = TestUtils::getTestValue("postSlideSaveAs", "format", "string");
         $testoptions = TestUtils::getTestValue("postSlideSaveAs", "options", "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
         $testwidth = TestUtils::getTestValue("postSlideSaveAs", "width", "int");
         $testheight = TestUtils::getTestValue("postSlideSaveAs", "height", "int");
@@ -1112,7 +1112,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlideSaveAsInvalidformat()
     {
         $request = $this->getPostSlideSaveAsRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "int");
+        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
         $this->initialize("postSlideSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {

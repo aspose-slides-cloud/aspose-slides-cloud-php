@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetLayoutSlidesListRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,22 +44,22 @@ class GetLayoutSlidesListRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the GetLayoutSlidesListRequest class.
      *  
-     * @param string $name The presentation name.
+     * @param string $name Document name.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $password = null, $folder = null, $storage = null)
     {
@@ -70,7 +70,7 @@ class GetLayoutSlidesListRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -78,7 +78,7 @@ class GetLayoutSlidesListRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -102,7 +102,7 @@ class GetLayoutSlidesListRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -110,7 +110,7 @@ class GetLayoutSlidesListRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -118,7 +118,7 @@ class GetLayoutSlidesListRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -126,7 +126,7 @@ class GetLayoutSlidesListRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

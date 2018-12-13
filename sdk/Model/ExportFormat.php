@@ -45,21 +45,26 @@ class ExportFormat
     /**
      * Possible values of this enum
      */
-    const Pdf = 0;
-    const Xps = 1;
-    const Tiff = 2;
-    const Pptx = 3;
-    const Odp = 4;
-    const Otp = 5;
-    const Ppt = 6;
-    const Pps = 7;
-    const Ppsx = 8;
-    const Pptm = 9;
-    const Ppsm = 10;
-    const Potx = 11;
-    const Potm = 12;
-    const Html = 13;
-    const Swf = 14;
+    const PDF = 'Pdf';
+    const XPS = 'Xps';
+    const TIFF = 'Tiff';
+    const PPTX = 'Pptx';
+    const ODP = 'Odp';
+    const OTP = 'Otp';
+    const PPT = 'Ppt';
+    const PPS = 'Pps';
+    const PPSX = 'Ppsx';
+    const PPTM = 'Pptm';
+    const PPSM = 'Ppsm';
+    const POTX = 'Potx';
+    const POTM = 'Potm';
+    const HTML = 'Html';
+    const SWF = 'Swf';
+    const SVG = 'Svg';
+    const JPEG = 'Jpeg';
+    const PNG = 'Png';
+    const GIF = 'Gif';
+    const BMP = 'Bmp';
     
     /**
      * Gets allowable values of the enum
@@ -68,21 +73,26 @@ class ExportFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::Pdf,
-            self::Xps,
-            self::Tiff,
-            self::Pptx,
-            self::Odp,
-            self::Otp,
-            self::Ppt,
-            self::Pps,
-            self::Ppsx,
-            self::Pptm,
-            self::Ppsm,
-            self::Potx,
-            self::Potm,
-            self::Html,
-            self::Swf,
+            self::PDF,
+            self::XPS,
+            self::TIFF,
+            self::PPTX,
+            self::ODP,
+            self::OTP,
+            self::PPT,
+            self::PPS,
+            self::PPSX,
+            self::PPTM,
+            self::PPSM,
+            self::POTX,
+            self::POTM,
+            self::HTML,
+            self::SWF,
+            self::SVG,
+            self::JPEG,
+            self::PNG,
+            self::GIF,
+            self::BMP,
         ];
     }
 }

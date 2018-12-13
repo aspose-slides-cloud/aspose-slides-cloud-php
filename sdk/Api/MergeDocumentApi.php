@@ -80,7 +80,7 @@ class MergeDocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -155,11 +155,11 @@ class MergeDocumentApi extends ApiBase
     /**
      * Create request for operation 'postPresentationMerge'
      *
-     * @param  string $name Original presentation name. (required)
+     * @param  string $name Document name. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request with a list of presentations to merge. (optional)
-     * @param  string $password Original presentation password. (optional)
-     * @param  string $storage The storage. (optional)
-     * @param  string $folder The folder. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -239,7 +239,7 @@ class MergeDocumentApi extends ApiBase
             }
             $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
             if ($this->config->getDebug()) {
-                $this->writeResponseLog($statusCode, $response->getHeaders(), $deserializedContent);
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
             }
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
@@ -314,11 +314,11 @@ class MergeDocumentApi extends ApiBase
     /**
      * Create request for operation 'putPresentationMerge'
      *
-     * @param  string $name Original presentation name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request with a list of presentations to merge. (optional)
-     * @param  string $password Original presentation password. (optional)
-     * @param  string $storage The storage. (optional)
-     * @param  string $folder The folder. (optional)
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request with a list of presentations and slide indices to merge. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

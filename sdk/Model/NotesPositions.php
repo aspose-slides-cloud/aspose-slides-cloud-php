@@ -45,9 +45,9 @@ class NotesPositions
     /**
      * Possible values of this enum
      */
-    const None = 0;
-    const BottomFull = 1;
-    const BottomTruncated = 2;
+    const NONE = 'None';
+    const BOTTOM_FULL = 'BottomFull';
+    const BOTTOM_TRUNCATED = 'BottomTruncated';
     
     /**
      * Gets allowable values of the enum
@@ -56,9 +56,9 @@ class NotesPositions
     public static function getAllowableEnumValues()
     {
         return [
-            self::None,
-            self::BottomFull,
-            self::BottomTruncated,
+            self::NONE,
+            self::BOTTOM_FULL,
+            self::BOTTOM_TRUNCATED,
         ];
     }
 }

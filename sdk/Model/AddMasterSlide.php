@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * AddMasterSlide Class Doc Comment
  *
  * @category Class
+ * @description Add master slide task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -228,7 +229,7 @@ class AddMasterSlide extends Task
     /**
      * Sets clone_from_file
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $clone_from_file clone_from_file
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $clone_from_file Source presentation clone from.
      *
      * @return $this
      */
@@ -252,7 +253,7 @@ class AddMasterSlide extends Task
     /**
      * Sets clone_from_position
      *
-     * @param int $clone_from_position clone_from_position
+     * @param int $clone_from_position Index of slide to clone.
      *
      * @return $this
      */
@@ -276,7 +277,7 @@ class AddMasterSlide extends Task
     /**
      * Sets apply_to_all
      *
-     * @param bool $apply_to_all apply_to_all
+     * @param bool $apply_to_all True if cloned master slide is applied to all slides.
      *
      * @return $this
      */

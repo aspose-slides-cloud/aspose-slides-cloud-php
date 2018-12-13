@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * SaveShape Class Doc Comment
  *
  * @category Class
+ * @description Save shape task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -56,7 +57,7 @@ class SaveShape extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => '\Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat2',
+        'format' => '\Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat',
         'shape_path' => 'string',
         'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
         'options' => '\Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions'
@@ -224,7 +225,7 @@ class SaveShape extends Task
     /**
      * Gets format
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat2
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat
      */
     public function getFormat()
     {
@@ -234,7 +235,7 @@ class SaveShape extends Task
     /**
      * Sets format
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat2 $format format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat $format Format.
      *
      * @return $this
      */
@@ -258,7 +259,7 @@ class SaveShape extends Task
     /**
      * Sets shape_path
      *
-     * @param string $shape_path shape_path
+     * @param string $shape_path Shape path.
      *
      * @return $this
      */
@@ -282,7 +283,7 @@ class SaveShape extends Task
     /**
      * Sets output
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output output
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
      *
      * @return $this
      */
@@ -306,7 +307,7 @@ class SaveShape extends Task
     /**
      * Sets options
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options options
+     * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options Save options.
      *
      * @return $this
      */

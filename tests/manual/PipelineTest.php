@@ -77,7 +77,7 @@ class PipelineTest extends TestBase
         $output->setType(OutputFileType::RESPONSE);
 
         $task = new Save();
-        $task->setFormat(ExportFormat::Pptx);
+        $task->setFormat(ExportFormat::PPTX);
         $task->setOutput($output);
         $task->setType(TaskType::SAVE);
 

@@ -77,7 +77,7 @@ class PostSlidesSaveAsRequest
      * Initializes a new instance of the PostSlidesSaveAsRequest class.
      *  
      * @param string $name The presentation name
-     * @param int $format Export format
+     * @param string $format Export format
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Tiff export options
      * @param string $password The password to open presentation.
      * @param string $storage Document&#39;s storage.

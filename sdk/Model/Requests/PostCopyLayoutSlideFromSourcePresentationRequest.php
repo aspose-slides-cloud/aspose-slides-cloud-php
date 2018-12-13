@@ -34,56 +34,56 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostCopyLayoutSlideFromSourcePresentationRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * Source presentation to clone layoutSlide from.
+     * Name of the document to clone layoutSlide from.
      */
     public $cloneFrom;
 
     /*
-     * Position of cloning layout slide.
+     * Position of cloned layout slide.
      */
     public $cloneFromPosition;
 
     /*
-     * Source presentation password.
+     * Password for the document to clone layoutSlide from.
      */
     public $cloneFromPassword;
 
     /*
-     * Storage source presentation to clone layoutSlide from.
+     * Storage of the document to clone layoutSlide from.
      */
     public $cloneFromStorage;
 
     /*
-     * The presentation password.
+     * Document password.
      */
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PostCopyLayoutSlideFromSourcePresentationRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param string $cloneFrom Source presentation to clone layoutSlide from.
-     * @param int $cloneFromPosition Position of cloning layout slide.
-     * @param string $cloneFromPassword Source presentation password.
-     * @param string $cloneFromStorage Storage source presentation to clone layoutSlide from.
-     * @param string $password The presentation password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $name Document name.
+     * @param string $cloneFrom Name of the document to clone layoutSlide from.
+     * @param int $cloneFromPosition Position of cloned layout slide.
+     * @param string $cloneFromPassword Password for the document to clone layoutSlide from.
+     * @param string $cloneFromStorage Storage of the document to clone layoutSlide from.
+     * @param string $password Document password.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword = null, $cloneFromStorage = null, $password = null, $folder = null, $storage = null)
     {
@@ -98,7 +98,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +106,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -114,7 +114,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Source presentation to clone layoutSlide from.
+     * Name of the document to clone layoutSlide from.
      */
     public function get_cloneFrom()
     {
@@ -122,7 +122,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * Source presentation to clone layoutSlide from.
+     * Name of the document to clone layoutSlide from.
      */
     public function set_cloneFrom($value)
     {
@@ -130,7 +130,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Position of cloning layout slide.
+     * Position of cloned layout slide.
      */
     public function get_cloneFromPosition()
     {
@@ -138,7 +138,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * Position of cloning layout slide.
+     * Position of cloned layout slide.
      */
     public function set_cloneFromPosition($value)
     {
@@ -146,7 +146,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Source presentation password.
+     * Password for the document to clone layoutSlide from.
      */
     public function get_cloneFromPassword()
     {
@@ -154,7 +154,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * Source presentation password.
+     * Password for the document to clone layoutSlide from.
      */
     public function set_cloneFromPassword($value)
     {
@@ -162,7 +162,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Storage source presentation to clone layoutSlide from.
+     * Storage of the document to clone layoutSlide from.
      */
     public function get_cloneFromStorage()
     {
@@ -170,7 +170,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * Storage source presentation to clone layoutSlide from.
+     * Storage of the document to clone layoutSlide from.
      */
     public function set_cloneFromStorage($value)
     {
@@ -178,7 +178,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * The presentation password.
+     * Document password.
      */
     public function get_password()
     {
@@ -186,7 +186,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -194,7 +194,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -202,7 +202,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -210,7 +210,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -218,7 +218,7 @@ class PostCopyLayoutSlideFromSourcePresentationRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

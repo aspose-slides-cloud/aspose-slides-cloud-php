@@ -56,7 +56,7 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => '\Aspose\Slides\Cloud\Sdk\Model\ExportFormat2',
+        'format' => '\Aspose\Slides\Cloud\Sdk\Model\ExportFormat',
         'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
         'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
     ];
@@ -218,7 +218,7 @@ class Save extends Task
     /**
      * Gets format
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportFormat2
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportFormat
      */
     public function getFormat()
     {
@@ -228,7 +228,7 @@ class Save extends Task
     /**
      * Sets format
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportFormat2 $format format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportFormat $format format
      *
      * @return $this
      */

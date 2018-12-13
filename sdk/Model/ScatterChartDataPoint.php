@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ScatterChartDataPoint Class Doc Comment
  *
  * @category Class
+ * @description Scatter chart (two-dimensional) data point
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -241,7 +242,7 @@ class ScatterChartDataPoint implements ArrayAccess
     /**
      * Sets x_value
      *
-     * @param double $x_value x_value
+     * @param double $x_value X-value
      *
      * @return $this
      */
@@ -265,7 +266,7 @@ class ScatterChartDataPoint implements ArrayAccess
     /**
      * Sets y_value
      *
-     * @param double $y_value y_value
+     * @param double $y_value Y-value
      *
      * @return $this
      */

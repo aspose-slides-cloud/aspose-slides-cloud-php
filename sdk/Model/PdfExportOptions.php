@@ -71,7 +71,10 @@ class PdfExportOptions extends ExportOptions
         'notes_position' => '\Aspose\Slides\Cloud\Sdk\Model\NotesPositions',
         'comments_position' => '\Aspose\Slides\Cloud\Sdk\Model\CommentsPositions',
         'comments_area_width' => 'int',
-        'comments_area_color' => 'string'
+        'comments_area_color' => 'string',
+        'show_comments_by_no_author' => 'bool',
+        'image_transparent_color' => 'string',
+        'apply_image_transparent' => 'bool'
     ];
 
     /**
@@ -94,7 +97,10 @@ class PdfExportOptions extends ExportOptions
         'notes_position' => null,
         'comments_position' => null,
         'comments_area_width' => 'int32',
-        'comments_area_color' => null
+        'comments_area_color' => null,
+        'show_comments_by_no_author' => null,
+        'image_transparent_color' => null,
+        'apply_image_transparent' => null
     ];
 
     /**
@@ -138,7 +144,10 @@ class PdfExportOptions extends ExportOptions
         'notes_position' => 'NotesPosition',
         'comments_position' => 'CommentsPosition',
         'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor'
+        'comments_area_color' => 'CommentsAreaColor',
+        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor',
+        'image_transparent_color' => 'ImageTransparentColor',
+        'apply_image_transparent' => 'ApplyImageTransparent'
     ];
 
     /**
@@ -161,7 +170,10 @@ class PdfExportOptions extends ExportOptions
         'notes_position' => 'setNotesPosition',
         'comments_position' => 'setCommentsPosition',
         'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor'
+        'comments_area_color' => 'setCommentsAreaColor',
+        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor',
+        'image_transparent_color' => 'setImageTransparentColor',
+        'apply_image_transparent' => 'setApplyImageTransparent'
     ];
 
     /**
@@ -184,7 +196,10 @@ class PdfExportOptions extends ExportOptions
         'notes_position' => 'getNotesPosition',
         'comments_position' => 'getCommentsPosition',
         'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor'
+        'comments_area_color' => 'getCommentsAreaColor',
+        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor',
+        'image_transparent_color' => 'getImageTransparentColor',
+        'apply_image_transparent' => 'getApplyImageTransparent'
     ];
 
     /**
@@ -258,6 +273,9 @@ class PdfExportOptions extends ExportOptions
         $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
         $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
         $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
+        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
+        $this->container['image_transparent_color'] = isset($data['image_transparent_color']) ? $data['image_transparent_color'] : null;
+        $this->container['apply_image_transparent'] = isset($data['apply_image_transparent']) ? $data['apply_image_transparent'] : null;
     }
 
     /**
@@ -644,6 +662,78 @@ class PdfExportOptions extends ExportOptions
     public function setCommentsAreaColor($comments_area_color)
     {
         $this->container['comments_area_color'] = $comments_area_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_comments_by_no_author
+     *
+     * @return bool
+     */
+    public function getShowCommentsByNoAuthor()
+    {
+        return $this->container['show_comments_by_no_author'];
+    }
+
+    /**
+     * Sets show_comments_by_no_author
+     *
+     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     *
+     * @return $this
+     */
+    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    {
+        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_transparent_color
+     *
+     * @return string
+     */
+    public function getImageTransparentColor()
+    {
+        return $this->container['image_transparent_color'];
+    }
+
+    /**
+     * Sets image_transparent_color
+     *
+     * @param string $image_transparent_color Image transparent color.
+     *
+     * @return $this
+     */
+    public function setImageTransparentColor($image_transparent_color)
+    {
+        $this->container['image_transparent_color'] = $image_transparent_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets apply_image_transparent
+     *
+     * @return bool
+     */
+    public function getApplyImageTransparent()
+    {
+        return $this->container['apply_image_transparent'];
+    }
+
+    /**
+     * Sets apply_image_transparent
+     *
+     * @param bool $apply_image_transparent True to apply specified   to an image.
+     *
+     * @return $this
+     */
+    public function setApplyImageTransparent($apply_image_transparent)
+    {
+        $this->container['apply_image_transparent'] = $apply_image_transparent;
 
         return $this;
     }

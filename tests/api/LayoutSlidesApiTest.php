@@ -441,7 +441,7 @@ class LayoutSlidesApiTest extends TestBase
 
     /**
      * Test case for putLayoutSlide
-     * Read presentation layoutSlide info.
+     * Update a layoutSlide.
      */
     public function testPutLayoutSlide()
     {
