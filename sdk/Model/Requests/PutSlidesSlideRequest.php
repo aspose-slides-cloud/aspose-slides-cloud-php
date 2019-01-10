@@ -34,44 +34,44 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesSlideRequest
 {
     /*
-     * Name of the presentation.
+     * Document name.
      */
     public $name;
 
     /*
-     * Index of the slide update to.
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * DTO of the slide.
+     * Slide update data.
      */
     public $slideDto;
 
     /*
-     * 
+     * Document password.
      */
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PutSlidesSlideRequest class.
      *  
-     * @param string $name Name of the presentation.
-     * @param int $slideIndex Index of the slide update to.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Slide $slideDto DTO of the slide.
-     * @param string $password 
-     * @param string $folder The presentation folder.
-     * @param string $storage The presentation storage.
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Slide $slideDto Slide update data.
+     * @param string $password Document password.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $slideDto = null, $password = null, $folder = null, $storage = null)
     {
@@ -84,7 +84,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * Name of the presentation.
+     * Document name.
      */
     public function get_name()
     {
@@ -92,7 +92,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * Name of the presentation.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -100,7 +100,7 @@ class PutSlidesSlideRequest
         return $this;
     }
     /*
-     * Index of the slide update to.
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -108,7 +108,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * Index of the slide update to.
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -116,7 +116,7 @@ class PutSlidesSlideRequest
         return $this;
     }
     /*
-     * DTO of the slide.
+     * Slide update data.
      */
     public function get_slideDto()
     {
@@ -124,7 +124,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * DTO of the slide.
+     * Slide update data.
      */
     public function set_slideDto($value)
     {
@@ -132,7 +132,7 @@ class PutSlidesSlideRequest
         return $this;
     }
     /*
-     * 
+     * Document password.
      */
     public function get_password()
     {
@@ -140,7 +140,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * 
+     * Document password.
      */
     public function set_password($value)
     {
@@ -148,7 +148,7 @@ class PutSlidesSlideRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -156,7 +156,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -164,7 +164,7 @@ class PutSlidesSlideRequest
         return $this;
     }
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -172,7 +172,7 @@ class PutSlidesSlideRequest
     }
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

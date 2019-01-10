@@ -34,12 +34,12 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetSlidesSlideCommentsRequest
 {
     /*
-     * 
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * The position of the slide to be reordered.
      */
     public $slideIndex;
 
@@ -49,23 +49,23 @@ class GetSlidesSlideCommentsRequest
     public $password;
 
     /*
-     * 
+     * Document folder.
      */
     public $folder;
 
     /*
-     * 
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the GetSlidesSlideCommentsRequest class.
      *  
-     * @param string $name 
-     * @param int $slideIndex 
+     * @param string $name Document name.
+     * @param int $slideIndex The position of the slide to be reordered.
      * @param string $password Document password.
-     * @param string $folder 
-     * @param string $storage 
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
@@ -77,7 +77,7 @@ class GetSlidesSlideCommentsRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function get_name()
     {
@@ -85,7 +85,7 @@ class GetSlidesSlideCommentsRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function set_name($value)
     {
@@ -93,7 +93,7 @@ class GetSlidesSlideCommentsRequest
         return $this;
     }
     /*
-     * 
+     * The position of the slide to be reordered.
      */
     public function get_slideIndex()
     {
@@ -101,7 +101,7 @@ class GetSlidesSlideCommentsRequest
     }
 
     /*
-     * 
+     * The position of the slide to be reordered.
      */
     public function set_slideIndex($value)
     {
@@ -125,7 +125,7 @@ class GetSlidesSlideCommentsRequest
         return $this;
     }
     /*
-     * 
+     * Document folder.
      */
     public function get_folder()
     {
@@ -133,7 +133,7 @@ class GetSlidesSlideCommentsRequest
     }
 
     /*
-     * 
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -141,7 +141,7 @@ class GetSlidesSlideCommentsRequest
         return $this;
     }
     /*
-     * 
+     * Document storage.
      */
     public function get_storage()
     {
@@ -149,7 +149,7 @@ class GetSlidesSlideCommentsRequest
     }
 
     /*
-     * 
+     * Document storage.
      */
     public function set_storage($value)
     {

@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class DeleteSlidesCleanSlidesListRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
@@ -49,23 +49,23 @@ class DeleteSlidesCleanSlidesListRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the DeleteSlidesCleanSlidesListRequest class.
      *  
-     * @param string $name The presentation name.
+     * @param string $name Document name.
      * @param int[] $slides The indices of the slides to be deleted; delete all by default.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slides = null, $password = null, $folder = null, $storage = null)
     {
@@ -77,7 +77,7 @@ class DeleteSlidesCleanSlidesListRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -85,7 +85,7 @@ class DeleteSlidesCleanSlidesListRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -125,7 +125,7 @@ class DeleteSlidesCleanSlidesListRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -133,7 +133,7 @@ class DeleteSlidesCleanSlidesListRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -141,7 +141,7 @@ class DeleteSlidesCleanSlidesListRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -149,7 +149,7 @@ class DeleteSlidesCleanSlidesListRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

@@ -34,12 +34,12 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class DeleteSlideByIndexRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public $slideIndex;
 
@@ -49,23 +49,23 @@ class DeleteSlideByIndexRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the DeleteSlideByIndexRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param int $slideIndex The slide index.
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage The presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
@@ -77,7 +77,7 @@ class DeleteSlideByIndexRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -85,7 +85,7 @@ class DeleteSlideByIndexRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -93,7 +93,7 @@ class DeleteSlideByIndexRequest
         return $this;
     }
     /*
-     * The slide index.
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -101,7 +101,7 @@ class DeleteSlideByIndexRequest
     }
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -125,7 +125,7 @@ class DeleteSlideByIndexRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -133,7 +133,7 @@ class DeleteSlideByIndexRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -141,7 +141,7 @@ class DeleteSlideByIndexRequest
         return $this;
     }
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -149,7 +149,7 @@ class DeleteSlideByIndexRequest
     }
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

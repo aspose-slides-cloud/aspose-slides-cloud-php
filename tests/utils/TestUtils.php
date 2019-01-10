@@ -71,6 +71,12 @@ class TestUtils
      */
     public static function getTestValue($functionName, $name, $type)
     {
+        if ($name == "oldPositions") {
+            return [1, 2];
+        }
+        if ($name == "newPositions") {
+            return [2, 1];
+        }
         if (self::strEndsWith(strtolower($name), "storage")
             || $name == "outPath"
             || $name == "options"
@@ -98,13 +104,13 @@ class TestUtils
             if ($functionName == "putNewPresentation") {
                 return self::changedFileName;
             }
-            if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
+            if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide" || $functionName == "postSlidesAdd") {
                 return "test-unprotected.ppt";
             }
             return self::fileName;
         }
         if (self::strEndsWith(strtolower($name), "password")) {
-            if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
+            if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide" || $functionName == "postSlidesAdd") {
                 return null;
             }
             return "password";
@@ -112,7 +118,7 @@ class TestUtils
         if ($name == "propertyName") {
             return "testProperty";
         }
-        if ($name == "templatePath" || $name == "cloneFrom") {
+        if ($name == "templatePath" || $name == "cloneFrom" || $name == "source") {
             if ($functionName == "postSlidesDocument") {
                 return self::folderName."/".self::templateFileName;
             }
@@ -220,7 +226,7 @@ class TestUtils
             Assert::assertEquals(405, $ex->getCode());
         } else if ($fieldName == "format") {
             Assert::assertTrue($ex->getCode() == 500 || $ex->getCode() == 400);
-        } else if (($fieldName == "name" || $fieldName == "propertyName" || $fieldName == "folder" || $fieldName == "cloneFrom")
+        } else if (($fieldName == "name" || $fieldName == "propertyName" || $fieldName == "folder" || $fieldName == "cloneFrom" || $fieldName == "source")
             && !((self::strStartsWith($functionName, 'post') || self::strStartsWith($functionName, 'put'))
                 && !(self::strEndsWith($functionName, 'SaveAsTiff')
                     || self::strEndsWith($functionName, 'SlidesSplit')
@@ -234,6 +240,10 @@ class TestUtils
                     || self::strEndsWith($functionName, 'AddNewPortion')
                     || self::strEndsWith($functionName, 'AddNewShape')
                     || self::strEndsWith($functionName, 'SaveAs')
+                    || self::strEndsWith($functionName, 'Add')
+                    || self::strEndsWith($functionName, 'Copy')
+                    || self::strEndsWith($functionName, 'Reorder')
+                    || self::strEndsWith($functionName, 'ReorderMany')
                     || self::strEndsWith($functionName, 'DocumentProperty')
                     || self::strEndsWith($functionName, 'SetParagraphPortionProperties')
                     || self::strEndsWith($functionName, 'SetParagraphProperties')
@@ -254,7 +264,7 @@ class TestUtils
         } else {
             Assert::assertEquals(400, $ex->getCode());
             if (self::strEndsWith(strtolower($fieldName), "password") && $functionName != "putSlidesDocumentFromHtml") {
-                if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide") {
+                if ($functionName == "deleteSlidesCleanSlidesList" || $functionName == "putSlidesSlide" || $functionName == "postSlidesAdd") {
                     Assert::assertRegExp("/^An attempt was made to move the position before the beginning of the stream./", $ex->getResponseObject()->getMessage());
                 } else if ($functionName == "postAddNotesSlide" || ($functionName == "putNewPresentation" && $fieldName == "templatePassword")) {
                     Assert::assertRegExp("/^Object reference not set to an instance of an object./", $ex->getResponseObject()->getMessage());
@@ -276,6 +286,8 @@ class TestUtils
                 || $fieldName == "cloneFromPosition"
                 || $fieldName == "shapeToClone") {
                 Assert::assertRegExp("/^Invalid index/", $ex->getResponseObject()->getMessage());
+            } else if ($fieldName == "slideIndex" && $functionName == "postSlidesReorder") {
+                Assert::assertRegExp("/^Index was out of range./", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "slideIndex" || $fieldName == "slides") {
                 Assert::assertRegExp("/^Wrong slide index/", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "slideDto") {
@@ -311,13 +323,16 @@ class TestUtils
                 Assert::assertRegExp("/^Wrong paragraph index/", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "portionIndex" || $fieldName == "portions") {
                 Assert::assertRegExp("/^Wrong portion index/", $ex->getResponseObject()->getMessage());
-            } else if ($fieldName == "newPosition" || ($fieldName == "position" && $functionName == "postSlidesReorderPosition")) {
+            } else if ($fieldName == "newPosition"
+                || $fieldName == "oldPositions"
+                || $fieldName == "newPositions"
+                || ($fieldName == "position" && ($functionName == "postSlidesReorderPosition" || $functionName == "postSlidesAdd" || $functionName == "postSlidesCopy"))) {
                 Assert::assertRegExp("/^Specified argument was out of the range of valid values/", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "oldPosition") {
                 Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "position") {
                 Assert::assertRegExp("/^Index must be within the bounds of the List/", $ex->getResponseObject()->getMessage());
-            } else if ($fieldName == "slideToClone") {
+            } else if ($fieldName == "slideToClone" || $fieldName == "slideToCopy") {
                 Assert::assertRegExp("/^Index was out of range/", $ex->getResponseObject()->getMessage());
             } else if ($fieldName == "placeholderIndex") {
                 Assert::assertRegExp("/^Placeholder with specified index doesn't exist/", $ex->getResponseObject()->getMessage());
@@ -360,7 +375,8 @@ class TestUtils
             && !($functionName == "putSlidesDocumentFromHtml" && $fieldName == "folder")
             && !(($functionName == "putSlidesDocumentFromHtml" || $functionName == "putNewPresentation" || $functionName == "postSlidesDocument") && $fieldName == "name")
             && !($functionName == "postAddNotesSlide" && $fieldName == "dto")
-            && !($functionName == "postSlidesReorderPosition" && ($fieldName == "position" || $fieldName == "slideToClone"))
+            && !($functionName == "postSlidesReorderPosition"
+                && ($fieldName == "position" || $fieldName == "slideToClone" || $fieldName == "oldPositions" || $fieldName == "newPositions"))
             && !self::strEndsWith($functionName, 'SlidesSplit')) {
             Assert::fail("Must have failed");
         }

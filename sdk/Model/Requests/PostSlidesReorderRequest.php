@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesSlide operation.
+ * Request model for postSlidesReorder operation.
  */
-class GetSlidesSlideRequest
+class PostSlidesReorderRequest
 {
     /*
      * Document name.
@@ -39,9 +39,14 @@ class GetSlidesSlideRequest
     public $name;
 
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public $slideIndex;
+
+    /*
+     * The new position of the reordered slide.
+     */
+    public $newPosition;
 
     /*
      * Document password.
@@ -59,18 +64,20 @@ class GetSlidesSlideRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlidesSlideRequest class.
+     * Initializes a new instance of the PostSlidesReorderRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
+     * @param int $slideIndex The position of the slide to be reordered.
+     * @param int $newPosition The new position of the reordered slide.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $newPosition, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
+        $this->newPosition = $newPosition;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -93,7 +100,7 @@ class GetSlidesSlideRequest
         return $this;
     }
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public function get_slideIndex()
     {
@@ -101,11 +108,27 @@ class GetSlidesSlideRequest
     }
 
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
+        return $this;
+    }
+    /*
+     * The new position of the reordered slide.
+     */
+    public function get_newPosition()
+    {
+        return $this->newPosition;
+    }
+
+    /*
+     * The new position of the reordered slide.
+     */
+    public function set_newPosition($value)
+    {
+        $this->newPosition = $value;
         return $this;
     }
     /*

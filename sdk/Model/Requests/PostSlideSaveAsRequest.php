@@ -34,74 +34,74 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlideSaveAsRequest
 {
     /*
-     * 
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * 
+     * Output file format.
      */
     public $format;
 
     /*
-     * export options
+     * Export options.
      */
     public $options;
 
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public $width;
 
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public $height;
 
     /*
-     * 
+     * Document password.
      */
     public $password;
 
     /*
-     * 
+     * Document folder.
      */
     public $folder;
 
     /*
-     * 
+     * Document storage.
      */
     public $storage;
 
     /*
-     * 
+     * Path to upload the output file to.
      */
     public $outPath;
 
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public $fontsFolder;
 
     /*
      * Initializes a new instance of the PostSlideSaveAsRequest class.
      *  
-     * @param string $name 
-     * @param int $slideIndex 
-     * @param string $format 
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options
-     * @param int $width 
-     * @param int $height 
-     * @param string $password 
-     * @param string $folder 
-     * @param string $storage 
-     * @param string $outPath 
-     * @param string $fontsFolder 
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param string $format Output file format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
+     * @param int $width Output file width; 0 to not adjust the size. Default is 0.
+     * @param int $height Output file height; 0 to not adjust the size. Default is 0.
+     * @param string $password Document password.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
+     * @param string $outPath Path to upload the output file to.
+     * @param string $fontsFolder Storage folder containing custom fonts to be used with the document.
      */
     public function __construct($name, $slideIndex, $format, $options = null, $width = null, $height = null, $password = null, $folder = null, $storage = null, $outPath = null, $fontsFolder = null)
     {
@@ -119,7 +119,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function get_name()
     {
@@ -127,7 +127,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function set_name($value)
     {
@@ -135,7 +135,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -143,7 +143,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -151,7 +151,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Output file format.
      */
     public function get_format()
     {
@@ -159,7 +159,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Output file format.
      */
     public function set_format($value)
     {
@@ -167,7 +167,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * export options
+     * Export options.
      */
     public function get_options()
     {
@@ -175,7 +175,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * export options
+     * Export options.
      */
     public function set_options($value)
     {
@@ -183,7 +183,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public function get_width()
     {
@@ -191,7 +191,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public function set_width($value)
     {
@@ -199,7 +199,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public function get_height()
     {
@@ -207,7 +207,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public function set_height($value)
     {
@@ -215,7 +215,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Document password.
      */
     public function get_password()
     {
@@ -223,7 +223,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Document password.
      */
     public function set_password($value)
     {
@@ -231,7 +231,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Document folder.
      */
     public function get_folder()
     {
@@ -239,7 +239,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -247,7 +247,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Document storage.
      */
     public function get_storage()
     {
@@ -255,7 +255,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -263,7 +263,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Path to upload the output file to.
      */
     public function get_outPath()
     {
@@ -271,7 +271,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Path to upload the output file to.
      */
     public function set_outPath($value)
     {
@@ -279,7 +279,7 @@ class PostSlideSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public function get_fontsFolder()
     {
@@ -287,7 +287,7 @@ class PostSlideSaveAsRequest
     }
 
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public function set_fontsFolder($value)
     {

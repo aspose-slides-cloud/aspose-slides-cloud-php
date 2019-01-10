@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesSlide operation.
+ * Request model for postSlidesReorderMany operation.
  */
-class GetSlidesSlideRequest
+class PostSlidesReorderManyRequest
 {
     /*
      * Document name.
@@ -39,9 +39,14 @@ class GetSlidesSlideRequest
     public $name;
 
     /*
-     * Slide index.
+     * A comma separated array of positions of slides to be reordered.
      */
-    public $slideIndex;
+    public $oldPositions;
+
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public $newPositions;
 
     /*
      * Document password.
@@ -59,18 +64,20 @@ class GetSlidesSlideRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlidesSlideRequest class.
+     * Initializes a new instance of the PostSlidesReorderManyRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
+     * @param int[] $oldPositions A comma separated array of positions of slides to be reordered.
+     * @param int[] $newPositions A comma separated array of new slide positions.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
+        $this->oldPositions = $oldPositions;
+        $this->newPositions = $newPositions;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -93,19 +100,35 @@ class GetSlidesSlideRequest
         return $this;
     }
     /*
-     * Slide index.
+     * A comma separated array of positions of slides to be reordered.
      */
-    public function get_slideIndex()
+    public function get_oldPositions()
     {
-        return $this->slideIndex;
+        return $this->oldPositions;
     }
 
     /*
-     * Slide index.
+     * A comma separated array of positions of slides to be reordered.
      */
-    public function set_slideIndex($value)
+    public function set_oldPositions($value)
     {
-        $this->slideIndex = $value;
+        $this->oldPositions = $value;
+        return $this;
+    }
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public function get_newPositions()
+    {
+        return $this->newPositions;
+    }
+
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public function set_newPositions($value)
+    {
+        $this->newPositions = $value;
         return $this;
     }
     /*

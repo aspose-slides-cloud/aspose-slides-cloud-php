@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesSlide operation.
+ * Request model for postSlidesAdd operation.
  */
-class GetSlidesSlideRequest
+class PostSlidesAddRequest
 {
     /*
      * Document name.
@@ -39,9 +39,9 @@ class GetSlidesSlideRequest
     public $name;
 
     /*
-     * Slide index.
+     * The target position at which to create the slide. Add to the end by default.
      */
-    public $slideIndex;
+    public $position;
 
     /*
      * Document password.
@@ -59,21 +59,28 @@ class GetSlidesSlideRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlidesSlideRequest class.
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public $layoutAlias;
+
+    /*
+     * Initializes a new instance of the PostSlidesAddRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
+     * @param int $position The target position at which to create the slide. Add to the end by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
+     * @param string $layoutAlias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
-    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $position = null, $password = null, $folder = null, $storage = null, $layoutAlias = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
+        $this->position = $position;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
+        $this->layoutAlias = $layoutAlias;
     }
 
     /*
@@ -93,19 +100,19 @@ class GetSlidesSlideRequest
         return $this;
     }
     /*
-     * Slide index.
+     * The target position at which to create the slide. Add to the end by default.
      */
-    public function get_slideIndex()
+    public function get_position()
     {
-        return $this->slideIndex;
+        return $this->position;
     }
 
     /*
-     * Slide index.
+     * The target position at which to create the slide. Add to the end by default.
      */
-    public function set_slideIndex($value)
+    public function set_position($value)
     {
-        $this->slideIndex = $value;
+        $this->position = $value;
         return $this;
     }
     /*
@@ -154,6 +161,22 @@ class GetSlidesSlideRequest
     public function set_storage($value)
     {
         $this->storage = $value;
+        return $this;
+    }
+    /*
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public function get_layoutAlias()
+    {
+        return $this->layoutAlias;
+    }
+
+    /*
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public function set_layoutAlias($value)
+    {
+        $this->layoutAlias = $value;
         return $this;
     }
 }

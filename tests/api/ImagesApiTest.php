@@ -60,7 +60,7 @@ class ImagesApiTest extends TestBase
 
     /**
      * Test case for getSlidesImageWithFormat
-     * Gets image in specified format.
+     * Get image in specified format.
      */
     public function testGetSlidesImageWithFormat()
     {

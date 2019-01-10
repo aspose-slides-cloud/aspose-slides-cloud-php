@@ -34,68 +34,68 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetSlideWithFormatRequest
 {
     /*
-     * 
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * 
+     * Output file format.
      */
     public $format;
 
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public $width;
 
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public $height;
 
     /*
-     * 
+     * Document password.
      */
     public $password;
 
     /*
-     * 
+     * Document folder.
      */
     public $folder;
 
     /*
-     * 
+     * Document storage.
      */
     public $storage;
 
     /*
-     * 
+     * Path to upload the output file to.
      */
     public $outPath;
 
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public $fontsFolder;
 
     /*
      * Initializes a new instance of the GetSlideWithFormatRequest class.
      *  
-     * @param string $name 
-     * @param int $slideIndex 
-     * @param string $format 
-     * @param int $width 
-     * @param int $height 
-     * @param string $password 
-     * @param string $folder 
-     * @param string $storage 
-     * @param string $outPath 
-     * @param string $fontsFolder 
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param string $format Output file format.
+     * @param int $width Output file width; 0 to not adjust the size. Default is 0.
+     * @param int $height Output file height; 0 to not adjust the size. Default is 0.
+     * @param string $password Document password.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
+     * @param string $outPath Path to upload the output file to.
+     * @param string $fontsFolder Storage folder containing custom fonts to be used with the document.
      */
     public function __construct($name, $slideIndex, $format, $width = null, $height = null, $password = null, $folder = null, $storage = null, $outPath = null, $fontsFolder = null)
     {
@@ -112,7 +112,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function get_name()
     {
@@ -120,7 +120,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function set_name($value)
     {
@@ -128,7 +128,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -136,7 +136,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -144,7 +144,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Output file format.
      */
     public function get_format()
     {
@@ -152,7 +152,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Output file format.
      */
     public function set_format($value)
     {
@@ -160,7 +160,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public function get_width()
     {
@@ -168,7 +168,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Output file width; 0 to not adjust the size. Default is 0.
      */
     public function set_width($value)
     {
@@ -176,7 +176,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public function get_height()
     {
@@ -184,7 +184,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Output file height; 0 to not adjust the size. Default is 0.
      */
     public function set_height($value)
     {
@@ -192,7 +192,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Document password.
      */
     public function get_password()
     {
@@ -200,7 +200,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Document password.
      */
     public function set_password($value)
     {
@@ -208,7 +208,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Document folder.
      */
     public function get_folder()
     {
@@ -216,7 +216,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -224,7 +224,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Document storage.
      */
     public function get_storage()
     {
@@ -232,7 +232,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -240,7 +240,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Path to upload the output file to.
      */
     public function get_outPath()
     {
@@ -248,7 +248,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Path to upload the output file to.
      */
     public function set_outPath($value)
     {
@@ -256,7 +256,7 @@ class GetSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public function get_fontsFolder()
     {
@@ -264,7 +264,7 @@ class GetSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Storage folder containing custom fonts to be used with the document.
      */
     public function set_fontsFolder($value)
     {

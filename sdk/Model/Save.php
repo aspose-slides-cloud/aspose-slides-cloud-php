@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * Save Class Doc Comment
  *
  * @category Class
+ * @description Save slide task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -228,7 +229,7 @@ class Save extends Task
     /**
      * Sets format
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportFormat $format format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportFormat $format Format.
      *
      * @return $this
      */
@@ -252,7 +253,7 @@ class Save extends Task
     /**
      * Sets output
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output output
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
      *
      * @return $this
      */
@@ -276,7 +277,7 @@ class Save extends Task
     /**
      * Sets options
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options options
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
      *
      * @return $this
      */

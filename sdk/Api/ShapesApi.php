@@ -362,6 +362,10 @@ class ShapesApi extends ApiBase
         $httpBody = '';
 
         // query params
+        if ($request->paragraphs !== null) {
+            $queryParams['paragraphs'] = ObjectSerializer::toQueryValue($request->paragraphs);
+        }
+        // query params
         if ($request->password !== null) {
             $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
@@ -372,10 +376,6 @@ class ShapesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
-        }
-        // query params
-        if ($request->paragraphs !== null) {
-            $queryParams['paragraphs'] = ObjectSerializer::toQueryValue($request->paragraphs);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -712,6 +712,10 @@ class ShapesApi extends ApiBase
         $httpBody = '';
 
         // query params
+        if ($request->portions !== null) {
+            $queryParams['portions'] = ObjectSerializer::toQueryValue($request->portions);
+        }
+        // query params
         if ($request->password !== null) {
             $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
@@ -722,10 +726,6 @@ class ShapesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
-        }
-        // query params
-        if ($request->portions !== null) {
-            $queryParams['portions'] = ObjectSerializer::toQueryValue($request->portions);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1041,6 +1041,10 @@ class ShapesApi extends ApiBase
         $httpBody = '';
 
         // query params
+        if ($request->shapes !== null) {
+            $queryParams['shapes'] = ObjectSerializer::toQueryValue($request->shapes);
+        }
+        // query params
         if ($request->password !== null) {
             $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
@@ -1051,10 +1055,6 @@ class ShapesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
-        }
-        // query params
-        if ($request->shapes !== null) {
-            $queryParams['shapes'] = ObjectSerializer::toQueryValue($request->shapes);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);

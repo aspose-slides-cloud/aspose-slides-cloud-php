@@ -34,37 +34,47 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlidesReorderPositionRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The new presentation slide position.
+     * The position of the slide to be reordered.
      */
     public $oldPosition;
 
     /*
-     * The new presentation slide position.
+     * The new position of the reordered slide.
      */
     public $newPosition;
 
     /*
-     * The presentation slide to copy.
+     * A comma separated array of positions of slides to be reordered.
+     */
+    public $oldPositions;
+
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public $newPositions;
+
+    /*
+     * The index of the slide to be copied from the source presentation.
      */
     public $slideToCopy;
 
     /*
-     * The presentation slide position.
+     * The target position at which to copy or create the slide.
      */
     public $position;
 
     /*
-     * The presentation slide to clone.
+     * The index of the slide to be cloned.
      */
     public $slideToClone;
 
     /*
-     * The source presentation.
+     * Name of the document to copy a slide from.
      */
     public $source;
 
@@ -74,40 +84,44 @@ class PostSlidesReorderPositionRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
     public $layoutAlias;
 
     /*
      * Initializes a new instance of the PostSlidesReorderPositionRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param int $oldPosition The new presentation slide position.
-     * @param int $newPosition The new presentation slide position.
-     * @param int $slideToCopy The presentation slide to copy.
-     * @param int $position The presentation slide position.
-     * @param int $slideToClone The presentation slide to clone.
-     * @param string $source The source presentation.
+     * @param string $name Document name.
+     * @param int $oldPosition The position of the slide to be reordered.
+     * @param int $newPosition The new position of the reordered slide.
+     * @param int[] $oldPositions A comma separated array of positions of slides to be reordered.
+     * @param int[] $newPositions A comma separated array of new slide positions.
+     * @param int $slideToCopy The index of the slide to be copied from the source presentation.
+     * @param int $position The target position at which to copy or create the slide.
+     * @param int $slideToClone The index of the slide to be cloned.
+     * @param string $source Name of the document to copy a slide from.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage The presentation storage.
-     * @param string $layoutAlias Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
+     * @param string $layoutAlias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
-    public function __construct($name, $oldPosition = null, $newPosition = null, $slideToCopy = null, $position = null, $slideToClone = null, $source = null, $password = null, $folder = null, $storage = null, $layoutAlias = null)
+    public function __construct($name, $oldPosition = null, $newPosition = null, $oldPositions = null, $newPositions = null, $slideToCopy = null, $position = null, $slideToClone = null, $source = null, $password = null, $folder = null, $storage = null, $layoutAlias = null)
     {
         $this->name = $name;
         $this->oldPosition = $oldPosition;
         $this->newPosition = $newPosition;
+        $this->oldPositions = $oldPositions;
+        $this->newPositions = $newPositions;
         $this->slideToCopy = $slideToCopy;
         $this->position = $position;
         $this->slideToClone = $slideToClone;
@@ -119,7 +133,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -127,7 +141,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -135,7 +149,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The new presentation slide position.
+     * The position of the slide to be reordered.
      */
     public function get_oldPosition()
     {
@@ -143,7 +157,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The new presentation slide position.
+     * The position of the slide to be reordered.
      */
     public function set_oldPosition($value)
     {
@@ -151,7 +165,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The new presentation slide position.
+     * The new position of the reordered slide.
      */
     public function get_newPosition()
     {
@@ -159,7 +173,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The new presentation slide position.
+     * The new position of the reordered slide.
      */
     public function set_newPosition($value)
     {
@@ -167,7 +181,39 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The presentation slide to copy.
+     * A comma separated array of positions of slides to be reordered.
+     */
+    public function get_oldPositions()
+    {
+        return $this->oldPositions;
+    }
+
+    /*
+     * A comma separated array of positions of slides to be reordered.
+     */
+    public function set_oldPositions($value)
+    {
+        $this->oldPositions = $value;
+        return $this;
+    }
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public function get_newPositions()
+    {
+        return $this->newPositions;
+    }
+
+    /*
+     * A comma separated array of new slide positions.
+     */
+    public function set_newPositions($value)
+    {
+        $this->newPositions = $value;
+        return $this;
+    }
+    /*
+     * The index of the slide to be copied from the source presentation.
      */
     public function get_slideToCopy()
     {
@@ -175,7 +221,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation slide to copy.
+     * The index of the slide to be copied from the source presentation.
      */
     public function set_slideToCopy($value)
     {
@@ -183,7 +229,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The presentation slide position.
+     * The target position at which to copy or create the slide.
      */
     public function get_position()
     {
@@ -191,7 +237,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation slide position.
+     * The target position at which to copy or create the slide.
      */
     public function set_position($value)
     {
@@ -199,7 +245,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The presentation slide to clone.
+     * The index of the slide to be cloned.
      */
     public function get_slideToClone()
     {
@@ -207,7 +253,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation slide to clone.
+     * The index of the slide to be cloned.
      */
     public function set_slideToClone($value)
     {
@@ -215,7 +261,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The source presentation.
+     * Name of the document to copy a slide from.
      */
     public function get_source()
     {
@@ -223,7 +269,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The source presentation.
+     * Name of the document to copy a slide from.
      */
     public function set_source($value)
     {
@@ -247,7 +293,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -255,7 +301,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -263,7 +309,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -271,7 +317,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * The presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -279,7 +325,7 @@ class PostSlidesReorderPositionRequest
         return $this;
     }
     /*
-     * Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
     public function get_layoutAlias()
     {
@@ -287,7 +333,7 @@ class PostSlidesReorderPositionRequest
     }
 
     /*
-     * Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
     public function set_layoutAlias($value)
     {

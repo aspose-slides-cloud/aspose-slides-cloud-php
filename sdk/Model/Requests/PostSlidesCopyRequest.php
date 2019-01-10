@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesSlide operation.
+ * Request model for postSlidesCopy operation.
  */
-class GetSlidesSlideRequest
+class PostSlidesCopyRequest
 {
     /*
      * Document name.
@@ -39,9 +39,24 @@ class GetSlidesSlideRequest
     public $name;
 
     /*
-     * Slide index.
+     * The index of the slide to be copied from the source presentation.
      */
-    public $slideIndex;
+    public $slideToCopy;
+
+    /*
+     * The target position at which to copy the slide. Copy to the end by default.
+     */
+    public $position;
+
+    /*
+     * Name of the document to copy a slide from.
+     */
+    public $source;
+
+    /*
+     * Password for the document to copy a slide from.
+     */
+    public $sourcePassword;
 
     /*
      * Document password.
@@ -59,18 +74,24 @@ class GetSlidesSlideRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlidesSlideRequest class.
+     * Initializes a new instance of the PostSlidesCopyRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
+     * @param int $slideToCopy The index of the slide to be copied from the source presentation.
+     * @param int $position The target position at which to copy the slide. Copy to the end by default.
+     * @param string $source Name of the document to copy a slide from.
+     * @param string $sourcePassword Password for the document to copy a slide from.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideToCopy, $position = null, $source = null, $sourcePassword = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
+        $this->slideToCopy = $slideToCopy;
+        $this->position = $position;
+        $this->source = $source;
+        $this->sourcePassword = $sourcePassword;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -93,19 +114,67 @@ class GetSlidesSlideRequest
         return $this;
     }
     /*
-     * Slide index.
+     * The index of the slide to be copied from the source presentation.
      */
-    public function get_slideIndex()
+    public function get_slideToCopy()
     {
-        return $this->slideIndex;
+        return $this->slideToCopy;
     }
 
     /*
-     * Slide index.
+     * The index of the slide to be copied from the source presentation.
      */
-    public function set_slideIndex($value)
+    public function set_slideToCopy($value)
     {
-        $this->slideIndex = $value;
+        $this->slideToCopy = $value;
+        return $this;
+    }
+    /*
+     * The target position at which to copy the slide. Copy to the end by default.
+     */
+    public function get_position()
+    {
+        return $this->position;
+    }
+
+    /*
+     * The target position at which to copy the slide. Copy to the end by default.
+     */
+    public function set_position($value)
+    {
+        $this->position = $value;
+        return $this;
+    }
+    /*
+     * Name of the document to copy a slide from.
+     */
+    public function get_source()
+    {
+        return $this->source;
+    }
+
+    /*
+     * Name of the document to copy a slide from.
+     */
+    public function set_source($value)
+    {
+        $this->source = $value;
+        return $this;
+    }
+    /*
+     * Password for the document to copy a slide from.
+     */
+    public function get_sourcePassword()
+    {
+        return $this->sourcePassword;
+    }
+
+    /*
+     * Password for the document to copy a slide from.
+     */
+    public function set_sourcePassword($value)
+    {
+        $this->sourcePassword = $value;
         return $this;
     }
     /*

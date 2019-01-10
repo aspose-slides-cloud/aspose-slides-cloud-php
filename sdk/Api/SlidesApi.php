@@ -155,11 +155,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteSlideByIndex'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage The presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -307,11 +307,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteSlidesCleanSlidesList'
      *
-     * @param  string $name The presentation name. (required)
+     * @param  string $name Document name. (required)
      * @param  int[] $slides The indices of the slides to be deleted; delete all by default. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -329,6 +329,10 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
+        if ($request->slides !== null) {
+            $queryParams['slides'] = ObjectSerializer::toQueryValue($request->slides);
+        }
+        // query params
         if ($request->password !== null) {
             $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
@@ -339,10 +343,6 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
-        }
-        // query params
-        if ($request->slides !== null) {
-            $queryParams['slides'] = ObjectSerializer::toQueryValue($request->slides);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -458,11 +458,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteSlidesSlideBackground'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -607,16 +607,16 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getSlideWithFormat'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
-     * @param  string $format (required)
-     * @param  int $width (optional, default to 0)
-     * @param  int $height (optional, default to 0)
-     * @param  string $password (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
-     * @param  string $out_path (optional)
-     * @param  string $fonts_folder (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  string $format Output file format. (required)
+     * @param  int $width Output file width; 0 to not adjust the size. Default is 0. (optional, default to 0)
+     * @param  int $height Output file height; 0 to not adjust the size. Default is 0. (optional, default to 0)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $out_path Path to upload the output file to. (optional)
+     * @param  string $fonts_folder Storage folder containing custom fonts to be used with the document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -785,11 +785,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getSlidesSlide'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -937,11 +937,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getSlidesSlideBackground'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1089,11 +1089,11 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getSlidesSlideComments'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index The position of the slide to be reordered. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1241,10 +1241,10 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getSlidesSlidesList'
      *
-     * @param  string $name The presentation name. (required)
+     * @param  string $name Document name. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1384,17 +1384,17 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postSlideSaveAs'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
-     * @param  string $format (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options (optional)
-     * @param  int $width (optional, default to 0)
-     * @param  int $height (optional, default to 0)
-     * @param  string $password (optional)
-     * @param  string $folder (optional)
-     * @param  string $storage (optional)
-     * @param  string $out_path (optional)
-     * @param  string $fonts_folder (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  string $format Output file format. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
+     * @param  int $width Output file width; 0 to not adjust the size. Default is 0. (optional, default to 0)
+     * @param  int $height Output file height; 0 to not adjust the size. Default is 0. (optional, default to 0)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $out_path Path to upload the output file to. (optional)
+     * @param  string $fonts_folder Storage folder containing custom fonts to be used with the document. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1469,6 +1469,649 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSlidesAdd(Requests\PostSlidesAddRequest $request)
+    {
+        try {
+            list($response) = $this->postSlidesAddWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSlidesAddWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSlidesAddWithHttpInfo(Requests\PostSlidesAddRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesAddRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSlidesAddAsync(Requests\PostSlidesAddRequest $request)
+    {
+        return $this->postSlidesAddAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSlidesAddAsyncWithHttpInfo(Requests\PostSlidesAddRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesAddRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSlidesAdd'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $position The target position at which to create the slide. Add to the end by default. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $layout_alias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSlidesAddRequest(Requests\PostSlidesAddRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesAdd');
+        }
+
+        $resourcePath = '/slides/{name}/slides/add';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->position !== null) {
+            $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // query params
+        if ($request->layoutAlias !== null) {
+            $queryParams['layoutAlias'] = ObjectSerializer::toQueryValue($request->layoutAlias);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSlidesCopy(Requests\PostSlidesCopyRequest $request)
+    {
+        try {
+            list($response) = $this->postSlidesCopyWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSlidesCopyWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSlidesCopyWithHttpInfo(Requests\PostSlidesCopyRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesCopyRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSlidesCopyAsync(Requests\PostSlidesCopyRequest $request)
+    {
+        return $this->postSlidesCopyAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSlidesCopyAsyncWithHttpInfo(Requests\PostSlidesCopyRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesCopyRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSlidesCopy'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_to_copy The index of the slide to be copied from the source presentation. (required)
+     * @param  int $position The target position at which to copy the slide. Copy to the end by default. (optional)
+     * @param  string $source Name of the document to copy a slide from. (optional)
+     * @param  string $source_password Password for the document to copy a slide from. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSlidesCopyRequest(Requests\PostSlidesCopyRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesCopy');
+        }
+        // verify the required parameter 'slide_to_copy' is set
+        if ($request->slideToCopy === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideToCopy when calling postSlidesCopy');
+        }
+
+        $resourcePath = '/slides/{name}/slides/copy';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->slideToCopy !== null) {
+            $queryParams['slideToCopy'] = ObjectSerializer::toQueryValue($request->slideToCopy);
+        }
+        // query params
+        if ($request->position !== null) {
+            $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // query params
+        if ($request->source !== null) {
+            $queryParams['source'] = ObjectSerializer::toQueryValue($request->source);
+        }
+        // query params
+        if ($request->sourcePassword !== null) {
+            $queryParams['sourcePassword'] = ObjectSerializer::toQueryValue($request->sourcePassword);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSlidesReorder(Requests\PostSlidesReorderRequest $request)
+    {
+        try {
+            list($response) = $this->postSlidesReorderWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSlidesReorderWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSlidesReorderWithHttpInfo(Requests\PostSlidesReorderRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesReorderRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSlidesReorderAsync(Requests\PostSlidesReorderRequest $request)
+    {
+        return $this->postSlidesReorderAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSlidesReorderAsyncWithHttpInfo(Requests\PostSlidesReorderRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesReorderRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSlidesReorder'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index The position of the slide to be reordered. (required)
+     * @param  int $new_position The new position of the reordered slide. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSlidesReorderRequest(Requests\PostSlidesReorderRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesReorder');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postSlidesReorder');
+        }
+        // verify the required parameter 'new_position' is set
+        if ($request->newPosition === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $newPosition when calling postSlidesReorder');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/move';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->newPosition !== null) {
+            $queryParams['newPosition'] = ObjectSerializer::toQueryValue($request->newPosition);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSlidesReorderMany(Requests\PostSlidesReorderManyRequest $request)
+    {
+        try {
+            list($response) = $this->postSlidesReorderManyWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSlidesReorderManyWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSlidesReorderManyWithHttpInfo(Requests\PostSlidesReorderManyRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesReorderManyRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSlidesReorderManyAsync(Requests\PostSlidesReorderManyRequest $request)
+    {
+        return $this->postSlidesReorderManyAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSlidesReorderManyAsyncWithHttpInfo(Requests\PostSlidesReorderManyRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideListResponse';
+        $httpRequest = $this->postSlidesReorderManyRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSlidesReorderMany'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int[] $old_positions A comma separated array of positions of slides to be reordered. (optional)
+     * @param  int[] $new_positions A comma separated array of new slide positions. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSlidesReorderManyRequest(Requests\PostSlidesReorderManyRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesReorderMany');
+        }
+
+        $resourcePath = '/slides/{name}/slides/reorder';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->oldPositions !== null) {
+            $queryParams['oldPositions'] = ObjectSerializer::toQueryValue($request->oldPositions);
+        }
+        // query params
+        if ($request->newPositions !== null) {
+            $queryParams['newPositions'] = ObjectSerializer::toQueryValue($request->newPositions);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json'],
+            ['application/json']);
+
         return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
     }
     /**
@@ -1575,17 +2218,19 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postSlidesReorderPosition'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $old_position The new presentation slide position. (optional)
-     * @param  int $new_position The new presentation slide position. (optional)
-     * @param  int $slide_to_copy The presentation slide to copy. (optional)
-     * @param  int $position The presentation slide position. (optional)
-     * @param  int $slide_to_clone The presentation slide to clone. (optional)
-     * @param  string $source The source presentation. (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $old_position The position of the slide to be reordered. (optional)
+     * @param  int $new_position The new position of the reordered slide. (optional)
+     * @param  int[] $old_positions A comma separated array of positions of slides to be reordered. (optional)
+     * @param  int[] $new_positions A comma separated array of new slide positions. (optional)
+     * @param  int $slide_to_copy The index of the slide to be copied from the source presentation. (optional)
+     * @param  int $position The target position at which to copy or create the slide. (optional)
+     * @param  int $slide_to_clone The index of the slide to be cloned. (optional)
+     * @param  string $source Name of the document to copy a slide from. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage The presentation storage. (optional)
-     * @param  string $layout_alias Alias of layout slide for new slide. Alias could be the type of layout, name of layout slide or index (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $layout_alias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1609,6 +2254,14 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->newPosition !== null) {
             $queryParams['newPosition'] = ObjectSerializer::toQueryValue($request->newPosition);
+        }
+        // query params
+        if ($request->oldPositions !== null) {
+            $queryParams['oldPositions'] = ObjectSerializer::toQueryValue($request->oldPositions);
+        }
+        // query params
+        if ($request->newPositions !== null) {
+            $queryParams['newPositions'] = ObjectSerializer::toQueryValue($request->newPositions);
         }
         // query params
         if ($request->slideToCopy !== null) {
@@ -1756,12 +2409,12 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'putSlidesSlide'
      *
-     * @param  string $name Name of the presentation. (required)
-     * @param  int $slide_index Index of the slide update to. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Slide $slide_dto DTO of the slide. (optional)
-     * @param  string $password (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage The presentation storage. (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Slide $slide_dto Slide update data. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1921,13 +2574,13 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'putSlidesSlideBackground'
      *
-     * @param  string $name (required)
-     * @param  int $slide_index (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background (optional)
-     * @param  string $folder (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data. Required unless color parameter is specified. (optional)
+     * @param  string $folder Document folder. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $storage (optional)
-     * @param  string $color (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $color Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

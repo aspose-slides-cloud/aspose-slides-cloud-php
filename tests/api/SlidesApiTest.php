@@ -59,7 +59,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for deleteSlideByIndex
-     * Delete presentation slide by its index.
+     * Delete a presentation slide by its index.
      */
     public function testDeleteSlideByIndex()
     {
@@ -289,7 +289,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for deleteSlidesSlideBackground
-     * Remove presentation slide background color.
+     * Remove background from a slide.
      */
     public function testDeleteSlidesSlideBackground()
     {
@@ -409,7 +409,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for getSlideWithFormat
-     * Convert slide to some format.
+     * Convert a slide to some format.
      */
     public function testGetSlideWithFormat()
     {
@@ -609,7 +609,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for getSlidesSlide
-     * Read slide info.
+     * Read a slide info.
      */
     public function testGetSlidesSlide()
     {
@@ -724,7 +724,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for getSlidesSlideBackground
-     * Read presentation slide background color type.
+     * Read background info for a slide.
      */
     public function testGetSlidesSlideBackground()
     {
@@ -1057,7 +1057,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for postSlideSaveAs
-     * Convert slide to some format.
+     * Convert a slide to some format.
      */
     public function testPostSlideSaveAs()
     {
@@ -1261,11 +1261,581 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("postSlideSaveAs", "fontsFolder");
         }
     }
+    private function getPostSlidesAddRequest()
+    {
+        $testname = TestUtils::getTestValue("postSlidesAdd", "name", "string");
+        $testposition = TestUtils::getTestValue("postSlidesAdd", "position", "int");
+        $testpassword = TestUtils::getTestValue("postSlidesAdd", "password", "string");
+        $testfolder = TestUtils::getTestValue("postSlidesAdd", "folder", "string");
+        $teststorage = TestUtils::getTestValue("postSlidesAdd", "storage", "string");
+        $testlayoutAlias = TestUtils::getTestValue("postSlidesAdd", "layoutAlias", "string");
+        $request = new Requests\PostSlidesAddRequest($testname, $testposition, $testpassword, $testfolder, $teststorage, $testlayoutAlias);
+        return $request;
+    }
+
+    /**
+     * Test case for postSlidesAdd
+     * Reorder presentation slide position
+     */
+    public function testPostSlidesAdd()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $this->initialize("postSlidesAdd", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSlidesAdd");
+        }
+        if ($needAssertResponse) {
+            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+        }
+    }
+
+    public function testPostSlidesAddInvalidname()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
+        $this->initialize("postSlidesAdd", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "name");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "name");
+        }
+    }
+
+    public function testPostSlidesAddInvalidposition()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->position = TestUtils::invalidizeValue("position", $request->position, "int");
+        $this->initialize("postSlidesAdd", "position", $request->position);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "position");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "position");
+        }
+    }
+
+    public function testPostSlidesAddInvalidpassword()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
+        $this->initialize("postSlidesAdd", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "password");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "password");
+        }
+    }
+
+    public function testPostSlidesAddInvalidfolder()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
+        $this->initialize("postSlidesAdd", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "folder");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "folder");
+        }
+    }
+
+    public function testPostSlidesAddInvalidstorage()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
+        $this->initialize("postSlidesAdd", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "storage");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "storage");
+        }
+    }
+
+    public function testPostSlidesAddInvalidlayoutAlias()
+    {
+        $request = $this->getPostSlidesAddRequest();
+        $request->layoutAlias = TestUtils::invalidizeValue("layoutAlias", $request->layoutAlias, "string");
+        $this->initialize("postSlidesAdd", "layoutAlias", $request->layoutAlias);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesAdd($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesAdd", "layoutAlias");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesAdd", "layoutAlias");
+        }
+    }
+    private function getPostSlidesCopyRequest()
+    {
+        $testname = TestUtils::getTestValue("postSlidesCopy", "name", "string");
+        $testslideToCopy = TestUtils::getTestValue("postSlidesCopy", "slideToCopy", "int");
+        $testposition = TestUtils::getTestValue("postSlidesCopy", "position", "int");
+        $testsource = TestUtils::getTestValue("postSlidesCopy", "source", "string");
+        $testsourcePassword = TestUtils::getTestValue("postSlidesCopy", "sourcePassword", "string");
+        $testpassword = TestUtils::getTestValue("postSlidesCopy", "password", "string");
+        $testfolder = TestUtils::getTestValue("postSlidesCopy", "folder", "string");
+        $teststorage = TestUtils::getTestValue("postSlidesCopy", "storage", "string");
+        $request = new Requests\PostSlidesCopyRequest($testname, $testslideToCopy, $testposition, $testsource, $testsourcePassword, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postSlidesCopy
+     * Reorder presentation slide position
+     */
+    public function testPostSlidesCopy()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $this->initialize("postSlidesCopy", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSlidesCopy");
+        }
+        if ($needAssertResponse) {
+            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+        }
+    }
+
+    public function testPostSlidesCopyInvalidname()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
+        $this->initialize("postSlidesCopy", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "name");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "name");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidslideToCopy()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->slideToCopy = TestUtils::invalidizeValue("slideToCopy", $request->slideToCopy, "int");
+        $this->initialize("postSlidesCopy", "slideToCopy", $request->slideToCopy);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "slideToCopy");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "slideToCopy");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidposition()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->position = TestUtils::invalidizeValue("position", $request->position, "int");
+        $this->initialize("postSlidesCopy", "position", $request->position);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "position");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "position");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidsource()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->source = TestUtils::invalidizeValue("source", $request->source, "string");
+        $this->initialize("postSlidesCopy", "source", $request->source);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "source");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "source");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidsourcePassword()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->sourcePassword = TestUtils::invalidizeValue("sourcePassword", $request->sourcePassword, "string");
+        $this->initialize("postSlidesCopy", "sourcePassword", $request->sourcePassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "sourcePassword");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "sourcePassword");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidpassword()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
+        $this->initialize("postSlidesCopy", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "password");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "password");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidfolder()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
+        $this->initialize("postSlidesCopy", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "folder");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "folder");
+        }
+    }
+
+    public function testPostSlidesCopyInvalidstorage()
+    {
+        $request = $this->getPostSlidesCopyRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
+        $this->initialize("postSlidesCopy", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesCopy($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesCopy", "storage");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesCopy", "storage");
+        }
+    }
+    private function getPostSlidesReorderRequest()
+    {
+        $testname = TestUtils::getTestValue("postSlidesReorder", "name", "string");
+        $testslideIndex = TestUtils::getTestValue("postSlidesReorder", "slideIndex", "int");
+        $testnewPosition = TestUtils::getTestValue("postSlidesReorder", "newPosition", "int");
+        $testpassword = TestUtils::getTestValue("postSlidesReorder", "password", "string");
+        $testfolder = TestUtils::getTestValue("postSlidesReorder", "folder", "string");
+        $teststorage = TestUtils::getTestValue("postSlidesReorder", "storage", "string");
+        $request = new Requests\PostSlidesReorderRequest($testname, $testslideIndex, $testnewPosition, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postSlidesReorder
+     * Reorder presentation slide position
+     */
+    public function testPostSlidesReorder()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $this->initialize("postSlidesReorder", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSlidesReorder");
+        }
+        if ($needAssertResponse) {
+            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+        }
+    }
+
+    public function testPostSlidesReorderInvalidname()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
+        $this->initialize("postSlidesReorder", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "name");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "name");
+        }
+    }
+
+    public function testPostSlidesReorderInvalidslideIndex()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
+        $this->initialize("postSlidesReorder", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "slideIndex");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "slideIndex");
+        }
+    }
+
+    public function testPostSlidesReorderInvalidnewPosition()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->newPosition = TestUtils::invalidizeValue("newPosition", $request->newPosition, "int");
+        $this->initialize("postSlidesReorder", "newPosition", $request->newPosition);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "newPosition");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "newPosition");
+        }
+    }
+
+    public function testPostSlidesReorderInvalidpassword()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
+        $this->initialize("postSlidesReorder", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "password");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "password");
+        }
+    }
+
+    public function testPostSlidesReorderInvalidfolder()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
+        $this->initialize("postSlidesReorder", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "folder");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "folder");
+        }
+    }
+
+    public function testPostSlidesReorderInvalidstorage()
+    {
+        $request = $this->getPostSlidesReorderRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
+        $this->initialize("postSlidesReorder", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorder($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorder", "storage");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorder", "storage");
+        }
+    }
+    private function getPostSlidesReorderManyRequest()
+    {
+        $testname = TestUtils::getTestValue("postSlidesReorderMany", "name", "string");
+        $testoldPositions = TestUtils::getTestValue("postSlidesReorderMany", "oldPositions", "int[]");
+        $testnewPositions = TestUtils::getTestValue("postSlidesReorderMany", "newPositions", "int[]");
+        $testpassword = TestUtils::getTestValue("postSlidesReorderMany", "password", "string");
+        $testfolder = TestUtils::getTestValue("postSlidesReorderMany", "folder", "string");
+        $teststorage = TestUtils::getTestValue("postSlidesReorderMany", "storage", "string");
+        $request = new Requests\PostSlidesReorderManyRequest($testname, $testoldPositions, $testnewPositions, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postSlidesReorderMany
+     * Reorder presentation slide position
+     */
+    public function testPostSlidesReorderMany()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $this->initialize("postSlidesReorderMany", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSlidesReorderMany");
+        }
+        if ($needAssertResponse) {
+            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidname()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
+        $this->initialize("postSlidesReorderMany", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "name");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "name");
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidoldPositions()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->oldPositions = TestUtils::invalidizeValue("oldPositions", $request->oldPositions, "int[]");
+        $this->initialize("postSlidesReorderMany", "oldPositions", $request->oldPositions);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "oldPositions");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "oldPositions");
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidnewPositions()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->newPositions = TestUtils::invalidizeValue("newPositions", $request->newPositions, "int[]");
+        $this->initialize("postSlidesReorderMany", "newPositions", $request->newPositions);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "newPositions");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "newPositions");
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidpassword()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
+        $this->initialize("postSlidesReorderMany", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "password");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "password");
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidfolder()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
+        $this->initialize("postSlidesReorderMany", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "folder");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "folder");
+        }
+    }
+
+    public function testPostSlidesReorderManyInvalidstorage()
+    {
+        $request = $this->getPostSlidesReorderManyRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
+        $this->initialize("postSlidesReorderMany", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderMany($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderMany", "storage");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderMany", "storage");
+        }
+    }
     private function getPostSlidesReorderPositionRequest()
     {
         $testname = TestUtils::getTestValue("postSlidesReorderPosition", "name", "string");
         $testoldPosition = TestUtils::getTestValue("postSlidesReorderPosition", "oldPosition", "int");
         $testnewPosition = TestUtils::getTestValue("postSlidesReorderPosition", "newPosition", "int");
+        $testoldPositions = TestUtils::getTestValue("postSlidesReorderPosition", "oldPositions", "int[]");
+        $testnewPositions = TestUtils::getTestValue("postSlidesReorderPosition", "newPositions", "int[]");
         $testslideToCopy = TestUtils::getTestValue("postSlidesReorderPosition", "slideToCopy", "int");
         $testposition = TestUtils::getTestValue("postSlidesReorderPosition", "position", "int");
         $testslideToClone = TestUtils::getTestValue("postSlidesReorderPosition", "slideToClone", "int");
@@ -1274,13 +1844,13 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("postSlidesReorderPosition", "folder", "string");
         $teststorage = TestUtils::getTestValue("postSlidesReorderPosition", "storage", "string");
         $testlayoutAlias = TestUtils::getTestValue("postSlidesReorderPosition", "layoutAlias", "string");
-        $request = new Requests\PostSlidesReorderPositionRequest($testname, $testoldPosition, $testnewPosition, $testslideToCopy, $testposition, $testslideToClone, $testsource, $testpassword, $testfolder, $teststorage, $testlayoutAlias);
+        $request = new Requests\PostSlidesReorderPositionRequest($testname, $testoldPosition, $testnewPosition, $testoldPositions, $testnewPositions, $testslideToCopy, $testposition, $testslideToClone, $testsource, $testpassword, $testfolder, $teststorage, $testlayoutAlias);
         return $request;
     }
 
     /**
      * Test case for postSlidesReorderPosition
-     * Reorder presentation slide position
+     * Create, copy or reorder presentation slides.
      */
     public function testPostSlidesReorderPosition()
     {
@@ -1346,6 +1916,40 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderPosition", "newPosition");
+        }
+    }
+
+    public function testPostSlidesReorderPositionInvalidoldPositions()
+    {
+        $request = $this->getPostSlidesReorderPositionRequest();
+        $request->oldPositions = TestUtils::invalidizeValue("oldPositions", $request->oldPositions, "int[]");
+        $this->initialize("postSlidesReorderPosition", "oldPositions", $request->oldPositions);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderPosition($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderPosition", "oldPositions");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderPosition", "oldPositions");
+        }
+    }
+
+    public function testPostSlidesReorderPositionInvalidnewPositions()
+    {
+        $request = $this->getPostSlidesReorderPositionRequest();
+        $request->newPositions = TestUtils::invalidizeValue("newPositions", $request->newPositions, "int[]");
+        $this->initialize("postSlidesReorderPosition", "newPositions", $request->newPositions);
+        $needAssertResponse = false;
+        try {
+            $result = $this->api->postSlidesReorderPosition($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesReorderPosition", "newPositions");
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesReorderPosition", "newPositions");
         }
     }
 
@@ -1498,7 +2102,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for putSlidesSlide
-     * Update slide properties.
+     * Update a slide.
      */
     public function testPutSlidesSlide()
     {
@@ -1632,7 +2236,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for putSlidesSlideBackground
-     * Set presentation slide background color.
+     * Set background for a slide.
      */
     public function testPutSlidesSlideBackground()
     {

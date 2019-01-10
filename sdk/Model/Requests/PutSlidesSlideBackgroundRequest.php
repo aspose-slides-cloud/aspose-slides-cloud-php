@@ -34,22 +34,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesSlideBackgroundRequest
 {
     /*
-     * 
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * 
+     * Slide background update data. Required unless color parameter is specified.
      */
     public $background;
 
     /*
-     * 
+     * Document folder.
      */
     public $folder;
 
@@ -59,25 +59,25 @@ class PutSlidesSlideBackgroundRequest
     public $password;
 
     /*
-     * 
+     * Document storage.
      */
     public $storage;
 
     /*
-     * 
+     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
      */
     public $color;
 
     /*
      * Initializes a new instance of the PutSlidesSlideBackgroundRequest class.
      *  
-     * @param string $name 
-     * @param int $slideIndex 
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background 
-     * @param string $folder 
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data. Required unless color parameter is specified.
+     * @param string $folder Document folder.
      * @param string $password Document password.
-     * @param string $storage 
-     * @param string $color 
+     * @param string $storage Document storage.
+     * @param string $color Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
      */
     public function __construct($name, $slideIndex, $background = null, $folder = null, $password = null, $storage = null, $color = null)
     {
@@ -91,7 +91,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function get_name()
     {
@@ -99,7 +99,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Document name.
      */
     public function set_name($value)
     {
@@ -107,7 +107,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * 
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -115,7 +115,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -123,7 +123,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * 
+     * Slide background update data. Required unless color parameter is specified.
      */
     public function get_background()
     {
@@ -131,7 +131,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Slide background update data. Required unless color parameter is specified.
      */
     public function set_background($value)
     {
@@ -139,7 +139,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * 
+     * Document folder.
      */
     public function get_folder()
     {
@@ -147,7 +147,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -171,7 +171,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * 
+     * Document storage.
      */
     public function get_storage()
     {
@@ -179,7 +179,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -187,7 +187,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * 
+     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
      */
     public function get_color()
     {
@@ -195,7 +195,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * 
+     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
      */
     public function set_color($value)
     {
