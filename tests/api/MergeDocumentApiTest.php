@@ -48,11 +48,11 @@ class MergeDocumentApiTest extends TestBase
 
     private function getPostPresentationMergeRequest()
     {
-        $testname = TestUtils::getTestValue("postPresentationMerge", "name", "string");
-        $testrequest = TestUtils::getTestValue("postPresentationMerge", "request", "\Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest");
-        $testpassword = TestUtils::getTestValue("postPresentationMerge", "password", "string");
-        $teststorage = TestUtils::getTestValue("postPresentationMerge", "storage", "string");
-        $testfolder = TestUtils::getTestValue("postPresentationMerge", "folder", "string");
+        $testname = TestUtils::getTestValue("postPresentationMerge", "name", $this->values);
+        $testrequest = TestUtils::getTestValue("postPresentationMerge", "request", $this->values);
+        $testpassword = TestUtils::getTestValue("postPresentationMerge", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("postPresentationMerge", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("postPresentationMerge", "folder", $this->values);
         $request = new Requests\PostPresentationMergeRequest($testname, $testrequest, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -64,7 +64,7 @@ class MergeDocumentApiTest extends TestBase
     public function testPostPresentationMerge()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $this->initialize("postPresentationMerge", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
@@ -73,101 +73,101 @@ class MergeDocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "postPresentationMerge");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPostPresentationMergeInvalidname()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("postPresentationMerge", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "postPresentationMerge", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postPresentationMerge", "name");
+            TestUtils::assertException($ex, "postPresentationMerge", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postPresentationMerge", "name");
+            TestUtils::assertResponse("postPresentationMerge", "name", $this->okToFailValues);
         }
     }
 
     public function testPostPresentationMergeInvalidrequest()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $request->request = TestUtils::invalidizeValue("request", $request->request, "\Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest");
-        $this->initialize("postPresentationMerge", "request", $request->request);
+        $request->request = TestUtils::invalidizeValue("request", "postPresentationMerge", $request->request, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "request", $request->request);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postPresentationMerge", "request");
+            TestUtils::assertException($ex, "postPresentationMerge", "request", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postPresentationMerge", "request");
+            TestUtils::assertResponse("postPresentationMerge", "request", $this->okToFailValues);
         }
     }
 
     public function testPostPresentationMergeInvalidpassword()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("postPresentationMerge", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "postPresentationMerge", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postPresentationMerge", "password");
+            TestUtils::assertException($ex, "postPresentationMerge", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postPresentationMerge", "password");
+            TestUtils::assertResponse("postPresentationMerge", "password", $this->okToFailValues);
         }
     }
 
     public function testPostPresentationMergeInvalidstorage()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("postPresentationMerge", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "postPresentationMerge", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postPresentationMerge", "storage");
+            TestUtils::assertException($ex, "postPresentationMerge", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postPresentationMerge", "storage");
+            TestUtils::assertResponse("postPresentationMerge", "storage", $this->okToFailValues);
         }
     }
 
     public function testPostPresentationMergeInvalidfolder()
     {
         $request = $this->getPostPresentationMergeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("postPresentationMerge", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "postPresentationMerge", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postPresentationMerge", "folder");
+            TestUtils::assertException($ex, "postPresentationMerge", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postPresentationMerge", "folder");
+            TestUtils::assertResponse("postPresentationMerge", "folder", $this->okToFailValues);
         }
     }
     private function getPutPresentationMergeRequest()
     {
-        $testname = TestUtils::getTestValue("putPresentationMerge", "name", "string");
-        $testrequest = TestUtils::getTestValue("putPresentationMerge", "request", "\Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest");
-        $testpassword = TestUtils::getTestValue("putPresentationMerge", "password", "string");
-        $teststorage = TestUtils::getTestValue("putPresentationMerge", "storage", "string");
-        $testfolder = TestUtils::getTestValue("putPresentationMerge", "folder", "string");
+        $testname = TestUtils::getTestValue("putPresentationMerge", "name", $this->values);
+        $testrequest = TestUtils::getTestValue("putPresentationMerge", "request", $this->values);
+        $testpassword = TestUtils::getTestValue("putPresentationMerge", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putPresentationMerge", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putPresentationMerge", "folder", $this->values);
         $request = new Requests\PutPresentationMergeRequest($testname, $testrequest, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -179,7 +179,7 @@ class MergeDocumentApiTest extends TestBase
     public function testPutPresentationMerge()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $this->initialize("putPresentationMerge", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
@@ -188,92 +188,92 @@ class MergeDocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "putPresentationMerge");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPutPresentationMergeInvalidname()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("putPresentationMerge", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "putPresentationMerge", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putPresentationMerge", "name");
+            TestUtils::assertException($ex, "putPresentationMerge", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putPresentationMerge", "name");
+            TestUtils::assertResponse("putPresentationMerge", "name", $this->okToFailValues);
         }
     }
 
     public function testPutPresentationMergeInvalidrequest()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $request->request = TestUtils::invalidizeValue("request", $request->request, "\Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest");
-        $this->initialize("putPresentationMerge", "request", $request->request);
+        $request->request = TestUtils::invalidizeValue("request", "putPresentationMerge", $request->request, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "request", $request->request);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putPresentationMerge", "request");
+            TestUtils::assertException($ex, "putPresentationMerge", "request", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putPresentationMerge", "request");
+            TestUtils::assertResponse("putPresentationMerge", "request", $this->okToFailValues);
         }
     }
 
     public function testPutPresentationMergeInvalidpassword()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putPresentationMerge", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putPresentationMerge", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putPresentationMerge", "password");
+            TestUtils::assertException($ex, "putPresentationMerge", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putPresentationMerge", "password");
+            TestUtils::assertResponse("putPresentationMerge", "password", $this->okToFailValues);
         }
     }
 
     public function testPutPresentationMergeInvalidstorage()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("putPresentationMerge", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "putPresentationMerge", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putPresentationMerge", "storage");
+            TestUtils::assertException($ex, "putPresentationMerge", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putPresentationMerge", "storage");
+            TestUtils::assertResponse("putPresentationMerge", "storage", $this->okToFailValues);
         }
     }
 
     public function testPutPresentationMergeInvalidfolder()
     {
         $request = $this->getPutPresentationMergeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("putPresentationMerge", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "putPresentationMerge", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putPresentationMerge", "folder");
+            TestUtils::assertException($ex, "putPresentationMerge", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putPresentationMerge", "folder");
+            TestUtils::assertResponse("putPresentationMerge", "folder", $this->okToFailValues);
         }
     }
 }

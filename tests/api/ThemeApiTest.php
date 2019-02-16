@@ -48,11 +48,11 @@ class ThemeApiTest extends TestBase
 
     private function getGetSlidesThemeRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesTheme", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesTheme", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesTheme", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesTheme", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesTheme", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesTheme", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesTheme", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesTheme", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesTheme", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesTheme", "storage", $this->values);
         $request = new Requests\GetSlidesThemeRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -64,7 +64,7 @@ class ThemeApiTest extends TestBase
     public function testGetSlidesTheme()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $this->initialize("getSlidesTheme", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
@@ -73,101 +73,101 @@ class ThemeApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesTheme");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesThemeInvalidname()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesTheme", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesTheme", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesTheme", "name");
+            TestUtils::assertException($ex, "getSlidesTheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesTheme", "name");
+            TestUtils::assertResponse("getSlidesTheme", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeInvalidslideIndex()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesTheme", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesTheme", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesTheme", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesTheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesTheme", "slideIndex");
+            TestUtils::assertResponse("getSlidesTheme", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeInvalidpassword()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesTheme", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesTheme", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesTheme", "password");
+            TestUtils::assertException($ex, "getSlidesTheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesTheme", "password");
+            TestUtils::assertResponse("getSlidesTheme", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeInvalidfolder()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesTheme", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesTheme", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesTheme", "folder");
+            TestUtils::assertException($ex, "getSlidesTheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesTheme", "folder");
+            TestUtils::assertResponse("getSlidesTheme", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeInvalidstorage()
     {
         $request = $this->getGetSlidesThemeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesTheme", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesTheme", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesTheme", "storage");
+            TestUtils::assertException($ex, "getSlidesTheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesTheme", "storage");
+            TestUtils::assertResponse("getSlidesTheme", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlidesThemeColorSchemeRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesThemeColorScheme", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesThemeColorScheme", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesThemeColorScheme", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesThemeColorScheme", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesThemeColorScheme", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesThemeColorScheme", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesThemeColorScheme", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesThemeColorScheme", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesThemeColorScheme", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesThemeColorScheme", "storage", $this->values);
         $request = new Requests\GetSlidesThemeColorSchemeRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -179,7 +179,7 @@ class ThemeApiTest extends TestBase
     public function testGetSlidesThemeColorScheme()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $this->initialize("getSlidesThemeColorScheme", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
@@ -188,101 +188,101 @@ class ThemeApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeColorScheme");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesThemeColorSchemeInvalidname()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesThemeColorScheme", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesThemeColorScheme", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "name");
+            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeColorScheme", "name");
+            TestUtils::assertResponse("getSlidesThemeColorScheme", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeColorSchemeInvalidslideIndex()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesThemeColorScheme", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesThemeColorScheme", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeColorScheme", "slideIndex");
+            TestUtils::assertResponse("getSlidesThemeColorScheme", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeColorSchemeInvalidpassword()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesThemeColorScheme", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesThemeColorScheme", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "password");
+            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeColorScheme", "password");
+            TestUtils::assertResponse("getSlidesThemeColorScheme", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeColorSchemeInvalidfolder()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesThemeColorScheme", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesThemeColorScheme", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "folder");
+            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeColorScheme", "folder");
+            TestUtils::assertResponse("getSlidesThemeColorScheme", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeColorSchemeInvalidstorage()
     {
         $request = $this->getGetSlidesThemeColorSchemeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesThemeColorScheme", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesThemeColorScheme", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "storage");
+            TestUtils::assertException($ex, "getSlidesThemeColorScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeColorScheme", "storage");
+            TestUtils::assertResponse("getSlidesThemeColorScheme", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlidesThemeFontSchemeRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesThemeFontScheme", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesThemeFontScheme", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesThemeFontScheme", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesThemeFontScheme", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesThemeFontScheme", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesThemeFontScheme", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesThemeFontScheme", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesThemeFontScheme", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesThemeFontScheme", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesThemeFontScheme", "storage", $this->values);
         $request = new Requests\GetSlidesThemeFontSchemeRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -294,7 +294,7 @@ class ThemeApiTest extends TestBase
     public function testGetSlidesThemeFontScheme()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $this->initialize("getSlidesThemeFontScheme", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
@@ -303,101 +303,101 @@ class ThemeApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeFontScheme");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesThemeFontSchemeInvalidname()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesThemeFontScheme", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesThemeFontScheme", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "name");
+            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFontScheme", "name");
+            TestUtils::assertResponse("getSlidesThemeFontScheme", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFontSchemeInvalidslideIndex()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesThemeFontScheme", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesThemeFontScheme", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFontScheme", "slideIndex");
+            TestUtils::assertResponse("getSlidesThemeFontScheme", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFontSchemeInvalidpassword()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesThemeFontScheme", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesThemeFontScheme", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "password");
+            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFontScheme", "password");
+            TestUtils::assertResponse("getSlidesThemeFontScheme", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFontSchemeInvalidfolder()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesThemeFontScheme", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesThemeFontScheme", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "folder");
+            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFontScheme", "folder");
+            TestUtils::assertResponse("getSlidesThemeFontScheme", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFontSchemeInvalidstorage()
     {
         $request = $this->getGetSlidesThemeFontSchemeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesThemeFontScheme", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesThemeFontScheme", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "storage");
+            TestUtils::assertException($ex, "getSlidesThemeFontScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFontScheme", "storage");
+            TestUtils::assertResponse("getSlidesThemeFontScheme", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlidesThemeFormatSchemeRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesThemeFormatScheme", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesThemeFormatScheme", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesThemeFormatScheme", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesThemeFormatScheme", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesThemeFormatScheme", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesThemeFormatScheme", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesThemeFormatScheme", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesThemeFormatScheme", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesThemeFormatScheme", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesThemeFormatScheme", "storage", $this->values);
         $request = new Requests\GetSlidesThemeFormatSchemeRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -409,7 +409,7 @@ class ThemeApiTest extends TestBase
     public function testGetSlidesThemeFormatScheme()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $this->initialize("getSlidesThemeFormatScheme", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
@@ -418,92 +418,92 @@ class ThemeApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeFormatScheme");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesThemeFormatSchemeInvalidname()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesThemeFormatScheme", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesThemeFormatScheme", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "name");
+            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFormatScheme", "name");
+            TestUtils::assertResponse("getSlidesThemeFormatScheme", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFormatSchemeInvalidslideIndex()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesThemeFormatScheme", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesThemeFormatScheme", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFormatScheme", "slideIndex");
+            TestUtils::assertResponse("getSlidesThemeFormatScheme", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFormatSchemeInvalidpassword()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesThemeFormatScheme", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesThemeFormatScheme", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "password");
+            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFormatScheme", "password");
+            TestUtils::assertResponse("getSlidesThemeFormatScheme", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFormatSchemeInvalidfolder()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesThemeFormatScheme", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesThemeFormatScheme", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "folder");
+            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFormatScheme", "folder");
+            TestUtils::assertResponse("getSlidesThemeFormatScheme", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesThemeFormatSchemeInvalidstorage()
     {
         $request = $this->getGetSlidesThemeFormatSchemeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesThemeFormatScheme", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesThemeFormatScheme", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "storage");
+            TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesThemeFormatScheme", "storage");
+            TestUtils::assertResponse("getSlidesThemeFormatScheme", "storage", $this->okToFailValues);
         }
     }
 }

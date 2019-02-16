@@ -48,11 +48,11 @@ class LayoutSlidesApiTest extends TestBase
 
     private function getGetLayoutSlideRequest()
     {
-        $testname = TestUtils::getTestValue("getLayoutSlide", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getLayoutSlide", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getLayoutSlide", "password", "string");
-        $testfolder = TestUtils::getTestValue("getLayoutSlide", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getLayoutSlide", "storage", "string");
+        $testname = TestUtils::getTestValue("getLayoutSlide", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getLayoutSlide", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getLayoutSlide", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getLayoutSlide", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getLayoutSlide", "storage", $this->values);
         $request = new Requests\GetLayoutSlideRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -64,7 +64,7 @@ class LayoutSlidesApiTest extends TestBase
     public function testGetLayoutSlide()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $this->initialize("getLayoutSlide", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
@@ -73,100 +73,100 @@ class LayoutSlidesApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getLayoutSlide");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetLayoutSlideInvalidname()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getLayoutSlide", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getLayoutSlide", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlide", "name");
+            TestUtils::assertException($ex, "getLayoutSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlide", "name");
+            TestUtils::assertResponse("getLayoutSlide", "name", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlideInvalidslideIndex()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getLayoutSlide", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getLayoutSlide", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlide", "slideIndex");
+            TestUtils::assertException($ex, "getLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlide", "slideIndex");
+            TestUtils::assertResponse("getLayoutSlide", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlideInvalidpassword()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getLayoutSlide", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getLayoutSlide", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlide", "password");
+            TestUtils::assertException($ex, "getLayoutSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlide", "password");
+            TestUtils::assertResponse("getLayoutSlide", "password", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlideInvalidfolder()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getLayoutSlide", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getLayoutSlide", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlide", "folder");
+            TestUtils::assertException($ex, "getLayoutSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlide", "folder");
+            TestUtils::assertResponse("getLayoutSlide", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlideInvalidstorage()
     {
         $request = $this->getGetLayoutSlideRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getLayoutSlide", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getLayoutSlide", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlide", "storage");
+            TestUtils::assertException($ex, "getLayoutSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlide", "storage");
+            TestUtils::assertResponse("getLayoutSlide", "storage", $this->okToFailValues);
         }
     }
     private function getGetLayoutSlidesListRequest()
     {
-        $testname = TestUtils::getTestValue("getLayoutSlidesList", "name", "string");
-        $testpassword = TestUtils::getTestValue("getLayoutSlidesList", "password", "string");
-        $testfolder = TestUtils::getTestValue("getLayoutSlidesList", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getLayoutSlidesList", "storage", "string");
+        $testname = TestUtils::getTestValue("getLayoutSlidesList", "name", $this->values);
+        $testpassword = TestUtils::getTestValue("getLayoutSlidesList", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getLayoutSlidesList", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getLayoutSlidesList", "storage", $this->values);
         $request = new Requests\GetLayoutSlidesListRequest($testname, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -178,7 +178,7 @@ class LayoutSlidesApiTest extends TestBase
     public function testGetLayoutSlidesList()
     {
         $request = $this->getGetLayoutSlidesListRequest();
-        $this->initialize("getLayoutSlidesList", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlidesList($request);
@@ -187,87 +187,87 @@ class LayoutSlidesApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getLayoutSlidesList");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetLayoutSlidesListInvalidname()
     {
         $request = $this->getGetLayoutSlidesListRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getLayoutSlidesList", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getLayoutSlidesList", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlidesList", "name");
+            TestUtils::assertException($ex, "getLayoutSlidesList", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlidesList", "name");
+            TestUtils::assertResponse("getLayoutSlidesList", "name", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlidesListInvalidpassword()
     {
         $request = $this->getGetLayoutSlidesListRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getLayoutSlidesList", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getLayoutSlidesList", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlidesList", "password");
+            TestUtils::assertException($ex, "getLayoutSlidesList", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlidesList", "password");
+            TestUtils::assertResponse("getLayoutSlidesList", "password", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlidesListInvalidfolder()
     {
         $request = $this->getGetLayoutSlidesListRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getLayoutSlidesList", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getLayoutSlidesList", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlidesList", "folder");
+            TestUtils::assertException($ex, "getLayoutSlidesList", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlidesList", "folder");
+            TestUtils::assertResponse("getLayoutSlidesList", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetLayoutSlidesListInvalidstorage()
     {
         $request = $this->getGetLayoutSlidesListRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getLayoutSlidesList", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getLayoutSlidesList", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getLayoutSlidesList", "storage");
+            TestUtils::assertException($ex, "getLayoutSlidesList", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getLayoutSlidesList", "storage");
+            TestUtils::assertResponse("getLayoutSlidesList", "storage", $this->okToFailValues);
         }
     }
     private function getPostCopyLayoutSlideFromSourcePresentationRequest()
     {
-        $testname = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "name", "string");
-        $testcloneFrom = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", "string");
-        $testcloneFromPosition = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", "int");
-        $testcloneFromPassword = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", "string");
-        $testcloneFromStorage = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", "string");
-        $testpassword = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "password", "string");
-        $testfolder = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "folder", "string");
-        $teststorage = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "storage", "string");
+        $testname = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "name", $this->values);
+        $testcloneFrom = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $this->values);
+        $testcloneFromPosition = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $this->values);
+        $testcloneFromPassword = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $this->values);
+        $testcloneFromStorage = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $this->values);
+        $testpassword = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "storage", $this->values);
         $request = new Requests\PostCopyLayoutSlideFromSourcePresentationRequest($testname, $testcloneFrom, $testcloneFromPosition, $testcloneFromPassword, $testcloneFromStorage, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -279,7 +279,7 @@ class LayoutSlidesApiTest extends TestBase
     public function testPostCopyLayoutSlideFromSourcePresentation()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
@@ -288,153 +288,153 @@ class LayoutSlidesApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "postCopyLayoutSlideFromSourcePresentation");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidname()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "postCopyLayoutSlideFromSourcePresentation", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "name");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "name");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "name", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidcloneFrom()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->cloneFrom = TestUtils::invalidizeValue("cloneFrom", $request->cloneFrom, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $request->cloneFrom);
+        $request->cloneFrom = TestUtils::invalidizeValue("cloneFrom", "postCopyLayoutSlideFromSourcePresentation", $request->cloneFrom, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $request->cloneFrom);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFrom");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFrom");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPosition()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->cloneFromPosition = TestUtils::invalidizeValue("cloneFromPosition", $request->cloneFromPosition, "int");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $request->cloneFromPosition);
+        $request->cloneFromPosition = TestUtils::invalidizeValue("cloneFromPosition", "postCopyLayoutSlideFromSourcePresentation", $request->cloneFromPosition, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $request->cloneFromPosition);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPassword()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->cloneFromPassword = TestUtils::invalidizeValue("cloneFromPassword", $request->cloneFromPassword, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $request->cloneFromPassword);
+        $request->cloneFromPassword = TestUtils::invalidizeValue("cloneFromPassword", "postCopyLayoutSlideFromSourcePresentation", $request->cloneFromPassword, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $request->cloneFromPassword);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromStorage()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->cloneFromStorage = TestUtils::invalidizeValue("cloneFromStorage", $request->cloneFromStorage, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $request->cloneFromStorage);
+        $request->cloneFromStorage = TestUtils::invalidizeValue("cloneFromStorage", "postCopyLayoutSlideFromSourcePresentation", $request->cloneFromStorage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $request->cloneFromStorage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidpassword()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "postCopyLayoutSlideFromSourcePresentation", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "password");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "password");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "password", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidfolder()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "postCopyLayoutSlideFromSourcePresentation", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "folder");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "folder");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "folder", $this->okToFailValues);
         }
     }
 
     public function testPostCopyLayoutSlideFromSourcePresentationInvalidstorage()
     {
         $request = $this->getPostCopyLayoutSlideFromSourcePresentationRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("postCopyLayoutSlideFromSourcePresentation", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "postCopyLayoutSlideFromSourcePresentation", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "storage");
+            TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "storage");
+            TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "storage", $this->okToFailValues);
         }
     }
     private function getPutLayoutSlideRequest()
     {
-        $testname = TestUtils::getTestValue("putLayoutSlide", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("putLayoutSlide", "slideIndex", "int");
-        $testslideDto = TestUtils::getTestValue("putLayoutSlide", "slideDto", "\Aspose\Slides\Cloud\Sdk\Model\LayoutSlide");
-        $testpassword = TestUtils::getTestValue("putLayoutSlide", "password", "string");
-        $testfolder = TestUtils::getTestValue("putLayoutSlide", "folder", "string");
-        $teststorage = TestUtils::getTestValue("putLayoutSlide", "storage", "string");
+        $testname = TestUtils::getTestValue("putLayoutSlide", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putLayoutSlide", "slideIndex", $this->values);
+        $testslideDto = TestUtils::getTestValue("putLayoutSlide", "slideDto", $this->values);
+        $testpassword = TestUtils::getTestValue("putLayoutSlide", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putLayoutSlide", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putLayoutSlide", "storage", $this->values);
         $request = new Requests\PutLayoutSlideRequest($testname, $testslideIndex, $testslideDto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -446,7 +446,7 @@ class LayoutSlidesApiTest extends TestBase
     public function testPutLayoutSlide()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $this->initialize("putLayoutSlide", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
@@ -455,109 +455,109 @@ class LayoutSlidesApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "putLayoutSlide");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPutLayoutSlideInvalidname()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("putLayoutSlide", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "putLayoutSlide", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "name");
+            TestUtils::assertException($ex, "putLayoutSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "name");
+            TestUtils::assertResponse("putLayoutSlide", "name", $this->okToFailValues);
         }
     }
 
     public function testPutLayoutSlideInvalidslideIndex()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("putLayoutSlide", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putLayoutSlide", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "slideIndex");
+            TestUtils::assertException($ex, "putLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "slideIndex");
+            TestUtils::assertResponse("putLayoutSlide", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testPutLayoutSlideInvalidslideDto()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->slideDto = TestUtils::invalidizeValue("slideDto", $request->slideDto, "\Aspose\Slides\Cloud\Sdk\Model\LayoutSlide");
-        $this->initialize("putLayoutSlide", "slideDto", $request->slideDto);
+        $request->slideDto = TestUtils::invalidizeValue("slideDto", "putLayoutSlide", $request->slideDto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "slideDto", $request->slideDto);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "slideDto");
+            TestUtils::assertException($ex, "putLayoutSlide", "slideDto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "slideDto");
+            TestUtils::assertResponse("putLayoutSlide", "slideDto", $this->okToFailValues);
         }
     }
 
     public function testPutLayoutSlideInvalidpassword()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putLayoutSlide", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putLayoutSlide", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "password");
+            TestUtils::assertException($ex, "putLayoutSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "password");
+            TestUtils::assertResponse("putLayoutSlide", "password", $this->okToFailValues);
         }
     }
 
     public function testPutLayoutSlideInvalidfolder()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("putLayoutSlide", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "putLayoutSlide", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "folder");
+            TestUtils::assertException($ex, "putLayoutSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "folder");
+            TestUtils::assertResponse("putLayoutSlide", "folder", $this->okToFailValues);
         }
     }
 
     public function testPutLayoutSlideInvalidstorage()
     {
         $request = $this->getPutLayoutSlideRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("putLayoutSlide", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "putLayoutSlide", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putLayoutSlide", "storage");
+            TestUtils::assertException($ex, "putLayoutSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putLayoutSlide", "storage");
+            TestUtils::assertResponse("putLayoutSlide", "storage", $this->okToFailValues);
         }
     }
 }

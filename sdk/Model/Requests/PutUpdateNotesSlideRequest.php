@@ -34,17 +34,17 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutUpdateNotesSlideRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * 
+     * A  object with notes slide data.
      */
     public $dto;
 
@@ -54,24 +54,24 @@ class PutUpdateNotesSlideRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PutUpdateNotesSlideRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param int $slideIndex The slide index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto 
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A  object with notes slide data.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $dto = null, $password = null, $folder = null, $storage = null)
     {
@@ -84,7 +84,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -92,7 +92,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -100,7 +100,7 @@ class PutUpdateNotesSlideRequest
         return $this;
     }
     /*
-     * The slide index.
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -108,7 +108,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -116,7 +116,7 @@ class PutUpdateNotesSlideRequest
         return $this;
     }
     /*
-     * 
+     * A  object with notes slide data.
      */
     public function get_dto()
     {
@@ -124,7 +124,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * 
+     * A  object with notes slide data.
      */
     public function set_dto($value)
     {
@@ -148,7 +148,7 @@ class PutUpdateNotesSlideRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -156,7 +156,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -164,7 +164,7 @@ class PutUpdateNotesSlideRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -172,7 +172,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

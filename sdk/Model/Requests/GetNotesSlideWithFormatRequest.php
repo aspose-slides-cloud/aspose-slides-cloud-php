@@ -34,27 +34,27 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetNotesSlideWithFormatRequest
 {
     /*
-     * The presentation name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public $slideIndex;
 
     /*
-     * Export format.
+     * Output file format.
      */
     public $format;
 
     /*
-     * 
+     * Output file width.
      */
     public $width;
 
     /*
-     * 
+     * Output file height.
      */
     public $height;
 
@@ -64,26 +64,26 @@ class GetNotesSlideWithFormatRequest
     public $password;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the GetNotesSlideWithFormatRequest class.
      *  
-     * @param string $name The presentation name.
-     * @param int $slideIndex The slide index.
-     * @param string $format Export format.
-     * @param int $width 
-     * @param int $height 
+     * @param string $name Document name.
+     * @param int $slideIndex Slide index.
+     * @param string $format Output file format.
+     * @param int $width Output file width.
+     * @param int $height Output file height.
      * @param string $password Document password.
-     * @param string $folder The presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $format, $width = null, $height = null, $password = null, $folder = null, $storage = null)
     {
@@ -98,7 +98,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +106,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * The presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -114,7 +114,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * The slide index.
+     * Slide index.
      */
     public function get_slideIndex()
     {
@@ -122,7 +122,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * The slide index.
+     * Slide index.
      */
     public function set_slideIndex($value)
     {
@@ -130,7 +130,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * Export format.
+     * Output file format.
      */
     public function get_format()
     {
@@ -138,7 +138,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * Export format.
+     * Output file format.
      */
     public function set_format($value)
     {
@@ -146,7 +146,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Output file width.
      */
     public function get_width()
     {
@@ -154,7 +154,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Output file width.
      */
     public function set_width($value)
     {
@@ -162,7 +162,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * 
+     * Output file height.
      */
     public function get_height()
     {
@@ -170,7 +170,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * 
+     * Output file height.
      */
     public function set_height($value)
     {
@@ -194,7 +194,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -202,7 +202,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -210,7 +210,7 @@ class GetNotesSlideWithFormatRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -218,7 +218,7 @@ class GetNotesSlideWithFormatRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

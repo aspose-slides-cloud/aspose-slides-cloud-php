@@ -59,7 +59,7 @@ class DocumentApiTest extends TestBase
     public function testGetSlidesApiInfo()
     {
         $request = $this->getGetSlidesApiInfoRequest();
-        $this->initialize("getSlidesApiInfo", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesApiInfo", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesApiInfo($request);
@@ -68,15 +68,15 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesApiInfo");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
     private function getGetSlidesDocumentRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesDocument", "name", "string");
-        $testpassword = TestUtils::getTestValue("getSlidesDocument", "password", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesDocument", "storage", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesDocument", "folder", "string");
+        $testname = TestUtils::getTestValue("getSlidesDocument", "name", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesDocument", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesDocument", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesDocument", "folder", $this->values);
         $request = new Requests\GetSlidesDocumentRequest($testname, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -88,7 +88,7 @@ class DocumentApiTest extends TestBase
     public function testGetSlidesDocument()
     {
         $request = $this->getGetSlidesDocumentRequest();
-        $this->initialize("getSlidesDocument", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocument($request);
@@ -97,87 +97,87 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesDocument");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesDocumentInvalidname()
     {
         $request = $this->getGetSlidesDocumentRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesDocument", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesDocument", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocument", "name");
+            TestUtils::assertException($ex, "getSlidesDocument", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocument", "name");
+            TestUtils::assertResponse("getSlidesDocument", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentInvalidpassword()
     {
         $request = $this->getGetSlidesDocumentRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesDocument", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesDocument", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocument", "password");
+            TestUtils::assertException($ex, "getSlidesDocument", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocument", "password");
+            TestUtils::assertResponse("getSlidesDocument", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentInvalidstorage()
     {
         $request = $this->getGetSlidesDocumentRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesDocument", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesDocument", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocument", "storage");
+            TestUtils::assertException($ex, "getSlidesDocument", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocument", "storage");
+            TestUtils::assertResponse("getSlidesDocument", "storage", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentInvalidfolder()
     {
         $request = $this->getGetSlidesDocumentRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesDocument", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesDocument", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocument", "folder");
+            TestUtils::assertException($ex, "getSlidesDocument", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocument", "folder");
+            TestUtils::assertResponse("getSlidesDocument", "folder", $this->okToFailValues);
         }
     }
     private function getGetSlidesDocumentWithFormatRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesDocumentWithFormat", "name", "string");
-        $testformat = TestUtils::getTestValue("getSlidesDocumentWithFormat", "format", "string");
-        $testjpegQuality = TestUtils::getTestValue("getSlidesDocumentWithFormat", "jpegQuality", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesDocumentWithFormat", "password", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesDocumentWithFormat", "storage", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesDocumentWithFormat", "folder", "string");
-        $testoutPath = TestUtils::getTestValue("getSlidesDocumentWithFormat", "outPath", "string");
-        $testfontsFolder = TestUtils::getTestValue("getSlidesDocumentWithFormat", "fontsFolder", "string");
+        $testname = TestUtils::getTestValue("getSlidesDocumentWithFormat", "name", $this->values);
+        $testformat = TestUtils::getTestValue("getSlidesDocumentWithFormat", "format", $this->values);
+        $testjpegQuality = TestUtils::getTestValue("getSlidesDocumentWithFormat", "jpegQuality", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesDocumentWithFormat", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesDocumentWithFormat", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesDocumentWithFormat", "folder", $this->values);
+        $testoutPath = TestUtils::getTestValue("getSlidesDocumentWithFormat", "outPath", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("getSlidesDocumentWithFormat", "fontsFolder", $this->values);
         $request = new Requests\GetSlidesDocumentWithFormatRequest($testname, $testformat, $testjpegQuality, $testpassword, $teststorage, $testfolder, $testoutPath, $testfontsFolder);
         return $request;
     }
@@ -189,7 +189,7 @@ class DocumentApiTest extends TestBase
     public function testGetSlidesDocumentWithFormat()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $this->initialize("getSlidesDocumentWithFormat", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
@@ -205,148 +205,148 @@ class DocumentApiTest extends TestBase
     public function testGetSlidesDocumentWithFormatInvalidname()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesDocumentWithFormat", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "name");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "name");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidformat()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "format", $request->format);
+        $request->format = TestUtils::invalidizeValue("format", "getSlidesDocumentWithFormat", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "format");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "format");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "format", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidjpegQuality()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->jpegQuality = TestUtils::invalidizeValue("jpegQuality", $request->jpegQuality, "int");
-        $this->initialize("getSlidesDocumentWithFormat", "jpegQuality", $request->jpegQuality);
+        $request->jpegQuality = TestUtils::invalidizeValue("jpegQuality", "getSlidesDocumentWithFormat", $request->jpegQuality, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "jpegQuality", $request->jpegQuality);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "jpegQuality");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "jpegQuality", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "jpegQuality");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "jpegQuality", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidpassword()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesDocumentWithFormat", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "password");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "password");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidstorage()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesDocumentWithFormat", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "storage");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "storage");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "storage", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidfolder()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesDocumentWithFormat", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "folder");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "folder");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidoutPath()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->outPath = TestUtils::invalidizeValue("outPath", $request->outPath, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "outPath", $request->outPath);
+        $request->outPath = TestUtils::invalidizeValue("outPath", "getSlidesDocumentWithFormat", $request->outPath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "outPath");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "outPath");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "outPath", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesDocumentWithFormatInvalidfontsFolder()
     {
         $request = $this->getGetSlidesDocumentWithFormatRequest();
-        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", $request->fontsFolder, "string");
-        $this->initialize("getSlidesDocumentWithFormat", "fontsFolder", $request->fontsFolder);
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "getSlidesDocumentWithFormat", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentWithFormat", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesDocumentWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "fontsFolder");
+            TestUtils::assertException($ex, "getSlidesDocumentWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesDocumentWithFormat", "fontsFolder");
+            TestUtils::assertResponse("getSlidesDocumentWithFormat", "fontsFolder", $this->okToFailValues);
         }
     }
     private function getPostSlidesDocumentRequest()
     {
-        $testname = TestUtils::getTestValue("postSlidesDocument", "name", "string");
-        $testdata = TestUtils::getTestValue("postSlidesDocument", "data", "string");
-        $testtemplatePath = TestUtils::getTestValue("postSlidesDocument", "templatePath", "string");
-        $testtemplateStorage = TestUtils::getTestValue("postSlidesDocument", "templateStorage", "string");
-        $testisImageDataEmbedded = TestUtils::getTestValue("postSlidesDocument", "isImageDataEmbedded", "bool");
-        $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", "string");
-        $teststorage = TestUtils::getTestValue("postSlidesDocument", "storage", "string");
-        $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", "string");
+        $testname = TestUtils::getTestValue("postSlidesDocument", "name", $this->values);
+        $testdata = TestUtils::getTestValue("postSlidesDocument", "data", $this->values);
+        $testtemplatePath = TestUtils::getTestValue("postSlidesDocument", "templatePath", $this->values);
+        $testtemplateStorage = TestUtils::getTestValue("postSlidesDocument", "templateStorage", $this->values);
+        $testisImageDataEmbedded = TestUtils::getTestValue("postSlidesDocument", "isImageDataEmbedded", $this->values);
+        $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("postSlidesDocument", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", $this->values);
         $request = new Requests\PostSlidesDocumentRequest($testname, $testdata, $testtemplatePath, $testtemplateStorage, $testisImageDataEmbedded, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -358,7 +358,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesDocument()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $this->initialize("postSlidesDocument", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
@@ -367,148 +367,148 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "postSlidesDocument");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPostSlidesDocumentInvalidname()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("postSlidesDocument", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "postSlidesDocument", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "name");
+            TestUtils::assertException($ex, "postSlidesDocument", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "name");
+            TestUtils::assertResponse("postSlidesDocument", "name", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvaliddata()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->data = TestUtils::invalidizeValue("data", $request->data, "string");
-        $this->initialize("postSlidesDocument", "data", $request->data);
+        $request->data = TestUtils::invalidizeValue("data", "postSlidesDocument", $request->data, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "data", $request->data);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "data");
+            TestUtils::assertException($ex, "postSlidesDocument", "data", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "data");
+            TestUtils::assertResponse("postSlidesDocument", "data", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidtemplatePath()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->templatePath = TestUtils::invalidizeValue("templatePath", $request->templatePath, "string");
-        $this->initialize("postSlidesDocument", "templatePath", $request->templatePath);
+        $request->templatePath = TestUtils::invalidizeValue("templatePath", "postSlidesDocument", $request->templatePath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "templatePath", $request->templatePath);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "templatePath");
+            TestUtils::assertException($ex, "postSlidesDocument", "templatePath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "templatePath");
+            TestUtils::assertResponse("postSlidesDocument", "templatePath", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidtemplateStorage()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->templateStorage = TestUtils::invalidizeValue("templateStorage", $request->templateStorage, "string");
-        $this->initialize("postSlidesDocument", "templateStorage", $request->templateStorage);
+        $request->templateStorage = TestUtils::invalidizeValue("templateStorage", "postSlidesDocument", $request->templateStorage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "templateStorage", $request->templateStorage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "templateStorage");
+            TestUtils::assertException($ex, "postSlidesDocument", "templateStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "templateStorage");
+            TestUtils::assertResponse("postSlidesDocument", "templateStorage", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidisImageDataEmbedded()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->isImageDataEmbedded = TestUtils::invalidizeValue("isImageDataEmbedded", $request->isImageDataEmbedded, "bool");
-        $this->initialize("postSlidesDocument", "isImageDataEmbedded", $request->isImageDataEmbedded);
+        $request->isImageDataEmbedded = TestUtils::invalidizeValue("isImageDataEmbedded", "postSlidesDocument", $request->isImageDataEmbedded, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "isImageDataEmbedded", $request->isImageDataEmbedded);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "isImageDataEmbedded");
+            TestUtils::assertException($ex, "postSlidesDocument", "isImageDataEmbedded", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "isImageDataEmbedded");
+            TestUtils::assertResponse("postSlidesDocument", "isImageDataEmbedded", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidpassword()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("postSlidesDocument", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "postSlidesDocument", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "password");
+            TestUtils::assertException($ex, "postSlidesDocument", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "password");
+            TestUtils::assertResponse("postSlidesDocument", "password", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidstorage()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("postSlidesDocument", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "postSlidesDocument", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "storage");
+            TestUtils::assertException($ex, "postSlidesDocument", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "storage");
+            TestUtils::assertResponse("postSlidesDocument", "storage", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesDocumentInvalidfolder()
     {
         $request = $this->getPostSlidesDocumentRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("postSlidesDocument", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "postSlidesDocument", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesDocument", "folder");
+            TestUtils::assertException($ex, "postSlidesDocument", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesDocument", "folder");
+            TestUtils::assertResponse("postSlidesDocument", "folder", $this->okToFailValues);
         }
     }
     private function getPostSlidesPipelineRequest()
     {
-        $testpipeline = TestUtils::getTestValue("postSlidesPipeline", "pipeline", "\Aspose\Slides\Cloud\Sdk\Model\Pipeline");
+        $testpipeline = TestUtils::getTestValue("postSlidesPipeline", "pipeline", $this->values);
         $testfiles = null;
         $request = new Requests\PostSlidesPipelineRequest($testpipeline, $testfiles);
         return $request;
@@ -521,7 +521,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesPipeline()
     {
         $request = $this->getPostSlidesPipelineRequest();
-        $this->initialize("postSlidesPipeline", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPipeline", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesPipeline($request);
@@ -537,30 +537,30 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesPipelineInvalidpipeline()
     {
         $request = $this->getPostSlidesPipelineRequest();
-        $request->pipeline = TestUtils::invalidizeValue("pipeline", $request->pipeline, "\Aspose\Slides\Cloud\Sdk\Model\Pipeline");
-        $this->initialize("postSlidesPipeline", "pipeline", $request->pipeline);
+        $request->pipeline = TestUtils::invalidizeValue("pipeline", "postSlidesPipeline", $request->pipeline, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPipeline", "pipeline", $request->pipeline);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesPipeline($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesPipeline", "pipeline");
+            TestUtils::assertException($ex, "postSlidesPipeline", "pipeline", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesPipeline", "pipeline");
+            TestUtils::assertResponse("postSlidesPipeline", "pipeline", $this->okToFailValues);
         }
     }
 
     private function getPostSlidesSaveAsRequest()
     {
-        $testname = TestUtils::getTestValue("postSlidesSaveAs", "name", "string");
-        $testformat = TestUtils::getTestValue("postSlidesSaveAs", "format", "string");
-        $testoptions = TestUtils::getTestValue("postSlidesSaveAs", "options", "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
-        $testpassword = TestUtils::getTestValue("postSlidesSaveAs", "password", "string");
-        $teststorage = TestUtils::getTestValue("postSlidesSaveAs", "storage", "string");
-        $testfolder = TestUtils::getTestValue("postSlidesSaveAs", "folder", "string");
-        $testoutPath = TestUtils::getTestValue("postSlidesSaveAs", "outPath", "string");
-        $testfontsFolder = TestUtils::getTestValue("postSlidesSaveAs", "fontsFolder", "string");
+        $testname = TestUtils::getTestValue("postSlidesSaveAs", "name", $this->values);
+        $testformat = TestUtils::getTestValue("postSlidesSaveAs", "format", $this->values);
+        $testoptions = TestUtils::getTestValue("postSlidesSaveAs", "options", $this->values);
+        $testpassword = TestUtils::getTestValue("postSlidesSaveAs", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("postSlidesSaveAs", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("postSlidesSaveAs", "folder", $this->values);
+        $testoutPath = TestUtils::getTestValue("postSlidesSaveAs", "outPath", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("postSlidesSaveAs", "fontsFolder", $this->values);
         $request = new Requests\PostSlidesSaveAsRequest($testname, $testformat, $testoptions, $testpassword, $teststorage, $testfolder, $testoutPath, $testfontsFolder);
         return $request;
     }
@@ -572,7 +572,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesSaveAs()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $this->initialize("postSlidesSaveAs", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
@@ -588,151 +588,151 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesSaveAsInvalidname()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("postSlidesSaveAs", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "postSlidesSaveAs", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "name");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "name");
+            TestUtils::assertResponse("postSlidesSaveAs", "name", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidformat()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
-        $this->initialize("postSlidesSaveAs", "format", $request->format);
+        $request->format = TestUtils::invalidizeValue("format", "postSlidesSaveAs", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "format");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "format");
+            TestUtils::assertResponse("postSlidesSaveAs", "format", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidoptions()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->options = TestUtils::invalidizeValue("options", $request->options, "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
-        $this->initialize("postSlidesSaveAs", "options", $request->options);
+        $request->options = TestUtils::invalidizeValue("options", "postSlidesSaveAs", $request->options, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "options");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "options");
+            TestUtils::assertResponse("postSlidesSaveAs", "options", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidpassword()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("postSlidesSaveAs", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "postSlidesSaveAs", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "password");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "password");
+            TestUtils::assertResponse("postSlidesSaveAs", "password", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidstorage()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("postSlidesSaveAs", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "postSlidesSaveAs", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "storage");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "storage");
+            TestUtils::assertResponse("postSlidesSaveAs", "storage", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidfolder()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("postSlidesSaveAs", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "postSlidesSaveAs", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "folder");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "folder");
+            TestUtils::assertResponse("postSlidesSaveAs", "folder", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidoutPath()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->outPath = TestUtils::invalidizeValue("outPath", $request->outPath, "string");
-        $this->initialize("postSlidesSaveAs", "outPath", $request->outPath);
+        $request->outPath = TestUtils::invalidizeValue("outPath", "postSlidesSaveAs", $request->outPath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "outPath");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "outPath");
+            TestUtils::assertResponse("postSlidesSaveAs", "outPath", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSaveAsInvalidfontsFolder()
     {
         $request = $this->getPostSlidesSaveAsRequest();
-        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", $request->fontsFolder, "string");
-        $this->initialize("postSlidesSaveAs", "fontsFolder", $request->fontsFolder);
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "postSlidesSaveAs", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSaveAs", "fontsFolder");
+            TestUtils::assertException($ex, "postSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSaveAs", "fontsFolder");
+            TestUtils::assertResponse("postSlidesSaveAs", "fontsFolder", $this->okToFailValues);
         }
     }
     private function getPostSlidesSplitRequest()
     {
-        $testname = TestUtils::getTestValue("postSlidesSplit", "name", "string");
-        $testoptions = TestUtils::getTestValue("postSlidesSplit", "options", "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
-        $testformat = TestUtils::getTestValue("postSlidesSplit", "format", "string");
-        $testwidth = TestUtils::getTestValue("postSlidesSplit", "width", "int");
-        $testheight = TestUtils::getTestValue("postSlidesSplit", "height", "int");
-        $testto = TestUtils::getTestValue("postSlidesSplit", "to", "int");
-        $testfrom = TestUtils::getTestValue("postSlidesSplit", "from", "int");
-        $testdestFolder = TestUtils::getTestValue("postSlidesSplit", "destFolder", "string");
-        $testpassword = TestUtils::getTestValue("postSlidesSplit", "password", "string");
-        $teststorage = TestUtils::getTestValue("postSlidesSplit", "storage", "string");
-        $testfolder = TestUtils::getTestValue("postSlidesSplit", "folder", "string");
+        $testname = TestUtils::getTestValue("postSlidesSplit", "name", $this->values);
+        $testoptions = TestUtils::getTestValue("postSlidesSplit", "options", $this->values);
+        $testformat = TestUtils::getTestValue("postSlidesSplit", "format", $this->values);
+        $testwidth = TestUtils::getTestValue("postSlidesSplit", "width", $this->values);
+        $testheight = TestUtils::getTestValue("postSlidesSplit", "height", $this->values);
+        $testto = TestUtils::getTestValue("postSlidesSplit", "to", $this->values);
+        $testfrom = TestUtils::getTestValue("postSlidesSplit", "from", $this->values);
+        $testdestFolder = TestUtils::getTestValue("postSlidesSplit", "destFolder", $this->values);
+        $testpassword = TestUtils::getTestValue("postSlidesSplit", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("postSlidesSplit", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("postSlidesSplit", "folder", $this->values);
         $request = new Requests\PostSlidesSplitRequest($testname, $testoptions, $testformat, $testwidth, $testheight, $testto, $testfrom, $testdestFolder, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -744,7 +744,7 @@ class DocumentApiTest extends TestBase
     public function testPostSlidesSplit()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $this->initialize("postSlidesSplit", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
@@ -753,206 +753,206 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "postSlidesSplit");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPostSlidesSplitInvalidname()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("postSlidesSplit", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "postSlidesSplit", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "name");
+            TestUtils::assertException($ex, "postSlidesSplit", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "name");
+            TestUtils::assertResponse("postSlidesSplit", "name", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidoptions()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->options = TestUtils::invalidizeValue("options", $request->options, "\Aspose\Slides\Cloud\Sdk\Model\ExportOptions");
-        $this->initialize("postSlidesSplit", "options", $request->options);
+        $request->options = TestUtils::invalidizeValue("options", "postSlidesSplit", $request->options, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "options", $request->options);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "options");
+            TestUtils::assertException($ex, "postSlidesSplit", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "options");
+            TestUtils::assertResponse("postSlidesSplit", "options", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidformat()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
-        $this->initialize("postSlidesSplit", "format", $request->format);
+        $request->format = TestUtils::invalidizeValue("format", "postSlidesSplit", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "format", $request->format);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "format");
+            TestUtils::assertException($ex, "postSlidesSplit", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "format");
+            TestUtils::assertResponse("postSlidesSplit", "format", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidwidth()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->width = TestUtils::invalidizeValue("width", $request->width, "int");
-        $this->initialize("postSlidesSplit", "width", $request->width);
+        $request->width = TestUtils::invalidizeValue("width", "postSlidesSplit", $request->width, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "width", $request->width);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "width");
+            TestUtils::assertException($ex, "postSlidesSplit", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "width");
+            TestUtils::assertResponse("postSlidesSplit", "width", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidheight()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->height = TestUtils::invalidizeValue("height", $request->height, "int");
-        $this->initialize("postSlidesSplit", "height", $request->height);
+        $request->height = TestUtils::invalidizeValue("height", "postSlidesSplit", $request->height, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "height", $request->height);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "height");
+            TestUtils::assertException($ex, "postSlidesSplit", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "height");
+            TestUtils::assertResponse("postSlidesSplit", "height", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidto()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->to = TestUtils::invalidizeValue("to", $request->to, "int");
-        $this->initialize("postSlidesSplit", "to", $request->to);
+        $request->to = TestUtils::invalidizeValue("to", "postSlidesSplit", $request->to, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "to", $request->to);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "to");
+            TestUtils::assertException($ex, "postSlidesSplit", "to", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "to");
+            TestUtils::assertResponse("postSlidesSplit", "to", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidfrom()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->from = TestUtils::invalidizeValue("from", $request->from, "int");
-        $this->initialize("postSlidesSplit", "from", $request->from);
+        $request->from = TestUtils::invalidizeValue("from", "postSlidesSplit", $request->from, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "from", $request->from);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "from");
+            TestUtils::assertException($ex, "postSlidesSplit", "from", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "from");
+            TestUtils::assertResponse("postSlidesSplit", "from", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvaliddestFolder()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->destFolder = TestUtils::invalidizeValue("destFolder", $request->destFolder, "string");
-        $this->initialize("postSlidesSplit", "destFolder", $request->destFolder);
+        $request->destFolder = TestUtils::invalidizeValue("destFolder", "postSlidesSplit", $request->destFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "destFolder", $request->destFolder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "destFolder");
+            TestUtils::assertException($ex, "postSlidesSplit", "destFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "destFolder");
+            TestUtils::assertResponse("postSlidesSplit", "destFolder", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidpassword()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("postSlidesSplit", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "postSlidesSplit", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "password");
+            TestUtils::assertException($ex, "postSlidesSplit", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "password");
+            TestUtils::assertResponse("postSlidesSplit", "password", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidstorage()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("postSlidesSplit", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "postSlidesSplit", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "storage");
+            TestUtils::assertException($ex, "postSlidesSplit", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "storage");
+            TestUtils::assertResponse("postSlidesSplit", "storage", $this->okToFailValues);
         }
     }
 
     public function testPostSlidesSplitInvalidfolder()
     {
         $request = $this->getPostSlidesSplitRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("postSlidesSplit", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "postSlidesSplit", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesSplit", "folder");
+            TestUtils::assertException($ex, "postSlidesSplit", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesSplit", "folder");
+            TestUtils::assertResponse("postSlidesSplit", "folder", $this->okToFailValues);
         }
     }
     private function getPutNewPresentationRequest()
     {
-        $testname = TestUtils::getTestValue("putNewPresentation", "name", "string");
+        $testname = TestUtils::getTestValue("putNewPresentation", "name", $this->values);
         $teststream = TestUtils::getStreamValue();
-        $testtemplatePath = TestUtils::getTestValue("putNewPresentation", "templatePath", "string");
-        $testtemplatePassword = TestUtils::getTestValue("putNewPresentation", "templatePassword", "string");
-        $testtemplateStorage = TestUtils::getTestValue("putNewPresentation", "templateStorage", "string");
-        $testpassword = TestUtils::getTestValue("putNewPresentation", "password", "string");
-        $teststorage = TestUtils::getTestValue("putNewPresentation", "storage", "string");
-        $testfolder = TestUtils::getTestValue("putNewPresentation", "folder", "string");
+        $testtemplatePath = TestUtils::getTestValue("putNewPresentation", "templatePath", $this->values);
+        $testtemplatePassword = TestUtils::getTestValue("putNewPresentation", "templatePassword", $this->values);
+        $testtemplateStorage = TestUtils::getTestValue("putNewPresentation", "templateStorage", $this->values);
+        $testpassword = TestUtils::getTestValue("putNewPresentation", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putNewPresentation", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putNewPresentation", "folder", $this->values);
         $request = new Requests\PutNewPresentationRequest($testname, $teststream, $testtemplatePath, $testtemplatePassword, $testtemplateStorage, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -964,7 +964,7 @@ class DocumentApiTest extends TestBase
     public function testPutNewPresentation()
     {
         $request = $this->getPutNewPresentationRequest();
-        $this->initialize("putNewPresentation", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
@@ -973,152 +973,152 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "putNewPresentation");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPutNewPresentationInvalidname()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("putNewPresentation", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "putNewPresentation", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "name");
+            TestUtils::assertException($ex, "putNewPresentation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "name");
+            TestUtils::assertResponse("putNewPresentation", "name", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidstream()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->stream = TestUtils::invalidizeValue("stream", $request->stream, "\SplFileObject");
-        $this->initialize("putNewPresentation", "stream", $request->stream);
+        $request->stream = TestUtils::invalidizeValue("stream", "putNewPresentation", $request->stream, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "stream", $request->stream);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "stream");
+            TestUtils::assertException($ex, "putNewPresentation", "stream", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "stream");
+            TestUtils::assertResponse("putNewPresentation", "stream", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidtemplatePath()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->templatePath = TestUtils::invalidizeValue("templatePath", $request->templatePath, "string");
-        $this->initialize("putNewPresentation", "templatePath", $request->templatePath);
+        $request->templatePath = TestUtils::invalidizeValue("templatePath", "putNewPresentation", $request->templatePath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "templatePath", $request->templatePath);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "templatePath");
+            TestUtils::assertException($ex, "putNewPresentation", "templatePath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "templatePath");
+            TestUtils::assertResponse("putNewPresentation", "templatePath", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidtemplatePassword()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->templatePassword = TestUtils::invalidizeValue("templatePassword", $request->templatePassword, "string");
-        $this->initialize("putNewPresentation", "templatePassword", $request->templatePassword);
+        $request->templatePassword = TestUtils::invalidizeValue("templatePassword", "putNewPresentation", $request->templatePassword, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "templatePassword", $request->templatePassword);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "templatePassword");
+            TestUtils::assertException($ex, "putNewPresentation", "templatePassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "templatePassword");
+            TestUtils::assertResponse("putNewPresentation", "templatePassword", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidtemplateStorage()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->templateStorage = TestUtils::invalidizeValue("templateStorage", $request->templateStorage, "string");
-        $this->initialize("putNewPresentation", "templateStorage", $request->templateStorage);
+        $request->templateStorage = TestUtils::invalidizeValue("templateStorage", "putNewPresentation", $request->templateStorage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "templateStorage", $request->templateStorage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "templateStorage");
+            TestUtils::assertException($ex, "putNewPresentation", "templateStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "templateStorage");
+            TestUtils::assertResponse("putNewPresentation", "templateStorage", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidpassword()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putNewPresentation", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putNewPresentation", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "password");
+            TestUtils::assertException($ex, "putNewPresentation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "password");
+            TestUtils::assertResponse("putNewPresentation", "password", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidstorage()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("putNewPresentation", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "putNewPresentation", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "storage");
+            TestUtils::assertException($ex, "putNewPresentation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "storage");
+            TestUtils::assertResponse("putNewPresentation", "storage", $this->okToFailValues);
         }
     }
 
     public function testPutNewPresentationInvalidfolder()
     {
         $request = $this->getPutNewPresentationRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("putNewPresentation", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "putNewPresentation", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNewPresentation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putNewPresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNewPresentation", "folder");
+            TestUtils::assertException($ex, "putNewPresentation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putNewPresentation", "folder");
+            TestUtils::assertResponse("putNewPresentation", "folder", $this->okToFailValues);
         }
     }
     private function getPutSlidesConvertRequest()
     {
-        $testformat = TestUtils::getTestValue("putSlidesConvert", "format", "string");
+        $testformat = TestUtils::getTestValue("putSlidesConvert", "format", $this->values);
         $testdocument = TestUtils::getStreamValue();
-        $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", "string");
-        $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", "string");
-        $testfontsFolder = TestUtils::getTestValue("putSlidesConvert", "fontsFolder", "string");
+        $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", $this->values);
+        $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("putSlidesConvert", "fontsFolder", $this->values);
         $request = new Requests\PutSlidesConvertRequest($testformat, $testdocument, $testpassword, $testoutPath, $testfontsFolder);
         return $request;
     }
@@ -1130,7 +1130,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesConvert()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $this->initialize("putSlidesConvert", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
@@ -1146,94 +1146,94 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesConvertInvalidformat()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->format = TestUtils::invalidizeValue("format", $request->format, "string");
-        $this->initialize("putSlidesConvert", "format", $request->format);
+        $request->format = TestUtils::invalidizeValue("format", "putSlidesConvert", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "format", $request->format);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "format");
+            TestUtils::assertException($ex, "putSlidesConvert", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "format");
+            TestUtils::assertResponse("putSlidesConvert", "format", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesConvertInvaliddocument()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->document = TestUtils::invalidizeValue("document", $request->document, "\SplFileObject");
-        $this->initialize("putSlidesConvert", "document", $request->document);
+        $request->document = TestUtils::invalidizeValue("document", "putSlidesConvert", $request->document, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "document", $request->document);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "document");
+            TestUtils::assertException($ex, "putSlidesConvert", "document", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "document");
+            TestUtils::assertResponse("putSlidesConvert", "document", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesConvertInvalidpassword()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putSlidesConvert", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putSlidesConvert", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "password");
+            TestUtils::assertException($ex, "putSlidesConvert", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "password");
+            TestUtils::assertResponse("putSlidesConvert", "password", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesConvertInvalidoutPath()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->outPath = TestUtils::invalidizeValue("outPath", $request->outPath, "string");
-        $this->initialize("putSlidesConvert", "outPath", $request->outPath);
+        $request->outPath = TestUtils::invalidizeValue("outPath", "putSlidesConvert", $request->outPath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "outPath");
+            TestUtils::assertException($ex, "putSlidesConvert", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "outPath");
+            TestUtils::assertResponse("putSlidesConvert", "outPath", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesConvertInvalidfontsFolder()
     {
         $request = $this->getPutSlidesConvertRequest();
-        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", $request->fontsFolder, "string");
-        $this->initialize("putSlidesConvert", "fontsFolder", $request->fontsFolder);
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "putSlidesConvert", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "fontsFolder");
+            TestUtils::assertException($ex, "putSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "fontsFolder");
+            TestUtils::assertResponse("putSlidesConvert", "fontsFolder", $this->okToFailValues);
         }
     }
     private function getPutSlidesDocumentFromHtmlRequest()
     {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", "string");
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", "string");
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", "string");
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", "string");
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", "string");
+        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", $this->values);
+        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", $this->values);
         $request = new Requests\PutSlidesDocumentFromHtmlRequest($testname, $testhtml, $testpassword, $teststorage, $testfolder);
         return $request;
     }
@@ -1245,7 +1245,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesDocumentFromHtml()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $this->initialize("putSlidesDocumentFromHtml", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
@@ -1254,104 +1254,104 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "putSlidesDocumentFromHtml");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPutSlidesDocumentFromHtmlInvalidname()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("putSlidesDocumentFromHtml", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "putSlidesDocumentFromHtml", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "name");
+            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "name");
+            TestUtils::assertResponse("putSlidesDocumentFromHtml", "name", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesDocumentFromHtmlInvalidhtml()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $request->html = TestUtils::invalidizeValue("html", $request->html, "string");
-        $this->initialize("putSlidesDocumentFromHtml", "html", $request->html);
+        $request->html = TestUtils::invalidizeValue("html", "putSlidesDocumentFromHtml", $request->html, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "html", $request->html);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "html");
+            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "html");
+            TestUtils::assertResponse("putSlidesDocumentFromHtml", "html", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesDocumentFromHtmlInvalidpassword()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putSlidesDocumentFromHtml", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putSlidesDocumentFromHtml", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "password");
+            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "password");
+            TestUtils::assertResponse("putSlidesDocumentFromHtml", "password", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesDocumentFromHtmlInvalidstorage()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("putSlidesDocumentFromHtml", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlidesDocumentFromHtml", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "storage");
+            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "storage");
+            TestUtils::assertResponse("putSlidesDocumentFromHtml", "storage", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesDocumentFromHtmlInvalidfolder()
     {
         $request = $this->getPutSlidesDocumentFromHtmlRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("putSlidesDocumentFromHtml", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlidesDocumentFromHtml", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "folder");
+            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "folder");
+            TestUtils::assertResponse("putSlidesDocumentFromHtml", "folder", $this->okToFailValues);
         }
     }
     private function getPutSlidesSlideSizeRequest()
     {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", "string");
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", "string");
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", "string");
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", "string");
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", "int");
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", "int");
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", "string");
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", "string");
+        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", $this->values);
+        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", $this->values);
+        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", $this->values);
+        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", $this->values);
+        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", $this->values);
         $request = new Requests\PutSlidesSlideSizeRequest($testname, $testpassword, $teststorage, $testfolder, $testwidth, $testheight, $testsizeType, $testscaleType);
         return $request;
     }
@@ -1363,7 +1363,7 @@ class DocumentApiTest extends TestBase
     public function testPutSlidesSlideSize()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $this->initialize("putSlidesSlideSize", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
@@ -1372,143 +1372,143 @@ class DocumentApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "putSlidesSlideSize");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidname()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("putSlidesSlideSize", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "putSlidesSlideSize", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "name");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "name");
+            TestUtils::assertResponse("putSlidesSlideSize", "name", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidpassword()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("putSlidesSlideSize", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "putSlidesSlideSize", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "password");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "password");
+            TestUtils::assertResponse("putSlidesSlideSize", "password", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidstorage()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("putSlidesSlideSize", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlidesSlideSize", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "storage");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "storage");
+            TestUtils::assertResponse("putSlidesSlideSize", "storage", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidfolder()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("putSlidesSlideSize", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlidesSlideSize", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "folder");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "folder");
+            TestUtils::assertResponse("putSlidesSlideSize", "folder", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidwidth()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->width = TestUtils::invalidizeValue("width", $request->width, "int");
-        $this->initialize("putSlidesSlideSize", "width", $request->width);
+        $request->width = TestUtils::invalidizeValue("width", "putSlidesSlideSize", $request->width, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "width", $request->width);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "width");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "width");
+            TestUtils::assertResponse("putSlidesSlideSize", "width", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidheight()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->height = TestUtils::invalidizeValue("height", $request->height, "int");
-        $this->initialize("putSlidesSlideSize", "height", $request->height);
+        $request->height = TestUtils::invalidizeValue("height", "putSlidesSlideSize", $request->height, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "height", $request->height);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "height");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "height");
+            TestUtils::assertResponse("putSlidesSlideSize", "height", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidsizeType()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->sizeType = TestUtils::invalidizeValue("sizeType", $request->sizeType, "string");
-        $this->initialize("putSlidesSlideSize", "sizeType", $request->sizeType);
+        $request->sizeType = TestUtils::invalidizeValue("sizeType", "putSlidesSlideSize", $request->sizeType, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "sizeType", $request->sizeType);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "sizeType");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "sizeType");
+            TestUtils::assertResponse("putSlidesSlideSize", "sizeType", $this->okToFailValues);
         }
     }
 
     public function testPutSlidesSlideSizeInvalidscaleType()
     {
         $request = $this->getPutSlidesSlideSizeRequest();
-        $request->scaleType = TestUtils::invalidizeValue("scaleType", $request->scaleType, "string");
-        $this->initialize("putSlidesSlideSize", "scaleType", $request->scaleType);
+        $request->scaleType = TestUtils::invalidizeValue("scaleType", "putSlidesSlideSize", $request->scaleType, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "scaleType", $request->scaleType);
         $needAssertResponse = false;
         try {
             $result = $this->api->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "scaleType");
+            TestUtils::assertException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "scaleType");
+            TestUtils::assertResponse("putSlidesSlideSize", "scaleType", $this->okToFailValues);
         }
     }
 }

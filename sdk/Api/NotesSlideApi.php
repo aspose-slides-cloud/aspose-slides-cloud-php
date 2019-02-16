@@ -155,11 +155,11 @@ class NotesSlideApi extends ApiBase
     /**
      * Create request for operation 'deleteNotesSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -307,11 +307,11 @@ class NotesSlideApi extends ApiBase
     /**
      * Create request for operation 'getNotesSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -456,14 +456,14 @@ class NotesSlideApi extends ApiBase
     /**
      * Create request for operation 'getNotesSlideWithFormat'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
-     * @param  string $format Export format. (required)
-     * @param  int $width (optional)
-     * @param  int $height (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  string $format Output file format. (required)
+     * @param  int $width Output file width. (optional)
+     * @param  int $height Output file height. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -624,12 +624,12 @@ class NotesSlideApi extends ApiBase
     /**
      * Create request for operation 'postAddNotesSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A  object with notes slide data. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -789,12 +789,12 @@ class NotesSlideApi extends ApiBase
     /**
      * Create request for operation 'putUpdateNotesSlide'
      *
-     * @param  string $name The presentation name. (required)
-     * @param  int $slide_index The slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto (optional)
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A  object with notes slide data. (optional)
      * @param  string $password Document password. (optional)
-     * @param  string $folder The presentation folder. (optional)
-     * @param  string $storage Presentation storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

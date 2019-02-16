@@ -48,12 +48,12 @@ class PlaceholdersApiTest extends TestBase
 
     private function getGetSlidesPlaceholderRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesPlaceholder", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesPlaceholder", "slideIndex", "int");
-        $testplaceholderIndex = TestUtils::getTestValue("getSlidesPlaceholder", "placeholderIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesPlaceholder", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesPlaceholder", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesPlaceholder", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesPlaceholder", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesPlaceholder", "slideIndex", $this->values);
+        $testplaceholderIndex = TestUtils::getTestValue("getSlidesPlaceholder", "placeholderIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesPlaceholder", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesPlaceholder", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesPlaceholder", "storage", $this->values);
         $request = new Requests\GetSlidesPlaceholderRequest($testname, $testslideIndex, $testplaceholderIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -65,7 +65,7 @@ class PlaceholdersApiTest extends TestBase
     public function testGetSlidesPlaceholder()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $this->initialize("getSlidesPlaceholder", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
@@ -74,118 +74,118 @@ class PlaceholdersApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesPlaceholder");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidname()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesPlaceholder", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesPlaceholder", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "name");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "name");
+            TestUtils::assertResponse("getSlidesPlaceholder", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidslideIndex()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesPlaceholder", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesPlaceholder", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "slideIndex");
+            TestUtils::assertResponse("getSlidesPlaceholder", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidplaceholderIndex()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->placeholderIndex = TestUtils::invalidizeValue("placeholderIndex", $request->placeholderIndex, "int");
-        $this->initialize("getSlidesPlaceholder", "placeholderIndex", $request->placeholderIndex);
+        $request->placeholderIndex = TestUtils::invalidizeValue("placeholderIndex", "getSlidesPlaceholder", $request->placeholderIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "placeholderIndex", $request->placeholderIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "placeholderIndex");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "placeholderIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "placeholderIndex");
+            TestUtils::assertResponse("getSlidesPlaceholder", "placeholderIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidpassword()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesPlaceholder", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesPlaceholder", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "password");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "password");
+            TestUtils::assertResponse("getSlidesPlaceholder", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidfolder()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesPlaceholder", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesPlaceholder", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "folder");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "folder");
+            TestUtils::assertResponse("getSlidesPlaceholder", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholderInvalidstorage()
     {
         $request = $this->getGetSlidesPlaceholderRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesPlaceholder", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesPlaceholder", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholder", "storage");
+            TestUtils::assertException($ex, "getSlidesPlaceholder", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholder", "storage");
+            TestUtils::assertResponse("getSlidesPlaceholder", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlidesPlaceholdersRequest()
     {
-        $testname = TestUtils::getTestValue("getSlidesPlaceholders", "name", "string");
-        $testslideIndex = TestUtils::getTestValue("getSlidesPlaceholders", "slideIndex", "int");
-        $testpassword = TestUtils::getTestValue("getSlidesPlaceholders", "password", "string");
-        $testfolder = TestUtils::getTestValue("getSlidesPlaceholders", "folder", "string");
-        $teststorage = TestUtils::getTestValue("getSlidesPlaceholders", "storage", "string");
+        $testname = TestUtils::getTestValue("getSlidesPlaceholders", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlidesPlaceholders", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesPlaceholders", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesPlaceholders", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesPlaceholders", "storage", $this->values);
         $request = new Requests\GetSlidesPlaceholdersRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
@@ -197,7 +197,7 @@ class PlaceholdersApiTest extends TestBase
     public function testGetSlidesPlaceholders()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $this->initialize("getSlidesPlaceholders", null, null);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", null, null);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
@@ -206,92 +206,92 @@ class PlaceholdersApiTest extends TestBase
             TestUtils::assertSuccessfulException($ex, "getSlidesPlaceholders");
         }
         if ($needAssertResponse) {
-            Assert::assertEquals(2, intdiv(json_decode($result, true)["Code"], 100));
+            Assert::assertEquals($expectedCode, json_decode($result, true)["Code"]);
         }
     }
 
     public function testGetSlidesPlaceholdersInvalidname()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $request->name = TestUtils::invalidizeValue("name", $request->name, "string");
-        $this->initialize("getSlidesPlaceholders", "name", $request->name);
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesPlaceholders", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "name", $request->name);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholders", "name");
+            TestUtils::assertException($ex, "getSlidesPlaceholders", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholders", "name");
+            TestUtils::assertResponse("getSlidesPlaceholders", "name", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholdersInvalidslideIndex()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", $request->slideIndex, "int");
-        $this->initialize("getSlidesPlaceholders", "slideIndex", $request->slideIndex);
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlidesPlaceholders", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholders", "slideIndex");
+            TestUtils::assertException($ex, "getSlidesPlaceholders", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholders", "slideIndex");
+            TestUtils::assertResponse("getSlidesPlaceholders", "slideIndex", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholdersInvalidpassword()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $request->password = TestUtils::invalidizeValue("password", $request->password, "string");
-        $this->initialize("getSlidesPlaceholders", "password", $request->password);
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesPlaceholders", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "password", $request->password);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholders", "password");
+            TestUtils::assertException($ex, "getSlidesPlaceholders", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholders", "password");
+            TestUtils::assertResponse("getSlidesPlaceholders", "password", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholdersInvalidfolder()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $request->folder = TestUtils::invalidizeValue("folder", $request->folder, "string");
-        $this->initialize("getSlidesPlaceholders", "folder", $request->folder);
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesPlaceholders", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "folder", $request->folder);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholders", "folder");
+            TestUtils::assertException($ex, "getSlidesPlaceholders", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholders", "folder");
+            TestUtils::assertResponse("getSlidesPlaceholders", "folder", $this->okToFailValues);
         }
     }
 
     public function testGetSlidesPlaceholdersInvalidstorage()
     {
         $request = $this->getGetSlidesPlaceholdersRequest();
-        $request->storage = TestUtils::invalidizeValue("storage", $request->storage, "string");
-        $this->initialize("getSlidesPlaceholders", "storage", $request->storage);
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesPlaceholders", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "storage", $request->storage);
         $needAssertResponse = false;
         try {
             $result = $this->api->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlidesPlaceholders", "storage");
+            TestUtils::assertException($ex, "getSlidesPlaceholders", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlidesPlaceholders", "storage");
+            TestUtils::assertResponse("getSlidesPlaceholders", "storage", $this->okToFailValues);
         }
     }
 }

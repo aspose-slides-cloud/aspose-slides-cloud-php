@@ -247,7 +247,7 @@ class GradientFill extends FillFormat
     /**
      * Sets direction
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientDirection $direction direction
+     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientDirection $direction Gradient style.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class GradientFill extends FillFormat
     /**
      * Sets shape
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientShapeType $shape shape
+     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientShapeType $shape Gradient shape.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class GradientFill extends FillFormat
     /**
      * Sets stops
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientFillStop[] $stops stops
+     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientFillStop[] $stops Gradient stops.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class GradientFill extends FillFormat
     /**
      * Sets linear_angle
      *
-     * @param double $linear_angle linear_angle
+     * @param double $linear_angle Gradient angle.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class GradientFill extends FillFormat
     /**
      * Sets is_scaled
      *
-     * @param bool $is_scaled is_scaled
+     * @param bool $is_scaled True if the gradient is scaled.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class GradientFill extends FillFormat
     /**
      * Sets tile_flip
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientTileFlip $tile_flip tile_flip
+     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientTileFlip $tile_flip Gradient flipping mode.
      *
      * @return $this
      */

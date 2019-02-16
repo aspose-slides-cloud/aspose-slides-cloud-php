@@ -29,20 +29,17 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * TableRow Class Doc Comment
+ * PptxExportOptions Class Doc Comment
  *
  * @category Class
- * @description Table Row.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TableRow implements ArrayAccess
+class PptxExportOptions extends ExportOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +48,7 @@ class TableRow implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TableRow';
+    protected static $swaggerModelName = 'PptxExportOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +56,7 @@ class TableRow implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cells' => '\Aspose\Slides\Cloud\Sdk\Model\TableCell[]',
-        'minimal_height' => 'double',
-        'height' => 'double'
+        'conformance' => '\Aspose\Slides\Cloud\Sdk\Model\Conformance'
     ];
 
     /**
@@ -70,9 +65,7 @@ class TableRow implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cells' => null,
-        'minimal_height' => 'double',
-        'height' => 'double'
+        'conformance' => null
     ];
 
     /**
@@ -82,7 +75,7 @@ class TableRow implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -92,7 +85,7 @@ class TableRow implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -102,9 +95,7 @@ class TableRow implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cells' => 'Cells',
-        'minimal_height' => 'MinimalHeight',
-        'height' => 'Height'
+        'conformance' => 'Conformance'
     ];
 
     /**
@@ -113,9 +104,7 @@ class TableRow implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cells' => 'setCells',
-        'minimal_height' => 'setMinimalHeight',
-        'height' => 'setHeight'
+        'conformance' => 'setConformance'
     ];
 
     /**
@@ -124,9 +113,7 @@ class TableRow implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cells' => 'getCells',
-        'minimal_height' => 'getMinimalHeight',
-        'height' => 'getHeight'
+        'conformance' => 'getConformance'
     ];
 
     /**
@@ -137,7 +124,7 @@ class TableRow implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -147,7 +134,7 @@ class TableRow implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -157,7 +144,7 @@ class TableRow implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -174,12 +161,6 @@ class TableRow implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -189,9 +170,9 @@ class TableRow implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cells'] = isset($data['cells']) ? $data['cells'] : null;
-        $this->container['minimal_height'] = isset($data['minimal_height']) ? $data['minimal_height'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        parent::__construct($data);
+
+        $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
     }
 
     /**
@@ -201,14 +182,8 @@ class TableRow implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['minimal_height'] === null) {
-            $invalidProperties[] = "'minimal_height' can't be null";
-        }
-        if ($this->container['height'] === null) {
-            $invalidProperties[] = "'height' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -220,85 +195,34 @@ class TableRow implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
-        if ($this->container['minimal_height'] === null) {
-            return false;
-        }
-        if ($this->container['height'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets cells
+     * Gets conformance
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TableCell[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Conformance
      */
-    public function getCells()
+    public function getConformance()
     {
-        return $this->container['cells'];
+        return $this->container['conformance'];
     }
 
     /**
-     * Sets cells
+     * Sets conformance
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TableCell[] $cells Cells for the row.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Conformance $conformance The conformance class to which the PresentationML document conforms. Read/write .
      *
      * @return $this
      */
-    public function setCells($cells)
+    public function setConformance($conformance)
     {
-        $this->container['cells'] = $cells;
-
-        return $this;
-    }
-
-    /**
-     * Gets minimal_height
-     *
-     * @return double
-     */
-    public function getMinimalHeight()
-    {
-        return $this->container['minimal_height'];
-    }
-
-    /**
-     * Sets minimal_height
-     *
-     * @param double $minimal_height Minimal height of the row.
-     *
-     * @return $this
-     */
-    public function setMinimalHeight($minimal_height)
-    {
-        $this->container['minimal_height'] = $minimal_height;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return double
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param double $height Height of the row.
-     *
-     * @return $this
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
+        $this->container['conformance'] = $conformance;
 
         return $this;
     }
