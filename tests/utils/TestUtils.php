@@ -39,6 +39,7 @@ class TestUtils
     public const fileName = "test.ppt";
     public const changedFileName = "changedtest.ppt";
     public const templateFileName = "TemplateCV.pptx";
+    public static $fileStream = null;
 
     public static function getFileUploadPath()
     {
@@ -95,6 +96,10 @@ class TestUtils
                 {
                     $value = null;
                 }
+                else if (is_bool($rule["InvalidValue"]))
+                {
+                    $value = $rule["InvalidValue"];
+                }
                 else if (array_key_exists("Type", $rule))
                 {
                     $value = ObjectSerializer::deserialize($rule["Value"], '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"], []);
@@ -137,7 +142,7 @@ class TestUtils
     public static function assertException(ApiException $ex, $functionName, $fieldName, $expectedCode, $expectedMessage)
     {
         Assert::assertEquals($expectedCode, $ex->getCode());
-        Assert::assertRegExp("/^".$expectedMessage."/", $ex->getResponseObject()->getMessage());
+        Assert::assertRegExp("/".$expectedMessage."/", $ex->getResponseObject()->getMessage());
     }
 
     public static function assertResponse($functionName, $fieldName, $okToFailValues)

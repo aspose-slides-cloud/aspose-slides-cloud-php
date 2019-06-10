@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutUpdateNotesSlideShapePortionRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class PutUpdateNotesSlideShapePortionRequest
     public $slideIndex;
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -64,7 +64,7 @@ class PutUpdateNotesSlideShapePortionRequest
     public $portionIndex;
 
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public $dto;
 
@@ -74,28 +74,28 @@ class PutUpdateNotesSlideShapePortionRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PutUpdateNotesSlideShapePortionRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Object path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
      * @param int $portionIndex Portion index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Shape dto.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $dto = null, $password = null, $folder = null, $storage = null)
     {
@@ -112,7 +112,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -120,7 +120,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -144,7 +144,7 @@ class PutUpdateNotesSlideShapePortionRequest
         return $this;
     }
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -152,7 +152,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -208,7 +208,7 @@ class PutUpdateNotesSlideShapePortionRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public function get_dto()
     {
@@ -216,7 +216,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public function set_dto($value)
     {
@@ -240,7 +240,7 @@ class PutUpdateNotesSlideShapePortionRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -248,7 +248,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -256,7 +256,7 @@ class PutUpdateNotesSlideShapePortionRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -264,7 +264,7 @@ class PutUpdateNotesSlideShapePortionRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

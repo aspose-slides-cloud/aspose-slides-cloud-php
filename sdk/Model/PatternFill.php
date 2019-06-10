@@ -59,7 +59,7 @@ class PatternFill extends FillFormat
     protected static $swaggerTypes = [
         'back_color' => 'string',
         'fore_color' => 'string',
-        'style' => '\Aspose\Slides\Cloud\Sdk\Model\PatternStyle'
+        'style' => 'string'
     ];
 
     /**
@@ -168,8 +168,131 @@ class PatternFill extends FillFormat
         return self::$swaggerModelName;
     }
 
+    const STYLE_UNKNOWN = 'Unknown';
+    const STYLE_PERCENT05 = 'Percent05';
+    const STYLE_PERCENT10 = 'Percent10';
+    const STYLE_PERCENT20 = 'Percent20';
+    const STYLE_PERCENT25 = 'Percent25';
+    const STYLE_PERCENT30 = 'Percent30';
+    const STYLE_PERCENT40 = 'Percent40';
+    const STYLE_PERCENT50 = 'Percent50';
+    const STYLE_PERCENT60 = 'Percent60';
+    const STYLE_PERCENT70 = 'Percent70';
+    const STYLE_PERCENT75 = 'Percent75';
+    const STYLE_PERCENT80 = 'Percent80';
+    const STYLE_PERCENT90 = 'Percent90';
+    const STYLE_DARK_HORIZONTAL = 'DarkHorizontal';
+    const STYLE_DARK_VERTICAL = 'DarkVertical';
+    const STYLE_DARK_DOWNWARD_DIAGONAL = 'DarkDownwardDiagonal';
+    const STYLE_DARK_UPWARD_DIAGONAL = 'DarkUpwardDiagonal';
+    const STYLE_SMALL_CHECKER_BOARD = 'SmallCheckerBoard';
+    const STYLE_TRELLIS = 'Trellis';
+    const STYLE_LIGHT_HORIZONTAL = 'LightHorizontal';
+    const STYLE_LIGHT_VERTICAL = 'LightVertical';
+    const STYLE_LIGHT_DOWNWARD_DIAGONAL = 'LightDownwardDiagonal';
+    const STYLE_LIGHT_UPWARD_DIAGONAL = 'LightUpwardDiagonal';
+    const STYLE_SMALL_GRID = 'SmallGrid';
+    const STYLE_DOTTED_DIAMOND = 'DottedDiamond';
+    const STYLE_WIDE_DOWNWARD_DIAGONAL = 'WideDownwardDiagonal';
+    const STYLE_WIDE_UPWARD_DIAGONAL = 'WideUpwardDiagonal';
+    const STYLE_DASHED_UPWARD_DIAGONAL = 'DashedUpwardDiagonal';
+    const STYLE_DASHED_DOWNWARD_DIAGONAL = 'DashedDownwardDiagonal';
+    const STYLE_NARROW_VERTICAL = 'NarrowVertical';
+    const STYLE_NARROW_HORIZONTAL = 'NarrowHorizontal';
+    const STYLE_DASHED_VERTICAL = 'DashedVertical';
+    const STYLE_DASHED_HORIZONTAL = 'DashedHorizontal';
+    const STYLE_LARGE_CONFETTI = 'LargeConfetti';
+    const STYLE_LARGE_GRID = 'LargeGrid';
+    const STYLE_HORIZONTAL_BRICK = 'HorizontalBrick';
+    const STYLE_LARGE_CHECKER_BOARD = 'LargeCheckerBoard';
+    const STYLE_SMALL_CONFETTI = 'SmallConfetti';
+    const STYLE_ZIGZAG = 'Zigzag';
+    const STYLE_SOLID_DIAMOND = 'SolidDiamond';
+    const STYLE_DIAGONAL_BRICK = 'DiagonalBrick';
+    const STYLE_OUTLINED_DIAMOND = 'OutlinedDiamond';
+    const STYLE_PLAID = 'Plaid';
+    const STYLE_SPHERE = 'Sphere';
+    const STYLE_WEAVE = 'Weave';
+    const STYLE_DOTTED_GRID = 'DottedGrid';
+    const STYLE_DIVOT = 'Divot';
+    const STYLE_SHINGLE = 'Shingle';
+    const STYLE_WAVE = 'Wave';
+    const STYLE_HORIZONTAL = 'Horizontal';
+    const STYLE_VERTICAL = 'Vertical';
+    const STYLE_CROSS = 'Cross';
+    const STYLE_DOWNWARD_DIAGONAL = 'DownwardDiagonal';
+    const STYLE_UPWARD_DIAGONAL = 'UpwardDiagonal';
+    const STYLE_DIAGONAL_CROSS = 'DiagonalCross';
+    const STYLE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStyleAllowableValues()
+    {
+        return [
+            self::STYLE_UNKNOWN,
+            self::STYLE_PERCENT05,
+            self::STYLE_PERCENT10,
+            self::STYLE_PERCENT20,
+            self::STYLE_PERCENT25,
+            self::STYLE_PERCENT30,
+            self::STYLE_PERCENT40,
+            self::STYLE_PERCENT50,
+            self::STYLE_PERCENT60,
+            self::STYLE_PERCENT70,
+            self::STYLE_PERCENT75,
+            self::STYLE_PERCENT80,
+            self::STYLE_PERCENT90,
+            self::STYLE_DARK_HORIZONTAL,
+            self::STYLE_DARK_VERTICAL,
+            self::STYLE_DARK_DOWNWARD_DIAGONAL,
+            self::STYLE_DARK_UPWARD_DIAGONAL,
+            self::STYLE_SMALL_CHECKER_BOARD,
+            self::STYLE_TRELLIS,
+            self::STYLE_LIGHT_HORIZONTAL,
+            self::STYLE_LIGHT_VERTICAL,
+            self::STYLE_LIGHT_DOWNWARD_DIAGONAL,
+            self::STYLE_LIGHT_UPWARD_DIAGONAL,
+            self::STYLE_SMALL_GRID,
+            self::STYLE_DOTTED_DIAMOND,
+            self::STYLE_WIDE_DOWNWARD_DIAGONAL,
+            self::STYLE_WIDE_UPWARD_DIAGONAL,
+            self::STYLE_DASHED_UPWARD_DIAGONAL,
+            self::STYLE_DASHED_DOWNWARD_DIAGONAL,
+            self::STYLE_NARROW_VERTICAL,
+            self::STYLE_NARROW_HORIZONTAL,
+            self::STYLE_DASHED_VERTICAL,
+            self::STYLE_DASHED_HORIZONTAL,
+            self::STYLE_LARGE_CONFETTI,
+            self::STYLE_LARGE_GRID,
+            self::STYLE_HORIZONTAL_BRICK,
+            self::STYLE_LARGE_CHECKER_BOARD,
+            self::STYLE_SMALL_CONFETTI,
+            self::STYLE_ZIGZAG,
+            self::STYLE_SOLID_DIAMOND,
+            self::STYLE_DIAGONAL_BRICK,
+            self::STYLE_OUTLINED_DIAMOND,
+            self::STYLE_PLAID,
+            self::STYLE_SPHERE,
+            self::STYLE_WEAVE,
+            self::STYLE_DOTTED_GRID,
+            self::STYLE_DIVOT,
+            self::STYLE_SHINGLE,
+            self::STYLE_WAVE,
+            self::STYLE_HORIZONTAL,
+            self::STYLE_VERTICAL,
+            self::STYLE_CROSS,
+            self::STYLE_DOWNWARD_DIAGONAL,
+            self::STYLE_UPWARD_DIAGONAL,
+            self::STYLE_DIAGONAL_CROSS,
+            self::STYLE_NOT_DEFINED,
+        ];
+    }
     
 
 
@@ -197,6 +320,17 @@ class PatternFill extends FillFormat
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['style'] === null) {
+            $invalidProperties[] = "'style' can't be null";
+        }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'style', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -212,6 +346,13 @@ class PatternFill extends FillFormat
             return false;
         }
 
+        if ($this->container['style'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -267,7 +408,7 @@ class PatternFill extends FillFormat
     /**
      * Gets style
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PatternStyle
+     * @return string
      */
     public function getStyle()
     {
@@ -277,12 +418,21 @@ class PatternFill extends FillFormat
     /**
      * Sets style
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PatternStyle $style Gets or sets the style of pattern fill.
+     * @param string $style Gets or sets the style of pattern fill.
      *
      * @return $this
      */
     public function setStyle($style)
     {
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($style, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'style', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['style'] = $style;
 
         return $this;

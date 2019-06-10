@@ -74,18 +74,24 @@ class GetNotesSlideWithFormatRequest
     public $storage;
 
     /*
+     * Storage folder containing custom fonts to be used with the document.
+     */
+    public $fontsFolder;
+
+    /*
      * Initializes a new instance of the GetNotesSlideWithFormatRequest class.
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $format Output file format.
+     * @param int $format Output file format.
      * @param int $width Output file width.
      * @param int $height Output file height.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
+     * @param string $fontsFolder Storage folder containing custom fonts to be used with the document.
      */
-    public function __construct($name, $slideIndex, $format, $width = null, $height = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $format, $width = null, $height = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
@@ -95,6 +101,7 @@ class GetNotesSlideWithFormatRequest
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
+        $this->fontsFolder = $fontsFolder;
     }
 
     /*
@@ -223,6 +230,22 @@ class GetNotesSlideWithFormatRequest
     public function set_storage($value)
     {
         $this->storage = $value;
+        return $this;
+    }
+    /*
+     * Storage folder containing custom fonts to be used with the document.
+     */
+    public function get_fontsFolder()
+    {
+        return $this->fontsFolder;
+    }
+
+    /*
+     * Storage folder containing custom fonts to be used with the document.
+     */
+    public function set_fontsFolder($value)
+    {
+        $this->fontsFolder = $value;
         return $this;
     }
 }

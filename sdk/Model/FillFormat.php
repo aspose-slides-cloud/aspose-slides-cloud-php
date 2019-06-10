@@ -58,7 +58,7 @@ class FillFormat implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\FillType'
+        'type' => 'string'
     ];
 
     /**
@@ -159,8 +159,31 @@ class FillFormat implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_NO_FILL = 'NoFill';
+    const TYPE_SOLID = 'Solid';
+    const TYPE_GRADIENT = 'Gradient';
+    const TYPE_PATTERN = 'Pattern';
+    const TYPE_PICTURE = 'Picture';
+    const TYPE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_NO_FILL,
+            self::TYPE_SOLID,
+            self::TYPE_GRADIENT,
+            self::TYPE_PATTERN,
+            self::TYPE_PICTURE,
+            self::TYPE_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -194,9 +217,14 @@ class FillFormat implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -209,7 +237,8 @@ class FillFormat implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['type'] === null) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -219,7 +248,7 @@ class FillFormat implements ArrayAccess
     /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillType
+     * @return string
      */
     public function getType()
     {
@@ -229,12 +258,21 @@ class FillFormat implements ArrayAccess
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillType $type type
+     * @param string $type type
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

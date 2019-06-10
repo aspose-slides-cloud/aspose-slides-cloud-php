@@ -63,7 +63,7 @@ class ChartWall implements ArrayAccess
         'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'thickness' => 'int',
-        'picture_type' => '\Aspose\Slides\Cloud\Sdk\Model\PictureType'
+        'picture_type' => 'string'
     ];
 
     /**
@@ -180,8 +180,27 @@ class ChartWall implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PICTURE_TYPE_STACK = 'Stack';
+    const PICTURE_TYPE_STACK_SCALE = 'StackScale';
+    const PICTURE_TYPE_STRETCH = 'Stretch';
+    const PICTURE_TYPE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPictureTypeAllowableValues()
+    {
+        return [
+            self::PICTURE_TYPE_STACK,
+            self::PICTURE_TYPE_STACK_SCALE,
+            self::PICTURE_TYPE_STRETCH,
+            self::PICTURE_TYPE_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -221,6 +240,14 @@ class ChartWall implements ArrayAccess
         if ($this->container['picture_type'] === null) {
             $invalidProperties[] = "'picture_type' can't be null";
         }
+        $allowedValues = $this->getPictureTypeAllowableValues();
+        if (!in_array($this->container['picture_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'picture_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -237,6 +264,10 @@ class ChartWall implements ArrayAccess
             return false;
         }
         if ($this->container['picture_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPictureTypeAllowableValues();
+        if (!in_array($this->container['picture_type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -342,7 +373,7 @@ class ChartWall implements ArrayAccess
     /**
      * Gets picture_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PictureType
+     * @return string
      */
     public function getPictureType()
     {
@@ -352,12 +383,21 @@ class ChartWall implements ArrayAccess
     /**
      * Sets picture_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureType $picture_type Get or sets mode of bar picture filling.
+     * @param string $picture_type Get or sets mode of bar picture filling.
      *
      * @return $this
      */
     public function setPictureType($picture_type)
     {
+        $allowedValues = $this->getPictureTypeAllowableValues();
+        if (!in_array($picture_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'picture_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['picture_type'] = $picture_type;
 
         return $this;

@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutUpdateNotesSlideShapeRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class PutUpdateNotesSlideShapeRequest
     public $slideIndex;
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -54,7 +54,7 @@ class PutUpdateNotesSlideShapeRequest
     public $shapeIndex;
 
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public $dto;
 
@@ -64,26 +64,26 @@ class PutUpdateNotesSlideShapeRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PutUpdateNotesSlideShapeRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Object path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape dto.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null)
     {
@@ -98,7 +98,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +106,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -130,7 +130,7 @@ class PutUpdateNotesSlideShapeRequest
         return $this;
     }
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -138,7 +138,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -162,7 +162,7 @@ class PutUpdateNotesSlideShapeRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public function get_dto()
     {
@@ -170,7 +170,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public function set_dto($value)
     {
@@ -194,7 +194,7 @@ class PutUpdateNotesSlideShapeRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -202,7 +202,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -210,7 +210,7 @@ class PutUpdateNotesSlideShapeRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -218,7 +218,7 @@ class PutUpdateNotesSlideShapeRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

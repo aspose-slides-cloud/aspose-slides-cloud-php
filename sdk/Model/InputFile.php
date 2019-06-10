@@ -59,8 +59,8 @@ class InputFile implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\InputFileType',
-        'password' => 'string'
+        'password' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -69,8 +69,8 @@ class InputFile implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'password' => null
+        'password' => null,
+        'type' => null
     ];
 
     /**
@@ -100,8 +100,8 @@ class InputFile implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'Type',
-        'password' => 'Password'
+        'password' => 'Password',
+        'type' => 'Type'
     ];
 
     /**
@@ -110,8 +110,8 @@ class InputFile implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'password' => 'setPassword'
+        'password' => 'setPassword',
+        'type' => 'setType'
     ];
 
     /**
@@ -120,8 +120,8 @@ class InputFile implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'password' => 'getPassword'
+        'password' => 'getPassword',
+        'type' => 'getType'
     ];
 
     /**
@@ -165,8 +165,25 @@ class InputFile implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_PATH = 'Path';
+    const TYPE_REQUEST = 'Request';
+    const TYPE_BASE64 = 'Base64';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PATH,
+            self::TYPE_REQUEST,
+            self::TYPE_BASE64,
+        ];
+    }
     
 
     /**
@@ -184,8 +201,8 @@ class InputFile implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -201,9 +218,14 @@ class InputFile implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -216,36 +238,13 @@ class InputFile implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['type'] === null) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         return true;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFileType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFileType $type Gets type of input source.
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets password
@@ -267,6 +266,39 @@ class InputFile implements ArrayAccess
     public function setPassword($password)
     {
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -61,10 +61,10 @@ class HtmlExportOptions extends ExportOptions
         'sub_directory_name' => 'string',
         'show_hidden_slides' => 'bool',
         'jpeg_quality' => 'int',
-        'pictures_compression' => '\Aspose\Slides\Cloud\Sdk\Model\PicturesCompression',
+        'pictures_compression' => 'string',
         'delete_pictures_cropped_areas' => 'bool',
-        'notes_position' => '\Aspose\Slides\Cloud\Sdk\Model\NotesPositions',
-        'comments_position' => '\Aspose\Slides\Cloud\Sdk\Model\CommentsPositions',
+        'notes_position' => 'string',
+        'comments_position' => 'string',
         'comments_area_width' => 'int',
         'comments_area_color' => 'string',
         'show_comments_by_no_author' => 'bool'
@@ -208,8 +208,65 @@ class HtmlExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const PICTURES_COMPRESSION_DPI330 = 'Dpi330';
+    const PICTURES_COMPRESSION_DPI220 = 'Dpi220';
+    const PICTURES_COMPRESSION_DPI150 = 'Dpi150';
+    const PICTURES_COMPRESSION_DPI96 = 'Dpi96';
+    const PICTURES_COMPRESSION_DPI72 = 'Dpi72';
+    const PICTURES_COMPRESSION_DOCUMENT_RESOLUTION = 'DocumentResolution';
+    const NOTES_POSITION_NONE = 'None';
+    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
+    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
+    const COMMENTS_POSITION_NONE = 'None';
+    const COMMENTS_POSITION_BOTTOM = 'Bottom';
+    const COMMENTS_POSITION_RIGHT = 'Right';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPicturesCompressionAllowableValues()
+    {
+        return [
+            self::PICTURES_COMPRESSION_DPI330,
+            self::PICTURES_COMPRESSION_DPI220,
+            self::PICTURES_COMPRESSION_DPI150,
+            self::PICTURES_COMPRESSION_DPI96,
+            self::PICTURES_COMPRESSION_DPI72,
+            self::PICTURES_COMPRESSION_DOCUMENT_RESOLUTION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotesPositionAllowableValues()
+    {
+        return [
+            self::NOTES_POSITION_NONE,
+            self::NOTES_POSITION_BOTTOM_FULL,
+            self::NOTES_POSITION_BOTTOM_TRUNCATED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentsPositionAllowableValues()
+    {
+        return [
+            self::COMMENTS_POSITION_NONE,
+            self::COMMENTS_POSITION_BOTTOM,
+            self::COMMENTS_POSITION_RIGHT,
+        ];
+    }
     
 
 
@@ -245,6 +302,54 @@ class HtmlExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['save_as_zip'] === null) {
+            $invalidProperties[] = "'save_as_zip' can't be null";
+        }
+        if ($this->container['show_hidden_slides'] === null) {
+            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            $invalidProperties[] = "'jpeg_quality' can't be null";
+        }
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pictures_compression', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['delete_pictures_cropped_areas'] === null) {
+            $invalidProperties[] = "'delete_pictures_cropped_areas' can't be null";
+        }
+        if ($this->container['notes_position'] === null) {
+            $invalidProperties[] = "'notes_position' can't be null";
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notes_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_position'] === null) {
+            $invalidProperties[] = "'comments_position' can't be null";
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'comments_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_area_width'] === null) {
+            $invalidProperties[] = "'comments_area_width' can't be null";
+        }
+        if ($this->container['show_comments_by_no_author'] === null) {
+            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -260,6 +365,42 @@ class HtmlExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['save_as_zip'] === null) {
+            return false;
+        }
+        if ($this->container['show_hidden_slides'] === null) {
+            return false;
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['delete_pictures_cropped_areas'] === null) {
+            return false;
+        }
+        if ($this->container['notes_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_area_width'] === null) {
+            return false;
+        }
+        if ($this->container['show_comments_by_no_author'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -363,7 +504,7 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Gets pictures_compression
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PicturesCompression
+     * @return string
      */
     public function getPicturesCompression()
     {
@@ -373,12 +514,21 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Sets pictures_compression
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PicturesCompression $pictures_compression Represents the pictures compression level
+     * @param string $pictures_compression Represents the pictures compression level
      *
      * @return $this
      */
     public function setPicturesCompression($pictures_compression)
     {
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!is_null($pictures_compression) && !in_array($pictures_compression, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'pictures_compression', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['pictures_compression'] = $pictures_compression;
 
         return $this;
@@ -411,7 +561,7 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Gets notes_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NotesPositions
+     * @return string
      */
     public function getNotesPosition()
     {
@@ -421,12 +571,21 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Sets notes_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesPositions $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notes_position Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
     public function setNotesPosition($notes_position)
     {
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($notes_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notes_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['notes_position'] = $notes_position;
 
         return $this;
@@ -435,7 +594,7 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Gets comments_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions
+     * @return string
      */
     public function getCommentsPosition()
     {
@@ -445,12 +604,21 @@ class HtmlExportOptions extends ExportOptions
     /**
      * Sets comments_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions $comments_position Gets or sets the position of the comments on the page.
+     * @param string $comments_position Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
     public function setCommentsPosition($comments_position)
     {
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($comments_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'comments_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['comments_position'] = $comments_position;
 
         return $this;

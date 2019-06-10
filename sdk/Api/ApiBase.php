@@ -30,9 +30,13 @@ namespace Aspose\Slides\Cloud\Sdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
+use Monolog\Logger;
 
 /**
  * Aspose.Slides for Cloud API.
@@ -65,7 +69,7 @@ class ApiBase
      */
     public function __construct(ClientInterface $client = null, Configuration $config = null, HeaderSelector $selector = null)
     {
-        $this->client = $client ?: new Client();
+        $this->client = $client ?: new Client([ 'verify' => false ]);
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
@@ -86,7 +90,7 @@ class ApiBase
         $statusCode = $response->getStatusCode();
         if ($statusCode < 200 || $statusCode > 299) {
             if ($statusCode === 401) {
-                $this->refreshToken();
+                $this->requestToken();
                 throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
             }
             throw new ApiException(
@@ -165,34 +169,18 @@ class ApiBase
             }
         }
     }
-
   
     /*
      * Gets a request token from server
      */
     protected function requestToken() 
     {
-        $requestUrl = $this->config->getHost()."/oauth2/token";
+        $requestUrl = $this->config->getAuthHost()."/connect/token";
         $postData = "grant_type=client_credentials"."&client_id=".$this->config->getAppSid()."&client_secret=".$this->config->getAppKey();
-        $response = $this->client->send(new Request('POST', $requestUrl, [], $postData));
+        $response = $this->client->send(new Request('POST', $requestUrl,  [ 'Content-Type' => 'application/x-www-form-urlencoded' ], $postData));
         $result = json_decode($response->getBody()->getContents(), true);
         $this->config->setAccessToken($result["access_token"]);
-        $this->config->setRefreshToken($result["refresh_token"]);
     }
-  
-    /*
-     * Refresh token
-     */
-    protected function refreshToken() 
-    {
-        $requestUrl = $this->config->getHost()."/oauth2/token";
-        $postData = "grant_type=refresh_token&refresh_token=".$this->config->getRefreshToken();
-        $response = $this->client->send(new Request('POST', $requestUrl, [], $postData));
-        $result = json_decode($response->getBody()->getContents(), true);
-        $this->config->setAccessToken($result["access_token"]);
-        $this->config->setRefreshToken($result["refresh_token"]);
-    }
-
     
     /*
      * Executes response logging

@@ -39,7 +39,7 @@ class PutPresentationMergeRequest
     public $name;
 
     /*
-     * with a list of presentations and slide indices to merge.
+     * OrderedMergeRequest with a list of presentations and slide indices to merge.
      */
     public $request;
 
@@ -62,7 +62,7 @@ class PutPresentationMergeRequest
      * Initializes a new instance of the PutPresentationMergeRequest class.
      *  
      * @param string $name Document name.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request with a list of presentations and slide indices to merge.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request OrderedMergeRequest with a list of presentations and slide indices to merge.
      * @param string $password Document password.
      * @param string $storage Document storage.
      * @param string $folder Document folder.
@@ -93,7 +93,7 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * with a list of presentations and slide indices to merge.
+     * OrderedMergeRequest with a list of presentations and slide indices to merge.
      */
     public function get_request()
     {
@@ -101,7 +101,7 @@ class PutPresentationMergeRequest
     }
 
     /*
-     * with a list of presentations and slide indices to merge.
+     * OrderedMergeRequest with a list of presentations and slide indices to merge.
      */
     public function set_request($value)
     {

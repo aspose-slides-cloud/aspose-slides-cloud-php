@@ -57,8 +57,8 @@ class ImageExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'notes_position' => '\Aspose\Slides\Cloud\Sdk\Model\NotesPositions',
-        'comments_position' => '\Aspose\Slides\Cloud\Sdk\Model\CommentsPositions',
+        'notes_position' => 'string',
+        'comments_position' => 'string',
         'comments_area_width' => 'int',
         'comments_area_color' => 'string'
     ];
@@ -173,8 +173,42 @@ class ImageExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const NOTES_POSITION_NONE = 'None';
+    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
+    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
+    const COMMENTS_POSITION_NONE = 'None';
+    const COMMENTS_POSITION_BOTTOM = 'Bottom';
+    const COMMENTS_POSITION_RIGHT = 'Right';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotesPositionAllowableValues()
+    {
+        return [
+            self::NOTES_POSITION_NONE,
+            self::NOTES_POSITION_BOTTOM_FULL,
+            self::NOTES_POSITION_BOTTOM_TRUNCATED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentsPositionAllowableValues()
+    {
+        return [
+            self::COMMENTS_POSITION_NONE,
+            self::COMMENTS_POSITION_BOTTOM,
+            self::COMMENTS_POSITION_RIGHT,
+        ];
+    }
     
 
 
@@ -203,6 +237,31 @@ class ImageExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['notes_position'] === null) {
+            $invalidProperties[] = "'notes_position' can't be null";
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notes_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_position'] === null) {
+            $invalidProperties[] = "'comments_position' can't be null";
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'comments_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_area_width'] === null) {
+            $invalidProperties[] = "'comments_area_width' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,6 +277,23 @@ class ImageExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['notes_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_area_width'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -225,7 +301,7 @@ class ImageExportOptions extends ExportOptions
     /**
      * Gets notes_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NotesPositions
+     * @return string
      */
     public function getNotesPosition()
     {
@@ -235,12 +311,21 @@ class ImageExportOptions extends ExportOptions
     /**
      * Sets notes_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesPositions $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notes_position Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
     public function setNotesPosition($notes_position)
     {
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($notes_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notes_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['notes_position'] = $notes_position;
 
         return $this;
@@ -249,7 +334,7 @@ class ImageExportOptions extends ExportOptions
     /**
      * Gets comments_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions
+     * @return string
      */
     public function getCommentsPosition()
     {
@@ -259,12 +344,21 @@ class ImageExportOptions extends ExportOptions
     /**
      * Sets comments_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions $comments_position Gets or sets the position of the comments on the page.
+     * @param string $comments_position Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
     public function setCommentsPosition($comments_position)
     {
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($comments_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'comments_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['comments_position'] = $comments_position;
 
         return $this;

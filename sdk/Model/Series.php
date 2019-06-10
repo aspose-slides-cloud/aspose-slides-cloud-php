@@ -59,8 +59,7 @@ class Series implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data_point_type' => '\Aspose\Slides\Cloud\Sdk\Model\ChartDataPointType',
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\ChartType',
+        'type' => 'string',
         'name' => 'string',
         'is_color_varied' => 'bool',
         'inverted_solid_fill_color' => 'string',
@@ -85,7 +84,6 @@ class Series implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data_point_type' => null,
         'type' => null,
         'name' => null,
         'is_color_varied' => null,
@@ -132,7 +130,6 @@ class Series implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_point_type' => 'DataPointType',
         'type' => 'Type',
         'name' => 'Name',
         'is_color_varied' => 'IsColorVaried',
@@ -158,7 +155,6 @@ class Series implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data_point_type' => 'setDataPointType',
         'type' => 'setType',
         'name' => 'setName',
         'is_color_varied' => 'setIsColorVaried',
@@ -184,7 +180,6 @@ class Series implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data_point_type' => 'getDataPointType',
         'type' => 'getType',
         'name' => 'getName',
         'is_color_varied' => 'getIsColorVaried',
@@ -245,8 +240,167 @@ class Series implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_CLUSTERED_COLUMN = 'ClusteredColumn';
+    const TYPE_STACKED_COLUMN = 'StackedColumn';
+    const TYPE_PERCENTS_STACKED_COLUMN = 'PercentsStackedColumn';
+    const TYPE_CLUSTERED_COLUMN3_D = 'ClusteredColumn3D';
+    const TYPE_STACKED_COLUMN3_D = 'StackedColumn3D';
+    const TYPE_PERCENTS_STACKED_COLUMN3_D = 'PercentsStackedColumn3D';
+    const TYPE_COLUMN3_D = 'Column3D';
+    const TYPE_CLUSTERED_CYLINDER = 'ClusteredCylinder';
+    const TYPE_STACKED_CYLINDER = 'StackedCylinder';
+    const TYPE_PERCENTS_STACKED_CYLINDER = 'PercentsStackedCylinder';
+    const TYPE_CYLINDER3_D = 'Cylinder3D';
+    const TYPE_CLUSTERED_CONE = 'ClusteredCone';
+    const TYPE_STACKED_CONE = 'StackedCone';
+    const TYPE_PERCENTS_STACKED_CONE = 'PercentsStackedCone';
+    const TYPE_CONE3_D = 'Cone3D';
+    const TYPE_CLUSTERED_PYRAMID = 'ClusteredPyramid';
+    const TYPE_STACKED_PYRAMID = 'StackedPyramid';
+    const TYPE_PERCENTS_STACKED_PYRAMID = 'PercentsStackedPyramid';
+    const TYPE_PYRAMID3_D = 'Pyramid3D';
+    const TYPE_LINE = 'Line';
+    const TYPE_STACKED_LINE = 'StackedLine';
+    const TYPE_PERCENTS_STACKED_LINE = 'PercentsStackedLine';
+    const TYPE_LINE_WITH_MARKERS = 'LineWithMarkers';
+    const TYPE_STACKED_LINE_WITH_MARKERS = 'StackedLineWithMarkers';
+    const TYPE_PERCENTS_STACKED_LINE_WITH_MARKERS = 'PercentsStackedLineWithMarkers';
+    const TYPE_LINE3_D = 'Line3D';
+    const TYPE_PIE = 'Pie';
+    const TYPE_PIE3_D = 'Pie3D';
+    const TYPE_PIE_OF_PIE = 'PieOfPie';
+    const TYPE_EXPLODED_PIE = 'ExplodedPie';
+    const TYPE_EXPLODED_PIE3_D = 'ExplodedPie3D';
+    const TYPE_BAR_OF_PIE = 'BarOfPie';
+    const TYPE_PERCENTS_STACKED_BAR = 'PercentsStackedBar';
+    const TYPE_CLUSTERED_BAR3_D = 'ClusteredBar3D';
+    const TYPE_CLUSTERED_BAR = 'ClusteredBar';
+    const TYPE_STACKED_BAR = 'StackedBar';
+    const TYPE_STACKED_BAR3_D = 'StackedBar3D';
+    const TYPE_PERCENTS_STACKED_BAR3_D = 'PercentsStackedBar3D';
+    const TYPE_CLUSTERED_HORIZONTAL_CYLINDER = 'ClusteredHorizontalCylinder';
+    const TYPE_STACKED_HORIZONTAL_CYLINDER = 'StackedHorizontalCylinder';
+    const TYPE_PERCENTS_STACKED_HORIZONTAL_CYLINDER = 'PercentsStackedHorizontalCylinder';
+    const TYPE_CLUSTERED_HORIZONTAL_CONE = 'ClusteredHorizontalCone';
+    const TYPE_STACKED_HORIZONTAL_CONE = 'StackedHorizontalCone';
+    const TYPE_PERCENTS_STACKED_HORIZONTAL_CONE = 'PercentsStackedHorizontalCone';
+    const TYPE_CLUSTERED_HORIZONTAL_PYRAMID = 'ClusteredHorizontalPyramid';
+    const TYPE_STACKED_HORIZONTAL_PYRAMID = 'StackedHorizontalPyramid';
+    const TYPE_PERCENTS_STACKED_HORIZONTAL_PYRAMID = 'PercentsStackedHorizontalPyramid';
+    const TYPE_AREA = 'Area';
+    const TYPE_STACKED_AREA = 'StackedArea';
+    const TYPE_PERCENTS_STACKED_AREA = 'PercentsStackedArea';
+    const TYPE_AREA3_D = 'Area3D';
+    const TYPE_STACKED_AREA3_D = 'StackedArea3D';
+    const TYPE_PERCENTS_STACKED_AREA3_D = 'PercentsStackedArea3D';
+    const TYPE_SCATTER_WITH_MARKERS = 'ScatterWithMarkers';
+    const TYPE_SCATTER_WITH_SMOOTH_LINES_AND_MARKERS = 'ScatterWithSmoothLinesAndMarkers';
+    const TYPE_SCATTER_WITH_SMOOTH_LINES = 'ScatterWithSmoothLines';
+    const TYPE_SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS = 'ScatterWithStraightLinesAndMarkers';
+    const TYPE_SCATTER_WITH_STRAIGHT_LINES = 'ScatterWithStraightLines';
+    const TYPE_HIGH_LOW_CLOSE = 'HighLowClose';
+    const TYPE_OPEN_HIGH_LOW_CLOSE = 'OpenHighLowClose';
+    const TYPE_VOLUME_HIGH_LOW_CLOSE = 'VolumeHighLowClose';
+    const TYPE_VOLUME_OPEN_HIGH_LOW_CLOSE = 'VolumeOpenHighLowClose';
+    const TYPE_SURFACE3_D = 'Surface3D';
+    const TYPE_WIREFRAME_SURFACE3_D = 'WireframeSurface3D';
+    const TYPE_CONTOUR = 'Contour';
+    const TYPE_WIREFRAME_CONTOUR = 'WireframeContour';
+    const TYPE_DOUGHNUT = 'Doughnut';
+    const TYPE_EXPLODED_DOUGHNUT = 'ExplodedDoughnut';
+    const TYPE_BUBBLE = 'Bubble';
+    const TYPE_BUBBLE_WITH3_D = 'BubbleWith3D';
+    const TYPE_RADAR = 'Radar';
+    const TYPE_RADAR_WITH_MARKERS = 'RadarWithMarkers';
+    const TYPE_FILLED_RADAR = 'FilledRadar';
+    const TYPE_SERIES_OF_MIXED_TYPES = 'SeriesOfMixedTypes';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CLUSTERED_COLUMN,
+            self::TYPE_STACKED_COLUMN,
+            self::TYPE_PERCENTS_STACKED_COLUMN,
+            self::TYPE_CLUSTERED_COLUMN3_D,
+            self::TYPE_STACKED_COLUMN3_D,
+            self::TYPE_PERCENTS_STACKED_COLUMN3_D,
+            self::TYPE_COLUMN3_D,
+            self::TYPE_CLUSTERED_CYLINDER,
+            self::TYPE_STACKED_CYLINDER,
+            self::TYPE_PERCENTS_STACKED_CYLINDER,
+            self::TYPE_CYLINDER3_D,
+            self::TYPE_CLUSTERED_CONE,
+            self::TYPE_STACKED_CONE,
+            self::TYPE_PERCENTS_STACKED_CONE,
+            self::TYPE_CONE3_D,
+            self::TYPE_CLUSTERED_PYRAMID,
+            self::TYPE_STACKED_PYRAMID,
+            self::TYPE_PERCENTS_STACKED_PYRAMID,
+            self::TYPE_PYRAMID3_D,
+            self::TYPE_LINE,
+            self::TYPE_STACKED_LINE,
+            self::TYPE_PERCENTS_STACKED_LINE,
+            self::TYPE_LINE_WITH_MARKERS,
+            self::TYPE_STACKED_LINE_WITH_MARKERS,
+            self::TYPE_PERCENTS_STACKED_LINE_WITH_MARKERS,
+            self::TYPE_LINE3_D,
+            self::TYPE_PIE,
+            self::TYPE_PIE3_D,
+            self::TYPE_PIE_OF_PIE,
+            self::TYPE_EXPLODED_PIE,
+            self::TYPE_EXPLODED_PIE3_D,
+            self::TYPE_BAR_OF_PIE,
+            self::TYPE_PERCENTS_STACKED_BAR,
+            self::TYPE_CLUSTERED_BAR3_D,
+            self::TYPE_CLUSTERED_BAR,
+            self::TYPE_STACKED_BAR,
+            self::TYPE_STACKED_BAR3_D,
+            self::TYPE_PERCENTS_STACKED_BAR3_D,
+            self::TYPE_CLUSTERED_HORIZONTAL_CYLINDER,
+            self::TYPE_STACKED_HORIZONTAL_CYLINDER,
+            self::TYPE_PERCENTS_STACKED_HORIZONTAL_CYLINDER,
+            self::TYPE_CLUSTERED_HORIZONTAL_CONE,
+            self::TYPE_STACKED_HORIZONTAL_CONE,
+            self::TYPE_PERCENTS_STACKED_HORIZONTAL_CONE,
+            self::TYPE_CLUSTERED_HORIZONTAL_PYRAMID,
+            self::TYPE_STACKED_HORIZONTAL_PYRAMID,
+            self::TYPE_PERCENTS_STACKED_HORIZONTAL_PYRAMID,
+            self::TYPE_AREA,
+            self::TYPE_STACKED_AREA,
+            self::TYPE_PERCENTS_STACKED_AREA,
+            self::TYPE_AREA3_D,
+            self::TYPE_STACKED_AREA3_D,
+            self::TYPE_PERCENTS_STACKED_AREA3_D,
+            self::TYPE_SCATTER_WITH_MARKERS,
+            self::TYPE_SCATTER_WITH_SMOOTH_LINES_AND_MARKERS,
+            self::TYPE_SCATTER_WITH_SMOOTH_LINES,
+            self::TYPE_SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS,
+            self::TYPE_SCATTER_WITH_STRAIGHT_LINES,
+            self::TYPE_HIGH_LOW_CLOSE,
+            self::TYPE_OPEN_HIGH_LOW_CLOSE,
+            self::TYPE_VOLUME_HIGH_LOW_CLOSE,
+            self::TYPE_VOLUME_OPEN_HIGH_LOW_CLOSE,
+            self::TYPE_SURFACE3_D,
+            self::TYPE_WIREFRAME_SURFACE3_D,
+            self::TYPE_CONTOUR,
+            self::TYPE_WIREFRAME_CONTOUR,
+            self::TYPE_DOUGHNUT,
+            self::TYPE_EXPLODED_DOUGHNUT,
+            self::TYPE_BUBBLE,
+            self::TYPE_BUBBLE_WITH3_D,
+            self::TYPE_RADAR,
+            self::TYPE_RADAR_WITH_MARKERS,
+            self::TYPE_FILLED_RADAR,
+            self::TYPE_SERIES_OF_MIXED_TYPES,
+        ];
+    }
     
 
     /**
@@ -264,7 +418,6 @@ class Series implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data_point_type'] = isset($data['data_point_type']) ? $data['data_point_type'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['is_color_varied'] = isset($data['is_color_varied']) ? $data['is_color_varied'] : null;
@@ -297,12 +450,17 @@ class Series implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['data_point_type'] === null) {
-            $invalidProperties[] = "'data_point_type' can't be null";
-        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['is_color_varied'] === null) {
             $invalidProperties[] = "'is_color_varied' can't be null";
         }
@@ -333,10 +491,11 @@ class Series implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['data_point_type'] === null) {
+        if ($this->container['type'] === null) {
             return false;
         }
-        if ($this->container['type'] === null) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         if ($this->container['is_color_varied'] === null) {
@@ -362,33 +521,9 @@ class Series implements ArrayAccess
 
 
     /**
-     * Gets data_point_type
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartDataPointType
-     */
-    public function getDataPointType()
-    {
-        return $this->container['data_point_type'];
-    }
-
-    /**
-     * Sets data_point_type
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartDataPointType $data_point_type Data point type.
-     *
-     * @return $this
-     */
-    public function setDataPointType($data_point_type)
-    {
-        $this->container['data_point_type'] = $data_point_type;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartType
+     * @return string
      */
     public function getType()
     {
@@ -398,12 +533,21 @@ class Series implements ArrayAccess
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartType $type Series type.
+     * @param string $type Series type.
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

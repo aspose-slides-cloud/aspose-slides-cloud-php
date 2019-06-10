@@ -190,6 +190,9 @@ class AddLayoutSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['clone_from_position'] === null) {
+            $invalidProperties[] = "'clone_from_position' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,6 +208,9 @@ class AddLayoutSlide extends Task
             return false;
         }
 
+        if ($this->container['clone_from_position'] === null) {
+            return false;
+        }
         return true;
     }
 

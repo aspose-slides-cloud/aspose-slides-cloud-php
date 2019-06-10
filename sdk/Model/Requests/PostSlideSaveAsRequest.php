@@ -79,11 +79,6 @@ class PostSlideSaveAsRequest
     public $storage;
 
     /*
-     * Path to upload the output file to.
-     */
-    public $outPath;
-
-    /*
      * Storage folder containing custom fonts to be used with the document.
      */
     public $fontsFolder;
@@ -93,17 +88,16 @@ class PostSlideSaveAsRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $format Output file format.
+     * @param int $format Output file format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param int $width Output file width; 0 to not adjust the size. Default is 0.
      * @param int $height Output file height; 0 to not adjust the size. Default is 0.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
-     * @param string $outPath Path to upload the output file to.
      * @param string $fontsFolder Storage folder containing custom fonts to be used with the document.
      */
-    public function __construct($name, $slideIndex, $format, $options = null, $width = null, $height = null, $password = null, $folder = null, $storage = null, $outPath = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $format, $options = null, $width = null, $height = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
@@ -114,7 +108,6 @@ class PostSlideSaveAsRequest
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
-        $this->outPath = $outPath;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -260,22 +253,6 @@ class PostSlideSaveAsRequest
     public function set_storage($value)
     {
         $this->storage = $value;
-        return $this;
-    }
-    /*
-     * Path to upload the output file to.
-     */
-    public function get_outPath()
-    {
-        return $this->outPath;
-    }
-
-    /*
-     * Path to upload the output file to.
-     */
-    public function set_outPath($value)
-    {
-        $this->outPath = $value;
         return $this;
     }
     /*

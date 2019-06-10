@@ -57,7 +57,7 @@ class Chart extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'chart_type' => '\Aspose\Slides\Cloud\Sdk\Model\ChartType',
+        'chart_type' => 'string',
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
         'categories' => 'string[]',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
@@ -203,8 +203,167 @@ class Chart extends ShapeBase
         return self::$swaggerModelName;
     }
 
+    const CHART_TYPE_CLUSTERED_COLUMN = 'ClusteredColumn';
+    const CHART_TYPE_STACKED_COLUMN = 'StackedColumn';
+    const CHART_TYPE_PERCENTS_STACKED_COLUMN = 'PercentsStackedColumn';
+    const CHART_TYPE_CLUSTERED_COLUMN3_D = 'ClusteredColumn3D';
+    const CHART_TYPE_STACKED_COLUMN3_D = 'StackedColumn3D';
+    const CHART_TYPE_PERCENTS_STACKED_COLUMN3_D = 'PercentsStackedColumn3D';
+    const CHART_TYPE_COLUMN3_D = 'Column3D';
+    const CHART_TYPE_CLUSTERED_CYLINDER = 'ClusteredCylinder';
+    const CHART_TYPE_STACKED_CYLINDER = 'StackedCylinder';
+    const CHART_TYPE_PERCENTS_STACKED_CYLINDER = 'PercentsStackedCylinder';
+    const CHART_TYPE_CYLINDER3_D = 'Cylinder3D';
+    const CHART_TYPE_CLUSTERED_CONE = 'ClusteredCone';
+    const CHART_TYPE_STACKED_CONE = 'StackedCone';
+    const CHART_TYPE_PERCENTS_STACKED_CONE = 'PercentsStackedCone';
+    const CHART_TYPE_CONE3_D = 'Cone3D';
+    const CHART_TYPE_CLUSTERED_PYRAMID = 'ClusteredPyramid';
+    const CHART_TYPE_STACKED_PYRAMID = 'StackedPyramid';
+    const CHART_TYPE_PERCENTS_STACKED_PYRAMID = 'PercentsStackedPyramid';
+    const CHART_TYPE_PYRAMID3_D = 'Pyramid3D';
+    const CHART_TYPE_LINE = 'Line';
+    const CHART_TYPE_STACKED_LINE = 'StackedLine';
+    const CHART_TYPE_PERCENTS_STACKED_LINE = 'PercentsStackedLine';
+    const CHART_TYPE_LINE_WITH_MARKERS = 'LineWithMarkers';
+    const CHART_TYPE_STACKED_LINE_WITH_MARKERS = 'StackedLineWithMarkers';
+    const CHART_TYPE_PERCENTS_STACKED_LINE_WITH_MARKERS = 'PercentsStackedLineWithMarkers';
+    const CHART_TYPE_LINE3_D = 'Line3D';
+    const CHART_TYPE_PIE = 'Pie';
+    const CHART_TYPE_PIE3_D = 'Pie3D';
+    const CHART_TYPE_PIE_OF_PIE = 'PieOfPie';
+    const CHART_TYPE_EXPLODED_PIE = 'ExplodedPie';
+    const CHART_TYPE_EXPLODED_PIE3_D = 'ExplodedPie3D';
+    const CHART_TYPE_BAR_OF_PIE = 'BarOfPie';
+    const CHART_TYPE_PERCENTS_STACKED_BAR = 'PercentsStackedBar';
+    const CHART_TYPE_CLUSTERED_BAR3_D = 'ClusteredBar3D';
+    const CHART_TYPE_CLUSTERED_BAR = 'ClusteredBar';
+    const CHART_TYPE_STACKED_BAR = 'StackedBar';
+    const CHART_TYPE_STACKED_BAR3_D = 'StackedBar3D';
+    const CHART_TYPE_PERCENTS_STACKED_BAR3_D = 'PercentsStackedBar3D';
+    const CHART_TYPE_CLUSTERED_HORIZONTAL_CYLINDER = 'ClusteredHorizontalCylinder';
+    const CHART_TYPE_STACKED_HORIZONTAL_CYLINDER = 'StackedHorizontalCylinder';
+    const CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_CYLINDER = 'PercentsStackedHorizontalCylinder';
+    const CHART_TYPE_CLUSTERED_HORIZONTAL_CONE = 'ClusteredHorizontalCone';
+    const CHART_TYPE_STACKED_HORIZONTAL_CONE = 'StackedHorizontalCone';
+    const CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_CONE = 'PercentsStackedHorizontalCone';
+    const CHART_TYPE_CLUSTERED_HORIZONTAL_PYRAMID = 'ClusteredHorizontalPyramid';
+    const CHART_TYPE_STACKED_HORIZONTAL_PYRAMID = 'StackedHorizontalPyramid';
+    const CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_PYRAMID = 'PercentsStackedHorizontalPyramid';
+    const CHART_TYPE_AREA = 'Area';
+    const CHART_TYPE_STACKED_AREA = 'StackedArea';
+    const CHART_TYPE_PERCENTS_STACKED_AREA = 'PercentsStackedArea';
+    const CHART_TYPE_AREA3_D = 'Area3D';
+    const CHART_TYPE_STACKED_AREA3_D = 'StackedArea3D';
+    const CHART_TYPE_PERCENTS_STACKED_AREA3_D = 'PercentsStackedArea3D';
+    const CHART_TYPE_SCATTER_WITH_MARKERS = 'ScatterWithMarkers';
+    const CHART_TYPE_SCATTER_WITH_SMOOTH_LINES_AND_MARKERS = 'ScatterWithSmoothLinesAndMarkers';
+    const CHART_TYPE_SCATTER_WITH_SMOOTH_LINES = 'ScatterWithSmoothLines';
+    const CHART_TYPE_SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS = 'ScatterWithStraightLinesAndMarkers';
+    const CHART_TYPE_SCATTER_WITH_STRAIGHT_LINES = 'ScatterWithStraightLines';
+    const CHART_TYPE_HIGH_LOW_CLOSE = 'HighLowClose';
+    const CHART_TYPE_OPEN_HIGH_LOW_CLOSE = 'OpenHighLowClose';
+    const CHART_TYPE_VOLUME_HIGH_LOW_CLOSE = 'VolumeHighLowClose';
+    const CHART_TYPE_VOLUME_OPEN_HIGH_LOW_CLOSE = 'VolumeOpenHighLowClose';
+    const CHART_TYPE_SURFACE3_D = 'Surface3D';
+    const CHART_TYPE_WIREFRAME_SURFACE3_D = 'WireframeSurface3D';
+    const CHART_TYPE_CONTOUR = 'Contour';
+    const CHART_TYPE_WIREFRAME_CONTOUR = 'WireframeContour';
+    const CHART_TYPE_DOUGHNUT = 'Doughnut';
+    const CHART_TYPE_EXPLODED_DOUGHNUT = 'ExplodedDoughnut';
+    const CHART_TYPE_BUBBLE = 'Bubble';
+    const CHART_TYPE_BUBBLE_WITH3_D = 'BubbleWith3D';
+    const CHART_TYPE_RADAR = 'Radar';
+    const CHART_TYPE_RADAR_WITH_MARKERS = 'RadarWithMarkers';
+    const CHART_TYPE_FILLED_RADAR = 'FilledRadar';
+    const CHART_TYPE_SERIES_OF_MIXED_TYPES = 'SeriesOfMixedTypes';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChartTypeAllowableValues()
+    {
+        return [
+            self::CHART_TYPE_CLUSTERED_COLUMN,
+            self::CHART_TYPE_STACKED_COLUMN,
+            self::CHART_TYPE_PERCENTS_STACKED_COLUMN,
+            self::CHART_TYPE_CLUSTERED_COLUMN3_D,
+            self::CHART_TYPE_STACKED_COLUMN3_D,
+            self::CHART_TYPE_PERCENTS_STACKED_COLUMN3_D,
+            self::CHART_TYPE_COLUMN3_D,
+            self::CHART_TYPE_CLUSTERED_CYLINDER,
+            self::CHART_TYPE_STACKED_CYLINDER,
+            self::CHART_TYPE_PERCENTS_STACKED_CYLINDER,
+            self::CHART_TYPE_CYLINDER3_D,
+            self::CHART_TYPE_CLUSTERED_CONE,
+            self::CHART_TYPE_STACKED_CONE,
+            self::CHART_TYPE_PERCENTS_STACKED_CONE,
+            self::CHART_TYPE_CONE3_D,
+            self::CHART_TYPE_CLUSTERED_PYRAMID,
+            self::CHART_TYPE_STACKED_PYRAMID,
+            self::CHART_TYPE_PERCENTS_STACKED_PYRAMID,
+            self::CHART_TYPE_PYRAMID3_D,
+            self::CHART_TYPE_LINE,
+            self::CHART_TYPE_STACKED_LINE,
+            self::CHART_TYPE_PERCENTS_STACKED_LINE,
+            self::CHART_TYPE_LINE_WITH_MARKERS,
+            self::CHART_TYPE_STACKED_LINE_WITH_MARKERS,
+            self::CHART_TYPE_PERCENTS_STACKED_LINE_WITH_MARKERS,
+            self::CHART_TYPE_LINE3_D,
+            self::CHART_TYPE_PIE,
+            self::CHART_TYPE_PIE3_D,
+            self::CHART_TYPE_PIE_OF_PIE,
+            self::CHART_TYPE_EXPLODED_PIE,
+            self::CHART_TYPE_EXPLODED_PIE3_D,
+            self::CHART_TYPE_BAR_OF_PIE,
+            self::CHART_TYPE_PERCENTS_STACKED_BAR,
+            self::CHART_TYPE_CLUSTERED_BAR3_D,
+            self::CHART_TYPE_CLUSTERED_BAR,
+            self::CHART_TYPE_STACKED_BAR,
+            self::CHART_TYPE_STACKED_BAR3_D,
+            self::CHART_TYPE_PERCENTS_STACKED_BAR3_D,
+            self::CHART_TYPE_CLUSTERED_HORIZONTAL_CYLINDER,
+            self::CHART_TYPE_STACKED_HORIZONTAL_CYLINDER,
+            self::CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_CYLINDER,
+            self::CHART_TYPE_CLUSTERED_HORIZONTAL_CONE,
+            self::CHART_TYPE_STACKED_HORIZONTAL_CONE,
+            self::CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_CONE,
+            self::CHART_TYPE_CLUSTERED_HORIZONTAL_PYRAMID,
+            self::CHART_TYPE_STACKED_HORIZONTAL_PYRAMID,
+            self::CHART_TYPE_PERCENTS_STACKED_HORIZONTAL_PYRAMID,
+            self::CHART_TYPE_AREA,
+            self::CHART_TYPE_STACKED_AREA,
+            self::CHART_TYPE_PERCENTS_STACKED_AREA,
+            self::CHART_TYPE_AREA3_D,
+            self::CHART_TYPE_STACKED_AREA3_D,
+            self::CHART_TYPE_PERCENTS_STACKED_AREA3_D,
+            self::CHART_TYPE_SCATTER_WITH_MARKERS,
+            self::CHART_TYPE_SCATTER_WITH_SMOOTH_LINES_AND_MARKERS,
+            self::CHART_TYPE_SCATTER_WITH_SMOOTH_LINES,
+            self::CHART_TYPE_SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS,
+            self::CHART_TYPE_SCATTER_WITH_STRAIGHT_LINES,
+            self::CHART_TYPE_HIGH_LOW_CLOSE,
+            self::CHART_TYPE_OPEN_HIGH_LOW_CLOSE,
+            self::CHART_TYPE_VOLUME_HIGH_LOW_CLOSE,
+            self::CHART_TYPE_VOLUME_OPEN_HIGH_LOW_CLOSE,
+            self::CHART_TYPE_SURFACE3_D,
+            self::CHART_TYPE_WIREFRAME_SURFACE3_D,
+            self::CHART_TYPE_CONTOUR,
+            self::CHART_TYPE_WIREFRAME_CONTOUR,
+            self::CHART_TYPE_DOUGHNUT,
+            self::CHART_TYPE_EXPLODED_DOUGHNUT,
+            self::CHART_TYPE_BUBBLE,
+            self::CHART_TYPE_BUBBLE_WITH3_D,
+            self::CHART_TYPE_RADAR,
+            self::CHART_TYPE_RADAR_WITH_MARKERS,
+            self::CHART_TYPE_FILLED_RADAR,
+            self::CHART_TYPE_SERIES_OF_MIXED_TYPES,
+        ];
+    }
     
 
 
@@ -239,6 +398,17 @@ class Chart extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['chart_type'] === null) {
+            $invalidProperties[] = "'chart_type' can't be null";
+        }
+        $allowedValues = $this->getChartTypeAllowableValues();
+        if (!in_array($this->container['chart_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'chart_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -254,6 +424,13 @@ class Chart extends ShapeBase
             return false;
         }
 
+        if ($this->container['chart_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getChartTypeAllowableValues();
+        if (!in_array($this->container['chart_type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -261,7 +438,7 @@ class Chart extends ShapeBase
     /**
      * Gets chart_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartType
+     * @return string
      */
     public function getChartType()
     {
@@ -271,12 +448,21 @@ class Chart extends ShapeBase
     /**
      * Sets chart_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartType $chart_type Gets or sets the type of the chart.
+     * @param string $chart_type Gets or sets the type of the chart.
      *
      * @return $this
      */
     public function setChartType($chart_type)
     {
+        $allowedValues = $this->getChartTypeAllowableValues();
+        if (!in_array($chart_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'chart_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['chart_type'] = $chart_type;
 
         return $this;

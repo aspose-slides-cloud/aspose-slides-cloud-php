@@ -68,13 +68,6 @@ class Configuration
      * @var string
      */
     protected $accessToken = '';
-    
-    /*
-     * Refresh token for OAuth
-     *
-     * @var string
-     */
-    protected $refreshToken = '';
 
     /*
      * Username for HTTP basic authentication
@@ -96,13 +89,20 @@ class Configuration
      * @var string
      */
     protected $host = 'https://api.aspose.com';
+
+    /*
+     * The host
+     *
+     * @var string
+     */
+    protected $authHost = 'https://api.aspose.com';
 	
     /*
      * Version of API to use, possible values are v1, v1.1, v2, v3
      * default value is v1
      * @var string
      */
-    protected $base_path = "v1.1";
+    protected $base_path = "v3.0";
 
     /*
      * User agent of the HTTP request, set to "PHP-Swagger" by default
@@ -136,7 +136,7 @@ class Configuration
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '19.1.0';
+    protected $clientVersion = '19.5.0';
 
     /*
      * Constructor
@@ -274,29 +274,6 @@ class Configuration
     {
         return $this->accessToken;
     }
-    
-    /*
-     * Sets the refresh token for OAuth
-     *
-     * @param string $refreshToken Token for OAuth
-     *
-     * @return $this
-     */
-    public function setRefreshToken($refreshToken)
-    {
-        $this->refreshToken = $refreshToken;
-        return $this;
-    }
-
-    /*
-     * Gets the refresh token for OAuth
-     *
-     * @return string refresh token for OAuth
-     */
-    public function getRefreshToken()
-    {
-        return $this->refreshToken;
-    }
 
     /*
      * Sets the username for HTTP basic authentication
@@ -365,6 +342,29 @@ class Configuration
     public function getHost()
     {
         return $this->host;
+    }
+
+    /*
+     * Sets the host
+     *
+     * @param string $host Host
+     *
+     * @return $this
+     */
+    public function setAuthHost($authHost)
+    {
+        $this->authHost = $authHost;
+        return $this;
+    }
+
+    /*
+     * Gets the host
+     *
+     * @return string Host
+     */
+    public function getAuthHost()
+    {
+        return $this->authHost;
     }
 	
     /*
@@ -523,7 +523,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\Slides) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 19.1.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 19.5.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

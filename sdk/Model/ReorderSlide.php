@@ -190,6 +190,12 @@ class ReorderSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['old_position'] === null) {
+            $invalidProperties[] = "'old_position' can't be null";
+        }
+        if ($this->container['new_position'] === null) {
+            $invalidProperties[] = "'new_position' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,6 +211,12 @@ class ReorderSlide extends Task
             return false;
         }
 
+        if ($this->container['old_position'] === null) {
+            return false;
+        }
+        if ($this->container['new_position'] === null) {
+            return false;
+        }
         return true;
     }
 

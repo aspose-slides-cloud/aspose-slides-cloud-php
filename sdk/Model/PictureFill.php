@@ -64,7 +64,7 @@ class PictureFill extends FillFormat
         'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'base64_data' => 'string',
         'svg_data' => 'string',
-        'picture_fill_mode' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFillMode'
+        'picture_fill_mode' => 'string'
     ];
 
     /**
@@ -197,8 +197,23 @@ class PictureFill extends FillFormat
         return self::$swaggerModelName;
     }
 
+    const PICTURE_FILL_MODE_TILE = 'Tile';
+    const PICTURE_FILL_MODE_STRETCH = 'Stretch';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPictureFillModeAllowableValues()
+    {
+        return [
+            self::PICTURE_FILL_MODE_TILE,
+            self::PICTURE_FILL_MODE_STRETCH,
+        ];
+    }
     
 
 
@@ -232,6 +247,32 @@ class PictureFill extends FillFormat
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['crop_bottom'] === null) {
+            $invalidProperties[] = "'crop_bottom' can't be null";
+        }
+        if ($this->container['crop_left'] === null) {
+            $invalidProperties[] = "'crop_left' can't be null";
+        }
+        if ($this->container['crop_right'] === null) {
+            $invalidProperties[] = "'crop_right' can't be null";
+        }
+        if ($this->container['crop_top'] === null) {
+            $invalidProperties[] = "'crop_top' can't be null";
+        }
+        if ($this->container['dpi'] === null) {
+            $invalidProperties[] = "'dpi' can't be null";
+        }
+        if ($this->container['picture_fill_mode'] === null) {
+            $invalidProperties[] = "'picture_fill_mode' can't be null";
+        }
+        $allowedValues = $this->getPictureFillModeAllowableValues();
+        if (!in_array($this->container['picture_fill_mode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'picture_fill_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -247,6 +288,28 @@ class PictureFill extends FillFormat
             return false;
         }
 
+        if ($this->container['crop_bottom'] === null) {
+            return false;
+        }
+        if ($this->container['crop_left'] === null) {
+            return false;
+        }
+        if ($this->container['crop_right'] === null) {
+            return false;
+        }
+        if ($this->container['crop_top'] === null) {
+            return false;
+        }
+        if ($this->container['dpi'] === null) {
+            return false;
+        }
+        if ($this->container['picture_fill_mode'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPictureFillModeAllowableValues();
+        if (!in_array($this->container['picture_fill_mode'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -446,7 +509,7 @@ class PictureFill extends FillFormat
     /**
      * Gets picture_fill_mode
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PictureFillMode
+     * @return string
      */
     public function getPictureFillMode()
     {
@@ -456,12 +519,21 @@ class PictureFill extends FillFormat
     /**
      * Sets picture_fill_mode
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFillMode $picture_fill_mode picture_fill_mode
+     * @param string $picture_fill_mode picture_fill_mode
      *
      * @return $this
      */
     public function setPictureFillMode($picture_fill_mode)
     {
+        $allowedValues = $this->getPictureFillModeAllowableValues();
+        if (!in_array($picture_fill_mode, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'picture_fill_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['picture_fill_mode'] = $picture_fill_mode;
 
         return $this;

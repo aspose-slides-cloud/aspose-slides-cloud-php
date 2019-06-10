@@ -64,8 +64,8 @@ class AudioFrame extends GeometryShape
         'embedded' => 'bool',
         'hide_at_showing' => 'bool',
         'play_loop_mode' => 'bool',
-        'play_mode' => '\Aspose\Slides\Cloud\Sdk\Model\AudioPlayModePreset',
-        'volume' => '\Aspose\Slides\Cloud\Sdk\Model\AudioVolumeMode',
+        'play_mode' => 'string',
+        'volume' => 'string',
         'base64_data' => 'string'
     ];
 
@@ -203,8 +203,48 @@ class AudioFrame extends GeometryShape
         return self::$swaggerModelName;
     }
 
+    const PLAY_MODE_AUTO = 'Auto';
+    const PLAY_MODE_ON_CLICK = 'OnClick';
+    const PLAY_MODE_ALL_SLIDES = 'AllSlides';
+    const PLAY_MODE_MIXED = 'Mixed';
+    const VOLUME_MUTE = 'Mute';
+    const VOLUME_LOW = 'Low';
+    const VOLUME_MEDIUM = 'Medium';
+    const VOLUME_LOUD = 'Loud';
+    const VOLUME_MIXED = 'Mixed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPlayModeAllowableValues()
+    {
+        return [
+            self::PLAY_MODE_AUTO,
+            self::PLAY_MODE_ON_CLICK,
+            self::PLAY_MODE_ALL_SLIDES,
+            self::PLAY_MODE_MIXED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVolumeAllowableValues()
+    {
+        return [
+            self::VOLUME_MUTE,
+            self::VOLUME_LOW,
+            self::VOLUME_MEDIUM,
+            self::VOLUME_LOUD,
+            self::VOLUME_MIXED,
+        ];
+    }
     
 
 
@@ -239,6 +279,22 @@ class AudioFrame extends GeometryShape
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        $allowedValues = $this->getPlayModeAllowableValues();
+        if (!in_array($this->container['play_mode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'play_mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getVolumeAllowableValues();
+        if (!in_array($this->container['volume'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'volume', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -254,6 +310,14 @@ class AudioFrame extends GeometryShape
             return false;
         }
 
+        $allowedValues = $this->getPlayModeAllowableValues();
+        if (!in_array($this->container['play_mode'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getVolumeAllowableValues();
+        if (!in_array($this->container['volume'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -429,7 +493,7 @@ class AudioFrame extends GeometryShape
     /**
      * Gets play_mode
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\AudioPlayModePreset
+     * @return string
      */
     public function getPlayMode()
     {
@@ -439,12 +503,21 @@ class AudioFrame extends GeometryShape
     /**
      * Sets play_mode
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\AudioPlayModePreset $play_mode Returns or sets the audio play mode.
+     * @param string $play_mode Returns or sets the audio play mode.
      *
      * @return $this
      */
     public function setPlayMode($play_mode)
     {
+        $allowedValues = $this->getPlayModeAllowableValues();
+        if (!is_null($play_mode) && !in_array($play_mode, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'play_mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['play_mode'] = $play_mode;
 
         return $this;
@@ -453,7 +526,7 @@ class AudioFrame extends GeometryShape
     /**
      * Gets volume
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\AudioVolumeMode
+     * @return string
      */
     public function getVolume()
     {
@@ -463,12 +536,21 @@ class AudioFrame extends GeometryShape
     /**
      * Sets volume
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\AudioVolumeMode $volume Returns or sets the audio volume.
+     * @param string $volume Returns or sets the audio volume.
      *
      * @return $this
      */
     public function setVolume($volume)
     {
+        $allowedValues = $this->getVolumeAllowableValues();
+        if (!is_null($volume) && !in_array($volume, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'volume', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['volume'] = $volume;
 
         return $this;

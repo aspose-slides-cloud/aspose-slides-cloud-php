@@ -57,7 +57,7 @@ class SlideBackground extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\FillType',
+        'type' => 'string',
         'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat'
     ];
@@ -168,8 +168,31 @@ class SlideBackground extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const TYPE_NO_FILL = 'NoFill';
+    const TYPE_SOLID = 'Solid';
+    const TYPE_GRADIENT = 'Gradient';
+    const TYPE_PATTERN = 'Pattern';
+    const TYPE_PICTURE = 'Picture';
+    const TYPE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_NO_FILL,
+            self::TYPE_SOLID,
+            self::TYPE_GRADIENT,
+            self::TYPE_PATTERN,
+            self::TYPE_PICTURE,
+            self::TYPE_NOT_DEFINED,
+        ];
+    }
     
 
 
@@ -197,6 +220,17 @@ class SlideBackground extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -212,6 +246,13 @@ class SlideBackground extends ResourceBase
             return false;
         }
 
+        if ($this->container['type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -219,7 +260,7 @@ class SlideBackground extends ResourceBase
     /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillType
+     * @return string
      */
     public function getType()
     {
@@ -229,12 +270,21 @@ class SlideBackground extends ResourceBase
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillType $type type
+     * @param string $type type
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

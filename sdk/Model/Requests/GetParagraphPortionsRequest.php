@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetParagraphPortionsRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class GetParagraphPortionsRequest
     public $slideIndex;
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -64,26 +64,26 @@ class GetParagraphPortionsRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the GetParagraphPortionsRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
     {
@@ -98,7 +98,7 @@ class GetParagraphPortionsRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +106,7 @@ class GetParagraphPortionsRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -130,7 +130,7 @@ class GetParagraphPortionsRequest
         return $this;
     }
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -138,7 +138,7 @@ class GetParagraphPortionsRequest
     }
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -194,7 +194,7 @@ class GetParagraphPortionsRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -202,7 +202,7 @@ class GetParagraphPortionsRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -210,7 +210,7 @@ class GetParagraphPortionsRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -218,7 +218,7 @@ class GetParagraphPortionsRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

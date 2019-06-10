@@ -57,9 +57,9 @@ class PdfExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'text_compression' => '\Aspose\Slides\Cloud\Sdk\Model\PdfTextCompression',
+        'text_compression' => 'string',
         'embed_full_fonts' => 'bool',
-        'compliance' => '\Aspose\Slides\Cloud\Sdk\Model\PdfCompliance',
+        'compliance' => 'string',
         'sufficient_resolution' => 'double',
         'jpeg_quality' => 'int',
         'draw_slides_frame' => 'bool',
@@ -68,8 +68,8 @@ class PdfExportOptions extends ExportOptions
         'password' => 'string',
         'embed_true_type_fonts_for_ascii' => 'bool',
         'additional_common_font_families' => 'string[]',
-        'notes_position' => '\Aspose\Slides\Cloud\Sdk\Model\NotesPositions',
-        'comments_position' => '\Aspose\Slides\Cloud\Sdk\Model\CommentsPositions',
+        'notes_position' => 'string',
+        'comments_position' => 'string',
         'comments_area_width' => 'int',
         'comments_area_color' => 'string',
         'show_comments_by_no_author' => 'bool',
@@ -243,8 +243,72 @@ class PdfExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const TEXT_COMPRESSION_NONE = 'None';
+    const TEXT_COMPRESSION_FLATE = 'Flate';
+    const COMPLIANCE_PDF15 = 'Pdf15';
+    const COMPLIANCE_PDF_A1B = 'PdfA1b';
+    const NOTES_POSITION_NONE = 'None';
+    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
+    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
+    const COMMENTS_POSITION_NONE = 'None';
+    const COMMENTS_POSITION_BOTTOM = 'Bottom';
+    const COMMENTS_POSITION_RIGHT = 'Right';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTextCompressionAllowableValues()
+    {
+        return [
+            self::TEXT_COMPRESSION_NONE,
+            self::TEXT_COMPRESSION_FLATE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getComplianceAllowableValues()
+    {
+        return [
+            self::COMPLIANCE_PDF15,
+            self::COMPLIANCE_PDF_A1B,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotesPositionAllowableValues()
+    {
+        return [
+            self::NOTES_POSITION_NONE,
+            self::NOTES_POSITION_BOTTOM_FULL,
+            self::NOTES_POSITION_BOTTOM_TRUNCATED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentsPositionAllowableValues()
+    {
+        return [
+            self::COMMENTS_POSITION_NONE,
+            self::COMMENTS_POSITION_BOTTOM,
+            self::COMMENTS_POSITION_RIGHT,
+        ];
+    }
     
 
 
@@ -287,6 +351,80 @@ class PdfExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['text_compression'] === null) {
+            $invalidProperties[] = "'text_compression' can't be null";
+        }
+        $allowedValues = $this->getTextCompressionAllowableValues();
+        if (!in_array($this->container['text_compression'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'text_compression', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['embed_full_fonts'] === null) {
+            $invalidProperties[] = "'embed_full_fonts' can't be null";
+        }
+        if ($this->container['compliance'] === null) {
+            $invalidProperties[] = "'compliance' can't be null";
+        }
+        $allowedValues = $this->getComplianceAllowableValues();
+        if (!in_array($this->container['compliance'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'compliance', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['sufficient_resolution'] === null) {
+            $invalidProperties[] = "'sufficient_resolution' can't be null";
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            $invalidProperties[] = "'jpeg_quality' can't be null";
+        }
+        if ($this->container['draw_slides_frame'] === null) {
+            $invalidProperties[] = "'draw_slides_frame' can't be null";
+        }
+        if ($this->container['show_hidden_slides'] === null) {
+            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        }
+        if ($this->container['save_metafiles_as_png'] === null) {
+            $invalidProperties[] = "'save_metafiles_as_png' can't be null";
+        }
+        if ($this->container['embed_true_type_fonts_for_ascii'] === null) {
+            $invalidProperties[] = "'embed_true_type_fonts_for_ascii' can't be null";
+        }
+        if ($this->container['notes_position'] === null) {
+            $invalidProperties[] = "'notes_position' can't be null";
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'notes_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_position'] === null) {
+            $invalidProperties[] = "'comments_position' can't be null";
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'comments_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['comments_area_width'] === null) {
+            $invalidProperties[] = "'comments_area_width' can't be null";
+        }
+        if ($this->container['show_comments_by_no_author'] === null) {
+            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        }
+        if ($this->container['apply_image_transparent'] === null) {
+            $invalidProperties[] = "'apply_image_transparent' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -302,6 +440,64 @@ class PdfExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['text_compression'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTextCompressionAllowableValues();
+        if (!in_array($this->container['text_compression'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['embed_full_fonts'] === null) {
+            return false;
+        }
+        if ($this->container['compliance'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getComplianceAllowableValues();
+        if (!in_array($this->container['compliance'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['sufficient_resolution'] === null) {
+            return false;
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            return false;
+        }
+        if ($this->container['draw_slides_frame'] === null) {
+            return false;
+        }
+        if ($this->container['show_hidden_slides'] === null) {
+            return false;
+        }
+        if ($this->container['save_metafiles_as_png'] === null) {
+            return false;
+        }
+        if ($this->container['embed_true_type_fonts_for_ascii'] === null) {
+            return false;
+        }
+        if ($this->container['notes_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notes_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['comments_position'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['comments_area_width'] === null) {
+            return false;
+        }
+        if ($this->container['show_comments_by_no_author'] === null) {
+            return false;
+        }
+        if ($this->container['apply_image_transparent'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -309,7 +505,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Gets text_compression
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PdfTextCompression
+     * @return string
      */
     public function getTextCompression()
     {
@@ -319,12 +515,21 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets text_compression
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PdfTextCompression $text_compression Specifies compression type to be used for all textual content in the document.
+     * @param string $text_compression Specifies compression type to be used for all textual content in the document.
      *
      * @return $this
      */
     public function setTextCompression($text_compression)
     {
+        $allowedValues = $this->getTextCompressionAllowableValues();
+        if (!in_array($text_compression, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'text_compression', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['text_compression'] = $text_compression;
 
         return $this;
@@ -357,7 +562,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Gets compliance
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PdfCompliance
+     * @return string
      */
     public function getCompliance()
     {
@@ -367,12 +572,21 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets compliance
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PdfCompliance $compliance Desired conformance level for generated PDF document.
+     * @param string $compliance Desired conformance level for generated PDF document.
      *
      * @return $this
      */
     public function setCompliance($compliance)
     {
+        $allowedValues = $this->getComplianceAllowableValues();
+        if (!in_array($compliance, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'compliance', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['compliance'] = $compliance;
 
         return $this;
@@ -391,7 +605,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets sufficient_resolution
      *
-     * @param double $sufficient_resolution Returns or sets a value determining resolution of images inside PDF document. Property affects on file size, time of export and image quality.The default value is 96.
+     * @param double $sufficient_resolution Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
      *
      * @return $this
      */
@@ -573,7 +787,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Gets notes_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NotesPositions
+     * @return string
      */
     public function getNotesPosition()
     {
@@ -583,12 +797,21 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets notes_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesPositions $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notes_position Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
     public function setNotesPosition($notes_position)
     {
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($notes_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'notes_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['notes_position'] = $notes_position;
 
         return $this;
@@ -597,7 +820,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Gets comments_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions
+     * @return string
      */
     public function getCommentsPosition()
     {
@@ -607,12 +830,21 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets comments_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CommentsPositions $comments_position Gets or sets the position of the comments on the page.
+     * @param string $comments_position Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
     public function setCommentsPosition($comments_position)
     {
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($comments_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'comments_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['comments_position'] = $comments_position;
 
         return $this;
@@ -727,7 +959,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets apply_image_transparent
      *
-     * @param bool $apply_image_transparent True to apply specified   to an image.
+     * @param bool $apply_image_transparent True to apply specified ImageTransparentColor  to an image.
      *
      * @return $this
      */

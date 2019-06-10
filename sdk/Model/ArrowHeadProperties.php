@@ -58,9 +58,9 @@ class ArrowHeadProperties implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'length' => '\Aspose\Slides\Cloud\Sdk\Model\LineArrowheadLength',
-        'style' => '\Aspose\Slides\Cloud\Sdk\Model\LineArrowheadStyle',
-        'width' => '\Aspose\Slides\Cloud\Sdk\Model\LineArrowheadWidth'
+        'length' => 'string',
+        'style' => 'string',
+        'width' => 'string'
     ];
 
     /**
@@ -169,8 +169,71 @@ class ArrowHeadProperties implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LENGTH_SHORT = 'Short';
+    const LENGTH_MEDIUM = 'Medium';
+    const LENGTH_LONG = 'Long';
+    const LENGTH_NOT_DEFINED = 'NotDefined';
+    const STYLE_NONE = 'None';
+    const STYLE_TRIANGLE = 'Triangle';
+    const STYLE_STEALTH = 'Stealth';
+    const STYLE_DIAMOND = 'Diamond';
+    const STYLE_OVAL = 'Oval';
+    const STYLE_OPEN = 'Open';
+    const STYLE_NOT_DEFINED = 'NotDefined';
+    const WIDTH_NARROW = 'Narrow';
+    const WIDTH_MEDIUM = 'Medium';
+    const WIDTH_WIDE = 'Wide';
+    const WIDTH_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLengthAllowableValues()
+    {
+        return [
+            self::LENGTH_SHORT,
+            self::LENGTH_MEDIUM,
+            self::LENGTH_LONG,
+            self::LENGTH_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStyleAllowableValues()
+    {
+        return [
+            self::STYLE_NONE,
+            self::STYLE_TRIANGLE,
+            self::STYLE_STEALTH,
+            self::STYLE_DIAMOND,
+            self::STYLE_OVAL,
+            self::STYLE_OPEN,
+            self::STYLE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getWidthAllowableValues()
+    {
+        return [
+            self::WIDTH_NARROW,
+            self::WIDTH_MEDIUM,
+            self::WIDTH_WIDE,
+            self::WIDTH_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -205,12 +268,36 @@ class ArrowHeadProperties implements ArrayAccess
         if ($this->container['length'] === null) {
             $invalidProperties[] = "'length' can't be null";
         }
+        $allowedValues = $this->getLengthAllowableValues();
+        if (!in_array($this->container['length'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'length', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['style'] === null) {
             $invalidProperties[] = "'style' can't be null";
         }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'style', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['width'] === null) {
             $invalidProperties[] = "'width' can't be null";
         }
+        $allowedValues = $this->getWidthAllowableValues();
+        if (!in_array($this->container['width'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'width', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -226,10 +313,22 @@ class ArrowHeadProperties implements ArrayAccess
         if ($this->container['length'] === null) {
             return false;
         }
+        $allowedValues = $this->getLengthAllowableValues();
+        if (!in_array($this->container['length'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['style'] === null) {
             return false;
         }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['width'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getWidthAllowableValues();
+        if (!in_array($this->container['width'], $allowedValues)) {
             return false;
         }
         return true;
@@ -239,7 +338,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Gets length
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadLength
+     * @return string
      */
     public function getLength()
     {
@@ -249,12 +348,21 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets length
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadLength $length length
+     * @param string $length length
      *
      * @return $this
      */
     public function setLength($length)
     {
+        $allowedValues = $this->getLengthAllowableValues();
+        if (!in_array($length, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'length', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['length'] = $length;
 
         return $this;
@@ -263,7 +371,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Gets style
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadStyle
+     * @return string
      */
     public function getStyle()
     {
@@ -273,12 +381,21 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets style
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadStyle $style style
+     * @param string $style style
      *
      * @return $this
      */
     public function setStyle($style)
     {
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($style, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'style', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['style'] = $style;
 
         return $this;
@@ -287,7 +404,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Gets width
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadWidth
+     * @return string
      */
     public function getWidth()
     {
@@ -297,12 +414,21 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets width
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineArrowheadWidth $width width
+     * @param string $width width
      *
      * @return $this
      */
     public function setWidth($width)
     {
+        $allowedValues = $this->getWidthAllowableValues();
+        if (!in_array($width, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'width', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['width'] = $width;
 
         return $this;

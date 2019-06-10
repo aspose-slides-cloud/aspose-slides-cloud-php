@@ -34,22 +34,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesSlideSizeRequest
 {
     /*
-     * The document name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The document password.
+     * Document password.
      */
     public $password;
 
     /*
-     * The document storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * The document folder.
+     * Document folder.
      */
     public $folder;
 
@@ -76,14 +76,14 @@ class PutSlidesSlideSizeRequest
     /*
      * Initializes a new instance of the PutSlidesSlideSizeRequest class.
      *  
-     * @param string $name The document name.
-     * @param string $password The document password.
-     * @param string $storage The document storage.
-     * @param string $folder The document folder.
+     * @param string $name Document name.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
      * @param int $width Slide width.
      * @param int $height Slide height.
-     * @param string $sizeType Standard slide size type.
-     * @param string $scaleType Standard slide scale type.
+     * @param int $sizeType Standard slide size type.
+     * @param int $scaleType Standard slide scale type.
      */
     public function __construct($name, $password = null, $storage = null, $folder = null, $width = null, $height = null, $sizeType = null, $scaleType = null)
     {
@@ -98,7 +98,7 @@ class PutSlidesSlideSizeRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +106,7 @@ class PutSlidesSlideSizeRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -114,7 +114,7 @@ class PutSlidesSlideSizeRequest
         return $this;
     }
     /*
-     * The document password.
+     * Document password.
      */
     public function get_password()
     {
@@ -122,7 +122,7 @@ class PutSlidesSlideSizeRequest
     }
 
     /*
-     * The document password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -130,7 +130,7 @@ class PutSlidesSlideSizeRequest
         return $this;
     }
     /*
-     * The document storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -138,7 +138,7 @@ class PutSlidesSlideSizeRequest
     }
 
     /*
-     * The document storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -146,7 +146,7 @@ class PutSlidesSlideSizeRequest
         return $this;
     }
     /*
-     * The document folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -154,7 +154,7 @@ class PutSlidesSlideSizeRequest
     }
 
     /*
-     * The document folder.
+     * Document folder.
      */
     public function set_folder($value)
     {

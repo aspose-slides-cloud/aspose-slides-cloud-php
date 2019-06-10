@@ -63,19 +63,19 @@ class Paragraph extends ResourceBase
         'space_after' => 'double',
         'space_within' => 'double',
         'indent' => 'double',
-        'alignment' => '\Aspose\Slides\Cloud\Sdk\Model\TextAlignment',
-        'font_alignment' => '\Aspose\Slides\Cloud\Sdk\Model\FontAlignment',
+        'alignment' => 'string',
+        'font_alignment' => 'string',
         'default_tab_size' => 'double',
         'depth' => 'int',
         'bullet_char' => 'string',
         'bullet_height' => 'double',
-        'bullet_type' => '\Aspose\Slides\Cloud\Sdk\Model\BulletType',
+        'bullet_type' => 'string',
         'numbered_bullet_start_with' => 'int',
-        'numbered_bullet_style' => '\Aspose\Slides\Cloud\Sdk\Model\NumberedBulletStyle',
-        'hanging_punctuation' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'east_asian_line_break' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'latin_line_break' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'right_to_left' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
+        'numbered_bullet_style' => 'string',
+        'hanging_punctuation' => 'string',
+        'east_asian_line_break' => 'string',
+        'latin_line_break' => 'string',
+        'right_to_left' => 'string',
         'portion_list' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
@@ -253,8 +253,240 @@ class Paragraph extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const ALIGNMENT_LEFT = 'Left';
+    const ALIGNMENT_CENTER = 'Center';
+    const ALIGNMENT_RIGHT = 'Right';
+    const ALIGNMENT_JUSTIFY = 'Justify';
+    const ALIGNMENT_JUSTIFY_LOW = 'JustifyLow';
+    const ALIGNMENT_DISTRIBUTED = 'Distributed';
+    const ALIGNMENT_NOT_DEFINED = 'NotDefined';
+    const FONT_ALIGNMENT_AUTOMATIC = 'Automatic';
+    const FONT_ALIGNMENT_TOP = 'Top';
+    const FONT_ALIGNMENT_CENTER = 'Center';
+    const FONT_ALIGNMENT_BOTTOM = 'Bottom';
+    const FONT_ALIGNMENT_BASELINE = 'Baseline';
+    const FONT_ALIGNMENT__DEFAULT = 'Default';
+    const BULLET_TYPE_NONE = 'None';
+    const BULLET_TYPE_SYMBOL = 'Symbol';
+    const BULLET_TYPE_NUMBERED = 'Numbered';
+    const BULLET_TYPE_PICTURE = 'Picture';
+    const BULLET_TYPE_NOT_DEFINED = 'NotDefined';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PERIOD = 'BulletAlphaLCPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PERIOD = 'BulletAlphaUCPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_PAREN_RIGHT = 'BulletArabicParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_PERIOD = 'BulletArabicPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PAREN_BOTH = 'BulletRomanLCParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PAREN_RIGHT = 'BulletRomanLCParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PERIOD = 'BulletRomanLCPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PERIOD = 'BulletRomanUCPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PAREN_BOTH = 'BulletAlphaLCParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PAREN_RIGHT = 'BulletAlphaLCParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PAREN_BOTH = 'BulletAlphaUCParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PAREN_RIGHT = 'BulletAlphaUCParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_PAREN_BOTH = 'BulletArabicParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_PLAIN = 'BulletArabicPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PAREN_BOTH = 'BulletRomanUCParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PAREN_RIGHT = 'BulletRomanUCParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_SIMP_CHIN_PLAIN = 'BulletSimpChinPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_SIMP_CHIN_PERIOD = 'BulletSimpChinPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_DB_PLAIN = 'BulletCircleNumDBPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_WD_WHITE_PLAIN = 'BulletCircleNumWDWhitePlain';
+    const NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_WD_BLACK_PLAIN = 'BulletCircleNumWDBlackPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_TRAD_CHIN_PLAIN = 'BulletTradChinPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_TRAD_CHIN_PERIOD = 'BulletTradChinPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_ALPHA_DASH = 'BulletArabicAlphaDash';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_ABJAD_DASH = 'BulletArabicAbjadDash';
+    const NUMBERED_BULLET_STYLE_BULLET_HEBREW_ALPHA_DASH = 'BulletHebrewAlphaDash';
+    const NUMBERED_BULLET_STYLE_BULLET_KANJI_KOREAN_PLAIN = 'BulletKanjiKoreanPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_KANJI_KOREAN_PERIOD = 'BulletKanjiKoreanPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_DB_PLAIN = 'BulletArabicDBPlain';
+    const NUMBERED_BULLET_STYLE_BULLET_ARABIC_DB_PERIOD = 'BulletArabicDBPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PERIOD = 'BulletThaiAlphaPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PAREN_RIGHT = 'BulletThaiAlphaParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PAREN_BOTH = 'BulletThaiAlphaParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PERIOD = 'BulletThaiNumPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PAREN_RIGHT = 'BulletThaiNumParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PAREN_BOTH = 'BulletThaiNumParenBoth';
+    const NUMBERED_BULLET_STYLE_BULLET_HINDI_ALPHA_PERIOD = 'BulletHindiAlphaPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_HINDI_NUM_PERIOD = 'BulletHindiNumPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_KANJI_SIMP_CHIN_DB_PERIOD = 'BulletKanjiSimpChinDBPeriod';
+    const NUMBERED_BULLET_STYLE_BULLET_HINDI_NUM_PAREN_RIGHT = 'BulletHindiNumParenRight';
+    const NUMBERED_BULLET_STYLE_BULLET_HINDI_ALPHA1_PERIOD = 'BulletHindiAlpha1Period';
+    const NUMBERED_BULLET_STYLE_NOT_DEFINED = 'NotDefined';
+    const HANGING_PUNCTUATION_FALSE = 'False';
+    const HANGING_PUNCTUATION_TRUE = 'True';
+    const HANGING_PUNCTUATION_NOT_DEFINED = 'NotDefined';
+    const EAST_ASIAN_LINE_BREAK_FALSE = 'False';
+    const EAST_ASIAN_LINE_BREAK_TRUE = 'True';
+    const EAST_ASIAN_LINE_BREAK_NOT_DEFINED = 'NotDefined';
+    const LATIN_LINE_BREAK_FALSE = 'False';
+    const LATIN_LINE_BREAK_TRUE = 'True';
+    const LATIN_LINE_BREAK_NOT_DEFINED = 'NotDefined';
+    const RIGHT_TO_LEFT_FALSE = 'False';
+    const RIGHT_TO_LEFT_TRUE = 'True';
+    const RIGHT_TO_LEFT_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAlignmentAllowableValues()
+    {
+        return [
+            self::ALIGNMENT_LEFT,
+            self::ALIGNMENT_CENTER,
+            self::ALIGNMENT_RIGHT,
+            self::ALIGNMENT_JUSTIFY,
+            self::ALIGNMENT_JUSTIFY_LOW,
+            self::ALIGNMENT_DISTRIBUTED,
+            self::ALIGNMENT_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFontAlignmentAllowableValues()
+    {
+        return [
+            self::FONT_ALIGNMENT_AUTOMATIC,
+            self::FONT_ALIGNMENT_TOP,
+            self::FONT_ALIGNMENT_CENTER,
+            self::FONT_ALIGNMENT_BOTTOM,
+            self::FONT_ALIGNMENT_BASELINE,
+            self::FONT_ALIGNMENT__DEFAULT,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBulletTypeAllowableValues()
+    {
+        return [
+            self::BULLET_TYPE_NONE,
+            self::BULLET_TYPE_SYMBOL,
+            self::BULLET_TYPE_NUMBERED,
+            self::BULLET_TYPE_PICTURE,
+            self::BULLET_TYPE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNumberedBulletStyleAllowableValues()
+    {
+        return [
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_LC_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_LC_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ALPHA_UC_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ROMAN_UC_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_SIMP_CHIN_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_SIMP_CHIN_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_DB_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_WD_WHITE_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_CIRCLE_NUM_WD_BLACK_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_TRAD_CHIN_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_TRAD_CHIN_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_ALPHA_DASH,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_ABJAD_DASH,
+            self::NUMBERED_BULLET_STYLE_BULLET_HEBREW_ALPHA_DASH,
+            self::NUMBERED_BULLET_STYLE_BULLET_KANJI_KOREAN_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_KANJI_KOREAN_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_DB_PLAIN,
+            self::NUMBERED_BULLET_STYLE_BULLET_ARABIC_DB_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_ALPHA_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_THAI_NUM_PAREN_BOTH,
+            self::NUMBERED_BULLET_STYLE_BULLET_HINDI_ALPHA_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_HINDI_NUM_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_KANJI_SIMP_CHIN_DB_PERIOD,
+            self::NUMBERED_BULLET_STYLE_BULLET_HINDI_NUM_PAREN_RIGHT,
+            self::NUMBERED_BULLET_STYLE_BULLET_HINDI_ALPHA1_PERIOD,
+            self::NUMBERED_BULLET_STYLE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getHangingPunctuationAllowableValues()
+    {
+        return [
+            self::HANGING_PUNCTUATION_FALSE,
+            self::HANGING_PUNCTUATION_TRUE,
+            self::HANGING_PUNCTUATION_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEastAsianLineBreakAllowableValues()
+    {
+        return [
+            self::EAST_ASIAN_LINE_BREAK_FALSE,
+            self::EAST_ASIAN_LINE_BREAK_TRUE,
+            self::EAST_ASIAN_LINE_BREAK_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLatinLineBreakAllowableValues()
+    {
+        return [
+            self::LATIN_LINE_BREAK_FALSE,
+            self::LATIN_LINE_BREAK_TRUE,
+            self::LATIN_LINE_BREAK_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRightToLeftAllowableValues()
+    {
+        return [
+            self::RIGHT_TO_LEFT_FALSE,
+            self::RIGHT_TO_LEFT_TRUE,
+            self::RIGHT_TO_LEFT_NOT_DEFINED,
+        ];
+    }
     
 
 
@@ -299,6 +531,70 @@ class Paragraph extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        $allowedValues = $this->getAlignmentAllowableValues();
+        if (!in_array($this->container['alignment'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'alignment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFontAlignmentAllowableValues();
+        if (!in_array($this->container['font_alignment'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'font_alignment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBulletTypeAllowableValues();
+        if (!in_array($this->container['bullet_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'bullet_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getNumberedBulletStyleAllowableValues();
+        if (!in_array($this->container['numbered_bullet_style'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'numbered_bullet_style', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        if (!in_array($this->container['hanging_punctuation'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'hanging_punctuation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getEastAsianLineBreakAllowableValues();
+        if (!in_array($this->container['east_asian_line_break'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'east_asian_line_break', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getLatinLineBreakAllowableValues();
+        if (!in_array($this->container['latin_line_break'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'latin_line_break', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRightToLeftAllowableValues();
+        if (!in_array($this->container['right_to_left'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'right_to_left', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -314,6 +610,38 @@ class Paragraph extends ResourceBase
             return false;
         }
 
+        $allowedValues = $this->getAlignmentAllowableValues();
+        if (!in_array($this->container['alignment'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getFontAlignmentAllowableValues();
+        if (!in_array($this->container['font_alignment'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getBulletTypeAllowableValues();
+        if (!in_array($this->container['bullet_type'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getNumberedBulletStyleAllowableValues();
+        if (!in_array($this->container['numbered_bullet_style'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        if (!in_array($this->container['hanging_punctuation'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getEastAsianLineBreakAllowableValues();
+        if (!in_array($this->container['east_asian_line_break'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getLatinLineBreakAllowableValues();
+        if (!in_array($this->container['latin_line_break'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getRightToLeftAllowableValues();
+        if (!in_array($this->container['right_to_left'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -465,7 +793,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets alignment
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextAlignment
+     * @return string
      */
     public function getAlignment()
     {
@@ -475,12 +803,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets alignment
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextAlignment $alignment alignment
+     * @param string $alignment alignment
      *
      * @return $this
      */
     public function setAlignment($alignment)
     {
+        $allowedValues = $this->getAlignmentAllowableValues();
+        if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'alignment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['alignment'] = $alignment;
 
         return $this;
@@ -489,7 +826,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets font_alignment
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FontAlignment
+     * @return string
      */
     public function getFontAlignment()
     {
@@ -499,12 +836,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets font_alignment
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FontAlignment $font_alignment font_alignment
+     * @param string $font_alignment font_alignment
      *
      * @return $this
      */
     public function setFontAlignment($font_alignment)
     {
+        $allowedValues = $this->getFontAlignmentAllowableValues();
+        if (!is_null($font_alignment) && !in_array($font_alignment, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'font_alignment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['font_alignment'] = $font_alignment;
 
         return $this;
@@ -609,7 +955,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets bullet_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BulletType
+     * @return string
      */
     public function getBulletType()
     {
@@ -619,12 +965,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets bullet_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BulletType $bullet_type bullet_type
+     * @param string $bullet_type bullet_type
      *
      * @return $this
      */
     public function setBulletType($bullet_type)
     {
+        $allowedValues = $this->getBulletTypeAllowableValues();
+        if (!is_null($bullet_type) && !in_array($bullet_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'bullet_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['bullet_type'] = $bullet_type;
 
         return $this;
@@ -657,7 +1012,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets numbered_bullet_style
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NumberedBulletStyle
+     * @return string
      */
     public function getNumberedBulletStyle()
     {
@@ -667,12 +1022,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets numbered_bullet_style
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NumberedBulletStyle $numbered_bullet_style numbered_bullet_style
+     * @param string $numbered_bullet_style numbered_bullet_style
      *
      * @return $this
      */
     public function setNumberedBulletStyle($numbered_bullet_style)
     {
+        $allowedValues = $this->getNumberedBulletStyleAllowableValues();
+        if (!is_null($numbered_bullet_style) && !in_array($numbered_bullet_style, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'numbered_bullet_style', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['numbered_bullet_style'] = $numbered_bullet_style;
 
         return $this;
@@ -681,7 +1045,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets hanging_punctuation
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getHangingPunctuation()
     {
@@ -691,12 +1055,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets hanging_punctuation
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $hanging_punctuation hanging_punctuation
+     * @param string $hanging_punctuation hanging_punctuation
      *
      * @return $this
      */
     public function setHangingPunctuation($hanging_punctuation)
     {
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        if (!is_null($hanging_punctuation) && !in_array($hanging_punctuation, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'hanging_punctuation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['hanging_punctuation'] = $hanging_punctuation;
 
         return $this;
@@ -705,7 +1078,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets east_asian_line_break
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getEastAsianLineBreak()
     {
@@ -715,12 +1088,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets east_asian_line_break
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $east_asian_line_break east_asian_line_break
+     * @param string $east_asian_line_break east_asian_line_break
      *
      * @return $this
      */
     public function setEastAsianLineBreak($east_asian_line_break)
     {
+        $allowedValues = $this->getEastAsianLineBreakAllowableValues();
+        if (!is_null($east_asian_line_break) && !in_array($east_asian_line_break, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'east_asian_line_break', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['east_asian_line_break'] = $east_asian_line_break;
 
         return $this;
@@ -729,7 +1111,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets latin_line_break
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getLatinLineBreak()
     {
@@ -739,12 +1121,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets latin_line_break
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $latin_line_break latin_line_break
+     * @param string $latin_line_break latin_line_break
      *
      * @return $this
      */
     public function setLatinLineBreak($latin_line_break)
     {
+        $allowedValues = $this->getLatinLineBreakAllowableValues();
+        if (!is_null($latin_line_break) && !in_array($latin_line_break, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'latin_line_break', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['latin_line_break'] = $latin_line_break;
 
         return $this;
@@ -753,7 +1144,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets right_to_left
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getRightToLeft()
     {
@@ -763,12 +1154,21 @@ class Paragraph extends ResourceBase
     /**
      * Sets right_to_left
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $right_to_left right_to_left
+     * @param string $right_to_left right_to_left
      *
      * @return $this
      */
     public function setRightToLeft($right_to_left)
     {
+        $allowedValues = $this->getRightToLeftAllowableValues();
+        if (!is_null($right_to_left) && !in_array($right_to_left, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'right_to_left', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['right_to_left'] = $right_to_left;
 
         return $this;

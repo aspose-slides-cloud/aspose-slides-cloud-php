@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetNotesSlideShapeParagraphsRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class GetNotesSlideShapeParagraphsRequest
     public $slideIndex;
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -59,25 +59,25 @@ class GetNotesSlideShapeParagraphsRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the GetNotesSlideShapeParagraphsRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
@@ -91,7 +91,7 @@ class GetNotesSlideShapeParagraphsRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -99,7 +99,7 @@ class GetNotesSlideShapeParagraphsRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -123,7 +123,7 @@ class GetNotesSlideShapeParagraphsRequest
         return $this;
     }
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -131,7 +131,7 @@ class GetNotesSlideShapeParagraphsRequest
     }
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -171,7 +171,7 @@ class GetNotesSlideShapeParagraphsRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -179,7 +179,7 @@ class GetNotesSlideShapeParagraphsRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -187,7 +187,7 @@ class GetNotesSlideShapeParagraphsRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -195,7 +195,7 @@ class GetNotesSlideShapeParagraphsRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

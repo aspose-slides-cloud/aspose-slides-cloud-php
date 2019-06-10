@@ -34,50 +34,50 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesConvertRequest
 {
     /*
-     * The format.
+     * Export format.
      */
     public $format;
 
     /*
-     * 
-     */
-    public $document;
-
-    /*
-     * The document password.
-     */
-    public $password;
-
-    /*
-     * Path to save result
+     * Path to save result.
      */
     public $outPath;
 
     /*
-     * The optional custom fonts folder.
+     * Document data.
+     */
+    public $document;
+
+    /*
+     * Document password.
+     */
+    public $password;
+
+    /*
+     * Custom fonts folder.
      */
     public $fontsFolder;
 
     /*
      * Initializes a new instance of the PutSlidesConvertRequest class.
      *  
-     * @param string $format The format.
-     * @param \SplFileObject $document 
-     * @param string $password The document password.
-     * @param string $outPath Path to save result
-     * @param string $fontsFolder The optional custom fonts folder.
+     * @param int $format Export format.
+     * @param string $outPath Path to save result.
+     * @param \SplFileObject $document Document data.
+     * @param string $password Document password.
+     * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($format, $document = null, $password = null, $outPath = null, $fontsFolder = null)
+    public function __construct($format, $outPath, $document = null, $password = null, $fontsFolder = null)
     {
         $this->format = $format;
+        $this->outPath = $outPath;
         $this->document = $document;
         $this->password = $password;
-        $this->outPath = $outPath;
         $this->fontsFolder = $fontsFolder;
     }
 
     /*
-     * The format.
+     * Export format.
      */
     public function get_format()
     {
@@ -85,7 +85,7 @@ class PutSlidesConvertRequest
     }
 
     /*
-     * The format.
+     * Export format.
      */
     public function set_format($value)
     {
@@ -93,39 +93,7 @@ class PutSlidesConvertRequest
         return $this;
     }
     /*
-     * 
-     */
-    public function get_document()
-    {
-        return $this->document;
-    }
-
-    /*
-     * 
-     */
-    public function set_document($value)
-    {
-        $this->document = $value;
-        return $this;
-    }
-    /*
-     * The document password.
-     */
-    public function get_password()
-    {
-        return $this->password;
-    }
-
-    /*
-     * The document password.
-     */
-    public function set_password($value)
-    {
-        $this->password = $value;
-        return $this;
-    }
-    /*
-     * Path to save result
+     * Path to save result.
      */
     public function get_outPath()
     {
@@ -133,7 +101,7 @@ class PutSlidesConvertRequest
     }
 
     /*
-     * Path to save result
+     * Path to save result.
      */
     public function set_outPath($value)
     {
@@ -141,7 +109,39 @@ class PutSlidesConvertRequest
         return $this;
     }
     /*
-     * The optional custom fonts folder.
+     * Document data.
+     */
+    public function get_document()
+    {
+        return $this->document;
+    }
+
+    /*
+     * Document data.
+     */
+    public function set_document($value)
+    {
+        $this->document = $value;
+        return $this;
+    }
+    /*
+     * Document password.
+     */
+    public function get_password()
+    {
+        return $this->password;
+    }
+
+    /*
+     * Document password.
+     */
+    public function set_password($value)
+    {
+        $this->password = $value;
+        return $this;
+    }
+    /*
+     * Custom fonts folder.
      */
     public function get_fontsFolder()
     {
@@ -149,7 +149,7 @@ class PutSlidesConvertRequest
     }
 
     /*
-     * The optional custom fonts folder.
+     * Custom fonts folder.
      */
     public function set_fontsFolder($value)
     {

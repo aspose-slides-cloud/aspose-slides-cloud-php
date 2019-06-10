@@ -59,6 +59,11 @@ class PostSlidesCopyRequest
     public $sourcePassword;
 
     /*
+     * Template storage name.
+     */
+    public $sourceStorage;
+
+    /*
      * Document password.
      */
     public $password;
@@ -81,17 +86,19 @@ class PostSlidesCopyRequest
      * @param int $position The target position at which to copy the slide. Copy to the end by default.
      * @param string $source Name of the document to copy a slide from.
      * @param string $sourcePassword Password for the document to copy a slide from.
+     * @param string $sourceStorage Template storage name.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideToCopy, $position = null, $source = null, $sourcePassword = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideToCopy, $position = null, $source = null, $sourcePassword = null, $sourceStorage = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideToCopy = $slideToCopy;
         $this->position = $position;
         $this->source = $source;
         $this->sourcePassword = $sourcePassword;
+        $this->sourceStorage = $sourceStorage;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -175,6 +182,22 @@ class PostSlidesCopyRequest
     public function set_sourcePassword($value)
     {
         $this->sourcePassword = $value;
+        return $this;
+    }
+    /*
+     * Template storage name.
+     */
+    public function get_sourceStorage()
+    {
+        return $this->sourceStorage;
+    }
+
+    /*
+     * Template storage name.
+     */
+    public function set_sourceStorage($value)
+    {
+        $this->sourceStorage = $value;
         return $this;
     }
     /*

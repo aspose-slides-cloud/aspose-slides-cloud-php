@@ -39,7 +39,7 @@ class PostPresentationMergeRequest
     public $name;
 
     /*
-     * with a list of presentations to merge.
+     * PresentationsMergeRequest with a list of presentations to merge.
      */
     public $request;
 
@@ -62,7 +62,7 @@ class PostPresentationMergeRequest
      * Initializes a new instance of the PostPresentationMergeRequest class.
      *  
      * @param string $name Document name.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request with a list of presentations to merge.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request PresentationsMergeRequest with a list of presentations to merge.
      * @param string $password Document password.
      * @param string $storage Document storage.
      * @param string $folder Document folder.
@@ -93,7 +93,7 @@ class PostPresentationMergeRequest
         return $this;
     }
     /*
-     * with a list of presentations to merge.
+     * PresentationsMergeRequest with a list of presentations to merge.
      */
     public function get_request()
     {
@@ -101,7 +101,7 @@ class PostPresentationMergeRequest
     }
 
     /*
-     * with a list of presentations to merge.
+     * PresentationsMergeRequest with a list of presentations to merge.
      */
     public function set_request($value)
     {

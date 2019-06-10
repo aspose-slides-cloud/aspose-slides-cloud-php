@@ -184,6 +184,9 @@ class RemoveSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['position'] === null) {
+            $invalidProperties[] = "'position' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -199,6 +202,9 @@ class RemoveSlide extends Task
             return false;
         }
 
+        if ($this->container['position'] === null) {
+            return false;
+        }
         return true;
     }
 

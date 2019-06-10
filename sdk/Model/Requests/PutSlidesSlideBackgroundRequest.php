@@ -44,7 +44,7 @@ class PutSlidesSlideBackgroundRequest
     public $slideIndex;
 
     /*
-     * Slide background update data. Required unless color parameter is specified.
+     * Slide background update data.
      */
     public $background;
 
@@ -64,22 +64,16 @@ class PutSlidesSlideBackgroundRequest
     public $storage;
 
     /*
-     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
-     */
-    public $color;
-
-    /*
      * Initializes a new instance of the PutSlidesSlideBackgroundRequest class.
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data. Required unless color parameter is specified.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data.
      * @param string $folder Document folder.
      * @param string $password Document password.
      * @param string $storage Document storage.
-     * @param string $color Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
      */
-    public function __construct($name, $slideIndex, $background = null, $folder = null, $password = null, $storage = null, $color = null)
+    public function __construct($name, $slideIndex, $background = null, $folder = null, $password = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
@@ -87,7 +81,6 @@ class PutSlidesSlideBackgroundRequest
         $this->folder = $folder;
         $this->password = $password;
         $this->storage = $storage;
-        $this->color = $color;
     }
 
     /*
@@ -123,7 +116,7 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * Slide background update data. Required unless color parameter is specified.
+     * Slide background update data.
      */
     public function get_background()
     {
@@ -131,7 +124,7 @@ class PutSlidesSlideBackgroundRequest
     }
 
     /*
-     * Slide background update data. Required unless color parameter is specified.
+     * Slide background update data.
      */
     public function set_background($value)
     {
@@ -184,22 +177,6 @@ class PutSlidesSlideBackgroundRequest
     public function set_storage($value)
     {
         $this->storage = $value;
-        return $this;
-    }
-    /*
-     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
-     */
-    public function get_color()
-    {
-        return $this->color;
-    }
-
-    /*
-     * Slide background target color in RRGGBB format. Ignored if background parameter is specified. Required unless background parameter is specified.
-     */
-    public function set_color($value)
-    {
-        $this->color = $value;
         return $this;
     }
 }

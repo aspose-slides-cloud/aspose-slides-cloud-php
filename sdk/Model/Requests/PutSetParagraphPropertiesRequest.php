@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSetParagraphPropertiesRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class PutSetParagraphPropertiesRequest
     public $slideIndex;
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -59,7 +59,7 @@ class PutSetParagraphPropertiesRequest
     public $paragraphIndex;
 
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public $dto;
 
@@ -69,27 +69,27 @@ class PutSetParagraphPropertiesRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
      * Initializes a new instance of the PutSetParagraphPropertiesRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Object path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Shape dto.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto = null, $password = null, $folder = null, $storage = null)
     {
@@ -105,7 +105,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -113,7 +113,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -137,7 +137,7 @@ class PutSetParagraphPropertiesRequest
         return $this;
     }
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -145,7 +145,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Object path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -185,7 +185,7 @@ class PutSetParagraphPropertiesRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public function get_dto()
     {
@@ -193,7 +193,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public function set_dto($value)
     {
@@ -217,7 +217,7 @@ class PutSetParagraphPropertiesRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -225,7 +225,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -233,7 +233,7 @@ class PutSetParagraphPropertiesRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -241,7 +241,7 @@ class PutSetParagraphPropertiesRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

@@ -197,6 +197,12 @@ class Image extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,6 +218,12 @@ class Image extends ResourceBase
             return false;
         }
 
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
+            return false;
+        }
         return true;
     }
 

@@ -61,7 +61,7 @@ class PresetShadowEffect implements ArrayAccess
     protected static $swaggerTypes = [
         'direction' => 'double',
         'distance' => 'double',
-        'preset' => '\Aspose\Slides\Cloud\Sdk\Model\PresetShadowType',
+        'preset' => 'string',
         'shadow_color' => 'string'
     ];
 
@@ -175,8 +175,59 @@ class PresetShadowEffect implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PRESET_TOP_LEFT_DROP_SHADOW = 'TopLeftDropShadow';
+    const PRESET_TOP_LEFT_LARGE_DROP_SHADOW = 'TopLeftLargeDropShadow';
+    const PRESET_BACK_LEFT_LONG_PERSPECTIVE_SHADOW = 'BackLeftLongPerspectiveShadow';
+    const PRESET_BACK_RIGHT_LONG_PERSPECTIVE_SHADOW = 'BackRightLongPerspectiveShadow';
+    const PRESET_TOP_LEFT_DOUBLE_DROP_SHADOW = 'TopLeftDoubleDropShadow';
+    const PRESET_BOTTOM_RIGHT_SMALL_DROP_SHADOW = 'BottomRightSmallDropShadow';
+    const PRESET_FRONT_LEFT_LONG_PERSPECTIVE_SHADOW = 'FrontLeftLongPerspectiveShadow';
+    const PRESET_FRONT_RIGHT_LONG_PERSPECTIVE_SHADOW = 'FrontRightLongPerspectiveShadow';
+    const PRESET_OUTER_BOX_SHADOW3_D = 'OuterBoxShadow3D';
+    const PRESET_INNER_BOX_SHADOW3_D = 'InnerBoxShadow3D';
+    const PRESET_BACK_CENTER_PERSPECTIVE_SHADOW = 'BackCenterPerspectiveShadow';
+    const PRESET_TOP_RIGHT_DROP_SHADOW = 'TopRightDropShadow';
+    const PRESET_FRONT_BOTTOM_SHADOW = 'FrontBottomShadow';
+    const PRESET_BACK_LEFT_PERSPECTIVE_SHADOW = 'BackLeftPerspectiveShadow';
+    const PRESET_BACK_RIGHT_PERSPECTIVE_SHADOW = 'BackRightPerspectiveShadow';
+    const PRESET_BOTTOM_LEFT_DROP_SHADOW = 'BottomLeftDropShadow';
+    const PRESET_BOTTOM_RIGHT_DROP_SHADOW = 'BottomRightDropShadow';
+    const PRESET_FRONT_LEFT_PERSPECTIVE_SHADOW = 'FrontLeftPerspectiveShadow';
+    const PRESET_FRONT_RIGHT_PERSPECTIVE_SHADOW = 'FrontRightPerspectiveShadow';
+    const PRESET_TOP_LEFT_SMALL_DROP_SHADOW = 'TopLeftSmallDropShadow';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPresetAllowableValues()
+    {
+        return [
+            self::PRESET_TOP_LEFT_DROP_SHADOW,
+            self::PRESET_TOP_LEFT_LARGE_DROP_SHADOW,
+            self::PRESET_BACK_LEFT_LONG_PERSPECTIVE_SHADOW,
+            self::PRESET_BACK_RIGHT_LONG_PERSPECTIVE_SHADOW,
+            self::PRESET_TOP_LEFT_DOUBLE_DROP_SHADOW,
+            self::PRESET_BOTTOM_RIGHT_SMALL_DROP_SHADOW,
+            self::PRESET_FRONT_LEFT_LONG_PERSPECTIVE_SHADOW,
+            self::PRESET_FRONT_RIGHT_LONG_PERSPECTIVE_SHADOW,
+            self::PRESET_OUTER_BOX_SHADOW3_D,
+            self::PRESET_INNER_BOX_SHADOW3_D,
+            self::PRESET_BACK_CENTER_PERSPECTIVE_SHADOW,
+            self::PRESET_TOP_RIGHT_DROP_SHADOW,
+            self::PRESET_FRONT_BOTTOM_SHADOW,
+            self::PRESET_BACK_LEFT_PERSPECTIVE_SHADOW,
+            self::PRESET_BACK_RIGHT_PERSPECTIVE_SHADOW,
+            self::PRESET_BOTTOM_LEFT_DROP_SHADOW,
+            self::PRESET_BOTTOM_RIGHT_DROP_SHADOW,
+            self::PRESET_FRONT_LEFT_PERSPECTIVE_SHADOW,
+            self::PRESET_FRONT_RIGHT_PERSPECTIVE_SHADOW,
+            self::PRESET_TOP_LEFT_SMALL_DROP_SHADOW,
+        ];
+    }
     
 
     /**
@@ -218,6 +269,14 @@ class PresetShadowEffect implements ArrayAccess
         if ($this->container['preset'] === null) {
             $invalidProperties[] = "'preset' can't be null";
         }
+        $allowedValues = $this->getPresetAllowableValues();
+        if (!in_array($this->container['preset'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'preset', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -237,6 +296,10 @@ class PresetShadowEffect implements ArrayAccess
             return false;
         }
         if ($this->container['preset'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPresetAllowableValues();
+        if (!in_array($this->container['preset'], $allowedValues)) {
             return false;
         }
         return true;
@@ -294,7 +357,7 @@ class PresetShadowEffect implements ArrayAccess
     /**
      * Gets preset
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PresetShadowType
+     * @return string
      */
     public function getPreset()
     {
@@ -304,12 +367,21 @@ class PresetShadowEffect implements ArrayAccess
     /**
      * Sets preset
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PresetShadowType $preset preset
+     * @param string $preset preset
      *
      * @return $this
      */
     public function setPreset($preset)
     {
+        $allowedValues = $this->getPresetAllowableValues();
+        if (!in_array($preset, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'preset', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['preset'] = $preset;
 
         return $this;

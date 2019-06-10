@@ -185,6 +185,9 @@ class RequestInputFile extends InputFile
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['index'] === null) {
+            $invalidProperties[] = "'index' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -200,6 +203,9 @@ class RequestInputFile extends InputFile
             return false;
         }
 
+        if ($this->container['index'] === null) {
+            return false;
+        }
         return true;
     }
 

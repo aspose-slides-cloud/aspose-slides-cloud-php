@@ -59,7 +59,7 @@ class FillOverlayEffect implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'blend' => '\Aspose\Slides\Cloud\Sdk\Model\FillBlendMode'
+        'blend' => 'string'
     ];
 
     /**
@@ -160,8 +160,29 @@ class FillOverlayEffect implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const BLEND_DARKEN = 'Darken';
+    const BLEND_LIGHTEN = 'Lighten';
+    const BLEND_MULTIPLY = 'Multiply';
+    const BLEND_OVERLAY = 'Overlay';
+    const BLEND_SCREEN = 'Screen';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBlendAllowableValues()
+    {
+        return [
+            self::BLEND_DARKEN,
+            self::BLEND_LIGHTEN,
+            self::BLEND_MULTIPLY,
+            self::BLEND_OVERLAY,
+            self::BLEND_SCREEN,
+        ];
+    }
     
 
     /**
@@ -194,6 +215,14 @@ class FillOverlayEffect implements ArrayAccess
         if ($this->container['blend'] === null) {
             $invalidProperties[] = "'blend' can't be null";
         }
+        $allowedValues = $this->getBlendAllowableValues();
+        if (!in_array($this->container['blend'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'blend', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -209,6 +238,10 @@ class FillOverlayEffect implements ArrayAccess
         if ($this->container['blend'] === null) {
             return false;
         }
+        $allowedValues = $this->getBlendAllowableValues();
+        if (!in_array($this->container['blend'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -216,7 +249,7 @@ class FillOverlayEffect implements ArrayAccess
     /**
      * Gets blend
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillBlendMode
+     * @return string
      */
     public function getBlend()
     {
@@ -226,12 +259,21 @@ class FillOverlayEffect implements ArrayAccess
     /**
      * Sets blend
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillBlendMode $blend blend mode
+     * @param string $blend blend mode
      *
      * @return $this
      */
     public function setBlend($blend)
     {
+        $allowedValues = $this->getBlendAllowableValues();
+        if (!in_array($blend, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'blend', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['blend'] = $blend;
 
         return $this;

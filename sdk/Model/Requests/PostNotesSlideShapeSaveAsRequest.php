@@ -44,6 +44,11 @@ class PostNotesSlideShapeSaveAsRequest
     public $slideIndex;
 
     /*
+     * 
+     */
+    public $path;
+
+    /*
      * Index of shape starting from 1
      */
     public $shapeIndex;
@@ -89,11 +94,6 @@ class PostNotesSlideShapeSaveAsRequest
     public $bounds;
 
     /*
-     * Output path.
-     */
-    public $outPath;
-
-    /*
      * Fonts folder.
      */
     public $fontsFolder;
@@ -103,22 +103,23 @@ class PostNotesSlideShapeSaveAsRequest
      *  
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
+     * @param string $path 
      * @param int $shapeIndex Index of shape starting from 1
-     * @param string $format Export picture format.
+     * @param int $format Export picture format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options
      * @param string $password Document password.
      * @param string $folder Presentation folder.
      * @param string $storage Presentation storage.
      * @param double $scaleX X scale ratio.
      * @param double $scaleY Y scale ratio.
-     * @param string $bounds Shape thumbnail bounds type.
-     * @param string $outPath Output path.
+     * @param int $bounds Shape thumbnail bounds type.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($name, $slideIndex, $shapeIndex, $format, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $outPath = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $path, $shapeIndex, $format, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
+        $this->path = $path;
         $this->shapeIndex = $shapeIndex;
         $this->format = $format;
         $this->options = $options;
@@ -128,7 +129,6 @@ class PostNotesSlideShapeSaveAsRequest
         $this->scaleX = $scaleX;
         $this->scaleY = $scaleY;
         $this->bounds = $bounds;
-        $this->outPath = $outPath;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -162,6 +162,22 @@ class PostNotesSlideShapeSaveAsRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
+        return $this;
+    }
+    /*
+     * 
+     */
+    public function get_path()
+    {
+        return $this->path;
+    }
+
+    /*
+     * 
+     */
+    public function set_path($value)
+    {
+        $this->path = $value;
         return $this;
     }
     /*
@@ -306,22 +322,6 @@ class PostNotesSlideShapeSaveAsRequest
     public function set_bounds($value)
     {
         $this->bounds = $value;
-        return $this;
-    }
-    /*
-     * Output path.
-     */
-    public function get_outPath()
-    {
-        return $this->outPath;
-    }
-
-    /*
-     * Output path.
-     */
-    public function set_outPath($value)
-    {
-        $this->outPath = $value;
         return $this;
     }
     /*

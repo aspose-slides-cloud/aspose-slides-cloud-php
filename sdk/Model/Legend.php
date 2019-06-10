@@ -59,7 +59,7 @@ class Legend implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'position' => '\Aspose\Slides\Cloud\Sdk\Model\LegendPositionType',
+        'position' => 'string',
         'x' => 'double',
         'y' => 'double',
         'width' => 'double',
@@ -200,8 +200,29 @@ class Legend implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const POSITION_BOTTOM = 'Bottom';
+    const POSITION_LEFT = 'Left';
+    const POSITION_RIGHT = 'Right';
+    const POSITION_TOP = 'Top';
+    const POSITION_TOP_RIGHT = 'TopRight';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPositionAllowableValues()
+    {
+        return [
+            self::POSITION_BOTTOM,
+            self::POSITION_LEFT,
+            self::POSITION_RIGHT,
+            self::POSITION_TOP,
+            self::POSITION_TOP_RIGHT,
+        ];
+    }
     
 
     /**
@@ -242,6 +263,14 @@ class Legend implements ArrayAccess
         if ($this->container['position'] === null) {
             $invalidProperties[] = "'position' can't be null";
         }
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($this->container['position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['x'] === null) {
             $invalidProperties[] = "'x' can't be null";
         }
@@ -272,6 +301,10 @@ class Legend implements ArrayAccess
         if ($this->container['position'] === null) {
             return false;
         }
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($this->container['position'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['x'] === null) {
             return false;
         }
@@ -294,7 +327,7 @@ class Legend implements ArrayAccess
     /**
      * Gets position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LegendPositionType
+     * @return string
      */
     public function getPosition()
     {
@@ -304,12 +337,21 @@ class Legend implements ArrayAccess
     /**
      * Sets position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LegendPositionType $position position
+     * @param string $position position
      *
      * @return $this
      */
     public function setPosition($position)
     {
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['position'] = $position;
 
         return $this;

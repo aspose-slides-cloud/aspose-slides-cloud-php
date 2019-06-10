@@ -34,32 +34,32 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class GetSlidesDocumentRequest
 {
     /*
-     * The document name.
+     * Document name.
      */
     public $name;
 
     /*
-     * The document password.
+     * Document password.
      */
     public $password;
 
     /*
-     * Document&#39;s storage.
+     * Documentstorage.
      */
     public $storage;
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public $folder;
 
     /*
      * Initializes a new instance of the GetSlidesDocumentRequest class.
      *  
-     * @param string $name The document name.
-     * @param string $password The document password.
-     * @param string $storage Document&#39;s storage.
-     * @param string $folder Document&#39;s folder.
+     * @param string $name Document name.
+     * @param string $password Document password.
+     * @param string $storage Documentstorage.
+     * @param string $folder Document folder.
      */
     public function __construct($name, $password = null, $storage = null, $folder = null)
     {
@@ -70,7 +70,7 @@ class GetSlidesDocumentRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function get_name()
     {
@@ -78,7 +78,7 @@ class GetSlidesDocumentRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -86,7 +86,7 @@ class GetSlidesDocumentRequest
         return $this;
     }
     /*
-     * The document password.
+     * Document password.
      */
     public function get_password()
     {
@@ -94,7 +94,7 @@ class GetSlidesDocumentRequest
     }
 
     /*
-     * The document password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -102,7 +102,7 @@ class GetSlidesDocumentRequest
         return $this;
     }
     /*
-     * Document&#39;s storage.
+     * Documentstorage.
      */
     public function get_storage()
     {
@@ -110,7 +110,7 @@ class GetSlidesDocumentRequest
     }
 
     /*
-     * Document&#39;s storage.
+     * Documentstorage.
      */
     public function set_storage($value)
     {
@@ -118,7 +118,7 @@ class GetSlidesDocumentRequest
         return $this;
     }
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -126,7 +126,7 @@ class GetSlidesDocumentRequest
     }
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function set_folder($value)
     {

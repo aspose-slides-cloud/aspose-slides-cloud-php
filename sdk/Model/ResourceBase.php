@@ -60,8 +60,7 @@ class ResourceBase implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'self_uri' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
-        'alternate_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
+        'alternate_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -71,8 +70,7 @@ class ResourceBase implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'self_uri' => null,
-        'alternate_links' => null,
-        'links' => null
+        'alternate_links' => null
     ];
 
     /**
@@ -103,8 +101,7 @@ class ResourceBase implements ArrayAccess
      */
     protected static $attributeMap = [
         'self_uri' => 'SelfUri',
-        'alternate_links' => 'AlternateLinks',
-        'links' => 'Links'
+        'alternate_links' => 'AlternateLinks'
     ];
 
     /**
@@ -114,8 +111,7 @@ class ResourceBase implements ArrayAccess
      */
     protected static $setters = [
         'self_uri' => 'setSelfUri',
-        'alternate_links' => 'setAlternateLinks',
-        'links' => 'setLinks'
+        'alternate_links' => 'setAlternateLinks'
     ];
 
     /**
@@ -125,8 +121,7 @@ class ResourceBase implements ArrayAccess
      */
     protected static $getters = [
         'self_uri' => 'getSelfUri',
-        'alternate_links' => 'getAlternateLinks',
-        'links' => 'getLinks'
+        'alternate_links' => 'getAlternateLinks'
     ];
 
     /**
@@ -191,7 +186,6 @@ class ResourceBase implements ArrayAccess
     {
         $this->container['self_uri'] = isset($data['self_uri']) ? $data['self_uri'] : null;
         $this->container['alternate_links'] = isset($data['alternate_links']) ? $data['alternate_links'] : null;
-        $this->container['links'] = isset($data['links']) ? $data['links'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -267,30 +261,6 @@ class ResourceBase implements ArrayAccess
     public function setAlternateLinks($alternate_links)
     {
         $this->container['alternate_links'] = $alternate_links;
-
-        return $this;
-    }
-
-    /**
-     * Gets links
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
-     */
-    public function getLinks()
-    {
-        return $this->container['links'];
-    }
-
-    /**
-     * Sets links
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $links A list of links that originate from this document.
-     *
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->container['links'] = $links;
 
         return $this;
     }

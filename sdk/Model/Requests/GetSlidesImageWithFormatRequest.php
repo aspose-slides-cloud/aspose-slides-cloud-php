@@ -44,7 +44,7 @@ class GetSlidesImageWithFormatRequest
     public $index;
 
     /*
-     * Export format (png, jpg, gif). Pass null to export image &#39;as is&#39;.
+     * Export format (png, jpg, gif).
      */
     public $format;
 
@@ -68,12 +68,12 @@ class GetSlidesImageWithFormatRequest
      *  
      * @param string $name Document name.
      * @param int $index Image index.
-     * @param string $format Export format (png, jpg, gif). Pass null to export image &#39;as is&#39;.
+     * @param int $format Export format (png, jpg, gif).
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $index, $format = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $index, $format, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->index = $index;
@@ -116,7 +116,7 @@ class GetSlidesImageWithFormatRequest
         return $this;
     }
     /*
-     * Export format (png, jpg, gif). Pass null to export image &#39;as is&#39;.
+     * Export format (png, jpg, gif).
      */
     public function get_format()
     {
@@ -124,7 +124,7 @@ class GetSlidesImageWithFormatRequest
     }
 
     /*
-     * Export format (png, jpg, gif). Pass null to export image &#39;as is&#39;.
+     * Export format (png, jpg, gif).
      */
     public function set_format($value)
     {

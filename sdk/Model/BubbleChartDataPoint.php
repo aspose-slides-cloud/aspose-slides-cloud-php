@@ -184,6 +184,9 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['bubble_size'] === null) {
+            $invalidProperties[] = "'bubble_size' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -199,6 +202,9 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
             return false;
         }
 
+        if ($this->container['bubble_size'] === null) {
+            return false;
+        }
         return true;
     }
 

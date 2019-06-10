@@ -44,7 +44,7 @@ class PutUpdateNotesSlideRequest
     public $slideIndex;
 
     /*
-     * A  object with notes slide data.
+     * A NotesSlide object with notes slide data.
      */
     public $dto;
 
@@ -68,7 +68,7 @@ class PutUpdateNotesSlideRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A  object with notes slide data.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A NotesSlide object with notes slide data.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
@@ -116,7 +116,7 @@ class PutUpdateNotesSlideRequest
         return $this;
     }
     /*
-     * A  object with notes slide data.
+     * A NotesSlide object with notes slide data.
      */
     public function get_dto()
     {
@@ -124,7 +124,7 @@ class PutUpdateNotesSlideRequest
     }
 
     /*
-     * A  object with notes slide data.
+     * A NotesSlide object with notes slide data.
      */
     public function set_dto($value)
     {

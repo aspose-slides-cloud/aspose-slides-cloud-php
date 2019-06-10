@@ -28,15 +28,15 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\Api;
 
-use Aspose\Storage\Api\StorageApi;
-use Aspose\Storage\Model\Requests\PutCreateRequest;
-use Aspose\Storage\Model\Requests\DeleteFileRequest;
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\UploadFileRequest;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteFileRequest;
 use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class TestBase extends \PHPUnit_Framework_TestCase
 {
-    protected $storage;
+    protected $fileApi;
     protected $config;
     protected $values;
     protected $okToFailValues;
@@ -48,38 +48,38 @@ class TestBase extends \PHPUnit_Framework_TestCase
         $appKey = $testConfig["AppKey"];
         $appSid = $testConfig["AppSid"];
         $baseUrl = $testConfig["BaseUrl"];
+        $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
         $debug = $testConfig["Debug"];
         $this->config->setAppKey($appKey);
         $this->config->setAppSid($appSid);
         $this->config->setHost($baseUrl);
+        $this->config->setAuthHost($authBaseUrl);
         $this->config->setDebug($debug);
 
         $rules = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testRules.json")), true);
         $this->fileRules = $rules["Files"];
-        $this->rules = $rules["Messages"];
+        $this->rules = $rules["Results"];
         $this->values = $rules["Values"];
         $this->okToFailValues = $rules["OKToNotFail"];
 
-        $this->storage = new StorageApi();
-        $this->storage->getConfig()->setAppKey($appKey);
-        $this->storage->getConfig()->setAppSid($appSid);
-        $this->storage->getConfig()->setHost($baseUrl);
+        $this->slidesApi = new SlidesApi(null, $this->config);
     }
     
     protected function initialize($functionName, $invalidFieldName, $invalidFieldValue)
     {
         $expectedValues = $this->applyRules($functionName, $invalidFieldName, $invalidFieldValue);
         $fileRulesToApply = $this->applyFileRules($functionName, $invalidFieldName, $invalidFieldValue);
+        if ($functionName != 'deleteFolder' &&  $invalidFieldName != 'recursive')
         foreach ($fileRulesToApply as $path => $rule)
         {
             if ($rule["Action"] == "Put")
             {
-                $putRequest = new PutCreateRequest($path, realpath(__DIR__.'/../..').'/TestData/'.$rule["ActualName"]);
-                $this->storage->PutCreate($putRequest);
+                $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$rule["ActualName"], 'r');
+                $this->slidesApi->UploadFile(new UploadFileRequest($path, $stream));
             }
             else if ($rule["Action"] == "Delete")
             {
-                $this->storage->DeleteFile(new DeleteFileRequest($path));
+                $this->slidesApi->DeleteFile(new DeleteFileRequest($path));
             }
         }
         return $expectedValues;

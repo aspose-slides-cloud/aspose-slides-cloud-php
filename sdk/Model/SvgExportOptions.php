@@ -62,9 +62,9 @@ class SvgExportOptions extends ExportOptions
         'disable_gradient_split' => 'bool',
         'disable_line_end_cropping' => 'bool',
         'jpeg_quality' => 'int',
-        'pictures_compression' => '\Aspose\Slides\Cloud\Sdk\Model\PicturesCompression',
+        'pictures_compression' => 'string',
         'delete_pictures_cropped_areas' => 'bool',
-        'external_fonts_handling' => '\Aspose\Slides\Cloud\Sdk\Model\ExternalFontsHandling'
+        'external_fonts_handling' => 'string'
     ];
 
     /**
@@ -197,8 +197,48 @@ class SvgExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const PICTURES_COMPRESSION_DPI330 = 'Dpi330';
+    const PICTURES_COMPRESSION_DPI220 = 'Dpi220';
+    const PICTURES_COMPRESSION_DPI150 = 'Dpi150';
+    const PICTURES_COMPRESSION_DPI96 = 'Dpi96';
+    const PICTURES_COMPRESSION_DPI72 = 'Dpi72';
+    const PICTURES_COMPRESSION_DOCUMENT_RESOLUTION = 'DocumentResolution';
+    const EXTERNAL_FONTS_HANDLING_ADD_LINKS_TO_FONT_FILES = 'AddLinksToFontFiles';
+    const EXTERNAL_FONTS_HANDLING_EMBED = 'Embed';
+    const EXTERNAL_FONTS_HANDLING_VECTORIZE = 'Vectorize';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPicturesCompressionAllowableValues()
+    {
+        return [
+            self::PICTURES_COMPRESSION_DPI330,
+            self::PICTURES_COMPRESSION_DPI220,
+            self::PICTURES_COMPRESSION_DPI150,
+            self::PICTURES_COMPRESSION_DPI96,
+            self::PICTURES_COMPRESSION_DPI72,
+            self::PICTURES_COMPRESSION_DOCUMENT_RESOLUTION,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExternalFontsHandlingAllowableValues()
+    {
+        return [
+            self::EXTERNAL_FONTS_HANDLING_ADD_LINKS_TO_FONT_FILES,
+            self::EXTERNAL_FONTS_HANDLING_EMBED,
+            self::EXTERNAL_FONTS_HANDLING_VECTORIZE,
+        ];
+    }
     
 
 
@@ -232,6 +272,49 @@ class SvgExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['vectorize_text'] === null) {
+            $invalidProperties[] = "'vectorize_text' can't be null";
+        }
+        if ($this->container['metafile_rasterization_dpi'] === null) {
+            $invalidProperties[] = "'metafile_rasterization_dpi' can't be null";
+        }
+        if ($this->container['disable3_d_text'] === null) {
+            $invalidProperties[] = "'disable3_d_text' can't be null";
+        }
+        if ($this->container['disable_gradient_split'] === null) {
+            $invalidProperties[] = "'disable_gradient_split' can't be null";
+        }
+        if ($this->container['disable_line_end_cropping'] === null) {
+            $invalidProperties[] = "'disable_line_end_cropping' can't be null";
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            $invalidProperties[] = "'jpeg_quality' can't be null";
+        }
+        if ($this->container['pictures_compression'] === null) {
+            $invalidProperties[] = "'pictures_compression' can't be null";
+        }
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'pictures_compression', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['delete_pictures_cropped_areas'] === null) {
+            $invalidProperties[] = "'delete_pictures_cropped_areas' can't be null";
+        }
+        if ($this->container['external_fonts_handling'] === null) {
+            $invalidProperties[] = "'external_fonts_handling' can't be null";
+        }
+        $allowedValues = $this->getExternalFontsHandlingAllowableValues();
+        if (!in_array($this->container['external_fonts_handling'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'external_fonts_handling', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -247,6 +330,41 @@ class SvgExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['vectorize_text'] === null) {
+            return false;
+        }
+        if ($this->container['metafile_rasterization_dpi'] === null) {
+            return false;
+        }
+        if ($this->container['disable3_d_text'] === null) {
+            return false;
+        }
+        if ($this->container['disable_gradient_split'] === null) {
+            return false;
+        }
+        if ($this->container['disable_line_end_cropping'] === null) {
+            return false;
+        }
+        if ($this->container['jpeg_quality'] === null) {
+            return false;
+        }
+        if ($this->container['pictures_compression'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['delete_pictures_cropped_areas'] === null) {
+            return false;
+        }
+        if ($this->container['external_fonts_handling'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getExternalFontsHandlingAllowableValues();
+        if (!in_array($this->container['external_fonts_handling'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -398,7 +516,7 @@ class SvgExportOptions extends ExportOptions
     /**
      * Gets pictures_compression
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PicturesCompression
+     * @return string
      */
     public function getPicturesCompression()
     {
@@ -408,12 +526,21 @@ class SvgExportOptions extends ExportOptions
     /**
      * Sets pictures_compression
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PicturesCompression $pictures_compression Represents the pictures compression level
+     * @param string $pictures_compression Represents the pictures compression level
      *
      * @return $this
      */
     public function setPicturesCompression($pictures_compression)
     {
+        $allowedValues = $this->getPicturesCompressionAllowableValues();
+        if (!in_array($pictures_compression, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'pictures_compression', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['pictures_compression'] = $pictures_compression;
 
         return $this;
@@ -446,7 +573,7 @@ class SvgExportOptions extends ExportOptions
     /**
      * Gets external_fonts_handling
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExternalFontsHandling
+     * @return string
      */
     public function getExternalFontsHandling()
     {
@@ -456,12 +583,21 @@ class SvgExportOptions extends ExportOptions
     /**
      * Sets external_fonts_handling
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExternalFontsHandling $external_fonts_handling Determines a way of handling externally loaded fonts.
+     * @param string $external_fonts_handling Determines a way of handling externally loaded fonts.
      *
      * @return $this
      */
     public function setExternalFontsHandling($external_fonts_handling)
     {
+        $allowedValues = $this->getExternalFontsHandlingAllowableValues();
+        if (!in_array($external_fonts_handling, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'external_fonts_handling', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['external_fonts_handling'] = $external_fonts_handling;
 
         return $this;

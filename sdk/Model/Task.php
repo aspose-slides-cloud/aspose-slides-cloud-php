@@ -59,7 +59,7 @@ class Task implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\TaskType'
+        'type' => 'string'
     ];
 
     /**
@@ -160,8 +160,49 @@ class Task implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_SAVE = 'Save';
+    const TYPE_SAVE_SLIDE = 'SaveSlide';
+    const TYPE_SAVE_SHAPE = 'SaveShape';
+    const TYPE_ADD_SLIDE = 'AddSlide';
+    const TYPE_ADD_MASTER_SLIDE = 'AddMasterSlide';
+    const TYPE_ADD_LAYOUT_SLIDE = 'AddLayoutSlide';
+    const TYPE_REMOVE_SLIDE = 'RemoveSlide';
+    const TYPE_REODER_SLIDE = 'ReoderSlide';
+    const TYPE_MERGE = 'Merge';
+    const TYPE_UPDATE_BACKGROUND = 'UpdateBackground';
+    const TYPE_RESET_SLIDE = 'ResetSlide';
+    const TYPE_ADD_SHAPE = 'AddShape';
+    const TYPE_REMOVE_SHAPE = 'RemoveShape';
+    const TYPE_UPDATE_SHAPE = 'UpdateShape';
+    const TYPE_REPLACE_TEXT = 'ReplaceText';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_SAVE,
+            self::TYPE_SAVE_SLIDE,
+            self::TYPE_SAVE_SHAPE,
+            self::TYPE_ADD_SLIDE,
+            self::TYPE_ADD_MASTER_SLIDE,
+            self::TYPE_ADD_LAYOUT_SLIDE,
+            self::TYPE_REMOVE_SLIDE,
+            self::TYPE_REODER_SLIDE,
+            self::TYPE_MERGE,
+            self::TYPE_UPDATE_BACKGROUND,
+            self::TYPE_RESET_SLIDE,
+            self::TYPE_ADD_SHAPE,
+            self::TYPE_REMOVE_SHAPE,
+            self::TYPE_UPDATE_SHAPE,
+            self::TYPE_REPLACE_TEXT,
+        ];
+    }
     
 
     /**
@@ -195,9 +236,14 @@ class Task implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -210,7 +256,8 @@ class Task implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['type'] === null) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -220,7 +267,7 @@ class Task implements ArrayAccess
     /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TaskType
+     * @return string
      */
     public function getType()
     {
@@ -230,12 +277,21 @@ class Task implements ArrayAccess
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TaskType $type Gets type of task.
+     * @param string $type type
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

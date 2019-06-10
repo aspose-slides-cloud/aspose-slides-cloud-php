@@ -196,6 +196,15 @@ class XpsExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['show_hidden_slides'] === null) {
+            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        }
+        if ($this->container['save_metafiles_as_png'] === null) {
+            $invalidProperties[] = "'save_metafiles_as_png' can't be null";
+        }
+        if ($this->container['draw_slides_frame'] === null) {
+            $invalidProperties[] = "'draw_slides_frame' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -211,6 +220,15 @@ class XpsExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['show_hidden_slides'] === null) {
+            return false;
+        }
+        if ($this->container['save_metafiles_as_png'] === null) {
+            return false;
+        }
+        if ($this->container['draw_slides_frame'] === null) {
+            return false;
+        }
         return true;
     }
 

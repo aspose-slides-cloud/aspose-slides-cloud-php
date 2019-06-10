@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostNotesSlideAddNewParagraphRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class PostNotesSlideAddNewParagraphRequest
     public $slideIndex;
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -54,7 +54,7 @@ class PostNotesSlideAddNewParagraphRequest
     public $shapeIndex;
 
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public $dto;
 
@@ -64,12 +64,12 @@ class PostNotesSlideAddNewParagraphRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
@@ -81,14 +81,14 @@ class PostNotesSlideAddNewParagraphRequest
     /*
      * Initializes a new instance of the PostNotesSlideAddNewParagraphRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Shape dto.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
      * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
@@ -105,7 +105,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -113,7 +113,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -137,7 +137,7 @@ class PostNotesSlideAddNewParagraphRequest
         return $this;
     }
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -145,7 +145,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -169,7 +169,7 @@ class PostNotesSlideAddNewParagraphRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public function get_dto()
     {
@@ -177,7 +177,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Shape dto.
+     * Paragraph DTO.
      */
     public function set_dto($value)
     {
@@ -201,7 +201,7 @@ class PostNotesSlideAddNewParagraphRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -209,7 +209,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -217,7 +217,7 @@ class PostNotesSlideAddNewParagraphRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -225,7 +225,7 @@ class PostNotesSlideAddNewParagraphRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {

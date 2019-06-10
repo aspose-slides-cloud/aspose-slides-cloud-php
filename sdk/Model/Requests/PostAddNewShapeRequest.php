@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostAddNewShapeRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,12 +44,12 @@ class PostAddNewShapeRequest
     public $slideIndex;
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public $dto;
 
@@ -59,17 +59,17 @@ class PostAddNewShapeRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * Optional index for clone shape instead of adding the new one.
+     * Optional index for clone shape instead of adding a new one.
      */
     public $shapeToClone;
 
@@ -81,14 +81,14 @@ class PostAddNewShapeRequest
     /*
      * Initializes a new instance of the PostAddNewShapeRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape dto.
+     * @param string $path Shape path (for smart art and group shapes).
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
-     * @param int $shapeToClone Optional index for clone shape instead of adding the new one.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
+     * @param int $shapeToClone Optional index for clone shape instead of adding a new one.
      * @param int $position Position of the new shape in the list. Default is at the end of the list.
      */
     public function __construct($name, $slideIndex, $path, $dto = null, $password = null, $folder = null, $storage = null, $shapeToClone = null, $position = null)
@@ -105,7 +105,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -113,7 +113,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -137,7 +137,7 @@ class PostAddNewShapeRequest
         return $this;
     }
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -145,7 +145,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -153,7 +153,7 @@ class PostAddNewShapeRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public function get_dto()
     {
@@ -161,7 +161,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Shape dto.
+     * Shape DTO.
      */
     public function set_dto($value)
     {
@@ -185,7 +185,7 @@ class PostAddNewShapeRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -193,7 +193,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -201,7 +201,7 @@ class PostAddNewShapeRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -209,7 +209,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -217,7 +217,7 @@ class PostAddNewShapeRequest
         return $this;
     }
     /*
-     * Optional index for clone shape instead of adding the new one.
+     * Optional index for clone shape instead of adding a new one.
      */
     public function get_shapeToClone()
     {
@@ -225,7 +225,7 @@ class PostAddNewShapeRequest
     }
 
     /*
-     * Optional index for clone shape instead of adding the new one.
+     * Optional index for clone shape instead of adding a new one.
      */
     public function set_shapeToClone($value)
     {

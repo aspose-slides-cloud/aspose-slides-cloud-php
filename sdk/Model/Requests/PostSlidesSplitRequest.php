@@ -34,17 +34,17 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlidesSplitRequest
 {
     /*
-     * The document name.
+     * Document name.
      */
     public $name;
 
     /*
-     * export options
+     * Export options.
      */
     public $options;
 
     /*
-     * The format. Default value is jpeg.
+     * Export format. Default value is jpeg.
      */
     public $format;
 
@@ -74,36 +74,42 @@ class PostSlidesSplitRequest
     public $destFolder;
 
     /*
-     * The document password.
+     * Document password.
      */
     public $password;
 
     /*
-     * The document storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * The document folder.
+     * Document folder.
      */
     public $folder;
 
     /*
+     * Custom fonts folder.
+     */
+    public $fontsFolder;
+
+    /*
      * Initializes a new instance of the PostSlidesSplitRequest class.
      *  
-     * @param string $name The document name.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options export options
-     * @param string $format The format. Default value is jpeg.
+     * @param string $name Document name.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
+     * @param int $format Export format. Default value is jpeg.
      * @param int $width The width of created images.
      * @param int $height The height of created images.
      * @param int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
      * @param int $from The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation.
      * @param string $destFolder Folder on storage where images are going to be uploaded. If not specified then images are uploaded to same folder as presentation.
-     * @param string $password The document password.
-     * @param string $storage The document storage.
-     * @param string $folder The document folder.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
+     * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($name, $options = null, $format = null, $width = null, $height = null, $to = null, $from = null, $destFolder = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $options = null, $format = null, $width = null, $height = null, $to = null, $from = null, $destFolder = null, $password = null, $storage = null, $folder = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->options = $options;
@@ -116,10 +122,11 @@ class PostSlidesSplitRequest
         $this->password = $password;
         $this->storage = $storage;
         $this->folder = $folder;
+        $this->fontsFolder = $fontsFolder;
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function get_name()
     {
@@ -127,7 +134,7 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -135,7 +142,7 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * export options
+     * Export options.
      */
     public function get_options()
     {
@@ -143,7 +150,7 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * export options
+     * Export options.
      */
     public function set_options($value)
     {
@@ -151,7 +158,7 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * The format. Default value is jpeg.
+     * Export format. Default value is jpeg.
      */
     public function get_format()
     {
@@ -159,7 +166,7 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * The format. Default value is jpeg.
+     * Export format. Default value is jpeg.
      */
     public function set_format($value)
     {
@@ -247,7 +254,7 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * The document password.
+     * Document password.
      */
     public function get_password()
     {
@@ -255,7 +262,7 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * The document password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -263,7 +270,7 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * The document storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -271,7 +278,7 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * The document storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -279,7 +286,7 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * The document folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -287,11 +294,27 @@ class PostSlidesSplitRequest
     }
 
     /*
-     * The document folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Custom fonts folder.
+     */
+    public function get_fontsFolder()
+    {
+        return $this->fontsFolder;
+    }
+
+    /*
+     * Custom fonts folder.
+     */
+    public function set_fontsFolder($value)
+    {
+        $this->fontsFolder = $value;
         return $this;
     }
 }

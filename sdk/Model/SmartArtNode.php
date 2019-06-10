@@ -63,7 +63,7 @@ class SmartArtNode implements ArrayAccess
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'is_assistant' => 'bool',
         'text' => 'string',
-        'org_chart_layout' => '\Aspose\Slides\Cloud\Sdk\Model\OrganizationChartLayoutType'
+        'org_chart_layout' => 'string'
     ];
 
     /**
@@ -180,8 +180,29 @@ class SmartArtNode implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ORG_CHART_LAYOUT_INITIAL = 'Initial';
+    const ORG_CHART_LAYOUT_STANDART = 'Standart';
+    const ORG_CHART_LAYOUT_BOTH_HANGING = 'BothHanging';
+    const ORG_CHART_LAYOUT_LEFT_HANGING = 'LeftHanging';
+    const ORG_CHART_LAYOUT_RIGHT_HANGING = 'RightHanging';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOrgChartLayoutAllowableValues()
+    {
+        return [
+            self::ORG_CHART_LAYOUT_INITIAL,
+            self::ORG_CHART_LAYOUT_STANDART,
+            self::ORG_CHART_LAYOUT_BOTH_HANGING,
+            self::ORG_CHART_LAYOUT_LEFT_HANGING,
+            self::ORG_CHART_LAYOUT_RIGHT_HANGING,
+        ];
+    }
     
 
     /**
@@ -221,6 +242,14 @@ class SmartArtNode implements ArrayAccess
         if ($this->container['org_chart_layout'] === null) {
             $invalidProperties[] = "'org_chart_layout' can't be null";
         }
+        $allowedValues = $this->getOrgChartLayoutAllowableValues();
+        if (!in_array($this->container['org_chart_layout'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'org_chart_layout', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -237,6 +266,10 @@ class SmartArtNode implements ArrayAccess
             return false;
         }
         if ($this->container['org_chart_layout'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getOrgChartLayoutAllowableValues();
+        if (!in_array($this->container['org_chart_layout'], $allowedValues)) {
             return false;
         }
         return true;
@@ -342,7 +375,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Gets org_chart_layout
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OrganizationChartLayoutType
+     * @return string
      */
     public function getOrgChartLayout()
     {
@@ -352,12 +385,21 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets org_chart_layout
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OrganizationChartLayoutType $org_chart_layout Organization chart layout type associated with current node.
+     * @param string $org_chart_layout Organization chart layout type associated with current node.
      *
      * @return $this
      */
     public function setOrgChartLayout($org_chart_layout)
     {
+        $allowedValues = $this->getOrgChartLayoutAllowableValues();
+        if (!in_array($org_chart_layout, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'org_chart_layout', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['org_chart_layout'] = $org_chart_layout;
 
         return $this;

@@ -37,7 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * TextItem Class Doc Comment
  *
  * @category Class
- * @description Represents text item, referenced by
+ * @description Represents text item, referenced by TextItems
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

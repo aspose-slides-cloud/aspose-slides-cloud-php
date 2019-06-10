@@ -61,7 +61,7 @@ class ShapeImageExportOptions implements ArrayAccess
     protected static $swaggerTypes = [
         'scale_x' => 'double',
         'scale_y' => 'double',
-        'thumbnail_bounds' => '\Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds',
+        'thumbnail_bounds' => 'string',
         'format' => 'string'
     ];
 
@@ -175,8 +175,25 @@ class ShapeImageExportOptions implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const THUMBNAIL_BOUNDS_SLIDE = 'Slide';
+    const THUMBNAIL_BOUNDS_SHAPE = 'Shape';
+    const THUMBNAIL_BOUNDS_APPEARANCE = 'Appearance';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getThumbnailBoundsAllowableValues()
+    {
+        return [
+            self::THUMBNAIL_BOUNDS_SLIDE,
+            self::THUMBNAIL_BOUNDS_SHAPE,
+            self::THUMBNAIL_BOUNDS_APPEARANCE,
+        ];
+    }
     
 
     /**
@@ -218,6 +235,14 @@ class ShapeImageExportOptions implements ArrayAccess
         if ($this->container['thumbnail_bounds'] === null) {
             $invalidProperties[] = "'thumbnail_bounds' can't be null";
         }
+        $allowedValues = $this->getThumbnailBoundsAllowableValues();
+        if (!in_array($this->container['thumbnail_bounds'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'thumbnail_bounds', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -237,6 +262,10 @@ class ShapeImageExportOptions implements ArrayAccess
             return false;
         }
         if ($this->container['thumbnail_bounds'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getThumbnailBoundsAllowableValues();
+        if (!in_array($this->container['thumbnail_bounds'], $allowedValues)) {
             return false;
         }
         return true;
@@ -294,7 +323,7 @@ class ShapeImageExportOptions implements ArrayAccess
     /**
      * Gets thumbnail_bounds
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds
+     * @return string
      */
     public function getThumbnailBounds()
     {
@@ -304,12 +333,21 @@ class ShapeImageExportOptions implements ArrayAccess
     /**
      * Sets thumbnail_bounds
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds $thumbnail_bounds Get or sets thumbnail bounds
+     * @param string $thumbnail_bounds Get or sets thumbnail bounds
      *
      * @return $this
      */
     public function setThumbnailBounds($thumbnail_bounds)
     {
+        $allowedValues = $this->getThumbnailBoundsAllowableValues();
+        if (!in_array($thumbnail_bounds, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'thumbnail_bounds', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['thumbnail_bounds'] = $thumbnail_bounds;
 
         return $this;

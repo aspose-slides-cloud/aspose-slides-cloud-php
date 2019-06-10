@@ -57,7 +57,7 @@ class Table extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'style' => '\Aspose\Slides\Cloud\Sdk\Model\TableStylePreset',
+        'style' => 'string',
         'rows' => '\Aspose\Slides\Cloud\Sdk\Model\TableRow[]',
         'columns' => '\Aspose\Slides\Cloud\Sdk\Model\TableColumn[]',
         'first_col' => 'bool',
@@ -203,8 +203,171 @@ class Table extends ShapeBase
         return self::$swaggerModelName;
     }
 
+    const STYLE_NONE = 'None';
+    const STYLE_MEDIUM_STYLE2_ACCENT1 = 'MediumStyle2Accent1';
+    const STYLE_MEDIUM_STYLE2 = 'MediumStyle2';
+    const STYLE_NO_STYLE_NO_GRID = 'NoStyleNoGrid';
+    const STYLE_THEMED_STYLE1_ACCENT1 = 'ThemedStyle1Accent1';
+    const STYLE_THEMED_STYLE1_ACCENT2 = 'ThemedStyle1Accent2';
+    const STYLE_THEMED_STYLE1_ACCENT3 = 'ThemedStyle1Accent3';
+    const STYLE_THEMED_STYLE1_ACCENT4 = 'ThemedStyle1Accent4';
+    const STYLE_THEMED_STYLE1_ACCENT5 = 'ThemedStyle1Accent5';
+    const STYLE_THEMED_STYLE1_ACCENT6 = 'ThemedStyle1Accent6';
+    const STYLE_NO_STYLE_TABLE_GRID = 'NoStyleTableGrid';
+    const STYLE_THEMED_STYLE2_ACCENT1 = 'ThemedStyle2Accent1';
+    const STYLE_THEMED_STYLE2_ACCENT2 = 'ThemedStyle2Accent2';
+    const STYLE_THEMED_STYLE2_ACCENT3 = 'ThemedStyle2Accent3';
+    const STYLE_THEMED_STYLE2_ACCENT4 = 'ThemedStyle2Accent4';
+    const STYLE_THEMED_STYLE2_ACCENT5 = 'ThemedStyle2Accent5';
+    const STYLE_THEMED_STYLE2_ACCENT6 = 'ThemedStyle2Accent6';
+    const STYLE_LIGHT_STYLE1 = 'LightStyle1';
+    const STYLE_LIGHT_STYLE1_ACCENT1 = 'LightStyle1Accent1';
+    const STYLE_LIGHT_STYLE1_ACCENT2 = 'LightStyle1Accent2';
+    const STYLE_LIGHT_STYLE1_ACCENT3 = 'LightStyle1Accent3';
+    const STYLE_LIGHT_STYLE1_ACCENT4 = 'LightStyle1Accent4';
+    const STYLE_LIGHT_STYLE2_ACCENT5 = 'LightStyle2Accent5';
+    const STYLE_LIGHT_STYLE1_ACCENT6 = 'LightStyle1Accent6';
+    const STYLE_LIGHT_STYLE2 = 'LightStyle2';
+    const STYLE_LIGHT_STYLE2_ACCENT1 = 'LightStyle2Accent1';
+    const STYLE_LIGHT_STYLE2_ACCENT2 = 'LightStyle2Accent2';
+    const STYLE_LIGHT_STYLE2_ACCENT3 = 'LightStyle2Accent3';
+    const STYLE_MEDIUM_STYLE2_ACCENT3 = 'MediumStyle2Accent3';
+    const STYLE_MEDIUM_STYLE2_ACCENT4 = 'MediumStyle2Accent4';
+    const STYLE_MEDIUM_STYLE2_ACCENT5 = 'MediumStyle2Accent5';
+    const STYLE_LIGHT_STYLE2_ACCENT6 = 'LightStyle2Accent6';
+    const STYLE_LIGHT_STYLE2_ACCENT4 = 'LightStyle2Accent4';
+    const STYLE_LIGHT_STYLE3 = 'LightStyle3';
+    const STYLE_LIGHT_STYLE3_ACCENT1 = 'LightStyle3Accent1';
+    const STYLE_MEDIUM_STYLE2_ACCENT2 = 'MediumStyle2Accent2';
+    const STYLE_LIGHT_STYLE3_ACCENT2 = 'LightStyle3Accent2';
+    const STYLE_LIGHT_STYLE3_ACCENT3 = 'LightStyle3Accent3';
+    const STYLE_LIGHT_STYLE3_ACCENT4 = 'LightStyle3Accent4';
+    const STYLE_LIGHT_STYLE3_ACCENT5 = 'LightStyle3Accent5';
+    const STYLE_LIGHT_STYLE3_ACCENT6 = 'LightStyle3Accent6';
+    const STYLE_MEDIUM_STYLE1 = 'MediumStyle1';
+    const STYLE_MEDIUM_STYLE1_ACCENT1 = 'MediumStyle1Accent1';
+    const STYLE_MEDIUM_STYLE1_ACCENT2 = 'MediumStyle1Accent2';
+    const STYLE_MEDIUM_STYLE1_ACCENT3 = 'MediumStyle1Accent3';
+    const STYLE_MEDIUM_STYLE1_ACCENT4 = 'MediumStyle1Accent4';
+    const STYLE_MEDIUM_STYLE1_ACCENT5 = 'MediumStyle1Accent5';
+    const STYLE_MEDIUM_STYLE1_ACCENT6 = 'MediumStyle1Accent6';
+    const STYLE_MEDIUM_STYLE2_ACCENT6 = 'MediumStyle2Accent6';
+    const STYLE_MEDIUM_STYLE3 = 'MediumStyle3';
+    const STYLE_MEDIUM_STYLE3_ACCENT1 = 'MediumStyle3Accent1';
+    const STYLE_MEDIUM_STYLE3_ACCENT2 = 'MediumStyle3Accent2';
+    const STYLE_MEDIUM_STYLE3_ACCENT3 = 'MediumStyle3Accent3';
+    const STYLE_MEDIUM_STYLE3_ACCENT4 = 'MediumStyle3Accent4';
+    const STYLE_MEDIUM_STYLE3_ACCENT5 = 'MediumStyle3Accent5';
+    const STYLE_MEDIUM_STYLE3_ACCENT6 = 'MediumStyle3Accent6';
+    const STYLE_MEDIUM_STYLE4 = 'MediumStyle4';
+    const STYLE_MEDIUM_STYLE4_ACCENT1 = 'MediumStyle4Accent1';
+    const STYLE_MEDIUM_STYLE4_ACCENT2 = 'MediumStyle4Accent2';
+    const STYLE_MEDIUM_STYLE4_ACCENT3 = 'MediumStyle4Accent3';
+    const STYLE_MEDIUM_STYLE4_ACCENT4 = 'MediumStyle4Accent4';
+    const STYLE_MEDIUM_STYLE4_ACCENT5 = 'MediumStyle4Accent5';
+    const STYLE_MEDIUM_STYLE4_ACCENT6 = 'MediumStyle4Accent6';
+    const STYLE_DARK_STYLE1 = 'DarkStyle1';
+    const STYLE_DARK_STYLE1_ACCENT1 = 'DarkStyle1Accent1';
+    const STYLE_DARK_STYLE1_ACCENT2 = 'DarkStyle1Accent2';
+    const STYLE_DARK_STYLE1_ACCENT3 = 'DarkStyle1Accent3';
+    const STYLE_DARK_STYLE1_ACCENT4 = 'DarkStyle1Accent4';
+    const STYLE_DARK_STYLE1_ACCENT5 = 'DarkStyle1Accent5';
+    const STYLE_DARK_STYLE1_ACCENT6 = 'DarkStyle1Accent6';
+    const STYLE_DARK_STYLE2 = 'DarkStyle2';
+    const STYLE_DARK_STYLE2_ACCENT1_ACCENT2 = 'DarkStyle2Accent1Accent2';
+    const STYLE_DARK_STYLE2_ACCENT3_ACCENT4 = 'DarkStyle2Accent3Accent4';
+    const STYLE_DARK_STYLE2_ACCENT5_ACCENT6 = 'DarkStyle2Accent5Accent6';
+    const STYLE_LIGHT_STYLE1_ACCENT5 = 'LightStyle1Accent5';
+    const STYLE_CUSTOM = 'Custom';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStyleAllowableValues()
+    {
+        return [
+            self::STYLE_NONE,
+            self::STYLE_MEDIUM_STYLE2_ACCENT1,
+            self::STYLE_MEDIUM_STYLE2,
+            self::STYLE_NO_STYLE_NO_GRID,
+            self::STYLE_THEMED_STYLE1_ACCENT1,
+            self::STYLE_THEMED_STYLE1_ACCENT2,
+            self::STYLE_THEMED_STYLE1_ACCENT3,
+            self::STYLE_THEMED_STYLE1_ACCENT4,
+            self::STYLE_THEMED_STYLE1_ACCENT5,
+            self::STYLE_THEMED_STYLE1_ACCENT6,
+            self::STYLE_NO_STYLE_TABLE_GRID,
+            self::STYLE_THEMED_STYLE2_ACCENT1,
+            self::STYLE_THEMED_STYLE2_ACCENT2,
+            self::STYLE_THEMED_STYLE2_ACCENT3,
+            self::STYLE_THEMED_STYLE2_ACCENT4,
+            self::STYLE_THEMED_STYLE2_ACCENT5,
+            self::STYLE_THEMED_STYLE2_ACCENT6,
+            self::STYLE_LIGHT_STYLE1,
+            self::STYLE_LIGHT_STYLE1_ACCENT1,
+            self::STYLE_LIGHT_STYLE1_ACCENT2,
+            self::STYLE_LIGHT_STYLE1_ACCENT3,
+            self::STYLE_LIGHT_STYLE1_ACCENT4,
+            self::STYLE_LIGHT_STYLE2_ACCENT5,
+            self::STYLE_LIGHT_STYLE1_ACCENT6,
+            self::STYLE_LIGHT_STYLE2,
+            self::STYLE_LIGHT_STYLE2_ACCENT1,
+            self::STYLE_LIGHT_STYLE2_ACCENT2,
+            self::STYLE_LIGHT_STYLE2_ACCENT3,
+            self::STYLE_MEDIUM_STYLE2_ACCENT3,
+            self::STYLE_MEDIUM_STYLE2_ACCENT4,
+            self::STYLE_MEDIUM_STYLE2_ACCENT5,
+            self::STYLE_LIGHT_STYLE2_ACCENT6,
+            self::STYLE_LIGHT_STYLE2_ACCENT4,
+            self::STYLE_LIGHT_STYLE3,
+            self::STYLE_LIGHT_STYLE3_ACCENT1,
+            self::STYLE_MEDIUM_STYLE2_ACCENT2,
+            self::STYLE_LIGHT_STYLE3_ACCENT2,
+            self::STYLE_LIGHT_STYLE3_ACCENT3,
+            self::STYLE_LIGHT_STYLE3_ACCENT4,
+            self::STYLE_LIGHT_STYLE3_ACCENT5,
+            self::STYLE_LIGHT_STYLE3_ACCENT6,
+            self::STYLE_MEDIUM_STYLE1,
+            self::STYLE_MEDIUM_STYLE1_ACCENT1,
+            self::STYLE_MEDIUM_STYLE1_ACCENT2,
+            self::STYLE_MEDIUM_STYLE1_ACCENT3,
+            self::STYLE_MEDIUM_STYLE1_ACCENT4,
+            self::STYLE_MEDIUM_STYLE1_ACCENT5,
+            self::STYLE_MEDIUM_STYLE1_ACCENT6,
+            self::STYLE_MEDIUM_STYLE2_ACCENT6,
+            self::STYLE_MEDIUM_STYLE3,
+            self::STYLE_MEDIUM_STYLE3_ACCENT1,
+            self::STYLE_MEDIUM_STYLE3_ACCENT2,
+            self::STYLE_MEDIUM_STYLE3_ACCENT3,
+            self::STYLE_MEDIUM_STYLE3_ACCENT4,
+            self::STYLE_MEDIUM_STYLE3_ACCENT5,
+            self::STYLE_MEDIUM_STYLE3_ACCENT6,
+            self::STYLE_MEDIUM_STYLE4,
+            self::STYLE_MEDIUM_STYLE4_ACCENT1,
+            self::STYLE_MEDIUM_STYLE4_ACCENT2,
+            self::STYLE_MEDIUM_STYLE4_ACCENT3,
+            self::STYLE_MEDIUM_STYLE4_ACCENT4,
+            self::STYLE_MEDIUM_STYLE4_ACCENT5,
+            self::STYLE_MEDIUM_STYLE4_ACCENT6,
+            self::STYLE_DARK_STYLE1,
+            self::STYLE_DARK_STYLE1_ACCENT1,
+            self::STYLE_DARK_STYLE1_ACCENT2,
+            self::STYLE_DARK_STYLE1_ACCENT3,
+            self::STYLE_DARK_STYLE1_ACCENT4,
+            self::STYLE_DARK_STYLE1_ACCENT5,
+            self::STYLE_DARK_STYLE1_ACCENT6,
+            self::STYLE_DARK_STYLE2,
+            self::STYLE_DARK_STYLE2_ACCENT1_ACCENT2,
+            self::STYLE_DARK_STYLE2_ACCENT3_ACCENT4,
+            self::STYLE_DARK_STYLE2_ACCENT5_ACCENT6,
+            self::STYLE_LIGHT_STYLE1_ACCENT5,
+            self::STYLE_CUSTOM,
+        ];
+    }
     
 
 
@@ -239,6 +402,38 @@ class Table extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['style'] === null) {
+            $invalidProperties[] = "'style' can't be null";
+        }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'style', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['first_col'] === null) {
+            $invalidProperties[] = "'first_col' can't be null";
+        }
+        if ($this->container['first_row'] === null) {
+            $invalidProperties[] = "'first_row' can't be null";
+        }
+        if ($this->container['horizontal_banding'] === null) {
+            $invalidProperties[] = "'horizontal_banding' can't be null";
+        }
+        if ($this->container['last_col'] === null) {
+            $invalidProperties[] = "'last_col' can't be null";
+        }
+        if ($this->container['last_row'] === null) {
+            $invalidProperties[] = "'last_row' can't be null";
+        }
+        if ($this->container['right_to_left'] === null) {
+            $invalidProperties[] = "'right_to_left' can't be null";
+        }
+        if ($this->container['vertical_banding'] === null) {
+            $invalidProperties[] = "'vertical_banding' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -254,6 +449,34 @@ class Table extends ShapeBase
             return false;
         }
 
+        if ($this->container['style'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['first_col'] === null) {
+            return false;
+        }
+        if ($this->container['first_row'] === null) {
+            return false;
+        }
+        if ($this->container['horizontal_banding'] === null) {
+            return false;
+        }
+        if ($this->container['last_col'] === null) {
+            return false;
+        }
+        if ($this->container['last_row'] === null) {
+            return false;
+        }
+        if ($this->container['right_to_left'] === null) {
+            return false;
+        }
+        if ($this->container['vertical_banding'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -261,7 +484,7 @@ class Table extends ShapeBase
     /**
      * Gets style
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TableStylePreset
+     * @return string
      */
     public function getStyle()
     {
@@ -271,12 +494,21 @@ class Table extends ShapeBase
     /**
      * Sets style
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TableStylePreset $style Builtin table style.
+     * @param string $style Builtin table style.
      *
      * @return $this
      */
     public function setStyle($style)
     {
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($style, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'style', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['style'] = $style;
 
         return $this;

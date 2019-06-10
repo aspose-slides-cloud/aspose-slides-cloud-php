@@ -56,7 +56,7 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conformance' => '\Aspose\Slides\Cloud\Sdk\Model\Conformance'
+        'conformance' => 'string'
     ];
 
     /**
@@ -157,8 +157,25 @@ class PptxExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const CONFORMANCE_ECMA376_2006 = 'Ecma376_2006';
+    const CONFORMANCE_ISO29500_2008_TRANSITIONAL = 'Iso29500_2008_Transitional';
+    const CONFORMANCE_ISO29500_2008_STRICT = 'Iso29500_2008_Strict';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getConformanceAllowableValues()
+    {
+        return [
+            self::CONFORMANCE_ECMA376_2006,
+            self::CONFORMANCE_ISO29500_2008_TRANSITIONAL,
+            self::CONFORMANCE_ISO29500_2008_STRICT,
+        ];
+    }
     
 
 
@@ -184,6 +201,17 @@ class PptxExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['conformance'] === null) {
+            $invalidProperties[] = "'conformance' can't be null";
+        }
+        $allowedValues = $this->getConformanceAllowableValues();
+        if (!in_array($this->container['conformance'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'conformance', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -199,6 +227,13 @@ class PptxExportOptions extends ExportOptions
             return false;
         }
 
+        if ($this->container['conformance'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getConformanceAllowableValues();
+        if (!in_array($this->container['conformance'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -206,7 +241,7 @@ class PptxExportOptions extends ExportOptions
     /**
      * Gets conformance
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\Conformance
+     * @return string
      */
     public function getConformance()
     {
@@ -216,12 +251,21 @@ class PptxExportOptions extends ExportOptions
     /**
      * Sets conformance
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Conformance $conformance The conformance class to which the PresentationML document conforms. Read/write .
+     * @param string $conformance The conformance class to which the PresentationML document conforms. Read/write Conformance.
      *
      * @return $this
      */
     public function setConformance($conformance)
     {
+        $allowedValues = $this->getConformanceAllowableValues();
+        if (!in_array($conformance, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'conformance', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['conformance'] = $conformance;
 
         return $this;

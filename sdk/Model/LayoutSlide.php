@@ -57,7 +57,7 @@ class LayoutSlide extends ResourceBase
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\LayoutSlideType',
+        'type' => 'string',
         'master_slide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'depending_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
@@ -172,8 +172,91 @@ class LayoutSlide extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const TYPE_TITLE = 'Title';
+    const TYPE_TEXT = 'Text';
+    const TYPE_TWO_COLUMN_TEXT = 'TwoColumnText';
+    const TYPE_TABLE = 'Table';
+    const TYPE_TEXT_AND_CHART = 'TextAndChart';
+    const TYPE_CHART_AND_TEXT = 'ChartAndText';
+    const TYPE_DIAGRAM = 'Diagram';
+    const TYPE_CHART = 'Chart';
+    const TYPE_TEXT_AND_CLIP_ART = 'TextAndClipArt';
+    const TYPE_CLIP_ART_AND_TEXT = 'ClipArtAndText';
+    const TYPE_TITLE_ONLY = 'TitleOnly';
+    const TYPE_BLANK = 'Blank';
+    const TYPE_TEXT_AND_OBJECT = 'TextAndObject';
+    const TYPE_OBJECT_AND_TEXT = 'ObjectAndText';
+    const TYPE_OBJECT = 'Object';
+    const TYPE_TITLE_AND_OBJECT = 'TitleAndObject';
+    const TYPE_TEXT_AND_MEDIA = 'TextAndMedia';
+    const TYPE_MEDIA_AND_TEXT = 'MediaAndText';
+    const TYPE_OBJECT_OVER_TEXT = 'ObjectOverText';
+    const TYPE_TEXT_OVER_OBJECT = 'TextOverObject';
+    const TYPE_TEXT_AND_TWO_OBJECTS = 'TextAndTwoObjects';
+    const TYPE_TWO_OBJECTS_AND_TEXT = 'TwoObjectsAndText';
+    const TYPE_TWO_OBJECTS_OVER_TEXT = 'TwoObjectsOverText';
+    const TYPE_FOUR_OBJECTS = 'FourObjects';
+    const TYPE_VERTICAL_TEXT = 'VerticalText';
+    const TYPE_CLIP_ART_AND_VERTICAL_TEXT = 'ClipArtAndVerticalText';
+    const TYPE_VERTICAL_TITLE_AND_TEXT = 'VerticalTitleAndText';
+    const TYPE_VERTICAL_TITLE_AND_TEXT_OVER_CHART = 'VerticalTitleAndTextOverChart';
+    const TYPE_TWO_OBJECTS = 'TwoObjects';
+    const TYPE_OBJECT_AND_TWO_OBJECT = 'ObjectAndTwoObject';
+    const TYPE_TWO_OBJECTS_AND_OBJECT = 'TwoObjectsAndObject';
+    const TYPE_SECTION_HEADER = 'SectionHeader';
+    const TYPE_TWO_TEXT_AND_TWO_OBJECTS = 'TwoTextAndTwoObjects';
+    const TYPE_TITLE_OBJECT_AND_CAPTION = 'TitleObjectAndCaption';
+    const TYPE_PICTURE_AND_CAPTION = 'PictureAndCaption';
+    const TYPE_CUSTOM = 'Custom';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_TITLE,
+            self::TYPE_TEXT,
+            self::TYPE_TWO_COLUMN_TEXT,
+            self::TYPE_TABLE,
+            self::TYPE_TEXT_AND_CHART,
+            self::TYPE_CHART_AND_TEXT,
+            self::TYPE_DIAGRAM,
+            self::TYPE_CHART,
+            self::TYPE_TEXT_AND_CLIP_ART,
+            self::TYPE_CLIP_ART_AND_TEXT,
+            self::TYPE_TITLE_ONLY,
+            self::TYPE_BLANK,
+            self::TYPE_TEXT_AND_OBJECT,
+            self::TYPE_OBJECT_AND_TEXT,
+            self::TYPE_OBJECT,
+            self::TYPE_TITLE_AND_OBJECT,
+            self::TYPE_TEXT_AND_MEDIA,
+            self::TYPE_MEDIA_AND_TEXT,
+            self::TYPE_OBJECT_OVER_TEXT,
+            self::TYPE_TEXT_OVER_OBJECT,
+            self::TYPE_TEXT_AND_TWO_OBJECTS,
+            self::TYPE_TWO_OBJECTS_AND_TEXT,
+            self::TYPE_TWO_OBJECTS_OVER_TEXT,
+            self::TYPE_FOUR_OBJECTS,
+            self::TYPE_VERTICAL_TEXT,
+            self::TYPE_CLIP_ART_AND_VERTICAL_TEXT,
+            self::TYPE_VERTICAL_TITLE_AND_TEXT,
+            self::TYPE_VERTICAL_TITLE_AND_TEXT_OVER_CHART,
+            self::TYPE_TWO_OBJECTS,
+            self::TYPE_OBJECT_AND_TWO_OBJECT,
+            self::TYPE_TWO_OBJECTS_AND_OBJECT,
+            self::TYPE_SECTION_HEADER,
+            self::TYPE_TWO_TEXT_AND_TWO_OBJECTS,
+            self::TYPE_TITLE_OBJECT_AND_CAPTION,
+            self::TYPE_PICTURE_AND_CAPTION,
+            self::TYPE_CUSTOM,
+        ];
+    }
     
 
 
@@ -202,6 +285,17 @@ class LayoutSlide extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -217,6 +311,13 @@ class LayoutSlide extends ResourceBase
             return false;
         }
 
+        if ($this->container['type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -248,7 +349,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LayoutSlideType
+     * @return string
      */
     public function getType()
     {
@@ -258,12 +359,21 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LayoutSlideType $type type
+     * @param string $type type
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

@@ -71,7 +71,7 @@ class ReflectionEffect implements ArrayAccess
         'end_pos_alpha' => 'double',
         'start_reflection_opacity' => 'double',
         'end_reflection_opacity' => 'double',
-        'rectangle_align' => '\Aspose\Slides\Cloud\Sdk\Model\RectangleAlignment',
+        'rectangle_align' => 'string',
         'rotate_shadow_with_shape' => 'bool'
     ];
 
@@ -225,8 +225,39 @@ class ReflectionEffect implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RECTANGLE_ALIGN_TOP_LEFT = 'TopLeft';
+    const RECTANGLE_ALIGN_TOP = 'Top';
+    const RECTANGLE_ALIGN_TOP_RIGHT = 'TopRight';
+    const RECTANGLE_ALIGN_LEFT = 'Left';
+    const RECTANGLE_ALIGN_CENTER = 'Center';
+    const RECTANGLE_ALIGN_RIGHT = 'Right';
+    const RECTANGLE_ALIGN_BOTTOM_LEFT = 'BottomLeft';
+    const RECTANGLE_ALIGN_BOTTOM = 'Bottom';
+    const RECTANGLE_ALIGN_BOTTOM_RIGHT = 'BottomRight';
+    const RECTANGLE_ALIGN_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRectangleAlignAllowableValues()
+    {
+        return [
+            self::RECTANGLE_ALIGN_TOP_LEFT,
+            self::RECTANGLE_ALIGN_TOP,
+            self::RECTANGLE_ALIGN_TOP_RIGHT,
+            self::RECTANGLE_ALIGN_LEFT,
+            self::RECTANGLE_ALIGN_CENTER,
+            self::RECTANGLE_ALIGN_RIGHT,
+            self::RECTANGLE_ALIGN_BOTTOM_LEFT,
+            self::RECTANGLE_ALIGN_BOTTOM,
+            self::RECTANGLE_ALIGN_BOTTOM_RIGHT,
+            self::RECTANGLE_ALIGN_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -308,6 +339,14 @@ class ReflectionEffect implements ArrayAccess
         if ($this->container['rectangle_align'] === null) {
             $invalidProperties[] = "'rectangle_align' can't be null";
         }
+        $allowedValues = $this->getRectangleAlignAllowableValues();
+        if (!in_array($this->container['rectangle_align'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'rectangle_align', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['rotate_shadow_with_shape'] === null) {
             $invalidProperties[] = "'rotate_shadow_with_shape' can't be null";
         }
@@ -360,6 +399,10 @@ class ReflectionEffect implements ArrayAccess
             return false;
         }
         if ($this->container['rectangle_align'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getRectangleAlignAllowableValues();
+        if (!in_array($this->container['rectangle_align'], $allowedValues)) {
             return false;
         }
         if ($this->container['rotate_shadow_with_shape'] === null) {
@@ -660,7 +703,7 @@ class ReflectionEffect implements ArrayAccess
     /**
      * Gets rectangle_align
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\RectangleAlignment
+     * @return string
      */
     public function getRectangleAlign()
     {
@@ -670,12 +713,21 @@ class ReflectionEffect implements ArrayAccess
     /**
      * Sets rectangle_align
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\RectangleAlignment $rectangle_align rectangle alignment
+     * @param string $rectangle_align rectangle alignment
      *
      * @return $this
      */
     public function setRectangleAlign($rectangle_align)
     {
+        $allowedValues = $this->getRectangleAlignAllowableValues();
+        if (!in_array($rectangle_align, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'rectangle_align', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['rectangle_align'] = $rectangle_align;
 
         return $this;

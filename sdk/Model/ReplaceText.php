@@ -203,6 +203,12 @@ class ReplaceText extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['ignore_case'] === null) {
+            $invalidProperties[] = "'ignore_case' can't be null";
+        }
+        if ($this->container['slide_position'] === null) {
+            $invalidProperties[] = "'slide_position' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,6 +224,12 @@ class ReplaceText extends Task
             return false;
         }
 
+        if ($this->container['ignore_case'] === null) {
+            return false;
+        }
+        if ($this->container['slide_position'] === null) {
+            return false;
+        }
         return true;
     }
 

@@ -61,36 +61,36 @@ class Axis implements ArrayAccess
     protected static $swaggerTypes = [
         'is_visible' => 'bool',
         'has_title' => 'bool',
-        'position' => '\Aspose\Slides\Cloud\Sdk\Model\AxisPositionType',
-        'display_unit' => '\Aspose\Slides\Cloud\Sdk\Model\DisplayUnitType',
-        'base_unit_scale' => '\Aspose\Slides\Cloud\Sdk\Model\TimeUnitType',
+        'position' => 'string',
+        'display_unit' => 'string',
+        'base_unit_scale' => 'string',
         'is_automatic_major_unit' => 'bool',
         'major_unit' => 'double',
-        'major_unit_scale' => '\Aspose\Slides\Cloud\Sdk\Model\TimeUnitType',
-        'major_tick_mark' => '\Aspose\Slides\Cloud\Sdk\Model\TickMarkType',
+        'major_unit_scale' => 'string',
+        'major_tick_mark' => 'string',
         'is_automatic_minor_unit' => 'bool',
         'minor_unit' => 'double',
-        'minor_unit_scale' => '\Aspose\Slides\Cloud\Sdk\Model\TimeUnitType',
-        'minor_tick_mark' => '\Aspose\Slides\Cloud\Sdk\Model\TickMarkType',
+        'minor_unit_scale' => 'string',
+        'minor_tick_mark' => 'string',
         'is_automatic_max_value' => 'bool',
         'max_value' => 'double',
         'is_automatic_min_value' => 'bool',
         'min_value' => 'double',
         'is_logarithmic' => 'bool',
         'log_base' => 'double',
-        'category_axis_type' => '\Aspose\Slides\Cloud\Sdk\Model\CategoryAxisType',
+        'category_axis_type' => 'string',
         'axis_between_categories' => 'bool',
         'label_offset' => 'int',
         'is_plot_order_reversed' => 'bool',
         'is_number_format_linked_to_source' => 'bool',
         'number_format' => 'string',
-        'cross_type' => '\Aspose\Slides\Cloud\Sdk\Model\CrossesType',
+        'cross_type' => 'string',
         'cross_at' => 'double',
         'is_automatic_tick_marks_spacing' => 'bool',
         'tick_marks_spacing' => 'int',
         'is_automatic_tick_label_spacing' => 'bool',
         'tick_label_spacing' => 'int',
-        'tick_label_position' => '\Aspose\Slides\Cloud\Sdk\Model\TickLabelPositionType',
+        'tick_label_position' => 'string',
         'tick_label_rotation_angle' => 'double',
         'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
@@ -335,8 +335,200 @@ class Axis implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const POSITION_BOTTOM = 'Bottom';
+    const POSITION_LEFT = 'Left';
+    const POSITION_RIGHT = 'Right';
+    const POSITION_TOP = 'Top';
+    const DISPLAY_UNIT_NONE = 'None';
+    const DISPLAY_UNIT_HUNDREDS = 'Hundreds';
+    const DISPLAY_UNIT_THOUSANDS = 'Thousands';
+    const DISPLAY_UNIT_TEN_THOUSANDS = 'TenThousands';
+    const DISPLAY_UNIT_HUNDRED_THOUSANDS = 'HundredThousands';
+    const DISPLAY_UNIT_MILLIONS = 'Millions';
+    const DISPLAY_UNIT_TEN_MILLIONS = 'TenMillions';
+    const DISPLAY_UNIT_HUNDRED_MILLIONS = 'HundredMillions';
+    const DISPLAY_UNIT_BILLIONS = 'Billions';
+    const DISPLAY_UNIT_TRILLIONS = 'Trillions';
+    const DISPLAY_UNIT_CUSTOM_VALUE = 'CustomValue';
+    const BASE_UNIT_SCALE_DAYS = 'Days';
+    const BASE_UNIT_SCALE_MONTHS = 'Months';
+    const BASE_UNIT_SCALE_YEARS = 'Years';
+    const MAJOR_UNIT_SCALE_DAYS = 'Days';
+    const MAJOR_UNIT_SCALE_MONTHS = 'Months';
+    const MAJOR_UNIT_SCALE_YEARS = 'Years';
+    const MAJOR_TICK_MARK_CROSS = 'Cross';
+    const MAJOR_TICK_MARK_INSIDE = 'Inside';
+    const MAJOR_TICK_MARK_NONE = 'None';
+    const MAJOR_TICK_MARK_OUTSIDE = 'Outside';
+    const MINOR_UNIT_SCALE_DAYS = 'Days';
+    const MINOR_UNIT_SCALE_MONTHS = 'Months';
+    const MINOR_UNIT_SCALE_YEARS = 'Years';
+    const MINOR_TICK_MARK_CROSS = 'Cross';
+    const MINOR_TICK_MARK_INSIDE = 'Inside';
+    const MINOR_TICK_MARK_NONE = 'None';
+    const MINOR_TICK_MARK_OUTSIDE = 'Outside';
+    const CATEGORY_AXIS_TYPE_TEXT = 'Text';
+    const CATEGORY_AXIS_TYPE_DATE = 'Date';
+    const CROSS_TYPE_AXIS_CROSSES_AT_ZERO = 'AxisCrossesAtZero';
+    const CROSS_TYPE_MAXIMUM = 'Maximum';
+    const CROSS_TYPE_CUSTOM = 'Custom';
+    const TICK_LABEL_POSITION_HIGH = 'High';
+    const TICK_LABEL_POSITION_LOW = 'Low';
+    const TICK_LABEL_POSITION_NEXT_TO = 'NextTo';
+    const TICK_LABEL_POSITION_NONE = 'None';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPositionAllowableValues()
+    {
+        return [
+            self::POSITION_BOTTOM,
+            self::POSITION_LEFT,
+            self::POSITION_RIGHT,
+            self::POSITION_TOP,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDisplayUnitAllowableValues()
+    {
+        return [
+            self::DISPLAY_UNIT_NONE,
+            self::DISPLAY_UNIT_HUNDREDS,
+            self::DISPLAY_UNIT_THOUSANDS,
+            self::DISPLAY_UNIT_TEN_THOUSANDS,
+            self::DISPLAY_UNIT_HUNDRED_THOUSANDS,
+            self::DISPLAY_UNIT_MILLIONS,
+            self::DISPLAY_UNIT_TEN_MILLIONS,
+            self::DISPLAY_UNIT_HUNDRED_MILLIONS,
+            self::DISPLAY_UNIT_BILLIONS,
+            self::DISPLAY_UNIT_TRILLIONS,
+            self::DISPLAY_UNIT_CUSTOM_VALUE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBaseUnitScaleAllowableValues()
+    {
+        return [
+            self::BASE_UNIT_SCALE_DAYS,
+            self::BASE_UNIT_SCALE_MONTHS,
+            self::BASE_UNIT_SCALE_YEARS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMajorUnitScaleAllowableValues()
+    {
+        return [
+            self::MAJOR_UNIT_SCALE_DAYS,
+            self::MAJOR_UNIT_SCALE_MONTHS,
+            self::MAJOR_UNIT_SCALE_YEARS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMajorTickMarkAllowableValues()
+    {
+        return [
+            self::MAJOR_TICK_MARK_CROSS,
+            self::MAJOR_TICK_MARK_INSIDE,
+            self::MAJOR_TICK_MARK_NONE,
+            self::MAJOR_TICK_MARK_OUTSIDE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMinorUnitScaleAllowableValues()
+    {
+        return [
+            self::MINOR_UNIT_SCALE_DAYS,
+            self::MINOR_UNIT_SCALE_MONTHS,
+            self::MINOR_UNIT_SCALE_YEARS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMinorTickMarkAllowableValues()
+    {
+        return [
+            self::MINOR_TICK_MARK_CROSS,
+            self::MINOR_TICK_MARK_INSIDE,
+            self::MINOR_TICK_MARK_NONE,
+            self::MINOR_TICK_MARK_OUTSIDE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCategoryAxisTypeAllowableValues()
+    {
+        return [
+            self::CATEGORY_AXIS_TYPE_TEXT,
+            self::CATEGORY_AXIS_TYPE_DATE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCrossTypeAllowableValues()
+    {
+        return [
+            self::CROSS_TYPE_AXIS_CROSSES_AT_ZERO,
+            self::CROSS_TYPE_MAXIMUM,
+            self::CROSS_TYPE_CUSTOM,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTickLabelPositionAllowableValues()
+    {
+        return [
+            self::TICK_LABEL_POSITION_HIGH,
+            self::TICK_LABEL_POSITION_LOW,
+            self::TICK_LABEL_POSITION_NEXT_TO,
+            self::TICK_LABEL_POSITION_NONE,
+        ];
+    }
     
 
     /**
@@ -410,12 +602,36 @@ class Axis implements ArrayAccess
         if ($this->container['position'] === null) {
             $invalidProperties[] = "'position' can't be null";
         }
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($this->container['position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['display_unit'] === null) {
             $invalidProperties[] = "'display_unit' can't be null";
         }
+        $allowedValues = $this->getDisplayUnitAllowableValues();
+        if (!in_array($this->container['display_unit'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'display_unit', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['base_unit_scale'] === null) {
             $invalidProperties[] = "'base_unit_scale' can't be null";
         }
+        $allowedValues = $this->getBaseUnitScaleAllowableValues();
+        if (!in_array($this->container['base_unit_scale'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'base_unit_scale', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['is_automatic_major_unit'] === null) {
             $invalidProperties[] = "'is_automatic_major_unit' can't be null";
         }
@@ -425,9 +641,25 @@ class Axis implements ArrayAccess
         if ($this->container['major_unit_scale'] === null) {
             $invalidProperties[] = "'major_unit_scale' can't be null";
         }
+        $allowedValues = $this->getMajorUnitScaleAllowableValues();
+        if (!in_array($this->container['major_unit_scale'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'major_unit_scale', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['major_tick_mark'] === null) {
             $invalidProperties[] = "'major_tick_mark' can't be null";
         }
+        $allowedValues = $this->getMajorTickMarkAllowableValues();
+        if (!in_array($this->container['major_tick_mark'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'major_tick_mark', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['is_automatic_minor_unit'] === null) {
             $invalidProperties[] = "'is_automatic_minor_unit' can't be null";
         }
@@ -437,9 +669,25 @@ class Axis implements ArrayAccess
         if ($this->container['minor_unit_scale'] === null) {
             $invalidProperties[] = "'minor_unit_scale' can't be null";
         }
+        $allowedValues = $this->getMinorUnitScaleAllowableValues();
+        if (!in_array($this->container['minor_unit_scale'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'minor_unit_scale', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['minor_tick_mark'] === null) {
             $invalidProperties[] = "'minor_tick_mark' can't be null";
         }
+        $allowedValues = $this->getMinorTickMarkAllowableValues();
+        if (!in_array($this->container['minor_tick_mark'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'minor_tick_mark', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['is_automatic_max_value'] === null) {
             $invalidProperties[] = "'is_automatic_max_value' can't be null";
         }
@@ -461,6 +709,14 @@ class Axis implements ArrayAccess
         if ($this->container['category_axis_type'] === null) {
             $invalidProperties[] = "'category_axis_type' can't be null";
         }
+        $allowedValues = $this->getCategoryAxisTypeAllowableValues();
+        if (!in_array($this->container['category_axis_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'category_axis_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['axis_between_categories'] === null) {
             $invalidProperties[] = "'axis_between_categories' can't be null";
         }
@@ -476,6 +732,14 @@ class Axis implements ArrayAccess
         if ($this->container['cross_type'] === null) {
             $invalidProperties[] = "'cross_type' can't be null";
         }
+        $allowedValues = $this->getCrossTypeAllowableValues();
+        if (!in_array($this->container['cross_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'cross_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['cross_at'] === null) {
             $invalidProperties[] = "'cross_at' can't be null";
         }
@@ -494,6 +758,14 @@ class Axis implements ArrayAccess
         if ($this->container['tick_label_position'] === null) {
             $invalidProperties[] = "'tick_label_position' can't be null";
         }
+        $allowedValues = $this->getTickLabelPositionAllowableValues();
+        if (!in_array($this->container['tick_label_position'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tick_label_position', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['tick_label_rotation_angle'] === null) {
             $invalidProperties[] = "'tick_label_rotation_angle' can't be null";
         }
@@ -518,10 +790,22 @@ class Axis implements ArrayAccess
         if ($this->container['position'] === null) {
             return false;
         }
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($this->container['position'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['display_unit'] === null) {
             return false;
         }
+        $allowedValues = $this->getDisplayUnitAllowableValues();
+        if (!in_array($this->container['display_unit'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['base_unit_scale'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getBaseUnitScaleAllowableValues();
+        if (!in_array($this->container['base_unit_scale'], $allowedValues)) {
             return false;
         }
         if ($this->container['is_automatic_major_unit'] === null) {
@@ -533,7 +817,15 @@ class Axis implements ArrayAccess
         if ($this->container['major_unit_scale'] === null) {
             return false;
         }
+        $allowedValues = $this->getMajorUnitScaleAllowableValues();
+        if (!in_array($this->container['major_unit_scale'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['major_tick_mark'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getMajorTickMarkAllowableValues();
+        if (!in_array($this->container['major_tick_mark'], $allowedValues)) {
             return false;
         }
         if ($this->container['is_automatic_minor_unit'] === null) {
@@ -545,7 +837,15 @@ class Axis implements ArrayAccess
         if ($this->container['minor_unit_scale'] === null) {
             return false;
         }
+        $allowedValues = $this->getMinorUnitScaleAllowableValues();
+        if (!in_array($this->container['minor_unit_scale'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['minor_tick_mark'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getMinorTickMarkAllowableValues();
+        if (!in_array($this->container['minor_tick_mark'], $allowedValues)) {
             return false;
         }
         if ($this->container['is_automatic_max_value'] === null) {
@@ -569,6 +869,10 @@ class Axis implements ArrayAccess
         if ($this->container['category_axis_type'] === null) {
             return false;
         }
+        $allowedValues = $this->getCategoryAxisTypeAllowableValues();
+        if (!in_array($this->container['category_axis_type'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['axis_between_categories'] === null) {
             return false;
         }
@@ -582,6 +886,10 @@ class Axis implements ArrayAccess
             return false;
         }
         if ($this->container['cross_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCrossTypeAllowableValues();
+        if (!in_array($this->container['cross_type'], $allowedValues)) {
             return false;
         }
         if ($this->container['cross_at'] === null) {
@@ -600,6 +908,10 @@ class Axis implements ArrayAccess
             return false;
         }
         if ($this->container['tick_label_position'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTickLabelPositionAllowableValues();
+        if (!in_array($this->container['tick_label_position'], $allowedValues)) {
             return false;
         }
         if ($this->container['tick_label_rotation_angle'] === null) {
@@ -660,7 +972,7 @@ class Axis implements ArrayAccess
     /**
      * Gets position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\AxisPositionType
+     * @return string
      */
     public function getPosition()
     {
@@ -670,12 +982,21 @@ class Axis implements ArrayAccess
     /**
      * Sets position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\AxisPositionType $position Axis position
+     * @param string $position Axis position
      *
      * @return $this
      */
     public function setPosition($position)
     {
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!in_array($position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['position'] = $position;
 
         return $this;
@@ -684,7 +1005,7 @@ class Axis implements ArrayAccess
     /**
      * Gets display_unit
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\DisplayUnitType
+     * @return string
      */
     public function getDisplayUnit()
     {
@@ -694,12 +1015,21 @@ class Axis implements ArrayAccess
     /**
      * Sets display_unit
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\DisplayUnitType $display_unit The scaling value of the display units for the value axis
+     * @param string $display_unit The scaling value of the display units for the value axis
      *
      * @return $this
      */
     public function setDisplayUnit($display_unit)
     {
+        $allowedValues = $this->getDisplayUnitAllowableValues();
+        if (!in_array($display_unit, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'display_unit', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['display_unit'] = $display_unit;
 
         return $this;
@@ -708,7 +1038,7 @@ class Axis implements ArrayAccess
     /**
      * Gets base_unit_scale
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType
+     * @return string
      */
     public function getBaseUnitScale()
     {
@@ -718,12 +1048,21 @@ class Axis implements ArrayAccess
     /**
      * Sets base_unit_scale
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType $base_unit_scale The smallest time unit that is represented on the date axis
+     * @param string $base_unit_scale The smallest time unit that is represented on the date axis
      *
      * @return $this
      */
     public function setBaseUnitScale($base_unit_scale)
     {
+        $allowedValues = $this->getBaseUnitScaleAllowableValues();
+        if (!in_array($base_unit_scale, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'base_unit_scale', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['base_unit_scale'] = $base_unit_scale;
 
         return $this;
@@ -780,7 +1119,7 @@ class Axis implements ArrayAccess
     /**
      * Gets major_unit_scale
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType
+     * @return string
      */
     public function getMajorUnitScale()
     {
@@ -790,12 +1129,21 @@ class Axis implements ArrayAccess
     /**
      * Sets major_unit_scale
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType $major_unit_scale The major unit scale for the date axis
+     * @param string $major_unit_scale The major unit scale for the date axis
      *
      * @return $this
      */
     public function setMajorUnitScale($major_unit_scale)
     {
+        $allowedValues = $this->getMajorUnitScaleAllowableValues();
+        if (!in_array($major_unit_scale, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'major_unit_scale', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['major_unit_scale'] = $major_unit_scale;
 
         return $this;
@@ -804,7 +1152,7 @@ class Axis implements ArrayAccess
     /**
      * Gets major_tick_mark
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TickMarkType
+     * @return string
      */
     public function getMajorTickMark()
     {
@@ -814,12 +1162,21 @@ class Axis implements ArrayAccess
     /**
      * Sets major_tick_mark
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TickMarkType $major_tick_mark The type of major tick mark for the specified axis
+     * @param string $major_tick_mark The type of major tick mark for the specified axis
      *
      * @return $this
      */
     public function setMajorTickMark($major_tick_mark)
     {
+        $allowedValues = $this->getMajorTickMarkAllowableValues();
+        if (!in_array($major_tick_mark, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'major_tick_mark', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['major_tick_mark'] = $major_tick_mark;
 
         return $this;
@@ -876,7 +1233,7 @@ class Axis implements ArrayAccess
     /**
      * Gets minor_unit_scale
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType
+     * @return string
      */
     public function getMinorUnitScale()
     {
@@ -886,12 +1243,21 @@ class Axis implements ArrayAccess
     /**
      * Sets minor_unit_scale
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TimeUnitType $minor_unit_scale The minor unit scale for the date axis
+     * @param string $minor_unit_scale The minor unit scale for the date axis
      *
      * @return $this
      */
     public function setMinorUnitScale($minor_unit_scale)
     {
+        $allowedValues = $this->getMinorUnitScaleAllowableValues();
+        if (!in_array($minor_unit_scale, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'minor_unit_scale', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['minor_unit_scale'] = $minor_unit_scale;
 
         return $this;
@@ -900,7 +1266,7 @@ class Axis implements ArrayAccess
     /**
      * Gets minor_tick_mark
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TickMarkType
+     * @return string
      */
     public function getMinorTickMark()
     {
@@ -910,12 +1276,21 @@ class Axis implements ArrayAccess
     /**
      * Sets minor_tick_mark
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TickMarkType $minor_tick_mark The type of minor tick mark for the specified axis
+     * @param string $minor_tick_mark The type of minor tick mark for the specified axis
      *
      * @return $this
      */
     public function setMinorTickMark($minor_tick_mark)
     {
+        $allowedValues = $this->getMinorTickMarkAllowableValues();
+        if (!in_array($minor_tick_mark, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'minor_tick_mark', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['minor_tick_mark'] = $minor_tick_mark;
 
         return $this;
@@ -1068,7 +1443,7 @@ class Axis implements ArrayAccess
     /**
      * Gets category_axis_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\CategoryAxisType
+     * @return string
      */
     public function getCategoryAxisType()
     {
@@ -1078,12 +1453,21 @@ class Axis implements ArrayAccess
     /**
      * Sets category_axis_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CategoryAxisType $category_axis_type The type of the category axis
+     * @param string $category_axis_type The type of the category axis
      *
      * @return $this
      */
     public function setCategoryAxisType($category_axis_type)
     {
+        $allowedValues = $this->getCategoryAxisTypeAllowableValues();
+        if (!in_array($category_axis_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'category_axis_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['category_axis_type'] = $category_axis_type;
 
         return $this;
@@ -1212,7 +1596,7 @@ class Axis implements ArrayAccess
     /**
      * Gets cross_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\CrossesType
+     * @return string
      */
     public function getCrossType()
     {
@@ -1222,12 +1606,21 @@ class Axis implements ArrayAccess
     /**
      * Sets cross_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CrossesType $cross_type The CrossType on the specified axis where the other axis crosses
+     * @param string $cross_type The CrossType on the specified axis where the other axis crosses
      *
      * @return $this
      */
     public function setCrossType($cross_type)
     {
+        $allowedValues = $this->getCrossTypeAllowableValues();
+        if (!in_array($cross_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'cross_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['cross_type'] = $cross_type;
 
         return $this;
@@ -1356,7 +1749,7 @@ class Axis implements ArrayAccess
     /**
      * Gets tick_label_position
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TickLabelPositionType
+     * @return string
      */
     public function getTickLabelPosition()
     {
@@ -1366,12 +1759,21 @@ class Axis implements ArrayAccess
     /**
      * Sets tick_label_position
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TickLabelPositionType $tick_label_position The position of tick-mark labels on the specified axis.
+     * @param string $tick_label_position The position of tick-mark labels on the specified axis.
      *
      * @return $this
      */
     public function setTickLabelPosition($tick_label_position)
     {
+        $allowedValues = $this->getTickLabelPositionAllowableValues();
+        if (!in_array($tick_label_position, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'tick_label_position', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tick_label_position'] = $tick_label_position;
 
         return $this;

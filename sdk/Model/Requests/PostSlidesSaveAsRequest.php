@@ -34,58 +34,52 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlidesSaveAsRequest
 {
     /*
-     * The presentation name
+     * Document name.
      */
     public $name;
 
     /*
-     * Export format
+     * Export format.
      */
     public $format;
 
     /*
-     * Tiff export options
+     * Export options.
      */
     public $options;
 
     /*
-     * The password to open presentation.
+     * Document password.
      */
     public $password;
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * The optional output path.
-     */
-    public $outPath;
-
-    /*
-     * The optional custom fonts folder.
+     * Custom fonts folder.
      */
     public $fontsFolder;
 
     /*
      * Initializes a new instance of the PostSlidesSaveAsRequest class.
      *  
-     * @param string $name The presentation name
-     * @param string $format Export format
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Tiff export options
-     * @param string $password The password to open presentation.
-     * @param string $storage Document&#39;s storage.
-     * @param string $folder The presentation folder.
-     * @param string $outPath The optional output path.
-     * @param string $fontsFolder The optional custom fonts folder.
+     * @param string $name Document name.
+     * @param int $format Export format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
+     * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($name, $format, $options = null, $password = null, $storage = null, $folder = null, $outPath = null, $fontsFolder = null)
+    public function __construct($name, $format, $options = null, $password = null, $storage = null, $folder = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->format = $format;
@@ -93,12 +87,11 @@ class PostSlidesSaveAsRequest
         $this->password = $password;
         $this->storage = $storage;
         $this->folder = $folder;
-        $this->outPath = $outPath;
         $this->fontsFolder = $fontsFolder;
     }
 
     /*
-     * The presentation name
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +99,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * The presentation name
+     * Document name.
      */
     public function set_name($value)
     {
@@ -114,7 +107,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Export format
+     * Export format.
      */
     public function get_format()
     {
@@ -122,7 +115,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * Export format
+     * Export format.
      */
     public function set_format($value)
     {
@@ -130,7 +123,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Tiff export options
+     * Export options.
      */
     public function get_options()
     {
@@ -138,7 +131,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * Tiff export options
+     * Export options.
      */
     public function set_options($value)
     {
@@ -146,7 +139,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * The password to open presentation.
+     * Document password.
      */
     public function get_password()
     {
@@ -154,7 +147,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * The password to open presentation.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -162,7 +155,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -170,7 +163,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -178,7 +171,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -186,7 +179,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * The presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -194,23 +187,7 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * The optional output path.
-     */
-    public function get_outPath()
-    {
-        return $this->outPath;
-    }
-
-    /*
-     * The optional output path.
-     */
-    public function set_outPath($value)
-    {
-        $this->outPath = $value;
-        return $this;
-    }
-    /*
-     * The optional custom fonts folder.
+     * Custom fonts folder.
      */
     public function get_fontsFolder()
     {
@@ -218,7 +195,7 @@ class PostSlidesSaveAsRequest
     }
 
     /*
-     * The optional custom fonts folder.
+     * Custom fonts folder.
      */
     public function set_fontsFolder($value)
     {

@@ -58,9 +58,9 @@ class Placeholder extends ResourceBase
       */
     protected static $swaggerTypes = [
         'index' => 'int',
-        'orientation' => '\Aspose\Slides\Cloud\Sdk\Model\PlaceholderOrientation',
-        'size' => '\Aspose\Slides\Cloud\Sdk\Model\PlaceholderSize',
-        'type' => '\Aspose\Slides\Cloud\Sdk\Model\PlaceholderType',
+        'orientation' => 'string',
+        'size' => 'string',
+        'type' => 'string',
         'shape' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
     ];
 
@@ -178,8 +178,83 @@ class Placeholder extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const ORIENTATION_HORIZONTAL = 'Horizontal';
+    const ORIENTATION_VERTICAL = 'Vertical';
+    const SIZE_FULL = 'Full';
+    const SIZE_HALF = 'Half';
+    const SIZE_QUARTER = 'Quarter';
+    const TYPE_TITLE = 'Title';
+    const TYPE_BODY = 'Body';
+    const TYPE_CENTERED_TITLE = 'CenteredTitle';
+    const TYPE_SUBTITLE = 'Subtitle';
+    const TYPE_DATE_AND_TIME = 'DateAndTime';
+    const TYPE_SLIDE_NUMBER = 'SlideNumber';
+    const TYPE_FOOTER = 'Footer';
+    const TYPE_HEADER = 'Header';
+    const TYPE_OBJECT = 'Object';
+    const TYPE_CHART = 'Chart';
+    const TYPE_TABLE = 'Table';
+    const TYPE_CLIP_ART = 'ClipArt';
+    const TYPE_DIAGRAM = 'Diagram';
+    const TYPE_MEDIA = 'Media';
+    const TYPE_SLIDE_IMAGE = 'SlideImage';
+    const TYPE_PICTURE = 'Picture';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOrientationAllowableValues()
+    {
+        return [
+            self::ORIENTATION_HORIZONTAL,
+            self::ORIENTATION_VERTICAL,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSizeAllowableValues()
+    {
+        return [
+            self::SIZE_FULL,
+            self::SIZE_HALF,
+            self::SIZE_QUARTER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_TITLE,
+            self::TYPE_BODY,
+            self::TYPE_CENTERED_TITLE,
+            self::TYPE_SUBTITLE,
+            self::TYPE_DATE_AND_TIME,
+            self::TYPE_SLIDE_NUMBER,
+            self::TYPE_FOOTER,
+            self::TYPE_HEADER,
+            self::TYPE_OBJECT,
+            self::TYPE_CHART,
+            self::TYPE_TABLE,
+            self::TYPE_CLIP_ART,
+            self::TYPE_DIAGRAM,
+            self::TYPE_MEDIA,
+            self::TYPE_SLIDE_IMAGE,
+            self::TYPE_PICTURE,
+        ];
+    }
     
 
 
@@ -209,6 +284,42 @@ class Placeholder extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['index'] === null) {
+            $invalidProperties[] = "'index' can't be null";
+        }
+        if ($this->container['orientation'] === null) {
+            $invalidProperties[] = "'orientation' can't be null";
+        }
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!in_array($this->container['orientation'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'orientation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
+        $allowedValues = $this->getSizeAllowableValues();
+        if (!in_array($this->container['size'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'size', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -224,6 +335,30 @@ class Placeholder extends ResourceBase
             return false;
         }
 
+        if ($this->container['index'] === null) {
+            return false;
+        }
+        if ($this->container['orientation'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!in_array($this->container['orientation'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['size'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getSizeAllowableValues();
+        if (!in_array($this->container['size'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -255,7 +390,7 @@ class Placeholder extends ResourceBase
     /**
      * Gets orientation
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PlaceholderOrientation
+     * @return string
      */
     public function getOrientation()
     {
@@ -265,12 +400,21 @@ class Placeholder extends ResourceBase
     /**
      * Sets orientation
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PlaceholderOrientation $orientation orientation
+     * @param string $orientation orientation
      *
      * @return $this
      */
     public function setOrientation($orientation)
     {
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!in_array($orientation, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'orientation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['orientation'] = $orientation;
 
         return $this;
@@ -279,7 +423,7 @@ class Placeholder extends ResourceBase
     /**
      * Gets size
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PlaceholderSize
+     * @return string
      */
     public function getSize()
     {
@@ -289,12 +433,21 @@ class Placeholder extends ResourceBase
     /**
      * Sets size
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PlaceholderSize $size size
+     * @param string $size size
      *
      * @return $this
      */
     public function setSize($size)
     {
+        $allowedValues = $this->getSizeAllowableValues();
+        if (!in_array($size, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'size', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['size'] = $size;
 
         return $this;
@@ -303,7 +456,7 @@ class Placeholder extends ResourceBase
     /**
      * Gets type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\PlaceholderType
+     * @return string
      */
     public function getType()
     {
@@ -313,12 +466,21 @@ class Placeholder extends ResourceBase
     /**
      * Sets type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PlaceholderType $type type
+     * @param string $type type
      *
      * @return $this
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

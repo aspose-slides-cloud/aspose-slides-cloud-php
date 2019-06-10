@@ -57,12 +57,12 @@ class GradientFill extends FillFormat
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'direction' => '\Aspose\Slides\Cloud\Sdk\Model\GradientDirection',
-        'shape' => '\Aspose\Slides\Cloud\Sdk\Model\GradientShapeType',
+        'direction' => 'string',
+        'shape' => 'string',
         'stops' => '\Aspose\Slides\Cloud\Sdk\Model\GradientFillStop[]',
         'linear_angle' => 'double',
         'is_scaled' => 'bool',
-        'tile_flip' => '\Aspose\Slides\Cloud\Sdk\Model\GradientTileFlip'
+        'tile_flip' => 'string'
     ];
 
     /**
@@ -183,8 +183,73 @@ class GradientFill extends FillFormat
         return self::$swaggerModelName;
     }
 
+    const DIRECTION_FROM_CORNER1 = 'FromCorner1';
+    const DIRECTION_FROM_CORNER2 = 'FromCorner2';
+    const DIRECTION_FROM_CORNER3 = 'FromCorner3';
+    const DIRECTION_FROM_CORNER4 = 'FromCorner4';
+    const DIRECTION_FROM_CENTER = 'FromCenter';
+    const DIRECTION_NOT_DEFINED = 'NotDefined';
+    const SHAPE_LINEAR = 'Linear';
+    const SHAPE_RECTANGLE = 'Rectangle';
+    const SHAPE_RADIAL = 'Radial';
+    const SHAPE_PATH = 'Path';
+    const SHAPE_NOT_DEFINED = 'NotDefined';
+    const TILE_FLIP_NO_FLIP = 'NoFlip';
+    const TILE_FLIP_FLIP_X = 'FlipX';
+    const TILE_FLIP_FLIP_Y = 'FlipY';
+    const TILE_FLIP_FLIP_BOTH = 'FlipBoth';
+    const TILE_FLIP_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDirectionAllowableValues()
+    {
+        return [
+            self::DIRECTION_FROM_CORNER1,
+            self::DIRECTION_FROM_CORNER2,
+            self::DIRECTION_FROM_CORNER3,
+            self::DIRECTION_FROM_CORNER4,
+            self::DIRECTION_FROM_CENTER,
+            self::DIRECTION_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getShapeAllowableValues()
+    {
+        return [
+            self::SHAPE_LINEAR,
+            self::SHAPE_RECTANGLE,
+            self::SHAPE_RADIAL,
+            self::SHAPE_PATH,
+            self::SHAPE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTileFlipAllowableValues()
+    {
+        return [
+            self::TILE_FLIP_NO_FLIP,
+            self::TILE_FLIP_FLIP_X,
+            self::TILE_FLIP_FLIP_Y,
+            self::TILE_FLIP_FLIP_BOTH,
+            self::TILE_FLIP_NOT_DEFINED,
+        ];
+    }
     
 
 
@@ -215,6 +280,45 @@ class GradientFill extends FillFormat
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['direction'] === null) {
+            $invalidProperties[] = "'direction' can't be null";
+        }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($this->container['direction'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'direction', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['shape'] === null) {
+            $invalidProperties[] = "'shape' can't be null";
+        }
+        $allowedValues = $this->getShapeAllowableValues();
+        if (!in_array($this->container['shape'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'shape', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['linear_angle'] === null) {
+            $invalidProperties[] = "'linear_angle' can't be null";
+        }
+        if ($this->container['is_scaled'] === null) {
+            $invalidProperties[] = "'is_scaled' can't be null";
+        }
+        if ($this->container['tile_flip'] === null) {
+            $invalidProperties[] = "'tile_flip' can't be null";
+        }
+        $allowedValues = $this->getTileFlipAllowableValues();
+        if (!in_array($this->container['tile_flip'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tile_flip', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -230,6 +334,33 @@ class GradientFill extends FillFormat
             return false;
         }
 
+        if ($this->container['direction'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($this->container['direction'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['shape'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getShapeAllowableValues();
+        if (!in_array($this->container['shape'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['linear_angle'] === null) {
+            return false;
+        }
+        if ($this->container['is_scaled'] === null) {
+            return false;
+        }
+        if ($this->container['tile_flip'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTileFlipAllowableValues();
+        if (!in_array($this->container['tile_flip'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -237,7 +368,7 @@ class GradientFill extends FillFormat
     /**
      * Gets direction
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\GradientDirection
+     * @return string
      */
     public function getDirection()
     {
@@ -247,12 +378,21 @@ class GradientFill extends FillFormat
     /**
      * Sets direction
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientDirection $direction Gradient style.
+     * @param string $direction Gradient style.
      *
      * @return $this
      */
     public function setDirection($direction)
     {
+        $allowedValues = $this->getDirectionAllowableValues();
+        if (!in_array($direction, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'direction', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['direction'] = $direction;
 
         return $this;
@@ -261,7 +401,7 @@ class GradientFill extends FillFormat
     /**
      * Gets shape
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\GradientShapeType
+     * @return string
      */
     public function getShape()
     {
@@ -271,12 +411,21 @@ class GradientFill extends FillFormat
     /**
      * Sets shape
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientShapeType $shape Gradient shape.
+     * @param string $shape Gradient shape.
      *
      * @return $this
      */
     public function setShape($shape)
     {
+        $allowedValues = $this->getShapeAllowableValues();
+        if (!in_array($shape, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'shape', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['shape'] = $shape;
 
         return $this;
@@ -357,7 +506,7 @@ class GradientFill extends FillFormat
     /**
      * Gets tile_flip
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\GradientTileFlip
+     * @return string
      */
     public function getTileFlip()
     {
@@ -367,12 +516,21 @@ class GradientFill extends FillFormat
     /**
      * Sets tile_flip
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\GradientTileFlip $tile_flip Gradient flipping mode.
+     * @param string $tile_flip Gradient flipping mode.
      *
      * @return $this
      */
     public function setTileFlip($tile_flip)
     {
+        $allowedValues = $this->getTileFlipAllowableValues();
+        if (!in_array($tile_flip, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'tile_flip', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['tile_flip'] = $tile_flip;
 
         return $this;

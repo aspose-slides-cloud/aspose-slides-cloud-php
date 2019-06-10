@@ -34,29 +34,19 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlidesDocumentRequest
 {
     /*
-     * The document name.
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * Document input data.
      */
     public $data;
 
     /*
-     * Template file path.
+     * The password for input document.
      */
-    public $templatePath;
-
-    /*
-     * Template storage name.
-     */
-    public $templateStorage;
-
-    /*
-     * Is Image Data Embedded
-     */
-    public $isImageDataEmbedded;
+    public $inputPassword;
 
     /*
      * The document password.
@@ -64,41 +54,37 @@ class PostSlidesDocumentRequest
     public $password;
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public $folder;
 
     /*
      * Initializes a new instance of the PostSlidesDocumentRequest class.
      *  
-     * @param string $name The document name.
-     * @param string $data 
-     * @param string $templatePath Template file path.
-     * @param string $templateStorage Template storage name.
-     * @param bool $isImageDataEmbedded Is Image Data Embedded
+     * @param string $name Document name.
+     * @param \SplFileObject $data Document input data.
+     * @param string $inputPassword The password for input document.
      * @param string $password The document password.
-     * @param string $storage Document&#39;s storage.
-     * @param string $folder Document&#39;s folder.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
      */
-    public function __construct($name, $data, $templatePath, $templateStorage = null, $isImageDataEmbedded = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $data = null, $inputPassword = null, $password = null, $storage = null, $folder = null)
     {
         $this->name = $name;
         $this->data = $data;
-        $this->templatePath = $templatePath;
-        $this->templateStorage = $templateStorage;
-        $this->isImageDataEmbedded = $isImageDataEmbedded;
+        $this->inputPassword = $inputPassword;
         $this->password = $password;
         $this->storage = $storage;
         $this->folder = $folder;
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function get_name()
     {
@@ -106,7 +92,7 @@ class PostSlidesDocumentRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -114,7 +100,7 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * 
+     * Document input data.
      */
     public function get_data()
     {
@@ -122,7 +108,7 @@ class PostSlidesDocumentRequest
     }
 
     /*
-     * 
+     * Document input data.
      */
     public function set_data($value)
     {
@@ -130,51 +116,19 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * Template file path.
+     * The password for input document.
      */
-    public function get_templatePath()
+    public function get_inputPassword()
     {
-        return $this->templatePath;
+        return $this->inputPassword;
     }
 
     /*
-     * Template file path.
+     * The password for input document.
      */
-    public function set_templatePath($value)
+    public function set_inputPassword($value)
     {
-        $this->templatePath = $value;
-        return $this;
-    }
-    /*
-     * Template storage name.
-     */
-    public function get_templateStorage()
-    {
-        return $this->templateStorage;
-    }
-
-    /*
-     * Template storage name.
-     */
-    public function set_templateStorage($value)
-    {
-        $this->templateStorage = $value;
-        return $this;
-    }
-    /*
-     * Is Image Data Embedded
-     */
-    public function get_isImageDataEmbedded()
-    {
-        return $this->isImageDataEmbedded;
-    }
-
-    /*
-     * Is Image Data Embedded
-     */
-    public function set_isImageDataEmbedded($value)
-    {
-        $this->isImageDataEmbedded = $value;
+        $this->inputPassword = $value;
         return $this;
     }
     /*
@@ -194,7 +148,7 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -202,7 +156,7 @@ class PostSlidesDocumentRequest
     }
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -210,7 +164,7 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -218,7 +172,7 @@ class PostSlidesDocumentRequest
     }
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function set_folder($value)
     {

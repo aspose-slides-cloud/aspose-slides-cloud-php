@@ -57,6 +57,7 @@ class ScatterSeries extends Series
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'data_point_type' => 'string',
         'data_points' => '\Aspose\Slides\Cloud\Sdk\Model\ScatterChartDataPoint[]'
     ];
 
@@ -66,6 +67,7 @@ class ScatterSeries extends Series
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'data_point_type' => null,
         'data_points' => null
     ];
 
@@ -96,6 +98,7 @@ class ScatterSeries extends Series
      * @var string[]
      */
     protected static $attributeMap = [
+        'data_point_type' => 'DataPointType',
         'data_points' => 'DataPoints'
     ];
 
@@ -105,6 +108,7 @@ class ScatterSeries extends Series
      * @var string[]
      */
     protected static $setters = [
+        'data_point_type' => 'setDataPointType',
         'data_points' => 'setDataPoints'
     ];
 
@@ -114,6 +118,7 @@ class ScatterSeries extends Series
      * @var string[]
      */
     protected static $getters = [
+        'data_point_type' => 'getDataPointType',
         'data_points' => 'getDataPoints'
     ];
 
@@ -158,8 +163,25 @@ class ScatterSeries extends Series
         return self::$swaggerModelName;
     }
 
+    const DATA_POINT_TYPE_ONE_VALUE = 'OneValue';
+    const DATA_POINT_TYPE_SCATTER = 'Scatter';
+    const DATA_POINT_TYPE_BUBBLE = 'Bubble';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDataPointTypeAllowableValues()
+    {
+        return [
+            self::DATA_POINT_TYPE_ONE_VALUE,
+            self::DATA_POINT_TYPE_SCATTER,
+            self::DATA_POINT_TYPE_BUBBLE,
+        ];
+    }
     
 
 
@@ -173,6 +195,7 @@ class ScatterSeries extends Series
     {
         parent::__construct($data);
 
+        $this->container['data_point_type'] = isset($data['data_point_type']) ? $data['data_point_type'] : null;
         $this->container['data_points'] = isset($data['data_points']) ? $data['data_points'] : null;
     }
 
@@ -184,6 +207,17 @@ class ScatterSeries extends Series
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        if ($this->container['data_point_type'] === null) {
+            $invalidProperties[] = "'data_point_type' can't be null";
+        }
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+        if (!in_array($this->container['data_point_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'data_point_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -200,9 +234,49 @@ class ScatterSeries extends Series
             return false;
         }
 
+        if ($this->container['data_point_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+        if (!in_array($this->container['data_point_type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets data_point_type
+     *
+     * @return string
+     */
+    public function getDataPointType()
+    {
+        return $this->container['data_point_type'];
+    }
+
+    /**
+     * Sets data_point_type
+     *
+     * @param string $data_point_type Data point type.
+     *
+     * @return $this
+     */
+    public function setDataPointType($data_point_type)
+    {
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+        if (!in_array($data_point_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'data_point_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['data_point_type'] = $data_point_type;
+
+        return $this;
+    }
 
     /**
      * Gets data_points

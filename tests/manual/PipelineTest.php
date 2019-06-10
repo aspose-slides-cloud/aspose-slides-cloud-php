@@ -33,15 +33,14 @@ use \Exception;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Input;
-use Aspose\Slides\Cloud\Sdk\Model\InputFileType;
+use Aspose\Slides\Cloud\Sdk\Model\InputFile;
 use Aspose\Slides\Cloud\Sdk\Model\OutputFile;
-use Aspose\Slides\Cloud\Sdk\Model\OutputFileType;
 use Aspose\Slides\Cloud\Sdk\Model\Pipeline;
 use Aspose\Slides\Cloud\Sdk\Model\RequestInputFile;
 use Aspose\Slides\Cloud\Sdk\Model\Save;
-use Aspose\Slides\Cloud\Sdk\Model\TaskType;
+use Aspose\Slides\Cloud\Sdk\Model\Task;
 use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesPipelineRequest;
-use Aspose\Slides\Cloud\Sdk\Api\DocumentApi;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
@@ -53,7 +52,7 @@ class PipelineTest extends TestBase
     protected function setUp()
     {
         parent::setUp();
-        $this->api = new DocumentApi(null, $this->config);
+        $this->api = new SlidesApi(null, $this->config);
     }
 
     /**
@@ -62,11 +61,11 @@ class PipelineTest extends TestBase
     public function testPipeline()
     {
         $file1 = new RequestInputFile();
-        $file1->setType(InputFileType::REQUEST);
+        $file1->setType(InputFile::TYPE_REQUEST);
         $file1->setIndex(0);
 
         $file2 = new RequestInputFile();
-        $file2->setType(InputFileType::REQUEST);
+        $file2->setType(InputFile::TYPE_REQUEST);
         $file2->setIndex(1);
 
         $input = new Input();
@@ -74,12 +73,12 @@ class PipelineTest extends TestBase
         $input->setTemplate($file2);
 
         $output = new OutputFile();
-        $output->setType(OutputFileType::RESPONSE);
+        $output->setType(OutputFile::TYPE_RESPONSE);
 
         $task = new Save();
         $task->setFormat(ExportFormat::PPTX);
         $task->setOutput($output);
-        $task->setType(TaskType::SAVE);
+        $task->setType(Task::TYPE_SAVE);
 
         $pipeline = new Pipeline();
         $pipeline->setInput($input);

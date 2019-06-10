@@ -197,6 +197,12 @@ class AddMasterSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['clone_from_position'] === null) {
+            $invalidProperties[] = "'clone_from_position' can't be null";
+        }
+        if ($this->container['apply_to_all'] === null) {
+            $invalidProperties[] = "'apply_to_all' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -212,6 +218,12 @@ class AddMasterSlide extends Task
             return false;
         }
 
+        if ($this->container['clone_from_position'] === null) {
+            return false;
+        }
+        if ($this->container['apply_to_all'] === null) {
+            return false;
+        }
         return true;
     }
 

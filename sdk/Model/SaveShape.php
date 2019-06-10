@@ -57,7 +57,7 @@ class SaveShape extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => '\Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat',
+        'format' => 'string',
         'shape_path' => 'string',
         'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
         'options' => '\Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions'
@@ -173,8 +173,31 @@ class SaveShape extends Task
         return self::$swaggerModelName;
     }
 
+    const FORMAT_JPEG = 'Jpeg';
+    const FORMAT_PNG = 'Png';
+    const FORMAT_GIF = 'Gif';
+    const FORMAT_BMP = 'Bmp';
+    const FORMAT_TIFF = 'Tiff';
+    const FORMAT_SVG = 'Svg';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_JPEG,
+            self::FORMAT_PNG,
+            self::FORMAT_GIF,
+            self::FORMAT_BMP,
+            self::FORMAT_TIFF,
+            self::FORMAT_SVG,
+        ];
+    }
     
 
 
@@ -203,6 +226,17 @@ class SaveShape extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['format'] === null) {
+            $invalidProperties[] = "'format' can't be null";
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($this->container['format'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'format', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -218,6 +252,13 @@ class SaveShape extends Task
             return false;
         }
 
+        if ($this->container['format'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($this->container['format'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -225,7 +266,7 @@ class SaveShape extends Task
     /**
      * Gets format
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat
+     * @return string
      */
     public function getFormat()
     {
@@ -235,12 +276,21 @@ class SaveShape extends Task
     /**
      * Sets format
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat $format Format.
+     * @param string $format Format.
      *
      * @return $this
      */
     public function setFormat($format)
     {
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'format', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['format'] = $format;
 
         return $this;

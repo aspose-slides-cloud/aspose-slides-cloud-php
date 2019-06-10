@@ -60,7 +60,7 @@ class SeriesMarker implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'size' => 'int',
-        'symbol' => '\Aspose\Slides\Cloud\Sdk\Model\MarkerStyleType',
+        'symbol' => 'string',
         'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
@@ -180,8 +180,43 @@ class SeriesMarker implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SYMBOL_CIRCLE = 'Circle';
+    const SYMBOL_DASH = 'Dash';
+    const SYMBOL_DIAMOND = 'Diamond';
+    const SYMBOL_DOT = 'Dot';
+    const SYMBOL_NONE = 'None';
+    const SYMBOL_PICTURE = 'Picture';
+    const SYMBOL_PLUS = 'Plus';
+    const SYMBOL_SQUARE = 'Square';
+    const SYMBOL_STAR = 'Star';
+    const SYMBOL_TRIANGLE = 'Triangle';
+    const SYMBOL_X = 'X';
+    const SYMBOL_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSymbolAllowableValues()
+    {
+        return [
+            self::SYMBOL_CIRCLE,
+            self::SYMBOL_DASH,
+            self::SYMBOL_DIAMOND,
+            self::SYMBOL_DOT,
+            self::SYMBOL_NONE,
+            self::SYMBOL_PICTURE,
+            self::SYMBOL_PLUS,
+            self::SYMBOL_SQUARE,
+            self::SYMBOL_STAR,
+            self::SYMBOL_TRIANGLE,
+            self::SYMBOL_X,
+            self::SYMBOL_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -221,6 +256,14 @@ class SeriesMarker implements ArrayAccess
         if ($this->container['symbol'] === null) {
             $invalidProperties[] = "'symbol' can't be null";
         }
+        $allowedValues = $this->getSymbolAllowableValues();
+        if (!in_array($this->container['symbol'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'symbol', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -237,6 +280,10 @@ class SeriesMarker implements ArrayAccess
             return false;
         }
         if ($this->container['symbol'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getSymbolAllowableValues();
+        if (!in_array($this->container['symbol'], $allowedValues)) {
             return false;
         }
         return true;
@@ -270,7 +317,7 @@ class SeriesMarker implements ArrayAccess
     /**
      * Gets symbol
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\MarkerStyleType
+     * @return string
      */
     public function getSymbol()
     {
@@ -280,12 +327,21 @@ class SeriesMarker implements ArrayAccess
     /**
      * Sets symbol
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\MarkerStyleType $symbol symbol
+     * @param string $symbol symbol
      *
      * @return $this
      */
     public function setSymbol($symbol)
     {
+        $allowedValues = $this->getSymbolAllowableValues();
+        if (!in_array($symbol, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'symbol', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['symbol'] = $symbol;
 
         return $this;

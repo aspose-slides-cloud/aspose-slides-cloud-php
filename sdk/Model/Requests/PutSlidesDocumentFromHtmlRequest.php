@@ -34,40 +34,40 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesDocumentFromHtmlRequest
 {
     /*
-     * The document name.
+     * Document name.
      */
     public $name;
 
     /*
-     * 
+     * HTML data.
      */
     public $html;
 
     /*
-     * The document password.
+     * Document password.
      */
     public $password;
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public $folder;
 
     /*
      * Initializes a new instance of the PutSlidesDocumentFromHtmlRequest class.
      *  
-     * @param string $name The document name.
-     * @param string $html 
-     * @param string $password The document password.
-     * @param string $storage Document&#39;s storage.
-     * @param string $folder Document&#39;s folder.
+     * @param string $name Document name.
+     * @param string $html HTML data.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
+     * @param string $folder Document folder.
      */
-    public function __construct($name, $html, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $html = null, $password = null, $storage = null, $folder = null)
     {
         $this->name = $name;
         $this->html = $html;
@@ -77,7 +77,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function get_name()
     {
@@ -85,7 +85,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * The document name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -93,7 +93,7 @@ class PutSlidesDocumentFromHtmlRequest
         return $this;
     }
     /*
-     * 
+     * HTML data.
      */
     public function get_html()
     {
@@ -101,7 +101,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * 
+     * HTML data.
      */
     public function set_html($value)
     {
@@ -109,7 +109,7 @@ class PutSlidesDocumentFromHtmlRequest
         return $this;
     }
     /*
-     * The document password.
+     * Document password.
      */
     public function get_password()
     {
@@ -117,7 +117,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * The document password.
+     * Document password.
      */
     public function set_password($value)
     {
@@ -125,7 +125,7 @@ class PutSlidesDocumentFromHtmlRequest
         return $this;
     }
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -133,7 +133,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * Document&#39;s storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -141,7 +141,7 @@ class PutSlidesDocumentFromHtmlRequest
         return $this;
     }
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -149,7 +149,7 @@ class PutSlidesDocumentFromHtmlRequest
     }
 
     /*
-     * Document&#39;s folder.
+     * Document folder.
      */
     public function set_folder($value)
     {

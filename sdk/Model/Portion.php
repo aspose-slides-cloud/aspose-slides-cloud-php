@@ -58,25 +58,25 @@ class Portion extends ResourceBase
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'font_bold' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'font_italic' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'font_underline' => '\Aspose\Slides\Cloud\Sdk\Model\TextUnderlineType',
-        'strikethrough_type' => '\Aspose\Slides\Cloud\Sdk\Model\TextStrikethroughType',
-        'text_cap_type' => '\Aspose\Slides\Cloud\Sdk\Model\TextCapType',
+        'font_bold' => 'string',
+        'font_italic' => 'string',
+        'font_underline' => 'string',
+        'strikethrough_type' => 'string',
+        'text_cap_type' => 'string',
         'escapement' => 'double',
         'spacing' => 'double',
         'font_color' => 'string',
         'highlight_color' => 'string',
         'font_height' => 'double',
-        'normalise_height' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'proof_disabled' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
+        'normalise_height' => 'string',
+        'proof_disabled' => 'string',
         'smart_tag_clean' => 'bool',
         'kerning_minimal_size' => 'double',
-        'kumimoji' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
+        'kumimoji' => 'string',
         'language_id' => 'string',
         'alternative_language_id' => 'string',
-        'is_hard_underline_fill' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
-        'is_hard_underline_line' => '\Aspose\Slides\Cloud\Sdk\Model\NullableBool',
+        'is_hard_underline_fill' => 'string',
+        'is_hard_underline_line' => 'string',
         'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
@@ -278,8 +278,214 @@ class Portion extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const FONT_BOLD_FALSE = 'False';
+    const FONT_BOLD_TRUE = 'True';
+    const FONT_BOLD_NOT_DEFINED = 'NotDefined';
+    const FONT_ITALIC_FALSE = 'False';
+    const FONT_ITALIC_TRUE = 'True';
+    const FONT_ITALIC_NOT_DEFINED = 'NotDefined';
+    const FONT_UNDERLINE_NONE = 'None';
+    const FONT_UNDERLINE_WORDS = 'Words';
+    const FONT_UNDERLINE_SINGLE = 'Single';
+    const FONT_UNDERLINE_DOUBLE = 'Double';
+    const FONT_UNDERLINE_HEAVY = 'Heavy';
+    const FONT_UNDERLINE_DOTTED = 'Dotted';
+    const FONT_UNDERLINE_HEAVY_DOTTED = 'HeavyDotted';
+    const FONT_UNDERLINE_DASHED = 'Dashed';
+    const FONT_UNDERLINE_HEAVY_DASHED = 'HeavyDashed';
+    const FONT_UNDERLINE_LONG_DASHED = 'LongDashed';
+    const FONT_UNDERLINE_HEAVY_LONG_DASHED = 'HeavyLongDashed';
+    const FONT_UNDERLINE_DOT_DASH = 'DotDash';
+    const FONT_UNDERLINE_HEAVY_DOT_DASH = 'HeavyDotDash';
+    const FONT_UNDERLINE_DOT_DOT_DASH = 'DotDotDash';
+    const FONT_UNDERLINE_HEAVY_DOT_DOT_DASH = 'HeavyDotDotDash';
+    const FONT_UNDERLINE_WAVY = 'Wavy';
+    const FONT_UNDERLINE_HEAVY_WAVY = 'HeavyWavy';
+    const FONT_UNDERLINE_DOUBLE_WAVY = 'DoubleWavy';
+    const FONT_UNDERLINE_NOT_DEFINED = 'NotDefined';
+    const STRIKETHROUGH_TYPE_NONE = 'None';
+    const STRIKETHROUGH_TYPE_SINGLE = 'Single';
+    const STRIKETHROUGH_TYPE_DOUBLE = 'Double';
+    const STRIKETHROUGH_TYPE_NOT_DEFINED = 'NotDefined';
+    const TEXT_CAP_TYPE_NONE = 'None';
+    const TEXT_CAP_TYPE_SMALL = 'Small';
+    const TEXT_CAP_TYPE_ALL = 'All';
+    const TEXT_CAP_TYPE_NOT_DEFINED = 'NotDefined';
+    const NORMALISE_HEIGHT_FALSE = 'False';
+    const NORMALISE_HEIGHT_TRUE = 'True';
+    const NORMALISE_HEIGHT_NOT_DEFINED = 'NotDefined';
+    const PROOF_DISABLED_FALSE = 'False';
+    const PROOF_DISABLED_TRUE = 'True';
+    const PROOF_DISABLED_NOT_DEFINED = 'NotDefined';
+    const KUMIMOJI_FALSE = 'False';
+    const KUMIMOJI_TRUE = 'True';
+    const KUMIMOJI_NOT_DEFINED = 'NotDefined';
+    const IS_HARD_UNDERLINE_FILL_FALSE = 'False';
+    const IS_HARD_UNDERLINE_FILL_TRUE = 'True';
+    const IS_HARD_UNDERLINE_FILL_NOT_DEFINED = 'NotDefined';
+    const IS_HARD_UNDERLINE_LINE_FALSE = 'False';
+    const IS_HARD_UNDERLINE_LINE_TRUE = 'True';
+    const IS_HARD_UNDERLINE_LINE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFontBoldAllowableValues()
+    {
+        return [
+            self::FONT_BOLD_FALSE,
+            self::FONT_BOLD_TRUE,
+            self::FONT_BOLD_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFontItalicAllowableValues()
+    {
+        return [
+            self::FONT_ITALIC_FALSE,
+            self::FONT_ITALIC_TRUE,
+            self::FONT_ITALIC_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFontUnderlineAllowableValues()
+    {
+        return [
+            self::FONT_UNDERLINE_NONE,
+            self::FONT_UNDERLINE_WORDS,
+            self::FONT_UNDERLINE_SINGLE,
+            self::FONT_UNDERLINE_DOUBLE,
+            self::FONT_UNDERLINE_HEAVY,
+            self::FONT_UNDERLINE_DOTTED,
+            self::FONT_UNDERLINE_HEAVY_DOTTED,
+            self::FONT_UNDERLINE_DASHED,
+            self::FONT_UNDERLINE_HEAVY_DASHED,
+            self::FONT_UNDERLINE_LONG_DASHED,
+            self::FONT_UNDERLINE_HEAVY_LONG_DASHED,
+            self::FONT_UNDERLINE_DOT_DASH,
+            self::FONT_UNDERLINE_HEAVY_DOT_DASH,
+            self::FONT_UNDERLINE_DOT_DOT_DASH,
+            self::FONT_UNDERLINE_HEAVY_DOT_DOT_DASH,
+            self::FONT_UNDERLINE_WAVY,
+            self::FONT_UNDERLINE_HEAVY_WAVY,
+            self::FONT_UNDERLINE_DOUBLE_WAVY,
+            self::FONT_UNDERLINE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStrikethroughTypeAllowableValues()
+    {
+        return [
+            self::STRIKETHROUGH_TYPE_NONE,
+            self::STRIKETHROUGH_TYPE_SINGLE,
+            self::STRIKETHROUGH_TYPE_DOUBLE,
+            self::STRIKETHROUGH_TYPE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTextCapTypeAllowableValues()
+    {
+        return [
+            self::TEXT_CAP_TYPE_NONE,
+            self::TEXT_CAP_TYPE_SMALL,
+            self::TEXT_CAP_TYPE_ALL,
+            self::TEXT_CAP_TYPE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNormaliseHeightAllowableValues()
+    {
+        return [
+            self::NORMALISE_HEIGHT_FALSE,
+            self::NORMALISE_HEIGHT_TRUE,
+            self::NORMALISE_HEIGHT_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProofDisabledAllowableValues()
+    {
+        return [
+            self::PROOF_DISABLED_FALSE,
+            self::PROOF_DISABLED_TRUE,
+            self::PROOF_DISABLED_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getKumimojiAllowableValues()
+    {
+        return [
+            self::KUMIMOJI_FALSE,
+            self::KUMIMOJI_TRUE,
+            self::KUMIMOJI_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIsHardUnderlineFillAllowableValues()
+    {
+        return [
+            self::IS_HARD_UNDERLINE_FILL_FALSE,
+            self::IS_HARD_UNDERLINE_FILL_TRUE,
+            self::IS_HARD_UNDERLINE_FILL_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getIsHardUnderlineLineAllowableValues()
+    {
+        return [
+            self::IS_HARD_UNDERLINE_LINE_FALSE,
+            self::IS_HARD_UNDERLINE_LINE_TRUE,
+            self::IS_HARD_UNDERLINE_LINE_NOT_DEFINED,
+        ];
+    }
     
 
 
@@ -329,6 +535,86 @@ class Portion extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        $allowedValues = $this->getFontBoldAllowableValues();
+        if (!in_array($this->container['font_bold'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'font_bold', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFontItalicAllowableValues();
+        if (!in_array($this->container['font_italic'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'font_italic', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFontUnderlineAllowableValues();
+        if (!in_array($this->container['font_underline'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'font_underline', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStrikethroughTypeAllowableValues();
+        if (!in_array($this->container['strikethrough_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'strikethrough_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTextCapTypeAllowableValues();
+        if (!in_array($this->container['text_cap_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'text_cap_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getNormaliseHeightAllowableValues();
+        if (!in_array($this->container['normalise_height'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'normalise_height', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getProofDisabledAllowableValues();
+        if (!in_array($this->container['proof_disabled'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'proof_disabled', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getKumimojiAllowableValues();
+        if (!in_array($this->container['kumimoji'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'kumimoji', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
+        if (!in_array($this->container['is_hard_underline_fill'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'is_hard_underline_fill', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
+        if (!in_array($this->container['is_hard_underline_line'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'is_hard_underline_line', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -344,6 +630,46 @@ class Portion extends ResourceBase
             return false;
         }
 
+        $allowedValues = $this->getFontBoldAllowableValues();
+        if (!in_array($this->container['font_bold'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getFontItalicAllowableValues();
+        if (!in_array($this->container['font_italic'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getFontUnderlineAllowableValues();
+        if (!in_array($this->container['font_underline'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getStrikethroughTypeAllowableValues();
+        if (!in_array($this->container['strikethrough_type'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getTextCapTypeAllowableValues();
+        if (!in_array($this->container['text_cap_type'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getNormaliseHeightAllowableValues();
+        if (!in_array($this->container['normalise_height'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getProofDisabledAllowableValues();
+        if (!in_array($this->container['proof_disabled'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getKumimojiAllowableValues();
+        if (!in_array($this->container['kumimoji'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
+        if (!in_array($this->container['is_hard_underline_fill'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
+        if (!in_array($this->container['is_hard_underline_line'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -375,7 +701,7 @@ class Portion extends ResourceBase
     /**
      * Gets font_bold
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getFontBold()
     {
@@ -385,12 +711,21 @@ class Portion extends ResourceBase
     /**
      * Sets font_bold
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $font_bold font_bold
+     * @param string $font_bold font_bold
      *
      * @return $this
      */
     public function setFontBold($font_bold)
     {
+        $allowedValues = $this->getFontBoldAllowableValues();
+        if (!is_null($font_bold) && !in_array($font_bold, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'font_bold', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['font_bold'] = $font_bold;
 
         return $this;
@@ -399,7 +734,7 @@ class Portion extends ResourceBase
     /**
      * Gets font_italic
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getFontItalic()
     {
@@ -409,12 +744,21 @@ class Portion extends ResourceBase
     /**
      * Sets font_italic
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $font_italic font_italic
+     * @param string $font_italic font_italic
      *
      * @return $this
      */
     public function setFontItalic($font_italic)
     {
+        $allowedValues = $this->getFontItalicAllowableValues();
+        if (!is_null($font_italic) && !in_array($font_italic, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'font_italic', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['font_italic'] = $font_italic;
 
         return $this;
@@ -423,7 +767,7 @@ class Portion extends ResourceBase
     /**
      * Gets font_underline
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextUnderlineType
+     * @return string
      */
     public function getFontUnderline()
     {
@@ -433,12 +777,21 @@ class Portion extends ResourceBase
     /**
      * Sets font_underline
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextUnderlineType $font_underline font_underline
+     * @param string $font_underline font_underline
      *
      * @return $this
      */
     public function setFontUnderline($font_underline)
     {
+        $allowedValues = $this->getFontUnderlineAllowableValues();
+        if (!is_null($font_underline) && !in_array($font_underline, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'font_underline', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['font_underline'] = $font_underline;
 
         return $this;
@@ -447,7 +800,7 @@ class Portion extends ResourceBase
     /**
      * Gets strikethrough_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextStrikethroughType
+     * @return string
      */
     public function getStrikethroughType()
     {
@@ -457,12 +810,21 @@ class Portion extends ResourceBase
     /**
      * Sets strikethrough_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextStrikethroughType $strikethrough_type strikethrough_type
+     * @param string $strikethrough_type strikethrough_type
      *
      * @return $this
      */
     public function setStrikethroughType($strikethrough_type)
     {
+        $allowedValues = $this->getStrikethroughTypeAllowableValues();
+        if (!is_null($strikethrough_type) && !in_array($strikethrough_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'strikethrough_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['strikethrough_type'] = $strikethrough_type;
 
         return $this;
@@ -471,7 +833,7 @@ class Portion extends ResourceBase
     /**
      * Gets text_cap_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextCapType
+     * @return string
      */
     public function getTextCapType()
     {
@@ -481,12 +843,21 @@ class Portion extends ResourceBase
     /**
      * Sets text_cap_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextCapType $text_cap_type text_cap_type
+     * @param string $text_cap_type text_cap_type
      *
      * @return $this
      */
     public function setTextCapType($text_cap_type)
     {
+        $allowedValues = $this->getTextCapTypeAllowableValues();
+        if (!is_null($text_cap_type) && !in_array($text_cap_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'text_cap_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['text_cap_type'] = $text_cap_type;
 
         return $this;
@@ -615,7 +986,7 @@ class Portion extends ResourceBase
     /**
      * Gets normalise_height
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getNormaliseHeight()
     {
@@ -625,12 +996,21 @@ class Portion extends ResourceBase
     /**
      * Sets normalise_height
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $normalise_height normalise_height
+     * @param string $normalise_height normalise_height
      *
      * @return $this
      */
     public function setNormaliseHeight($normalise_height)
     {
+        $allowedValues = $this->getNormaliseHeightAllowableValues();
+        if (!is_null($normalise_height) && !in_array($normalise_height, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'normalise_height', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['normalise_height'] = $normalise_height;
 
         return $this;
@@ -639,7 +1019,7 @@ class Portion extends ResourceBase
     /**
      * Gets proof_disabled
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getProofDisabled()
     {
@@ -649,12 +1029,21 @@ class Portion extends ResourceBase
     /**
      * Sets proof_disabled
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $proof_disabled proof_disabled
+     * @param string $proof_disabled proof_disabled
      *
      * @return $this
      */
     public function setProofDisabled($proof_disabled)
     {
+        $allowedValues = $this->getProofDisabledAllowableValues();
+        if (!is_null($proof_disabled) && !in_array($proof_disabled, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'proof_disabled', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['proof_disabled'] = $proof_disabled;
 
         return $this;
@@ -711,7 +1100,7 @@ class Portion extends ResourceBase
     /**
      * Gets kumimoji
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getKumimoji()
     {
@@ -721,12 +1110,21 @@ class Portion extends ResourceBase
     /**
      * Sets kumimoji
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $kumimoji kumimoji
+     * @param string $kumimoji kumimoji
      *
      * @return $this
      */
     public function setKumimoji($kumimoji)
     {
+        $allowedValues = $this->getKumimojiAllowableValues();
+        if (!is_null($kumimoji) && !in_array($kumimoji, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'kumimoji', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['kumimoji'] = $kumimoji;
 
         return $this;
@@ -783,7 +1181,7 @@ class Portion extends ResourceBase
     /**
      * Gets is_hard_underline_fill
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getIsHardUnderlineFill()
     {
@@ -793,12 +1191,21 @@ class Portion extends ResourceBase
     /**
      * Sets is_hard_underline_fill
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $is_hard_underline_fill is_hard_underline_fill
+     * @param string $is_hard_underline_fill is_hard_underline_fill
      *
      * @return $this
      */
     public function setIsHardUnderlineFill($is_hard_underline_fill)
     {
+        $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
+        if (!is_null($is_hard_underline_fill) && !in_array($is_hard_underline_fill, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'is_hard_underline_fill', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['is_hard_underline_fill'] = $is_hard_underline_fill;
 
         return $this;
@@ -807,7 +1214,7 @@ class Portion extends ResourceBase
     /**
      * Gets is_hard_underline_line
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NullableBool
+     * @return string
      */
     public function getIsHardUnderlineLine()
     {
@@ -817,12 +1224,21 @@ class Portion extends ResourceBase
     /**
      * Sets is_hard_underline_line
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NullableBool $is_hard_underline_line is_hard_underline_line
+     * @param string $is_hard_underline_line is_hard_underline_line
      *
      * @return $this
      */
     public function setIsHardUnderlineLine($is_hard_underline_line)
     {
+        $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
+        if (!is_null($is_hard_underline_line) && !in_array($is_hard_underline_line, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'is_hard_underline_line', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['is_hard_underline_line'] = $is_hard_underline_line;
 
         return $this;

@@ -34,7 +34,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostNotesSlideAddNewPortionRequest
 {
     /*
-     * Presentation name.
+     * Document name.
      */
     public $name;
 
@@ -44,7 +44,7 @@ class PostNotesSlideAddNewPortionRequest
     public $slideIndex;
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -59,7 +59,7 @@ class PostNotesSlideAddNewPortionRequest
     public $paragraphIndex;
 
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public $dto;
 
@@ -69,33 +69,33 @@ class PostNotesSlideAddNewPortionRequest
     public $password;
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public $folder;
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public $storage;
 
     /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
+     * Position of the new portion in the list. Default is at the end of the list.
      */
     public $position;
 
     /*
      * Initializes a new instance of the PostNotesSlideAddNewPortionRequest class.
      *  
-     * @param string $name Presentation name.
+     * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Shape dto.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO.
      * @param string $password Document password.
-     * @param string $folder Presentation folder.
-     * @param string $storage Presentation storage.
-     * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
+     * @param string $folder Document folder.
+     * @param string $storage Document storage.
+     * @param int $position Position of the new portion in the list. Default is at the end of the list.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
     {
@@ -112,7 +112,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function get_name()
     {
@@ -120,7 +120,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Presentation name.
+     * Document name.
      */
     public function set_name($value)
     {
@@ -144,7 +144,7 @@ class PostNotesSlideAddNewPortionRequest
         return $this;
     }
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -152,7 +152,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Shape path.
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {
@@ -192,7 +192,7 @@ class PostNotesSlideAddNewPortionRequest
         return $this;
     }
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public function get_dto()
     {
@@ -200,7 +200,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Shape dto.
+     * Portion DTO.
      */
     public function set_dto($value)
     {
@@ -224,7 +224,7 @@ class PostNotesSlideAddNewPortionRequest
         return $this;
     }
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function get_folder()
     {
@@ -232,7 +232,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Presentation folder.
+     * Document folder.
      */
     public function set_folder($value)
     {
@@ -240,7 +240,7 @@ class PostNotesSlideAddNewPortionRequest
         return $this;
     }
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function get_storage()
     {
@@ -248,7 +248,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Presentation storage.
+     * Document storage.
      */
     public function set_storage($value)
     {
@@ -256,7 +256,7 @@ class PostNotesSlideAddNewPortionRequest
         return $this;
     }
     /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
+     * Position of the new portion in the list. Default is at the end of the list.
      */
     public function get_position()
     {
@@ -264,7 +264,7 @@ class PostNotesSlideAddNewPortionRequest
     }
 
     /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
+     * Position of the new portion in the list. Default is at the end of the list.
      */
     public function set_position($value)
     {

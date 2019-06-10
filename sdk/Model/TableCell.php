@@ -66,8 +66,8 @@ class TableCell implements ArrayAccess
         'margin_right' => 'double',
         'margin_left' => 'double',
         'margin_bottom' => 'double',
-        'text_anchor_type' => '\Aspose\Slides\Cloud\Sdk\Model\TextAnchorType',
-        'text_vertical_type' => '\Aspose\Slides\Cloud\Sdk\Model\TextVerticalType',
+        'text_anchor_type' => 'string',
+        'text_vertical_type' => 'string',
         'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'border_top' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'border_right' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
@@ -235,8 +235,58 @@ class TableCell implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TEXT_ANCHOR_TYPE_TOP = 'Top';
+    const TEXT_ANCHOR_TYPE_CENTER = 'Center';
+    const TEXT_ANCHOR_TYPE_BOTTOM = 'Bottom';
+    const TEXT_ANCHOR_TYPE_JUSTIFIED = 'Justified';
+    const TEXT_ANCHOR_TYPE_DISTRIBUTED = 'Distributed';
+    const TEXT_ANCHOR_TYPE_NOT_DEFINED = 'NotDefined';
+    const TEXT_VERTICAL_TYPE_HORIZONTAL = 'Horizontal';
+    const TEXT_VERTICAL_TYPE_VERTICAL = 'Vertical';
+    const TEXT_VERTICAL_TYPE_VERTICAL270 = 'Vertical270';
+    const TEXT_VERTICAL_TYPE_WORD_ART_VERTICAL = 'WordArtVertical';
+    const TEXT_VERTICAL_TYPE_EAST_ASIAN_VERTICAL = 'EastAsianVertical';
+    const TEXT_VERTICAL_TYPE_MONGOLIAN_VERTICAL = 'MongolianVertical';
+    const TEXT_VERTICAL_TYPE_WORD_ART_VERTICAL_RIGHT_TO_LEFT = 'WordArtVerticalRightToLeft';
+    const TEXT_VERTICAL_TYPE_NOT_DEFINED = 'NotDefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTextAnchorTypeAllowableValues()
+    {
+        return [
+            self::TEXT_ANCHOR_TYPE_TOP,
+            self::TEXT_ANCHOR_TYPE_CENTER,
+            self::TEXT_ANCHOR_TYPE_BOTTOM,
+            self::TEXT_ANCHOR_TYPE_JUSTIFIED,
+            self::TEXT_ANCHOR_TYPE_DISTRIBUTED,
+            self::TEXT_ANCHOR_TYPE_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTextVerticalTypeAllowableValues()
+    {
+        return [
+            self::TEXT_VERTICAL_TYPE_HORIZONTAL,
+            self::TEXT_VERTICAL_TYPE_VERTICAL,
+            self::TEXT_VERTICAL_TYPE_VERTICAL270,
+            self::TEXT_VERTICAL_TYPE_WORD_ART_VERTICAL,
+            self::TEXT_VERTICAL_TYPE_EAST_ASIAN_VERTICAL,
+            self::TEXT_VERTICAL_TYPE_MONGOLIAN_VERTICAL,
+            self::TEXT_VERTICAL_TYPE_WORD_ART_VERTICAL_RIGHT_TO_LEFT,
+            self::TEXT_VERTICAL_TYPE_NOT_DEFINED,
+        ];
+    }
     
 
     /**
@@ -302,9 +352,25 @@ class TableCell implements ArrayAccess
         if ($this->container['text_anchor_type'] === null) {
             $invalidProperties[] = "'text_anchor_type' can't be null";
         }
+        $allowedValues = $this->getTextAnchorTypeAllowableValues();
+        if (!in_array($this->container['text_anchor_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'text_anchor_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['text_vertical_type'] === null) {
             $invalidProperties[] = "'text_vertical_type' can't be null";
         }
+        $allowedValues = $this->getTextVerticalTypeAllowableValues();
+        if (!in_array($this->container['text_vertical_type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'text_vertical_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -338,7 +404,15 @@ class TableCell implements ArrayAccess
         if ($this->container['text_anchor_type'] === null) {
             return false;
         }
+        $allowedValues = $this->getTextAnchorTypeAllowableValues();
+        if (!in_array($this->container['text_anchor_type'], $allowedValues)) {
+            return false;
+        }
         if ($this->container['text_vertical_type'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTextVerticalTypeAllowableValues();
+        if (!in_array($this->container['text_vertical_type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -516,7 +590,7 @@ class TableCell implements ArrayAccess
     /**
      * Gets text_anchor_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextAnchorType
+     * @return string
      */
     public function getTextAnchorType()
     {
@@ -526,12 +600,21 @@ class TableCell implements ArrayAccess
     /**
      * Sets text_anchor_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextAnchorType $text_anchor_type Text anchor type.
+     * @param string $text_anchor_type Text anchor type.
      *
      * @return $this
      */
     public function setTextAnchorType($text_anchor_type)
     {
+        $allowedValues = $this->getTextAnchorTypeAllowableValues();
+        if (!in_array($text_anchor_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'text_anchor_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['text_anchor_type'] = $text_anchor_type;
 
         return $this;
@@ -540,7 +623,7 @@ class TableCell implements ArrayAccess
     /**
      * Gets text_vertical_type
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\TextVerticalType
+     * @return string
      */
     public function getTextVerticalType()
     {
@@ -550,12 +633,21 @@ class TableCell implements ArrayAccess
     /**
      * Sets text_vertical_type
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\TextVerticalType $text_vertical_type The type of vertical text.
+     * @param string $text_vertical_type The type of vertical text.
      *
      * @return $this
      */
     public function setTextVerticalType($text_vertical_type)
     {
+        $allowedValues = $this->getTextVerticalTypeAllowableValues();
+        if (!in_array($text_vertical_type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'text_vertical_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['text_vertical_type'] = $text_vertical_type;
 
         return $this;
