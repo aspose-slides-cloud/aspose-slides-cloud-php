@@ -32,7 +32,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ShapeExportFormat2 Class Doc Comment
+ * ShapeExportFormat Class Doc Comment
  *
  * @category Class
  * @description Represents a format for export individual shape.
@@ -40,7 +40,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ShapeExportFormat2
+class ShapeExportFormat
 {
     /**
      * Possible values of this enum

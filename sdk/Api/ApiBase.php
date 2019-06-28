@@ -141,10 +141,11 @@ class ApiBase
         }
 
         $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        }
+        $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
         $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+        if ($this->config->getTimeout()) {
+            $defaultHeaders['x-aspose-timeout'] = $this->config->getTimeout();
+        }
         $headers = array_merge($defaultHeaders, $headerParams, $headers);
         $resourcePath = $this->parseURL($resourcePath, $queryParams);
         $request = new Request($httpMethod, $resourcePath, $headers, $httpBody);
@@ -159,8 +160,8 @@ class ApiBase
         if ($e->getCode() >= 400) {
             try {
                 $errorObject = json_decode($e->getResponseBody()->getContents());
-                if (property_exists($errorObject, "Error")) {
-                    $errorObject = $errorObject->Error;
+                if (property_exists($errorObject, "error")) {
+                    $errorObject = $errorObject->error;
                 }
                 $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
                 $e->setResponseObject($error);

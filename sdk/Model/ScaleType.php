@@ -35,7 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ScaleType Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Scale type of slide content.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

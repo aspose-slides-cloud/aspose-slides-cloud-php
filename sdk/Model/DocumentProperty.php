@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * DocumentProperty Class Doc Comment
  *
  * @category Class
+ * @description Document property.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -234,7 +235,7 @@ class DocumentProperty extends ResourceBase
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Name.
      *
      * @return $this
      */
@@ -258,7 +259,7 @@ class DocumentProperty extends ResourceBase
     /**
      * Sets value
      *
-     * @param string $value value
+     * @param string $value Value.
      *
      * @return $this
      */
@@ -282,7 +283,7 @@ class DocumentProperty extends ResourceBase
     /**
      * Sets built_in
      *
-     * @param bool $built_in built_in
+     * @param bool $built_in True for builtin property.
      *
      * @return $this
      */

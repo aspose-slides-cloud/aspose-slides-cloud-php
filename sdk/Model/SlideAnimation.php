@@ -223,7 +223,7 @@ class SlideAnimation extends ResourceBase
     /**
      * Sets main_sequence
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $main_sequence main_sequence
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $main_sequence Main sequence.
      *
      * @return $this
      */
@@ -247,7 +247,7 @@ class SlideAnimation extends ResourceBase
     /**
      * Sets interactive_sequences
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[] $interactive_sequences interactive_sequences
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[] $interactive_sequences Interactive sequence list.
      *
      * @return $this
      */

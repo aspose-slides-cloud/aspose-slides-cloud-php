@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ArrowHeadProperties Class Doc Comment
  *
  * @category Class
+ * @description Arrow head properties.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -348,7 +349,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets length
      *
-     * @param string $length length
+     * @param string $length Length.
      *
      * @return $this
      */
@@ -381,7 +382,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets style
      *
-     * @param string $style style
+     * @param string $style Style.
      *
      * @return $this
      */
@@ -414,7 +415,7 @@ class ArrowHeadProperties implements ArrayAccess
     /**
      * Sets width
      *
-     * @param string $width width
+     * @param string $width Width.
      *
      * @return $this
      */

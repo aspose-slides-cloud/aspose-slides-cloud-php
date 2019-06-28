@@ -232,7 +232,7 @@ class InteractiveSequence implements ArrayAccess
     /**
      * Sets effects
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $effects effects
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $effects Effect list.
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class InteractiveSequence implements ArrayAccess
     /**
      * Sets trigger_shape_index
      *
-     * @param int $trigger_shape_index trigger_shape_index
+     * @param int $trigger_shape_index Index of the shape that triggers the sequence.
      *
      * @return $this
      */

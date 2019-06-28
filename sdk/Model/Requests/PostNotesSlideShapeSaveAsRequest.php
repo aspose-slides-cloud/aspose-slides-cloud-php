@@ -44,7 +44,7 @@ class PostNotesSlideShapeSaveAsRequest
     public $slideIndex;
 
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -103,7 +103,7 @@ class PostNotesSlideShapeSaveAsRequest
      *  
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
-     * @param string $path 
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Index of shape starting from 1
      * @param int $format Export picture format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options
@@ -165,7 +165,7 @@ class PostNotesSlideShapeSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -173,7 +173,7 @@ class PostNotesSlideShapeSaveAsRequest
     }
 
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {

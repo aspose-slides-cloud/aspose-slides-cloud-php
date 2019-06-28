@@ -44,7 +44,7 @@ class PutNotesSlideShapeSaveAsRequest
     public $slideIndex;
 
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public $path;
 
@@ -108,7 +108,7 @@ class PutNotesSlideShapeSaveAsRequest
      *  
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
-     * @param string $path 
+     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Index of shape starting from 1
      * @param int $format Export picture format.
      * @param string $outPath Output path.
@@ -172,7 +172,7 @@ class PutNotesSlideShapeSaveAsRequest
         return $this;
     }
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public function get_path()
     {
@@ -180,7 +180,7 @@ class PutNotesSlideShapeSaveAsRequest
     }
 
     /*
-     * 
+     * Shape path (for smart art and group shapes).
      */
     public function set_path($value)
     {

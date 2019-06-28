@@ -217,7 +217,7 @@ class DocumentProperties extends ResourceBase
     /**
      * Sets list
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\DocumentProperty[] $list list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DocumentProperty[] $list Document property list.
      *
      * @return $this
      */

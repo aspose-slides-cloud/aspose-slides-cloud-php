@@ -55,7 +55,7 @@ class ErrorMessage
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'Message' => 'string'
+        'message' => 'string'
     ];
 
     /**
@@ -74,7 +74,7 @@ class ErrorMessage
      * @var string[]
      */
     protected static $setters = [
-        'Message' => 'setMessage'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -95,7 +95,7 @@ class ErrorMessage
      * @var string[]
      */
     protected static $attributeMap = [
-        'Message' => 'Message',
+        'message' => 'message',
     ];
 
     /**
@@ -116,7 +116,7 @@ class ErrorMessage
      */
     public function getMessage()
     {
-        return $this->container['Message'];
+        return $this->container['message'];
     }
 
     /**
@@ -128,7 +128,7 @@ class ErrorMessage
      */
     public function setMessage($message)
     {
-        $this->container['Message'] = $message;
+        $this->container['message'] = $message;
         return $this;
     }
 
@@ -140,7 +140,7 @@ class ErrorMessage
      */
     public function __construct(array $data = null)
     {
-        $this->container['Message'] = isset($data['Message']) ? $data['Message'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);

@@ -32,7 +32,7 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ShapeThumbnailBounds2 Class Doc Comment
+ * ShapeThumbnailBounds Class Doc Comment
  *
  * @category Class
  * @description Represents thumnail bounds settings.
@@ -40,7 +40,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ShapeThumbnailBounds2
+class ShapeThumbnailBounds
 {
     /**
      * Possible values of this enum

@@ -382,7 +382,7 @@ class SlidesApi extends ApiBase
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -13034,7 +13034,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path (required)
+     * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  int $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
@@ -13389,7 +13389,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path (required)
+     * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  int $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
@@ -16822,7 +16822,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path (required)
+     * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  int $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
@@ -17523,7 +17523,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path (required)
+     * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  int $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
@@ -20691,6 +20691,6 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
     }
 }
