@@ -88,14 +88,14 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.aspose.com';
+    protected $host = 'https://api.aspose.cloud';
 
     /*
      * The host
      *
      * @var string
      */
-    protected $authHost = 'https://api.aspose.com';
+    protected $authHost = 'https://api.aspose.cloud';
 	
     /*
      * Version of API to use, possible values are v1, v1.1, v2, v3
