@@ -56,7 +56,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bubble_size' => 'double'
+        'bubbleSize' => 'double'
     ];
 
     /**
@@ -65,7 +65,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bubble_size' => 'double'
+        'bubbleSize' => 'double'
     ];
 
     /**
@@ -95,7 +95,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'bubble_size' => 'BubbleSize'
+        'bubbleSize' => 'BubbleSize'
     ];
 
     /**
@@ -104,7 +104,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $setters = [
-        'bubble_size' => 'setBubbleSize'
+        'bubbleSize' => 'setBubbleSize'
     ];
 
     /**
@@ -113,7 +113,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $getters = [
-        'bubble_size' => 'getBubbleSize'
+        'bubbleSize' => 'getBubbleSize'
     ];
 
     /**
@@ -172,7 +172,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     {
         parent::__construct($data);
 
-        $this->container['bubble_size'] = isset($data['bubble_size']) ? $data['bubble_size'] : null;
+        $this->container['bubbleSize'] = isset($data['bubbleSize']) ? $data['bubbleSize'] : null;
     }
 
     /**
@@ -184,8 +184,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['bubble_size'] === null) {
-            $invalidProperties[] = "'bubble_size' can't be null";
+        if ($this->container['bubbleSize'] === null) {
+            $invalidProperties[] = "'bubbleSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -202,7 +202,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
             return false;
         }
 
-        if ($this->container['bubble_size'] === null) {
+        if ($this->container['bubbleSize'] === null) {
             return false;
         }
         return true;
@@ -210,25 +210,25 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
 
 
     /**
-     * Gets bubble_size
+     * Gets bubbleSize
      *
      * @return double
      */
     public function getBubbleSize()
     {
-        return $this->container['bubble_size'];
+        return $this->container['bubbleSize'];
     }
 
     /**
-     * Sets bubble_size
+     * Sets bubbleSize
      *
-     * @param double $bubble_size bubble_size
+     * @param double $bubbleSize bubbleSize
      *
      * @return $this
      */
-    public function setBubbleSize($bubble_size)
+    public function setBubbleSize($bubbleSize)
     {
-        $this->container['bubble_size'] = $bubble_size;
+        $this->container['bubbleSize'] = $bubbleSize;
 
         return $this;
     }

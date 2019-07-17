@@ -59,7 +59,7 @@ class Image extends ResourceBase
     protected static $swaggerTypes = [
         'width' => 'int',
         'height' => 'int',
-        'content_type' => 'string'
+        'contentType' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class Image extends ResourceBase
     protected static $swaggerFormats = [
         'width' => 'int32',
         'height' => 'int32',
-        'content_type' => null
+        'contentType' => null
     ];
 
     /**
@@ -102,7 +102,7 @@ class Image extends ResourceBase
     protected static $attributeMap = [
         'width' => 'Width',
         'height' => 'Height',
-        'content_type' => 'ContentType'
+        'contentType' => 'ContentType'
     ];
 
     /**
@@ -113,7 +113,7 @@ class Image extends ResourceBase
     protected static $setters = [
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'content_type' => 'setContentType'
+        'contentType' => 'setContentType'
     ];
 
     /**
@@ -124,7 +124,7 @@ class Image extends ResourceBase
     protected static $getters = [
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'content_type' => 'getContentType'
+        'contentType' => 'getContentType'
     ];
 
     /**
@@ -185,7 +185,7 @@ class Image extends ResourceBase
 
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
     }
 
     /**
@@ -277,25 +277,25 @@ class Image extends ResourceBase
     }
 
     /**
-     * Gets content_type
+     * Gets contentType
      *
      * @return string
      */
     public function getContentType()
     {
-        return $this->container['content_type'];
+        return $this->container['contentType'];
     }
 
     /**
-     * Sets content_type
+     * Sets contentType
      *
-     * @param string $content_type Get or sets the content type of an image.
+     * @param string $contentType Get or sets the content type of an image.
      *
      * @return $this
      */
-    public function setContentType($content_type)
+    public function setContentType($contentType)
     {
-        $this->container['content_type'] = $content_type;
+        $this->container['contentType'] = $contentType;
 
         return $this;
     }

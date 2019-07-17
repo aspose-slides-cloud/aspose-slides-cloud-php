@@ -58,8 +58,8 @@ class LayoutSlide extends ResourceBase
     protected static $swaggerTypes = [
         'name' => 'string',
         'type' => 'string',
-        'master_slide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'depending_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'masterSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'dependingSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class LayoutSlide extends ResourceBase
     protected static $swaggerFormats = [
         'name' => null,
         'type' => null,
-        'master_slide' => null,
-        'depending_slides' => null
+        'masterSlide' => null,
+        'dependingSlides' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class LayoutSlide extends ResourceBase
     protected static $attributeMap = [
         'name' => 'Name',
         'type' => 'Type',
-        'master_slide' => 'MasterSlide',
-        'depending_slides' => 'DependingSlides'
+        'masterSlide' => 'MasterSlide',
+        'dependingSlides' => 'DependingSlides'
     ];
 
     /**
@@ -115,8 +115,8 @@ class LayoutSlide extends ResourceBase
     protected static $setters = [
         'name' => 'setName',
         'type' => 'setType',
-        'master_slide' => 'setMasterSlide',
-        'depending_slides' => 'setDependingSlides'
+        'masterSlide' => 'setMasterSlide',
+        'dependingSlides' => 'setDependingSlides'
     ];
 
     /**
@@ -127,8 +127,8 @@ class LayoutSlide extends ResourceBase
     protected static $getters = [
         'name' => 'getName',
         'type' => 'getType',
-        'master_slide' => 'getMasterSlide',
-        'depending_slides' => 'getDependingSlides'
+        'masterSlide' => 'getMasterSlide',
+        'dependingSlides' => 'getDependingSlides'
     ];
 
     /**
@@ -272,8 +272,8 @@ class LayoutSlide extends ResourceBase
 
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['master_slide'] = isset($data['master_slide']) ? $data['master_slide'] : null;
-        $this->container['depending_slides'] = isset($data['depending_slides']) ? $data['depending_slides'] : null;
+        $this->container['masterSlide'] = isset($data['masterSlide']) ? $data['masterSlide'] : null;
+        $this->container['dependingSlides'] = isset($data['dependingSlides']) ? $data['dependingSlides'] : null;
     }
 
     /**
@@ -380,49 +380,49 @@ class LayoutSlide extends ResourceBase
     }
 
     /**
-     * Gets master_slide
+     * Gets masterSlide
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getMasterSlide()
     {
-        return $this->container['master_slide'];
+        return $this->container['masterSlide'];
     }
 
     /**
-     * Sets master_slide
+     * Sets masterSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $master_slide master_slide
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlide masterSlide
      *
      * @return $this
      */
-    public function setMasterSlide($master_slide)
+    public function setMasterSlide($masterSlide)
     {
-        $this->container['master_slide'] = $master_slide;
+        $this->container['masterSlide'] = $masterSlide;
 
         return $this;
     }
 
     /**
-     * Gets depending_slides
+     * Gets dependingSlides
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getDependingSlides()
     {
-        return $this->container['depending_slides'];
+        return $this->container['dependingSlides'];
     }
 
     /**
-     * Sets depending_slides
+     * Sets dependingSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $depending_slides depending_slides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides dependingSlides
      *
      * @return $this
      */
-    public function setDependingSlides($depending_slides)
+    public function setDependingSlides($dependingSlides)
     {
-        $this->container['depending_slides'] = $depending_slides;
+        $this->container['dependingSlides'] = $dependingSlides;
 
         return $this;
     }

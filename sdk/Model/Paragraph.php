@@ -57,26 +57,26 @@ class Paragraph extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'margin_left' => 'double',
-        'margin_right' => 'double',
-        'space_before' => 'double',
-        'space_after' => 'double',
-        'space_within' => 'double',
+        'marginLeft' => 'double',
+        'marginRight' => 'double',
+        'spaceBefore' => 'double',
+        'spaceAfter' => 'double',
+        'spaceWithin' => 'double',
         'indent' => 'double',
         'alignment' => 'string',
-        'font_alignment' => 'string',
-        'default_tab_size' => 'double',
+        'fontAlignment' => 'string',
+        'defaultTabSize' => 'double',
         'depth' => 'int',
-        'bullet_char' => 'string',
-        'bullet_height' => 'double',
-        'bullet_type' => 'string',
-        'numbered_bullet_start_with' => 'int',
-        'numbered_bullet_style' => 'string',
-        'hanging_punctuation' => 'string',
-        'east_asian_line_break' => 'string',
-        'latin_line_break' => 'string',
-        'right_to_left' => 'string',
-        'portion_list' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'bulletChar' => 'string',
+        'bulletHeight' => 'double',
+        'bulletType' => 'string',
+        'numberedBulletStartWith' => 'int',
+        'numberedBulletStyle' => 'string',
+        'hangingPunctuation' => 'string',
+        'eastAsianLineBreak' => 'string',
+        'latinLineBreak' => 'string',
+        'rightToLeft' => 'string',
+        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -85,26 +85,26 @@ class Paragraph extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'margin_left' => 'double',
-        'margin_right' => 'double',
-        'space_before' => 'double',
-        'space_after' => 'double',
-        'space_within' => 'double',
+        'marginLeft' => 'double',
+        'marginRight' => 'double',
+        'spaceBefore' => 'double',
+        'spaceAfter' => 'double',
+        'spaceWithin' => 'double',
         'indent' => 'double',
         'alignment' => null,
-        'font_alignment' => null,
-        'default_tab_size' => 'double',
+        'fontAlignment' => null,
+        'defaultTabSize' => 'double',
         'depth' => null,
-        'bullet_char' => null,
-        'bullet_height' => 'double',
-        'bullet_type' => null,
-        'numbered_bullet_start_with' => null,
-        'numbered_bullet_style' => null,
-        'hanging_punctuation' => null,
-        'east_asian_line_break' => null,
-        'latin_line_break' => null,
-        'right_to_left' => null,
-        'portion_list' => null
+        'bulletChar' => null,
+        'bulletHeight' => 'double',
+        'bulletType' => null,
+        'numberedBulletStartWith' => null,
+        'numberedBulletStyle' => null,
+        'hangingPunctuation' => null,
+        'eastAsianLineBreak' => null,
+        'latinLineBreak' => null,
+        'rightToLeft' => null,
+        'portionList' => null
     ];
 
     /**
@@ -134,26 +134,26 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'margin_left' => 'MarginLeft',
-        'margin_right' => 'MarginRight',
-        'space_before' => 'SpaceBefore',
-        'space_after' => 'SpaceAfter',
-        'space_within' => 'SpaceWithin',
+        'marginLeft' => 'MarginLeft',
+        'marginRight' => 'MarginRight',
+        'spaceBefore' => 'SpaceBefore',
+        'spaceAfter' => 'SpaceAfter',
+        'spaceWithin' => 'SpaceWithin',
         'indent' => 'Indent',
         'alignment' => 'Alignment',
-        'font_alignment' => 'FontAlignment',
-        'default_tab_size' => 'DefaultTabSize',
+        'fontAlignment' => 'FontAlignment',
+        'defaultTabSize' => 'DefaultTabSize',
         'depth' => 'Depth',
-        'bullet_char' => 'BulletChar',
-        'bullet_height' => 'BulletHeight',
-        'bullet_type' => 'BulletType',
-        'numbered_bullet_start_with' => 'NumberedBulletStartWith',
-        'numbered_bullet_style' => 'NumberedBulletStyle',
-        'hanging_punctuation' => 'HangingPunctuation',
-        'east_asian_line_break' => 'EastAsianLineBreak',
-        'latin_line_break' => 'LatinLineBreak',
-        'right_to_left' => 'RightToLeft',
-        'portion_list' => 'PortionList'
+        'bulletChar' => 'BulletChar',
+        'bulletHeight' => 'BulletHeight',
+        'bulletType' => 'BulletType',
+        'numberedBulletStartWith' => 'NumberedBulletStartWith',
+        'numberedBulletStyle' => 'NumberedBulletStyle',
+        'hangingPunctuation' => 'HangingPunctuation',
+        'eastAsianLineBreak' => 'EastAsianLineBreak',
+        'latinLineBreak' => 'LatinLineBreak',
+        'rightToLeft' => 'RightToLeft',
+        'portionList' => 'PortionList'
     ];
 
     /**
@@ -162,26 +162,26 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'margin_left' => 'setMarginLeft',
-        'margin_right' => 'setMarginRight',
-        'space_before' => 'setSpaceBefore',
-        'space_after' => 'setSpaceAfter',
-        'space_within' => 'setSpaceWithin',
+        'marginLeft' => 'setMarginLeft',
+        'marginRight' => 'setMarginRight',
+        'spaceBefore' => 'setSpaceBefore',
+        'spaceAfter' => 'setSpaceAfter',
+        'spaceWithin' => 'setSpaceWithin',
         'indent' => 'setIndent',
         'alignment' => 'setAlignment',
-        'font_alignment' => 'setFontAlignment',
-        'default_tab_size' => 'setDefaultTabSize',
+        'fontAlignment' => 'setFontAlignment',
+        'defaultTabSize' => 'setDefaultTabSize',
         'depth' => 'setDepth',
-        'bullet_char' => 'setBulletChar',
-        'bullet_height' => 'setBulletHeight',
-        'bullet_type' => 'setBulletType',
-        'numbered_bullet_start_with' => 'setNumberedBulletStartWith',
-        'numbered_bullet_style' => 'setNumberedBulletStyle',
-        'hanging_punctuation' => 'setHangingPunctuation',
-        'east_asian_line_break' => 'setEastAsianLineBreak',
-        'latin_line_break' => 'setLatinLineBreak',
-        'right_to_left' => 'setRightToLeft',
-        'portion_list' => 'setPortionList'
+        'bulletChar' => 'setBulletChar',
+        'bulletHeight' => 'setBulletHeight',
+        'bulletType' => 'setBulletType',
+        'numberedBulletStartWith' => 'setNumberedBulletStartWith',
+        'numberedBulletStyle' => 'setNumberedBulletStyle',
+        'hangingPunctuation' => 'setHangingPunctuation',
+        'eastAsianLineBreak' => 'setEastAsianLineBreak',
+        'latinLineBreak' => 'setLatinLineBreak',
+        'rightToLeft' => 'setRightToLeft',
+        'portionList' => 'setPortionList'
     ];
 
     /**
@@ -190,26 +190,26 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'margin_left' => 'getMarginLeft',
-        'margin_right' => 'getMarginRight',
-        'space_before' => 'getSpaceBefore',
-        'space_after' => 'getSpaceAfter',
-        'space_within' => 'getSpaceWithin',
+        'marginLeft' => 'getMarginLeft',
+        'marginRight' => 'getMarginRight',
+        'spaceBefore' => 'getSpaceBefore',
+        'spaceAfter' => 'getSpaceAfter',
+        'spaceWithin' => 'getSpaceWithin',
         'indent' => 'getIndent',
         'alignment' => 'getAlignment',
-        'font_alignment' => 'getFontAlignment',
-        'default_tab_size' => 'getDefaultTabSize',
+        'fontAlignment' => 'getFontAlignment',
+        'defaultTabSize' => 'getDefaultTabSize',
         'depth' => 'getDepth',
-        'bullet_char' => 'getBulletChar',
-        'bullet_height' => 'getBulletHeight',
-        'bullet_type' => 'getBulletType',
-        'numbered_bullet_start_with' => 'getNumberedBulletStartWith',
-        'numbered_bullet_style' => 'getNumberedBulletStyle',
-        'hanging_punctuation' => 'getHangingPunctuation',
-        'east_asian_line_break' => 'getEastAsianLineBreak',
-        'latin_line_break' => 'getLatinLineBreak',
-        'right_to_left' => 'getRightToLeft',
-        'portion_list' => 'getPortionList'
+        'bulletChar' => 'getBulletChar',
+        'bulletHeight' => 'getBulletHeight',
+        'bulletType' => 'getBulletType',
+        'numberedBulletStartWith' => 'getNumberedBulletStartWith',
+        'numberedBulletStyle' => 'getNumberedBulletStyle',
+        'hangingPunctuation' => 'getHangingPunctuation',
+        'eastAsianLineBreak' => 'getEastAsianLineBreak',
+        'latinLineBreak' => 'getLatinLineBreak',
+        'rightToLeft' => 'getRightToLeft',
+        'portionList' => 'getPortionList'
     ];
 
     /**
@@ -500,26 +500,26 @@ class Paragraph extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['margin_left'] = isset($data['margin_left']) ? $data['margin_left'] : null;
-        $this->container['margin_right'] = isset($data['margin_right']) ? $data['margin_right'] : null;
-        $this->container['space_before'] = isset($data['space_before']) ? $data['space_before'] : null;
-        $this->container['space_after'] = isset($data['space_after']) ? $data['space_after'] : null;
-        $this->container['space_within'] = isset($data['space_within']) ? $data['space_within'] : null;
+        $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
+        $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
+        $this->container['spaceBefore'] = isset($data['spaceBefore']) ? $data['spaceBefore'] : null;
+        $this->container['spaceAfter'] = isset($data['spaceAfter']) ? $data['spaceAfter'] : null;
+        $this->container['spaceWithin'] = isset($data['spaceWithin']) ? $data['spaceWithin'] : null;
         $this->container['indent'] = isset($data['indent']) ? $data['indent'] : null;
         $this->container['alignment'] = isset($data['alignment']) ? $data['alignment'] : null;
-        $this->container['font_alignment'] = isset($data['font_alignment']) ? $data['font_alignment'] : null;
-        $this->container['default_tab_size'] = isset($data['default_tab_size']) ? $data['default_tab_size'] : null;
+        $this->container['fontAlignment'] = isset($data['fontAlignment']) ? $data['fontAlignment'] : null;
+        $this->container['defaultTabSize'] = isset($data['defaultTabSize']) ? $data['defaultTabSize'] : null;
         $this->container['depth'] = isset($data['depth']) ? $data['depth'] : null;
-        $this->container['bullet_char'] = isset($data['bullet_char']) ? $data['bullet_char'] : null;
-        $this->container['bullet_height'] = isset($data['bullet_height']) ? $data['bullet_height'] : null;
-        $this->container['bullet_type'] = isset($data['bullet_type']) ? $data['bullet_type'] : null;
-        $this->container['numbered_bullet_start_with'] = isset($data['numbered_bullet_start_with']) ? $data['numbered_bullet_start_with'] : null;
-        $this->container['numbered_bullet_style'] = isset($data['numbered_bullet_style']) ? $data['numbered_bullet_style'] : null;
-        $this->container['hanging_punctuation'] = isset($data['hanging_punctuation']) ? $data['hanging_punctuation'] : null;
-        $this->container['east_asian_line_break'] = isset($data['east_asian_line_break']) ? $data['east_asian_line_break'] : null;
-        $this->container['latin_line_break'] = isset($data['latin_line_break']) ? $data['latin_line_break'] : null;
-        $this->container['right_to_left'] = isset($data['right_to_left']) ? $data['right_to_left'] : null;
-        $this->container['portion_list'] = isset($data['portion_list']) ? $data['portion_list'] : null;
+        $this->container['bulletChar'] = isset($data['bulletChar']) ? $data['bulletChar'] : null;
+        $this->container['bulletHeight'] = isset($data['bulletHeight']) ? $data['bulletHeight'] : null;
+        $this->container['bulletType'] = isset($data['bulletType']) ? $data['bulletType'] : null;
+        $this->container['numberedBulletStartWith'] = isset($data['numberedBulletStartWith']) ? $data['numberedBulletStartWith'] : null;
+        $this->container['numberedBulletStyle'] = isset($data['numberedBulletStyle']) ? $data['numberedBulletStyle'] : null;
+        $this->container['hangingPunctuation'] = isset($data['hangingPunctuation']) ? $data['hangingPunctuation'] : null;
+        $this->container['eastAsianLineBreak'] = isset($data['eastAsianLineBreak']) ? $data['eastAsianLineBreak'] : null;
+        $this->container['latinLineBreak'] = isset($data['latinLineBreak']) ? $data['latinLineBreak'] : null;
+        $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
+        $this->container['portionList'] = isset($data['portionList']) ? $data['portionList'] : null;
     }
 
     /**
@@ -540,57 +540,57 @@ class Paragraph extends ResourceBase
         }
 
         $allowedValues = $this->getFontAlignmentAllowableValues();
-        if (!in_array($this->container['font_alignment'], $allowedValues)) {
+        if (!in_array($this->container['fontAlignment'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'font_alignment', must be one of '%s'",
+                "invalid value for 'fontAlignment', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getBulletTypeAllowableValues();
-        if (!in_array($this->container['bullet_type'], $allowedValues)) {
+        if (!in_array($this->container['bulletType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'bullet_type', must be one of '%s'",
+                "invalid value for 'bulletType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getNumberedBulletStyleAllowableValues();
-        if (!in_array($this->container['numbered_bullet_style'], $allowedValues)) {
+        if (!in_array($this->container['numberedBulletStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'numbered_bullet_style', must be one of '%s'",
+                "invalid value for 'numberedBulletStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!in_array($this->container['hanging_punctuation'], $allowedValues)) {
+        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'hanging_punctuation', must be one of '%s'",
+                "invalid value for 'hangingPunctuation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getEastAsianLineBreakAllowableValues();
-        if (!in_array($this->container['east_asian_line_break'], $allowedValues)) {
+        if (!in_array($this->container['eastAsianLineBreak'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'east_asian_line_break', must be one of '%s'",
+                "invalid value for 'eastAsianLineBreak', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getLatinLineBreakAllowableValues();
-        if (!in_array($this->container['latin_line_break'], $allowedValues)) {
+        if (!in_array($this->container['latinLineBreak'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'latin_line_break', must be one of '%s'",
+                "invalid value for 'latinLineBreak', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!in_array($this->container['right_to_left'], $allowedValues)) {
+        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'right_to_left', must be one of '%s'",
+                "invalid value for 'rightToLeft', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -615,31 +615,31 @@ class Paragraph extends ResourceBase
             return false;
         }
         $allowedValues = $this->getFontAlignmentAllowableValues();
-        if (!in_array($this->container['font_alignment'], $allowedValues)) {
+        if (!in_array($this->container['fontAlignment'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getBulletTypeAllowableValues();
-        if (!in_array($this->container['bullet_type'], $allowedValues)) {
+        if (!in_array($this->container['bulletType'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getNumberedBulletStyleAllowableValues();
-        if (!in_array($this->container['numbered_bullet_style'], $allowedValues)) {
+        if (!in_array($this->container['numberedBulletStyle'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!in_array($this->container['hanging_punctuation'], $allowedValues)) {
+        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getEastAsianLineBreakAllowableValues();
-        if (!in_array($this->container['east_asian_line_break'], $allowedValues)) {
+        if (!in_array($this->container['eastAsianLineBreak'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getLatinLineBreakAllowableValues();
-        if (!in_array($this->container['latin_line_break'], $allowedValues)) {
+        if (!in_array($this->container['latinLineBreak'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!in_array($this->container['right_to_left'], $allowedValues)) {
+        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
             return false;
         }
         return true;
@@ -647,121 +647,121 @@ class Paragraph extends ResourceBase
 
 
     /**
-     * Gets margin_left
+     * Gets marginLeft
      *
      * @return double
      */
     public function getMarginLeft()
     {
-        return $this->container['margin_left'];
+        return $this->container['marginLeft'];
     }
 
     /**
-     * Sets margin_left
+     * Sets marginLeft
      *
-     * @param double $margin_left margin_left
+     * @param double $marginLeft marginLeft
      *
      * @return $this
      */
-    public function setMarginLeft($margin_left)
+    public function setMarginLeft($marginLeft)
     {
-        $this->container['margin_left'] = $margin_left;
+        $this->container['marginLeft'] = $marginLeft;
 
         return $this;
     }
 
     /**
-     * Gets margin_right
+     * Gets marginRight
      *
      * @return double
      */
     public function getMarginRight()
     {
-        return $this->container['margin_right'];
+        return $this->container['marginRight'];
     }
 
     /**
-     * Sets margin_right
+     * Sets marginRight
      *
-     * @param double $margin_right margin_right
+     * @param double $marginRight marginRight
      *
      * @return $this
      */
-    public function setMarginRight($margin_right)
+    public function setMarginRight($marginRight)
     {
-        $this->container['margin_right'] = $margin_right;
+        $this->container['marginRight'] = $marginRight;
 
         return $this;
     }
 
     /**
-     * Gets space_before
+     * Gets spaceBefore
      *
      * @return double
      */
     public function getSpaceBefore()
     {
-        return $this->container['space_before'];
+        return $this->container['spaceBefore'];
     }
 
     /**
-     * Sets space_before
+     * Sets spaceBefore
      *
-     * @param double $space_before space_before
+     * @param double $spaceBefore spaceBefore
      *
      * @return $this
      */
-    public function setSpaceBefore($space_before)
+    public function setSpaceBefore($spaceBefore)
     {
-        $this->container['space_before'] = $space_before;
+        $this->container['spaceBefore'] = $spaceBefore;
 
         return $this;
     }
 
     /**
-     * Gets space_after
+     * Gets spaceAfter
      *
      * @return double
      */
     public function getSpaceAfter()
     {
-        return $this->container['space_after'];
+        return $this->container['spaceAfter'];
     }
 
     /**
-     * Sets space_after
+     * Sets spaceAfter
      *
-     * @param double $space_after space_after
+     * @param double $spaceAfter spaceAfter
      *
      * @return $this
      */
-    public function setSpaceAfter($space_after)
+    public function setSpaceAfter($spaceAfter)
     {
-        $this->container['space_after'] = $space_after;
+        $this->container['spaceAfter'] = $spaceAfter;
 
         return $this;
     }
 
     /**
-     * Gets space_within
+     * Gets spaceWithin
      *
      * @return double
      */
     public function getSpaceWithin()
     {
-        return $this->container['space_within'];
+        return $this->container['spaceWithin'];
     }
 
     /**
-     * Sets space_within
+     * Sets spaceWithin
      *
-     * @param double $space_within space_within
+     * @param double $spaceWithin spaceWithin
      *
      * @return $this
      */
-    public function setSpaceWithin($space_within)
+    public function setSpaceWithin($spaceWithin)
     {
-        $this->container['space_within'] = $space_within;
+        $this->container['spaceWithin'] = $spaceWithin;
 
         return $this;
     }
@@ -824,58 +824,58 @@ class Paragraph extends ResourceBase
     }
 
     /**
-     * Gets font_alignment
+     * Gets fontAlignment
      *
      * @return string
      */
     public function getFontAlignment()
     {
-        return $this->container['font_alignment'];
+        return $this->container['fontAlignment'];
     }
 
     /**
-     * Sets font_alignment
+     * Sets fontAlignment
      *
-     * @param string $font_alignment font_alignment
+     * @param string $fontAlignment fontAlignment
      *
      * @return $this
      */
-    public function setFontAlignment($font_alignment)
+    public function setFontAlignment($fontAlignment)
     {
         $allowedValues = $this->getFontAlignmentAllowableValues();
-        if (!is_null($font_alignment) && !in_array($font_alignment, $allowedValues)) {
+        if (!is_null($fontAlignment) && !in_array($fontAlignment, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'font_alignment', must be one of '%s'",
+                    "Invalid value for 'fontAlignment', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['font_alignment'] = $font_alignment;
+        $this->container['fontAlignment'] = $fontAlignment;
 
         return $this;
     }
 
     /**
-     * Gets default_tab_size
+     * Gets defaultTabSize
      *
      * @return double
      */
     public function getDefaultTabSize()
     {
-        return $this->container['default_tab_size'];
+        return $this->container['defaultTabSize'];
     }
 
     /**
-     * Sets default_tab_size
+     * Sets defaultTabSize
      *
-     * @param double $default_tab_size default_tab_size
+     * @param double $defaultTabSize defaultTabSize
      *
      * @return $this
      */
-    public function setDefaultTabSize($default_tab_size)
+    public function setDefaultTabSize($defaultTabSize)
     {
-        $this->container['default_tab_size'] = $default_tab_size;
+        $this->container['defaultTabSize'] = $defaultTabSize;
 
         return $this;
     }
@@ -905,295 +905,295 @@ class Paragraph extends ResourceBase
     }
 
     /**
-     * Gets bullet_char
+     * Gets bulletChar
      *
      * @return string
      */
     public function getBulletChar()
     {
-        return $this->container['bullet_char'];
+        return $this->container['bulletChar'];
     }
 
     /**
-     * Sets bullet_char
+     * Sets bulletChar
      *
-     * @param string $bullet_char bullet_char
+     * @param string $bulletChar bulletChar
      *
      * @return $this
      */
-    public function setBulletChar($bullet_char)
+    public function setBulletChar($bulletChar)
     {
-        $this->container['bullet_char'] = $bullet_char;
+        $this->container['bulletChar'] = $bulletChar;
 
         return $this;
     }
 
     /**
-     * Gets bullet_height
+     * Gets bulletHeight
      *
      * @return double
      */
     public function getBulletHeight()
     {
-        return $this->container['bullet_height'];
+        return $this->container['bulletHeight'];
     }
 
     /**
-     * Sets bullet_height
+     * Sets bulletHeight
      *
-     * @param double $bullet_height bullet_height
+     * @param double $bulletHeight bulletHeight
      *
      * @return $this
      */
-    public function setBulletHeight($bullet_height)
+    public function setBulletHeight($bulletHeight)
     {
-        $this->container['bullet_height'] = $bullet_height;
+        $this->container['bulletHeight'] = $bulletHeight;
 
         return $this;
     }
 
     /**
-     * Gets bullet_type
+     * Gets bulletType
      *
      * @return string
      */
     public function getBulletType()
     {
-        return $this->container['bullet_type'];
+        return $this->container['bulletType'];
     }
 
     /**
-     * Sets bullet_type
+     * Sets bulletType
      *
-     * @param string $bullet_type bullet_type
+     * @param string $bulletType bulletType
      *
      * @return $this
      */
-    public function setBulletType($bullet_type)
+    public function setBulletType($bulletType)
     {
         $allowedValues = $this->getBulletTypeAllowableValues();
-        if (!is_null($bullet_type) && !in_array($bullet_type, $allowedValues)) {
+        if (!is_null($bulletType) && !in_array($bulletType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'bullet_type', must be one of '%s'",
+                    "Invalid value for 'bulletType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['bullet_type'] = $bullet_type;
+        $this->container['bulletType'] = $bulletType;
 
         return $this;
     }
 
     /**
-     * Gets numbered_bullet_start_with
+     * Gets numberedBulletStartWith
      *
      * @return int
      */
     public function getNumberedBulletStartWith()
     {
-        return $this->container['numbered_bullet_start_with'];
+        return $this->container['numberedBulletStartWith'];
     }
 
     /**
-     * Sets numbered_bullet_start_with
+     * Sets numberedBulletStartWith
      *
-     * @param int $numbered_bullet_start_with numbered_bullet_start_with
+     * @param int $numberedBulletStartWith numberedBulletStartWith
      *
      * @return $this
      */
-    public function setNumberedBulletStartWith($numbered_bullet_start_with)
+    public function setNumberedBulletStartWith($numberedBulletStartWith)
     {
-        $this->container['numbered_bullet_start_with'] = $numbered_bullet_start_with;
+        $this->container['numberedBulletStartWith'] = $numberedBulletStartWith;
 
         return $this;
     }
 
     /**
-     * Gets numbered_bullet_style
+     * Gets numberedBulletStyle
      *
      * @return string
      */
     public function getNumberedBulletStyle()
     {
-        return $this->container['numbered_bullet_style'];
+        return $this->container['numberedBulletStyle'];
     }
 
     /**
-     * Sets numbered_bullet_style
+     * Sets numberedBulletStyle
      *
-     * @param string $numbered_bullet_style numbered_bullet_style
+     * @param string $numberedBulletStyle numberedBulletStyle
      *
      * @return $this
      */
-    public function setNumberedBulletStyle($numbered_bullet_style)
+    public function setNumberedBulletStyle($numberedBulletStyle)
     {
         $allowedValues = $this->getNumberedBulletStyleAllowableValues();
-        if (!is_null($numbered_bullet_style) && !in_array($numbered_bullet_style, $allowedValues)) {
+        if (!is_null($numberedBulletStyle) && !in_array($numberedBulletStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'numbered_bullet_style', must be one of '%s'",
+                    "Invalid value for 'numberedBulletStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['numbered_bullet_style'] = $numbered_bullet_style;
+        $this->container['numberedBulletStyle'] = $numberedBulletStyle;
 
         return $this;
     }
 
     /**
-     * Gets hanging_punctuation
+     * Gets hangingPunctuation
      *
      * @return string
      */
     public function getHangingPunctuation()
     {
-        return $this->container['hanging_punctuation'];
+        return $this->container['hangingPunctuation'];
     }
 
     /**
-     * Sets hanging_punctuation
+     * Sets hangingPunctuation
      *
-     * @param string $hanging_punctuation hanging_punctuation
+     * @param string $hangingPunctuation hangingPunctuation
      *
      * @return $this
      */
-    public function setHangingPunctuation($hanging_punctuation)
+    public function setHangingPunctuation($hangingPunctuation)
     {
         $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!is_null($hanging_punctuation) && !in_array($hanging_punctuation, $allowedValues)) {
+        if (!is_null($hangingPunctuation) && !in_array($hangingPunctuation, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'hanging_punctuation', must be one of '%s'",
+                    "Invalid value for 'hangingPunctuation', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['hanging_punctuation'] = $hanging_punctuation;
+        $this->container['hangingPunctuation'] = $hangingPunctuation;
 
         return $this;
     }
 
     /**
-     * Gets east_asian_line_break
+     * Gets eastAsianLineBreak
      *
      * @return string
      */
     public function getEastAsianLineBreak()
     {
-        return $this->container['east_asian_line_break'];
+        return $this->container['eastAsianLineBreak'];
     }
 
     /**
-     * Sets east_asian_line_break
+     * Sets eastAsianLineBreak
      *
-     * @param string $east_asian_line_break east_asian_line_break
+     * @param string $eastAsianLineBreak eastAsianLineBreak
      *
      * @return $this
      */
-    public function setEastAsianLineBreak($east_asian_line_break)
+    public function setEastAsianLineBreak($eastAsianLineBreak)
     {
         $allowedValues = $this->getEastAsianLineBreakAllowableValues();
-        if (!is_null($east_asian_line_break) && !in_array($east_asian_line_break, $allowedValues)) {
+        if (!is_null($eastAsianLineBreak) && !in_array($eastAsianLineBreak, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'east_asian_line_break', must be one of '%s'",
+                    "Invalid value for 'eastAsianLineBreak', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['east_asian_line_break'] = $east_asian_line_break;
+        $this->container['eastAsianLineBreak'] = $eastAsianLineBreak;
 
         return $this;
     }
 
     /**
-     * Gets latin_line_break
+     * Gets latinLineBreak
      *
      * @return string
      */
     public function getLatinLineBreak()
     {
-        return $this->container['latin_line_break'];
+        return $this->container['latinLineBreak'];
     }
 
     /**
-     * Sets latin_line_break
+     * Sets latinLineBreak
      *
-     * @param string $latin_line_break latin_line_break
+     * @param string $latinLineBreak latinLineBreak
      *
      * @return $this
      */
-    public function setLatinLineBreak($latin_line_break)
+    public function setLatinLineBreak($latinLineBreak)
     {
         $allowedValues = $this->getLatinLineBreakAllowableValues();
-        if (!is_null($latin_line_break) && !in_array($latin_line_break, $allowedValues)) {
+        if (!is_null($latinLineBreak) && !in_array($latinLineBreak, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'latin_line_break', must be one of '%s'",
+                    "Invalid value for 'latinLineBreak', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['latin_line_break'] = $latin_line_break;
+        $this->container['latinLineBreak'] = $latinLineBreak;
 
         return $this;
     }
 
     /**
-     * Gets right_to_left
+     * Gets rightToLeft
      *
      * @return string
      */
     public function getRightToLeft()
     {
-        return $this->container['right_to_left'];
+        return $this->container['rightToLeft'];
     }
 
     /**
-     * Sets right_to_left
+     * Sets rightToLeft
      *
-     * @param string $right_to_left right_to_left
+     * @param string $rightToLeft rightToLeft
      *
      * @return $this
      */
-    public function setRightToLeft($right_to_left)
+    public function setRightToLeft($rightToLeft)
     {
         $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!is_null($right_to_left) && !in_array($right_to_left, $allowedValues)) {
+        if (!is_null($rightToLeft) && !in_array($rightToLeft, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'right_to_left', must be one of '%s'",
+                    "Invalid value for 'rightToLeft', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['right_to_left'] = $right_to_left;
+        $this->container['rightToLeft'] = $rightToLeft;
 
         return $this;
     }
 
     /**
-     * Gets portion_list
+     * Gets portionList
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getPortionList()
     {
-        return $this->container['portion_list'];
+        return $this->container['portionList'];
     }
 
     /**
-     * Sets portion_list
+     * Sets portionList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portion_list portion_list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionList portionList
      *
      * @return $this
      */
-    public function setPortionList($portion_list)
+    public function setPortionList($portionList)
     {
-        $this->container['portion_list'] = $portion_list;
+        $this->container['portionList'] = $portionList;
 
         return $this;
     }

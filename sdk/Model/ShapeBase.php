@@ -59,17 +59,17 @@ class ShapeBase extends ResourceBase
         'name' => 'string',
         'width' => 'double',
         'height' => 'double',
-        'alternative_text' => 'string',
+        'alternativeText' => 'string',
         'hidden' => 'bool',
         'x' => 'double',
         'y' => 'double',
-        'z_order_position' => 'int',
+        'zOrderPosition' => 'int',
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'type' => 'string',
-        'shape_type' => 'string'
+        'shapeType' => 'string'
     ];
 
     /**
@@ -81,17 +81,17 @@ class ShapeBase extends ResourceBase
         'name' => null,
         'width' => 'double',
         'height' => 'double',
-        'alternative_text' => null,
+        'alternativeText' => null,
         'hidden' => null,
         'x' => 'double',
         'y' => 'double',
-        'z_order_position' => 'int32',
+        'zOrderPosition' => 'int32',
         'shapes' => null,
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null,
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null,
         'type' => null,
-        'shape_type' => null
+        'shapeType' => null
     ];
 
     /**
@@ -124,17 +124,17 @@ class ShapeBase extends ResourceBase
         'name' => 'Name',
         'width' => 'Width',
         'height' => 'Height',
-        'alternative_text' => 'AlternativeText',
+        'alternativeText' => 'AlternativeText',
         'hidden' => 'Hidden',
         'x' => 'X',
         'y' => 'Y',
-        'z_order_position' => 'ZOrderPosition',
+        'zOrderPosition' => 'ZOrderPosition',
         'shapes' => 'Shapes',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat',
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat',
         'type' => 'Type',
-        'shape_type' => 'ShapeType'
+        'shapeType' => 'ShapeType'
     ];
 
     /**
@@ -146,17 +146,17 @@ class ShapeBase extends ResourceBase
         'name' => 'setName',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'alternative_text' => 'setAlternativeText',
+        'alternativeText' => 'setAlternativeText',
         'hidden' => 'setHidden',
         'x' => 'setX',
         'y' => 'setY',
-        'z_order_position' => 'setZOrderPosition',
+        'zOrderPosition' => 'setZOrderPosition',
         'shapes' => 'setShapes',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat',
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat',
         'type' => 'setType',
-        'shape_type' => 'setShapeType'
+        'shapeType' => 'setShapeType'
     ];
 
     /**
@@ -168,17 +168,17 @@ class ShapeBase extends ResourceBase
         'name' => 'getName',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'alternative_text' => 'getAlternativeText',
+        'alternativeText' => 'getAlternativeText',
         'hidden' => 'getHidden',
         'x' => 'getX',
         'y' => 'getY',
-        'z_order_position' => 'getZOrderPosition',
+        'zOrderPosition' => 'getZOrderPosition',
         'shapes' => 'getShapes',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat',
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat',
         'type' => 'getType',
-        'shape_type' => 'getShapeType'
+        'shapeType' => 'getShapeType'
     ];
 
     /**
@@ -682,17 +682,17 @@ class ShapeBase extends ResourceBase
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['alternative_text'] = isset($data['alternative_text']) ? $data['alternative_text'] : null;
+        $this->container['alternativeText'] = isset($data['alternativeText']) ? $data['alternativeText'] : null;
         $this->container['hidden'] = isset($data['hidden']) ? $data['hidden'] : null;
         $this->container['x'] = isset($data['x']) ? $data['x'] : null;
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
-        $this->container['z_order_position'] = isset($data['z_order_position']) ? $data['z_order_position'] : null;
+        $this->container['zOrderPosition'] = isset($data['zOrderPosition']) ? $data['zOrderPosition'] : null;
         $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['shape_type'] = isset($data['shape_type']) ? $data['shape_type'] : null;
+        $this->container['shapeType'] = isset($data['shapeType']) ? $data['shapeType'] : null;
     }
 
     /**
@@ -704,8 +704,8 @@ class ShapeBase extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['z_order_position'] === null) {
-            $invalidProperties[] = "'z_order_position' can't be null";
+        if ($this->container['zOrderPosition'] === null) {
+            $invalidProperties[] = "'zOrderPosition' can't be null";
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
@@ -716,9 +716,9 @@ class ShapeBase extends ResourceBase
         }
 
         $allowedValues = $this->getShapeTypeAllowableValues();
-        if (!in_array($this->container['shape_type'], $allowedValues)) {
+        if (!in_array($this->container['shapeType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'shape_type', must be one of '%s'",
+                "invalid value for 'shapeType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -738,7 +738,7 @@ class ShapeBase extends ResourceBase
             return false;
         }
 
-        if ($this->container['z_order_position'] === null) {
+        if ($this->container['zOrderPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getTypeAllowableValues();
@@ -746,7 +746,7 @@ class ShapeBase extends ResourceBase
             return false;
         }
         $allowedValues = $this->getShapeTypeAllowableValues();
-        if (!in_array($this->container['shape_type'], $allowedValues)) {
+        if (!in_array($this->container['shapeType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -826,25 +826,25 @@ class ShapeBase extends ResourceBase
     }
 
     /**
-     * Gets alternative_text
+     * Gets alternativeText
      *
      * @return string
      */
     public function getAlternativeText()
     {
-        return $this->container['alternative_text'];
+        return $this->container['alternativeText'];
     }
 
     /**
-     * Sets alternative_text
+     * Sets alternativeText
      *
-     * @param string $alternative_text Gets or sets the alternative text.
+     * @param string $alternativeText Gets or sets the alternative text.
      *
      * @return $this
      */
-    public function setAlternativeText($alternative_text)
+    public function setAlternativeText($alternativeText)
     {
-        $this->container['alternative_text'] = $alternative_text;
+        $this->container['alternativeText'] = $alternativeText;
 
         return $this;
     }
@@ -922,25 +922,25 @@ class ShapeBase extends ResourceBase
     }
 
     /**
-     * Gets z_order_position
+     * Gets zOrderPosition
      *
      * @return int
      */
     public function getZOrderPosition()
     {
-        return $this->container['z_order_position'];
+        return $this->container['zOrderPosition'];
     }
 
     /**
-     * Sets z_order_position
+     * Sets zOrderPosition
      *
-     * @param int $z_order_position Gets z-order position of shape
+     * @param int $zOrderPosition Gets z-order position of shape
      *
      * @return $this
      */
-    public function setZOrderPosition($z_order_position)
+    public function setZOrderPosition($zOrderPosition)
     {
-        $this->container['z_order_position'] = $z_order_position;
+        $this->container['zOrderPosition'] = $zOrderPosition;
 
         return $this;
     }
@@ -970,73 +970,73 @@ class ShapeBase extends ResourceBase
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Gets or sets the fill format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Gets or sets the fill format.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format Gets or sets the effect format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Gets or sets the effect format.
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format Gets or sets the line format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Gets or sets the line format.
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }
@@ -1075,34 +1075,34 @@ class ShapeBase extends ResourceBase
     }
 
     /**
-     * Gets shape_type
+     * Gets shapeType
      *
      * @return string
      */
     public function getShapeType()
     {
-        return $this->container['shape_type'];
+        return $this->container['shapeType'];
     }
 
     /**
-     * Sets shape_type
+     * Sets shapeType
      *
-     * @param string $shape_type shape_type
+     * @param string $shapeType shapeType
      *
      * @return $this
      */
-    public function setShapeType($shape_type)
+    public function setShapeType($shapeType)
     {
         $allowedValues = $this->getShapeTypeAllowableValues();
-        if (!is_null($shape_type) && !in_array($shape_type, $allowedValues)) {
+        if (!is_null($shapeType) && !in_array($shapeType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'shape_type', must be one of '%s'",
+                    "Invalid value for 'shapeType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['shape_type'] = $shape_type;
+        $this->container['shapeType'] = $shapeType;
 
         return $this;
     }

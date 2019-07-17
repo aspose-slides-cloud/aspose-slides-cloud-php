@@ -61,21 +61,21 @@ class Series implements ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'string',
         'name' => 'string',
-        'is_color_varied' => 'bool',
-        'inverted_solid_fill_color' => 'string',
+        'isColorVaried' => 'bool',
+        'invertedSolidFillColor' => 'string',
         'smooth' => 'bool',
-        'plot_on_second_axis' => 'bool',
+        'plotOnSecondAxis' => 'bool',
         'order' => 'int',
-        'number_format_of_y_values' => 'string',
-        'number_format_of_x_values' => 'string',
-        'number_format_of_values' => 'string',
-        'number_format_of_bubble_sizes' => 'string',
-        'invert_if_negative' => 'bool',
+        'numberFormatOfYValues' => 'string',
+        'numberFormatOfXValues' => 'string',
+        'numberFormatOfValues' => 'string',
+        'numberFormatOfBubbleSizes' => 'string',
+        'invertIfNegative' => 'bool',
         'explosion' => 'int',
         'marker' => '\Aspose\Slides\Cloud\Sdk\Model\SeriesMarker',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -86,21 +86,21 @@ class Series implements ArrayAccess
     protected static $swaggerFormats = [
         'type' => null,
         'name' => null,
-        'is_color_varied' => null,
-        'inverted_solid_fill_color' => null,
+        'isColorVaried' => null,
+        'invertedSolidFillColor' => null,
         'smooth' => null,
-        'plot_on_second_axis' => null,
+        'plotOnSecondAxis' => null,
         'order' => 'int32',
-        'number_format_of_y_values' => null,
-        'number_format_of_x_values' => null,
-        'number_format_of_values' => null,
-        'number_format_of_bubble_sizes' => null,
-        'invert_if_negative' => null,
+        'numberFormatOfYValues' => null,
+        'numberFormatOfXValues' => null,
+        'numberFormatOfValues' => null,
+        'numberFormatOfBubbleSizes' => null,
+        'invertIfNegative' => null,
         'explosion' => 'int32',
         'marker' => null,
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null
     ];
 
     /**
@@ -132,21 +132,21 @@ class Series implements ArrayAccess
     protected static $attributeMap = [
         'type' => 'Type',
         'name' => 'Name',
-        'is_color_varied' => 'IsColorVaried',
-        'inverted_solid_fill_color' => 'InvertedSolidFillColor',
+        'isColorVaried' => 'IsColorVaried',
+        'invertedSolidFillColor' => 'InvertedSolidFillColor',
         'smooth' => 'Smooth',
-        'plot_on_second_axis' => 'PlotOnSecondAxis',
+        'plotOnSecondAxis' => 'PlotOnSecondAxis',
         'order' => 'Order',
-        'number_format_of_y_values' => 'NumberFormatOfYValues',
-        'number_format_of_x_values' => 'NumberFormatOfXValues',
-        'number_format_of_values' => 'NumberFormatOfValues',
-        'number_format_of_bubble_sizes' => 'NumberFormatOfBubbleSizes',
-        'invert_if_negative' => 'InvertIfNegative',
+        'numberFormatOfYValues' => 'NumberFormatOfYValues',
+        'numberFormatOfXValues' => 'NumberFormatOfXValues',
+        'numberFormatOfValues' => 'NumberFormatOfValues',
+        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes',
+        'invertIfNegative' => 'InvertIfNegative',
         'explosion' => 'Explosion',
         'marker' => 'Marker',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat'
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat'
     ];
 
     /**
@@ -157,21 +157,21 @@ class Series implements ArrayAccess
     protected static $setters = [
         'type' => 'setType',
         'name' => 'setName',
-        'is_color_varied' => 'setIsColorVaried',
-        'inverted_solid_fill_color' => 'setInvertedSolidFillColor',
+        'isColorVaried' => 'setIsColorVaried',
+        'invertedSolidFillColor' => 'setInvertedSolidFillColor',
         'smooth' => 'setSmooth',
-        'plot_on_second_axis' => 'setPlotOnSecondAxis',
+        'plotOnSecondAxis' => 'setPlotOnSecondAxis',
         'order' => 'setOrder',
-        'number_format_of_y_values' => 'setNumberFormatOfYValues',
-        'number_format_of_x_values' => 'setNumberFormatOfXValues',
-        'number_format_of_values' => 'setNumberFormatOfValues',
-        'number_format_of_bubble_sizes' => 'setNumberFormatOfBubbleSizes',
-        'invert_if_negative' => 'setInvertIfNegative',
+        'numberFormatOfYValues' => 'setNumberFormatOfYValues',
+        'numberFormatOfXValues' => 'setNumberFormatOfXValues',
+        'numberFormatOfValues' => 'setNumberFormatOfValues',
+        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes',
+        'invertIfNegative' => 'setInvertIfNegative',
         'explosion' => 'setExplosion',
         'marker' => 'setMarker',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat'
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat'
     ];
 
     /**
@@ -182,21 +182,21 @@ class Series implements ArrayAccess
     protected static $getters = [
         'type' => 'getType',
         'name' => 'getName',
-        'is_color_varied' => 'getIsColorVaried',
-        'inverted_solid_fill_color' => 'getInvertedSolidFillColor',
+        'isColorVaried' => 'getIsColorVaried',
+        'invertedSolidFillColor' => 'getInvertedSolidFillColor',
         'smooth' => 'getSmooth',
-        'plot_on_second_axis' => 'getPlotOnSecondAxis',
+        'plotOnSecondAxis' => 'getPlotOnSecondAxis',
         'order' => 'getOrder',
-        'number_format_of_y_values' => 'getNumberFormatOfYValues',
-        'number_format_of_x_values' => 'getNumberFormatOfXValues',
-        'number_format_of_values' => 'getNumberFormatOfValues',
-        'number_format_of_bubble_sizes' => 'getNumberFormatOfBubbleSizes',
-        'invert_if_negative' => 'getInvertIfNegative',
+        'numberFormatOfYValues' => 'getNumberFormatOfYValues',
+        'numberFormatOfXValues' => 'getNumberFormatOfXValues',
+        'numberFormatOfValues' => 'getNumberFormatOfValues',
+        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes',
+        'invertIfNegative' => 'getInvertIfNegative',
         'explosion' => 'getExplosion',
         'marker' => 'getMarker',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat'
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat'
     ];
 
     /**
@@ -420,21 +420,21 @@ class Series implements ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['is_color_varied'] = isset($data['is_color_varied']) ? $data['is_color_varied'] : null;
-        $this->container['inverted_solid_fill_color'] = isset($data['inverted_solid_fill_color']) ? $data['inverted_solid_fill_color'] : null;
+        $this->container['isColorVaried'] = isset($data['isColorVaried']) ? $data['isColorVaried'] : null;
+        $this->container['invertedSolidFillColor'] = isset($data['invertedSolidFillColor']) ? $data['invertedSolidFillColor'] : null;
         $this->container['smooth'] = isset($data['smooth']) ? $data['smooth'] : null;
-        $this->container['plot_on_second_axis'] = isset($data['plot_on_second_axis']) ? $data['plot_on_second_axis'] : null;
+        $this->container['plotOnSecondAxis'] = isset($data['plotOnSecondAxis']) ? $data['plotOnSecondAxis'] : null;
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
-        $this->container['number_format_of_y_values'] = isset($data['number_format_of_y_values']) ? $data['number_format_of_y_values'] : null;
-        $this->container['number_format_of_x_values'] = isset($data['number_format_of_x_values']) ? $data['number_format_of_x_values'] : null;
-        $this->container['number_format_of_values'] = isset($data['number_format_of_values']) ? $data['number_format_of_values'] : null;
-        $this->container['number_format_of_bubble_sizes'] = isset($data['number_format_of_bubble_sizes']) ? $data['number_format_of_bubble_sizes'] : null;
-        $this->container['invert_if_negative'] = isset($data['invert_if_negative']) ? $data['invert_if_negative'] : null;
+        $this->container['numberFormatOfYValues'] = isset($data['numberFormatOfYValues']) ? $data['numberFormatOfYValues'] : null;
+        $this->container['numberFormatOfXValues'] = isset($data['numberFormatOfXValues']) ? $data['numberFormatOfXValues'] : null;
+        $this->container['numberFormatOfValues'] = isset($data['numberFormatOfValues']) ? $data['numberFormatOfValues'] : null;
+        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
+        $this->container['invertIfNegative'] = isset($data['invertIfNegative']) ? $data['invertIfNegative'] : null;
         $this->container['explosion'] = isset($data['explosion']) ? $data['explosion'] : null;
         $this->container['marker'] = isset($data['marker']) ? $data['marker'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -461,20 +461,20 @@ class Series implements ArrayAccess
             );
         }
 
-        if ($this->container['is_color_varied'] === null) {
-            $invalidProperties[] = "'is_color_varied' can't be null";
+        if ($this->container['isColorVaried'] === null) {
+            $invalidProperties[] = "'isColorVaried' can't be null";
         }
         if ($this->container['smooth'] === null) {
             $invalidProperties[] = "'smooth' can't be null";
         }
-        if ($this->container['plot_on_second_axis'] === null) {
-            $invalidProperties[] = "'plot_on_second_axis' can't be null";
+        if ($this->container['plotOnSecondAxis'] === null) {
+            $invalidProperties[] = "'plotOnSecondAxis' can't be null";
         }
         if ($this->container['order'] === null) {
             $invalidProperties[] = "'order' can't be null";
         }
-        if ($this->container['invert_if_negative'] === null) {
-            $invalidProperties[] = "'invert_if_negative' can't be null";
+        if ($this->container['invertIfNegative'] === null) {
+            $invalidProperties[] = "'invertIfNegative' can't be null";
         }
         if ($this->container['explosion'] === null) {
             $invalidProperties[] = "'explosion' can't be null";
@@ -498,19 +498,19 @@ class Series implements ArrayAccess
         if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
-        if ($this->container['is_color_varied'] === null) {
+        if ($this->container['isColorVaried'] === null) {
             return false;
         }
         if ($this->container['smooth'] === null) {
             return false;
         }
-        if ($this->container['plot_on_second_axis'] === null) {
+        if ($this->container['plotOnSecondAxis'] === null) {
             return false;
         }
         if ($this->container['order'] === null) {
             return false;
         }
-        if ($this->container['invert_if_negative'] === null) {
+        if ($this->container['invertIfNegative'] === null) {
             return false;
         }
         if ($this->container['explosion'] === null) {
@@ -578,49 +578,49 @@ class Series implements ArrayAccess
     }
 
     /**
-     * Gets is_color_varied
+     * Gets isColorVaried
      *
      * @return bool
      */
     public function getIsColorVaried()
     {
-        return $this->container['is_color_varied'];
+        return $this->container['isColorVaried'];
     }
 
     /**
-     * Sets is_color_varied
+     * Sets isColorVaried
      *
-     * @param bool $is_color_varied True if each data marker in the series has a different color.
+     * @param bool $isColorVaried True if each data marker in the series has a different color.
      *
      * @return $this
      */
-    public function setIsColorVaried($is_color_varied)
+    public function setIsColorVaried($isColorVaried)
     {
-        $this->container['is_color_varied'] = $is_color_varied;
+        $this->container['isColorVaried'] = $isColorVaried;
 
         return $this;
     }
 
     /**
-     * Gets inverted_solid_fill_color
+     * Gets invertedSolidFillColor
      *
      * @return string
      */
     public function getInvertedSolidFillColor()
     {
-        return $this->container['inverted_solid_fill_color'];
+        return $this->container['invertedSolidFillColor'];
     }
 
     /**
-     * Sets inverted_solid_fill_color
+     * Sets invertedSolidFillColor
      *
-     * @param string $inverted_solid_fill_color Invert solid color for the series.
+     * @param string $invertedSolidFillColor Invert solid color for the series.
      *
      * @return $this
      */
-    public function setInvertedSolidFillColor($inverted_solid_fill_color)
+    public function setInvertedSolidFillColor($invertedSolidFillColor)
     {
-        $this->container['inverted_solid_fill_color'] = $inverted_solid_fill_color;
+        $this->container['invertedSolidFillColor'] = $invertedSolidFillColor;
 
         return $this;
     }
@@ -650,25 +650,25 @@ class Series implements ArrayAccess
     }
 
     /**
-     * Gets plot_on_second_axis
+     * Gets plotOnSecondAxis
      *
      * @return bool
      */
     public function getPlotOnSecondAxis()
     {
-        return $this->container['plot_on_second_axis'];
+        return $this->container['plotOnSecondAxis'];
     }
 
     /**
-     * Sets plot_on_second_axis
+     * Sets plotOnSecondAxis
      *
-     * @param bool $plot_on_second_axis True if the series is plotted on second value axis.
+     * @param bool $plotOnSecondAxis True if the series is plotted on second value axis.
      *
      * @return $this
      */
-    public function setPlotOnSecondAxis($plot_on_second_axis)
+    public function setPlotOnSecondAxis($plotOnSecondAxis)
     {
-        $this->container['plot_on_second_axis'] = $plot_on_second_axis;
+        $this->container['plotOnSecondAxis'] = $plotOnSecondAxis;
 
         return $this;
     }
@@ -698,121 +698,121 @@ class Series implements ArrayAccess
     }
 
     /**
-     * Gets number_format_of_y_values
+     * Gets numberFormatOfYValues
      *
      * @return string
      */
     public function getNumberFormatOfYValues()
     {
-        return $this->container['number_format_of_y_values'];
+        return $this->container['numberFormatOfYValues'];
     }
 
     /**
-     * Sets number_format_of_y_values
+     * Sets numberFormatOfYValues
      *
-     * @param string $number_format_of_y_values The number format for the series y values.
+     * @param string $numberFormatOfYValues The number format for the series y values.
      *
      * @return $this
      */
-    public function setNumberFormatOfYValues($number_format_of_y_values)
+    public function setNumberFormatOfYValues($numberFormatOfYValues)
     {
-        $this->container['number_format_of_y_values'] = $number_format_of_y_values;
+        $this->container['numberFormatOfYValues'] = $numberFormatOfYValues;
 
         return $this;
     }
 
     /**
-     * Gets number_format_of_x_values
+     * Gets numberFormatOfXValues
      *
      * @return string
      */
     public function getNumberFormatOfXValues()
     {
-        return $this->container['number_format_of_x_values'];
+        return $this->container['numberFormatOfXValues'];
     }
 
     /**
-     * Sets number_format_of_x_values
+     * Sets numberFormatOfXValues
      *
-     * @param string $number_format_of_x_values The number format for the series x values.
+     * @param string $numberFormatOfXValues The number format for the series x values.
      *
      * @return $this
      */
-    public function setNumberFormatOfXValues($number_format_of_x_values)
+    public function setNumberFormatOfXValues($numberFormatOfXValues)
     {
-        $this->container['number_format_of_x_values'] = $number_format_of_x_values;
+        $this->container['numberFormatOfXValues'] = $numberFormatOfXValues;
 
         return $this;
     }
 
     /**
-     * Gets number_format_of_values
+     * Gets numberFormatOfValues
      *
      * @return string
      */
     public function getNumberFormatOfValues()
     {
-        return $this->container['number_format_of_values'];
+        return $this->container['numberFormatOfValues'];
     }
 
     /**
-     * Sets number_format_of_values
+     * Sets numberFormatOfValues
      *
-     * @param string $number_format_of_values The number format for the series values.
+     * @param string $numberFormatOfValues The number format for the series values.
      *
      * @return $this
      */
-    public function setNumberFormatOfValues($number_format_of_values)
+    public function setNumberFormatOfValues($numberFormatOfValues)
     {
-        $this->container['number_format_of_values'] = $number_format_of_values;
+        $this->container['numberFormatOfValues'] = $numberFormatOfValues;
 
         return $this;
     }
 
     /**
-     * Gets number_format_of_bubble_sizes
+     * Gets numberFormatOfBubbleSizes
      *
      * @return string
      */
     public function getNumberFormatOfBubbleSizes()
     {
-        return $this->container['number_format_of_bubble_sizes'];
+        return $this->container['numberFormatOfBubbleSizes'];
     }
 
     /**
-     * Sets number_format_of_bubble_sizes
+     * Sets numberFormatOfBubbleSizes
      *
-     * @param string $number_format_of_bubble_sizes The number format for the series bubble sizes.
+     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
      *
      * @return $this
      */
-    public function setNumberFormatOfBubbleSizes($number_format_of_bubble_sizes)
+    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
     {
-        $this->container['number_format_of_bubble_sizes'] = $number_format_of_bubble_sizes;
+        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
 
         return $this;
     }
 
     /**
-     * Gets invert_if_negative
+     * Gets invertIfNegative
      *
      * @return bool
      */
     public function getInvertIfNegative()
     {
-        return $this->container['invert_if_negative'];
+        return $this->container['invertIfNegative'];
     }
 
     /**
-     * Sets invert_if_negative
+     * Sets invertIfNegative
      *
-     * @param bool $invert_if_negative True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
+     * @param bool $invertIfNegative True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
      *
      * @return $this
      */
-    public function setInvertIfNegative($invert_if_negative)
+    public function setInvertIfNegative($invertIfNegative)
     {
-        $this->container['invert_if_negative'] = $invert_if_negative;
+        $this->container['invertIfNegative'] = $invertIfNegative;
 
         return $this;
     }
@@ -866,73 +866,73 @@ class Series implements ArrayAccess
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Fill properties set for the series.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Fill properties set for the series.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format Effect properties set for the series.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Effect properties set for the series.
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format Line properties set for the series.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Line properties set for the series.
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }

@@ -56,7 +56,7 @@ class MasterSlides extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'slide_list' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -65,7 +65,7 @@ class MasterSlides extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'slide_list' => null
+        'slideList' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class MasterSlides extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'slide_list' => 'SlideList'
+        'slideList' => 'SlideList'
     ];
 
     /**
@@ -104,7 +104,7 @@ class MasterSlides extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'slide_list' => 'setSlideList'
+        'slideList' => 'setSlideList'
     ];
 
     /**
@@ -113,7 +113,7 @@ class MasterSlides extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'slide_list' => 'getSlideList'
+        'slideList' => 'getSlideList'
     ];
 
     /**
@@ -172,7 +172,7 @@ class MasterSlides extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['slide_list'] = isset($data['slide_list']) ? $data['slide_list'] : null;
+        $this->container['slideList'] = isset($data['slideList']) ? $data['slideList'] : null;
     }
 
     /**
@@ -204,25 +204,25 @@ class MasterSlides extends ResourceBase
 
 
     /**
-     * Gets slide_list
+     * Gets slideList
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getSlideList()
     {
-        return $this->container['slide_list'];
+        return $this->container['slideList'];
     }
 
     /**
-     * Sets slide_list
+     * Sets slideList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slide_list slide_list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList slideList
      *
      * @return $this
      */
-    public function setSlideList($slide_list)
+    public function setSlideList($slideList)
     {
-        $this->container['slide_list'] = $slide_list;
+        $this->container['slideList'] = $slideList;
 
         return $this;
     }

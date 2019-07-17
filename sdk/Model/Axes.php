@@ -59,10 +59,10 @@ class Axes implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'horizontal_axis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
-        'vertical_axis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
-        'secondary_horizontal_axis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
-        'secondary_vertical_axis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis'
+        'horizontalAxis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
+        'verticalAxis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
+        'secondaryHorizontalAxis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis',
+        'secondaryVerticalAxis' => '\Aspose\Slides\Cloud\Sdk\Model\Axis'
     ];
 
     /**
@@ -71,10 +71,10 @@ class Axes implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'horizontal_axis' => null,
-        'vertical_axis' => null,
-        'secondary_horizontal_axis' => null,
-        'secondary_vertical_axis' => null
+        'horizontalAxis' => null,
+        'verticalAxis' => null,
+        'secondaryHorizontalAxis' => null,
+        'secondaryVerticalAxis' => null
     ];
 
     /**
@@ -104,10 +104,10 @@ class Axes implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'horizontal_axis' => 'HorizontalAxis',
-        'vertical_axis' => 'VerticalAxis',
-        'secondary_horizontal_axis' => 'SecondaryHorizontalAxis',
-        'secondary_vertical_axis' => 'SecondaryVerticalAxis'
+        'horizontalAxis' => 'HorizontalAxis',
+        'verticalAxis' => 'VerticalAxis',
+        'secondaryHorizontalAxis' => 'SecondaryHorizontalAxis',
+        'secondaryVerticalAxis' => 'SecondaryVerticalAxis'
     ];
 
     /**
@@ -116,10 +116,10 @@ class Axes implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'horizontal_axis' => 'setHorizontalAxis',
-        'vertical_axis' => 'setVerticalAxis',
-        'secondary_horizontal_axis' => 'setSecondaryHorizontalAxis',
-        'secondary_vertical_axis' => 'setSecondaryVerticalAxis'
+        'horizontalAxis' => 'setHorizontalAxis',
+        'verticalAxis' => 'setVerticalAxis',
+        'secondaryHorizontalAxis' => 'setSecondaryHorizontalAxis',
+        'secondaryVerticalAxis' => 'setSecondaryVerticalAxis'
     ];
 
     /**
@@ -128,10 +128,10 @@ class Axes implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'horizontal_axis' => 'getHorizontalAxis',
-        'vertical_axis' => 'getVerticalAxis',
-        'secondary_horizontal_axis' => 'getSecondaryHorizontalAxis',
-        'secondary_vertical_axis' => 'getSecondaryVerticalAxis'
+        'horizontalAxis' => 'getHorizontalAxis',
+        'verticalAxis' => 'getVerticalAxis',
+        'secondaryHorizontalAxis' => 'getSecondaryHorizontalAxis',
+        'secondaryVerticalAxis' => 'getSecondaryVerticalAxis'
     ];
 
     /**
@@ -194,10 +194,10 @@ class Axes implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['horizontal_axis'] = isset($data['horizontal_axis']) ? $data['horizontal_axis'] : null;
-        $this->container['vertical_axis'] = isset($data['vertical_axis']) ? $data['vertical_axis'] : null;
-        $this->container['secondary_horizontal_axis'] = isset($data['secondary_horizontal_axis']) ? $data['secondary_horizontal_axis'] : null;
-        $this->container['secondary_vertical_axis'] = isset($data['secondary_vertical_axis']) ? $data['secondary_vertical_axis'] : null;
+        $this->container['horizontalAxis'] = isset($data['horizontalAxis']) ? $data['horizontalAxis'] : null;
+        $this->container['verticalAxis'] = isset($data['verticalAxis']) ? $data['verticalAxis'] : null;
+        $this->container['secondaryHorizontalAxis'] = isset($data['secondaryHorizontalAxis']) ? $data['secondaryHorizontalAxis'] : null;
+        $this->container['secondaryVerticalAxis'] = isset($data['secondaryVerticalAxis']) ? $data['secondaryVerticalAxis'] : null;
     }
 
     /**
@@ -226,97 +226,97 @@ class Axes implements ArrayAccess
 
 
     /**
-     * Gets horizontal_axis
+     * Gets horizontalAxis
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\Axis
      */
     public function getHorizontalAxis()
     {
-        return $this->container['horizontal_axis'];
+        return $this->container['horizontalAxis'];
     }
 
     /**
-     * Sets horizontal_axis
+     * Sets horizontalAxis
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $horizontal_axis Gets or sets the horizontal axis.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $horizontalAxis Gets or sets the horizontal axis.
      *
      * @return $this
      */
-    public function setHorizontalAxis($horizontal_axis)
+    public function setHorizontalAxis($horizontalAxis)
     {
-        $this->container['horizontal_axis'] = $horizontal_axis;
+        $this->container['horizontalAxis'] = $horizontalAxis;
 
         return $this;
     }
 
     /**
-     * Gets vertical_axis
+     * Gets verticalAxis
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\Axis
      */
     public function getVerticalAxis()
     {
-        return $this->container['vertical_axis'];
+        return $this->container['verticalAxis'];
     }
 
     /**
-     * Sets vertical_axis
+     * Sets verticalAxis
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $vertical_axis Gets or sets the vertical axis.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $verticalAxis Gets or sets the vertical axis.
      *
      * @return $this
      */
-    public function setVerticalAxis($vertical_axis)
+    public function setVerticalAxis($verticalAxis)
     {
-        $this->container['vertical_axis'] = $vertical_axis;
+        $this->container['verticalAxis'] = $verticalAxis;
 
         return $this;
     }
 
     /**
-     * Gets secondary_horizontal_axis
+     * Gets secondaryHorizontalAxis
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\Axis
      */
     public function getSecondaryHorizontalAxis()
     {
-        return $this->container['secondary_horizontal_axis'];
+        return $this->container['secondaryHorizontalAxis'];
     }
 
     /**
-     * Sets secondary_horizontal_axis
+     * Sets secondaryHorizontalAxis
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $secondary_horizontal_axis Gets or sets the secondary horizontal axis.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $secondaryHorizontalAxis Gets or sets the secondary horizontal axis.
      *
      * @return $this
      */
-    public function setSecondaryHorizontalAxis($secondary_horizontal_axis)
+    public function setSecondaryHorizontalAxis($secondaryHorizontalAxis)
     {
-        $this->container['secondary_horizontal_axis'] = $secondary_horizontal_axis;
+        $this->container['secondaryHorizontalAxis'] = $secondaryHorizontalAxis;
 
         return $this;
     }
 
     /**
-     * Gets secondary_vertical_axis
+     * Gets secondaryVerticalAxis
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\Axis
      */
     public function getSecondaryVerticalAxis()
     {
-        return $this->container['secondary_vertical_axis'];
+        return $this->container['secondaryVerticalAxis'];
     }
 
     /**
-     * Sets secondary_vertical_axis
+     * Sets secondaryVerticalAxis
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $secondary_vertical_axis Gets or sets the secondary vertical axis.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Axis $secondaryVerticalAxis Gets or sets the secondary vertical axis.
      *
      * @return $this
      */
-    public function setSecondaryVerticalAxis($secondary_vertical_axis)
+    public function setSecondaryVerticalAxis($secondaryVerticalAxis)
     {
-        $this->container['secondary_vertical_axis'] = $secondary_vertical_axis;
+        $this->container['secondaryVerticalAxis'] = $secondaryVerticalAxis;
 
         return $this;
     }

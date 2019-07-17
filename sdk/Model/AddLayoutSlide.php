@@ -56,8 +56,8 @@ class AddLayoutSlide extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clone_from_file' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'clone_from_position' => 'int'
+        'cloneFromFile' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
+        'cloneFromPosition' => 'int'
     ];
 
     /**
@@ -66,8 +66,8 @@ class AddLayoutSlide extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clone_from_file' => null,
-        'clone_from_position' => 'int32'
+        'cloneFromFile' => null,
+        'cloneFromPosition' => 'int32'
     ];
 
     /**
@@ -97,8 +97,8 @@ class AddLayoutSlide extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'clone_from_file' => 'CloneFromFile',
-        'clone_from_position' => 'CloneFromPosition'
+        'cloneFromFile' => 'CloneFromFile',
+        'cloneFromPosition' => 'CloneFromPosition'
     ];
 
     /**
@@ -107,8 +107,8 @@ class AddLayoutSlide extends Task
      * @var string[]
      */
     protected static $setters = [
-        'clone_from_file' => 'setCloneFromFile',
-        'clone_from_position' => 'setCloneFromPosition'
+        'cloneFromFile' => 'setCloneFromFile',
+        'cloneFromPosition' => 'setCloneFromPosition'
     ];
 
     /**
@@ -117,8 +117,8 @@ class AddLayoutSlide extends Task
      * @var string[]
      */
     protected static $getters = [
-        'clone_from_file' => 'getCloneFromFile',
-        'clone_from_position' => 'getCloneFromPosition'
+        'cloneFromFile' => 'getCloneFromFile',
+        'cloneFromPosition' => 'getCloneFromPosition'
     ];
 
     /**
@@ -177,8 +177,8 @@ class AddLayoutSlide extends Task
     {
         parent::__construct($data);
 
-        $this->container['clone_from_file'] = isset($data['clone_from_file']) ? $data['clone_from_file'] : null;
-        $this->container['clone_from_position'] = isset($data['clone_from_position']) ? $data['clone_from_position'] : null;
+        $this->container['cloneFromFile'] = isset($data['cloneFromFile']) ? $data['cloneFromFile'] : null;
+        $this->container['cloneFromPosition'] = isset($data['cloneFromPosition']) ? $data['cloneFromPosition'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class AddLayoutSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['clone_from_position'] === null) {
-            $invalidProperties[] = "'clone_from_position' can't be null";
+        if ($this->container['cloneFromPosition'] === null) {
+            $invalidProperties[] = "'cloneFromPosition' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,7 +208,7 @@ class AddLayoutSlide extends Task
             return false;
         }
 
-        if ($this->container['clone_from_position'] === null) {
+        if ($this->container['cloneFromPosition'] === null) {
             return false;
         }
         return true;
@@ -216,49 +216,49 @@ class AddLayoutSlide extends Task
 
 
     /**
-     * Gets clone_from_file
+     * Gets cloneFromFile
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
      */
     public function getCloneFromFile()
     {
-        return $this->container['clone_from_file'];
+        return $this->container['cloneFromFile'];
     }
 
     /**
-     * Sets clone_from_file
+     * Sets cloneFromFile
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $clone_from_file clone_from_file
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $cloneFromFile cloneFromFile
      *
      * @return $this
      */
-    public function setCloneFromFile($clone_from_file)
+    public function setCloneFromFile($cloneFromFile)
     {
-        $this->container['clone_from_file'] = $clone_from_file;
+        $this->container['cloneFromFile'] = $cloneFromFile;
 
         return $this;
     }
 
     /**
-     * Gets clone_from_position
+     * Gets cloneFromPosition
      *
      * @return int
      */
     public function getCloneFromPosition()
     {
-        return $this->container['clone_from_position'];
+        return $this->container['cloneFromPosition'];
     }
 
     /**
-     * Sets clone_from_position
+     * Sets cloneFromPosition
      *
-     * @param int $clone_from_position clone_from_position
+     * @param int $cloneFromPosition cloneFromPosition
      *
      * @return $this
      */
-    public function setCloneFromPosition($clone_from_position)
+    public function setCloneFromPosition($cloneFromPosition)
     {
-        $this->container['clone_from_position'] = $clone_from_position;
+        $this->container['cloneFromPosition'] = $cloneFromPosition;
 
         return $this;
     }

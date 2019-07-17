@@ -59,8 +59,8 @@ class ResourceBase implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'self_uri' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
-        'alternate_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
+        'selfUri' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'alternateLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ResourceBase implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'self_uri' => null,
-        'alternate_links' => null
+        'selfUri' => null,
+        'alternateLinks' => null
     ];
 
     /**
@@ -100,8 +100,8 @@ class ResourceBase implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'self_uri' => 'SelfUri',
-        'alternate_links' => 'AlternateLinks'
+        'selfUri' => 'SelfUri',
+        'alternateLinks' => 'AlternateLinks'
     ];
 
     /**
@@ -110,8 +110,8 @@ class ResourceBase implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'self_uri' => 'setSelfUri',
-        'alternate_links' => 'setAlternateLinks'
+        'selfUri' => 'setSelfUri',
+        'alternateLinks' => 'setAlternateLinks'
     ];
 
     /**
@@ -120,8 +120,8 @@ class ResourceBase implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'self_uri' => 'getSelfUri',
-        'alternate_links' => 'getAlternateLinks'
+        'selfUri' => 'getSelfUri',
+        'alternateLinks' => 'getAlternateLinks'
     ];
 
     /**
@@ -184,8 +184,8 @@ class ResourceBase implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['self_uri'] = isset($data['self_uri']) ? $data['self_uri'] : null;
-        $this->container['alternate_links'] = isset($data['alternate_links']) ? $data['alternate_links'] : null;
+        $this->container['selfUri'] = isset($data['selfUri']) ? $data['selfUri'] : null;
+        $this->container['alternateLinks'] = isset($data['alternateLinks']) ? $data['alternateLinks'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -218,49 +218,49 @@ class ResourceBase implements ArrayAccess
 
 
     /**
-     * Gets self_uri
+     * Gets selfUri
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getSelfUri()
     {
-        return $this->container['self_uri'];
+        return $this->container['selfUri'];
     }
 
     /**
-     * Sets self_uri
+     * Sets selfUri
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $self_uri Gets or sets the link to this resource.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $selfUri Gets or sets the link to this resource.
      *
      * @return $this
      */
-    public function setSelfUri($self_uri)
+    public function setSelfUri($selfUri)
     {
-        $this->container['self_uri'] = $self_uri;
+        $this->container['selfUri'] = $selfUri;
 
         return $this;
     }
 
     /**
-     * Gets alternate_links
+     * Gets alternateLinks
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getAlternateLinks()
     {
-        return $this->container['alternate_links'];
+        return $this->container['alternateLinks'];
     }
 
     /**
-     * Sets alternate_links
+     * Sets alternateLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $alternate_links alternate_links
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $alternateLinks alternateLinks
      *
      * @return $this
      */
-    public function setAlternateLinks($alternate_links)
+    public function setAlternateLinks($alternateLinks)
     {
-        $this->container['alternate_links'] = $alternate_links;
+        $this->container['alternateLinks'] = $alternateLinks;
 
         return $this;
     }

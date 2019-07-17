@@ -58,7 +58,7 @@ class SaveShape extends Task
       */
     protected static $swaggerTypes = [
         'format' => 'string',
-        'shape_path' => 'string',
+        'shapePath' => 'string',
         'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
         'options' => '\Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions'
     ];
@@ -70,7 +70,7 @@ class SaveShape extends Task
       */
     protected static $swaggerFormats = [
         'format' => null,
-        'shape_path' => null,
+        'shapePath' => null,
         'output' => null,
         'options' => null
     ];
@@ -103,7 +103,7 @@ class SaveShape extends Task
      */
     protected static $attributeMap = [
         'format' => 'Format',
-        'shape_path' => 'ShapePath',
+        'shapePath' => 'ShapePath',
         'output' => 'Output',
         'options' => 'Options'
     ];
@@ -115,7 +115,7 @@ class SaveShape extends Task
      */
     protected static $setters = [
         'format' => 'setFormat',
-        'shape_path' => 'setShapePath',
+        'shapePath' => 'setShapePath',
         'output' => 'setOutput',
         'options' => 'setOptions'
     ];
@@ -127,7 +127,7 @@ class SaveShape extends Task
      */
     protected static $getters = [
         'format' => 'getFormat',
-        'shape_path' => 'getShapePath',
+        'shapePath' => 'getShapePath',
         'output' => 'getOutput',
         'options' => 'getOptions'
     ];
@@ -212,7 +212,7 @@ class SaveShape extends Task
         parent::__construct($data);
 
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['shape_path'] = isset($data['shape_path']) ? $data['shape_path'] : null;
+        $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
     }
@@ -297,25 +297,25 @@ class SaveShape extends Task
     }
 
     /**
-     * Gets shape_path
+     * Gets shapePath
      *
      * @return string
      */
     public function getShapePath()
     {
-        return $this->container['shape_path'];
+        return $this->container['shapePath'];
     }
 
     /**
-     * Sets shape_path
+     * Sets shapePath
      *
-     * @param string $shape_path Shape path.
+     * @param string $shapePath Shape path.
      *
      * @return $this
      */
-    public function setShapePath($shape_path)
+    public function setShapePath($shapePath)
     {
-        $this->container['shape_path'] = $shape_path;
+        $this->container['shapePath'] = $shapePath;
 
         return $this;
     }

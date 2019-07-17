@@ -59,7 +59,7 @@ class ErrorDetails implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'request_id' => 'string',
+        'requestId' => 'string',
         'date' => '\DateTime'
     ];
 
@@ -69,7 +69,7 @@ class ErrorDetails implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'request_id' => null,
+        'requestId' => null,
         'date' => 'date-time'
     ];
 
@@ -100,7 +100,7 @@ class ErrorDetails implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'request_id' => 'RequestId',
+        'requestId' => 'RequestId',
         'date' => 'Date'
     ];
 
@@ -110,7 +110,7 @@ class ErrorDetails implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'request_id' => 'setRequestId',
+        'requestId' => 'setRequestId',
         'date' => 'setDate'
     ];
 
@@ -120,7 +120,7 @@ class ErrorDetails implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'request_id' => 'getRequestId',
+        'requestId' => 'getRequestId',
         'date' => 'getDate'
     ];
 
@@ -184,7 +184,7 @@ class ErrorDetails implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
     }
 
@@ -220,25 +220,25 @@ class ErrorDetails implements ArrayAccess
 
 
     /**
-     * Gets request_id
+     * Gets requestId
      *
      * @return string
      */
     public function getRequestId()
     {
-        return $this->container['request_id'];
+        return $this->container['requestId'];
     }
 
     /**
-     * Sets request_id
+     * Sets requestId
      *
-     * @param string $request_id The request id
+     * @param string $requestId The request id
      *
      * @return $this
      */
-    public function setRequestId($request_id)
+    public function setRequestId($requestId)
     {
-        $this->container['request_id'] = $request_id;
+        $this->container['requestId'] = $requestId;
 
         return $this;
     }

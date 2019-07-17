@@ -57,11 +57,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'document_properties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layout_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'master_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
     ];
 
     /**
@@ -70,11 +70,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'document_properties' => null,
+        'documentProperties' => null,
         'slides' => null,
         'images' => null,
-        'layout_slides' => null,
-        'master_slides' => null
+        'layoutSlides' => null,
+        'masterSlides' => null
     ];
 
     /**
@@ -104,11 +104,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'document_properties' => 'DocumentProperties',
+        'documentProperties' => 'DocumentProperties',
         'slides' => 'Slides',
         'images' => 'Images',
-        'layout_slides' => 'LayoutSlides',
-        'master_slides' => 'MasterSlides'
+        'layoutSlides' => 'LayoutSlides',
+        'masterSlides' => 'MasterSlides'
     ];
 
     /**
@@ -117,11 +117,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'document_properties' => 'setDocumentProperties',
+        'documentProperties' => 'setDocumentProperties',
         'slides' => 'setSlides',
         'images' => 'setImages',
-        'layout_slides' => 'setLayoutSlides',
-        'master_slides' => 'setMasterSlides'
+        'layoutSlides' => 'setLayoutSlides',
+        'masterSlides' => 'setMasterSlides'
     ];
 
     /**
@@ -130,11 +130,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'document_properties' => 'getDocumentProperties',
+        'documentProperties' => 'getDocumentProperties',
         'slides' => 'getSlides',
         'images' => 'getImages',
-        'layout_slides' => 'getLayoutSlides',
-        'master_slides' => 'getMasterSlides'
+        'layoutSlides' => 'getLayoutSlides',
+        'masterSlides' => 'getMasterSlides'
     ];
 
     /**
@@ -193,11 +193,11 @@ class Document extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['document_properties'] = isset($data['document_properties']) ? $data['document_properties'] : null;
+        $this->container['documentProperties'] = isset($data['documentProperties']) ? $data['documentProperties'] : null;
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['layout_slides'] = isset($data['layout_slides']) ? $data['layout_slides'] : null;
-        $this->container['master_slides'] = isset($data['master_slides']) ? $data['master_slides'] : null;
+        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
+        $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
     }
 
     /**
@@ -229,25 +229,25 @@ class Document extends ResourceBase
 
 
     /**
-     * Gets document_properties
+     * Gets documentProperties
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getDocumentProperties()
     {
-        return $this->container['document_properties'];
+        return $this->container['documentProperties'];
     }
 
     /**
-     * Sets document_properties
+     * Sets documentProperties
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $document_properties Link to Document properties.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
      *
      * @return $this
      */
-    public function setDocumentProperties($document_properties)
+    public function setDocumentProperties($documentProperties)
     {
-        $this->container['document_properties'] = $document_properties;
+        $this->container['documentProperties'] = $documentProperties;
 
         return $this;
     }
@@ -301,49 +301,49 @@ class Document extends ResourceBase
     }
 
     /**
-     * Gets layout_slides
+     * Gets layoutSlides
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getLayoutSlides()
     {
-        return $this->container['layout_slides'];
+        return $this->container['layoutSlides'];
     }
 
     /**
-     * Sets layout_slides
+     * Sets layoutSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layout_slides Link to layout slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
      *
      * @return $this
      */
-    public function setLayoutSlides($layout_slides)
+    public function setLayoutSlides($layoutSlides)
     {
-        $this->container['layout_slides'] = $layout_slides;
+        $this->container['layoutSlides'] = $layoutSlides;
 
         return $this;
     }
 
     /**
-     * Gets master_slides
+     * Gets masterSlides
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getMasterSlides()
     {
-        return $this->container['master_slides'];
+        return $this->container['masterSlides'];
     }
 
     /**
-     * Sets master_slides
+     * Sets masterSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $master_slides Link to master slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
      *
      * @return $this
      */
-    public function setMasterSlides($master_slides)
+    public function setMasterSlides($masterSlides)
     {
-        $this->container['master_slides'] = $master_slides;
+        $this->container['masterSlides'] = $masterSlides;
 
         return $this;
     }

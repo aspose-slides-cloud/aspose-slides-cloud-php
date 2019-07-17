@@ -57,8 +57,8 @@ class MasterSlide extends ResourceBase
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'layout_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]',
-        'depending_slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]',
+        'dependingSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class MasterSlide extends ResourceBase
       */
     protected static $swaggerFormats = [
         'name' => null,
-        'layout_slides' => null,
-        'depending_slides' => null
+        'layoutSlides' => null,
+        'dependingSlides' => null
     ];
 
     /**
@@ -100,8 +100,8 @@ class MasterSlide extends ResourceBase
      */
     protected static $attributeMap = [
         'name' => 'Name',
-        'layout_slides' => 'LayoutSlides',
-        'depending_slides' => 'DependingSlides'
+        'layoutSlides' => 'LayoutSlides',
+        'dependingSlides' => 'DependingSlides'
     ];
 
     /**
@@ -111,8 +111,8 @@ class MasterSlide extends ResourceBase
      */
     protected static $setters = [
         'name' => 'setName',
-        'layout_slides' => 'setLayoutSlides',
-        'depending_slides' => 'setDependingSlides'
+        'layoutSlides' => 'setLayoutSlides',
+        'dependingSlides' => 'setDependingSlides'
     ];
 
     /**
@@ -122,8 +122,8 @@ class MasterSlide extends ResourceBase
      */
     protected static $getters = [
         'name' => 'getName',
-        'layout_slides' => 'getLayoutSlides',
-        'depending_slides' => 'getDependingSlides'
+        'layoutSlides' => 'getLayoutSlides',
+        'dependingSlides' => 'getDependingSlides'
     ];
 
     /**
@@ -183,8 +183,8 @@ class MasterSlide extends ResourceBase
         parent::__construct($data);
 
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['layout_slides'] = isset($data['layout_slides']) ? $data['layout_slides'] : null;
-        $this->container['depending_slides'] = isset($data['depending_slides']) ? $data['depending_slides'] : null;
+        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
+        $this->container['dependingSlides'] = isset($data['dependingSlides']) ? $data['dependingSlides'] : null;
     }
 
     /**
@@ -240,49 +240,49 @@ class MasterSlide extends ResourceBase
     }
 
     /**
-     * Gets layout_slides
+     * Gets layoutSlides
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getLayoutSlides()
     {
-        return $this->container['layout_slides'];
+        return $this->container['layoutSlides'];
     }
 
     /**
-     * Sets layout_slides
+     * Sets layoutSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $layout_slides layout_slides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $layoutSlides layoutSlides
      *
      * @return $this
      */
-    public function setLayoutSlides($layout_slides)
+    public function setLayoutSlides($layoutSlides)
     {
-        $this->container['layout_slides'] = $layout_slides;
+        $this->container['layoutSlides'] = $layoutSlides;
 
         return $this;
     }
 
     /**
-     * Gets depending_slides
+     * Gets dependingSlides
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getDependingSlides()
     {
-        return $this->container['depending_slides'];
+        return $this->container['dependingSlides'];
     }
 
     /**
-     * Sets depending_slides
+     * Sets dependingSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $depending_slides depending_slides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides dependingSlides
      *
      * @return $this
      */
-    public function setDependingSlides($depending_slides)
+    public function setDependingSlides($dependingSlides)
     {
-        $this->container['depending_slides'] = $depending_slides;
+        $this->container['dependingSlides'] = $dependingSlides;
 
         return $this;
     }

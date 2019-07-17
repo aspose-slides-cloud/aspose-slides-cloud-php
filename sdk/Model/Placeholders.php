@@ -56,7 +56,7 @@ class Placeholders extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'placeholder_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
+        'placeholderLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -65,7 +65,7 @@ class Placeholders extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'placeholder_links' => null
+        'placeholderLinks' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class Placeholders extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'placeholder_links' => 'PlaceholderLinks'
+        'placeholderLinks' => 'PlaceholderLinks'
     ];
 
     /**
@@ -104,7 +104,7 @@ class Placeholders extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'placeholder_links' => 'setPlaceholderLinks'
+        'placeholderLinks' => 'setPlaceholderLinks'
     ];
 
     /**
@@ -113,7 +113,7 @@ class Placeholders extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'placeholder_links' => 'getPlaceholderLinks'
+        'placeholderLinks' => 'getPlaceholderLinks'
     ];
 
     /**
@@ -172,7 +172,7 @@ class Placeholders extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['placeholder_links'] = isset($data['placeholder_links']) ? $data['placeholder_links'] : null;
+        $this->container['placeholderLinks'] = isset($data['placeholderLinks']) ? $data['placeholderLinks'] : null;
     }
 
     /**
@@ -204,25 +204,25 @@ class Placeholders extends ResourceBase
 
 
     /**
-     * Gets placeholder_links
+     * Gets placeholderLinks
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getPlaceholderLinks()
     {
-        return $this->container['placeholder_links'];
+        return $this->container['placeholderLinks'];
     }
 
     /**
-     * Sets placeholder_links
+     * Sets placeholderLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $placeholder_links placeholder_links
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $placeholderLinks placeholderLinks
      *
      * @return $this
      */
-    public function setPlaceholderLinks($placeholder_links)
+    public function setPlaceholderLinks($placeholderLinks)
     {
-        $this->container['placeholder_links'] = $placeholder_links;
+        $this->container['placeholderLinks'] = $placeholderLinks;
 
         return $this;
     }

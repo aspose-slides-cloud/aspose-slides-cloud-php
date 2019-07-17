@@ -60,7 +60,7 @@ class InteractiveSequence implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'effects' => '\Aspose\Slides\Cloud\Sdk\Model\Effect[]',
-        'trigger_shape_index' => 'int'
+        'triggerShapeIndex' => 'int'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InteractiveSequence implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'effects' => null,
-        'trigger_shape_index' => 'int32'
+        'triggerShapeIndex' => 'int32'
     ];
 
     /**
@@ -101,7 +101,7 @@ class InteractiveSequence implements ArrayAccess
      */
     protected static $attributeMap = [
         'effects' => 'Effects',
-        'trigger_shape_index' => 'TriggerShapeIndex'
+        'triggerShapeIndex' => 'TriggerShapeIndex'
     ];
 
     /**
@@ -111,7 +111,7 @@ class InteractiveSequence implements ArrayAccess
      */
     protected static $setters = [
         'effects' => 'setEffects',
-        'trigger_shape_index' => 'setTriggerShapeIndex'
+        'triggerShapeIndex' => 'setTriggerShapeIndex'
     ];
 
     /**
@@ -121,7 +121,7 @@ class InteractiveSequence implements ArrayAccess
      */
     protected static $getters = [
         'effects' => 'getEffects',
-        'trigger_shape_index' => 'getTriggerShapeIndex'
+        'triggerShapeIndex' => 'getTriggerShapeIndex'
     ];
 
     /**
@@ -185,7 +185,7 @@ class InteractiveSequence implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
-        $this->container['trigger_shape_index'] = isset($data['trigger_shape_index']) ? $data['trigger_shape_index'] : null;
+        $this->container['triggerShapeIndex'] = isset($data['triggerShapeIndex']) ? $data['triggerShapeIndex'] : null;
     }
 
     /**
@@ -197,8 +197,8 @@ class InteractiveSequence implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['trigger_shape_index'] === null) {
-            $invalidProperties[] = "'trigger_shape_index' can't be null";
+        if ($this->container['triggerShapeIndex'] === null) {
+            $invalidProperties[] = "'triggerShapeIndex' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,7 +212,7 @@ class InteractiveSequence implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['trigger_shape_index'] === null) {
+        if ($this->container['triggerShapeIndex'] === null) {
             return false;
         }
         return true;
@@ -244,25 +244,25 @@ class InteractiveSequence implements ArrayAccess
     }
 
     /**
-     * Gets trigger_shape_index
+     * Gets triggerShapeIndex
      *
      * @return int
      */
     public function getTriggerShapeIndex()
     {
-        return $this->container['trigger_shape_index'];
+        return $this->container['triggerShapeIndex'];
     }
 
     /**
-     * Sets trigger_shape_index
+     * Sets triggerShapeIndex
      *
-     * @param int $trigger_shape_index Index of the shape that triggers the sequence.
+     * @param int $triggerShapeIndex Index of the shape that triggers the sequence.
      *
      * @return $this
      */
-    public function setTriggerShapeIndex($trigger_shape_index)
+    public function setTriggerShapeIndex($triggerShapeIndex)
     {
-        $this->container['trigger_shape_index'] = $trigger_shape_index;
+        $this->container['triggerShapeIndex'] = $triggerShapeIndex;
 
         return $this;
     }

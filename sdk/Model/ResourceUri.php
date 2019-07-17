@@ -61,7 +61,7 @@ class ResourceUri implements ArrayAccess
     protected static $swaggerTypes = [
         'href' => 'string',
         'relation' => 'string',
-        'link_type' => 'string',
+        'linkType' => 'string',
         'title' => 'string'
     ];
 
@@ -73,7 +73,7 @@ class ResourceUri implements ArrayAccess
     protected static $swaggerFormats = [
         'href' => null,
         'relation' => null,
-        'link_type' => null,
+        'linkType' => null,
         'title' => null
     ];
 
@@ -106,7 +106,7 @@ class ResourceUri implements ArrayAccess
     protected static $attributeMap = [
         'href' => 'Href',
         'relation' => 'Relation',
-        'link_type' => 'LinkType',
+        'linkType' => 'LinkType',
         'title' => 'Title'
     ];
 
@@ -118,7 +118,7 @@ class ResourceUri implements ArrayAccess
     protected static $setters = [
         'href' => 'setHref',
         'relation' => 'setRelation',
-        'link_type' => 'setLinkType',
+        'linkType' => 'setLinkType',
         'title' => 'setTitle'
     ];
 
@@ -130,7 +130,7 @@ class ResourceUri implements ArrayAccess
     protected static $getters = [
         'href' => 'getHref',
         'relation' => 'getRelation',
-        'link_type' => 'getLinkType',
+        'linkType' => 'getLinkType',
         'title' => 'getTitle'
     ];
 
@@ -196,7 +196,7 @@ class ResourceUri implements ArrayAccess
     {
         $this->container['href'] = isset($data['href']) ? $data['href'] : null;
         $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
-        $this->container['link_type'] = isset($data['link_type']) ? $data['link_type'] : null;
+        $this->container['linkType'] = isset($data['linkType']) ? $data['linkType'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
@@ -274,25 +274,25 @@ class ResourceUri implements ArrayAccess
     }
 
     /**
-     * Gets link_type
+     * Gets linkType
      *
      * @return string
      */
     public function getLinkType()
     {
-        return $this->container['link_type'];
+        return $this->container['linkType'];
     }
 
     /**
-     * Sets link_type
+     * Sets linkType
      *
-     * @param string $link_type Gets or sets the type of link.
+     * @param string $linkType Gets or sets the type of link.
      *
      * @return $this
      */
-    public function setLinkType($link_type)
+    public function setLinkType($linkType)
     {
-        $this->container['link_type'] = $link_type;
+        $this->container['linkType'] = $linkType;
 
         return $this;
     }

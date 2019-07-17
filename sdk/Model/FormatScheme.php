@@ -57,10 +57,10 @@ class FormatScheme extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'background_styles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'effect_styles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'fill_styles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'line_styles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
+        'backgroundStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
+        'effectStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
+        'fillStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
+        'lineStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class FormatScheme extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'background_styles' => null,
-        'effect_styles' => null,
-        'fill_styles' => null,
-        'line_styles' => null
+        'backgroundStyles' => null,
+        'effectStyles' => null,
+        'fillStyles' => null,
+        'lineStyles' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class FormatScheme extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'background_styles' => 'BackgroundStyles',
-        'effect_styles' => 'EffectStyles',
-        'fill_styles' => 'FillStyles',
-        'line_styles' => 'LineStyles'
+        'backgroundStyles' => 'BackgroundStyles',
+        'effectStyles' => 'EffectStyles',
+        'fillStyles' => 'FillStyles',
+        'lineStyles' => 'LineStyles'
     ];
 
     /**
@@ -114,10 +114,10 @@ class FormatScheme extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'background_styles' => 'setBackgroundStyles',
-        'effect_styles' => 'setEffectStyles',
-        'fill_styles' => 'setFillStyles',
-        'line_styles' => 'setLineStyles'
+        'backgroundStyles' => 'setBackgroundStyles',
+        'effectStyles' => 'setEffectStyles',
+        'fillStyles' => 'setFillStyles',
+        'lineStyles' => 'setLineStyles'
     ];
 
     /**
@@ -126,10 +126,10 @@ class FormatScheme extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'background_styles' => 'getBackgroundStyles',
-        'effect_styles' => 'getEffectStyles',
-        'fill_styles' => 'getFillStyles',
-        'line_styles' => 'getLineStyles'
+        'backgroundStyles' => 'getBackgroundStyles',
+        'effectStyles' => 'getEffectStyles',
+        'fillStyles' => 'getFillStyles',
+        'lineStyles' => 'getLineStyles'
     ];
 
     /**
@@ -188,10 +188,10 @@ class FormatScheme extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['background_styles'] = isset($data['background_styles']) ? $data['background_styles'] : null;
-        $this->container['effect_styles'] = isset($data['effect_styles']) ? $data['effect_styles'] : null;
-        $this->container['fill_styles'] = isset($data['fill_styles']) ? $data['fill_styles'] : null;
-        $this->container['line_styles'] = isset($data['line_styles']) ? $data['line_styles'] : null;
+        $this->container['backgroundStyles'] = isset($data['backgroundStyles']) ? $data['backgroundStyles'] : null;
+        $this->container['effectStyles'] = isset($data['effectStyles']) ? $data['effectStyles'] : null;
+        $this->container['fillStyles'] = isset($data['fillStyles']) ? $data['fillStyles'] : null;
+        $this->container['lineStyles'] = isset($data['lineStyles']) ? $data['lineStyles'] : null;
     }
 
     /**
@@ -223,97 +223,97 @@ class FormatScheme extends ResourceBase
 
 
     /**
-     * Gets background_styles
+     * Gets backgroundStyles
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getBackgroundStyles()
     {
-        return $this->container['background_styles'];
+        return $this->container['backgroundStyles'];
     }
 
     /**
-     * Sets background_styles
+     * Sets backgroundStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $background_styles background_styles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $backgroundStyles backgroundStyles
      *
      * @return $this
      */
-    public function setBackgroundStyles($background_styles)
+    public function setBackgroundStyles($backgroundStyles)
     {
-        $this->container['background_styles'] = $background_styles;
+        $this->container['backgroundStyles'] = $backgroundStyles;
 
         return $this;
     }
 
     /**
-     * Gets effect_styles
+     * Gets effectStyles
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getEffectStyles()
     {
-        return $this->container['effect_styles'];
+        return $this->container['effectStyles'];
     }
 
     /**
-     * Sets effect_styles
+     * Sets effectStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $effect_styles effect_styles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $effectStyles effectStyles
      *
      * @return $this
      */
-    public function setEffectStyles($effect_styles)
+    public function setEffectStyles($effectStyles)
     {
-        $this->container['effect_styles'] = $effect_styles;
+        $this->container['effectStyles'] = $effectStyles;
 
         return $this;
     }
 
     /**
-     * Gets fill_styles
+     * Gets fillStyles
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getFillStyles()
     {
-        return $this->container['fill_styles'];
+        return $this->container['fillStyles'];
     }
 
     /**
-     * Sets fill_styles
+     * Sets fillStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $fill_styles fill_styles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $fillStyles fillStyles
      *
      * @return $this
      */
-    public function setFillStyles($fill_styles)
+    public function setFillStyles($fillStyles)
     {
-        $this->container['fill_styles'] = $fill_styles;
+        $this->container['fillStyles'] = $fillStyles;
 
         return $this;
     }
 
     /**
-     * Gets line_styles
+     * Gets lineStyles
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getLineStyles()
     {
-        return $this->container['line_styles'];
+        return $this->container['lineStyles'];
     }
 
     /**
-     * Sets line_styles
+     * Sets lineStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $line_styles line_styles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $lineStyles lineStyles
      *
      * @return $this
      */
-    public function setLineStyles($line_styles)
+    public function setLineStyles($lineStyles)
     {
-        $this->container['line_styles'] = $line_styles;
+        $this->container['lineStyles'] = $lineStyles;
 
         return $this;
     }

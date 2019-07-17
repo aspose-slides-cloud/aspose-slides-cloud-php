@@ -59,9 +59,9 @@ class ShapeImageExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'scale_x' => 'double',
-        'scale_y' => 'double',
-        'thumbnail_bounds' => 'string',
+        'scaleX' => 'double',
+        'scaleY' => 'double',
+        'thumbnailBounds' => 'string',
         'format' => 'string'
     ];
 
@@ -71,9 +71,9 @@ class ShapeImageExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'scale_x' => 'double',
-        'scale_y' => 'double',
-        'thumbnail_bounds' => null,
+        'scaleX' => 'double',
+        'scaleY' => 'double',
+        'thumbnailBounds' => null,
         'format' => null
     ];
 
@@ -104,9 +104,9 @@ class ShapeImageExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'scale_x' => 'ScaleX',
-        'scale_y' => 'ScaleY',
-        'thumbnail_bounds' => 'ThumbnailBounds',
+        'scaleX' => 'ScaleX',
+        'scaleY' => 'ScaleY',
+        'thumbnailBounds' => 'ThumbnailBounds',
         'format' => 'Format'
     ];
 
@@ -116,9 +116,9 @@ class ShapeImageExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'scale_x' => 'setScaleX',
-        'scale_y' => 'setScaleY',
-        'thumbnail_bounds' => 'setThumbnailBounds',
+        'scaleX' => 'setScaleX',
+        'scaleY' => 'setScaleY',
+        'thumbnailBounds' => 'setThumbnailBounds',
         'format' => 'setFormat'
     ];
 
@@ -128,9 +128,9 @@ class ShapeImageExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'scale_x' => 'getScaleX',
-        'scale_y' => 'getScaleY',
-        'thumbnail_bounds' => 'getThumbnailBounds',
+        'scaleX' => 'getScaleX',
+        'scaleY' => 'getScaleY',
+        'thumbnailBounds' => 'getThumbnailBounds',
         'format' => 'getFormat'
     ];
 
@@ -211,9 +211,9 @@ class ShapeImageExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['scale_x'] = isset($data['scale_x']) ? $data['scale_x'] : null;
-        $this->container['scale_y'] = isset($data['scale_y']) ? $data['scale_y'] : null;
-        $this->container['thumbnail_bounds'] = isset($data['thumbnail_bounds']) ? $data['thumbnail_bounds'] : null;
+        $this->container['scaleX'] = isset($data['scaleX']) ? $data['scaleX'] : null;
+        $this->container['scaleY'] = isset($data['scaleY']) ? $data['scaleY'] : null;
+        $this->container['thumbnailBounds'] = isset($data['thumbnailBounds']) ? $data['thumbnailBounds'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
     }
 
@@ -226,19 +226,19 @@ class ShapeImageExportOptions implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['scale_x'] === null) {
-            $invalidProperties[] = "'scale_x' can't be null";
+        if ($this->container['scaleX'] === null) {
+            $invalidProperties[] = "'scaleX' can't be null";
         }
-        if ($this->container['scale_y'] === null) {
-            $invalidProperties[] = "'scale_y' can't be null";
+        if ($this->container['scaleY'] === null) {
+            $invalidProperties[] = "'scaleY' can't be null";
         }
-        if ($this->container['thumbnail_bounds'] === null) {
-            $invalidProperties[] = "'thumbnail_bounds' can't be null";
+        if ($this->container['thumbnailBounds'] === null) {
+            $invalidProperties[] = "'thumbnailBounds' can't be null";
         }
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
-        if (!in_array($this->container['thumbnail_bounds'], $allowedValues)) {
+        if (!in_array($this->container['thumbnailBounds'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'thumbnail_bounds', must be one of '%s'",
+                "invalid value for 'thumbnailBounds', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -255,17 +255,17 @@ class ShapeImageExportOptions implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['scale_x'] === null) {
+        if ($this->container['scaleX'] === null) {
             return false;
         }
-        if ($this->container['scale_y'] === null) {
+        if ($this->container['scaleY'] === null) {
             return false;
         }
-        if ($this->container['thumbnail_bounds'] === null) {
+        if ($this->container['thumbnailBounds'] === null) {
             return false;
         }
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
-        if (!in_array($this->container['thumbnail_bounds'], $allowedValues)) {
+        if (!in_array($this->container['thumbnailBounds'], $allowedValues)) {
             return false;
         }
         return true;
@@ -273,82 +273,82 @@ class ShapeImageExportOptions implements ArrayAccess
 
 
     /**
-     * Gets scale_x
+     * Gets scaleX
      *
      * @return double
      */
     public function getScaleX()
     {
-        return $this->container['scale_x'];
+        return $this->container['scaleX'];
     }
 
     /**
-     * Sets scale_x
+     * Sets scaleX
      *
-     * @param double $scale_x Get or sets scaling ratio by X axis.
+     * @param double $scaleX Get or sets scaling ratio by X axis.
      *
      * @return $this
      */
-    public function setScaleX($scale_x)
+    public function setScaleX($scaleX)
     {
-        $this->container['scale_x'] = $scale_x;
+        $this->container['scaleX'] = $scaleX;
 
         return $this;
     }
 
     /**
-     * Gets scale_y
+     * Gets scaleY
      *
      * @return double
      */
     public function getScaleY()
     {
-        return $this->container['scale_y'];
+        return $this->container['scaleY'];
     }
 
     /**
-     * Sets scale_y
+     * Sets scaleY
      *
-     * @param double $scale_y Get or sets scaling ratio by Y axis.
+     * @param double $scaleY Get or sets scaling ratio by Y axis.
      *
      * @return $this
      */
-    public function setScaleY($scale_y)
+    public function setScaleY($scaleY)
     {
-        $this->container['scale_y'] = $scale_y;
+        $this->container['scaleY'] = $scaleY;
 
         return $this;
     }
 
     /**
-     * Gets thumbnail_bounds
+     * Gets thumbnailBounds
      *
      * @return string
      */
     public function getThumbnailBounds()
     {
-        return $this->container['thumbnail_bounds'];
+        return $this->container['thumbnailBounds'];
     }
 
     /**
-     * Sets thumbnail_bounds
+     * Sets thumbnailBounds
      *
-     * @param string $thumbnail_bounds Get or sets thumbnail bounds
+     * @param string $thumbnailBounds Get or sets thumbnail bounds
      *
      * @return $this
      */
-    public function setThumbnailBounds($thumbnail_bounds)
+    public function setThumbnailBounds($thumbnailBounds)
     {
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
-        if (!in_array($thumbnail_bounds, $allowedValues)) {
+        if (!in_array($thumbnailBounds, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'thumbnail_bounds', must be one of '%s'",
+                    "Invalid value for 'thumbnailBounds', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['thumbnail_bounds'] = $thumbnail_bounds;
+        $this->container['thumbnailBounds'] = $thumbnailBounds;
 
         return $this;
     }

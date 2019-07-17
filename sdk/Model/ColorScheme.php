@@ -65,7 +65,7 @@ class ColorScheme extends ResourceBase
         'accent6' => 'string',
         'dark1' => 'string',
         'dark2' => 'string',
-        'followed_hyperlink' => 'string',
+        'followedHyperlink' => 'string',
         'hyperlink' => 'string',
         'light1' => 'string',
         'light2' => 'string'
@@ -85,7 +85,7 @@ class ColorScheme extends ResourceBase
         'accent6' => null,
         'dark1' => null,
         'dark2' => null,
-        'followed_hyperlink' => null,
+        'followedHyperlink' => null,
         'hyperlink' => null,
         'light1' => null,
         'light2' => null
@@ -126,7 +126,7 @@ class ColorScheme extends ResourceBase
         'accent6' => 'Accent6',
         'dark1' => 'Dark1',
         'dark2' => 'Dark2',
-        'followed_hyperlink' => 'FollowedHyperlink',
+        'followedHyperlink' => 'FollowedHyperlink',
         'hyperlink' => 'Hyperlink',
         'light1' => 'Light1',
         'light2' => 'Light2'
@@ -146,7 +146,7 @@ class ColorScheme extends ResourceBase
         'accent6' => 'setAccent6',
         'dark1' => 'setDark1',
         'dark2' => 'setDark2',
-        'followed_hyperlink' => 'setFollowedHyperlink',
+        'followedHyperlink' => 'setFollowedHyperlink',
         'hyperlink' => 'setHyperlink',
         'light1' => 'setLight1',
         'light2' => 'setLight2'
@@ -166,7 +166,7 @@ class ColorScheme extends ResourceBase
         'accent6' => 'getAccent6',
         'dark1' => 'getDark1',
         'dark2' => 'getDark2',
-        'followed_hyperlink' => 'getFollowedHyperlink',
+        'followedHyperlink' => 'getFollowedHyperlink',
         'hyperlink' => 'getHyperlink',
         'light1' => 'getLight1',
         'light2' => 'getLight2'
@@ -236,7 +236,7 @@ class ColorScheme extends ResourceBase
         $this->container['accent6'] = isset($data['accent6']) ? $data['accent6'] : null;
         $this->container['dark1'] = isset($data['dark1']) ? $data['dark1'] : null;
         $this->container['dark2'] = isset($data['dark2']) ? $data['dark2'] : null;
-        $this->container['followed_hyperlink'] = isset($data['followed_hyperlink']) ? $data['followed_hyperlink'] : null;
+        $this->container['followedHyperlink'] = isset($data['followedHyperlink']) ? $data['followedHyperlink'] : null;
         $this->container['hyperlink'] = isset($data['hyperlink']) ? $data['hyperlink'] : null;
         $this->container['light1'] = isset($data['light1']) ? $data['light1'] : null;
         $this->container['light2'] = isset($data['light2']) ? $data['light2'] : null;
@@ -463,25 +463,25 @@ class ColorScheme extends ResourceBase
     }
 
     /**
-     * Gets followed_hyperlink
+     * Gets followedHyperlink
      *
      * @return string
      */
     public function getFollowedHyperlink()
     {
-        return $this->container['followed_hyperlink'];
+        return $this->container['followedHyperlink'];
     }
 
     /**
-     * Sets followed_hyperlink
+     * Sets followedHyperlink
      *
-     * @param string $followed_hyperlink followed_hyperlink
+     * @param string $followedHyperlink followedHyperlink
      *
      * @return $this
      */
-    public function setFollowedHyperlink($followed_hyperlink)
+    public function setFollowedHyperlink($followedHyperlink)
     {
-        $this->container['followed_hyperlink'] = $followed_hyperlink;
+        $this->container['followedHyperlink'] = $followedHyperlink;
 
         return $this;
     }

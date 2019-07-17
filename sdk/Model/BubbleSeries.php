@@ -57,8 +57,8 @@ class BubbleSeries extends Series
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data_point_type' => 'string',
-        'data_points' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]'
+        'dataPointType' => 'string',
+        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]'
     ];
 
     /**
@@ -67,8 +67,8 @@ class BubbleSeries extends Series
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data_point_type' => null,
-        'data_points' => null
+        'dataPointType' => null,
+        'dataPoints' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_point_type' => 'DataPointType',
-        'data_points' => 'DataPoints'
+        'dataPointType' => 'DataPointType',
+        'dataPoints' => 'DataPoints'
     ];
 
     /**
@@ -108,8 +108,8 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $setters = [
-        'data_point_type' => 'setDataPointType',
-        'data_points' => 'setDataPoints'
+        'dataPointType' => 'setDataPointType',
+        'dataPoints' => 'setDataPoints'
     ];
 
     /**
@@ -118,8 +118,8 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $getters = [
-        'data_point_type' => 'getDataPointType',
-        'data_points' => 'getDataPoints'
+        'dataPointType' => 'getDataPointType',
+        'dataPoints' => 'getDataPoints'
     ];
 
     /**
@@ -195,8 +195,8 @@ class BubbleSeries extends Series
     {
         parent::__construct($data);
 
-        $this->container['data_point_type'] = isset($data['data_point_type']) ? $data['data_point_type'] : null;
-        $this->container['data_points'] = isset($data['data_points']) ? $data['data_points'] : null;
+        $this->container['dataPointType'] = isset($data['dataPointType']) ? $data['dataPointType'] : null;
+        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
     }
 
     /**
@@ -208,13 +208,13 @@ class BubbleSeries extends Series
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['data_point_type'] === null) {
-            $invalidProperties[] = "'data_point_type' can't be null";
+        if ($this->container['dataPointType'] === null) {
+            $invalidProperties[] = "'dataPointType' can't be null";
         }
         $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($this->container['data_point_type'], $allowedValues)) {
+        if (!in_array($this->container['dataPointType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'data_point_type', must be one of '%s'",
+                "invalid value for 'dataPointType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -234,11 +234,11 @@ class BubbleSeries extends Series
             return false;
         }
 
-        if ($this->container['data_point_type'] === null) {
+        if ($this->container['dataPointType'] === null) {
             return false;
         }
         $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($this->container['data_point_type'], $allowedValues)) {
+        if (!in_array($this->container['dataPointType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -246,58 +246,58 @@ class BubbleSeries extends Series
 
 
     /**
-     * Gets data_point_type
+     * Gets dataPointType
      *
      * @return string
      */
     public function getDataPointType()
     {
-        return $this->container['data_point_type'];
+        return $this->container['dataPointType'];
     }
 
     /**
-     * Sets data_point_type
+     * Sets dataPointType
      *
-     * @param string $data_point_type Data point type.
+     * @param string $dataPointType Data point type.
      *
      * @return $this
      */
-    public function setDataPointType($data_point_type)
+    public function setDataPointType($dataPointType)
     {
         $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($data_point_type, $allowedValues)) {
+        if (!in_array($dataPointType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'data_point_type', must be one of '%s'",
+                    "Invalid value for 'dataPointType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['data_point_type'] = $data_point_type;
+        $this->container['dataPointType'] = $dataPointType;
 
         return $this;
     }
 
     /**
-     * Gets data_points
+     * Gets dataPoints
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
      */
     public function getDataPoints()
     {
-        return $this->container['data_points'];
+        return $this->container['dataPoints'];
     }
 
     /**
-     * Sets data_points
+     * Sets dataPoints
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $data_points Gets or sets the values.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
      *
      * @return $this
      */
-    public function setDataPoints($data_points)
+    public function setDataPoints($dataPoints)
     {
-        $this->container['data_points'] = $data_points;
+        $this->container['dataPoints'] = $dataPoints;
 
         return $this;
     }

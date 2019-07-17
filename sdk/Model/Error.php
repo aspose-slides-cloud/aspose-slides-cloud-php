@@ -62,7 +62,7 @@ class Error implements ArrayAccess
         'code' => 'string',
         'message' => 'string',
         'description' => 'string',
-        'inner_error' => '\Aspose\Slides\Cloud\Sdk\Model\ErrorDetails'
+        'innerError' => '\Aspose\Slides\Cloud\Sdk\Model\ErrorDetails'
     ];
 
     /**
@@ -74,7 +74,7 @@ class Error implements ArrayAccess
         'code' => null,
         'message' => null,
         'description' => null,
-        'inner_error' => null
+        'innerError' => null
     ];
 
     /**
@@ -107,7 +107,7 @@ class Error implements ArrayAccess
         'code' => 'Code',
         'message' => 'Message',
         'description' => 'Description',
-        'inner_error' => 'InnerError'
+        'innerError' => 'InnerError'
     ];
 
     /**
@@ -119,7 +119,7 @@ class Error implements ArrayAccess
         'code' => 'setCode',
         'message' => 'setMessage',
         'description' => 'setDescription',
-        'inner_error' => 'setInnerError'
+        'innerError' => 'setInnerError'
     ];
 
     /**
@@ -131,7 +131,7 @@ class Error implements ArrayAccess
         'code' => 'getCode',
         'message' => 'getMessage',
         'description' => 'getDescription',
-        'inner_error' => 'getInnerError'
+        'innerError' => 'getInnerError'
     ];
 
     /**
@@ -197,7 +197,7 @@ class Error implements ArrayAccess
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['inner_error'] = isset($data['inner_error']) ? $data['inner_error'] : null;
+        $this->container['innerError'] = isset($data['innerError']) ? $data['innerError'] : null;
     }
 
     /**
@@ -298,25 +298,25 @@ class Error implements ArrayAccess
     }
 
     /**
-     * Gets inner_error
+     * Gets innerError
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ErrorDetails
      */
     public function getInnerError()
     {
-        return $this->container['inner_error'];
+        return $this->container['innerError'];
     }
 
     /**
-     * Sets inner_error
+     * Sets innerError
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ErrorDetails $inner_error Inner Error
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ErrorDetails $innerError Inner Error
      *
      * @return $this
      */
-    public function setInnerError($inner_error)
+    public function setInnerError($innerError)
     {
-        $this->container['inner_error'] = $inner_error;
+        $this->container['innerError'] = $innerError;
 
         return $this;
     }

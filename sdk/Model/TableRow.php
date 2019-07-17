@@ -60,7 +60,7 @@ class TableRow implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'cells' => '\Aspose\Slides\Cloud\Sdk\Model\TableCell[]',
-        'minimal_height' => 'double',
+        'minimalHeight' => 'double',
         'height' => 'double'
     ];
 
@@ -71,7 +71,7 @@ class TableRow implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'cells' => null,
-        'minimal_height' => 'double',
+        'minimalHeight' => 'double',
         'height' => 'double'
     ];
 
@@ -103,7 +103,7 @@ class TableRow implements ArrayAccess
      */
     protected static $attributeMap = [
         'cells' => 'Cells',
-        'minimal_height' => 'MinimalHeight',
+        'minimalHeight' => 'MinimalHeight',
         'height' => 'Height'
     ];
 
@@ -114,7 +114,7 @@ class TableRow implements ArrayAccess
      */
     protected static $setters = [
         'cells' => 'setCells',
-        'minimal_height' => 'setMinimalHeight',
+        'minimalHeight' => 'setMinimalHeight',
         'height' => 'setHeight'
     ];
 
@@ -125,7 +125,7 @@ class TableRow implements ArrayAccess
      */
     protected static $getters = [
         'cells' => 'getCells',
-        'minimal_height' => 'getMinimalHeight',
+        'minimalHeight' => 'getMinimalHeight',
         'height' => 'getHeight'
     ];
 
@@ -190,7 +190,7 @@ class TableRow implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cells'] = isset($data['cells']) ? $data['cells'] : null;
-        $this->container['minimal_height'] = isset($data['minimal_height']) ? $data['minimal_height'] : null;
+        $this->container['minimalHeight'] = isset($data['minimalHeight']) ? $data['minimalHeight'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
     }
 
@@ -203,8 +203,8 @@ class TableRow implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['minimal_height'] === null) {
-            $invalidProperties[] = "'minimal_height' can't be null";
+        if ($this->container['minimalHeight'] === null) {
+            $invalidProperties[] = "'minimalHeight' can't be null";
         }
         if ($this->container['height'] === null) {
             $invalidProperties[] = "'height' can't be null";
@@ -221,7 +221,7 @@ class TableRow implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['minimal_height'] === null) {
+        if ($this->container['minimalHeight'] === null) {
             return false;
         }
         if ($this->container['height'] === null) {
@@ -256,25 +256,25 @@ class TableRow implements ArrayAccess
     }
 
     /**
-     * Gets minimal_height
+     * Gets minimalHeight
      *
      * @return double
      */
     public function getMinimalHeight()
     {
-        return $this->container['minimal_height'];
+        return $this->container['minimalHeight'];
     }
 
     /**
-     * Sets minimal_height
+     * Sets minimalHeight
      *
-     * @param double $minimal_height Minimal height of the row.
+     * @param double $minimalHeight Minimal height of the row.
      *
      * @return $this
      */
-    public function setMinimalHeight($minimal_height)
+    public function setMinimalHeight($minimalHeight)
     {
-        $this->container['minimal_height'] = $minimal_height;
+        $this->container['minimalHeight'] = $minimalHeight;
 
         return $this;
     }

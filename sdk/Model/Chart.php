@@ -57,16 +57,16 @@ class Chart extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'chart_type' => 'string',
+        'chartType' => 'string',
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
         'categories' => 'string[]',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
-        'back_wall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
-        'side_wall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
+        'backWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
+        'sideWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'floor' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'legend' => '\Aspose\Slides\Cloud\Sdk\Model\Legend',
         'axes' => '\Aspose\Slides\Cloud\Sdk\Model\Axes',
-        'plot_area' => '\Aspose\Slides\Cloud\Sdk\Model\PlotArea'
+        'plotArea' => '\Aspose\Slides\Cloud\Sdk\Model\PlotArea'
     ];
 
     /**
@@ -75,16 +75,16 @@ class Chart extends ShapeBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'chart_type' => null,
+        'chartType' => null,
         'series' => null,
         'categories' => null,
         'title' => null,
-        'back_wall' => null,
-        'side_wall' => null,
+        'backWall' => null,
+        'sideWall' => null,
         'floor' => null,
         'legend' => null,
         'axes' => null,
-        'plot_area' => null
+        'plotArea' => null
     ];
 
     /**
@@ -114,16 +114,16 @@ class Chart extends ShapeBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'chart_type' => 'ChartType',
+        'chartType' => 'ChartType',
         'series' => 'Series',
         'categories' => 'Categories',
         'title' => 'Title',
-        'back_wall' => 'BackWall',
-        'side_wall' => 'SideWall',
+        'backWall' => 'BackWall',
+        'sideWall' => 'SideWall',
         'floor' => 'Floor',
         'legend' => 'Legend',
         'axes' => 'Axes',
-        'plot_area' => 'PlotArea'
+        'plotArea' => 'PlotArea'
     ];
 
     /**
@@ -132,16 +132,16 @@ class Chart extends ShapeBase
      * @var string[]
      */
     protected static $setters = [
-        'chart_type' => 'setChartType',
+        'chartType' => 'setChartType',
         'series' => 'setSeries',
         'categories' => 'setCategories',
         'title' => 'setTitle',
-        'back_wall' => 'setBackWall',
-        'side_wall' => 'setSideWall',
+        'backWall' => 'setBackWall',
+        'sideWall' => 'setSideWall',
         'floor' => 'setFloor',
         'legend' => 'setLegend',
         'axes' => 'setAxes',
-        'plot_area' => 'setPlotArea'
+        'plotArea' => 'setPlotArea'
     ];
 
     /**
@@ -150,16 +150,16 @@ class Chart extends ShapeBase
      * @var string[]
      */
     protected static $getters = [
-        'chart_type' => 'getChartType',
+        'chartType' => 'getChartType',
         'series' => 'getSeries',
         'categories' => 'getCategories',
         'title' => 'getTitle',
-        'back_wall' => 'getBackWall',
-        'side_wall' => 'getSideWall',
+        'backWall' => 'getBackWall',
+        'sideWall' => 'getSideWall',
         'floor' => 'getFloor',
         'legend' => 'getLegend',
         'axes' => 'getAxes',
-        'plot_area' => 'getPlotArea'
+        'plotArea' => 'getPlotArea'
     ];
 
     /**
@@ -377,16 +377,16 @@ class Chart extends ShapeBase
     {
         parent::__construct($data);
 
-        $this->container['chart_type'] = isset($data['chart_type']) ? $data['chart_type'] : null;
+        $this->container['chartType'] = isset($data['chartType']) ? $data['chartType'] : null;
         $this->container['series'] = isset($data['series']) ? $data['series'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['back_wall'] = isset($data['back_wall']) ? $data['back_wall'] : null;
-        $this->container['side_wall'] = isset($data['side_wall']) ? $data['side_wall'] : null;
+        $this->container['backWall'] = isset($data['backWall']) ? $data['backWall'] : null;
+        $this->container['sideWall'] = isset($data['sideWall']) ? $data['sideWall'] : null;
         $this->container['floor'] = isset($data['floor']) ? $data['floor'] : null;
         $this->container['legend'] = isset($data['legend']) ? $data['legend'] : null;
         $this->container['axes'] = isset($data['axes']) ? $data['axes'] : null;
-        $this->container['plot_area'] = isset($data['plot_area']) ? $data['plot_area'] : null;
+        $this->container['plotArea'] = isset($data['plotArea']) ? $data['plotArea'] : null;
     }
 
     /**
@@ -398,13 +398,13 @@ class Chart extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['chart_type'] === null) {
-            $invalidProperties[] = "'chart_type' can't be null";
+        if ($this->container['chartType'] === null) {
+            $invalidProperties[] = "'chartType' can't be null";
         }
         $allowedValues = $this->getChartTypeAllowableValues();
-        if (!in_array($this->container['chart_type'], $allowedValues)) {
+        if (!in_array($this->container['chartType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'chart_type', must be one of '%s'",
+                "invalid value for 'chartType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -424,11 +424,11 @@ class Chart extends ShapeBase
             return false;
         }
 
-        if ($this->container['chart_type'] === null) {
+        if ($this->container['chartType'] === null) {
             return false;
         }
         $allowedValues = $this->getChartTypeAllowableValues();
-        if (!in_array($this->container['chart_type'], $allowedValues)) {
+        if (!in_array($this->container['chartType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -436,34 +436,34 @@ class Chart extends ShapeBase
 
 
     /**
-     * Gets chart_type
+     * Gets chartType
      *
      * @return string
      */
     public function getChartType()
     {
-        return $this->container['chart_type'];
+        return $this->container['chartType'];
     }
 
     /**
-     * Sets chart_type
+     * Sets chartType
      *
-     * @param string $chart_type Gets or sets the type of the chart.
+     * @param string $chartType Gets or sets the type of the chart.
      *
      * @return $this
      */
-    public function setChartType($chart_type)
+    public function setChartType($chartType)
     {
         $allowedValues = $this->getChartTypeAllowableValues();
-        if (!in_array($chart_type, $allowedValues)) {
+        if (!in_array($chartType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'chart_type', must be one of '%s'",
+                    "Invalid value for 'chartType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['chart_type'] = $chart_type;
+        $this->container['chartType'] = $chartType;
 
         return $this;
     }
@@ -541,49 +541,49 @@ class Chart extends ShapeBase
     }
 
     /**
-     * Gets back_wall
+     * Gets backWall
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ChartWall
      */
     public function getBackWall()
     {
-        return $this->container['back_wall'];
+        return $this->container['backWall'];
     }
 
     /**
-     * Sets back_wall
+     * Sets backWall
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartWall $back_wall Gets or sets the back wall.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartWall $backWall Gets or sets the back wall.
      *
      * @return $this
      */
-    public function setBackWall($back_wall)
+    public function setBackWall($backWall)
     {
-        $this->container['back_wall'] = $back_wall;
+        $this->container['backWall'] = $backWall;
 
         return $this;
     }
 
     /**
-     * Gets side_wall
+     * Gets sideWall
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ChartWall
      */
     public function getSideWall()
     {
-        return $this->container['side_wall'];
+        return $this->container['sideWall'];
     }
 
     /**
-     * Sets side_wall
+     * Sets sideWall
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartWall $side_wall Gets or sets the side wall.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartWall $sideWall Gets or sets the side wall.
      *
      * @return $this
      */
-    public function setSideWall($side_wall)
+    public function setSideWall($sideWall)
     {
-        $this->container['side_wall'] = $side_wall;
+        $this->container['sideWall'] = $sideWall;
 
         return $this;
     }
@@ -661,25 +661,25 @@ class Chart extends ShapeBase
     }
 
     /**
-     * Gets plot_area
+     * Gets plotArea
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\PlotArea
      */
     public function getPlotArea()
     {
-        return $this->container['plot_area'];
+        return $this->container['plotArea'];
     }
 
     /**
-     * Sets plot_area
+     * Sets plotArea
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PlotArea $plot_area Gets or sets the plot area.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PlotArea $plotArea Gets or sets the plot area.
      *
      * @return $this
      */
-    public function setPlotArea($plot_area)
+    public function setPlotArea($plotArea)
     {
-        $this->container['plot_area'] = $plot_area;
+        $this->container['plotArea'] = $plotArea;
 
         return $this;
     }

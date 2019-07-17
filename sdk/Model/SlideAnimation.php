@@ -57,8 +57,8 @@ class SlideAnimation extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'main_sequence' => '\Aspose\Slides\Cloud\Sdk\Model\Effect[]',
-        'interactive_sequences' => '\Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[]'
+        'mainSequence' => '\Aspose\Slides\Cloud\Sdk\Model\Effect[]',
+        'interactiveSequences' => '\Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[]'
     ];
 
     /**
@@ -67,8 +67,8 @@ class SlideAnimation extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'main_sequence' => null,
-        'interactive_sequences' => null
+        'mainSequence' => null,
+        'interactiveSequences' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class SlideAnimation extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'main_sequence' => 'MainSequence',
-        'interactive_sequences' => 'InteractiveSequences'
+        'mainSequence' => 'MainSequence',
+        'interactiveSequences' => 'InteractiveSequences'
     ];
 
     /**
@@ -108,8 +108,8 @@ class SlideAnimation extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'main_sequence' => 'setMainSequence',
-        'interactive_sequences' => 'setInteractiveSequences'
+        'mainSequence' => 'setMainSequence',
+        'interactiveSequences' => 'setInteractiveSequences'
     ];
 
     /**
@@ -118,8 +118,8 @@ class SlideAnimation extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'main_sequence' => 'getMainSequence',
-        'interactive_sequences' => 'getInteractiveSequences'
+        'mainSequence' => 'getMainSequence',
+        'interactiveSequences' => 'getInteractiveSequences'
     ];
 
     /**
@@ -178,8 +178,8 @@ class SlideAnimation extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['main_sequence'] = isset($data['main_sequence']) ? $data['main_sequence'] : null;
-        $this->container['interactive_sequences'] = isset($data['interactive_sequences']) ? $data['interactive_sequences'] : null;
+        $this->container['mainSequence'] = isset($data['mainSequence']) ? $data['mainSequence'] : null;
+        $this->container['interactiveSequences'] = isset($data['interactiveSequences']) ? $data['interactiveSequences'] : null;
     }
 
     /**
@@ -211,49 +211,49 @@ class SlideAnimation extends ResourceBase
 
 
     /**
-     * Gets main_sequence
+     * Gets mainSequence
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\Effect[]
      */
     public function getMainSequence()
     {
-        return $this->container['main_sequence'];
+        return $this->container['mainSequence'];
     }
 
     /**
-     * Sets main_sequence
+     * Sets mainSequence
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $main_sequence Main sequence.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect[] $mainSequence Main sequence.
      *
      * @return $this
      */
-    public function setMainSequence($main_sequence)
+    public function setMainSequence($mainSequence)
     {
-        $this->container['main_sequence'] = $main_sequence;
+        $this->container['mainSequence'] = $mainSequence;
 
         return $this;
     }
 
     /**
-     * Gets interactive_sequences
+     * Gets interactiveSequences
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[]
      */
     public function getInteractiveSequences()
     {
-        return $this->container['interactive_sequences'];
+        return $this->container['interactiveSequences'];
     }
 
     /**
-     * Sets interactive_sequences
+     * Sets interactiveSequences
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[] $interactive_sequences Interactive sequence list.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence[] $interactiveSequences Interactive sequence list.
      *
      * @return $this
      */
-    public function setInteractiveSequences($interactive_sequences)
+    public function setInteractiveSequences($interactiveSequences)
     {
-        $this->container['interactive_sequences'] = $interactive_sequences;
+        $this->container['interactiveSequences'] = $interactiveSequences;
 
         return $this;
     }

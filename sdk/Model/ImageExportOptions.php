@@ -57,10 +57,10 @@ class ImageExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'notes_position' => 'string',
-        'comments_position' => 'string',
-        'comments_area_width' => 'int',
-        'comments_area_color' => 'string'
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string'
     ];
 
     /**
@@ -69,10 +69,10 @@ class ImageExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'notes_position' => null,
-        'comments_position' => null,
-        'comments_area_width' => 'int32',
-        'comments_area_color' => null
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class ImageExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'notes_position' => 'NotesPosition',
-        'comments_position' => 'CommentsPosition',
-        'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor'
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor'
     ];
 
     /**
@@ -114,10 +114,10 @@ class ImageExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'notes_position' => 'setNotesPosition',
-        'comments_position' => 'setCommentsPosition',
-        'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor'
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor'
     ];
 
     /**
@@ -126,10 +126,10 @@ class ImageExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'notes_position' => 'getNotesPosition',
-        'comments_position' => 'getCommentsPosition',
-        'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor'
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor'
     ];
 
     /**
@@ -222,10 +222,10 @@ class ImageExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['notes_position'] = isset($data['notes_position']) ? $data['notes_position'] : null;
-        $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
-        $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
-        $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
     }
 
     /**
@@ -237,30 +237,30 @@ class ImageExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['notes_position'] === null) {
-            $invalidProperties[] = "'notes_position' can't be null";
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notes_position', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_position'] === null) {
-            $invalidProperties[] = "'comments_position' can't be null";
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'comments_position', must be one of '%s'",
+                "invalid value for 'commentsPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_area_width'] === null) {
-            $invalidProperties[] = "'comments_area_width' can't be null";
+        if ($this->container['commentsAreaWidth'] === null) {
+            $invalidProperties[] = "'commentsAreaWidth' can't be null";
         }
         return $invalidProperties;
     }
@@ -277,21 +277,21 @@ class ImageExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['notes_position'] === null) {
+        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_position'] === null) {
+        if ($this->container['commentsPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_area_width'] === null) {
+        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
         return true;
@@ -299,115 +299,115 @@ class ImageExportOptions extends ExportOptions
 
 
     /**
-     * Gets notes_position
+     * Gets notesPosition
      *
      * @return string
      */
     public function getNotesPosition()
     {
-        return $this->container['notes_position'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets notes_position
+     * Sets notesPosition
      *
-     * @param string $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setNotesPosition($notes_position)
+    public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notes_position, $allowedValues)) {
+        if (!in_array($notesPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'notes_position', must be one of '%s'",
+                    "Invalid value for 'notesPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['notes_position'] = $notes_position;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_position
+     * Gets commentsPosition
      *
      * @return string
      */
     public function getCommentsPosition()
     {
-        return $this->container['comments_position'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets comments_position
+     * Sets commentsPosition
      *
-     * @param string $comments_position Gets or sets the position of the comments on the page.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setCommentsPosition($comments_position)
+    public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($comments_position, $allowedValues)) {
+        if (!in_array($commentsPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'comments_position', must be one of '%s'",
+                    "Invalid value for 'commentsPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['comments_position'] = $comments_position;
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
     public function getCommentsAreaWidth()
     {
-        return $this->container['comments_area_width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets comments_area_width
+     * Sets commentsAreaWidth
      *
-     * @param int $comments_area_width Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaWidth($comments_area_width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['comments_area_width'] = $comments_area_width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_color
+     * Gets commentsAreaColor
      *
      * @return string
      */
     public function getCommentsAreaColor()
     {
-        return $this->container['comments_area_color'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets comments_area_color
+     * Sets commentsAreaColor
      *
-     * @param string $comments_area_color Gets or sets the color of comments area (Applies only if comments are displayed on the right).
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaColor($comments_area_color)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['comments_area_color'] = $comments_area_color;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }

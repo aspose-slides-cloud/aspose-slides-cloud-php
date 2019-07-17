@@ -56,9 +56,9 @@ class XpsExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'show_hidden_slides' => 'bool',
-        'save_metafiles_as_png' => 'bool',
-        'draw_slides_frame' => 'bool'
+        'showHiddenSlides' => 'bool',
+        'saveMetafilesAsPng' => 'bool',
+        'drawSlidesFrame' => 'bool'
     ];
 
     /**
@@ -67,9 +67,9 @@ class XpsExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'show_hidden_slides' => null,
-        'save_metafiles_as_png' => null,
-        'draw_slides_frame' => null
+        'showHiddenSlides' => null,
+        'saveMetafilesAsPng' => null,
+        'drawSlidesFrame' => null
     ];
 
     /**
@@ -99,9 +99,9 @@ class XpsExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'show_hidden_slides' => 'ShowHiddenSlides',
-        'save_metafiles_as_png' => 'SaveMetafilesAsPng',
-        'draw_slides_frame' => 'DrawSlidesFrame'
+        'showHiddenSlides' => 'ShowHiddenSlides',
+        'saveMetafilesAsPng' => 'SaveMetafilesAsPng',
+        'drawSlidesFrame' => 'DrawSlidesFrame'
     ];
 
     /**
@@ -110,9 +110,9 @@ class XpsExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'show_hidden_slides' => 'setShowHiddenSlides',
-        'save_metafiles_as_png' => 'setSaveMetafilesAsPng',
-        'draw_slides_frame' => 'setDrawSlidesFrame'
+        'showHiddenSlides' => 'setShowHiddenSlides',
+        'saveMetafilesAsPng' => 'setSaveMetafilesAsPng',
+        'drawSlidesFrame' => 'setDrawSlidesFrame'
     ];
 
     /**
@@ -121,9 +121,9 @@ class XpsExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'show_hidden_slides' => 'getShowHiddenSlides',
-        'save_metafiles_as_png' => 'getSaveMetafilesAsPng',
-        'draw_slides_frame' => 'getDrawSlidesFrame'
+        'showHiddenSlides' => 'getShowHiddenSlides',
+        'saveMetafilesAsPng' => 'getSaveMetafilesAsPng',
+        'drawSlidesFrame' => 'getDrawSlidesFrame'
     ];
 
     /**
@@ -182,9 +182,9 @@ class XpsExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['show_hidden_slides'] = isset($data['show_hidden_slides']) ? $data['show_hidden_slides'] : null;
-        $this->container['save_metafiles_as_png'] = isset($data['save_metafiles_as_png']) ? $data['save_metafiles_as_png'] : null;
-        $this->container['draw_slides_frame'] = isset($data['draw_slides_frame']) ? $data['draw_slides_frame'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['saveMetafilesAsPng'] = isset($data['saveMetafilesAsPng']) ? $data['saveMetafilesAsPng'] : null;
+        $this->container['drawSlidesFrame'] = isset($data['drawSlidesFrame']) ? $data['drawSlidesFrame'] : null;
     }
 
     /**
@@ -196,14 +196,14 @@ class XpsExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['show_hidden_slides'] === null) {
-            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        if ($this->container['showHiddenSlides'] === null) {
+            $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
-        if ($this->container['save_metafiles_as_png'] === null) {
-            $invalidProperties[] = "'save_metafiles_as_png' can't be null";
+        if ($this->container['saveMetafilesAsPng'] === null) {
+            $invalidProperties[] = "'saveMetafilesAsPng' can't be null";
         }
-        if ($this->container['draw_slides_frame'] === null) {
-            $invalidProperties[] = "'draw_slides_frame' can't be null";
+        if ($this->container['drawSlidesFrame'] === null) {
+            $invalidProperties[] = "'drawSlidesFrame' can't be null";
         }
         return $invalidProperties;
     }
@@ -220,13 +220,13 @@ class XpsExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['show_hidden_slides'] === null) {
+        if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
-        if ($this->container['save_metafiles_as_png'] === null) {
+        if ($this->container['saveMetafilesAsPng'] === null) {
             return false;
         }
-        if ($this->container['draw_slides_frame'] === null) {
+        if ($this->container['drawSlidesFrame'] === null) {
             return false;
         }
         return true;
@@ -234,73 +234,73 @@ class XpsExportOptions extends ExportOptions
 
 
     /**
-     * Gets show_hidden_slides
+     * Gets showHiddenSlides
      *
      * @return bool
      */
     public function getShowHiddenSlides()
     {
-        return $this->container['show_hidden_slides'];
+        return $this->container['showHiddenSlides'];
     }
 
     /**
-     * Sets show_hidden_slides
+     * Sets showHiddenSlides
      *
-     * @param bool $show_hidden_slides Specifies whether the generated document should include hidden slides or not. Default is false.
+     * @param bool $showHiddenSlides Specifies whether the generated document should include hidden slides or not. Default is false.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($show_hidden_slides)
+    public function setShowHiddenSlides($showHiddenSlides)
     {
-        $this->container['show_hidden_slides'] = $show_hidden_slides;
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }
 
     /**
-     * Gets save_metafiles_as_png
+     * Gets saveMetafilesAsPng
      *
      * @return bool
      */
     public function getSaveMetafilesAsPng()
     {
-        return $this->container['save_metafiles_as_png'];
+        return $this->container['saveMetafilesAsPng'];
     }
 
     /**
-     * Sets save_metafiles_as_png
+     * Sets saveMetafilesAsPng
      *
-     * @param bool $save_metafiles_as_png True to convert all metafiles used in a presentation to the PNG images.
+     * @param bool $saveMetafilesAsPng True to convert all metafiles used in a presentation to the PNG images.
      *
      * @return $this
      */
-    public function setSaveMetafilesAsPng($save_metafiles_as_png)
+    public function setSaveMetafilesAsPng($saveMetafilesAsPng)
     {
-        $this->container['save_metafiles_as_png'] = $save_metafiles_as_png;
+        $this->container['saveMetafilesAsPng'] = $saveMetafilesAsPng;
 
         return $this;
     }
 
     /**
-     * Gets draw_slides_frame
+     * Gets drawSlidesFrame
      *
      * @return bool
      */
     public function getDrawSlidesFrame()
     {
-        return $this->container['draw_slides_frame'];
+        return $this->container['drawSlidesFrame'];
     }
 
     /**
-     * Sets draw_slides_frame
+     * Sets drawSlidesFrame
      *
-     * @param bool $draw_slides_frame True to draw black frame around each slide.
+     * @param bool $drawSlidesFrame True to draw black frame around each slide.
      *
      * @return $this
      */
-    public function setDrawSlidesFrame($draw_slides_frame)
+    public function setDrawSlidesFrame($drawSlidesFrame)
     {
-        $this->container['draw_slides_frame'] = $draw_slides_frame;
+        $this->container['drawSlidesFrame'] = $drawSlidesFrame;
 
         return $this;
     }

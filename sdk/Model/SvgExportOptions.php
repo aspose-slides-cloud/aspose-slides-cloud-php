@@ -56,15 +56,15 @@ class SvgExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'vectorize_text' => 'bool',
-        'metafile_rasterization_dpi' => 'int',
-        'disable3_d_text' => 'bool',
-        'disable_gradient_split' => 'bool',
-        'disable_line_end_cropping' => 'bool',
-        'jpeg_quality' => 'int',
-        'pictures_compression' => 'string',
-        'delete_pictures_cropped_areas' => 'bool',
-        'external_fonts_handling' => 'string'
+        'vectorizeText' => 'bool',
+        'metafileRasterizationDpi' => 'int',
+        'disable3DText' => 'bool',
+        'disableGradientSplit' => 'bool',
+        'disableLineEndCropping' => 'bool',
+        'jpegQuality' => 'int',
+        'picturesCompression' => 'string',
+        'deletePicturesCroppedAreas' => 'bool',
+        'externalFontsHandling' => 'string'
     ];
 
     /**
@@ -73,15 +73,15 @@ class SvgExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'vectorize_text' => null,
-        'metafile_rasterization_dpi' => 'int32',
-        'disable3_d_text' => null,
-        'disable_gradient_split' => null,
-        'disable_line_end_cropping' => null,
-        'jpeg_quality' => 'int32',
-        'pictures_compression' => null,
-        'delete_pictures_cropped_areas' => null,
-        'external_fonts_handling' => null
+        'vectorizeText' => null,
+        'metafileRasterizationDpi' => 'int32',
+        'disable3DText' => null,
+        'disableGradientSplit' => null,
+        'disableLineEndCropping' => null,
+        'jpegQuality' => 'int32',
+        'picturesCompression' => null,
+        'deletePicturesCroppedAreas' => null,
+        'externalFontsHandling' => null
     ];
 
     /**
@@ -111,15 +111,15 @@ class SvgExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'vectorize_text' => 'VectorizeText',
-        'metafile_rasterization_dpi' => 'MetafileRasterizationDpi',
-        'disable3_d_text' => 'Disable3DText',
-        'disable_gradient_split' => 'DisableGradientSplit',
-        'disable_line_end_cropping' => 'DisableLineEndCropping',
-        'jpeg_quality' => 'JpegQuality',
-        'pictures_compression' => 'PicturesCompression',
-        'delete_pictures_cropped_areas' => 'DeletePicturesCroppedAreas',
-        'external_fonts_handling' => 'ExternalFontsHandling'
+        'vectorizeText' => 'VectorizeText',
+        'metafileRasterizationDpi' => 'MetafileRasterizationDpi',
+        'disable3DText' => 'Disable3DText',
+        'disableGradientSplit' => 'DisableGradientSplit',
+        'disableLineEndCropping' => 'DisableLineEndCropping',
+        'jpegQuality' => 'JpegQuality',
+        'picturesCompression' => 'PicturesCompression',
+        'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
+        'externalFontsHandling' => 'ExternalFontsHandling'
     ];
 
     /**
@@ -128,15 +128,15 @@ class SvgExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'vectorize_text' => 'setVectorizeText',
-        'metafile_rasterization_dpi' => 'setMetafileRasterizationDpi',
-        'disable3_d_text' => 'setDisable3DText',
-        'disable_gradient_split' => 'setDisableGradientSplit',
-        'disable_line_end_cropping' => 'setDisableLineEndCropping',
-        'jpeg_quality' => 'setJpegQuality',
-        'pictures_compression' => 'setPicturesCompression',
-        'delete_pictures_cropped_areas' => 'setDeletePicturesCroppedAreas',
-        'external_fonts_handling' => 'setExternalFontsHandling'
+        'vectorizeText' => 'setVectorizeText',
+        'metafileRasterizationDpi' => 'setMetafileRasterizationDpi',
+        'disable3DText' => 'setDisable3DText',
+        'disableGradientSplit' => 'setDisableGradientSplit',
+        'disableLineEndCropping' => 'setDisableLineEndCropping',
+        'jpegQuality' => 'setJpegQuality',
+        'picturesCompression' => 'setPicturesCompression',
+        'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
+        'externalFontsHandling' => 'setExternalFontsHandling'
     ];
 
     /**
@@ -145,15 +145,15 @@ class SvgExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'vectorize_text' => 'getVectorizeText',
-        'metafile_rasterization_dpi' => 'getMetafileRasterizationDpi',
-        'disable3_d_text' => 'getDisable3DText',
-        'disable_gradient_split' => 'getDisableGradientSplit',
-        'disable_line_end_cropping' => 'getDisableLineEndCropping',
-        'jpeg_quality' => 'getJpegQuality',
-        'pictures_compression' => 'getPicturesCompression',
-        'delete_pictures_cropped_areas' => 'getDeletePicturesCroppedAreas',
-        'external_fonts_handling' => 'getExternalFontsHandling'
+        'vectorizeText' => 'getVectorizeText',
+        'metafileRasterizationDpi' => 'getMetafileRasterizationDpi',
+        'disable3DText' => 'getDisable3DText',
+        'disableGradientSplit' => 'getDisableGradientSplit',
+        'disableLineEndCropping' => 'getDisableLineEndCropping',
+        'jpegQuality' => 'getJpegQuality',
+        'picturesCompression' => 'getPicturesCompression',
+        'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
+        'externalFontsHandling' => 'getExternalFontsHandling'
     ];
 
     /**
@@ -252,15 +252,15 @@ class SvgExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['vectorize_text'] = isset($data['vectorize_text']) ? $data['vectorize_text'] : null;
-        $this->container['metafile_rasterization_dpi'] = isset($data['metafile_rasterization_dpi']) ? $data['metafile_rasterization_dpi'] : null;
-        $this->container['disable3_d_text'] = isset($data['disable3_d_text']) ? $data['disable3_d_text'] : null;
-        $this->container['disable_gradient_split'] = isset($data['disable_gradient_split']) ? $data['disable_gradient_split'] : null;
-        $this->container['disable_line_end_cropping'] = isset($data['disable_line_end_cropping']) ? $data['disable_line_end_cropping'] : null;
-        $this->container['jpeg_quality'] = isset($data['jpeg_quality']) ? $data['jpeg_quality'] : null;
-        $this->container['pictures_compression'] = isset($data['pictures_compression']) ? $data['pictures_compression'] : null;
-        $this->container['delete_pictures_cropped_areas'] = isset($data['delete_pictures_cropped_areas']) ? $data['delete_pictures_cropped_areas'] : null;
-        $this->container['external_fonts_handling'] = isset($data['external_fonts_handling']) ? $data['external_fonts_handling'] : null;
+        $this->container['vectorizeText'] = isset($data['vectorizeText']) ? $data['vectorizeText'] : null;
+        $this->container['metafileRasterizationDpi'] = isset($data['metafileRasterizationDpi']) ? $data['metafileRasterizationDpi'] : null;
+        $this->container['disable3DText'] = isset($data['disable3DText']) ? $data['disable3DText'] : null;
+        $this->container['disableGradientSplit'] = isset($data['disableGradientSplit']) ? $data['disableGradientSplit'] : null;
+        $this->container['disableLineEndCropping'] = isset($data['disableLineEndCropping']) ? $data['disableLineEndCropping'] : null;
+        $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
+        $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
+        $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
+        $this->container['externalFontsHandling'] = isset($data['externalFontsHandling']) ? $data['externalFontsHandling'] : null;
     }
 
     /**
@@ -272,45 +272,45 @@ class SvgExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['vectorize_text'] === null) {
-            $invalidProperties[] = "'vectorize_text' can't be null";
+        if ($this->container['vectorizeText'] === null) {
+            $invalidProperties[] = "'vectorizeText' can't be null";
         }
-        if ($this->container['metafile_rasterization_dpi'] === null) {
-            $invalidProperties[] = "'metafile_rasterization_dpi' can't be null";
+        if ($this->container['metafileRasterizationDpi'] === null) {
+            $invalidProperties[] = "'metafileRasterizationDpi' can't be null";
         }
-        if ($this->container['disable3_d_text'] === null) {
-            $invalidProperties[] = "'disable3_d_text' can't be null";
+        if ($this->container['disable3DText'] === null) {
+            $invalidProperties[] = "'disable3DText' can't be null";
         }
-        if ($this->container['disable_gradient_split'] === null) {
-            $invalidProperties[] = "'disable_gradient_split' can't be null";
+        if ($this->container['disableGradientSplit'] === null) {
+            $invalidProperties[] = "'disableGradientSplit' can't be null";
         }
-        if ($this->container['disable_line_end_cropping'] === null) {
-            $invalidProperties[] = "'disable_line_end_cropping' can't be null";
+        if ($this->container['disableLineEndCropping'] === null) {
+            $invalidProperties[] = "'disableLineEndCropping' can't be null";
         }
-        if ($this->container['jpeg_quality'] === null) {
-            $invalidProperties[] = "'jpeg_quality' can't be null";
+        if ($this->container['jpegQuality'] === null) {
+            $invalidProperties[] = "'jpegQuality' can't be null";
         }
-        if ($this->container['pictures_compression'] === null) {
-            $invalidProperties[] = "'pictures_compression' can't be null";
+        if ($this->container['picturesCompression'] === null) {
+            $invalidProperties[] = "'picturesCompression' can't be null";
         }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+        if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'pictures_compression', must be one of '%s'",
+                "invalid value for 'picturesCompression', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['delete_pictures_cropped_areas'] === null) {
-            $invalidProperties[] = "'delete_pictures_cropped_areas' can't be null";
+        if ($this->container['deletePicturesCroppedAreas'] === null) {
+            $invalidProperties[] = "'deletePicturesCroppedAreas' can't be null";
         }
-        if ($this->container['external_fonts_handling'] === null) {
-            $invalidProperties[] = "'external_fonts_handling' can't be null";
+        if ($this->container['externalFontsHandling'] === null) {
+            $invalidProperties[] = "'externalFontsHandling' can't be null";
         }
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
-        if (!in_array($this->container['external_fonts_handling'], $allowedValues)) {
+        if (!in_array($this->container['externalFontsHandling'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'external_fonts_handling', must be one of '%s'",
+                "invalid value for 'externalFontsHandling', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -330,39 +330,39 @@ class SvgExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['vectorize_text'] === null) {
+        if ($this->container['vectorizeText'] === null) {
             return false;
         }
-        if ($this->container['metafile_rasterization_dpi'] === null) {
+        if ($this->container['metafileRasterizationDpi'] === null) {
             return false;
         }
-        if ($this->container['disable3_d_text'] === null) {
+        if ($this->container['disable3DText'] === null) {
             return false;
         }
-        if ($this->container['disable_gradient_split'] === null) {
+        if ($this->container['disableGradientSplit'] === null) {
             return false;
         }
-        if ($this->container['disable_line_end_cropping'] === null) {
+        if ($this->container['disableLineEndCropping'] === null) {
             return false;
         }
-        if ($this->container['jpeg_quality'] === null) {
+        if ($this->container['jpegQuality'] === null) {
             return false;
         }
-        if ($this->container['pictures_compression'] === null) {
+        if ($this->container['picturesCompression'] === null) {
             return false;
         }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+        if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             return false;
         }
-        if ($this->container['delete_pictures_cropped_areas'] === null) {
+        if ($this->container['deletePicturesCroppedAreas'] === null) {
             return false;
         }
-        if ($this->container['external_fonts_handling'] === null) {
+        if ($this->container['externalFontsHandling'] === null) {
             return false;
         }
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
-        if (!in_array($this->container['external_fonts_handling'], $allowedValues)) {
+        if (!in_array($this->container['externalFontsHandling'], $allowedValues)) {
             return false;
         }
         return true;
@@ -370,235 +370,235 @@ class SvgExportOptions extends ExportOptions
 
 
     /**
-     * Gets vectorize_text
+     * Gets vectorizeText
      *
      * @return bool
      */
     public function getVectorizeText()
     {
-        return $this->container['vectorize_text'];
+        return $this->container['vectorizeText'];
     }
 
     /**
-     * Sets vectorize_text
+     * Sets vectorizeText
      *
-     * @param bool $vectorize_text Determines whether the text on a slide will be saved as graphics.
+     * @param bool $vectorizeText Determines whether the text on a slide will be saved as graphics.
      *
      * @return $this
      */
-    public function setVectorizeText($vectorize_text)
+    public function setVectorizeText($vectorizeText)
     {
-        $this->container['vectorize_text'] = $vectorize_text;
+        $this->container['vectorizeText'] = $vectorizeText;
 
         return $this;
     }
 
     /**
-     * Gets metafile_rasterization_dpi
+     * Gets metafileRasterizationDpi
      *
      * @return int
      */
     public function getMetafileRasterizationDpi()
     {
-        return $this->container['metafile_rasterization_dpi'];
+        return $this->container['metafileRasterizationDpi'];
     }
 
     /**
-     * Sets metafile_rasterization_dpi
+     * Sets metafileRasterizationDpi
      *
-     * @param int $metafile_rasterization_dpi Returns or sets the lower resolution limit for metafile rasterization.
+     * @param int $metafileRasterizationDpi Returns or sets the lower resolution limit for metafile rasterization.
      *
      * @return $this
      */
-    public function setMetafileRasterizationDpi($metafile_rasterization_dpi)
+    public function setMetafileRasterizationDpi($metafileRasterizationDpi)
     {
-        $this->container['metafile_rasterization_dpi'] = $metafile_rasterization_dpi;
+        $this->container['metafileRasterizationDpi'] = $metafileRasterizationDpi;
 
         return $this;
     }
 
     /**
-     * Gets disable3_d_text
+     * Gets disable3DText
      *
      * @return bool
      */
     public function getDisable3DText()
     {
-        return $this->container['disable3_d_text'];
+        return $this->container['disable3DText'];
     }
 
     /**
-     * Sets disable3_d_text
+     * Sets disable3DText
      *
-     * @param bool $disable3_d_text Determines whether the 3D text is disabled in SVG.
+     * @param bool $disable3DText Determines whether the 3D text is disabled in SVG.
      *
      * @return $this
      */
-    public function setDisable3DText($disable3_d_text)
+    public function setDisable3DText($disable3DText)
     {
-        $this->container['disable3_d_text'] = $disable3_d_text;
+        $this->container['disable3DText'] = $disable3DText;
 
         return $this;
     }
 
     /**
-     * Gets disable_gradient_split
+     * Gets disableGradientSplit
      *
      * @return bool
      */
     public function getDisableGradientSplit()
     {
-        return $this->container['disable_gradient_split'];
+        return $this->container['disableGradientSplit'];
     }
 
     /**
-     * Sets disable_gradient_split
+     * Sets disableGradientSplit
      *
-     * @param bool $disable_gradient_split Disables splitting FromCornerX and FromCenter gradients.
+     * @param bool $disableGradientSplit Disables splitting FromCornerX and FromCenter gradients.
      *
      * @return $this
      */
-    public function setDisableGradientSplit($disable_gradient_split)
+    public function setDisableGradientSplit($disableGradientSplit)
     {
-        $this->container['disable_gradient_split'] = $disable_gradient_split;
+        $this->container['disableGradientSplit'] = $disableGradientSplit;
 
         return $this;
     }
 
     /**
-     * Gets disable_line_end_cropping
+     * Gets disableLineEndCropping
      *
      * @return bool
      */
     public function getDisableLineEndCropping()
     {
-        return $this->container['disable_line_end_cropping'];
+        return $this->container['disableLineEndCropping'];
     }
 
     /**
-     * Sets disable_line_end_cropping
+     * Sets disableLineEndCropping
      *
-     * @param bool $disable_line_end_cropping SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
+     * @param bool $disableLineEndCropping SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
      *
      * @return $this
      */
-    public function setDisableLineEndCropping($disable_line_end_cropping)
+    public function setDisableLineEndCropping($disableLineEndCropping)
     {
-        $this->container['disable_line_end_cropping'] = $disable_line_end_cropping;
+        $this->container['disableLineEndCropping'] = $disableLineEndCropping;
 
         return $this;
     }
 
     /**
-     * Gets jpeg_quality
+     * Gets jpegQuality
      *
      * @return int
      */
     public function getJpegQuality()
     {
-        return $this->container['jpeg_quality'];
+        return $this->container['jpegQuality'];
     }
 
     /**
-     * Sets jpeg_quality
+     * Sets jpegQuality
      *
-     * @param int $jpeg_quality Determines JPEG encoding quality.
+     * @param int $jpegQuality Determines JPEG encoding quality.
      *
      * @return $this
      */
-    public function setJpegQuality($jpeg_quality)
+    public function setJpegQuality($jpegQuality)
     {
-        $this->container['jpeg_quality'] = $jpeg_quality;
+        $this->container['jpegQuality'] = $jpegQuality;
 
         return $this;
     }
 
     /**
-     * Gets pictures_compression
+     * Gets picturesCompression
      *
      * @return string
      */
     public function getPicturesCompression()
     {
-        return $this->container['pictures_compression'];
+        return $this->container['picturesCompression'];
     }
 
     /**
-     * Sets pictures_compression
+     * Sets picturesCompression
      *
-     * @param string $pictures_compression Represents the pictures compression level
+     * @param string $picturesCompression Represents the pictures compression level
      *
      * @return $this
      */
-    public function setPicturesCompression($pictures_compression)
+    public function setPicturesCompression($picturesCompression)
     {
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($pictures_compression, $allowedValues)) {
+        if (!in_array($picturesCompression, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'pictures_compression', must be one of '%s'",
+                    "Invalid value for 'picturesCompression', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['pictures_compression'] = $pictures_compression;
+        $this->container['picturesCompression'] = $picturesCompression;
 
         return $this;
     }
 
     /**
-     * Gets delete_pictures_cropped_areas
+     * Gets deletePicturesCroppedAreas
      *
      * @return bool
      */
     public function getDeletePicturesCroppedAreas()
     {
-        return $this->container['delete_pictures_cropped_areas'];
+        return $this->container['deletePicturesCroppedAreas'];
     }
 
     /**
-     * Sets delete_pictures_cropped_areas
+     * Sets deletePicturesCroppedAreas
      *
-     * @param bool $delete_pictures_cropped_areas A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
+     * @param bool $deletePicturesCroppedAreas A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
      *
      * @return $this
      */
-    public function setDeletePicturesCroppedAreas($delete_pictures_cropped_areas)
+    public function setDeletePicturesCroppedAreas($deletePicturesCroppedAreas)
     {
-        $this->container['delete_pictures_cropped_areas'] = $delete_pictures_cropped_areas;
+        $this->container['deletePicturesCroppedAreas'] = $deletePicturesCroppedAreas;
 
         return $this;
     }
 
     /**
-     * Gets external_fonts_handling
+     * Gets externalFontsHandling
      *
      * @return string
      */
     public function getExternalFontsHandling()
     {
-        return $this->container['external_fonts_handling'];
+        return $this->container['externalFontsHandling'];
     }
 
     /**
-     * Sets external_fonts_handling
+     * Sets externalFontsHandling
      *
-     * @param string $external_fonts_handling Determines a way of handling externally loaded fonts.
+     * @param string $externalFontsHandling Determines a way of handling externally loaded fonts.
      *
      * @return $this
      */
-    public function setExternalFontsHandling($external_fonts_handling)
+    public function setExternalFontsHandling($externalFontsHandling)
     {
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
-        if (!in_array($external_fonts_handling, $allowedValues)) {
+        if (!in_array($externalFontsHandling, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'external_fonts_handling', must be one of '%s'",
+                    "Invalid value for 'externalFontsHandling', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['external_fonts_handling'] = $external_fonts_handling;
+        $this->container['externalFontsHandling'] = $externalFontsHandling;
 
         return $this;
     }

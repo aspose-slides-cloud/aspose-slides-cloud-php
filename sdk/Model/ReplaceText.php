@@ -57,10 +57,10 @@ class ReplaceText extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'old_text' => 'string',
-        'new_text' => 'string',
-        'ignore_case' => 'bool',
-        'slide_position' => 'int'
+        'oldText' => 'string',
+        'newText' => 'string',
+        'ignoreCase' => 'bool',
+        'slidePosition' => 'int'
     ];
 
     /**
@@ -69,10 +69,10 @@ class ReplaceText extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'old_text' => null,
-        'new_text' => null,
-        'ignore_case' => null,
-        'slide_position' => 'int32'
+        'oldText' => null,
+        'newText' => null,
+        'ignoreCase' => null,
+        'slidePosition' => 'int32'
     ];
 
     /**
@@ -102,10 +102,10 @@ class ReplaceText extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'old_text' => 'OldText',
-        'new_text' => 'NewText',
-        'ignore_case' => 'IgnoreCase',
-        'slide_position' => 'SlidePosition'
+        'oldText' => 'OldText',
+        'newText' => 'NewText',
+        'ignoreCase' => 'IgnoreCase',
+        'slidePosition' => 'SlidePosition'
     ];
 
     /**
@@ -114,10 +114,10 @@ class ReplaceText extends Task
      * @var string[]
      */
     protected static $setters = [
-        'old_text' => 'setOldText',
-        'new_text' => 'setNewText',
-        'ignore_case' => 'setIgnoreCase',
-        'slide_position' => 'setSlidePosition'
+        'oldText' => 'setOldText',
+        'newText' => 'setNewText',
+        'ignoreCase' => 'setIgnoreCase',
+        'slidePosition' => 'setSlidePosition'
     ];
 
     /**
@@ -126,10 +126,10 @@ class ReplaceText extends Task
      * @var string[]
      */
     protected static $getters = [
-        'old_text' => 'getOldText',
-        'new_text' => 'getNewText',
-        'ignore_case' => 'getIgnoreCase',
-        'slide_position' => 'getSlidePosition'
+        'oldText' => 'getOldText',
+        'newText' => 'getNewText',
+        'ignoreCase' => 'getIgnoreCase',
+        'slidePosition' => 'getSlidePosition'
     ];
 
     /**
@@ -188,10 +188,10 @@ class ReplaceText extends Task
     {
         parent::__construct($data);
 
-        $this->container['old_text'] = isset($data['old_text']) ? $data['old_text'] : null;
-        $this->container['new_text'] = isset($data['new_text']) ? $data['new_text'] : null;
-        $this->container['ignore_case'] = isset($data['ignore_case']) ? $data['ignore_case'] : null;
-        $this->container['slide_position'] = isset($data['slide_position']) ? $data['slide_position'] : null;
+        $this->container['oldText'] = isset($data['oldText']) ? $data['oldText'] : null;
+        $this->container['newText'] = isset($data['newText']) ? $data['newText'] : null;
+        $this->container['ignoreCase'] = isset($data['ignoreCase']) ? $data['ignoreCase'] : null;
+        $this->container['slidePosition'] = isset($data['slidePosition']) ? $data['slidePosition'] : null;
     }
 
     /**
@@ -203,11 +203,11 @@ class ReplaceText extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ignore_case'] === null) {
-            $invalidProperties[] = "'ignore_case' can't be null";
+        if ($this->container['ignoreCase'] === null) {
+            $invalidProperties[] = "'ignoreCase' can't be null";
         }
-        if ($this->container['slide_position'] === null) {
-            $invalidProperties[] = "'slide_position' can't be null";
+        if ($this->container['slidePosition'] === null) {
+            $invalidProperties[] = "'slidePosition' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,10 +224,10 @@ class ReplaceText extends Task
             return false;
         }
 
-        if ($this->container['ignore_case'] === null) {
+        if ($this->container['ignoreCase'] === null) {
             return false;
         }
-        if ($this->container['slide_position'] === null) {
+        if ($this->container['slidePosition'] === null) {
             return false;
         }
         return true;
@@ -235,97 +235,97 @@ class ReplaceText extends Task
 
 
     /**
-     * Gets old_text
+     * Gets oldText
      *
      * @return string
      */
     public function getOldText()
     {
-        return $this->container['old_text'];
+        return $this->container['oldText'];
     }
 
     /**
-     * Sets old_text
+     * Sets oldText
      *
-     * @param string $old_text Text to be replaced.
+     * @param string $oldText Text to be replaced.
      *
      * @return $this
      */
-    public function setOldText($old_text)
+    public function setOldText($oldText)
     {
-        $this->container['old_text'] = $old_text;
+        $this->container['oldText'] = $oldText;
 
         return $this;
     }
 
     /**
-     * Gets new_text
+     * Gets newText
      *
      * @return string
      */
     public function getNewText()
     {
-        return $this->container['new_text'];
+        return $this->container['newText'];
     }
 
     /**
-     * Sets new_text
+     * Sets newText
      *
-     * @param string $new_text Text to replace with.
+     * @param string $newText Text to replace with.
      *
      * @return $this
      */
-    public function setNewText($new_text)
+    public function setNewText($newText)
     {
-        $this->container['new_text'] = $new_text;
+        $this->container['newText'] = $newText;
 
         return $this;
     }
 
     /**
-     * Gets ignore_case
+     * Gets ignoreCase
      *
      * @return bool
      */
     public function getIgnoreCase()
     {
-        return $this->container['ignore_case'];
+        return $this->container['ignoreCase'];
     }
 
     /**
-     * Sets ignore_case
+     * Sets ignoreCase
      *
-     * @param bool $ignore_case True to ignore case in replace pattern search.
+     * @param bool $ignoreCase True to ignore case in replace pattern search.
      *
      * @return $this
      */
-    public function setIgnoreCase($ignore_case)
+    public function setIgnoreCase($ignoreCase)
     {
-        $this->container['ignore_case'] = $ignore_case;
+        $this->container['ignoreCase'] = $ignoreCase;
 
         return $this;
     }
 
     /**
-     * Gets slide_position
+     * Gets slidePosition
      *
      * @return int
      */
     public function getSlidePosition()
     {
-        return $this->container['slide_position'];
+        return $this->container['slidePosition'];
     }
 
     /**
-     * Sets slide_position
+     * Sets slidePosition
      *
-     * @param int $slide_position One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
+     * @param int $slidePosition One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
      *
      * @return $this
      */
-    public function setSlidePosition($slide_position)
+    public function setSlidePosition($slidePosition)
     {
-        $this->container['slide_position'] = $slide_position;
+        $this->container['slidePosition'] = $slidePosition;
 
         return $this;
     }

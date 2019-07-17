@@ -68,7 +68,7 @@ class ObjectSerializer
                         throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
                 }
                 if ($value !== null) {
-                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
+                    $values[$property] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
                 }
             }
             return (object)$values;
@@ -331,12 +331,12 @@ class ObjectSerializer
                 
                 unset($propertyValue);
 
-                if (isset($propertySetter) && isset($data->{$instance::attributeMap()[$property]})) {
-                    $propertyValue = $data->{$instance::attributeMap()[$property]};
+                if (isset($propertySetter) && isset($data->{$property})) {
+                    $propertyValue = $data->{$property};
                 }
 
-                if (!isset($propertyValue) && is_array($data) && array_key_exists($instance::attributeMap()[$property], $data)) {
-                    $propertyValue = $data[$instance::attributeMap()[$property]];
+                if (!isset($propertyValue) && is_array($data) && array_key_exists($property, $data)) {
+                    $propertyValue = $data[$property];
                 }
 
                 if (isset($propertyValue)) {

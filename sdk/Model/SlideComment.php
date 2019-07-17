@@ -61,7 +61,7 @@ class SlideComment implements ArrayAccess
     protected static $swaggerTypes = [
         'author' => 'string',
         'text' => 'string',
-        'created_time' => 'string'
+        'createdTime' => 'string'
     ];
 
     /**
@@ -72,7 +72,7 @@ class SlideComment implements ArrayAccess
     protected static $swaggerFormats = [
         'author' => null,
         'text' => null,
-        'created_time' => null
+        'createdTime' => null
     ];
 
     /**
@@ -104,7 +104,7 @@ class SlideComment implements ArrayAccess
     protected static $attributeMap = [
         'author' => 'Author',
         'text' => 'Text',
-        'created_time' => 'CreatedTime'
+        'createdTime' => 'CreatedTime'
     ];
 
     /**
@@ -115,7 +115,7 @@ class SlideComment implements ArrayAccess
     protected static $setters = [
         'author' => 'setAuthor',
         'text' => 'setText',
-        'created_time' => 'setCreatedTime'
+        'createdTime' => 'setCreatedTime'
     ];
 
     /**
@@ -126,7 +126,7 @@ class SlideComment implements ArrayAccess
     protected static $getters = [
         'author' => 'getAuthor',
         'text' => 'getText',
-        'created_time' => 'getCreatedTime'
+        'createdTime' => 'getCreatedTime'
     ];
 
     /**
@@ -191,7 +191,7 @@ class SlideComment implements ArrayAccess
     {
         $this->container['author'] = isset($data['author']) ? $data['author'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
+        $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
     }
 
     /**
@@ -268,25 +268,25 @@ class SlideComment implements ArrayAccess
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return string
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param string $created_time created_time
+     * @param string $createdTime createdTime
      *
      * @return $this
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }

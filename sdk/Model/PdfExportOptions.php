@@ -57,24 +57,24 @@ class PdfExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'text_compression' => 'string',
-        'embed_full_fonts' => 'bool',
+        'textCompression' => 'string',
+        'embedFullFonts' => 'bool',
         'compliance' => 'string',
-        'sufficient_resolution' => 'double',
-        'jpeg_quality' => 'int',
-        'draw_slides_frame' => 'bool',
-        'show_hidden_slides' => 'bool',
-        'save_metafiles_as_png' => 'bool',
+        'sufficientResolution' => 'double',
+        'jpegQuality' => 'int',
+        'drawSlidesFrame' => 'bool',
+        'showHiddenSlides' => 'bool',
+        'saveMetafilesAsPng' => 'bool',
         'password' => 'string',
-        'embed_true_type_fonts_for_ascii' => 'bool',
-        'additional_common_font_families' => 'string[]',
-        'notes_position' => 'string',
-        'comments_position' => 'string',
-        'comments_area_width' => 'int',
-        'comments_area_color' => 'string',
-        'show_comments_by_no_author' => 'bool',
-        'image_transparent_color' => 'string',
-        'apply_image_transparent' => 'bool'
+        'embedTrueTypeFontsForAscii' => 'bool',
+        'additionalCommonFontFamilies' => 'string[]',
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string',
+        'showCommentsByNoAuthor' => 'bool',
+        'imageTransparentColor' => 'string',
+        'applyImageTransparent' => 'bool'
     ];
 
     /**
@@ -83,24 +83,24 @@ class PdfExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'text_compression' => null,
-        'embed_full_fonts' => null,
+        'textCompression' => null,
+        'embedFullFonts' => null,
         'compliance' => null,
-        'sufficient_resolution' => 'double',
-        'jpeg_quality' => 'byte',
-        'draw_slides_frame' => null,
-        'show_hidden_slides' => null,
-        'save_metafiles_as_png' => null,
+        'sufficientResolution' => 'double',
+        'jpegQuality' => 'byte',
+        'drawSlidesFrame' => null,
+        'showHiddenSlides' => null,
+        'saveMetafilesAsPng' => null,
         'password' => null,
-        'embed_true_type_fonts_for_ascii' => null,
-        'additional_common_font_families' => null,
-        'notes_position' => null,
-        'comments_position' => null,
-        'comments_area_width' => 'int32',
-        'comments_area_color' => null,
-        'show_comments_by_no_author' => null,
-        'image_transparent_color' => null,
-        'apply_image_transparent' => null
+        'embedTrueTypeFontsForAscii' => null,
+        'additionalCommonFontFamilies' => null,
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null,
+        'showCommentsByNoAuthor' => null,
+        'imageTransparentColor' => null,
+        'applyImageTransparent' => null
     ];
 
     /**
@@ -130,24 +130,24 @@ class PdfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'text_compression' => 'TextCompression',
-        'embed_full_fonts' => 'EmbedFullFonts',
+        'textCompression' => 'TextCompression',
+        'embedFullFonts' => 'EmbedFullFonts',
         'compliance' => 'Compliance',
-        'sufficient_resolution' => 'SufficientResolution',
-        'jpeg_quality' => 'JpegQuality',
-        'draw_slides_frame' => 'DrawSlidesFrame',
-        'show_hidden_slides' => 'ShowHiddenSlides',
-        'save_metafiles_as_png' => 'SaveMetafilesAsPng',
+        'sufficientResolution' => 'SufficientResolution',
+        'jpegQuality' => 'JpegQuality',
+        'drawSlidesFrame' => 'DrawSlidesFrame',
+        'showHiddenSlides' => 'ShowHiddenSlides',
+        'saveMetafilesAsPng' => 'SaveMetafilesAsPng',
         'password' => 'Password',
-        'embed_true_type_fonts_for_ascii' => 'EmbedTrueTypeFontsForASCII',
-        'additional_common_font_families' => 'AdditionalCommonFontFamilies',
-        'notes_position' => 'NotesPosition',
-        'comments_position' => 'CommentsPosition',
-        'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor',
-        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor',
-        'image_transparent_color' => 'ImageTransparentColor',
-        'apply_image_transparent' => 'ApplyImageTransparent'
+        'embedTrueTypeFontsForAscii' => 'EmbedTrueTypeFontsForASCII',
+        'additionalCommonFontFamilies' => 'AdditionalCommonFontFamilies',
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor',
+        'imageTransparentColor' => 'ImageTransparentColor',
+        'applyImageTransparent' => 'ApplyImageTransparent'
     ];
 
     /**
@@ -156,24 +156,24 @@ class PdfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'text_compression' => 'setTextCompression',
-        'embed_full_fonts' => 'setEmbedFullFonts',
+        'textCompression' => 'setTextCompression',
+        'embedFullFonts' => 'setEmbedFullFonts',
         'compliance' => 'setCompliance',
-        'sufficient_resolution' => 'setSufficientResolution',
-        'jpeg_quality' => 'setJpegQuality',
-        'draw_slides_frame' => 'setDrawSlidesFrame',
-        'show_hidden_slides' => 'setShowHiddenSlides',
-        'save_metafiles_as_png' => 'setSaveMetafilesAsPng',
+        'sufficientResolution' => 'setSufficientResolution',
+        'jpegQuality' => 'setJpegQuality',
+        'drawSlidesFrame' => 'setDrawSlidesFrame',
+        'showHiddenSlides' => 'setShowHiddenSlides',
+        'saveMetafilesAsPng' => 'setSaveMetafilesAsPng',
         'password' => 'setPassword',
-        'embed_true_type_fonts_for_ascii' => 'setEmbedTrueTypeFontsForAscii',
-        'additional_common_font_families' => 'setAdditionalCommonFontFamilies',
-        'notes_position' => 'setNotesPosition',
-        'comments_position' => 'setCommentsPosition',
-        'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor',
-        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor',
-        'image_transparent_color' => 'setImageTransparentColor',
-        'apply_image_transparent' => 'setApplyImageTransparent'
+        'embedTrueTypeFontsForAscii' => 'setEmbedTrueTypeFontsForAscii',
+        'additionalCommonFontFamilies' => 'setAdditionalCommonFontFamilies',
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor',
+        'imageTransparentColor' => 'setImageTransparentColor',
+        'applyImageTransparent' => 'setApplyImageTransparent'
     ];
 
     /**
@@ -182,24 +182,24 @@ class PdfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'text_compression' => 'getTextCompression',
-        'embed_full_fonts' => 'getEmbedFullFonts',
+        'textCompression' => 'getTextCompression',
+        'embedFullFonts' => 'getEmbedFullFonts',
         'compliance' => 'getCompliance',
-        'sufficient_resolution' => 'getSufficientResolution',
-        'jpeg_quality' => 'getJpegQuality',
-        'draw_slides_frame' => 'getDrawSlidesFrame',
-        'show_hidden_slides' => 'getShowHiddenSlides',
-        'save_metafiles_as_png' => 'getSaveMetafilesAsPng',
+        'sufficientResolution' => 'getSufficientResolution',
+        'jpegQuality' => 'getJpegQuality',
+        'drawSlidesFrame' => 'getDrawSlidesFrame',
+        'showHiddenSlides' => 'getShowHiddenSlides',
+        'saveMetafilesAsPng' => 'getSaveMetafilesAsPng',
         'password' => 'getPassword',
-        'embed_true_type_fonts_for_ascii' => 'getEmbedTrueTypeFontsForAscii',
-        'additional_common_font_families' => 'getAdditionalCommonFontFamilies',
-        'notes_position' => 'getNotesPosition',
-        'comments_position' => 'getCommentsPosition',
-        'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor',
-        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor',
-        'image_transparent_color' => 'getImageTransparentColor',
-        'apply_image_transparent' => 'getApplyImageTransparent'
+        'embedTrueTypeFontsForAscii' => 'getEmbedTrueTypeFontsForAscii',
+        'additionalCommonFontFamilies' => 'getAdditionalCommonFontFamilies',
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor',
+        'imageTransparentColor' => 'getImageTransparentColor',
+        'applyImageTransparent' => 'getApplyImageTransparent'
     ];
 
     /**
@@ -322,24 +322,24 @@ class PdfExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['text_compression'] = isset($data['text_compression']) ? $data['text_compression'] : null;
-        $this->container['embed_full_fonts'] = isset($data['embed_full_fonts']) ? $data['embed_full_fonts'] : null;
+        $this->container['textCompression'] = isset($data['textCompression']) ? $data['textCompression'] : null;
+        $this->container['embedFullFonts'] = isset($data['embedFullFonts']) ? $data['embedFullFonts'] : null;
         $this->container['compliance'] = isset($data['compliance']) ? $data['compliance'] : null;
-        $this->container['sufficient_resolution'] = isset($data['sufficient_resolution']) ? $data['sufficient_resolution'] : null;
-        $this->container['jpeg_quality'] = isset($data['jpeg_quality']) ? $data['jpeg_quality'] : null;
-        $this->container['draw_slides_frame'] = isset($data['draw_slides_frame']) ? $data['draw_slides_frame'] : null;
-        $this->container['show_hidden_slides'] = isset($data['show_hidden_slides']) ? $data['show_hidden_slides'] : null;
-        $this->container['save_metafiles_as_png'] = isset($data['save_metafiles_as_png']) ? $data['save_metafiles_as_png'] : null;
+        $this->container['sufficientResolution'] = isset($data['sufficientResolution']) ? $data['sufficientResolution'] : null;
+        $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
+        $this->container['drawSlidesFrame'] = isset($data['drawSlidesFrame']) ? $data['drawSlidesFrame'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['saveMetafilesAsPng'] = isset($data['saveMetafilesAsPng']) ? $data['saveMetafilesAsPng'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['embed_true_type_fonts_for_ascii'] = isset($data['embed_true_type_fonts_for_ascii']) ? $data['embed_true_type_fonts_for_ascii'] : null;
-        $this->container['additional_common_font_families'] = isset($data['additional_common_font_families']) ? $data['additional_common_font_families'] : null;
-        $this->container['notes_position'] = isset($data['notes_position']) ? $data['notes_position'] : null;
-        $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
-        $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
-        $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
-        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
-        $this->container['image_transparent_color'] = isset($data['image_transparent_color']) ? $data['image_transparent_color'] : null;
-        $this->container['apply_image_transparent'] = isset($data['apply_image_transparent']) ? $data['apply_image_transparent'] : null;
+        $this->container['embedTrueTypeFontsForAscii'] = isset($data['embedTrueTypeFontsForAscii']) ? $data['embedTrueTypeFontsForAscii'] : null;
+        $this->container['additionalCommonFontFamilies'] = isset($data['additionalCommonFontFamilies']) ? $data['additionalCommonFontFamilies'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
+        $this->container['imageTransparentColor'] = isset($data['imageTransparentColor']) ? $data['imageTransparentColor'] : null;
+        $this->container['applyImageTransparent'] = isset($data['applyImageTransparent']) ? $data['applyImageTransparent'] : null;
     }
 
     /**
@@ -351,19 +351,19 @@ class PdfExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['text_compression'] === null) {
-            $invalidProperties[] = "'text_compression' can't be null";
+        if ($this->container['textCompression'] === null) {
+            $invalidProperties[] = "'textCompression' can't be null";
         }
         $allowedValues = $this->getTextCompressionAllowableValues();
-        if (!in_array($this->container['text_compression'], $allowedValues)) {
+        if (!in_array($this->container['textCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'text_compression', must be one of '%s'",
+                "invalid value for 'textCompression', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['embed_full_fonts'] === null) {
-            $invalidProperties[] = "'embed_full_fonts' can't be null";
+        if ($this->container['embedFullFonts'] === null) {
+            $invalidProperties[] = "'embedFullFonts' can't be null";
         }
         if ($this->container['compliance'] === null) {
             $invalidProperties[] = "'compliance' can't be null";
@@ -376,54 +376,54 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['sufficient_resolution'] === null) {
-            $invalidProperties[] = "'sufficient_resolution' can't be null";
+        if ($this->container['sufficientResolution'] === null) {
+            $invalidProperties[] = "'sufficientResolution' can't be null";
         }
-        if ($this->container['jpeg_quality'] === null) {
-            $invalidProperties[] = "'jpeg_quality' can't be null";
+        if ($this->container['jpegQuality'] === null) {
+            $invalidProperties[] = "'jpegQuality' can't be null";
         }
-        if ($this->container['draw_slides_frame'] === null) {
-            $invalidProperties[] = "'draw_slides_frame' can't be null";
+        if ($this->container['drawSlidesFrame'] === null) {
+            $invalidProperties[] = "'drawSlidesFrame' can't be null";
         }
-        if ($this->container['show_hidden_slides'] === null) {
-            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        if ($this->container['showHiddenSlides'] === null) {
+            $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
-        if ($this->container['save_metafiles_as_png'] === null) {
-            $invalidProperties[] = "'save_metafiles_as_png' can't be null";
+        if ($this->container['saveMetafilesAsPng'] === null) {
+            $invalidProperties[] = "'saveMetafilesAsPng' can't be null";
         }
-        if ($this->container['embed_true_type_fonts_for_ascii'] === null) {
-            $invalidProperties[] = "'embed_true_type_fonts_for_ascii' can't be null";
+        if ($this->container['embedTrueTypeFontsForAscii'] === null) {
+            $invalidProperties[] = "'embedTrueTypeFontsForAscii' can't be null";
         }
-        if ($this->container['notes_position'] === null) {
-            $invalidProperties[] = "'notes_position' can't be null";
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notes_position', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_position'] === null) {
-            $invalidProperties[] = "'comments_position' can't be null";
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'comments_position', must be one of '%s'",
+                "invalid value for 'commentsPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_area_width'] === null) {
-            $invalidProperties[] = "'comments_area_width' can't be null";
+        if ($this->container['commentsAreaWidth'] === null) {
+            $invalidProperties[] = "'commentsAreaWidth' can't be null";
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
-            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        if ($this->container['showCommentsByNoAuthor'] === null) {
+            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
         }
-        if ($this->container['apply_image_transparent'] === null) {
-            $invalidProperties[] = "'apply_image_transparent' can't be null";
+        if ($this->container['applyImageTransparent'] === null) {
+            $invalidProperties[] = "'applyImageTransparent' can't be null";
         }
         return $invalidProperties;
     }
@@ -440,14 +440,14 @@ class PdfExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['text_compression'] === null) {
+        if ($this->container['textCompression'] === null) {
             return false;
         }
         $allowedValues = $this->getTextCompressionAllowableValues();
-        if (!in_array($this->container['text_compression'], $allowedValues)) {
+        if (!in_array($this->container['textCompression'], $allowedValues)) {
             return false;
         }
-        if ($this->container['embed_full_fonts'] === null) {
+        if ($this->container['embedFullFonts'] === null) {
             return false;
         }
         if ($this->container['compliance'] === null) {
@@ -457,45 +457,45 @@ class PdfExportOptions extends ExportOptions
         if (!in_array($this->container['compliance'], $allowedValues)) {
             return false;
         }
-        if ($this->container['sufficient_resolution'] === null) {
+        if ($this->container['sufficientResolution'] === null) {
             return false;
         }
-        if ($this->container['jpeg_quality'] === null) {
+        if ($this->container['jpegQuality'] === null) {
             return false;
         }
-        if ($this->container['draw_slides_frame'] === null) {
+        if ($this->container['drawSlidesFrame'] === null) {
             return false;
         }
-        if ($this->container['show_hidden_slides'] === null) {
+        if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
-        if ($this->container['save_metafiles_as_png'] === null) {
+        if ($this->container['saveMetafilesAsPng'] === null) {
             return false;
         }
-        if ($this->container['embed_true_type_fonts_for_ascii'] === null) {
+        if ($this->container['embedTrueTypeFontsForAscii'] === null) {
             return false;
         }
-        if ($this->container['notes_position'] === null) {
+        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_position'] === null) {
+        if ($this->container['commentsPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_area_width'] === null) {
+        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
+        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
-        if ($this->container['apply_image_transparent'] === null) {
+        if ($this->container['applyImageTransparent'] === null) {
             return false;
         }
         return true;
@@ -503,58 +503,58 @@ class PdfExportOptions extends ExportOptions
 
 
     /**
-     * Gets text_compression
+     * Gets textCompression
      *
      * @return string
      */
     public function getTextCompression()
     {
-        return $this->container['text_compression'];
+        return $this->container['textCompression'];
     }
 
     /**
-     * Sets text_compression
+     * Sets textCompression
      *
-     * @param string $text_compression Specifies compression type to be used for all textual content in the document.
+     * @param string $textCompression Specifies compression type to be used for all textual content in the document.
      *
      * @return $this
      */
-    public function setTextCompression($text_compression)
+    public function setTextCompression($textCompression)
     {
         $allowedValues = $this->getTextCompressionAllowableValues();
-        if (!in_array($text_compression, $allowedValues)) {
+        if (!in_array($textCompression, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'text_compression', must be one of '%s'",
+                    "Invalid value for 'textCompression', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['text_compression'] = $text_compression;
+        $this->container['textCompression'] = $textCompression;
 
         return $this;
     }
 
     /**
-     * Gets embed_full_fonts
+     * Gets embedFullFonts
      *
      * @return bool
      */
     public function getEmbedFullFonts()
     {
-        return $this->container['embed_full_fonts'];
+        return $this->container['embedFullFonts'];
     }
 
     /**
-     * Sets embed_full_fonts
+     * Sets embedFullFonts
      *
-     * @param bool $embed_full_fonts Determines if all characters of font should be embedded or only used subset.
+     * @param bool $embedFullFonts Determines if all characters of font should be embedded or only used subset.
      *
      * @return $this
      */
-    public function setEmbedFullFonts($embed_full_fonts)
+    public function setEmbedFullFonts($embedFullFonts)
     {
-        $this->container['embed_full_fonts'] = $embed_full_fonts;
+        $this->container['embedFullFonts'] = $embedFullFonts;
 
         return $this;
     }
@@ -593,121 +593,121 @@ class PdfExportOptions extends ExportOptions
     }
 
     /**
-     * Gets sufficient_resolution
+     * Gets sufficientResolution
      *
      * @return double
      */
     public function getSufficientResolution()
     {
-        return $this->container['sufficient_resolution'];
+        return $this->container['sufficientResolution'];
     }
 
     /**
-     * Sets sufficient_resolution
+     * Sets sufficientResolution
      *
-     * @param double $sufficient_resolution Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
+     * @param double $sufficientResolution Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
      *
      * @return $this
      */
-    public function setSufficientResolution($sufficient_resolution)
+    public function setSufficientResolution($sufficientResolution)
     {
-        $this->container['sufficient_resolution'] = $sufficient_resolution;
+        $this->container['sufficientResolution'] = $sufficientResolution;
 
         return $this;
     }
 
     /**
-     * Gets jpeg_quality
+     * Gets jpegQuality
      *
      * @return int
      */
     public function getJpegQuality()
     {
-        return $this->container['jpeg_quality'];
+        return $this->container['jpegQuality'];
     }
 
     /**
-     * Sets jpeg_quality
+     * Sets jpegQuality
      *
-     * @param int $jpeg_quality Returns or sets a value determining the quality of the JPEG images inside PDF document.
+     * @param int $jpegQuality Returns or sets a value determining the quality of the JPEG images inside PDF document.
      *
      * @return $this
      */
-    public function setJpegQuality($jpeg_quality)
+    public function setJpegQuality($jpegQuality)
     {
-        $this->container['jpeg_quality'] = $jpeg_quality;
+        $this->container['jpegQuality'] = $jpegQuality;
 
         return $this;
     }
 
     /**
-     * Gets draw_slides_frame
+     * Gets drawSlidesFrame
      *
      * @return bool
      */
     public function getDrawSlidesFrame()
     {
-        return $this->container['draw_slides_frame'];
+        return $this->container['drawSlidesFrame'];
     }
 
     /**
-     * Sets draw_slides_frame
+     * Sets drawSlidesFrame
      *
-     * @param bool $draw_slides_frame True to draw black frame around each slide.
+     * @param bool $drawSlidesFrame True to draw black frame around each slide.
      *
      * @return $this
      */
-    public function setDrawSlidesFrame($draw_slides_frame)
+    public function setDrawSlidesFrame($drawSlidesFrame)
     {
-        $this->container['draw_slides_frame'] = $draw_slides_frame;
+        $this->container['drawSlidesFrame'] = $drawSlidesFrame;
 
         return $this;
     }
 
     /**
-     * Gets show_hidden_slides
+     * Gets showHiddenSlides
      *
      * @return bool
      */
     public function getShowHiddenSlides()
     {
-        return $this->container['show_hidden_slides'];
+        return $this->container['showHiddenSlides'];
     }
 
     /**
-     * Sets show_hidden_slides
+     * Sets showHiddenSlides
      *
-     * @param bool $show_hidden_slides Specifies whether the generated document should include hidden slides or not. Default is false.
+     * @param bool $showHiddenSlides Specifies whether the generated document should include hidden slides or not. Default is false.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($show_hidden_slides)
+    public function setShowHiddenSlides($showHiddenSlides)
     {
-        $this->container['show_hidden_slides'] = $show_hidden_slides;
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }
 
     /**
-     * Gets save_metafiles_as_png
+     * Gets saveMetafilesAsPng
      *
      * @return bool
      */
     public function getSaveMetafilesAsPng()
     {
-        return $this->container['save_metafiles_as_png'];
+        return $this->container['saveMetafilesAsPng'];
     }
 
     /**
-     * Sets save_metafiles_as_png
+     * Sets saveMetafilesAsPng
      *
-     * @param bool $save_metafiles_as_png True to convert all metafiles used in a presentation to the PNG images.
+     * @param bool $saveMetafilesAsPng True to convert all metafiles used in a presentation to the PNG images.
      *
      * @return $this
      */
-    public function setSaveMetafilesAsPng($save_metafiles_as_png)
+    public function setSaveMetafilesAsPng($saveMetafilesAsPng)
     {
-        $this->container['save_metafiles_as_png'] = $save_metafiles_as_png;
+        $this->container['saveMetafilesAsPng'] = $saveMetafilesAsPng;
 
         return $this;
     }
@@ -737,235 +737,235 @@ class PdfExportOptions extends ExportOptions
     }
 
     /**
-     * Gets embed_true_type_fonts_for_ascii
+     * Gets embedTrueTypeFontsForAscii
      *
      * @return bool
      */
     public function getEmbedTrueTypeFontsForAscii()
     {
-        return $this->container['embed_true_type_fonts_for_ascii'];
+        return $this->container['embedTrueTypeFontsForAscii'];
     }
 
     /**
-     * Sets embed_true_type_fonts_for_ascii
+     * Sets embedTrueTypeFontsForAscii
      *
-     * @param bool $embed_true_type_fonts_for_ascii Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
+     * @param bool $embedTrueTypeFontsForAscii Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
      *
      * @return $this
      */
-    public function setEmbedTrueTypeFontsForAscii($embed_true_type_fonts_for_ascii)
+    public function setEmbedTrueTypeFontsForAscii($embedTrueTypeFontsForAscii)
     {
-        $this->container['embed_true_type_fonts_for_ascii'] = $embed_true_type_fonts_for_ascii;
+        $this->container['embedTrueTypeFontsForAscii'] = $embedTrueTypeFontsForAscii;
 
         return $this;
     }
 
     /**
-     * Gets additional_common_font_families
+     * Gets additionalCommonFontFamilies
      *
      * @return string[]
      */
     public function getAdditionalCommonFontFamilies()
     {
-        return $this->container['additional_common_font_families'];
+        return $this->container['additionalCommonFontFamilies'];
     }
 
     /**
-     * Sets additional_common_font_families
+     * Sets additionalCommonFontFamilies
      *
-     * @param string[] $additional_common_font_families Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
+     * @param string[] $additionalCommonFontFamilies Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
      *
      * @return $this
      */
-    public function setAdditionalCommonFontFamilies($additional_common_font_families)
+    public function setAdditionalCommonFontFamilies($additionalCommonFontFamilies)
     {
-        $this->container['additional_common_font_families'] = $additional_common_font_families;
+        $this->container['additionalCommonFontFamilies'] = $additionalCommonFontFamilies;
 
         return $this;
     }
 
     /**
-     * Gets notes_position
+     * Gets notesPosition
      *
      * @return string
      */
     public function getNotesPosition()
     {
-        return $this->container['notes_position'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets notes_position
+     * Sets notesPosition
      *
-     * @param string $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setNotesPosition($notes_position)
+    public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notes_position, $allowedValues)) {
+        if (!in_array($notesPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'notes_position', must be one of '%s'",
+                    "Invalid value for 'notesPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['notes_position'] = $notes_position;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_position
+     * Gets commentsPosition
      *
      * @return string
      */
     public function getCommentsPosition()
     {
-        return $this->container['comments_position'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets comments_position
+     * Sets commentsPosition
      *
-     * @param string $comments_position Gets or sets the position of the comments on the page.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setCommentsPosition($comments_position)
+    public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($comments_position, $allowedValues)) {
+        if (!in_array($commentsPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'comments_position', must be one of '%s'",
+                    "Invalid value for 'commentsPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['comments_position'] = $comments_position;
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
     public function getCommentsAreaWidth()
     {
-        return $this->container['comments_area_width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets comments_area_width
+     * Sets commentsAreaWidth
      *
-     * @param int $comments_area_width Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaWidth($comments_area_width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['comments_area_width'] = $comments_area_width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_color
+     * Gets commentsAreaColor
      *
      * @return string
      */
     public function getCommentsAreaColor()
     {
-        return $this->container['comments_area_color'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets comments_area_color
+     * Sets commentsAreaColor
      *
-     * @param string $comments_area_color Gets or sets the color of comments area (Applies only if comments are displayed on the right).
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaColor($comments_area_color)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['comments_area_color'] = $comments_area_color;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }
 
     /**
-     * Gets show_comments_by_no_author
+     * Gets showCommentsByNoAuthor
      *
      * @return bool
      */
     public function getShowCommentsByNoAuthor()
     {
-        return $this->container['show_comments_by_no_author'];
+        return $this->container['showCommentsByNoAuthor'];
     }
 
     /**
-     * Sets show_comments_by_no_author
+     * Sets showCommentsByNoAuthor
      *
-     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
      *
      * @return $this
      */
-    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
     {
-        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
+        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
 
         return $this;
     }
 
     /**
-     * Gets image_transparent_color
+     * Gets imageTransparentColor
      *
      * @return string
      */
     public function getImageTransparentColor()
     {
-        return $this->container['image_transparent_color'];
+        return $this->container['imageTransparentColor'];
     }
 
     /**
-     * Sets image_transparent_color
+     * Sets imageTransparentColor
      *
-     * @param string $image_transparent_color Image transparent color.
+     * @param string $imageTransparentColor Image transparent color.
      *
      * @return $this
      */
-    public function setImageTransparentColor($image_transparent_color)
+    public function setImageTransparentColor($imageTransparentColor)
     {
-        $this->container['image_transparent_color'] = $image_transparent_color;
+        $this->container['imageTransparentColor'] = $imageTransparentColor;
 
         return $this;
     }
 
     /**
-     * Gets apply_image_transparent
+     * Gets applyImageTransparent
      *
      * @return bool
      */
     public function getApplyImageTransparent()
     {
-        return $this->container['apply_image_transparent'];
+        return $this->container['applyImageTransparent'];
     }
 
     /**
-     * Sets apply_image_transparent
+     * Sets applyImageTransparent
      *
-     * @param bool $apply_image_transparent True to apply specified ImageTransparentColor  to an image.
+     * @param bool $applyImageTransparent True to apply specified ImageTransparentColor  to an image.
      *
      * @return $this
      */
-    public function setApplyImageTransparent($apply_image_transparent)
+    public function setApplyImageTransparent($applyImageTransparent)
     {
-        $this->container['apply_image_transparent'] = $apply_image_transparent;
+        $this->container['applyImageTransparent'] = $applyImageTransparent;
 
         return $this;
     }

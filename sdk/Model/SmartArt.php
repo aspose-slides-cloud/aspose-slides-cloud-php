@@ -58,10 +58,10 @@ class SmartArt extends ShapeBase
       */
     protected static $swaggerTypes = [
         'layout' => 'string',
-        'quick_style' => 'string',
-        'color_style' => 'string',
+        'quickStyle' => 'string',
+        'colorStyle' => 'string',
         'nodes' => '\Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[]',
-        'is_reversed' => 'bool'
+        'isReversed' => 'bool'
     ];
 
     /**
@@ -71,10 +71,10 @@ class SmartArt extends ShapeBase
       */
     protected static $swaggerFormats = [
         'layout' => null,
-        'quick_style' => null,
-        'color_style' => null,
+        'quickStyle' => null,
+        'colorStyle' => null,
         'nodes' => null,
-        'is_reversed' => null
+        'isReversed' => null
     ];
 
     /**
@@ -105,10 +105,10 @@ class SmartArt extends ShapeBase
      */
     protected static $attributeMap = [
         'layout' => 'Layout',
-        'quick_style' => 'QuickStyle',
-        'color_style' => 'ColorStyle',
+        'quickStyle' => 'QuickStyle',
+        'colorStyle' => 'ColorStyle',
         'nodes' => 'Nodes',
-        'is_reversed' => 'IsReversed'
+        'isReversed' => 'IsReversed'
     ];
 
     /**
@@ -118,10 +118,10 @@ class SmartArt extends ShapeBase
      */
     protected static $setters = [
         'layout' => 'setLayout',
-        'quick_style' => 'setQuickStyle',
-        'color_style' => 'setColorStyle',
+        'quickStyle' => 'setQuickStyle',
+        'colorStyle' => 'setColorStyle',
         'nodes' => 'setNodes',
-        'is_reversed' => 'setIsReversed'
+        'isReversed' => 'setIsReversed'
     ];
 
     /**
@@ -131,10 +131,10 @@ class SmartArt extends ShapeBase
      */
     protected static $getters = [
         'layout' => 'getLayout',
-        'quick_style' => 'getQuickStyle',
-        'color_style' => 'getColorStyle',
+        'quickStyle' => 'getQuickStyle',
+        'colorStyle' => 'getColorStyle',
         'nodes' => 'getNodes',
-        'is_reversed' => 'getIsReversed'
+        'isReversed' => 'getIsReversed'
     ];
 
     /**
@@ -603,10 +603,10 @@ class SmartArt extends ShapeBase
         parent::__construct($data);
 
         $this->container['layout'] = isset($data['layout']) ? $data['layout'] : null;
-        $this->container['quick_style'] = isset($data['quick_style']) ? $data['quick_style'] : null;
-        $this->container['color_style'] = isset($data['color_style']) ? $data['color_style'] : null;
+        $this->container['quickStyle'] = isset($data['quickStyle']) ? $data['quickStyle'] : null;
+        $this->container['colorStyle'] = isset($data['colorStyle']) ? $data['colorStyle'] : null;
         $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;
-        $this->container['is_reversed'] = isset($data['is_reversed']) ? $data['is_reversed'] : null;
+        $this->container['isReversed'] = isset($data['isReversed']) ? $data['isReversed'] : null;
     }
 
     /**
@@ -629,30 +629,30 @@ class SmartArt extends ShapeBase
             );
         }
 
-        if ($this->container['quick_style'] === null) {
-            $invalidProperties[] = "'quick_style' can't be null";
+        if ($this->container['quickStyle'] === null) {
+            $invalidProperties[] = "'quickStyle' can't be null";
         }
         $allowedValues = $this->getQuickStyleAllowableValues();
-        if (!in_array($this->container['quick_style'], $allowedValues)) {
+        if (!in_array($this->container['quickStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'quick_style', must be one of '%s'",
+                "invalid value for 'quickStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['color_style'] === null) {
-            $invalidProperties[] = "'color_style' can't be null";
+        if ($this->container['colorStyle'] === null) {
+            $invalidProperties[] = "'colorStyle' can't be null";
         }
         $allowedValues = $this->getColorStyleAllowableValues();
-        if (!in_array($this->container['color_style'], $allowedValues)) {
+        if (!in_array($this->container['colorStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'color_style', must be one of '%s'",
+                "invalid value for 'colorStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['is_reversed'] === null) {
-            $invalidProperties[] = "'is_reversed' can't be null";
+        if ($this->container['isReversed'] === null) {
+            $invalidProperties[] = "'isReversed' can't be null";
         }
         return $invalidProperties;
     }
@@ -676,21 +676,21 @@ class SmartArt extends ShapeBase
         if (!in_array($this->container['layout'], $allowedValues)) {
             return false;
         }
-        if ($this->container['quick_style'] === null) {
+        if ($this->container['quickStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getQuickStyleAllowableValues();
-        if (!in_array($this->container['quick_style'], $allowedValues)) {
+        if (!in_array($this->container['quickStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['color_style'] === null) {
+        if ($this->container['colorStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getColorStyleAllowableValues();
-        if (!in_array($this->container['color_style'], $allowedValues)) {
+        if (!in_array($this->container['colorStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['is_reversed'] === null) {
+        if ($this->container['isReversed'] === null) {
             return false;
         }
         return true;
@@ -731,67 +731,67 @@ class SmartArt extends ShapeBase
     }
 
     /**
-     * Gets quick_style
+     * Gets quickStyle
      *
      * @return string
      */
     public function getQuickStyle()
     {
-        return $this->container['quick_style'];
+        return $this->container['quickStyle'];
     }
 
     /**
-     * Sets quick_style
+     * Sets quickStyle
      *
-     * @param string $quick_style Quick style.
+     * @param string $quickStyle Quick style.
      *
      * @return $this
      */
-    public function setQuickStyle($quick_style)
+    public function setQuickStyle($quickStyle)
     {
         $allowedValues = $this->getQuickStyleAllowableValues();
-        if (!in_array($quick_style, $allowedValues)) {
+        if (!in_array($quickStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'quick_style', must be one of '%s'",
+                    "Invalid value for 'quickStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['quick_style'] = $quick_style;
+        $this->container['quickStyle'] = $quickStyle;
 
         return $this;
     }
 
     /**
-     * Gets color_style
+     * Gets colorStyle
      *
      * @return string
      */
     public function getColorStyle()
     {
-        return $this->container['color_style'];
+        return $this->container['colorStyle'];
     }
 
     /**
-     * Sets color_style
+     * Sets colorStyle
      *
-     * @param string $color_style Color style.
+     * @param string $colorStyle Color style.
      *
      * @return $this
      */
-    public function setColorStyle($color_style)
+    public function setColorStyle($colorStyle)
     {
         $allowedValues = $this->getColorStyleAllowableValues();
-        if (!in_array($color_style, $allowedValues)) {
+        if (!in_array($colorStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'color_style', must be one of '%s'",
+                    "Invalid value for 'colorStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['color_style'] = $color_style;
+        $this->container['colorStyle'] = $colorStyle;
 
         return $this;
     }
@@ -821,25 +821,25 @@ class SmartArt extends ShapeBase
     }
 
     /**
-     * Gets is_reversed
+     * Gets isReversed
      *
      * @return bool
      */
     public function getIsReversed()
     {
-        return $this->container['is_reversed'];
+        return $this->container['isReversed'];
     }
 
     /**
-     * Sets is_reversed
+     * Sets isReversed
      *
-     * @param bool $is_reversed The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
+     * @param bool $isReversed The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
      *
      * @return $this
      */
-    public function setIsReversed($is_reversed)
+    public function setIsReversed($isReversed)
     {
-        $this->container['is_reversed'] = $is_reversed;
+        $this->container['isReversed'] = $isReversed;
 
         return $this;
     }

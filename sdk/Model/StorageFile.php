@@ -60,8 +60,8 @@ class StorageFile implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'is_folder' => 'bool',
-        'modified_date' => '\DateTime',
+        'isFolder' => 'bool',
+        'modifiedDate' => '\DateTime',
         'size' => 'int',
         'path' => 'string'
     ];
@@ -73,8 +73,8 @@ class StorageFile implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'name' => null,
-        'is_folder' => null,
-        'modified_date' => 'date-time',
+        'isFolder' => null,
+        'modifiedDate' => 'date-time',
         'size' => 'int64',
         'path' => null
     ];
@@ -107,8 +107,8 @@ class StorageFile implements ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'Name',
-        'is_folder' => 'IsFolder',
-        'modified_date' => 'ModifiedDate',
+        'isFolder' => 'IsFolder',
+        'modifiedDate' => 'ModifiedDate',
         'size' => 'Size',
         'path' => 'Path'
     ];
@@ -120,8 +120,8 @@ class StorageFile implements ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'is_folder' => 'setIsFolder',
-        'modified_date' => 'setModifiedDate',
+        'isFolder' => 'setIsFolder',
+        'modifiedDate' => 'setModifiedDate',
         'size' => 'setSize',
         'path' => 'setPath'
     ];
@@ -133,8 +133,8 @@ class StorageFile implements ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'is_folder' => 'getIsFolder',
-        'modified_date' => 'getModifiedDate',
+        'isFolder' => 'getIsFolder',
+        'modifiedDate' => 'getModifiedDate',
         'size' => 'getSize',
         'path' => 'getPath'
     ];
@@ -200,8 +200,8 @@ class StorageFile implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['is_folder'] = isset($data['is_folder']) ? $data['is_folder'] : null;
-        $this->container['modified_date'] = isset($data['modified_date']) ? $data['modified_date'] : null;
+        $this->container['isFolder'] = isset($data['isFolder']) ? $data['isFolder'] : null;
+        $this->container['modifiedDate'] = isset($data['modifiedDate']) ? $data['modifiedDate'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
 
@@ -219,8 +219,8 @@ class StorageFile implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_folder'] === null) {
-            $invalidProperties[] = "'is_folder' can't be null";
+        if ($this->container['isFolder'] === null) {
+            $invalidProperties[] = "'isFolder' can't be null";
         }
         if ($this->container['size'] === null) {
             $invalidProperties[] = "'size' can't be null";
@@ -237,7 +237,7 @@ class StorageFile implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_folder'] === null) {
+        if ($this->container['isFolder'] === null) {
             return false;
         }
         if ($this->container['size'] === null) {
@@ -272,49 +272,49 @@ class StorageFile implements ArrayAccess
     }
 
     /**
-     * Gets is_folder
+     * Gets isFolder
      *
      * @return bool
      */
     public function getIsFolder()
     {
-        return $this->container['is_folder'];
+        return $this->container['isFolder'];
     }
 
     /**
-     * Sets is_folder
+     * Sets isFolder
      *
-     * @param bool $is_folder True if it is a folder.
+     * @param bool $isFolder True if it is a folder.
      *
      * @return $this
      */
-    public function setIsFolder($is_folder)
+    public function setIsFolder($isFolder)
     {
-        $this->container['is_folder'] = $is_folder;
+        $this->container['isFolder'] = $isFolder;
 
         return $this;
     }
 
     /**
-     * Gets modified_date
+     * Gets modifiedDate
      *
      * @return \DateTime
      */
     public function getModifiedDate()
     {
-        return $this->container['modified_date'];
+        return $this->container['modifiedDate'];
     }
 
     /**
-     * Sets modified_date
+     * Sets modifiedDate
      *
-     * @param \DateTime $modified_date File or folder last modified DateTime.
+     * @param \DateTime $modifiedDate File or folder last modified DateTime.
      *
      * @return $this
      */
-    public function setModifiedDate($modified_date)
+    public function setModifiedDate($modifiedDate)
     {
-        $this->container['modified_date'] = $modified_date;
+        $this->container['modifiedDate'] = $modifiedDate;
 
         return $this;
     }

@@ -60,8 +60,8 @@ class Input implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'template' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'html_data' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'template_data' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile'
+        'htmlData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
+        'templateData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile'
     ];
 
     /**
@@ -71,8 +71,8 @@ class Input implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'template' => null,
-        'html_data' => null,
-        'template_data' => null
+        'htmlData' => null,
+        'templateData' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class Input implements ArrayAccess
      */
     protected static $attributeMap = [
         'template' => 'Template',
-        'html_data' => 'HtmlData',
-        'template_data' => 'TemplateData'
+        'htmlData' => 'HtmlData',
+        'templateData' => 'TemplateData'
     ];
 
     /**
@@ -114,8 +114,8 @@ class Input implements ArrayAccess
      */
     protected static $setters = [
         'template' => 'setTemplate',
-        'html_data' => 'setHtmlData',
-        'template_data' => 'setTemplateData'
+        'htmlData' => 'setHtmlData',
+        'templateData' => 'setTemplateData'
     ];
 
     /**
@@ -125,8 +125,8 @@ class Input implements ArrayAccess
      */
     protected static $getters = [
         'template' => 'getTemplate',
-        'html_data' => 'getHtmlData',
-        'template_data' => 'getTemplateData'
+        'htmlData' => 'getHtmlData',
+        'templateData' => 'getTemplateData'
     ];
 
     /**
@@ -190,8 +190,8 @@ class Input implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['html_data'] = isset($data['html_data']) ? $data['html_data'] : null;
-        $this->container['template_data'] = isset($data['template_data']) ? $data['template_data'] : null;
+        $this->container['htmlData'] = isset($data['htmlData']) ? $data['htmlData'] : null;
+        $this->container['templateData'] = isset($data['templateData']) ? $data['templateData'] : null;
     }
 
     /**
@@ -244,49 +244,49 @@ class Input implements ArrayAccess
     }
 
     /**
-     * Gets html_data
+     * Gets htmlData
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
      */
     public function getHtmlData()
     {
-        return $this->container['html_data'];
+        return $this->container['htmlData'];
     }
 
     /**
-     * Sets html_data
+     * Sets htmlData
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $html_data Get or sets html data for generate new presentation.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $htmlData Get or sets html data for generate new presentation.
      *
      * @return $this
      */
-    public function setHtmlData($html_data)
+    public function setHtmlData($htmlData)
     {
-        $this->container['html_data'] = $html_data;
+        $this->container['htmlData'] = $htmlData;
 
         return $this;
     }
 
     /**
-     * Gets template_data
+     * Gets templateData
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
      */
     public function getTemplateData()
     {
-        return $this->container['template_data'];
+        return $this->container['templateData'];
     }
 
     /**
-     * Sets template_data
+     * Sets templateData
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $template_data Get or sets data for template engine.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $templateData Get or sets data for template engine.
      *
      * @return $this
      */
-    public function setTemplateData($template_data)
+    public function setTemplateData($templateData)
     {
-        $this->container['template_data'] = $template_data;
+        $this->container['templateData'] = $templateData;
 
         return $this;
     }

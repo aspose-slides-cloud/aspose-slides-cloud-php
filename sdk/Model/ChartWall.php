@@ -59,11 +59,11 @@ class ChartWall implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'thickness' => 'int',
-        'picture_type' => 'string'
+        'pictureType' => 'string'
     ];
 
     /**
@@ -72,11 +72,11 @@ class ChartWall implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null,
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null,
         'thickness' => 'int32',
-        'picture_type' => null
+        'pictureType' => null
     ];
 
     /**
@@ -106,11 +106,11 @@ class ChartWall implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat',
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat',
         'thickness' => 'Thickness',
-        'picture_type' => 'PictureType'
+        'pictureType' => 'PictureType'
     ];
 
     /**
@@ -119,11 +119,11 @@ class ChartWall implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat',
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat',
         'thickness' => 'setThickness',
-        'picture_type' => 'setPictureType'
+        'pictureType' => 'setPictureType'
     ];
 
     /**
@@ -132,11 +132,11 @@ class ChartWall implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat',
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat',
         'thickness' => 'getThickness',
-        'picture_type' => 'getPictureType'
+        'pictureType' => 'getPictureType'
     ];
 
     /**
@@ -218,11 +218,11 @@ class ChartWall implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['thickness'] = isset($data['thickness']) ? $data['thickness'] : null;
-        $this->container['picture_type'] = isset($data['picture_type']) ? $data['picture_type'] : null;
+        $this->container['pictureType'] = isset($data['pictureType']) ? $data['pictureType'] : null;
     }
 
     /**
@@ -237,13 +237,13 @@ class ChartWall implements ArrayAccess
         if ($this->container['thickness'] === null) {
             $invalidProperties[] = "'thickness' can't be null";
         }
-        if ($this->container['picture_type'] === null) {
-            $invalidProperties[] = "'picture_type' can't be null";
+        if ($this->container['pictureType'] === null) {
+            $invalidProperties[] = "'pictureType' can't be null";
         }
         $allowedValues = $this->getPictureTypeAllowableValues();
-        if (!in_array($this->container['picture_type'], $allowedValues)) {
+        if (!in_array($this->container['pictureType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'picture_type', must be one of '%s'",
+                "invalid value for 'pictureType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -263,11 +263,11 @@ class ChartWall implements ArrayAccess
         if ($this->container['thickness'] === null) {
             return false;
         }
-        if ($this->container['picture_type'] === null) {
+        if ($this->container['pictureType'] === null) {
             return false;
         }
         $allowedValues = $this->getPictureTypeAllowableValues();
-        if (!in_array($this->container['picture_type'], $allowedValues)) {
+        if (!in_array($this->container['pictureType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -275,73 +275,73 @@ class ChartWall implements ArrayAccess
 
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Get or sets the fill format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format Get or sets the effect format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format Get or sets the line format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }
@@ -371,34 +371,34 @@ class ChartWall implements ArrayAccess
     }
 
     /**
-     * Gets picture_type
+     * Gets pictureType
      *
      * @return string
      */
     public function getPictureType()
     {
-        return $this->container['picture_type'];
+        return $this->container['pictureType'];
     }
 
     /**
-     * Sets picture_type
+     * Sets pictureType
      *
-     * @param string $picture_type Get or sets mode of bar picture filling.
+     * @param string $pictureType Get or sets mode of bar picture filling.
      *
      * @return $this
      */
-    public function setPictureType($picture_type)
+    public function setPictureType($pictureType)
     {
         $allowedValues = $this->getPictureTypeAllowableValues();
-        if (!in_array($picture_type, $allowedValues)) {
+        if (!in_array($pictureType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'picture_type', must be one of '%s'",
+                    "Invalid value for 'pictureType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['picture_type'] = $picture_type;
+        $this->container['pictureType'] = $pictureType;
 
         return $this;
     }

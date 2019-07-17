@@ -56,7 +56,7 @@ class RemoveShape extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'shape_path' => 'string'
+        'shapePath' => 'string'
     ];
 
     /**
@@ -65,7 +65,7 @@ class RemoveShape extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'shape_path' => null
+        'shapePath' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class RemoveShape extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'shape_path' => 'ShapePath'
+        'shapePath' => 'ShapePath'
     ];
 
     /**
@@ -104,7 +104,7 @@ class RemoveShape extends Task
      * @var string[]
      */
     protected static $setters = [
-        'shape_path' => 'setShapePath'
+        'shapePath' => 'setShapePath'
     ];
 
     /**
@@ -113,7 +113,7 @@ class RemoveShape extends Task
      * @var string[]
      */
     protected static $getters = [
-        'shape_path' => 'getShapePath'
+        'shapePath' => 'getShapePath'
     ];
 
     /**
@@ -172,7 +172,7 @@ class RemoveShape extends Task
     {
         parent::__construct($data);
 
-        $this->container['shape_path'] = isset($data['shape_path']) ? $data['shape_path'] : null;
+        $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
     }
 
     /**
@@ -204,25 +204,25 @@ class RemoveShape extends Task
 
 
     /**
-     * Gets shape_path
+     * Gets shapePath
      *
      * @return string
      */
     public function getShapePath()
     {
-        return $this->container['shape_path'];
+        return $this->container['shapePath'];
     }
 
     /**
-     * Sets shape_path
+     * Sets shapePath
      *
-     * @param string $shape_path shape_path
+     * @param string $shapePath shapePath
      *
      * @return $this
      */
-    public function setShapePath($shape_path)
+    public function setShapePath($shapePath)
     {
-        $this->container['shape_path'] = $shape_path;
+        $this->container['shapePath'] = $shapePath;
 
         return $this;
     }

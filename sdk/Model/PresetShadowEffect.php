@@ -62,7 +62,7 @@ class PresetShadowEffect implements ArrayAccess
         'direction' => 'double',
         'distance' => 'double',
         'preset' => 'string',
-        'shadow_color' => 'string'
+        'shadowColor' => 'string'
     ];
 
     /**
@@ -74,7 +74,7 @@ class PresetShadowEffect implements ArrayAccess
         'direction' => 'double',
         'distance' => 'double',
         'preset' => null,
-        'shadow_color' => null
+        'shadowColor' => null
     ];
 
     /**
@@ -107,7 +107,7 @@ class PresetShadowEffect implements ArrayAccess
         'direction' => 'Direction',
         'distance' => 'Distance',
         'preset' => 'Preset',
-        'shadow_color' => 'ShadowColor'
+        'shadowColor' => 'ShadowColor'
     ];
 
     /**
@@ -119,7 +119,7 @@ class PresetShadowEffect implements ArrayAccess
         'direction' => 'setDirection',
         'distance' => 'setDistance',
         'preset' => 'setPreset',
-        'shadow_color' => 'setShadowColor'
+        'shadowColor' => 'setShadowColor'
     ];
 
     /**
@@ -131,7 +131,7 @@ class PresetShadowEffect implements ArrayAccess
         'direction' => 'getDirection',
         'distance' => 'getDistance',
         'preset' => 'getPreset',
-        'shadow_color' => 'getShadowColor'
+        'shadowColor' => 'getShadowColor'
     ];
 
     /**
@@ -248,7 +248,7 @@ class PresetShadowEffect implements ArrayAccess
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['distance'] = isset($data['distance']) ? $data['distance'] : null;
         $this->container['preset'] = isset($data['preset']) ? $data['preset'] : null;
-        $this->container['shadow_color'] = isset($data['shadow_color']) ? $data['shadow_color'] : null;
+        $this->container['shadowColor'] = isset($data['shadowColor']) ? $data['shadowColor'] : null;
     }
 
     /**
@@ -388,25 +388,25 @@ class PresetShadowEffect implements ArrayAccess
     }
 
     /**
-     * Gets shadow_color
+     * Gets shadowColor
      *
      * @return string
      */
     public function getShadowColor()
     {
-        return $this->container['shadow_color'];
+        return $this->container['shadowColor'];
     }
 
     /**
-     * Sets shadow_color
+     * Sets shadowColor
      *
-     * @param string $shadow_color shadow color
+     * @param string $shadowColor shadow color
      *
      * @return $this
      */
-    public function setShadowColor($shadow_color)
+    public function setShadowColor($shadowColor)
     {
-        $this->container['shadow_color'] = $shadow_color;
+        $this->container['shadowColor'] = $shadowColor;
 
         return $this;
     }

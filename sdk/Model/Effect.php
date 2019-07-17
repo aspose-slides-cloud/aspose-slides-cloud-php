@@ -61,18 +61,18 @@ class Effect implements ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'string',
         'subtype' => 'string',
-        'preset_class_type' => 'string',
-        'shape_index' => 'int',
-        'trigger_type' => 'string',
+        'presetClassType' => 'string',
+        'shapeIndex' => 'int',
+        'triggerType' => 'string',
         'accelerate' => 'double',
-        'auto_reverse' => 'bool',
+        'autoReverse' => 'bool',
         'decelerate' => 'double',
         'duration' => 'double',
-        'repeat_count' => 'double',
-        'repeat_duration' => 'double',
+        'repeatCount' => 'double',
+        'repeatDuration' => 'double',
         'restart' => 'string',
         'speed' => 'double',
-        'trigger_delay_time' => 'double'
+        'triggerDelayTime' => 'double'
     ];
 
     /**
@@ -83,18 +83,18 @@ class Effect implements ArrayAccess
     protected static $swaggerFormats = [
         'type' => null,
         'subtype' => null,
-        'preset_class_type' => null,
-        'shape_index' => 'int32',
-        'trigger_type' => null,
+        'presetClassType' => null,
+        'shapeIndex' => 'int32',
+        'triggerType' => null,
         'accelerate' => 'double',
-        'auto_reverse' => null,
+        'autoReverse' => null,
         'decelerate' => 'double',
         'duration' => 'double',
-        'repeat_count' => 'double',
-        'repeat_duration' => 'double',
+        'repeatCount' => 'double',
+        'repeatDuration' => 'double',
         'restart' => null,
         'speed' => 'double',
-        'trigger_delay_time' => 'double'
+        'triggerDelayTime' => 'double'
     ];
 
     /**
@@ -126,18 +126,18 @@ class Effect implements ArrayAccess
     protected static $attributeMap = [
         'type' => 'Type',
         'subtype' => 'Subtype',
-        'preset_class_type' => 'PresetClassType',
-        'shape_index' => 'ShapeIndex',
-        'trigger_type' => 'TriggerType',
+        'presetClassType' => 'PresetClassType',
+        'shapeIndex' => 'ShapeIndex',
+        'triggerType' => 'TriggerType',
         'accelerate' => 'Accelerate',
-        'auto_reverse' => 'AutoReverse',
+        'autoReverse' => 'AutoReverse',
         'decelerate' => 'Decelerate',
         'duration' => 'Duration',
-        'repeat_count' => 'RepeatCount',
-        'repeat_duration' => 'RepeatDuration',
+        'repeatCount' => 'RepeatCount',
+        'repeatDuration' => 'RepeatDuration',
         'restart' => 'Restart',
         'speed' => 'Speed',
-        'trigger_delay_time' => 'TriggerDelayTime'
+        'triggerDelayTime' => 'TriggerDelayTime'
     ];
 
     /**
@@ -148,18 +148,18 @@ class Effect implements ArrayAccess
     protected static $setters = [
         'type' => 'setType',
         'subtype' => 'setSubtype',
-        'preset_class_type' => 'setPresetClassType',
-        'shape_index' => 'setShapeIndex',
-        'trigger_type' => 'setTriggerType',
+        'presetClassType' => 'setPresetClassType',
+        'shapeIndex' => 'setShapeIndex',
+        'triggerType' => 'setTriggerType',
         'accelerate' => 'setAccelerate',
-        'auto_reverse' => 'setAutoReverse',
+        'autoReverse' => 'setAutoReverse',
         'decelerate' => 'setDecelerate',
         'duration' => 'setDuration',
-        'repeat_count' => 'setRepeatCount',
-        'repeat_duration' => 'setRepeatDuration',
+        'repeatCount' => 'setRepeatCount',
+        'repeatDuration' => 'setRepeatDuration',
         'restart' => 'setRestart',
         'speed' => 'setSpeed',
-        'trigger_delay_time' => 'setTriggerDelayTime'
+        'triggerDelayTime' => 'setTriggerDelayTime'
     ];
 
     /**
@@ -170,18 +170,18 @@ class Effect implements ArrayAccess
     protected static $getters = [
         'type' => 'getType',
         'subtype' => 'getSubtype',
-        'preset_class_type' => 'getPresetClassType',
-        'shape_index' => 'getShapeIndex',
-        'trigger_type' => 'getTriggerType',
+        'presetClassType' => 'getPresetClassType',
+        'shapeIndex' => 'getShapeIndex',
+        'triggerType' => 'getTriggerType',
         'accelerate' => 'getAccelerate',
-        'auto_reverse' => 'getAutoReverse',
+        'autoReverse' => 'getAutoReverse',
         'decelerate' => 'getDecelerate',
         'duration' => 'getDuration',
-        'repeat_count' => 'getRepeatCount',
-        'repeat_duration' => 'getRepeatDuration',
+        'repeatCount' => 'getRepeatCount',
+        'repeatDuration' => 'getRepeatDuration',
         'restart' => 'getRestart',
         'speed' => 'getSpeed',
-        'trigger_delay_time' => 'getTriggerDelayTime'
+        'triggerDelayTime' => 'getTriggerDelayTime'
     ];
 
     /**
@@ -737,18 +737,18 @@ class Effect implements ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['subtype'] = isset($data['subtype']) ? $data['subtype'] : null;
-        $this->container['preset_class_type'] = isset($data['preset_class_type']) ? $data['preset_class_type'] : null;
-        $this->container['shape_index'] = isset($data['shape_index']) ? $data['shape_index'] : null;
-        $this->container['trigger_type'] = isset($data['trigger_type']) ? $data['trigger_type'] : null;
+        $this->container['presetClassType'] = isset($data['presetClassType']) ? $data['presetClassType'] : null;
+        $this->container['shapeIndex'] = isset($data['shapeIndex']) ? $data['shapeIndex'] : null;
+        $this->container['triggerType'] = isset($data['triggerType']) ? $data['triggerType'] : null;
         $this->container['accelerate'] = isset($data['accelerate']) ? $data['accelerate'] : null;
-        $this->container['auto_reverse'] = isset($data['auto_reverse']) ? $data['auto_reverse'] : null;
+        $this->container['autoReverse'] = isset($data['autoReverse']) ? $data['autoReverse'] : null;
         $this->container['decelerate'] = isset($data['decelerate']) ? $data['decelerate'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
-        $this->container['repeat_count'] = isset($data['repeat_count']) ? $data['repeat_count'] : null;
-        $this->container['repeat_duration'] = isset($data['repeat_duration']) ? $data['repeat_duration'] : null;
+        $this->container['repeatCount'] = isset($data['repeatCount']) ? $data['repeatCount'] : null;
+        $this->container['repeatDuration'] = isset($data['repeatDuration']) ? $data['repeatDuration'] : null;
         $this->container['restart'] = isset($data['restart']) ? $data['restart'] : null;
         $this->container['speed'] = isset($data['speed']) ? $data['speed'] : null;
-        $this->container['trigger_delay_time'] = isset($data['trigger_delay_time']) ? $data['trigger_delay_time'] : null;
+        $this->container['triggerDelayTime'] = isset($data['triggerDelayTime']) ? $data['triggerDelayTime'] : null;
     }
 
     /**
@@ -777,20 +777,20 @@ class Effect implements ArrayAccess
         }
 
         $allowedValues = $this->getPresetClassTypeAllowableValues();
-        if (!in_array($this->container['preset_class_type'], $allowedValues)) {
+        if (!in_array($this->container['presetClassType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'preset_class_type', must be one of '%s'",
+                "invalid value for 'presetClassType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['shape_index'] === null) {
-            $invalidProperties[] = "'shape_index' can't be null";
+        if ($this->container['shapeIndex'] === null) {
+            $invalidProperties[] = "'shapeIndex' can't be null";
         }
         $allowedValues = $this->getTriggerTypeAllowableValues();
-        if (!in_array($this->container['trigger_type'], $allowedValues)) {
+        if (!in_array($this->container['triggerType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'trigger_type', must be one of '%s'",
+                "invalid value for 'triggerType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -824,14 +824,14 @@ class Effect implements ArrayAccess
             return false;
         }
         $allowedValues = $this->getPresetClassTypeAllowableValues();
-        if (!in_array($this->container['preset_class_type'], $allowedValues)) {
+        if (!in_array($this->container['presetClassType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['shape_index'] === null) {
+        if ($this->container['shapeIndex'] === null) {
             return false;
         }
         $allowedValues = $this->getTriggerTypeAllowableValues();
-        if (!in_array($this->container['trigger_type'], $allowedValues)) {
+        if (!in_array($this->container['triggerType'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getRestartAllowableValues();
@@ -909,91 +909,91 @@ class Effect implements ArrayAccess
     }
 
     /**
-     * Gets preset_class_type
+     * Gets presetClassType
      *
      * @return string
      */
     public function getPresetClassType()
     {
-        return $this->container['preset_class_type'];
+        return $this->container['presetClassType'];
     }
 
     /**
-     * Sets preset_class_type
+     * Sets presetClassType
      *
-     * @param string $preset_class_type Preset class type.
+     * @param string $presetClassType Preset class type.
      *
      * @return $this
      */
-    public function setPresetClassType($preset_class_type)
+    public function setPresetClassType($presetClassType)
     {
         $allowedValues = $this->getPresetClassTypeAllowableValues();
-        if (!is_null($preset_class_type) && !in_array($preset_class_type, $allowedValues)) {
+        if (!is_null($presetClassType) && !in_array($presetClassType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'preset_class_type', must be one of '%s'",
+                    "Invalid value for 'presetClassType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['preset_class_type'] = $preset_class_type;
+        $this->container['presetClassType'] = $presetClassType;
 
         return $this;
     }
 
     /**
-     * Gets shape_index
+     * Gets shapeIndex
      *
      * @return int
      */
     public function getShapeIndex()
     {
-        return $this->container['shape_index'];
+        return $this->container['shapeIndex'];
     }
 
     /**
-     * Sets shape_index
+     * Sets shapeIndex
      *
-     * @param int $shape_index Shape index.
+     * @param int $shapeIndex Shape index.
      *
      * @return $this
      */
-    public function setShapeIndex($shape_index)
+    public function setShapeIndex($shapeIndex)
     {
-        $this->container['shape_index'] = $shape_index;
+        $this->container['shapeIndex'] = $shapeIndex;
 
         return $this;
     }
 
     /**
-     * Gets trigger_type
+     * Gets triggerType
      *
      * @return string
      */
     public function getTriggerType()
     {
-        return $this->container['trigger_type'];
+        return $this->container['triggerType'];
     }
 
     /**
-     * Sets trigger_type
+     * Sets triggerType
      *
-     * @param string $trigger_type Effect trigger type.
+     * @param string $triggerType Effect trigger type.
      *
      * @return $this
      */
-    public function setTriggerType($trigger_type)
+    public function setTriggerType($triggerType)
     {
         $allowedValues = $this->getTriggerTypeAllowableValues();
-        if (!is_null($trigger_type) && !in_array($trigger_type, $allowedValues)) {
+        if (!is_null($triggerType) && !in_array($triggerType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'trigger_type', must be one of '%s'",
+                    "Invalid value for 'triggerType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['trigger_type'] = $trigger_type;
+        $this->container['triggerType'] = $triggerType;
 
         return $this;
     }
@@ -1023,25 +1023,25 @@ class Effect implements ArrayAccess
     }
 
     /**
-     * Gets auto_reverse
+     * Gets autoReverse
      *
      * @return bool
      */
     public function getAutoReverse()
     {
-        return $this->container['auto_reverse'];
+        return $this->container['autoReverse'];
     }
 
     /**
-     * Sets auto_reverse
+     * Sets autoReverse
      *
-     * @param bool $auto_reverse True to automatically play the animation in reverse after playing it in the forward direction.
+     * @param bool $autoReverse True to automatically play the animation in reverse after playing it in the forward direction.
      *
      * @return $this
      */
-    public function setAutoReverse($auto_reverse)
+    public function setAutoReverse($autoReverse)
     {
-        $this->container['auto_reverse'] = $auto_reverse;
+        $this->container['autoReverse'] = $autoReverse;
 
         return $this;
     }
@@ -1095,49 +1095,49 @@ class Effect implements ArrayAccess
     }
 
     /**
-     * Gets repeat_count
+     * Gets repeatCount
      *
      * @return double
      */
     public function getRepeatCount()
     {
-        return $this->container['repeat_count'];
+        return $this->container['repeatCount'];
     }
 
     /**
-     * Sets repeat_count
+     * Sets repeatCount
      *
-     * @param double $repeat_count The number of times the effect should repeat.
+     * @param double $repeatCount The number of times the effect should repeat.
      *
      * @return $this
      */
-    public function setRepeatCount($repeat_count)
+    public function setRepeatCount($repeatCount)
     {
-        $this->container['repeat_count'] = $repeat_count;
+        $this->container['repeatCount'] = $repeatCount;
 
         return $this;
     }
 
     /**
-     * Gets repeat_duration
+     * Gets repeatDuration
      *
      * @return double
      */
     public function getRepeatDuration()
     {
-        return $this->container['repeat_duration'];
+        return $this->container['repeatDuration'];
     }
 
     /**
-     * Sets repeat_duration
+     * Sets repeatDuration
      *
-     * @param double $repeat_duration The number of times the effect should repeat.
+     * @param double $repeatDuration The number of times the effect should repeat.
      *
      * @return $this
      */
-    public function setRepeatDuration($repeat_duration)
+    public function setRepeatDuration($repeatDuration)
     {
-        $this->container['repeat_duration'] = $repeat_duration;
+        $this->container['repeatDuration'] = $repeatDuration;
 
         return $this;
     }
@@ -1200,25 +1200,25 @@ class Effect implements ArrayAccess
     }
 
     /**
-     * Gets trigger_delay_time
+     * Gets triggerDelayTime
      *
      * @return double
      */
     public function getTriggerDelayTime()
     {
-        return $this->container['trigger_delay_time'];
+        return $this->container['triggerDelayTime'];
     }
 
     /**
-     * Sets trigger_delay_time
+     * Sets triggerDelayTime
      *
-     * @param double $trigger_delay_time Delay time after trigger.
+     * @param double $triggerDelayTime Delay time after trigger.
      *
      * @return $this
      */
-    public function setTriggerDelayTime($trigger_delay_time)
+    public function setTriggerDelayTime($triggerDelayTime)
     {
-        $this->container['trigger_delay_time'] = $trigger_delay_time;
+        $this->container['triggerDelayTime'] = $triggerDelayTime;
 
         return $this;
     }

@@ -56,15 +56,15 @@ class PictureFill extends FillFormat
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'crop_bottom' => 'double',
-        'crop_left' => 'double',
-        'crop_right' => 'double',
-        'crop_top' => 'double',
+        'cropBottom' => 'double',
+        'cropLeft' => 'double',
+        'cropRight' => 'double',
+        'cropTop' => 'double',
         'dpi' => 'int',
         'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'base64_data' => 'string',
-        'svg_data' => 'string',
-        'picture_fill_mode' => 'string'
+        'base64Data' => 'string',
+        'svgData' => 'string',
+        'pictureFillMode' => 'string'
     ];
 
     /**
@@ -73,15 +73,15 @@ class PictureFill extends FillFormat
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'crop_bottom' => 'double',
-        'crop_left' => 'double',
-        'crop_right' => 'double',
-        'crop_top' => 'double',
+        'cropBottom' => 'double',
+        'cropLeft' => 'double',
+        'cropRight' => 'double',
+        'cropTop' => 'double',
         'dpi' => 'int32',
         'image' => null,
-        'base64_data' => null,
-        'svg_data' => null,
-        'picture_fill_mode' => null
+        'base64Data' => null,
+        'svgData' => null,
+        'pictureFillMode' => null
     ];
 
     /**
@@ -111,15 +111,15 @@ class PictureFill extends FillFormat
      * @var string[]
      */
     protected static $attributeMap = [
-        'crop_bottom' => 'CropBottom',
-        'crop_left' => 'CropLeft',
-        'crop_right' => 'CropRight',
-        'crop_top' => 'CropTop',
+        'cropBottom' => 'CropBottom',
+        'cropLeft' => 'CropLeft',
+        'cropRight' => 'CropRight',
+        'cropTop' => 'CropTop',
         'dpi' => 'Dpi',
         'image' => 'Image',
-        'base64_data' => 'Base64Data',
-        'svg_data' => 'SvgData',
-        'picture_fill_mode' => 'PictureFillMode'
+        'base64Data' => 'Base64Data',
+        'svgData' => 'SvgData',
+        'pictureFillMode' => 'PictureFillMode'
     ];
 
     /**
@@ -128,15 +128,15 @@ class PictureFill extends FillFormat
      * @var string[]
      */
     protected static $setters = [
-        'crop_bottom' => 'setCropBottom',
-        'crop_left' => 'setCropLeft',
-        'crop_right' => 'setCropRight',
-        'crop_top' => 'setCropTop',
+        'cropBottom' => 'setCropBottom',
+        'cropLeft' => 'setCropLeft',
+        'cropRight' => 'setCropRight',
+        'cropTop' => 'setCropTop',
         'dpi' => 'setDpi',
         'image' => 'setImage',
-        'base64_data' => 'setBase64Data',
-        'svg_data' => 'setSvgData',
-        'picture_fill_mode' => 'setPictureFillMode'
+        'base64Data' => 'setBase64Data',
+        'svgData' => 'setSvgData',
+        'pictureFillMode' => 'setPictureFillMode'
     ];
 
     /**
@@ -145,15 +145,15 @@ class PictureFill extends FillFormat
      * @var string[]
      */
     protected static $getters = [
-        'crop_bottom' => 'getCropBottom',
-        'crop_left' => 'getCropLeft',
-        'crop_right' => 'getCropRight',
-        'crop_top' => 'getCropTop',
+        'cropBottom' => 'getCropBottom',
+        'cropLeft' => 'getCropLeft',
+        'cropRight' => 'getCropRight',
+        'cropTop' => 'getCropTop',
         'dpi' => 'getDpi',
         'image' => 'getImage',
-        'base64_data' => 'getBase64Data',
-        'svg_data' => 'getSvgData',
-        'picture_fill_mode' => 'getPictureFillMode'
+        'base64Data' => 'getBase64Data',
+        'svgData' => 'getSvgData',
+        'pictureFillMode' => 'getPictureFillMode'
     ];
 
     /**
@@ -227,15 +227,15 @@ class PictureFill extends FillFormat
     {
         parent::__construct($data);
 
-        $this->container['crop_bottom'] = isset($data['crop_bottom']) ? $data['crop_bottom'] : null;
-        $this->container['crop_left'] = isset($data['crop_left']) ? $data['crop_left'] : null;
-        $this->container['crop_right'] = isset($data['crop_right']) ? $data['crop_right'] : null;
-        $this->container['crop_top'] = isset($data['crop_top']) ? $data['crop_top'] : null;
+        $this->container['cropBottom'] = isset($data['cropBottom']) ? $data['cropBottom'] : null;
+        $this->container['cropLeft'] = isset($data['cropLeft']) ? $data['cropLeft'] : null;
+        $this->container['cropRight'] = isset($data['cropRight']) ? $data['cropRight'] : null;
+        $this->container['cropTop'] = isset($data['cropTop']) ? $data['cropTop'] : null;
         $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
-        $this->container['base64_data'] = isset($data['base64_data']) ? $data['base64_data'] : null;
-        $this->container['svg_data'] = isset($data['svg_data']) ? $data['svg_data'] : null;
-        $this->container['picture_fill_mode'] = isset($data['picture_fill_mode']) ? $data['picture_fill_mode'] : null;
+        $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
+        $this->container['svgData'] = isset($data['svgData']) ? $data['svgData'] : null;
+        $this->container['pictureFillMode'] = isset($data['pictureFillMode']) ? $data['pictureFillMode'] : null;
     }
 
     /**
@@ -247,28 +247,28 @@ class PictureFill extends FillFormat
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['crop_bottom'] === null) {
-            $invalidProperties[] = "'crop_bottom' can't be null";
+        if ($this->container['cropBottom'] === null) {
+            $invalidProperties[] = "'cropBottom' can't be null";
         }
-        if ($this->container['crop_left'] === null) {
-            $invalidProperties[] = "'crop_left' can't be null";
+        if ($this->container['cropLeft'] === null) {
+            $invalidProperties[] = "'cropLeft' can't be null";
         }
-        if ($this->container['crop_right'] === null) {
-            $invalidProperties[] = "'crop_right' can't be null";
+        if ($this->container['cropRight'] === null) {
+            $invalidProperties[] = "'cropRight' can't be null";
         }
-        if ($this->container['crop_top'] === null) {
-            $invalidProperties[] = "'crop_top' can't be null";
+        if ($this->container['cropTop'] === null) {
+            $invalidProperties[] = "'cropTop' can't be null";
         }
         if ($this->container['dpi'] === null) {
             $invalidProperties[] = "'dpi' can't be null";
         }
-        if ($this->container['picture_fill_mode'] === null) {
-            $invalidProperties[] = "'picture_fill_mode' can't be null";
+        if ($this->container['pictureFillMode'] === null) {
+            $invalidProperties[] = "'pictureFillMode' can't be null";
         }
         $allowedValues = $this->getPictureFillModeAllowableValues();
-        if (!in_array($this->container['picture_fill_mode'], $allowedValues)) {
+        if (!in_array($this->container['pictureFillMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'picture_fill_mode', must be one of '%s'",
+                "invalid value for 'pictureFillMode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -288,26 +288,26 @@ class PictureFill extends FillFormat
             return false;
         }
 
-        if ($this->container['crop_bottom'] === null) {
+        if ($this->container['cropBottom'] === null) {
             return false;
         }
-        if ($this->container['crop_left'] === null) {
+        if ($this->container['cropLeft'] === null) {
             return false;
         }
-        if ($this->container['crop_right'] === null) {
+        if ($this->container['cropRight'] === null) {
             return false;
         }
-        if ($this->container['crop_top'] === null) {
+        if ($this->container['cropTop'] === null) {
             return false;
         }
         if ($this->container['dpi'] === null) {
             return false;
         }
-        if ($this->container['picture_fill_mode'] === null) {
+        if ($this->container['pictureFillMode'] === null) {
             return false;
         }
         $allowedValues = $this->getPictureFillModeAllowableValues();
-        if (!in_array($this->container['picture_fill_mode'], $allowedValues)) {
+        if (!in_array($this->container['pictureFillMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -315,97 +315,97 @@ class PictureFill extends FillFormat
 
 
     /**
-     * Gets crop_bottom
+     * Gets cropBottom
      *
      * @return double
      */
     public function getCropBottom()
     {
-        return $this->container['crop_bottom'];
+        return $this->container['cropBottom'];
     }
 
     /**
-     * Sets crop_bottom
+     * Sets cropBottom
      *
-     * @param double $crop_bottom crop_bottom
+     * @param double $cropBottom cropBottom
      *
      * @return $this
      */
-    public function setCropBottom($crop_bottom)
+    public function setCropBottom($cropBottom)
     {
-        $this->container['crop_bottom'] = $crop_bottom;
+        $this->container['cropBottom'] = $cropBottom;
 
         return $this;
     }
 
     /**
-     * Gets crop_left
+     * Gets cropLeft
      *
      * @return double
      */
     public function getCropLeft()
     {
-        return $this->container['crop_left'];
+        return $this->container['cropLeft'];
     }
 
     /**
-     * Sets crop_left
+     * Sets cropLeft
      *
-     * @param double $crop_left crop_left
+     * @param double $cropLeft cropLeft
      *
      * @return $this
      */
-    public function setCropLeft($crop_left)
+    public function setCropLeft($cropLeft)
     {
-        $this->container['crop_left'] = $crop_left;
+        $this->container['cropLeft'] = $cropLeft;
 
         return $this;
     }
 
     /**
-     * Gets crop_right
+     * Gets cropRight
      *
      * @return double
      */
     public function getCropRight()
     {
-        return $this->container['crop_right'];
+        return $this->container['cropRight'];
     }
 
     /**
-     * Sets crop_right
+     * Sets cropRight
      *
-     * @param double $crop_right crop_right
+     * @param double $cropRight cropRight
      *
      * @return $this
      */
-    public function setCropRight($crop_right)
+    public function setCropRight($cropRight)
     {
-        $this->container['crop_right'] = $crop_right;
+        $this->container['cropRight'] = $cropRight;
 
         return $this;
     }
 
     /**
-     * Gets crop_top
+     * Gets cropTop
      *
      * @return double
      */
     public function getCropTop()
     {
-        return $this->container['crop_top'];
+        return $this->container['cropTop'];
     }
 
     /**
-     * Sets crop_top
+     * Sets cropTop
      *
-     * @param double $crop_top crop_top
+     * @param double $cropTop cropTop
      *
      * @return $this
      */
-    public function setCropTop($crop_top)
+    public function setCropTop($cropTop)
     {
-        $this->container['crop_top'] = $crop_top;
+        $this->container['cropTop'] = $cropTop;
 
         return $this;
     }
@@ -459,82 +459,82 @@ class PictureFill extends FillFormat
     }
 
     /**
-     * Gets base64_data
+     * Gets base64Data
      *
      * @return string
      */
     public function getBase64Data()
     {
-        return $this->container['base64_data'];
+        return $this->container['base64Data'];
     }
 
     /**
-     * Sets base64_data
+     * Sets base64Data
      *
-     * @param string $base64_data base64_data
+     * @param string $base64Data base64Data
      *
      * @return $this
      */
-    public function setBase64Data($base64_data)
+    public function setBase64Data($base64Data)
     {
-        $this->container['base64_data'] = $base64_data;
+        $this->container['base64Data'] = $base64Data;
 
         return $this;
     }
 
     /**
-     * Gets svg_data
+     * Gets svgData
      *
      * @return string
      */
     public function getSvgData()
     {
-        return $this->container['svg_data'];
+        return $this->container['svgData'];
     }
 
     /**
-     * Sets svg_data
+     * Sets svgData
      *
-     * @param string $svg_data svg_data
+     * @param string $svgData svgData
      *
      * @return $this
      */
-    public function setSvgData($svg_data)
+    public function setSvgData($svgData)
     {
-        $this->container['svg_data'] = $svg_data;
+        $this->container['svgData'] = $svgData;
 
         return $this;
     }
 
     /**
-     * Gets picture_fill_mode
+     * Gets pictureFillMode
      *
      * @return string
      */
     public function getPictureFillMode()
     {
-        return $this->container['picture_fill_mode'];
+        return $this->container['pictureFillMode'];
     }
 
     /**
-     * Sets picture_fill_mode
+     * Sets pictureFillMode
      *
-     * @param string $picture_fill_mode picture_fill_mode
+     * @param string $pictureFillMode pictureFillMode
      *
      * @return $this
      */
-    public function setPictureFillMode($picture_fill_mode)
+    public function setPictureFillMode($pictureFillMode)
     {
         $allowedValues = $this->getPictureFillModeAllowableValues();
-        if (!in_array($picture_fill_mode, $allowedValues)) {
+        if (!in_array($pictureFillMode, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'picture_fill_mode', must be one of '%s'",
+                    "Invalid value for 'pictureFillMode', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['picture_fill_mode'] = $picture_fill_mode;
+        $this->container['pictureFillMode'] = $pictureFillMode;
 
         return $this;
     }

@@ -59,8 +59,8 @@ class DiscUsage implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'used_size' => 'int',
-        'total_size' => 'int'
+        'usedSize' => 'int',
+        'totalSize' => 'int'
     ];
 
     /**
@@ -69,8 +69,8 @@ class DiscUsage implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'used_size' => 'int64',
-        'total_size' => 'int64'
+        'usedSize' => 'int64',
+        'totalSize' => 'int64'
     ];
 
     /**
@@ -100,8 +100,8 @@ class DiscUsage implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'used_size' => 'UsedSize',
-        'total_size' => 'TotalSize'
+        'usedSize' => 'UsedSize',
+        'totalSize' => 'TotalSize'
     ];
 
     /**
@@ -110,8 +110,8 @@ class DiscUsage implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'used_size' => 'setUsedSize',
-        'total_size' => 'setTotalSize'
+        'usedSize' => 'setUsedSize',
+        'totalSize' => 'setTotalSize'
     ];
 
     /**
@@ -120,8 +120,8 @@ class DiscUsage implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'used_size' => 'getUsedSize',
-        'total_size' => 'getTotalSize'
+        'usedSize' => 'getUsedSize',
+        'totalSize' => 'getTotalSize'
     ];
 
     /**
@@ -184,8 +184,8 @@ class DiscUsage implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['used_size'] = isset($data['used_size']) ? $data['used_size'] : null;
-        $this->container['total_size'] = isset($data['total_size']) ? $data['total_size'] : null;
+        $this->container['usedSize'] = isset($data['usedSize']) ? $data['usedSize'] : null;
+        $this->container['totalSize'] = isset($data['totalSize']) ? $data['totalSize'] : null;
     }
 
     /**
@@ -197,11 +197,11 @@ class DiscUsage implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['used_size'] === null) {
-            $invalidProperties[] = "'used_size' can't be null";
+        if ($this->container['usedSize'] === null) {
+            $invalidProperties[] = "'usedSize' can't be null";
         }
-        if ($this->container['total_size'] === null) {
-            $invalidProperties[] = "'total_size' can't be null";
+        if ($this->container['totalSize'] === null) {
+            $invalidProperties[] = "'totalSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,10 +215,10 @@ class DiscUsage implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['used_size'] === null) {
+        if ($this->container['usedSize'] === null) {
             return false;
         }
-        if ($this->container['total_size'] === null) {
+        if ($this->container['totalSize'] === null) {
             return false;
         }
         return true;
@@ -226,49 +226,49 @@ class DiscUsage implements ArrayAccess
 
 
     /**
-     * Gets used_size
+     * Gets usedSize
      *
      * @return int
      */
     public function getUsedSize()
     {
-        return $this->container['used_size'];
+        return $this->container['usedSize'];
     }
 
     /**
-     * Sets used_size
+     * Sets usedSize
      *
-     * @param int $used_size Application used disc space.
+     * @param int $usedSize Application used disc space.
      *
      * @return $this
      */
-    public function setUsedSize($used_size)
+    public function setUsedSize($usedSize)
     {
-        $this->container['used_size'] = $used_size;
+        $this->container['usedSize'] = $usedSize;
 
         return $this;
     }
 
     /**
-     * Gets total_size
+     * Gets totalSize
      *
      * @return int
      */
     public function getTotalSize()
     {
-        return $this->container['total_size'];
+        return $this->container['totalSize'];
     }
 
     /**
-     * Sets total_size
+     * Sets totalSize
      *
-     * @param int $total_size Total disc space.
+     * @param int $totalSize Total disc space.
      *
      * @return $this
      */
-    public function setTotalSize($total_size)
+    public function setTotalSize($totalSize)
     {
-        $this->container['total_size'] = $total_size;
+        $this->container['totalSize'] = $totalSize;
 
         return $this;
     }

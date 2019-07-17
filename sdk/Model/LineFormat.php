@@ -59,15 +59,15 @@ class LineFormat implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'alignment' => 'string',
-        'cap_style' => 'string',
-        'dash_style' => 'string',
-        'join_style' => 'string',
+        'capStyle' => 'string',
+        'dashStyle' => 'string',
+        'joinStyle' => 'string',
         'style' => 'string',
-        'begin_arrow_head' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
-        'end_arrow_head' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
-        'custom_dash_pattern' => '\Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'miter_limit' => 'double',
+        'beginArrowHead' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
+        'endArrowHead' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
+        'customDashPattern' => '\Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'miterLimit' => 'double',
         'width' => 'double'
     ];
 
@@ -78,15 +78,15 @@ class LineFormat implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'alignment' => null,
-        'cap_style' => null,
-        'dash_style' => null,
-        'join_style' => null,
+        'capStyle' => null,
+        'dashStyle' => null,
+        'joinStyle' => null,
         'style' => null,
-        'begin_arrow_head' => null,
-        'end_arrow_head' => null,
-        'custom_dash_pattern' => null,
-        'fill_format' => null,
-        'miter_limit' => 'double',
+        'beginArrowHead' => null,
+        'endArrowHead' => null,
+        'customDashPattern' => null,
+        'fillFormat' => null,
+        'miterLimit' => 'double',
         'width' => 'double'
     ];
 
@@ -118,15 +118,15 @@ class LineFormat implements ArrayAccess
      */
     protected static $attributeMap = [
         'alignment' => 'Alignment',
-        'cap_style' => 'CapStyle',
-        'dash_style' => 'DashStyle',
-        'join_style' => 'JoinStyle',
+        'capStyle' => 'CapStyle',
+        'dashStyle' => 'DashStyle',
+        'joinStyle' => 'JoinStyle',
         'style' => 'Style',
-        'begin_arrow_head' => 'BeginArrowHead',
-        'end_arrow_head' => 'EndArrowHead',
-        'custom_dash_pattern' => 'CustomDashPattern',
-        'fill_format' => 'FillFormat',
-        'miter_limit' => 'MiterLimit',
+        'beginArrowHead' => 'BeginArrowHead',
+        'endArrowHead' => 'EndArrowHead',
+        'customDashPattern' => 'CustomDashPattern',
+        'fillFormat' => 'FillFormat',
+        'miterLimit' => 'MiterLimit',
         'width' => 'Width'
     ];
 
@@ -137,15 +137,15 @@ class LineFormat implements ArrayAccess
      */
     protected static $setters = [
         'alignment' => 'setAlignment',
-        'cap_style' => 'setCapStyle',
-        'dash_style' => 'setDashStyle',
-        'join_style' => 'setJoinStyle',
+        'capStyle' => 'setCapStyle',
+        'dashStyle' => 'setDashStyle',
+        'joinStyle' => 'setJoinStyle',
         'style' => 'setStyle',
-        'begin_arrow_head' => 'setBeginArrowHead',
-        'end_arrow_head' => 'setEndArrowHead',
-        'custom_dash_pattern' => 'setCustomDashPattern',
-        'fill_format' => 'setFillFormat',
-        'miter_limit' => 'setMiterLimit',
+        'beginArrowHead' => 'setBeginArrowHead',
+        'endArrowHead' => 'setEndArrowHead',
+        'customDashPattern' => 'setCustomDashPattern',
+        'fillFormat' => 'setFillFormat',
+        'miterLimit' => 'setMiterLimit',
         'width' => 'setWidth'
     ];
 
@@ -156,15 +156,15 @@ class LineFormat implements ArrayAccess
      */
     protected static $getters = [
         'alignment' => 'getAlignment',
-        'cap_style' => 'getCapStyle',
-        'dash_style' => 'getDashStyle',
-        'join_style' => 'getJoinStyle',
+        'capStyle' => 'getCapStyle',
+        'dashStyle' => 'getDashStyle',
+        'joinStyle' => 'getJoinStyle',
         'style' => 'getStyle',
-        'begin_arrow_head' => 'getBeginArrowHead',
-        'end_arrow_head' => 'getEndArrowHead',
-        'custom_dash_pattern' => 'getCustomDashPattern',
-        'fill_format' => 'getFillFormat',
-        'miter_limit' => 'getMiterLimit',
+        'beginArrowHead' => 'getBeginArrowHead',
+        'endArrowHead' => 'getEndArrowHead',
+        'customDashPattern' => 'getCustomDashPattern',
+        'fillFormat' => 'getFillFormat',
+        'miterLimit' => 'getMiterLimit',
         'width' => 'getWidth'
     ];
 
@@ -344,15 +344,15 @@ class LineFormat implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['alignment'] = isset($data['alignment']) ? $data['alignment'] : null;
-        $this->container['cap_style'] = isset($data['cap_style']) ? $data['cap_style'] : null;
-        $this->container['dash_style'] = isset($data['dash_style']) ? $data['dash_style'] : null;
-        $this->container['join_style'] = isset($data['join_style']) ? $data['join_style'] : null;
+        $this->container['capStyle'] = isset($data['capStyle']) ? $data['capStyle'] : null;
+        $this->container['dashStyle'] = isset($data['dashStyle']) ? $data['dashStyle'] : null;
+        $this->container['joinStyle'] = isset($data['joinStyle']) ? $data['joinStyle'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
-        $this->container['begin_arrow_head'] = isset($data['begin_arrow_head']) ? $data['begin_arrow_head'] : null;
-        $this->container['end_arrow_head'] = isset($data['end_arrow_head']) ? $data['end_arrow_head'] : null;
-        $this->container['custom_dash_pattern'] = isset($data['custom_dash_pattern']) ? $data['custom_dash_pattern'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['miter_limit'] = isset($data['miter_limit']) ? $data['miter_limit'] : null;
+        $this->container['beginArrowHead'] = isset($data['beginArrowHead']) ? $data['beginArrowHead'] : null;
+        $this->container['endArrowHead'] = isset($data['endArrowHead']) ? $data['endArrowHead'] : null;
+        $this->container['customDashPattern'] = isset($data['customDashPattern']) ? $data['customDashPattern'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['miterLimit'] = isset($data['miterLimit']) ? $data['miterLimit'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
@@ -376,35 +376,35 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['cap_style'] === null) {
-            $invalidProperties[] = "'cap_style' can't be null";
+        if ($this->container['capStyle'] === null) {
+            $invalidProperties[] = "'capStyle' can't be null";
         }
         $allowedValues = $this->getCapStyleAllowableValues();
-        if (!in_array($this->container['cap_style'], $allowedValues)) {
+        if (!in_array($this->container['capStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'cap_style', must be one of '%s'",
+                "invalid value for 'capStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['dash_style'] === null) {
-            $invalidProperties[] = "'dash_style' can't be null";
+        if ($this->container['dashStyle'] === null) {
+            $invalidProperties[] = "'dashStyle' can't be null";
         }
         $allowedValues = $this->getDashStyleAllowableValues();
-        if (!in_array($this->container['dash_style'], $allowedValues)) {
+        if (!in_array($this->container['dashStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'dash_style', must be one of '%s'",
+                "invalid value for 'dashStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['join_style'] === null) {
-            $invalidProperties[] = "'join_style' can't be null";
+        if ($this->container['joinStyle'] === null) {
+            $invalidProperties[] = "'joinStyle' can't be null";
         }
         $allowedValues = $this->getJoinStyleAllowableValues();
-        if (!in_array($this->container['join_style'], $allowedValues)) {
+        if (!in_array($this->container['joinStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'join_style', must be one of '%s'",
+                "invalid value for 'joinStyle', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -420,8 +420,8 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['miter_limit'] === null) {
-            $invalidProperties[] = "'miter_limit' can't be null";
+        if ($this->container['miterLimit'] === null) {
+            $invalidProperties[] = "'miterLimit' can't be null";
         }
         if ($this->container['width'] === null) {
             $invalidProperties[] = "'width' can't be null";
@@ -445,25 +445,25 @@ class LineFormat implements ArrayAccess
         if (!in_array($this->container['alignment'], $allowedValues)) {
             return false;
         }
-        if ($this->container['cap_style'] === null) {
+        if ($this->container['capStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getCapStyleAllowableValues();
-        if (!in_array($this->container['cap_style'], $allowedValues)) {
+        if (!in_array($this->container['capStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['dash_style'] === null) {
+        if ($this->container['dashStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getDashStyleAllowableValues();
-        if (!in_array($this->container['dash_style'], $allowedValues)) {
+        if (!in_array($this->container['dashStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['join_style'] === null) {
+        if ($this->container['joinStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getJoinStyleAllowableValues();
-        if (!in_array($this->container['join_style'], $allowedValues)) {
+        if (!in_array($this->container['joinStyle'], $allowedValues)) {
             return false;
         }
         if ($this->container['style'] === null) {
@@ -473,7 +473,7 @@ class LineFormat implements ArrayAccess
         if (!in_array($this->container['style'], $allowedValues)) {
             return false;
         }
-        if ($this->container['miter_limit'] === null) {
+        if ($this->container['miterLimit'] === null) {
             return false;
         }
         if ($this->container['width'] === null) {
@@ -517,100 +517,100 @@ class LineFormat implements ArrayAccess
     }
 
     /**
-     * Gets cap_style
+     * Gets capStyle
      *
      * @return string
      */
     public function getCapStyle()
     {
-        return $this->container['cap_style'];
+        return $this->container['capStyle'];
     }
 
     /**
-     * Sets cap_style
+     * Sets capStyle
      *
-     * @param string $cap_style cap_style
+     * @param string $capStyle capStyle
      *
      * @return $this
      */
-    public function setCapStyle($cap_style)
+    public function setCapStyle($capStyle)
     {
         $allowedValues = $this->getCapStyleAllowableValues();
-        if (!in_array($cap_style, $allowedValues)) {
+        if (!in_array($capStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'cap_style', must be one of '%s'",
+                    "Invalid value for 'capStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['cap_style'] = $cap_style;
+        $this->container['capStyle'] = $capStyle;
 
         return $this;
     }
 
     /**
-     * Gets dash_style
+     * Gets dashStyle
      *
      * @return string
      */
     public function getDashStyle()
     {
-        return $this->container['dash_style'];
+        return $this->container['dashStyle'];
     }
 
     /**
-     * Sets dash_style
+     * Sets dashStyle
      *
-     * @param string $dash_style dash_style
+     * @param string $dashStyle dashStyle
      *
      * @return $this
      */
-    public function setDashStyle($dash_style)
+    public function setDashStyle($dashStyle)
     {
         $allowedValues = $this->getDashStyleAllowableValues();
-        if (!in_array($dash_style, $allowedValues)) {
+        if (!in_array($dashStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'dash_style', must be one of '%s'",
+                    "Invalid value for 'dashStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['dash_style'] = $dash_style;
+        $this->container['dashStyle'] = $dashStyle;
 
         return $this;
     }
 
     /**
-     * Gets join_style
+     * Gets joinStyle
      *
      * @return string
      */
     public function getJoinStyle()
     {
-        return $this->container['join_style'];
+        return $this->container['joinStyle'];
     }
 
     /**
-     * Sets join_style
+     * Sets joinStyle
      *
-     * @param string $join_style join_style
+     * @param string $joinStyle joinStyle
      *
      * @return $this
      */
-    public function setJoinStyle($join_style)
+    public function setJoinStyle($joinStyle)
     {
         $allowedValues = $this->getJoinStyleAllowableValues();
-        if (!in_array($join_style, $allowedValues)) {
+        if (!in_array($joinStyle, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'join_style', must be one of '%s'",
+                    "Invalid value for 'joinStyle', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['join_style'] = $join_style;
+        $this->container['joinStyle'] = $joinStyle;
 
         return $this;
     }
@@ -649,121 +649,121 @@ class LineFormat implements ArrayAccess
     }
 
     /**
-     * Gets begin_arrow_head
+     * Gets beginArrowHead
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties
      */
     public function getBeginArrowHead()
     {
-        return $this->container['begin_arrow_head'];
+        return $this->container['beginArrowHead'];
     }
 
     /**
-     * Sets begin_arrow_head
+     * Sets beginArrowHead
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $begin_arrow_head begin_arrow_head
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $beginArrowHead beginArrowHead
      *
      * @return $this
      */
-    public function setBeginArrowHead($begin_arrow_head)
+    public function setBeginArrowHead($beginArrowHead)
     {
-        $this->container['begin_arrow_head'] = $begin_arrow_head;
+        $this->container['beginArrowHead'] = $beginArrowHead;
 
         return $this;
     }
 
     /**
-     * Gets end_arrow_head
+     * Gets endArrowHead
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties
      */
     public function getEndArrowHead()
     {
-        return $this->container['end_arrow_head'];
+        return $this->container['endArrowHead'];
     }
 
     /**
-     * Sets end_arrow_head
+     * Sets endArrowHead
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $end_arrow_head end_arrow_head
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $endArrowHead endArrowHead
      *
      * @return $this
      */
-    public function setEndArrowHead($end_arrow_head)
+    public function setEndArrowHead($endArrowHead)
     {
-        $this->container['end_arrow_head'] = $end_arrow_head;
+        $this->container['endArrowHead'] = $endArrowHead;
 
         return $this;
     }
 
     /**
-     * Gets custom_dash_pattern
+     * Gets customDashPattern
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern
      */
     public function getCustomDashPattern()
     {
-        return $this->container['custom_dash_pattern'];
+        return $this->container['customDashPattern'];
     }
 
     /**
-     * Sets custom_dash_pattern
+     * Sets customDashPattern
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern $custom_dash_pattern custom_dash_pattern
+     * @param \Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern $customDashPattern customDashPattern
      *
      * @return $this
      */
-    public function setCustomDashPattern($custom_dash_pattern)
+    public function setCustomDashPattern($customDashPattern)
     {
-        $this->container['custom_dash_pattern'] = $custom_dash_pattern;
+        $this->container['customDashPattern'] = $customDashPattern;
 
         return $this;
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format fill_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat fillFormat
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets miter_limit
+     * Gets miterLimit
      *
      * @return double
      */
     public function getMiterLimit()
     {
-        return $this->container['miter_limit'];
+        return $this->container['miterLimit'];
     }
 
     /**
-     * Sets miter_limit
+     * Sets miterLimit
      *
-     * @param double $miter_limit miter_limit
+     * @param double $miterLimit miterLimit
      *
      * @return $this
      */
-    public function setMiterLimit($miter_limit)
+    public function setMiterLimit($miterLimit)
     {
-        $this->container['miter_limit'] = $miter_limit;
+        $this->container['miterLimit'] = $miterLimit;
 
         return $this;
     }

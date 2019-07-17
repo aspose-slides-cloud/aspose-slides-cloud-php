@@ -59,8 +59,8 @@ class PresentationsMergeRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'presentation_paths' => 'string[]',
-        'presentation_passwords' => 'string[]'
+        'presentationPaths' => 'string[]',
+        'presentationPasswords' => 'string[]'
     ];
 
     /**
@@ -69,8 +69,8 @@ class PresentationsMergeRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'presentation_paths' => null,
-        'presentation_passwords' => null
+        'presentationPaths' => null,
+        'presentationPasswords' => null
     ];
 
     /**
@@ -100,8 +100,8 @@ class PresentationsMergeRequest implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'presentation_paths' => 'PresentationPaths',
-        'presentation_passwords' => 'PresentationPasswords'
+        'presentationPaths' => 'PresentationPaths',
+        'presentationPasswords' => 'PresentationPasswords'
     ];
 
     /**
@@ -110,8 +110,8 @@ class PresentationsMergeRequest implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'presentation_paths' => 'setPresentationPaths',
-        'presentation_passwords' => 'setPresentationPasswords'
+        'presentationPaths' => 'setPresentationPaths',
+        'presentationPasswords' => 'setPresentationPasswords'
     ];
 
     /**
@@ -120,8 +120,8 @@ class PresentationsMergeRequest implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'presentation_paths' => 'getPresentationPaths',
-        'presentation_passwords' => 'getPresentationPasswords'
+        'presentationPaths' => 'getPresentationPaths',
+        'presentationPasswords' => 'getPresentationPasswords'
     ];
 
     /**
@@ -184,8 +184,8 @@ class PresentationsMergeRequest implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['presentation_paths'] = isset($data['presentation_paths']) ? $data['presentation_paths'] : null;
-        $this->container['presentation_passwords'] = isset($data['presentation_passwords']) ? $data['presentation_passwords'] : null;
+        $this->container['presentationPaths'] = isset($data['presentationPaths']) ? $data['presentationPaths'] : null;
+        $this->container['presentationPasswords'] = isset($data['presentationPasswords']) ? $data['presentationPasswords'] : null;
     }
 
     /**
@@ -214,49 +214,49 @@ class PresentationsMergeRequest implements ArrayAccess
 
 
     /**
-     * Gets presentation_paths
+     * Gets presentationPaths
      *
      * @return string[]
      */
     public function getPresentationPaths()
     {
-        return $this->container['presentation_paths'];
+        return $this->container['presentationPaths'];
     }
 
     /**
-     * Sets presentation_paths
+     * Sets presentationPaths
      *
-     * @param string[] $presentation_paths Gets or sets the presentation paths.
+     * @param string[] $presentationPaths Gets or sets the presentation paths.
      *
      * @return $this
      */
-    public function setPresentationPaths($presentation_paths)
+    public function setPresentationPaths($presentationPaths)
     {
-        $this->container['presentation_paths'] = $presentation_paths;
+        $this->container['presentationPaths'] = $presentationPaths;
 
         return $this;
     }
 
     /**
-     * Gets presentation_passwords
+     * Gets presentationPasswords
      *
      * @return string[]
      */
     public function getPresentationPasswords()
     {
-        return $this->container['presentation_passwords'];
+        return $this->container['presentationPasswords'];
     }
 
     /**
-     * Sets presentation_passwords
+     * Sets presentationPasswords
      *
-     * @param string[] $presentation_passwords Gets or sets the presentation passwords.
+     * @param string[] $presentationPasswords Gets or sets the presentation passwords.
      *
      * @return $this
      */
-    public function setPresentationPasswords($presentation_passwords)
+    public function setPresentationPasswords($presentationPasswords)
     {
-        $this->container['presentation_passwords'] = $presentation_passwords;
+        $this->container['presentationPasswords'] = $presentationPasswords;
 
         return $this;
     }

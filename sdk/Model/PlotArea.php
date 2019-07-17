@@ -63,9 +63,9 @@ class PlotArea implements ArrayAccess
         'y' => 'double',
         'width' => 'double',
         'height' => 'double',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -78,9 +78,9 @@ class PlotArea implements ArrayAccess
         'y' => 'double',
         'width' => 'double',
         'height' => 'double',
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null
     ];
 
     /**
@@ -114,9 +114,9 @@ class PlotArea implements ArrayAccess
         'y' => 'Y',
         'width' => 'Width',
         'height' => 'Height',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat'
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat'
     ];
 
     /**
@@ -129,9 +129,9 @@ class PlotArea implements ArrayAccess
         'y' => 'setY',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat'
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat'
     ];
 
     /**
@@ -144,9 +144,9 @@ class PlotArea implements ArrayAccess
         'y' => 'getY',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat'
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat'
     ];
 
     /**
@@ -213,9 +213,9 @@ class PlotArea implements ArrayAccess
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
     }
 
     /**
@@ -364,73 +364,73 @@ class PlotArea implements ArrayAccess
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Get or sets the fill format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format Get or sets the effect format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format Get or sets the line format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }

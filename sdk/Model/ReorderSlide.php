@@ -56,8 +56,8 @@ class ReorderSlide extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'old_position' => 'int',
-        'new_position' => 'int'
+        'oldPosition' => 'int',
+        'newPosition' => 'int'
     ];
 
     /**
@@ -66,8 +66,8 @@ class ReorderSlide extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'old_position' => 'int32',
-        'new_position' => 'int32'
+        'oldPosition' => 'int32',
+        'newPosition' => 'int32'
     ];
 
     /**
@@ -97,8 +97,8 @@ class ReorderSlide extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'old_position' => 'OldPosition',
-        'new_position' => 'NewPosition'
+        'oldPosition' => 'OldPosition',
+        'newPosition' => 'NewPosition'
     ];
 
     /**
@@ -107,8 +107,8 @@ class ReorderSlide extends Task
      * @var string[]
      */
     protected static $setters = [
-        'old_position' => 'setOldPosition',
-        'new_position' => 'setNewPosition'
+        'oldPosition' => 'setOldPosition',
+        'newPosition' => 'setNewPosition'
     ];
 
     /**
@@ -117,8 +117,8 @@ class ReorderSlide extends Task
      * @var string[]
      */
     protected static $getters = [
-        'old_position' => 'getOldPosition',
-        'new_position' => 'getNewPosition'
+        'oldPosition' => 'getOldPosition',
+        'newPosition' => 'getNewPosition'
     ];
 
     /**
@@ -177,8 +177,8 @@ class ReorderSlide extends Task
     {
         parent::__construct($data);
 
-        $this->container['old_position'] = isset($data['old_position']) ? $data['old_position'] : null;
-        $this->container['new_position'] = isset($data['new_position']) ? $data['new_position'] : null;
+        $this->container['oldPosition'] = isset($data['oldPosition']) ? $data['oldPosition'] : null;
+        $this->container['newPosition'] = isset($data['newPosition']) ? $data['newPosition'] : null;
     }
 
     /**
@@ -190,11 +190,11 @@ class ReorderSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['old_position'] === null) {
-            $invalidProperties[] = "'old_position' can't be null";
+        if ($this->container['oldPosition'] === null) {
+            $invalidProperties[] = "'oldPosition' can't be null";
         }
-        if ($this->container['new_position'] === null) {
-            $invalidProperties[] = "'new_position' can't be null";
+        if ($this->container['newPosition'] === null) {
+            $invalidProperties[] = "'newPosition' can't be null";
         }
         return $invalidProperties;
     }
@@ -211,10 +211,10 @@ class ReorderSlide extends Task
             return false;
         }
 
-        if ($this->container['old_position'] === null) {
+        if ($this->container['oldPosition'] === null) {
             return false;
         }
-        if ($this->container['new_position'] === null) {
+        if ($this->container['newPosition'] === null) {
             return false;
         }
         return true;
@@ -222,49 +222,49 @@ class ReorderSlide extends Task
 
 
     /**
-     * Gets old_position
+     * Gets oldPosition
      *
      * @return int
      */
     public function getOldPosition()
     {
-        return $this->container['old_position'];
+        return $this->container['oldPosition'];
     }
 
     /**
-     * Sets old_position
+     * Sets oldPosition
      *
-     * @param int $old_position old_position
+     * @param int $oldPosition oldPosition
      *
      * @return $this
      */
-    public function setOldPosition($old_position)
+    public function setOldPosition($oldPosition)
     {
-        $this->container['old_position'] = $old_position;
+        $this->container['oldPosition'] = $oldPosition;
 
         return $this;
     }
 
     /**
-     * Gets new_position
+     * Gets newPosition
      *
      * @return int
      */
     public function getNewPosition()
     {
-        return $this->container['new_position'];
+        return $this->container['newPosition'];
     }
 
     /**
-     * Sets new_position
+     * Sets newPosition
      *
-     * @param int $new_position new_position
+     * @param int $newPosition newPosition
      *
      * @return $this
      */
-    public function setNewPosition($new_position)
+    public function setNewPosition($newPosition)
     {
-        $this->container['new_position'] = $new_position;
+        $this->container['newPosition'] = $newPosition;
 
         return $this;
     }

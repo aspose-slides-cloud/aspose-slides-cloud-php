@@ -57,10 +57,10 @@ class Connector extends GeometryShape
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'start_shape_connected_to' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
-        'start_shape_connected_to_index' => 'int',
-        'end_shape_connected_to' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
-        'end_shape_connected_to_index' => 'int'
+        'startShapeConnectedTo' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'startShapeConnectedToIndex' => 'int',
+        'endShapeConnectedTo' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'endShapeConnectedToIndex' => 'int'
     ];
 
     /**
@@ -69,10 +69,10 @@ class Connector extends GeometryShape
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'start_shape_connected_to' => null,
-        'start_shape_connected_to_index' => 'int32',
-        'end_shape_connected_to' => null,
-        'end_shape_connected_to_index' => 'int32'
+        'startShapeConnectedTo' => null,
+        'startShapeConnectedToIndex' => 'int32',
+        'endShapeConnectedTo' => null,
+        'endShapeConnectedToIndex' => 'int32'
     ];
 
     /**
@@ -102,10 +102,10 @@ class Connector extends GeometryShape
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_shape_connected_to' => 'StartShapeConnectedTo',
-        'start_shape_connected_to_index' => 'StartShapeConnectedToIndex',
-        'end_shape_connected_to' => 'EndShapeConnectedTo',
-        'end_shape_connected_to_index' => 'EndShapeConnectedToIndex'
+        'startShapeConnectedTo' => 'StartShapeConnectedTo',
+        'startShapeConnectedToIndex' => 'StartShapeConnectedToIndex',
+        'endShapeConnectedTo' => 'EndShapeConnectedTo',
+        'endShapeConnectedToIndex' => 'EndShapeConnectedToIndex'
     ];
 
     /**
@@ -114,10 +114,10 @@ class Connector extends GeometryShape
      * @var string[]
      */
     protected static $setters = [
-        'start_shape_connected_to' => 'setStartShapeConnectedTo',
-        'start_shape_connected_to_index' => 'setStartShapeConnectedToIndex',
-        'end_shape_connected_to' => 'setEndShapeConnectedTo',
-        'end_shape_connected_to_index' => 'setEndShapeConnectedToIndex'
+        'startShapeConnectedTo' => 'setStartShapeConnectedTo',
+        'startShapeConnectedToIndex' => 'setStartShapeConnectedToIndex',
+        'endShapeConnectedTo' => 'setEndShapeConnectedTo',
+        'endShapeConnectedToIndex' => 'setEndShapeConnectedToIndex'
     ];
 
     /**
@@ -126,10 +126,10 @@ class Connector extends GeometryShape
      * @var string[]
      */
     protected static $getters = [
-        'start_shape_connected_to' => 'getStartShapeConnectedTo',
-        'start_shape_connected_to_index' => 'getStartShapeConnectedToIndex',
-        'end_shape_connected_to' => 'getEndShapeConnectedTo',
-        'end_shape_connected_to_index' => 'getEndShapeConnectedToIndex'
+        'startShapeConnectedTo' => 'getStartShapeConnectedTo',
+        'startShapeConnectedToIndex' => 'getStartShapeConnectedToIndex',
+        'endShapeConnectedTo' => 'getEndShapeConnectedTo',
+        'endShapeConnectedToIndex' => 'getEndShapeConnectedToIndex'
     ];
 
     /**
@@ -188,10 +188,10 @@ class Connector extends GeometryShape
     {
         parent::__construct($data);
 
-        $this->container['start_shape_connected_to'] = isset($data['start_shape_connected_to']) ? $data['start_shape_connected_to'] : null;
-        $this->container['start_shape_connected_to_index'] = isset($data['start_shape_connected_to_index']) ? $data['start_shape_connected_to_index'] : null;
-        $this->container['end_shape_connected_to'] = isset($data['end_shape_connected_to']) ? $data['end_shape_connected_to'] : null;
-        $this->container['end_shape_connected_to_index'] = isset($data['end_shape_connected_to_index']) ? $data['end_shape_connected_to_index'] : null;
+        $this->container['startShapeConnectedTo'] = isset($data['startShapeConnectedTo']) ? $data['startShapeConnectedTo'] : null;
+        $this->container['startShapeConnectedToIndex'] = isset($data['startShapeConnectedToIndex']) ? $data['startShapeConnectedToIndex'] : null;
+        $this->container['endShapeConnectedTo'] = isset($data['endShapeConnectedTo']) ? $data['endShapeConnectedTo'] : null;
+        $this->container['endShapeConnectedToIndex'] = isset($data['endShapeConnectedToIndex']) ? $data['endShapeConnectedToIndex'] : null;
     }
 
     /**
@@ -223,97 +223,97 @@ class Connector extends GeometryShape
 
 
     /**
-     * Gets start_shape_connected_to
+     * Gets startShapeConnectedTo
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getStartShapeConnectedTo()
     {
-        return $this->container['start_shape_connected_to'];
+        return $this->container['startShapeConnectedTo'];
     }
 
     /**
-     * Sets start_shape_connected_to
+     * Sets startShapeConnectedTo
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $start_shape_connected_to start_shape_connected_to
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $startShapeConnectedTo startShapeConnectedTo
      *
      * @return $this
      */
-    public function setStartShapeConnectedTo($start_shape_connected_to)
+    public function setStartShapeConnectedTo($startShapeConnectedTo)
     {
-        $this->container['start_shape_connected_to'] = $start_shape_connected_to;
+        $this->container['startShapeConnectedTo'] = $startShapeConnectedTo;
 
         return $this;
     }
 
     /**
-     * Gets start_shape_connected_to_index
+     * Gets startShapeConnectedToIndex
      *
      * @return int
      */
     public function getStartShapeConnectedToIndex()
     {
-        return $this->container['start_shape_connected_to_index'];
+        return $this->container['startShapeConnectedToIndex'];
     }
 
     /**
-     * Sets start_shape_connected_to_index
+     * Sets startShapeConnectedToIndex
      *
-     * @param int $start_shape_connected_to_index start_shape_connected_to_index
+     * @param int $startShapeConnectedToIndex startShapeConnectedToIndex
      *
      * @return $this
      */
-    public function setStartShapeConnectedToIndex($start_shape_connected_to_index)
+    public function setStartShapeConnectedToIndex($startShapeConnectedToIndex)
     {
-        $this->container['start_shape_connected_to_index'] = $start_shape_connected_to_index;
+        $this->container['startShapeConnectedToIndex'] = $startShapeConnectedToIndex;
 
         return $this;
     }
 
     /**
-     * Gets end_shape_connected_to
+     * Gets endShapeConnectedTo
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getEndShapeConnectedTo()
     {
-        return $this->container['end_shape_connected_to'];
+        return $this->container['endShapeConnectedTo'];
     }
 
     /**
-     * Sets end_shape_connected_to
+     * Sets endShapeConnectedTo
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $end_shape_connected_to end_shape_connected_to
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $endShapeConnectedTo endShapeConnectedTo
      *
      * @return $this
      */
-    public function setEndShapeConnectedTo($end_shape_connected_to)
+    public function setEndShapeConnectedTo($endShapeConnectedTo)
     {
-        $this->container['end_shape_connected_to'] = $end_shape_connected_to;
+        $this->container['endShapeConnectedTo'] = $endShapeConnectedTo;
 
         return $this;
     }
 
     /**
-     * Gets end_shape_connected_to_index
+     * Gets endShapeConnectedToIndex
      *
      * @return int
      */
     public function getEndShapeConnectedToIndex()
     {
-        return $this->container['end_shape_connected_to_index'];
+        return $this->container['endShapeConnectedToIndex'];
     }
 
     /**
-     * Sets end_shape_connected_to_index
+     * Sets endShapeConnectedToIndex
      *
-     * @param int $end_shape_connected_to_index end_shape_connected_to_index
+     * @param int $endShapeConnectedToIndex endShapeConnectedToIndex
      *
      * @return $this
      */
-    public function setEndShapeConnectedToIndex($end_shape_connected_to_index)
+    public function setEndShapeConnectedToIndex($endShapeConnectedToIndex)
     {
-        $this->container['end_shape_connected_to_index'] = $end_shape_connected_to_index;
+        $this->container['endShapeConnectedToIndex'] = $endShapeConnectedToIndex;
 
         return $this;
     }

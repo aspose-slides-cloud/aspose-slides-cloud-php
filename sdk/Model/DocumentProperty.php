@@ -59,7 +59,7 @@ class DocumentProperty extends ResourceBase
     protected static $swaggerTypes = [
         'name' => 'string',
         'value' => 'string',
-        'built_in' => 'bool'
+        'builtIn' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class DocumentProperty extends ResourceBase
     protected static $swaggerFormats = [
         'name' => null,
         'value' => null,
-        'built_in' => null
+        'builtIn' => null
     ];
 
     /**
@@ -102,7 +102,7 @@ class DocumentProperty extends ResourceBase
     protected static $attributeMap = [
         'name' => 'Name',
         'value' => 'Value',
-        'built_in' => 'BuiltIn'
+        'builtIn' => 'BuiltIn'
     ];
 
     /**
@@ -113,7 +113,7 @@ class DocumentProperty extends ResourceBase
     protected static $setters = [
         'name' => 'setName',
         'value' => 'setValue',
-        'built_in' => 'setBuiltIn'
+        'builtIn' => 'setBuiltIn'
     ];
 
     /**
@@ -124,7 +124,7 @@ class DocumentProperty extends ResourceBase
     protected static $getters = [
         'name' => 'getName',
         'value' => 'getValue',
-        'built_in' => 'getBuiltIn'
+        'builtIn' => 'getBuiltIn'
     ];
 
     /**
@@ -185,7 +185,7 @@ class DocumentProperty extends ResourceBase
 
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['built_in'] = isset($data['built_in']) ? $data['built_in'] : null;
+        $this->container['builtIn'] = isset($data['builtIn']) ? $data['builtIn'] : null;
     }
 
     /**
@@ -197,8 +197,8 @@ class DocumentProperty extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['built_in'] === null) {
-            $invalidProperties[] = "'built_in' can't be null";
+        if ($this->container['builtIn'] === null) {
+            $invalidProperties[] = "'builtIn' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,7 +215,7 @@ class DocumentProperty extends ResourceBase
             return false;
         }
 
-        if ($this->container['built_in'] === null) {
+        if ($this->container['builtIn'] === null) {
             return false;
         }
         return true;
@@ -271,25 +271,25 @@ class DocumentProperty extends ResourceBase
     }
 
     /**
-     * Gets built_in
+     * Gets builtIn
      *
      * @return bool
      */
     public function getBuiltIn()
     {
-        return $this->container['built_in'];
+        return $this->container['builtIn'];
     }
 
     /**
-     * Sets built_in
+     * Sets builtIn
      *
-     * @param bool $built_in True for builtin property.
+     * @param bool $builtIn True for builtin property.
      *
      * @return $this
      */
-    public function setBuiltIn($built_in)
+    public function setBuiltIn($builtIn)
     {
-        $this->container['built_in'] = $built_in;
+        $this->container['builtIn'] = $builtIn;
 
         return $this;
     }

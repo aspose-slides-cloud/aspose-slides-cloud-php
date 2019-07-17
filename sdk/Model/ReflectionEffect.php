@@ -60,19 +60,19 @@ class ReflectionEffect implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'direction' => 'double',
-        'fade_direction' => 'double',
+        'fadeDirection' => 'double',
         'distance' => 'double',
-        'blur_radius' => 'double',
-        'scale_horizontal' => 'double',
-        'scale_vertical' => 'double',
-        'skew_horizontal' => 'double',
-        'skew_vertical' => 'double',
-        'start_pos_alpha' => 'double',
-        'end_pos_alpha' => 'double',
-        'start_reflection_opacity' => 'double',
-        'end_reflection_opacity' => 'double',
-        'rectangle_align' => 'string',
-        'rotate_shadow_with_shape' => 'bool'
+        'blurRadius' => 'double',
+        'scaleHorizontal' => 'double',
+        'scaleVertical' => 'double',
+        'skewHorizontal' => 'double',
+        'skewVertical' => 'double',
+        'startPosAlpha' => 'double',
+        'endPosAlpha' => 'double',
+        'startReflectionOpacity' => 'double',
+        'endReflectionOpacity' => 'double',
+        'rectangleAlign' => 'string',
+        'rotateShadowWithShape' => 'bool'
     ];
 
     /**
@@ -82,19 +82,19 @@ class ReflectionEffect implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'direction' => 'double',
-        'fade_direction' => 'double',
+        'fadeDirection' => 'double',
         'distance' => 'double',
-        'blur_radius' => 'double',
-        'scale_horizontal' => 'double',
-        'scale_vertical' => 'double',
-        'skew_horizontal' => 'double',
-        'skew_vertical' => 'double',
-        'start_pos_alpha' => 'double',
-        'end_pos_alpha' => 'double',
-        'start_reflection_opacity' => 'double',
-        'end_reflection_opacity' => 'double',
-        'rectangle_align' => null,
-        'rotate_shadow_with_shape' => null
+        'blurRadius' => 'double',
+        'scaleHorizontal' => 'double',
+        'scaleVertical' => 'double',
+        'skewHorizontal' => 'double',
+        'skewVertical' => 'double',
+        'startPosAlpha' => 'double',
+        'endPosAlpha' => 'double',
+        'startReflectionOpacity' => 'double',
+        'endReflectionOpacity' => 'double',
+        'rectangleAlign' => null,
+        'rotateShadowWithShape' => null
     ];
 
     /**
@@ -125,19 +125,19 @@ class ReflectionEffect implements ArrayAccess
      */
     protected static $attributeMap = [
         'direction' => 'Direction',
-        'fade_direction' => 'FadeDirection',
+        'fadeDirection' => 'FadeDirection',
         'distance' => 'Distance',
-        'blur_radius' => 'BlurRadius',
-        'scale_horizontal' => 'ScaleHorizontal',
-        'scale_vertical' => 'ScaleVertical',
-        'skew_horizontal' => 'SkewHorizontal',
-        'skew_vertical' => 'SkewVertical',
-        'start_pos_alpha' => 'StartPosAlpha',
-        'end_pos_alpha' => 'EndPosAlpha',
-        'start_reflection_opacity' => 'StartReflectionOpacity',
-        'end_reflection_opacity' => 'EndReflectionOpacity',
-        'rectangle_align' => 'RectangleAlign',
-        'rotate_shadow_with_shape' => 'RotateShadowWithShape'
+        'blurRadius' => 'BlurRadius',
+        'scaleHorizontal' => 'ScaleHorizontal',
+        'scaleVertical' => 'ScaleVertical',
+        'skewHorizontal' => 'SkewHorizontal',
+        'skewVertical' => 'SkewVertical',
+        'startPosAlpha' => 'StartPosAlpha',
+        'endPosAlpha' => 'EndPosAlpha',
+        'startReflectionOpacity' => 'StartReflectionOpacity',
+        'endReflectionOpacity' => 'EndReflectionOpacity',
+        'rectangleAlign' => 'RectangleAlign',
+        'rotateShadowWithShape' => 'RotateShadowWithShape'
     ];
 
     /**
@@ -147,19 +147,19 @@ class ReflectionEffect implements ArrayAccess
      */
     protected static $setters = [
         'direction' => 'setDirection',
-        'fade_direction' => 'setFadeDirection',
+        'fadeDirection' => 'setFadeDirection',
         'distance' => 'setDistance',
-        'blur_radius' => 'setBlurRadius',
-        'scale_horizontal' => 'setScaleHorizontal',
-        'scale_vertical' => 'setScaleVertical',
-        'skew_horizontal' => 'setSkewHorizontal',
-        'skew_vertical' => 'setSkewVertical',
-        'start_pos_alpha' => 'setStartPosAlpha',
-        'end_pos_alpha' => 'setEndPosAlpha',
-        'start_reflection_opacity' => 'setStartReflectionOpacity',
-        'end_reflection_opacity' => 'setEndReflectionOpacity',
-        'rectangle_align' => 'setRectangleAlign',
-        'rotate_shadow_with_shape' => 'setRotateShadowWithShape'
+        'blurRadius' => 'setBlurRadius',
+        'scaleHorizontal' => 'setScaleHorizontal',
+        'scaleVertical' => 'setScaleVertical',
+        'skewHorizontal' => 'setSkewHorizontal',
+        'skewVertical' => 'setSkewVertical',
+        'startPosAlpha' => 'setStartPosAlpha',
+        'endPosAlpha' => 'setEndPosAlpha',
+        'startReflectionOpacity' => 'setStartReflectionOpacity',
+        'endReflectionOpacity' => 'setEndReflectionOpacity',
+        'rectangleAlign' => 'setRectangleAlign',
+        'rotateShadowWithShape' => 'setRotateShadowWithShape'
     ];
 
     /**
@@ -169,19 +169,19 @@ class ReflectionEffect implements ArrayAccess
      */
     protected static $getters = [
         'direction' => 'getDirection',
-        'fade_direction' => 'getFadeDirection',
+        'fadeDirection' => 'getFadeDirection',
         'distance' => 'getDistance',
-        'blur_radius' => 'getBlurRadius',
-        'scale_horizontal' => 'getScaleHorizontal',
-        'scale_vertical' => 'getScaleVertical',
-        'skew_horizontal' => 'getSkewHorizontal',
-        'skew_vertical' => 'getSkewVertical',
-        'start_pos_alpha' => 'getStartPosAlpha',
-        'end_pos_alpha' => 'getEndPosAlpha',
-        'start_reflection_opacity' => 'getStartReflectionOpacity',
-        'end_reflection_opacity' => 'getEndReflectionOpacity',
-        'rectangle_align' => 'getRectangleAlign',
-        'rotate_shadow_with_shape' => 'getRotateShadowWithShape'
+        'blurRadius' => 'getBlurRadius',
+        'scaleHorizontal' => 'getScaleHorizontal',
+        'scaleVertical' => 'getScaleVertical',
+        'skewHorizontal' => 'getSkewHorizontal',
+        'skewVertical' => 'getSkewVertical',
+        'startPosAlpha' => 'getStartPosAlpha',
+        'endPosAlpha' => 'getEndPosAlpha',
+        'startReflectionOpacity' => 'getStartReflectionOpacity',
+        'endReflectionOpacity' => 'getEndReflectionOpacity',
+        'rectangleAlign' => 'getRectangleAlign',
+        'rotateShadowWithShape' => 'getRotateShadowWithShape'
     ];
 
     /**
@@ -276,19 +276,19 @@ class ReflectionEffect implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
-        $this->container['fade_direction'] = isset($data['fade_direction']) ? $data['fade_direction'] : null;
+        $this->container['fadeDirection'] = isset($data['fadeDirection']) ? $data['fadeDirection'] : null;
         $this->container['distance'] = isset($data['distance']) ? $data['distance'] : null;
-        $this->container['blur_radius'] = isset($data['blur_radius']) ? $data['blur_radius'] : null;
-        $this->container['scale_horizontal'] = isset($data['scale_horizontal']) ? $data['scale_horizontal'] : null;
-        $this->container['scale_vertical'] = isset($data['scale_vertical']) ? $data['scale_vertical'] : null;
-        $this->container['skew_horizontal'] = isset($data['skew_horizontal']) ? $data['skew_horizontal'] : null;
-        $this->container['skew_vertical'] = isset($data['skew_vertical']) ? $data['skew_vertical'] : null;
-        $this->container['start_pos_alpha'] = isset($data['start_pos_alpha']) ? $data['start_pos_alpha'] : null;
-        $this->container['end_pos_alpha'] = isset($data['end_pos_alpha']) ? $data['end_pos_alpha'] : null;
-        $this->container['start_reflection_opacity'] = isset($data['start_reflection_opacity']) ? $data['start_reflection_opacity'] : null;
-        $this->container['end_reflection_opacity'] = isset($data['end_reflection_opacity']) ? $data['end_reflection_opacity'] : null;
-        $this->container['rectangle_align'] = isset($data['rectangle_align']) ? $data['rectangle_align'] : null;
-        $this->container['rotate_shadow_with_shape'] = isset($data['rotate_shadow_with_shape']) ? $data['rotate_shadow_with_shape'] : null;
+        $this->container['blurRadius'] = isset($data['blurRadius']) ? $data['blurRadius'] : null;
+        $this->container['scaleHorizontal'] = isset($data['scaleHorizontal']) ? $data['scaleHorizontal'] : null;
+        $this->container['scaleVertical'] = isset($data['scaleVertical']) ? $data['scaleVertical'] : null;
+        $this->container['skewHorizontal'] = isset($data['skewHorizontal']) ? $data['skewHorizontal'] : null;
+        $this->container['skewVertical'] = isset($data['skewVertical']) ? $data['skewVertical'] : null;
+        $this->container['startPosAlpha'] = isset($data['startPosAlpha']) ? $data['startPosAlpha'] : null;
+        $this->container['endPosAlpha'] = isset($data['endPosAlpha']) ? $data['endPosAlpha'] : null;
+        $this->container['startReflectionOpacity'] = isset($data['startReflectionOpacity']) ? $data['startReflectionOpacity'] : null;
+        $this->container['endReflectionOpacity'] = isset($data['endReflectionOpacity']) ? $data['endReflectionOpacity'] : null;
+        $this->container['rectangleAlign'] = isset($data['rectangleAlign']) ? $data['rectangleAlign'] : null;
+        $this->container['rotateShadowWithShape'] = isset($data['rotateShadowWithShape']) ? $data['rotateShadowWithShape'] : null;
     }
 
     /**
@@ -303,52 +303,52 @@ class ReflectionEffect implements ArrayAccess
         if ($this->container['direction'] === null) {
             $invalidProperties[] = "'direction' can't be null";
         }
-        if ($this->container['fade_direction'] === null) {
-            $invalidProperties[] = "'fade_direction' can't be null";
+        if ($this->container['fadeDirection'] === null) {
+            $invalidProperties[] = "'fadeDirection' can't be null";
         }
         if ($this->container['distance'] === null) {
             $invalidProperties[] = "'distance' can't be null";
         }
-        if ($this->container['blur_radius'] === null) {
-            $invalidProperties[] = "'blur_radius' can't be null";
+        if ($this->container['blurRadius'] === null) {
+            $invalidProperties[] = "'blurRadius' can't be null";
         }
-        if ($this->container['scale_horizontal'] === null) {
-            $invalidProperties[] = "'scale_horizontal' can't be null";
+        if ($this->container['scaleHorizontal'] === null) {
+            $invalidProperties[] = "'scaleHorizontal' can't be null";
         }
-        if ($this->container['scale_vertical'] === null) {
-            $invalidProperties[] = "'scale_vertical' can't be null";
+        if ($this->container['scaleVertical'] === null) {
+            $invalidProperties[] = "'scaleVertical' can't be null";
         }
-        if ($this->container['skew_horizontal'] === null) {
-            $invalidProperties[] = "'skew_horizontal' can't be null";
+        if ($this->container['skewHorizontal'] === null) {
+            $invalidProperties[] = "'skewHorizontal' can't be null";
         }
-        if ($this->container['skew_vertical'] === null) {
-            $invalidProperties[] = "'skew_vertical' can't be null";
+        if ($this->container['skewVertical'] === null) {
+            $invalidProperties[] = "'skewVertical' can't be null";
         }
-        if ($this->container['start_pos_alpha'] === null) {
-            $invalidProperties[] = "'start_pos_alpha' can't be null";
+        if ($this->container['startPosAlpha'] === null) {
+            $invalidProperties[] = "'startPosAlpha' can't be null";
         }
-        if ($this->container['end_pos_alpha'] === null) {
-            $invalidProperties[] = "'end_pos_alpha' can't be null";
+        if ($this->container['endPosAlpha'] === null) {
+            $invalidProperties[] = "'endPosAlpha' can't be null";
         }
-        if ($this->container['start_reflection_opacity'] === null) {
-            $invalidProperties[] = "'start_reflection_opacity' can't be null";
+        if ($this->container['startReflectionOpacity'] === null) {
+            $invalidProperties[] = "'startReflectionOpacity' can't be null";
         }
-        if ($this->container['end_reflection_opacity'] === null) {
-            $invalidProperties[] = "'end_reflection_opacity' can't be null";
+        if ($this->container['endReflectionOpacity'] === null) {
+            $invalidProperties[] = "'endReflectionOpacity' can't be null";
         }
-        if ($this->container['rectangle_align'] === null) {
-            $invalidProperties[] = "'rectangle_align' can't be null";
+        if ($this->container['rectangleAlign'] === null) {
+            $invalidProperties[] = "'rectangleAlign' can't be null";
         }
         $allowedValues = $this->getRectangleAlignAllowableValues();
-        if (!in_array($this->container['rectangle_align'], $allowedValues)) {
+        if (!in_array($this->container['rectangleAlign'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'rectangle_align', must be one of '%s'",
+                "invalid value for 'rectangleAlign', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['rotate_shadow_with_shape'] === null) {
-            $invalidProperties[] = "'rotate_shadow_with_shape' can't be null";
+        if ($this->container['rotateShadowWithShape'] === null) {
+            $invalidProperties[] = "'rotateShadowWithShape' can't be null";
         }
         return $invalidProperties;
     }
@@ -365,47 +365,47 @@ class ReflectionEffect implements ArrayAccess
         if ($this->container['direction'] === null) {
             return false;
         }
-        if ($this->container['fade_direction'] === null) {
+        if ($this->container['fadeDirection'] === null) {
             return false;
         }
         if ($this->container['distance'] === null) {
             return false;
         }
-        if ($this->container['blur_radius'] === null) {
+        if ($this->container['blurRadius'] === null) {
             return false;
         }
-        if ($this->container['scale_horizontal'] === null) {
+        if ($this->container['scaleHorizontal'] === null) {
             return false;
         }
-        if ($this->container['scale_vertical'] === null) {
+        if ($this->container['scaleVertical'] === null) {
             return false;
         }
-        if ($this->container['skew_horizontal'] === null) {
+        if ($this->container['skewHorizontal'] === null) {
             return false;
         }
-        if ($this->container['skew_vertical'] === null) {
+        if ($this->container['skewVertical'] === null) {
             return false;
         }
-        if ($this->container['start_pos_alpha'] === null) {
+        if ($this->container['startPosAlpha'] === null) {
             return false;
         }
-        if ($this->container['end_pos_alpha'] === null) {
+        if ($this->container['endPosAlpha'] === null) {
             return false;
         }
-        if ($this->container['start_reflection_opacity'] === null) {
+        if ($this->container['startReflectionOpacity'] === null) {
             return false;
         }
-        if ($this->container['end_reflection_opacity'] === null) {
+        if ($this->container['endReflectionOpacity'] === null) {
             return false;
         }
-        if ($this->container['rectangle_align'] === null) {
+        if ($this->container['rectangleAlign'] === null) {
             return false;
         }
         $allowedValues = $this->getRectangleAlignAllowableValues();
-        if (!in_array($this->container['rectangle_align'], $allowedValues)) {
+        if (!in_array($this->container['rectangleAlign'], $allowedValues)) {
             return false;
         }
-        if ($this->container['rotate_shadow_with_shape'] === null) {
+        if ($this->container['rotateShadowWithShape'] === null) {
             return false;
         }
         return true;
@@ -437,25 +437,25 @@ class ReflectionEffect implements ArrayAccess
     }
 
     /**
-     * Gets fade_direction
+     * Gets fadeDirection
      *
      * @return double
      */
     public function getFadeDirection()
     {
-        return $this->container['fade_direction'];
+        return $this->container['fadeDirection'];
     }
 
     /**
-     * Sets fade_direction
+     * Sets fadeDirection
      *
-     * @param double $fade_direction fade direction
+     * @param double $fadeDirection fade direction
      *
      * @return $this
      */
-    public function setFadeDirection($fade_direction)
+    public function setFadeDirection($fadeDirection)
     {
-        $this->container['fade_direction'] = $fade_direction;
+        $this->container['fadeDirection'] = $fadeDirection;
 
         return $this;
     }
@@ -485,274 +485,274 @@ class ReflectionEffect implements ArrayAccess
     }
 
     /**
-     * Gets blur_radius
+     * Gets blurRadius
      *
      * @return double
      */
     public function getBlurRadius()
     {
-        return $this->container['blur_radius'];
+        return $this->container['blurRadius'];
     }
 
     /**
-     * Sets blur_radius
+     * Sets blurRadius
      *
-     * @param double $blur_radius blur radius
+     * @param double $blurRadius blur radius
      *
      * @return $this
      */
-    public function setBlurRadius($blur_radius)
+    public function setBlurRadius($blurRadius)
     {
-        $this->container['blur_radius'] = $blur_radius;
+        $this->container['blurRadius'] = $blurRadius;
 
         return $this;
     }
 
     /**
-     * Gets scale_horizontal
+     * Gets scaleHorizontal
      *
      * @return double
      */
     public function getScaleHorizontal()
     {
-        return $this->container['scale_horizontal'];
+        return $this->container['scaleHorizontal'];
     }
 
     /**
-     * Sets scale_horizontal
+     * Sets scaleHorizontal
      *
-     * @param double $scale_horizontal scale horizontal
+     * @param double $scaleHorizontal scale horizontal
      *
      * @return $this
      */
-    public function setScaleHorizontal($scale_horizontal)
+    public function setScaleHorizontal($scaleHorizontal)
     {
-        $this->container['scale_horizontal'] = $scale_horizontal;
+        $this->container['scaleHorizontal'] = $scaleHorizontal;
 
         return $this;
     }
 
     /**
-     * Gets scale_vertical
+     * Gets scaleVertical
      *
      * @return double
      */
     public function getScaleVertical()
     {
-        return $this->container['scale_vertical'];
+        return $this->container['scaleVertical'];
     }
 
     /**
-     * Sets scale_vertical
+     * Sets scaleVertical
      *
-     * @param double $scale_vertical scale vertical
+     * @param double $scaleVertical scale vertical
      *
      * @return $this
      */
-    public function setScaleVertical($scale_vertical)
+    public function setScaleVertical($scaleVertical)
     {
-        $this->container['scale_vertical'] = $scale_vertical;
+        $this->container['scaleVertical'] = $scaleVertical;
 
         return $this;
     }
 
     /**
-     * Gets skew_horizontal
+     * Gets skewHorizontal
      *
      * @return double
      */
     public function getSkewHorizontal()
     {
-        return $this->container['skew_horizontal'];
+        return $this->container['skewHorizontal'];
     }
 
     /**
-     * Sets skew_horizontal
+     * Sets skewHorizontal
      *
-     * @param double $skew_horizontal skew horizontal
+     * @param double $skewHorizontal skew horizontal
      *
      * @return $this
      */
-    public function setSkewHorizontal($skew_horizontal)
+    public function setSkewHorizontal($skewHorizontal)
     {
-        $this->container['skew_horizontal'] = $skew_horizontal;
+        $this->container['skewHorizontal'] = $skewHorizontal;
 
         return $this;
     }
 
     /**
-     * Gets skew_vertical
+     * Gets skewVertical
      *
      * @return double
      */
     public function getSkewVertical()
     {
-        return $this->container['skew_vertical'];
+        return $this->container['skewVertical'];
     }
 
     /**
-     * Sets skew_vertical
+     * Sets skewVertical
      *
-     * @param double $skew_vertical skew vertical
+     * @param double $skewVertical skew vertical
      *
      * @return $this
      */
-    public function setSkewVertical($skew_vertical)
+    public function setSkewVertical($skewVertical)
     {
-        $this->container['skew_vertical'] = $skew_vertical;
+        $this->container['skewVertical'] = $skewVertical;
 
         return $this;
     }
 
     /**
-     * Gets start_pos_alpha
+     * Gets startPosAlpha
      *
      * @return double
      */
     public function getStartPosAlpha()
     {
-        return $this->container['start_pos_alpha'];
+        return $this->container['startPosAlpha'];
     }
 
     /**
-     * Sets start_pos_alpha
+     * Sets startPosAlpha
      *
-     * @param double $start_pos_alpha start pos alpha
+     * @param double $startPosAlpha start pos alpha
      *
      * @return $this
      */
-    public function setStartPosAlpha($start_pos_alpha)
+    public function setStartPosAlpha($startPosAlpha)
     {
-        $this->container['start_pos_alpha'] = $start_pos_alpha;
+        $this->container['startPosAlpha'] = $startPosAlpha;
 
         return $this;
     }
 
     /**
-     * Gets end_pos_alpha
+     * Gets endPosAlpha
      *
      * @return double
      */
     public function getEndPosAlpha()
     {
-        return $this->container['end_pos_alpha'];
+        return $this->container['endPosAlpha'];
     }
 
     /**
-     * Sets end_pos_alpha
+     * Sets endPosAlpha
      *
-     * @param double $end_pos_alpha end pos alpha
+     * @param double $endPosAlpha end pos alpha
      *
      * @return $this
      */
-    public function setEndPosAlpha($end_pos_alpha)
+    public function setEndPosAlpha($endPosAlpha)
     {
-        $this->container['end_pos_alpha'] = $end_pos_alpha;
+        $this->container['endPosAlpha'] = $endPosAlpha;
 
         return $this;
     }
 
     /**
-     * Gets start_reflection_opacity
+     * Gets startReflectionOpacity
      *
      * @return double
      */
     public function getStartReflectionOpacity()
     {
-        return $this->container['start_reflection_opacity'];
+        return $this->container['startReflectionOpacity'];
     }
 
     /**
-     * Sets start_reflection_opacity
+     * Sets startReflectionOpacity
      *
-     * @param double $start_reflection_opacity start reflection opacity
+     * @param double $startReflectionOpacity start reflection opacity
      *
      * @return $this
      */
-    public function setStartReflectionOpacity($start_reflection_opacity)
+    public function setStartReflectionOpacity($startReflectionOpacity)
     {
-        $this->container['start_reflection_opacity'] = $start_reflection_opacity;
+        $this->container['startReflectionOpacity'] = $startReflectionOpacity;
 
         return $this;
     }
 
     /**
-     * Gets end_reflection_opacity
+     * Gets endReflectionOpacity
      *
      * @return double
      */
     public function getEndReflectionOpacity()
     {
-        return $this->container['end_reflection_opacity'];
+        return $this->container['endReflectionOpacity'];
     }
 
     /**
-     * Sets end_reflection_opacity
+     * Sets endReflectionOpacity
      *
-     * @param double $end_reflection_opacity end reflection opacity
+     * @param double $endReflectionOpacity end reflection opacity
      *
      * @return $this
      */
-    public function setEndReflectionOpacity($end_reflection_opacity)
+    public function setEndReflectionOpacity($endReflectionOpacity)
     {
-        $this->container['end_reflection_opacity'] = $end_reflection_opacity;
+        $this->container['endReflectionOpacity'] = $endReflectionOpacity;
 
         return $this;
     }
 
     /**
-     * Gets rectangle_align
+     * Gets rectangleAlign
      *
      * @return string
      */
     public function getRectangleAlign()
     {
-        return $this->container['rectangle_align'];
+        return $this->container['rectangleAlign'];
     }
 
     /**
-     * Sets rectangle_align
+     * Sets rectangleAlign
      *
-     * @param string $rectangle_align rectangle alignment
+     * @param string $rectangleAlign rectangle alignment
      *
      * @return $this
      */
-    public function setRectangleAlign($rectangle_align)
+    public function setRectangleAlign($rectangleAlign)
     {
         $allowedValues = $this->getRectangleAlignAllowableValues();
-        if (!in_array($rectangle_align, $allowedValues)) {
+        if (!in_array($rectangleAlign, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'rectangle_align', must be one of '%s'",
+                    "Invalid value for 'rectangleAlign', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['rectangle_align'] = $rectangle_align;
+        $this->container['rectangleAlign'] = $rectangleAlign;
 
         return $this;
     }
 
     /**
-     * Gets rotate_shadow_with_shape
+     * Gets rotateShadowWithShape
      *
      * @return bool
      */
     public function getRotateShadowWithShape()
     {
-        return $this->container['rotate_shadow_with_shape'];
+        return $this->container['rotateShadowWithShape'];
     }
 
     /**
-     * Sets rotate_shadow_with_shape
+     * Sets rotateShadowWithShape
      *
-     * @param bool $rotate_shadow_with_shape true if the reflection should rotate with the shape when the shape is rotated
+     * @param bool $rotateShadowWithShape true if the reflection should rotate with the shape when the shape is rotated
      *
      * @return $this
      */
-    public function setRotateShadowWithShape($rotate_shadow_with_shape)
+    public function setRotateShadowWithShape($rotateShadowWithShape)
     {
-        $this->container['rotate_shadow_with_shape'] = $rotate_shadow_with_shape;
+        $this->container['rotateShadowWithShape'] = $rotateShadowWithShape;
 
         return $this;
     }

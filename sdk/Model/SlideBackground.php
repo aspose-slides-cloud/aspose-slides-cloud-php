@@ -58,8 +58,8 @@ class SlideBackground extends ResourceBase
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat'
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat'
     ];
 
     /**
@@ -69,8 +69,8 @@ class SlideBackground extends ResourceBase
       */
     protected static $swaggerFormats = [
         'type' => null,
-        'fill_format' => null,
-        'effect_format' => null
+        'fillFormat' => null,
+        'effectFormat' => null
     ];
 
     /**
@@ -101,8 +101,8 @@ class SlideBackground extends ResourceBase
      */
     protected static $attributeMap = [
         'type' => 'Type',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat'
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat'
     ];
 
     /**
@@ -112,8 +112,8 @@ class SlideBackground extends ResourceBase
      */
     protected static $setters = [
         'type' => 'setType',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat'
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat'
     ];
 
     /**
@@ -123,8 +123,8 @@ class SlideBackground extends ResourceBase
      */
     protected static $getters = [
         'type' => 'getType',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat'
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat'
     ];
 
     /**
@@ -207,8 +207,8 @@ class SlideBackground extends ResourceBase
         parent::__construct($data);
 
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
     }
 
     /**
@@ -291,49 +291,49 @@ class SlideBackground extends ResourceBase
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format fill_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat fillFormat
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format effect_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat effectFormat
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }

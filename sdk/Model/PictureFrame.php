@@ -57,7 +57,7 @@ class PictureFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'picture_fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
+        'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
     ];
 
     /**
@@ -66,7 +66,7 @@ class PictureFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'picture_fill_format' => null
+        'pictureFillFormat' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class PictureFrame extends GeometryShape
      * @var string[]
      */
     protected static $attributeMap = [
-        'picture_fill_format' => 'PictureFillFormat'
+        'pictureFillFormat' => 'PictureFillFormat'
     ];
 
     /**
@@ -105,7 +105,7 @@ class PictureFrame extends GeometryShape
      * @var string[]
      */
     protected static $setters = [
-        'picture_fill_format' => 'setPictureFillFormat'
+        'pictureFillFormat' => 'setPictureFillFormat'
     ];
 
     /**
@@ -114,7 +114,7 @@ class PictureFrame extends GeometryShape
      * @var string[]
      */
     protected static $getters = [
-        'picture_fill_format' => 'getPictureFillFormat'
+        'pictureFillFormat' => 'getPictureFillFormat'
     ];
 
     /**
@@ -173,7 +173,7 @@ class PictureFrame extends GeometryShape
     {
         parent::__construct($data);
 
-        $this->container['picture_fill_format'] = isset($data['picture_fill_format']) ? $data['picture_fill_format'] : null;
+        $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class PictureFrame extends GeometryShape
 
 
     /**
-     * Gets picture_fill_format
+     * Gets pictureFillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\PictureFill
      */
     public function getPictureFillFormat()
     {
-        return $this->container['picture_fill_format'];
+        return $this->container['pictureFillFormat'];
     }
 
     /**
-     * Sets picture_fill_format
+     * Sets pictureFillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $picture_fill_format picture_fill_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $pictureFillFormat pictureFillFormat
      *
      * @return $this
      */
-    public function setPictureFillFormat($picture_fill_format)
+    public function setPictureFillFormat($pictureFillFormat)
     {
-        $this->container['picture_fill_format'] = $picture_fill_format;
+        $this->container['pictureFillFormat'] = $pictureFillFormat;
 
         return $this;
     }

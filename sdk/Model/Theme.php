@@ -58,9 +58,9 @@ class Theme extends ResourceBase
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'color_scheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'font_scheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'format_scheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'colorScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'fontScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'formatScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
     ];
 
     /**
@@ -70,9 +70,9 @@ class Theme extends ResourceBase
       */
     protected static $swaggerFormats = [
         'name' => null,
-        'color_scheme' => null,
-        'font_scheme' => null,
-        'format_scheme' => null
+        'colorScheme' => null,
+        'fontScheme' => null,
+        'formatScheme' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class Theme extends ResourceBase
      */
     protected static $attributeMap = [
         'name' => 'Name',
-        'color_scheme' => 'ColorScheme',
-        'font_scheme' => 'FontScheme',
-        'format_scheme' => 'FormatScheme'
+        'colorScheme' => 'ColorScheme',
+        'fontScheme' => 'FontScheme',
+        'formatScheme' => 'FormatScheme'
     ];
 
     /**
@@ -115,9 +115,9 @@ class Theme extends ResourceBase
      */
     protected static $setters = [
         'name' => 'setName',
-        'color_scheme' => 'setColorScheme',
-        'font_scheme' => 'setFontScheme',
-        'format_scheme' => 'setFormatScheme'
+        'colorScheme' => 'setColorScheme',
+        'fontScheme' => 'setFontScheme',
+        'formatScheme' => 'setFormatScheme'
     ];
 
     /**
@@ -127,9 +127,9 @@ class Theme extends ResourceBase
      */
     protected static $getters = [
         'name' => 'getName',
-        'color_scheme' => 'getColorScheme',
-        'font_scheme' => 'getFontScheme',
-        'format_scheme' => 'getFormatScheme'
+        'colorScheme' => 'getColorScheme',
+        'fontScheme' => 'getFontScheme',
+        'formatScheme' => 'getFormatScheme'
     ];
 
     /**
@@ -189,9 +189,9 @@ class Theme extends ResourceBase
         parent::__construct($data);
 
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['color_scheme'] = isset($data['color_scheme']) ? $data['color_scheme'] : null;
-        $this->container['font_scheme'] = isset($data['font_scheme']) ? $data['font_scheme'] : null;
-        $this->container['format_scheme'] = isset($data['format_scheme']) ? $data['format_scheme'] : null;
+        $this->container['colorScheme'] = isset($data['colorScheme']) ? $data['colorScheme'] : null;
+        $this->container['fontScheme'] = isset($data['fontScheme']) ? $data['fontScheme'] : null;
+        $this->container['formatScheme'] = isset($data['formatScheme']) ? $data['formatScheme'] : null;
     }
 
     /**
@@ -247,73 +247,73 @@ class Theme extends ResourceBase
     }
 
     /**
-     * Gets color_scheme
+     * Gets colorScheme
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getColorScheme()
     {
-        return $this->container['color_scheme'];
+        return $this->container['colorScheme'];
     }
 
     /**
-     * Sets color_scheme
+     * Sets colorScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $color_scheme color_scheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $colorScheme colorScheme
      *
      * @return $this
      */
-    public function setColorScheme($color_scheme)
+    public function setColorScheme($colorScheme)
     {
-        $this->container['color_scheme'] = $color_scheme;
+        $this->container['colorScheme'] = $colorScheme;
 
         return $this;
     }
 
     /**
-     * Gets font_scheme
+     * Gets fontScheme
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getFontScheme()
     {
-        return $this->container['font_scheme'];
+        return $this->container['fontScheme'];
     }
 
     /**
-     * Sets font_scheme
+     * Sets fontScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $font_scheme font_scheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $fontScheme fontScheme
      *
      * @return $this
      */
-    public function setFontScheme($font_scheme)
+    public function setFontScheme($fontScheme)
     {
-        $this->container['font_scheme'] = $font_scheme;
+        $this->container['fontScheme'] = $fontScheme;
 
         return $this;
     }
 
     /**
-     * Gets format_scheme
+     * Gets formatScheme
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getFormatScheme()
     {
-        return $this->container['format_scheme'];
+        return $this->container['formatScheme'];
     }
 
     /**
-     * Sets format_scheme
+     * Sets formatScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $format_scheme format_scheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $formatScheme formatScheme
      *
      * @return $this
      */
-    public function setFormatScheme($format_scheme)
+    public function setFormatScheme($formatScheme)
     {
-        $this->container['format_scheme'] = $format_scheme;
+        $this->container['formatScheme'] = $formatScheme;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class FontSet implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'complex_script' => 'string',
-        'east_asian' => 'string',
+        'complexScript' => 'string',
+        'eastAsian' => 'string',
         'latin' => 'string'
     ];
 
@@ -69,8 +69,8 @@ class FontSet implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'complex_script' => null,
-        'east_asian' => null,
+        'complexScript' => null,
+        'eastAsian' => null,
         'latin' => null
     ];
 
@@ -101,8 +101,8 @@ class FontSet implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'complex_script' => 'ComplexScript',
-        'east_asian' => 'EastAsian',
+        'complexScript' => 'ComplexScript',
+        'eastAsian' => 'EastAsian',
         'latin' => 'Latin'
     ];
 
@@ -112,8 +112,8 @@ class FontSet implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'complex_script' => 'setComplexScript',
-        'east_asian' => 'setEastAsian',
+        'complexScript' => 'setComplexScript',
+        'eastAsian' => 'setEastAsian',
         'latin' => 'setLatin'
     ];
 
@@ -123,8 +123,8 @@ class FontSet implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'complex_script' => 'getComplexScript',
-        'east_asian' => 'getEastAsian',
+        'complexScript' => 'getComplexScript',
+        'eastAsian' => 'getEastAsian',
         'latin' => 'getLatin'
     ];
 
@@ -188,8 +188,8 @@ class FontSet implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['complex_script'] = isset($data['complex_script']) ? $data['complex_script'] : null;
-        $this->container['east_asian'] = isset($data['east_asian']) ? $data['east_asian'] : null;
+        $this->container['complexScript'] = isset($data['complexScript']) ? $data['complexScript'] : null;
+        $this->container['eastAsian'] = isset($data['eastAsian']) ? $data['eastAsian'] : null;
         $this->container['latin'] = isset($data['latin']) ? $data['latin'] : null;
     }
 
@@ -219,49 +219,49 @@ class FontSet implements ArrayAccess
 
 
     /**
-     * Gets complex_script
+     * Gets complexScript
      *
      * @return string
      */
     public function getComplexScript()
     {
-        return $this->container['complex_script'];
+        return $this->container['complexScript'];
     }
 
     /**
-     * Sets complex_script
+     * Sets complexScript
      *
-     * @param string $complex_script complex_script
+     * @param string $complexScript complexScript
      *
      * @return $this
      */
-    public function setComplexScript($complex_script)
+    public function setComplexScript($complexScript)
     {
-        $this->container['complex_script'] = $complex_script;
+        $this->container['complexScript'] = $complexScript;
 
         return $this;
     }
 
     /**
-     * Gets east_asian
+     * Gets eastAsian
      *
      * @return string
      */
     public function getEastAsian()
     {
-        return $this->container['east_asian'];
+        return $this->container['eastAsian'];
     }
 
     /**
-     * Sets east_asian
+     * Sets eastAsian
      *
-     * @param string $east_asian east_asian
+     * @param string $eastAsian eastAsian
      *
      * @return $this
      */
-    public function setEastAsian($east_asian)
+    public function setEastAsian($eastAsian)
     {
-        $this->container['east_asian'] = $east_asian;
+        $this->container['eastAsian'] = $eastAsian;
 
         return $this;
     }

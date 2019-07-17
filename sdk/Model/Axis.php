@@ -59,42 +59,42 @@ class Axis implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_visible' => 'bool',
-        'has_title' => 'bool',
+        'isVisible' => 'bool',
+        'hasTitle' => 'bool',
         'position' => 'string',
-        'display_unit' => 'string',
-        'base_unit_scale' => 'string',
-        'is_automatic_major_unit' => 'bool',
-        'major_unit' => 'double',
-        'major_unit_scale' => 'string',
-        'major_tick_mark' => 'string',
-        'is_automatic_minor_unit' => 'bool',
-        'minor_unit' => 'double',
-        'minor_unit_scale' => 'string',
-        'minor_tick_mark' => 'string',
-        'is_automatic_max_value' => 'bool',
-        'max_value' => 'double',
-        'is_automatic_min_value' => 'bool',
-        'min_value' => 'double',
-        'is_logarithmic' => 'bool',
-        'log_base' => 'double',
-        'category_axis_type' => 'string',
-        'axis_between_categories' => 'bool',
-        'label_offset' => 'int',
-        'is_plot_order_reversed' => 'bool',
-        'is_number_format_linked_to_source' => 'bool',
-        'number_format' => 'string',
-        'cross_type' => 'string',
-        'cross_at' => 'double',
-        'is_automatic_tick_marks_spacing' => 'bool',
-        'tick_marks_spacing' => 'int',
-        'is_automatic_tick_label_spacing' => 'bool',
-        'tick_label_spacing' => 'int',
-        'tick_label_position' => 'string',
-        'tick_label_rotation_angle' => 'double',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'displayUnit' => 'string',
+        'baseUnitScale' => 'string',
+        'isAutomaticMajorUnit' => 'bool',
+        'majorUnit' => 'double',
+        'majorUnitScale' => 'string',
+        'majorTickMark' => 'string',
+        'isAutomaticMinorUnit' => 'bool',
+        'minorUnit' => 'double',
+        'minorUnitScale' => 'string',
+        'minorTickMark' => 'string',
+        'isAutomaticMaxValue' => 'bool',
+        'maxValue' => 'double',
+        'isAutomaticMinValue' => 'bool',
+        'minValue' => 'double',
+        'isLogarithmic' => 'bool',
+        'logBase' => 'double',
+        'categoryAxisType' => 'string',
+        'axisBetweenCategories' => 'bool',
+        'labelOffset' => 'int',
+        'isPlotOrderReversed' => 'bool',
+        'isNumberFormatLinkedToSource' => 'bool',
+        'numberFormat' => 'string',
+        'crossType' => 'string',
+        'crossAt' => 'double',
+        'isAutomaticTickMarksSpacing' => 'bool',
+        'tickMarksSpacing' => 'int',
+        'isAutomaticTickLabelSpacing' => 'bool',
+        'tickLabelSpacing' => 'int',
+        'tickLabelPosition' => 'string',
+        'tickLabelRotationAngle' => 'double',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -103,42 +103,42 @@ class Axis implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_visible' => null,
-        'has_title' => null,
+        'isVisible' => null,
+        'hasTitle' => null,
         'position' => null,
-        'display_unit' => null,
-        'base_unit_scale' => null,
-        'is_automatic_major_unit' => null,
-        'major_unit' => 'double',
-        'major_unit_scale' => null,
-        'major_tick_mark' => null,
-        'is_automatic_minor_unit' => null,
-        'minor_unit' => 'double',
-        'minor_unit_scale' => null,
-        'minor_tick_mark' => null,
-        'is_automatic_max_value' => null,
-        'max_value' => 'double',
-        'is_automatic_min_value' => null,
-        'min_value' => 'double',
-        'is_logarithmic' => null,
-        'log_base' => 'double',
-        'category_axis_type' => null,
-        'axis_between_categories' => null,
-        'label_offset' => null,
-        'is_plot_order_reversed' => null,
-        'is_number_format_linked_to_source' => null,
-        'number_format' => null,
-        'cross_type' => null,
-        'cross_at' => 'double',
-        'is_automatic_tick_marks_spacing' => null,
-        'tick_marks_spacing' => null,
-        'is_automatic_tick_label_spacing' => null,
-        'tick_label_spacing' => null,
-        'tick_label_position' => null,
-        'tick_label_rotation_angle' => 'double',
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null
+        'displayUnit' => null,
+        'baseUnitScale' => null,
+        'isAutomaticMajorUnit' => null,
+        'majorUnit' => 'double',
+        'majorUnitScale' => null,
+        'majorTickMark' => null,
+        'isAutomaticMinorUnit' => null,
+        'minorUnit' => 'double',
+        'minorUnitScale' => null,
+        'minorTickMark' => null,
+        'isAutomaticMaxValue' => null,
+        'maxValue' => 'double',
+        'isAutomaticMinValue' => null,
+        'minValue' => 'double',
+        'isLogarithmic' => null,
+        'logBase' => 'double',
+        'categoryAxisType' => null,
+        'axisBetweenCategories' => null,
+        'labelOffset' => null,
+        'isPlotOrderReversed' => null,
+        'isNumberFormatLinkedToSource' => null,
+        'numberFormat' => null,
+        'crossType' => null,
+        'crossAt' => 'double',
+        'isAutomaticTickMarksSpacing' => null,
+        'tickMarksSpacing' => null,
+        'isAutomaticTickLabelSpacing' => null,
+        'tickLabelSpacing' => null,
+        'tickLabelPosition' => null,
+        'tickLabelRotationAngle' => 'double',
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null
     ];
 
     /**
@@ -168,42 +168,42 @@ class Axis implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_visible' => 'IsVisible',
-        'has_title' => 'HasTitle',
+        'isVisible' => 'IsVisible',
+        'hasTitle' => 'HasTitle',
         'position' => 'Position',
-        'display_unit' => 'DisplayUnit',
-        'base_unit_scale' => 'BaseUnitScale',
-        'is_automatic_major_unit' => 'IsAutomaticMajorUnit',
-        'major_unit' => 'MajorUnit',
-        'major_unit_scale' => 'MajorUnitScale',
-        'major_tick_mark' => 'MajorTickMark',
-        'is_automatic_minor_unit' => 'IsAutomaticMinorUnit',
-        'minor_unit' => 'MinorUnit',
-        'minor_unit_scale' => 'MinorUnitScale',
-        'minor_tick_mark' => 'MinorTickMark',
-        'is_automatic_max_value' => 'IsAutomaticMaxValue',
-        'max_value' => 'MaxValue',
-        'is_automatic_min_value' => 'IsAutomaticMinValue',
-        'min_value' => 'MinValue',
-        'is_logarithmic' => 'IsLogarithmic',
-        'log_base' => 'LogBase',
-        'category_axis_type' => 'CategoryAxisType',
-        'axis_between_categories' => 'AxisBetweenCategories',
-        'label_offset' => 'LabelOffset',
-        'is_plot_order_reversed' => 'IsPlotOrderReversed',
-        'is_number_format_linked_to_source' => 'IsNumberFormatLinkedToSource',
-        'number_format' => 'NumberFormat',
-        'cross_type' => 'CrossType',
-        'cross_at' => 'CrossAt',
-        'is_automatic_tick_marks_spacing' => 'IsAutomaticTickMarksSpacing',
-        'tick_marks_spacing' => 'TickMarksSpacing',
-        'is_automatic_tick_label_spacing' => 'IsAutomaticTickLabelSpacing',
-        'tick_label_spacing' => 'TickLabelSpacing',
-        'tick_label_position' => 'TickLabelPosition',
-        'tick_label_rotation_angle' => 'TickLabelRotationAngle',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat'
+        'displayUnit' => 'DisplayUnit',
+        'baseUnitScale' => 'BaseUnitScale',
+        'isAutomaticMajorUnit' => 'IsAutomaticMajorUnit',
+        'majorUnit' => 'MajorUnit',
+        'majorUnitScale' => 'MajorUnitScale',
+        'majorTickMark' => 'MajorTickMark',
+        'isAutomaticMinorUnit' => 'IsAutomaticMinorUnit',
+        'minorUnit' => 'MinorUnit',
+        'minorUnitScale' => 'MinorUnitScale',
+        'minorTickMark' => 'MinorTickMark',
+        'isAutomaticMaxValue' => 'IsAutomaticMaxValue',
+        'maxValue' => 'MaxValue',
+        'isAutomaticMinValue' => 'IsAutomaticMinValue',
+        'minValue' => 'MinValue',
+        'isLogarithmic' => 'IsLogarithmic',
+        'logBase' => 'LogBase',
+        'categoryAxisType' => 'CategoryAxisType',
+        'axisBetweenCategories' => 'AxisBetweenCategories',
+        'labelOffset' => 'LabelOffset',
+        'isPlotOrderReversed' => 'IsPlotOrderReversed',
+        'isNumberFormatLinkedToSource' => 'IsNumberFormatLinkedToSource',
+        'numberFormat' => 'NumberFormat',
+        'crossType' => 'CrossType',
+        'crossAt' => 'CrossAt',
+        'isAutomaticTickMarksSpacing' => 'IsAutomaticTickMarksSpacing',
+        'tickMarksSpacing' => 'TickMarksSpacing',
+        'isAutomaticTickLabelSpacing' => 'IsAutomaticTickLabelSpacing',
+        'tickLabelSpacing' => 'TickLabelSpacing',
+        'tickLabelPosition' => 'TickLabelPosition',
+        'tickLabelRotationAngle' => 'TickLabelRotationAngle',
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat'
     ];
 
     /**
@@ -212,42 +212,42 @@ class Axis implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_visible' => 'setIsVisible',
-        'has_title' => 'setHasTitle',
+        'isVisible' => 'setIsVisible',
+        'hasTitle' => 'setHasTitle',
         'position' => 'setPosition',
-        'display_unit' => 'setDisplayUnit',
-        'base_unit_scale' => 'setBaseUnitScale',
-        'is_automatic_major_unit' => 'setIsAutomaticMajorUnit',
-        'major_unit' => 'setMajorUnit',
-        'major_unit_scale' => 'setMajorUnitScale',
-        'major_tick_mark' => 'setMajorTickMark',
-        'is_automatic_minor_unit' => 'setIsAutomaticMinorUnit',
-        'minor_unit' => 'setMinorUnit',
-        'minor_unit_scale' => 'setMinorUnitScale',
-        'minor_tick_mark' => 'setMinorTickMark',
-        'is_automatic_max_value' => 'setIsAutomaticMaxValue',
-        'max_value' => 'setMaxValue',
-        'is_automatic_min_value' => 'setIsAutomaticMinValue',
-        'min_value' => 'setMinValue',
-        'is_logarithmic' => 'setIsLogarithmic',
-        'log_base' => 'setLogBase',
-        'category_axis_type' => 'setCategoryAxisType',
-        'axis_between_categories' => 'setAxisBetweenCategories',
-        'label_offset' => 'setLabelOffset',
-        'is_plot_order_reversed' => 'setIsPlotOrderReversed',
-        'is_number_format_linked_to_source' => 'setIsNumberFormatLinkedToSource',
-        'number_format' => 'setNumberFormat',
-        'cross_type' => 'setCrossType',
-        'cross_at' => 'setCrossAt',
-        'is_automatic_tick_marks_spacing' => 'setIsAutomaticTickMarksSpacing',
-        'tick_marks_spacing' => 'setTickMarksSpacing',
-        'is_automatic_tick_label_spacing' => 'setIsAutomaticTickLabelSpacing',
-        'tick_label_spacing' => 'setTickLabelSpacing',
-        'tick_label_position' => 'setTickLabelPosition',
-        'tick_label_rotation_angle' => 'setTickLabelRotationAngle',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat'
+        'displayUnit' => 'setDisplayUnit',
+        'baseUnitScale' => 'setBaseUnitScale',
+        'isAutomaticMajorUnit' => 'setIsAutomaticMajorUnit',
+        'majorUnit' => 'setMajorUnit',
+        'majorUnitScale' => 'setMajorUnitScale',
+        'majorTickMark' => 'setMajorTickMark',
+        'isAutomaticMinorUnit' => 'setIsAutomaticMinorUnit',
+        'minorUnit' => 'setMinorUnit',
+        'minorUnitScale' => 'setMinorUnitScale',
+        'minorTickMark' => 'setMinorTickMark',
+        'isAutomaticMaxValue' => 'setIsAutomaticMaxValue',
+        'maxValue' => 'setMaxValue',
+        'isAutomaticMinValue' => 'setIsAutomaticMinValue',
+        'minValue' => 'setMinValue',
+        'isLogarithmic' => 'setIsLogarithmic',
+        'logBase' => 'setLogBase',
+        'categoryAxisType' => 'setCategoryAxisType',
+        'axisBetweenCategories' => 'setAxisBetweenCategories',
+        'labelOffset' => 'setLabelOffset',
+        'isPlotOrderReversed' => 'setIsPlotOrderReversed',
+        'isNumberFormatLinkedToSource' => 'setIsNumberFormatLinkedToSource',
+        'numberFormat' => 'setNumberFormat',
+        'crossType' => 'setCrossType',
+        'crossAt' => 'setCrossAt',
+        'isAutomaticTickMarksSpacing' => 'setIsAutomaticTickMarksSpacing',
+        'tickMarksSpacing' => 'setTickMarksSpacing',
+        'isAutomaticTickLabelSpacing' => 'setIsAutomaticTickLabelSpacing',
+        'tickLabelSpacing' => 'setTickLabelSpacing',
+        'tickLabelPosition' => 'setTickLabelPosition',
+        'tickLabelRotationAngle' => 'setTickLabelRotationAngle',
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat'
     ];
 
     /**
@@ -256,42 +256,42 @@ class Axis implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_visible' => 'getIsVisible',
-        'has_title' => 'getHasTitle',
+        'isVisible' => 'getIsVisible',
+        'hasTitle' => 'getHasTitle',
         'position' => 'getPosition',
-        'display_unit' => 'getDisplayUnit',
-        'base_unit_scale' => 'getBaseUnitScale',
-        'is_automatic_major_unit' => 'getIsAutomaticMajorUnit',
-        'major_unit' => 'getMajorUnit',
-        'major_unit_scale' => 'getMajorUnitScale',
-        'major_tick_mark' => 'getMajorTickMark',
-        'is_automatic_minor_unit' => 'getIsAutomaticMinorUnit',
-        'minor_unit' => 'getMinorUnit',
-        'minor_unit_scale' => 'getMinorUnitScale',
-        'minor_tick_mark' => 'getMinorTickMark',
-        'is_automatic_max_value' => 'getIsAutomaticMaxValue',
-        'max_value' => 'getMaxValue',
-        'is_automatic_min_value' => 'getIsAutomaticMinValue',
-        'min_value' => 'getMinValue',
-        'is_logarithmic' => 'getIsLogarithmic',
-        'log_base' => 'getLogBase',
-        'category_axis_type' => 'getCategoryAxisType',
-        'axis_between_categories' => 'getAxisBetweenCategories',
-        'label_offset' => 'getLabelOffset',
-        'is_plot_order_reversed' => 'getIsPlotOrderReversed',
-        'is_number_format_linked_to_source' => 'getIsNumberFormatLinkedToSource',
-        'number_format' => 'getNumberFormat',
-        'cross_type' => 'getCrossType',
-        'cross_at' => 'getCrossAt',
-        'is_automatic_tick_marks_spacing' => 'getIsAutomaticTickMarksSpacing',
-        'tick_marks_spacing' => 'getTickMarksSpacing',
-        'is_automatic_tick_label_spacing' => 'getIsAutomaticTickLabelSpacing',
-        'tick_label_spacing' => 'getTickLabelSpacing',
-        'tick_label_position' => 'getTickLabelPosition',
-        'tick_label_rotation_angle' => 'getTickLabelRotationAngle',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat'
+        'displayUnit' => 'getDisplayUnit',
+        'baseUnitScale' => 'getBaseUnitScale',
+        'isAutomaticMajorUnit' => 'getIsAutomaticMajorUnit',
+        'majorUnit' => 'getMajorUnit',
+        'majorUnitScale' => 'getMajorUnitScale',
+        'majorTickMark' => 'getMajorTickMark',
+        'isAutomaticMinorUnit' => 'getIsAutomaticMinorUnit',
+        'minorUnit' => 'getMinorUnit',
+        'minorUnitScale' => 'getMinorUnitScale',
+        'minorTickMark' => 'getMinorTickMark',
+        'isAutomaticMaxValue' => 'getIsAutomaticMaxValue',
+        'maxValue' => 'getMaxValue',
+        'isAutomaticMinValue' => 'getIsAutomaticMinValue',
+        'minValue' => 'getMinValue',
+        'isLogarithmic' => 'getIsLogarithmic',
+        'logBase' => 'getLogBase',
+        'categoryAxisType' => 'getCategoryAxisType',
+        'axisBetweenCategories' => 'getAxisBetweenCategories',
+        'labelOffset' => 'getLabelOffset',
+        'isPlotOrderReversed' => 'getIsPlotOrderReversed',
+        'isNumberFormatLinkedToSource' => 'getIsNumberFormatLinkedToSource',
+        'numberFormat' => 'getNumberFormat',
+        'crossType' => 'getCrossType',
+        'crossAt' => 'getCrossAt',
+        'isAutomaticTickMarksSpacing' => 'getIsAutomaticTickMarksSpacing',
+        'tickMarksSpacing' => 'getTickMarksSpacing',
+        'isAutomaticTickLabelSpacing' => 'getIsAutomaticTickLabelSpacing',
+        'tickLabelSpacing' => 'getTickLabelSpacing',
+        'tickLabelPosition' => 'getTickLabelPosition',
+        'tickLabelRotationAngle' => 'getTickLabelRotationAngle',
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat'
     ];
 
     /**
@@ -546,42 +546,42 @@ class Axis implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_visible'] = isset($data['is_visible']) ? $data['is_visible'] : null;
-        $this->container['has_title'] = isset($data['has_title']) ? $data['has_title'] : null;
+        $this->container['isVisible'] = isset($data['isVisible']) ? $data['isVisible'] : null;
+        $this->container['hasTitle'] = isset($data['hasTitle']) ? $data['hasTitle'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
-        $this->container['display_unit'] = isset($data['display_unit']) ? $data['display_unit'] : null;
-        $this->container['base_unit_scale'] = isset($data['base_unit_scale']) ? $data['base_unit_scale'] : null;
-        $this->container['is_automatic_major_unit'] = isset($data['is_automatic_major_unit']) ? $data['is_automatic_major_unit'] : null;
-        $this->container['major_unit'] = isset($data['major_unit']) ? $data['major_unit'] : null;
-        $this->container['major_unit_scale'] = isset($data['major_unit_scale']) ? $data['major_unit_scale'] : null;
-        $this->container['major_tick_mark'] = isset($data['major_tick_mark']) ? $data['major_tick_mark'] : null;
-        $this->container['is_automatic_minor_unit'] = isset($data['is_automatic_minor_unit']) ? $data['is_automatic_minor_unit'] : null;
-        $this->container['minor_unit'] = isset($data['minor_unit']) ? $data['minor_unit'] : null;
-        $this->container['minor_unit_scale'] = isset($data['minor_unit_scale']) ? $data['minor_unit_scale'] : null;
-        $this->container['minor_tick_mark'] = isset($data['minor_tick_mark']) ? $data['minor_tick_mark'] : null;
-        $this->container['is_automatic_max_value'] = isset($data['is_automatic_max_value']) ? $data['is_automatic_max_value'] : null;
-        $this->container['max_value'] = isset($data['max_value']) ? $data['max_value'] : null;
-        $this->container['is_automatic_min_value'] = isset($data['is_automatic_min_value']) ? $data['is_automatic_min_value'] : null;
-        $this->container['min_value'] = isset($data['min_value']) ? $data['min_value'] : null;
-        $this->container['is_logarithmic'] = isset($data['is_logarithmic']) ? $data['is_logarithmic'] : null;
-        $this->container['log_base'] = isset($data['log_base']) ? $data['log_base'] : null;
-        $this->container['category_axis_type'] = isset($data['category_axis_type']) ? $data['category_axis_type'] : null;
-        $this->container['axis_between_categories'] = isset($data['axis_between_categories']) ? $data['axis_between_categories'] : null;
-        $this->container['label_offset'] = isset($data['label_offset']) ? $data['label_offset'] : null;
-        $this->container['is_plot_order_reversed'] = isset($data['is_plot_order_reversed']) ? $data['is_plot_order_reversed'] : null;
-        $this->container['is_number_format_linked_to_source'] = isset($data['is_number_format_linked_to_source']) ? $data['is_number_format_linked_to_source'] : null;
-        $this->container['number_format'] = isset($data['number_format']) ? $data['number_format'] : null;
-        $this->container['cross_type'] = isset($data['cross_type']) ? $data['cross_type'] : null;
-        $this->container['cross_at'] = isset($data['cross_at']) ? $data['cross_at'] : null;
-        $this->container['is_automatic_tick_marks_spacing'] = isset($data['is_automatic_tick_marks_spacing']) ? $data['is_automatic_tick_marks_spacing'] : null;
-        $this->container['tick_marks_spacing'] = isset($data['tick_marks_spacing']) ? $data['tick_marks_spacing'] : null;
-        $this->container['is_automatic_tick_label_spacing'] = isset($data['is_automatic_tick_label_spacing']) ? $data['is_automatic_tick_label_spacing'] : null;
-        $this->container['tick_label_spacing'] = isset($data['tick_label_spacing']) ? $data['tick_label_spacing'] : null;
-        $this->container['tick_label_position'] = isset($data['tick_label_position']) ? $data['tick_label_position'] : null;
-        $this->container['tick_label_rotation_angle'] = isset($data['tick_label_rotation_angle']) ? $data['tick_label_rotation_angle'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
+        $this->container['displayUnit'] = isset($data['displayUnit']) ? $data['displayUnit'] : null;
+        $this->container['baseUnitScale'] = isset($data['baseUnitScale']) ? $data['baseUnitScale'] : null;
+        $this->container['isAutomaticMajorUnit'] = isset($data['isAutomaticMajorUnit']) ? $data['isAutomaticMajorUnit'] : null;
+        $this->container['majorUnit'] = isset($data['majorUnit']) ? $data['majorUnit'] : null;
+        $this->container['majorUnitScale'] = isset($data['majorUnitScale']) ? $data['majorUnitScale'] : null;
+        $this->container['majorTickMark'] = isset($data['majorTickMark']) ? $data['majorTickMark'] : null;
+        $this->container['isAutomaticMinorUnit'] = isset($data['isAutomaticMinorUnit']) ? $data['isAutomaticMinorUnit'] : null;
+        $this->container['minorUnit'] = isset($data['minorUnit']) ? $data['minorUnit'] : null;
+        $this->container['minorUnitScale'] = isset($data['minorUnitScale']) ? $data['minorUnitScale'] : null;
+        $this->container['minorTickMark'] = isset($data['minorTickMark']) ? $data['minorTickMark'] : null;
+        $this->container['isAutomaticMaxValue'] = isset($data['isAutomaticMaxValue']) ? $data['isAutomaticMaxValue'] : null;
+        $this->container['maxValue'] = isset($data['maxValue']) ? $data['maxValue'] : null;
+        $this->container['isAutomaticMinValue'] = isset($data['isAutomaticMinValue']) ? $data['isAutomaticMinValue'] : null;
+        $this->container['minValue'] = isset($data['minValue']) ? $data['minValue'] : null;
+        $this->container['isLogarithmic'] = isset($data['isLogarithmic']) ? $data['isLogarithmic'] : null;
+        $this->container['logBase'] = isset($data['logBase']) ? $data['logBase'] : null;
+        $this->container['categoryAxisType'] = isset($data['categoryAxisType']) ? $data['categoryAxisType'] : null;
+        $this->container['axisBetweenCategories'] = isset($data['axisBetweenCategories']) ? $data['axisBetweenCategories'] : null;
+        $this->container['labelOffset'] = isset($data['labelOffset']) ? $data['labelOffset'] : null;
+        $this->container['isPlotOrderReversed'] = isset($data['isPlotOrderReversed']) ? $data['isPlotOrderReversed'] : null;
+        $this->container['isNumberFormatLinkedToSource'] = isset($data['isNumberFormatLinkedToSource']) ? $data['isNumberFormatLinkedToSource'] : null;
+        $this->container['numberFormat'] = isset($data['numberFormat']) ? $data['numberFormat'] : null;
+        $this->container['crossType'] = isset($data['crossType']) ? $data['crossType'] : null;
+        $this->container['crossAt'] = isset($data['crossAt']) ? $data['crossAt'] : null;
+        $this->container['isAutomaticTickMarksSpacing'] = isset($data['isAutomaticTickMarksSpacing']) ? $data['isAutomaticTickMarksSpacing'] : null;
+        $this->container['tickMarksSpacing'] = isset($data['tickMarksSpacing']) ? $data['tickMarksSpacing'] : null;
+        $this->container['isAutomaticTickLabelSpacing'] = isset($data['isAutomaticTickLabelSpacing']) ? $data['isAutomaticTickLabelSpacing'] : null;
+        $this->container['tickLabelSpacing'] = isset($data['tickLabelSpacing']) ? $data['tickLabelSpacing'] : null;
+        $this->container['tickLabelPosition'] = isset($data['tickLabelPosition']) ? $data['tickLabelPosition'] : null;
+        $this->container['tickLabelRotationAngle'] = isset($data['tickLabelRotationAngle']) ? $data['tickLabelRotationAngle'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
     }
 
     /**
@@ -593,11 +593,11 @@ class Axis implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_visible'] === null) {
-            $invalidProperties[] = "'is_visible' can't be null";
+        if ($this->container['isVisible'] === null) {
+            $invalidProperties[] = "'isVisible' can't be null";
         }
-        if ($this->container['has_title'] === null) {
-            $invalidProperties[] = "'has_title' can't be null";
+        if ($this->container['hasTitle'] === null) {
+            $invalidProperties[] = "'hasTitle' can't be null";
         }
         if ($this->container['position'] === null) {
             $invalidProperties[] = "'position' can't be null";
@@ -610,164 +610,164 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['display_unit'] === null) {
-            $invalidProperties[] = "'display_unit' can't be null";
+        if ($this->container['displayUnit'] === null) {
+            $invalidProperties[] = "'displayUnit' can't be null";
         }
         $allowedValues = $this->getDisplayUnitAllowableValues();
-        if (!in_array($this->container['display_unit'], $allowedValues)) {
+        if (!in_array($this->container['displayUnit'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'display_unit', must be one of '%s'",
+                "invalid value for 'displayUnit', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['base_unit_scale'] === null) {
-            $invalidProperties[] = "'base_unit_scale' can't be null";
+        if ($this->container['baseUnitScale'] === null) {
+            $invalidProperties[] = "'baseUnitScale' can't be null";
         }
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
-        if (!in_array($this->container['base_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['baseUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'base_unit_scale', must be one of '%s'",
+                "invalid value for 'baseUnitScale', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['is_automatic_major_unit'] === null) {
-            $invalidProperties[] = "'is_automatic_major_unit' can't be null";
+        if ($this->container['isAutomaticMajorUnit'] === null) {
+            $invalidProperties[] = "'isAutomaticMajorUnit' can't be null";
         }
-        if ($this->container['major_unit'] === null) {
-            $invalidProperties[] = "'major_unit' can't be null";
+        if ($this->container['majorUnit'] === null) {
+            $invalidProperties[] = "'majorUnit' can't be null";
         }
-        if ($this->container['major_unit_scale'] === null) {
-            $invalidProperties[] = "'major_unit_scale' can't be null";
+        if ($this->container['majorUnitScale'] === null) {
+            $invalidProperties[] = "'majorUnitScale' can't be null";
         }
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
-        if (!in_array($this->container['major_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['majorUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'major_unit_scale', must be one of '%s'",
+                "invalid value for 'majorUnitScale', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['major_tick_mark'] === null) {
-            $invalidProperties[] = "'major_tick_mark' can't be null";
+        if ($this->container['majorTickMark'] === null) {
+            $invalidProperties[] = "'majorTickMark' can't be null";
         }
         $allowedValues = $this->getMajorTickMarkAllowableValues();
-        if (!in_array($this->container['major_tick_mark'], $allowedValues)) {
+        if (!in_array($this->container['majorTickMark'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'major_tick_mark', must be one of '%s'",
+                "invalid value for 'majorTickMark', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['is_automatic_minor_unit'] === null) {
-            $invalidProperties[] = "'is_automatic_minor_unit' can't be null";
+        if ($this->container['isAutomaticMinorUnit'] === null) {
+            $invalidProperties[] = "'isAutomaticMinorUnit' can't be null";
         }
-        if ($this->container['minor_unit'] === null) {
-            $invalidProperties[] = "'minor_unit' can't be null";
+        if ($this->container['minorUnit'] === null) {
+            $invalidProperties[] = "'minorUnit' can't be null";
         }
-        if ($this->container['minor_unit_scale'] === null) {
-            $invalidProperties[] = "'minor_unit_scale' can't be null";
+        if ($this->container['minorUnitScale'] === null) {
+            $invalidProperties[] = "'minorUnitScale' can't be null";
         }
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
-        if (!in_array($this->container['minor_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['minorUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'minor_unit_scale', must be one of '%s'",
+                "invalid value for 'minorUnitScale', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['minor_tick_mark'] === null) {
-            $invalidProperties[] = "'minor_tick_mark' can't be null";
+        if ($this->container['minorTickMark'] === null) {
+            $invalidProperties[] = "'minorTickMark' can't be null";
         }
         $allowedValues = $this->getMinorTickMarkAllowableValues();
-        if (!in_array($this->container['minor_tick_mark'], $allowedValues)) {
+        if (!in_array($this->container['minorTickMark'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'minor_tick_mark', must be one of '%s'",
+                "invalid value for 'minorTickMark', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['is_automatic_max_value'] === null) {
-            $invalidProperties[] = "'is_automatic_max_value' can't be null";
+        if ($this->container['isAutomaticMaxValue'] === null) {
+            $invalidProperties[] = "'isAutomaticMaxValue' can't be null";
         }
-        if ($this->container['max_value'] === null) {
-            $invalidProperties[] = "'max_value' can't be null";
+        if ($this->container['maxValue'] === null) {
+            $invalidProperties[] = "'maxValue' can't be null";
         }
-        if ($this->container['is_automatic_min_value'] === null) {
-            $invalidProperties[] = "'is_automatic_min_value' can't be null";
+        if ($this->container['isAutomaticMinValue'] === null) {
+            $invalidProperties[] = "'isAutomaticMinValue' can't be null";
         }
-        if ($this->container['min_value'] === null) {
-            $invalidProperties[] = "'min_value' can't be null";
+        if ($this->container['minValue'] === null) {
+            $invalidProperties[] = "'minValue' can't be null";
         }
-        if ($this->container['is_logarithmic'] === null) {
-            $invalidProperties[] = "'is_logarithmic' can't be null";
+        if ($this->container['isLogarithmic'] === null) {
+            $invalidProperties[] = "'isLogarithmic' can't be null";
         }
-        if ($this->container['log_base'] === null) {
-            $invalidProperties[] = "'log_base' can't be null";
+        if ($this->container['logBase'] === null) {
+            $invalidProperties[] = "'logBase' can't be null";
         }
-        if ($this->container['category_axis_type'] === null) {
-            $invalidProperties[] = "'category_axis_type' can't be null";
+        if ($this->container['categoryAxisType'] === null) {
+            $invalidProperties[] = "'categoryAxisType' can't be null";
         }
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
-        if (!in_array($this->container['category_axis_type'], $allowedValues)) {
+        if (!in_array($this->container['categoryAxisType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'category_axis_type', must be one of '%s'",
+                "invalid value for 'categoryAxisType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['axis_between_categories'] === null) {
-            $invalidProperties[] = "'axis_between_categories' can't be null";
+        if ($this->container['axisBetweenCategories'] === null) {
+            $invalidProperties[] = "'axisBetweenCategories' can't be null";
         }
-        if ($this->container['label_offset'] === null) {
-            $invalidProperties[] = "'label_offset' can't be null";
+        if ($this->container['labelOffset'] === null) {
+            $invalidProperties[] = "'labelOffset' can't be null";
         }
-        if ($this->container['is_plot_order_reversed'] === null) {
-            $invalidProperties[] = "'is_plot_order_reversed' can't be null";
+        if ($this->container['isPlotOrderReversed'] === null) {
+            $invalidProperties[] = "'isPlotOrderReversed' can't be null";
         }
-        if ($this->container['is_number_format_linked_to_source'] === null) {
-            $invalidProperties[] = "'is_number_format_linked_to_source' can't be null";
+        if ($this->container['isNumberFormatLinkedToSource'] === null) {
+            $invalidProperties[] = "'isNumberFormatLinkedToSource' can't be null";
         }
-        if ($this->container['cross_type'] === null) {
-            $invalidProperties[] = "'cross_type' can't be null";
+        if ($this->container['crossType'] === null) {
+            $invalidProperties[] = "'crossType' can't be null";
         }
         $allowedValues = $this->getCrossTypeAllowableValues();
-        if (!in_array($this->container['cross_type'], $allowedValues)) {
+        if (!in_array($this->container['crossType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'cross_type', must be one of '%s'",
+                "invalid value for 'crossType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['cross_at'] === null) {
-            $invalidProperties[] = "'cross_at' can't be null";
+        if ($this->container['crossAt'] === null) {
+            $invalidProperties[] = "'crossAt' can't be null";
         }
-        if ($this->container['is_automatic_tick_marks_spacing'] === null) {
-            $invalidProperties[] = "'is_automatic_tick_marks_spacing' can't be null";
+        if ($this->container['isAutomaticTickMarksSpacing'] === null) {
+            $invalidProperties[] = "'isAutomaticTickMarksSpacing' can't be null";
         }
-        if ($this->container['tick_marks_spacing'] === null) {
-            $invalidProperties[] = "'tick_marks_spacing' can't be null";
+        if ($this->container['tickMarksSpacing'] === null) {
+            $invalidProperties[] = "'tickMarksSpacing' can't be null";
         }
-        if ($this->container['is_automatic_tick_label_spacing'] === null) {
-            $invalidProperties[] = "'is_automatic_tick_label_spacing' can't be null";
+        if ($this->container['isAutomaticTickLabelSpacing'] === null) {
+            $invalidProperties[] = "'isAutomaticTickLabelSpacing' can't be null";
         }
-        if ($this->container['tick_label_spacing'] === null) {
-            $invalidProperties[] = "'tick_label_spacing' can't be null";
+        if ($this->container['tickLabelSpacing'] === null) {
+            $invalidProperties[] = "'tickLabelSpacing' can't be null";
         }
-        if ($this->container['tick_label_position'] === null) {
-            $invalidProperties[] = "'tick_label_position' can't be null";
+        if ($this->container['tickLabelPosition'] === null) {
+            $invalidProperties[] = "'tickLabelPosition' can't be null";
         }
         $allowedValues = $this->getTickLabelPositionAllowableValues();
-        if (!in_array($this->container['tick_label_position'], $allowedValues)) {
+        if (!in_array($this->container['tickLabelPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'tick_label_position', must be one of '%s'",
+                "invalid value for 'tickLabelPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['tick_label_rotation_angle'] === null) {
-            $invalidProperties[] = "'tick_label_rotation_angle' can't be null";
+        if ($this->container['tickLabelRotationAngle'] === null) {
+            $invalidProperties[] = "'tickLabelRotationAngle' can't be null";
         }
         return $invalidProperties;
     }
@@ -781,10 +781,10 @@ class Axis implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_visible'] === null) {
+        if ($this->container['isVisible'] === null) {
             return false;
         }
-        if ($this->container['has_title'] === null) {
+        if ($this->container['hasTitle'] === null) {
             return false;
         }
         if ($this->container['position'] === null) {
@@ -794,127 +794,127 @@ class Axis implements ArrayAccess
         if (!in_array($this->container['position'], $allowedValues)) {
             return false;
         }
-        if ($this->container['display_unit'] === null) {
+        if ($this->container['displayUnit'] === null) {
             return false;
         }
         $allowedValues = $this->getDisplayUnitAllowableValues();
-        if (!in_array($this->container['display_unit'], $allowedValues)) {
+        if (!in_array($this->container['displayUnit'], $allowedValues)) {
             return false;
         }
-        if ($this->container['base_unit_scale'] === null) {
+        if ($this->container['baseUnitScale'] === null) {
             return false;
         }
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
-        if (!in_array($this->container['base_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['baseUnitScale'], $allowedValues)) {
             return false;
         }
-        if ($this->container['is_automatic_major_unit'] === null) {
+        if ($this->container['isAutomaticMajorUnit'] === null) {
             return false;
         }
-        if ($this->container['major_unit'] === null) {
+        if ($this->container['majorUnit'] === null) {
             return false;
         }
-        if ($this->container['major_unit_scale'] === null) {
+        if ($this->container['majorUnitScale'] === null) {
             return false;
         }
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
-        if (!in_array($this->container['major_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['majorUnitScale'], $allowedValues)) {
             return false;
         }
-        if ($this->container['major_tick_mark'] === null) {
+        if ($this->container['majorTickMark'] === null) {
             return false;
         }
         $allowedValues = $this->getMajorTickMarkAllowableValues();
-        if (!in_array($this->container['major_tick_mark'], $allowedValues)) {
+        if (!in_array($this->container['majorTickMark'], $allowedValues)) {
             return false;
         }
-        if ($this->container['is_automatic_minor_unit'] === null) {
+        if ($this->container['isAutomaticMinorUnit'] === null) {
             return false;
         }
-        if ($this->container['minor_unit'] === null) {
+        if ($this->container['minorUnit'] === null) {
             return false;
         }
-        if ($this->container['minor_unit_scale'] === null) {
+        if ($this->container['minorUnitScale'] === null) {
             return false;
         }
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
-        if (!in_array($this->container['minor_unit_scale'], $allowedValues)) {
+        if (!in_array($this->container['minorUnitScale'], $allowedValues)) {
             return false;
         }
-        if ($this->container['minor_tick_mark'] === null) {
+        if ($this->container['minorTickMark'] === null) {
             return false;
         }
         $allowedValues = $this->getMinorTickMarkAllowableValues();
-        if (!in_array($this->container['minor_tick_mark'], $allowedValues)) {
+        if (!in_array($this->container['minorTickMark'], $allowedValues)) {
             return false;
         }
-        if ($this->container['is_automatic_max_value'] === null) {
+        if ($this->container['isAutomaticMaxValue'] === null) {
             return false;
         }
-        if ($this->container['max_value'] === null) {
+        if ($this->container['maxValue'] === null) {
             return false;
         }
-        if ($this->container['is_automatic_min_value'] === null) {
+        if ($this->container['isAutomaticMinValue'] === null) {
             return false;
         }
-        if ($this->container['min_value'] === null) {
+        if ($this->container['minValue'] === null) {
             return false;
         }
-        if ($this->container['is_logarithmic'] === null) {
+        if ($this->container['isLogarithmic'] === null) {
             return false;
         }
-        if ($this->container['log_base'] === null) {
+        if ($this->container['logBase'] === null) {
             return false;
         }
-        if ($this->container['category_axis_type'] === null) {
+        if ($this->container['categoryAxisType'] === null) {
             return false;
         }
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
-        if (!in_array($this->container['category_axis_type'], $allowedValues)) {
+        if (!in_array($this->container['categoryAxisType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['axis_between_categories'] === null) {
+        if ($this->container['axisBetweenCategories'] === null) {
             return false;
         }
-        if ($this->container['label_offset'] === null) {
+        if ($this->container['labelOffset'] === null) {
             return false;
         }
-        if ($this->container['is_plot_order_reversed'] === null) {
+        if ($this->container['isPlotOrderReversed'] === null) {
             return false;
         }
-        if ($this->container['is_number_format_linked_to_source'] === null) {
+        if ($this->container['isNumberFormatLinkedToSource'] === null) {
             return false;
         }
-        if ($this->container['cross_type'] === null) {
+        if ($this->container['crossType'] === null) {
             return false;
         }
         $allowedValues = $this->getCrossTypeAllowableValues();
-        if (!in_array($this->container['cross_type'], $allowedValues)) {
+        if (!in_array($this->container['crossType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['cross_at'] === null) {
+        if ($this->container['crossAt'] === null) {
             return false;
         }
-        if ($this->container['is_automatic_tick_marks_spacing'] === null) {
+        if ($this->container['isAutomaticTickMarksSpacing'] === null) {
             return false;
         }
-        if ($this->container['tick_marks_spacing'] === null) {
+        if ($this->container['tickMarksSpacing'] === null) {
             return false;
         }
-        if ($this->container['is_automatic_tick_label_spacing'] === null) {
+        if ($this->container['isAutomaticTickLabelSpacing'] === null) {
             return false;
         }
-        if ($this->container['tick_label_spacing'] === null) {
+        if ($this->container['tickLabelSpacing'] === null) {
             return false;
         }
-        if ($this->container['tick_label_position'] === null) {
+        if ($this->container['tickLabelPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getTickLabelPositionAllowableValues();
-        if (!in_array($this->container['tick_label_position'], $allowedValues)) {
+        if (!in_array($this->container['tickLabelPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['tick_label_rotation_angle'] === null) {
+        if ($this->container['tickLabelRotationAngle'] === null) {
             return false;
         }
         return true;
@@ -922,49 +922,49 @@ class Axis implements ArrayAccess
 
 
     /**
-     * Gets is_visible
+     * Gets isVisible
      *
      * @return bool
      */
     public function getIsVisible()
     {
-        return $this->container['is_visible'];
+        return $this->container['isVisible'];
     }
 
     /**
-     * Sets is_visible
+     * Sets isVisible
      *
-     * @param bool $is_visible True if the axis is visible
+     * @param bool $isVisible True if the axis is visible
      *
      * @return $this
      */
-    public function setIsVisible($is_visible)
+    public function setIsVisible($isVisible)
     {
-        $this->container['is_visible'] = $is_visible;
+        $this->container['isVisible'] = $isVisible;
 
         return $this;
     }
 
     /**
-     * Gets has_title
+     * Gets hasTitle
      *
      * @return bool
      */
     public function getHasTitle()
     {
-        return $this->container['has_title'];
+        return $this->container['hasTitle'];
     }
 
     /**
-     * Sets has_title
+     * Sets hasTitle
      *
-     * @param bool $has_title True if the axis has a visible title
+     * @param bool $hasTitle True if the axis has a visible title
      *
      * @return $this
      */
-    public function setHasTitle($has_title)
+    public function setHasTitle($hasTitle)
     {
-        $this->container['has_title'] = $has_title;
+        $this->container['hasTitle'] = $hasTitle;
 
         return $this;
     }
@@ -1003,874 +1003,874 @@ class Axis implements ArrayAccess
     }
 
     /**
-     * Gets display_unit
+     * Gets displayUnit
      *
      * @return string
      */
     public function getDisplayUnit()
     {
-        return $this->container['display_unit'];
+        return $this->container['displayUnit'];
     }
 
     /**
-     * Sets display_unit
+     * Sets displayUnit
      *
-     * @param string $display_unit The scaling value of the display units for the value axis
+     * @param string $displayUnit The scaling value of the display units for the value axis
      *
      * @return $this
      */
-    public function setDisplayUnit($display_unit)
+    public function setDisplayUnit($displayUnit)
     {
         $allowedValues = $this->getDisplayUnitAllowableValues();
-        if (!in_array($display_unit, $allowedValues)) {
+        if (!in_array($displayUnit, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'display_unit', must be one of '%s'",
+                    "Invalid value for 'displayUnit', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['display_unit'] = $display_unit;
+        $this->container['displayUnit'] = $displayUnit;
 
         return $this;
     }
 
     /**
-     * Gets base_unit_scale
+     * Gets baseUnitScale
      *
      * @return string
      */
     public function getBaseUnitScale()
     {
-        return $this->container['base_unit_scale'];
+        return $this->container['baseUnitScale'];
     }
 
     /**
-     * Sets base_unit_scale
+     * Sets baseUnitScale
      *
-     * @param string $base_unit_scale The smallest time unit that is represented on the date axis
+     * @param string $baseUnitScale The smallest time unit that is represented on the date axis
      *
      * @return $this
      */
-    public function setBaseUnitScale($base_unit_scale)
+    public function setBaseUnitScale($baseUnitScale)
     {
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
-        if (!in_array($base_unit_scale, $allowedValues)) {
+        if (!in_array($baseUnitScale, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'base_unit_scale', must be one of '%s'",
+                    "Invalid value for 'baseUnitScale', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['base_unit_scale'] = $base_unit_scale;
+        $this->container['baseUnitScale'] = $baseUnitScale;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_major_unit
+     * Gets isAutomaticMajorUnit
      *
      * @return bool
      */
     public function getIsAutomaticMajorUnit()
     {
-        return $this->container['is_automatic_major_unit'];
+        return $this->container['isAutomaticMajorUnit'];
     }
 
     /**
-     * Sets is_automatic_major_unit
+     * Sets isAutomaticMajorUnit
      *
-     * @param bool $is_automatic_major_unit True the major unit of the axis is automatically assigned
+     * @param bool $isAutomaticMajorUnit True the major unit of the axis is automatically assigned
      *
      * @return $this
      */
-    public function setIsAutomaticMajorUnit($is_automatic_major_unit)
+    public function setIsAutomaticMajorUnit($isAutomaticMajorUnit)
     {
-        $this->container['is_automatic_major_unit'] = $is_automatic_major_unit;
+        $this->container['isAutomaticMajorUnit'] = $isAutomaticMajorUnit;
 
         return $this;
     }
 
     /**
-     * Gets major_unit
+     * Gets majorUnit
      *
      * @return double
      */
     public function getMajorUnit()
     {
-        return $this->container['major_unit'];
+        return $this->container['majorUnit'];
     }
 
     /**
-     * Sets major_unit
+     * Sets majorUnit
      *
-     * @param double $major_unit The major units for the date or value axis
+     * @param double $majorUnit The major units for the date or value axis
      *
      * @return $this
      */
-    public function setMajorUnit($major_unit)
+    public function setMajorUnit($majorUnit)
     {
-        $this->container['major_unit'] = $major_unit;
+        $this->container['majorUnit'] = $majorUnit;
 
         return $this;
     }
 
     /**
-     * Gets major_unit_scale
+     * Gets majorUnitScale
      *
      * @return string
      */
     public function getMajorUnitScale()
     {
-        return $this->container['major_unit_scale'];
+        return $this->container['majorUnitScale'];
     }
 
     /**
-     * Sets major_unit_scale
+     * Sets majorUnitScale
      *
-     * @param string $major_unit_scale The major unit scale for the date axis
+     * @param string $majorUnitScale The major unit scale for the date axis
      *
      * @return $this
      */
-    public function setMajorUnitScale($major_unit_scale)
+    public function setMajorUnitScale($majorUnitScale)
     {
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
-        if (!in_array($major_unit_scale, $allowedValues)) {
+        if (!in_array($majorUnitScale, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'major_unit_scale', must be one of '%s'",
+                    "Invalid value for 'majorUnitScale', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['major_unit_scale'] = $major_unit_scale;
+        $this->container['majorUnitScale'] = $majorUnitScale;
 
         return $this;
     }
 
     /**
-     * Gets major_tick_mark
+     * Gets majorTickMark
      *
      * @return string
      */
     public function getMajorTickMark()
     {
-        return $this->container['major_tick_mark'];
+        return $this->container['majorTickMark'];
     }
 
     /**
-     * Sets major_tick_mark
+     * Sets majorTickMark
      *
-     * @param string $major_tick_mark The type of major tick mark for the specified axis
+     * @param string $majorTickMark The type of major tick mark for the specified axis
      *
      * @return $this
      */
-    public function setMajorTickMark($major_tick_mark)
+    public function setMajorTickMark($majorTickMark)
     {
         $allowedValues = $this->getMajorTickMarkAllowableValues();
-        if (!in_array($major_tick_mark, $allowedValues)) {
+        if (!in_array($majorTickMark, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'major_tick_mark', must be one of '%s'",
+                    "Invalid value for 'majorTickMark', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['major_tick_mark'] = $major_tick_mark;
+        $this->container['majorTickMark'] = $majorTickMark;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_minor_unit
+     * Gets isAutomaticMinorUnit
      *
      * @return bool
      */
     public function getIsAutomaticMinorUnit()
     {
-        return $this->container['is_automatic_minor_unit'];
+        return $this->container['isAutomaticMinorUnit'];
     }
 
     /**
-     * Sets is_automatic_minor_unit
+     * Sets isAutomaticMinorUnit
      *
-     * @param bool $is_automatic_minor_unit True the minor unit of the axis is automatically assigned
+     * @param bool $isAutomaticMinorUnit True the minor unit of the axis is automatically assigned
      *
      * @return $this
      */
-    public function setIsAutomaticMinorUnit($is_automatic_minor_unit)
+    public function setIsAutomaticMinorUnit($isAutomaticMinorUnit)
     {
-        $this->container['is_automatic_minor_unit'] = $is_automatic_minor_unit;
+        $this->container['isAutomaticMinorUnit'] = $isAutomaticMinorUnit;
 
         return $this;
     }
 
     /**
-     * Gets minor_unit
+     * Gets minorUnit
      *
      * @return double
      */
     public function getMinorUnit()
     {
-        return $this->container['minor_unit'];
+        return $this->container['minorUnit'];
     }
 
     /**
-     * Sets minor_unit
+     * Sets minorUnit
      *
-     * @param double $minor_unit The minor units for the date or value axis
+     * @param double $minorUnit The minor units for the date or value axis
      *
      * @return $this
      */
-    public function setMinorUnit($minor_unit)
+    public function setMinorUnit($minorUnit)
     {
-        $this->container['minor_unit'] = $minor_unit;
+        $this->container['minorUnit'] = $minorUnit;
 
         return $this;
     }
 
     /**
-     * Gets minor_unit_scale
+     * Gets minorUnitScale
      *
      * @return string
      */
     public function getMinorUnitScale()
     {
-        return $this->container['minor_unit_scale'];
+        return $this->container['minorUnitScale'];
     }
 
     /**
-     * Sets minor_unit_scale
+     * Sets minorUnitScale
      *
-     * @param string $minor_unit_scale The minor unit scale for the date axis
+     * @param string $minorUnitScale The minor unit scale for the date axis
      *
      * @return $this
      */
-    public function setMinorUnitScale($minor_unit_scale)
+    public function setMinorUnitScale($minorUnitScale)
     {
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
-        if (!in_array($minor_unit_scale, $allowedValues)) {
+        if (!in_array($minorUnitScale, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'minor_unit_scale', must be one of '%s'",
+                    "Invalid value for 'minorUnitScale', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['minor_unit_scale'] = $minor_unit_scale;
+        $this->container['minorUnitScale'] = $minorUnitScale;
 
         return $this;
     }
 
     /**
-     * Gets minor_tick_mark
+     * Gets minorTickMark
      *
      * @return string
      */
     public function getMinorTickMark()
     {
-        return $this->container['minor_tick_mark'];
+        return $this->container['minorTickMark'];
     }
 
     /**
-     * Sets minor_tick_mark
+     * Sets minorTickMark
      *
-     * @param string $minor_tick_mark The type of minor tick mark for the specified axis
+     * @param string $minorTickMark The type of minor tick mark for the specified axis
      *
      * @return $this
      */
-    public function setMinorTickMark($minor_tick_mark)
+    public function setMinorTickMark($minorTickMark)
     {
         $allowedValues = $this->getMinorTickMarkAllowableValues();
-        if (!in_array($minor_tick_mark, $allowedValues)) {
+        if (!in_array($minorTickMark, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'minor_tick_mark', must be one of '%s'",
+                    "Invalid value for 'minorTickMark', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['minor_tick_mark'] = $minor_tick_mark;
+        $this->container['minorTickMark'] = $minorTickMark;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_max_value
+     * Gets isAutomaticMaxValue
      *
      * @return bool
      */
     public function getIsAutomaticMaxValue()
     {
-        return $this->container['is_automatic_max_value'];
+        return $this->container['isAutomaticMaxValue'];
     }
 
     /**
-     * Sets is_automatic_max_value
+     * Sets isAutomaticMaxValue
      *
-     * @param bool $is_automatic_max_value True if the max value is automatically assigned
+     * @param bool $isAutomaticMaxValue True if the max value is automatically assigned
      *
      * @return $this
      */
-    public function setIsAutomaticMaxValue($is_automatic_max_value)
+    public function setIsAutomaticMaxValue($isAutomaticMaxValue)
     {
-        $this->container['is_automatic_max_value'] = $is_automatic_max_value;
+        $this->container['isAutomaticMaxValue'] = $isAutomaticMaxValue;
 
         return $this;
     }
 
     /**
-     * Gets max_value
+     * Gets maxValue
      *
      * @return double
      */
     public function getMaxValue()
     {
-        return $this->container['max_value'];
+        return $this->container['maxValue'];
     }
 
     /**
-     * Sets max_value
+     * Sets maxValue
      *
-     * @param double $max_value The maximum value on the value axis
+     * @param double $maxValue The maximum value on the value axis
      *
      * @return $this
      */
-    public function setMaxValue($max_value)
+    public function setMaxValue($maxValue)
     {
-        $this->container['max_value'] = $max_value;
+        $this->container['maxValue'] = $maxValue;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_min_value
+     * Gets isAutomaticMinValue
      *
      * @return bool
      */
     public function getIsAutomaticMinValue()
     {
-        return $this->container['is_automatic_min_value'];
+        return $this->container['isAutomaticMinValue'];
     }
 
     /**
-     * Sets is_automatic_min_value
+     * Sets isAutomaticMinValue
      *
-     * @param bool $is_automatic_min_value True if the min value is automatically assigned
+     * @param bool $isAutomaticMinValue True if the min value is automatically assigned
      *
      * @return $this
      */
-    public function setIsAutomaticMinValue($is_automatic_min_value)
+    public function setIsAutomaticMinValue($isAutomaticMinValue)
     {
-        $this->container['is_automatic_min_value'] = $is_automatic_min_value;
+        $this->container['isAutomaticMinValue'] = $isAutomaticMinValue;
 
         return $this;
     }
 
     /**
-     * Gets min_value
+     * Gets minValue
      *
      * @return double
      */
     public function getMinValue()
     {
-        return $this->container['min_value'];
+        return $this->container['minValue'];
     }
 
     /**
-     * Sets min_value
+     * Sets minValue
      *
-     * @param double $min_value The minimum value on the value axis
+     * @param double $minValue The minimum value on the value axis
      *
      * @return $this
      */
-    public function setMinValue($min_value)
+    public function setMinValue($minValue)
     {
-        $this->container['min_value'] = $min_value;
+        $this->container['minValue'] = $minValue;
 
         return $this;
     }
 
     /**
-     * Gets is_logarithmic
+     * Gets isLogarithmic
      *
      * @return bool
      */
     public function getIsLogarithmic()
     {
-        return $this->container['is_logarithmic'];
+        return $this->container['isLogarithmic'];
     }
 
     /**
-     * Sets is_logarithmic
+     * Sets isLogarithmic
      *
-     * @param bool $is_logarithmic True if the value axis scale type is logarithmic
+     * @param bool $isLogarithmic True if the value axis scale type is logarithmic
      *
      * @return $this
      */
-    public function setIsLogarithmic($is_logarithmic)
+    public function setIsLogarithmic($isLogarithmic)
     {
-        $this->container['is_logarithmic'] = $is_logarithmic;
+        $this->container['isLogarithmic'] = $isLogarithmic;
 
         return $this;
     }
 
     /**
-     * Gets log_base
+     * Gets logBase
      *
      * @return double
      */
     public function getLogBase()
     {
-        return $this->container['log_base'];
+        return $this->container['logBase'];
     }
 
     /**
-     * Sets log_base
+     * Sets logBase
      *
-     * @param double $log_base The logarithmic base. Default value is 10
+     * @param double $logBase The logarithmic base. Default value is 10
      *
      * @return $this
      */
-    public function setLogBase($log_base)
+    public function setLogBase($logBase)
     {
-        $this->container['log_base'] = $log_base;
+        $this->container['logBase'] = $logBase;
 
         return $this;
     }
 
     /**
-     * Gets category_axis_type
+     * Gets categoryAxisType
      *
      * @return string
      */
     public function getCategoryAxisType()
     {
-        return $this->container['category_axis_type'];
+        return $this->container['categoryAxisType'];
     }
 
     /**
-     * Sets category_axis_type
+     * Sets categoryAxisType
      *
-     * @param string $category_axis_type The type of the category axis
+     * @param string $categoryAxisType The type of the category axis
      *
      * @return $this
      */
-    public function setCategoryAxisType($category_axis_type)
+    public function setCategoryAxisType($categoryAxisType)
     {
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
-        if (!in_array($category_axis_type, $allowedValues)) {
+        if (!in_array($categoryAxisType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'category_axis_type', must be one of '%s'",
+                    "Invalid value for 'categoryAxisType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['category_axis_type'] = $category_axis_type;
+        $this->container['categoryAxisType'] = $categoryAxisType;
 
         return $this;
     }
 
     /**
-     * Gets axis_between_categories
+     * Gets axisBetweenCategories
      *
      * @return bool
      */
     public function getAxisBetweenCategories()
     {
-        return $this->container['axis_between_categories'];
+        return $this->container['axisBetweenCategories'];
     }
 
     /**
-     * Sets axis_between_categories
+     * Sets axisBetweenCategories
      *
-     * @param bool $axis_between_categories True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
+     * @param bool $axisBetweenCategories True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
      *
      * @return $this
      */
-    public function setAxisBetweenCategories($axis_between_categories)
+    public function setAxisBetweenCategories($axisBetweenCategories)
     {
-        $this->container['axis_between_categories'] = $axis_between_categories;
+        $this->container['axisBetweenCategories'] = $axisBetweenCategories;
 
         return $this;
     }
 
     /**
-     * Gets label_offset
+     * Gets labelOffset
      *
      * @return int
      */
     public function getLabelOffset()
     {
-        return $this->container['label_offset'];
+        return $this->container['labelOffset'];
     }
 
     /**
-     * Sets label_offset
+     * Sets labelOffset
      *
-     * @param int $label_offset The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.
+     * @param int $labelOffset The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.
      *
      * @return $this
      */
-    public function setLabelOffset($label_offset)
+    public function setLabelOffset($labelOffset)
     {
-        $this->container['label_offset'] = $label_offset;
+        $this->container['labelOffset'] = $labelOffset;
 
         return $this;
     }
 
     /**
-     * Gets is_plot_order_reversed
+     * Gets isPlotOrderReversed
      *
      * @return bool
      */
     public function getIsPlotOrderReversed()
     {
-        return $this->container['is_plot_order_reversed'];
+        return $this->container['isPlotOrderReversed'];
     }
 
     /**
-     * Sets is_plot_order_reversed
+     * Sets isPlotOrderReversed
      *
-     * @param bool $is_plot_order_reversed True if MS PowerPoint plots data points from last to first
+     * @param bool $isPlotOrderReversed True if MS PowerPoint plots data points from last to first
      *
      * @return $this
      */
-    public function setIsPlotOrderReversed($is_plot_order_reversed)
+    public function setIsPlotOrderReversed($isPlotOrderReversed)
     {
-        $this->container['is_plot_order_reversed'] = $is_plot_order_reversed;
+        $this->container['isPlotOrderReversed'] = $isPlotOrderReversed;
 
         return $this;
     }
 
     /**
-     * Gets is_number_format_linked_to_source
+     * Gets isNumberFormatLinkedToSource
      *
      * @return bool
      */
     public function getIsNumberFormatLinkedToSource()
     {
-        return $this->container['is_number_format_linked_to_source'];
+        return $this->container['isNumberFormatLinkedToSource'];
     }
 
     /**
-     * Sets is_number_format_linked_to_source
+     * Sets isNumberFormatLinkedToSource
      *
-     * @param bool $is_number_format_linked_to_source True if the format is linked to source data
+     * @param bool $isNumberFormatLinkedToSource True if the format is linked to source data
      *
      * @return $this
      */
-    public function setIsNumberFormatLinkedToSource($is_number_format_linked_to_source)
+    public function setIsNumberFormatLinkedToSource($isNumberFormatLinkedToSource)
     {
-        $this->container['is_number_format_linked_to_source'] = $is_number_format_linked_to_source;
+        $this->container['isNumberFormatLinkedToSource'] = $isNumberFormatLinkedToSource;
 
         return $this;
     }
 
     /**
-     * Gets number_format
+     * Gets numberFormat
      *
      * @return string
      */
     public function getNumberFormat()
     {
-        return $this->container['number_format'];
+        return $this->container['numberFormat'];
     }
 
     /**
-     * Sets number_format
+     * Sets numberFormat
      *
-     * @param string $number_format the format string for the Axis Labels
+     * @param string $numberFormat the format string for the Axis Labels
      *
      * @return $this
      */
-    public function setNumberFormat($number_format)
+    public function setNumberFormat($numberFormat)
     {
-        $this->container['number_format'] = $number_format;
+        $this->container['numberFormat'] = $numberFormat;
 
         return $this;
     }
 
     /**
-     * Gets cross_type
+     * Gets crossType
      *
      * @return string
      */
     public function getCrossType()
     {
-        return $this->container['cross_type'];
+        return $this->container['crossType'];
     }
 
     /**
-     * Sets cross_type
+     * Sets crossType
      *
-     * @param string $cross_type The CrossType on the specified axis where the other axis crosses
+     * @param string $crossType The CrossType on the specified axis where the other axis crosses
      *
      * @return $this
      */
-    public function setCrossType($cross_type)
+    public function setCrossType($crossType)
     {
         $allowedValues = $this->getCrossTypeAllowableValues();
-        if (!in_array($cross_type, $allowedValues)) {
+        if (!in_array($crossType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'cross_type', must be one of '%s'",
+                    "Invalid value for 'crossType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['cross_type'] = $cross_type;
+        $this->container['crossType'] = $crossType;
 
         return $this;
     }
 
     /**
-     * Gets cross_at
+     * Gets crossAt
      *
      * @return double
      */
     public function getCrossAt()
     {
-        return $this->container['cross_at'];
+        return $this->container['crossAt'];
     }
 
     /**
-     * Sets cross_at
+     * Sets crossAt
      *
-     * @param double $cross_at The point on the axis where the perpendicular axis crosses it
+     * @param double $crossAt The point on the axis where the perpendicular axis crosses it
      *
      * @return $this
      */
-    public function setCrossAt($cross_at)
+    public function setCrossAt($crossAt)
     {
-        $this->container['cross_at'] = $cross_at;
+        $this->container['crossAt'] = $crossAt;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_tick_marks_spacing
+     * Gets isAutomaticTickMarksSpacing
      *
      * @return bool
      */
     public function getIsAutomaticTickMarksSpacing()
     {
-        return $this->container['is_automatic_tick_marks_spacing'];
+        return $this->container['isAutomaticTickMarksSpacing'];
     }
 
     /**
-     * Sets is_automatic_tick_marks_spacing
+     * Sets isAutomaticTickMarksSpacing
      *
-     * @param bool $is_automatic_tick_marks_spacing True for automatic tick marks spacing value
+     * @param bool $isAutomaticTickMarksSpacing True for automatic tick marks spacing value
      *
      * @return $this
      */
-    public function setIsAutomaticTickMarksSpacing($is_automatic_tick_marks_spacing)
+    public function setIsAutomaticTickMarksSpacing($isAutomaticTickMarksSpacing)
     {
-        $this->container['is_automatic_tick_marks_spacing'] = $is_automatic_tick_marks_spacing;
+        $this->container['isAutomaticTickMarksSpacing'] = $isAutomaticTickMarksSpacing;
 
         return $this;
     }
 
     /**
-     * Gets tick_marks_spacing
+     * Gets tickMarksSpacing
      *
      * @return int
      */
     public function getTickMarksSpacing()
     {
-        return $this->container['tick_marks_spacing'];
+        return $this->container['tickMarksSpacing'];
     }
 
     /**
-     * Sets tick_marks_spacing
+     * Sets tickMarksSpacing
      *
-     * @param int $tick_marks_spacing Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
+     * @param int $tickMarksSpacing Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
      *
      * @return $this
      */
-    public function setTickMarksSpacing($tick_marks_spacing)
+    public function setTickMarksSpacing($tickMarksSpacing)
     {
-        $this->container['tick_marks_spacing'] = $tick_marks_spacing;
+        $this->container['tickMarksSpacing'] = $tickMarksSpacing;
 
         return $this;
     }
 
     /**
-     * Gets is_automatic_tick_label_spacing
+     * Gets isAutomaticTickLabelSpacing
      *
      * @return bool
      */
     public function getIsAutomaticTickLabelSpacing()
     {
-        return $this->container['is_automatic_tick_label_spacing'];
+        return $this->container['isAutomaticTickLabelSpacing'];
     }
 
     /**
-     * Sets is_automatic_tick_label_spacing
+     * Sets isAutomaticTickLabelSpacing
      *
-     * @param bool $is_automatic_tick_label_spacing True for automatic tick label spacing value
+     * @param bool $isAutomaticTickLabelSpacing True for automatic tick label spacing value
      *
      * @return $this
      */
-    public function setIsAutomaticTickLabelSpacing($is_automatic_tick_label_spacing)
+    public function setIsAutomaticTickLabelSpacing($isAutomaticTickLabelSpacing)
     {
-        $this->container['is_automatic_tick_label_spacing'] = $is_automatic_tick_label_spacing;
+        $this->container['isAutomaticTickLabelSpacing'] = $isAutomaticTickLabelSpacing;
 
         return $this;
     }
 
     /**
-     * Gets tick_label_spacing
+     * Gets tickLabelSpacing
      *
      * @return int
      */
     public function getTickLabelSpacing()
     {
-        return $this->container['tick_label_spacing'];
+        return $this->container['tickLabelSpacing'];
     }
 
     /**
-     * Sets tick_label_spacing
+     * Sets tickLabelSpacing
      *
-     * @param int $tick_label_spacing Specifies how many tick labels to skip between label that is drawn.
+     * @param int $tickLabelSpacing Specifies how many tick labels to skip between label that is drawn.
      *
      * @return $this
      */
-    public function setTickLabelSpacing($tick_label_spacing)
+    public function setTickLabelSpacing($tickLabelSpacing)
     {
-        $this->container['tick_label_spacing'] = $tick_label_spacing;
+        $this->container['tickLabelSpacing'] = $tickLabelSpacing;
 
         return $this;
     }
 
     /**
-     * Gets tick_label_position
+     * Gets tickLabelPosition
      *
      * @return string
      */
     public function getTickLabelPosition()
     {
-        return $this->container['tick_label_position'];
+        return $this->container['tickLabelPosition'];
     }
 
     /**
-     * Sets tick_label_position
+     * Sets tickLabelPosition
      *
-     * @param string $tick_label_position The position of tick-mark labels on the specified axis.
+     * @param string $tickLabelPosition The position of tick-mark labels on the specified axis.
      *
      * @return $this
      */
-    public function setTickLabelPosition($tick_label_position)
+    public function setTickLabelPosition($tickLabelPosition)
     {
         $allowedValues = $this->getTickLabelPositionAllowableValues();
-        if (!in_array($tick_label_position, $allowedValues)) {
+        if (!in_array($tickLabelPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'tick_label_position', must be one of '%s'",
+                    "Invalid value for 'tickLabelPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['tick_label_position'] = $tick_label_position;
+        $this->container['tickLabelPosition'] = $tickLabelPosition;
 
         return $this;
     }
 
     /**
-     * Gets tick_label_rotation_angle
+     * Gets tickLabelRotationAngle
      *
      * @return double
      */
     public function getTickLabelRotationAngle()
     {
-        return $this->container['tick_label_rotation_angle'];
+        return $this->container['tickLabelRotationAngle'];
     }
 
     /**
-     * Sets tick_label_rotation_angle
+     * Sets tickLabelRotationAngle
      *
-     * @param double $tick_label_rotation_angle Represents the rotation angle of tick labels.
+     * @param double $tickLabelRotationAngle Represents the rotation angle of tick labels.
      *
      * @return $this
      */
-    public function setTickLabelRotationAngle($tick_label_rotation_angle)
+    public function setTickLabelRotationAngle($tickLabelRotationAngle)
     {
-        $this->container['tick_label_rotation_angle'] = $tick_label_rotation_angle;
+        $this->container['tickLabelRotationAngle'] = $tickLabelRotationAngle;
 
         return $this;
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Get or sets the fill format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format Get or sets the effect format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format Get or sets the line format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }

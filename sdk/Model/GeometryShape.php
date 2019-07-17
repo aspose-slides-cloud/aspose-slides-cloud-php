@@ -57,7 +57,7 @@ class GeometryShape extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'geometry_shape_type' => 'string',
+        'geometryShapeType' => 'string',
         
     ];
 
@@ -67,7 +67,7 @@ class GeometryShape extends ShapeBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'geometry_shape_type' => null,
+        'geometryShapeType' => null,
         
     ];
 
@@ -98,7 +98,7 @@ class GeometryShape extends ShapeBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'geometry_shape_type' => 'GeometryShapeType',
+        'geometryShapeType' => 'GeometryShapeType',
         
     ];
 
@@ -108,7 +108,7 @@ class GeometryShape extends ShapeBase
      * @var string[]
      */
     protected static $setters = [
-        'geometry_shape_type' => 'setGeometryShapeType',
+        'geometryShapeType' => 'setGeometryShapeType',
         
     ];
 
@@ -118,7 +118,7 @@ class GeometryShape extends ShapeBase
      * @var string[]
      */
     protected static $getters = [
-        'geometry_shape_type' => 'getGeometryShapeType',
+        'geometryShapeType' => 'getGeometryShapeType',
         
     ];
 
@@ -567,7 +567,7 @@ class GeometryShape extends ShapeBase
     {
         parent::__construct($data);
 
-        $this->container['geometry_shape_type'] = isset($data['geometry_shape_type']) ? $data['geometry_shape_type'] : null;
+        $this->container['geometryShapeType'] = isset($data['geometryShapeType']) ? $data['geometryShapeType'] : null;
     }
 
     /**
@@ -579,13 +579,13 @@ class GeometryShape extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['geometry_shape_type'] === null) {
-            $invalidProperties[] = "'geometry_shape_type' can't be null";
+        if ($this->container['geometryShapeType'] === null) {
+            $invalidProperties[] = "'geometryShapeType' can't be null";
         }
         $allowedValues = $this->getGeometryShapeTypeAllowableValues();
-        if (!in_array($this->container['geometry_shape_type'], $allowedValues)) {
+        if (!in_array($this->container['geometryShapeType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'geometry_shape_type', must be one of '%s'",
+                "invalid value for 'geometryShapeType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -605,11 +605,11 @@ class GeometryShape extends ShapeBase
             return false;
         }
 
-        if ($this->container['geometry_shape_type'] === null) {
+        if ($this->container['geometryShapeType'] === null) {
             return false;
         }
         $allowedValues = $this->getGeometryShapeTypeAllowableValues();
-        if (!in_array($this->container['geometry_shape_type'], $allowedValues)) {
+        if (!in_array($this->container['geometryShapeType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -617,34 +617,34 @@ class GeometryShape extends ShapeBase
 
 
     /**
-     * Gets geometry_shape_type
+     * Gets geometryShapeType
      *
      * @return string
      */
     public function getGeometryShapeType()
     {
-        return $this->container['geometry_shape_type'];
+        return $this->container['geometryShapeType'];
     }
 
     /**
-     * Sets geometry_shape_type
+     * Sets geometryShapeType
      *
-     * @param string $geometry_shape_type geometry_shape_type
+     * @param string $geometryShapeType geometryShapeType
      *
      * @return $this
      */
-    public function setGeometryShapeType($geometry_shape_type)
+    public function setGeometryShapeType($geometryShapeType)
     {
         $allowedValues = $this->getGeometryShapeTypeAllowableValues();
-        if (!in_array($geometry_shape_type, $allowedValues)) {
+        if (!in_array($geometryShapeType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'geometry_shape_type', must be one of '%s'",
+                    "Invalid value for 'geometryShapeType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['geometry_shape_type'] = $geometry_shape_type;
+        $this->container['geometryShapeType'] = $geometryShapeType;
 
         return $this;
     }

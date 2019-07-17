@@ -58,15 +58,15 @@ class Slide extends ResourceBase
     protected static $swaggerTypes = [
         'width' => 'double',
         'height' => 'double',
-        'show_master_shapes' => 'bool',
-        'layout_slide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'showMasterShapes' => 'bool',
+        'layoutSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'theme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'placeholders' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'comments' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
         'background' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'notes_slide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'notesSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
     ];
 
     /**
@@ -77,15 +77,15 @@ class Slide extends ResourceBase
     protected static $swaggerFormats = [
         'width' => 'double',
         'height' => 'double',
-        'show_master_shapes' => null,
-        'layout_slide' => null,
+        'showMasterShapes' => null,
+        'layoutSlide' => null,
         'shapes' => null,
         'theme' => null,
         'placeholders' => null,
         'images' => null,
         'comments' => null,
         'background' => null,
-        'notes_slide' => null
+        'notesSlide' => null
     ];
 
     /**
@@ -117,15 +117,15 @@ class Slide extends ResourceBase
     protected static $attributeMap = [
         'width' => 'Width',
         'height' => 'Height',
-        'show_master_shapes' => 'ShowMasterShapes',
-        'layout_slide' => 'LayoutSlide',
+        'showMasterShapes' => 'ShowMasterShapes',
+        'layoutSlide' => 'LayoutSlide',
         'shapes' => 'Shapes',
         'theme' => 'Theme',
         'placeholders' => 'Placeholders',
         'images' => 'Images',
         'comments' => 'Comments',
         'background' => 'Background',
-        'notes_slide' => 'NotesSlide'
+        'notesSlide' => 'NotesSlide'
     ];
 
     /**
@@ -136,15 +136,15 @@ class Slide extends ResourceBase
     protected static $setters = [
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'show_master_shapes' => 'setShowMasterShapes',
-        'layout_slide' => 'setLayoutSlide',
+        'showMasterShapes' => 'setShowMasterShapes',
+        'layoutSlide' => 'setLayoutSlide',
         'shapes' => 'setShapes',
         'theme' => 'setTheme',
         'placeholders' => 'setPlaceholders',
         'images' => 'setImages',
         'comments' => 'setComments',
         'background' => 'setBackground',
-        'notes_slide' => 'setNotesSlide'
+        'notesSlide' => 'setNotesSlide'
     ];
 
     /**
@@ -155,15 +155,15 @@ class Slide extends ResourceBase
     protected static $getters = [
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'show_master_shapes' => 'getShowMasterShapes',
-        'layout_slide' => 'getLayoutSlide',
+        'showMasterShapes' => 'getShowMasterShapes',
+        'layoutSlide' => 'getLayoutSlide',
         'shapes' => 'getShapes',
         'theme' => 'getTheme',
         'placeholders' => 'getPlaceholders',
         'images' => 'getImages',
         'comments' => 'getComments',
         'background' => 'getBackground',
-        'notes_slide' => 'getNotesSlide'
+        'notesSlide' => 'getNotesSlide'
     ];
 
     /**
@@ -224,15 +224,15 @@ class Slide extends ResourceBase
 
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['show_master_shapes'] = isset($data['show_master_shapes']) ? $data['show_master_shapes'] : null;
-        $this->container['layout_slide'] = isset($data['layout_slide']) ? $data['layout_slide'] : null;
+        $this->container['showMasterShapes'] = isset($data['showMasterShapes']) ? $data['showMasterShapes'] : null;
+        $this->container['layoutSlide'] = isset($data['layoutSlide']) ? $data['layoutSlide'] : null;
         $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
         $this->container['theme'] = isset($data['theme']) ? $data['theme'] : null;
         $this->container['placeholders'] = isset($data['placeholders']) ? $data['placeholders'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['background'] = isset($data['background']) ? $data['background'] : null;
-        $this->container['notes_slide'] = isset($data['notes_slide']) ? $data['notes_slide'] : null;
+        $this->container['notesSlide'] = isset($data['notesSlide']) ? $data['notesSlide'] : null;
     }
 
     /**
@@ -250,8 +250,8 @@ class Slide extends ResourceBase
         if ($this->container['height'] === null) {
             $invalidProperties[] = "'height' can't be null";
         }
-        if ($this->container['show_master_shapes'] === null) {
-            $invalidProperties[] = "'show_master_shapes' can't be null";
+        if ($this->container['showMasterShapes'] === null) {
+            $invalidProperties[] = "'showMasterShapes' can't be null";
         }
         return $invalidProperties;
     }
@@ -274,7 +274,7 @@ class Slide extends ResourceBase
         if ($this->container['height'] === null) {
             return false;
         }
-        if ($this->container['show_master_shapes'] === null) {
+        if ($this->container['showMasterShapes'] === null) {
             return false;
         }
         return true;
@@ -330,49 +330,49 @@ class Slide extends ResourceBase
     }
 
     /**
-     * Gets show_master_shapes
+     * Gets showMasterShapes
      *
      * @return bool
      */
     public function getShowMasterShapes()
     {
-        return $this->container['show_master_shapes'];
+        return $this->container['showMasterShapes'];
     }
 
     /**
-     * Sets show_master_shapes
+     * Sets showMasterShapes
      *
-     * @param bool $show_master_shapes Specifies if shapes of the master slide should be shown on the slide. True by default.
+     * @param bool $showMasterShapes Specifies if shapes of the master slide should be shown on the slide. True by default.
      *
      * @return $this
      */
-    public function setShowMasterShapes($show_master_shapes)
+    public function setShowMasterShapes($showMasterShapes)
     {
-        $this->container['show_master_shapes'] = $show_master_shapes;
+        $this->container['showMasterShapes'] = $showMasterShapes;
 
         return $this;
     }
 
     /**
-     * Gets layout_slide
+     * Gets layoutSlide
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getLayoutSlide()
     {
-        return $this->container['layout_slide'];
+        return $this->container['layoutSlide'];
     }
 
     /**
-     * Sets layout_slide
+     * Sets layoutSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layout_slide Gets or sets the  link to the layout slide.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlide Gets or sets the  link to the layout slide.
      *
      * @return $this
      */
-    public function setLayoutSlide($layout_slide)
+    public function setLayoutSlide($layoutSlide)
     {
-        $this->container['layout_slide'] = $layout_slide;
+        $this->container['layoutSlide'] = $layoutSlide;
 
         return $this;
     }
@@ -522,25 +522,25 @@ class Slide extends ResourceBase
     }
 
     /**
-     * Gets notes_slide
+     * Gets notesSlide
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
      */
     public function getNotesSlide()
     {
-        return $this->container['notes_slide'];
+        return $this->container['notesSlide'];
     }
 
     /**
-     * Sets notes_slide
+     * Sets notesSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $notes_slide Get or sets the link to notes slide.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $notesSlide Get or sets the link to notes slide.
      *
      * @return $this
      */
-    public function setNotesSlide($notes_slide)
+    public function setNotesSlide($notesSlide)
     {
-        $this->container['notes_slide'] = $notes_slide;
+        $this->container['notesSlide'] = $notesSlide;
 
         return $this;
     }

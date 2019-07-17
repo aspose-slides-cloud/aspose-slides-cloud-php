@@ -57,8 +57,8 @@ class FileVersion extends StorageFile
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'version_id' => 'string',
-        'is_latest' => 'bool'
+        'versionId' => 'string',
+        'isLatest' => 'bool'
     ];
 
     /**
@@ -67,8 +67,8 @@ class FileVersion extends StorageFile
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'version_id' => null,
-        'is_latest' => null
+        'versionId' => null,
+        'isLatest' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class FileVersion extends StorageFile
      * @var string[]
      */
     protected static $attributeMap = [
-        'version_id' => 'VersionId',
-        'is_latest' => 'IsLatest'
+        'versionId' => 'VersionId',
+        'isLatest' => 'IsLatest'
     ];
 
     /**
@@ -108,8 +108,8 @@ class FileVersion extends StorageFile
      * @var string[]
      */
     protected static $setters = [
-        'version_id' => 'setVersionId',
-        'is_latest' => 'setIsLatest'
+        'versionId' => 'setVersionId',
+        'isLatest' => 'setIsLatest'
     ];
 
     /**
@@ -118,8 +118,8 @@ class FileVersion extends StorageFile
      * @var string[]
      */
     protected static $getters = [
-        'version_id' => 'getVersionId',
-        'is_latest' => 'getIsLatest'
+        'versionId' => 'getVersionId',
+        'isLatest' => 'getIsLatest'
     ];
 
     /**
@@ -178,8 +178,8 @@ class FileVersion extends StorageFile
     {
         parent::__construct($data);
 
-        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
-        $this->container['is_latest'] = isset($data['is_latest']) ? $data['is_latest'] : null;
+        $this->container['versionId'] = isset($data['versionId']) ? $data['versionId'] : null;
+        $this->container['isLatest'] = isset($data['isLatest']) ? $data['isLatest'] : null;
     }
 
     /**
@@ -191,8 +191,8 @@ class FileVersion extends StorageFile
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['is_latest'] === null) {
-            $invalidProperties[] = "'is_latest' can't be null";
+        if ($this->container['isLatest'] === null) {
+            $invalidProperties[] = "'isLatest' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,7 +209,7 @@ class FileVersion extends StorageFile
             return false;
         }
 
-        if ($this->container['is_latest'] === null) {
+        if ($this->container['isLatest'] === null) {
             return false;
         }
         return true;
@@ -217,49 +217,49 @@ class FileVersion extends StorageFile
 
 
     /**
-     * Gets version_id
+     * Gets versionId
      *
      * @return string
      */
     public function getVersionId()
     {
-        return $this->container['version_id'];
+        return $this->container['versionId'];
     }
 
     /**
-     * Sets version_id
+     * Sets versionId
      *
-     * @param string $version_id File Version ID.
+     * @param string $versionId File Version ID.
      *
      * @return $this
      */
-    public function setVersionId($version_id)
+    public function setVersionId($versionId)
     {
-        $this->container['version_id'] = $version_id;
+        $this->container['versionId'] = $versionId;
 
         return $this;
     }
 
     /**
-     * Gets is_latest
+     * Gets isLatest
      *
      * @return bool
      */
     public function getIsLatest()
     {
-        return $this->container['is_latest'];
+        return $this->container['isLatest'];
     }
 
     /**
-     * Sets is_latest
+     * Sets isLatest
      *
-     * @param bool $is_latest Specifies whether the file is (true) or is not (false) the latest version of an file.
+     * @param bool $isLatest Specifies whether the file is (true) or is not (false) the latest version of an file.
      *
      * @return $this
      */
-    public function setIsLatest($is_latest)
+    public function setIsLatest($isLatest)
     {
-        $this->container['is_latest'] = $is_latest;
+        $this->container['isLatest'] = $isLatest;
 
         return $this;
     }

@@ -57,13 +57,13 @@ class VideoFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'full_screen_mode' => 'bool',
-        'hide_at_showing' => 'bool',
-        'play_loop_mode' => 'bool',
-        'play_mode' => 'string',
-        'rewind_video' => 'bool',
+        'fullScreenMode' => 'bool',
+        'hideAtShowing' => 'bool',
+        'playLoopMode' => 'bool',
+        'playMode' => 'string',
+        'rewindVideo' => 'bool',
         'volume' => 'string',
-        'base64_data' => 'string'
+        'base64Data' => 'string'
     ];
 
     /**
@@ -72,13 +72,13 @@ class VideoFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'full_screen_mode' => null,
-        'hide_at_showing' => null,
-        'play_loop_mode' => null,
-        'play_mode' => null,
-        'rewind_video' => null,
+        'fullScreenMode' => null,
+        'hideAtShowing' => null,
+        'playLoopMode' => null,
+        'playMode' => null,
+        'rewindVideo' => null,
         'volume' => null,
-        'base64_data' => null
+        'base64Data' => null
     ];
 
     /**
@@ -108,13 +108,13 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $attributeMap = [
-        'full_screen_mode' => 'FullScreenMode',
-        'hide_at_showing' => 'HideAtShowing',
-        'play_loop_mode' => 'PlayLoopMode',
-        'play_mode' => 'PlayMode',
-        'rewind_video' => 'RewindVideo',
+        'fullScreenMode' => 'FullScreenMode',
+        'hideAtShowing' => 'HideAtShowing',
+        'playLoopMode' => 'PlayLoopMode',
+        'playMode' => 'PlayMode',
+        'rewindVideo' => 'RewindVideo',
         'volume' => 'Volume',
-        'base64_data' => 'Base64Data'
+        'base64Data' => 'Base64Data'
     ];
 
     /**
@@ -123,13 +123,13 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $setters = [
-        'full_screen_mode' => 'setFullScreenMode',
-        'hide_at_showing' => 'setHideAtShowing',
-        'play_loop_mode' => 'setPlayLoopMode',
-        'play_mode' => 'setPlayMode',
-        'rewind_video' => 'setRewindVideo',
+        'fullScreenMode' => 'setFullScreenMode',
+        'hideAtShowing' => 'setHideAtShowing',
+        'playLoopMode' => 'setPlayLoopMode',
+        'playMode' => 'setPlayMode',
+        'rewindVideo' => 'setRewindVideo',
         'volume' => 'setVolume',
-        'base64_data' => 'setBase64Data'
+        'base64Data' => 'setBase64Data'
     ];
 
     /**
@@ -138,13 +138,13 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $getters = [
-        'full_screen_mode' => 'getFullScreenMode',
-        'hide_at_showing' => 'getHideAtShowing',
-        'play_loop_mode' => 'getPlayLoopMode',
-        'play_mode' => 'getPlayMode',
-        'rewind_video' => 'getRewindVideo',
+        'fullScreenMode' => 'getFullScreenMode',
+        'hideAtShowing' => 'getHideAtShowing',
+        'playLoopMode' => 'getPlayLoopMode',
+        'playMode' => 'getPlayMode',
+        'rewindVideo' => 'getRewindVideo',
         'volume' => 'getVolume',
-        'base64_data' => 'getBase64Data'
+        'base64Data' => 'getBase64Data'
     ];
 
     /**
@@ -243,13 +243,13 @@ class VideoFrame extends GeometryShape
     {
         parent::__construct($data);
 
-        $this->container['full_screen_mode'] = isset($data['full_screen_mode']) ? $data['full_screen_mode'] : null;
-        $this->container['hide_at_showing'] = isset($data['hide_at_showing']) ? $data['hide_at_showing'] : null;
-        $this->container['play_loop_mode'] = isset($data['play_loop_mode']) ? $data['play_loop_mode'] : null;
-        $this->container['play_mode'] = isset($data['play_mode']) ? $data['play_mode'] : null;
-        $this->container['rewind_video'] = isset($data['rewind_video']) ? $data['rewind_video'] : null;
+        $this->container['fullScreenMode'] = isset($data['fullScreenMode']) ? $data['fullScreenMode'] : null;
+        $this->container['hideAtShowing'] = isset($data['hideAtShowing']) ? $data['hideAtShowing'] : null;
+        $this->container['playLoopMode'] = isset($data['playLoopMode']) ? $data['playLoopMode'] : null;
+        $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
+        $this->container['rewindVideo'] = isset($data['rewindVideo']) ? $data['rewindVideo'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
-        $this->container['base64_data'] = isset($data['base64_data']) ? $data['base64_data'] : null;
+        $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
     }
 
     /**
@@ -262,9 +262,9 @@ class VideoFrame extends GeometryShape
         $invalidProperties = parent::listInvalidProperties();
 
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['play_mode'], $allowedValues)) {
+        if (!in_array($this->container['playMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'play_mode', must be one of '%s'",
+                "invalid value for 'playMode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -293,7 +293,7 @@ class VideoFrame extends GeometryShape
         }
 
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['play_mode'], $allowedValues)) {
+        if (!in_array($this->container['playMode'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getVolumeAllowableValues();
@@ -305,130 +305,130 @@ class VideoFrame extends GeometryShape
 
 
     /**
-     * Gets full_screen_mode
+     * Gets fullScreenMode
      *
      * @return bool
      */
     public function getFullScreenMode()
     {
-        return $this->container['full_screen_mode'];
+        return $this->container['fullScreenMode'];
     }
 
     /**
-     * Sets full_screen_mode
+     * Sets fullScreenMode
      *
-     * @param bool $full_screen_mode Determines whether a video is shown in full screen mode.
+     * @param bool $fullScreenMode Determines whether a video is shown in full screen mode.
      *
      * @return $this
      */
-    public function setFullScreenMode($full_screen_mode)
+    public function setFullScreenMode($fullScreenMode)
     {
-        $this->container['full_screen_mode'] = $full_screen_mode;
+        $this->container['fullScreenMode'] = $fullScreenMode;
 
         return $this;
     }
 
     /**
-     * Gets hide_at_showing
+     * Gets hideAtShowing
      *
      * @return bool
      */
     public function getHideAtShowing()
     {
-        return $this->container['hide_at_showing'];
+        return $this->container['hideAtShowing'];
     }
 
     /**
-     * Sets hide_at_showing
+     * Sets hideAtShowing
      *
-     * @param bool $hide_at_showing Determines whether a VideoFrame is hidden.
+     * @param bool $hideAtShowing Determines whether a VideoFrame is hidden.
      *
      * @return $this
      */
-    public function setHideAtShowing($hide_at_showing)
+    public function setHideAtShowing($hideAtShowing)
     {
-        $this->container['hide_at_showing'] = $hide_at_showing;
+        $this->container['hideAtShowing'] = $hideAtShowing;
 
         return $this;
     }
 
     /**
-     * Gets play_loop_mode
+     * Gets playLoopMode
      *
      * @return bool
      */
     public function getPlayLoopMode()
     {
-        return $this->container['play_loop_mode'];
+        return $this->container['playLoopMode'];
     }
 
     /**
-     * Sets play_loop_mode
+     * Sets playLoopMode
      *
-     * @param bool $play_loop_mode Determines whether a video is looped.
+     * @param bool $playLoopMode Determines whether a video is looped.
      *
      * @return $this
      */
-    public function setPlayLoopMode($play_loop_mode)
+    public function setPlayLoopMode($playLoopMode)
     {
-        $this->container['play_loop_mode'] = $play_loop_mode;
+        $this->container['playLoopMode'] = $playLoopMode;
 
         return $this;
     }
 
     /**
-     * Gets play_mode
+     * Gets playMode
      *
      * @return string
      */
     public function getPlayMode()
     {
-        return $this->container['play_mode'];
+        return $this->container['playMode'];
     }
 
     /**
-     * Sets play_mode
+     * Sets playMode
      *
-     * @param string $play_mode Returns or sets the video play mode.
+     * @param string $playMode Returns or sets the video play mode.
      *
      * @return $this
      */
-    public function setPlayMode($play_mode)
+    public function setPlayMode($playMode)
     {
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!is_null($play_mode) && !in_array($play_mode, $allowedValues)) {
+        if (!is_null($playMode) && !in_array($playMode, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'play_mode', must be one of '%s'",
+                    "Invalid value for 'playMode', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['play_mode'] = $play_mode;
+        $this->container['playMode'] = $playMode;
 
         return $this;
     }
 
     /**
-     * Gets rewind_video
+     * Gets rewindVideo
      *
      * @return bool
      */
     public function getRewindVideo()
     {
-        return $this->container['rewind_video'];
+        return $this->container['rewindVideo'];
     }
 
     /**
-     * Sets rewind_video
+     * Sets rewindVideo
      *
-     * @param bool $rewind_video Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
+     * @param bool $rewindVideo Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
      *
      * @return $this
      */
-    public function setRewindVideo($rewind_video)
+    public function setRewindVideo($rewindVideo)
     {
-        $this->container['rewind_video'] = $rewind_video;
+        $this->container['rewindVideo'] = $rewindVideo;
 
         return $this;
     }
@@ -467,25 +467,25 @@ class VideoFrame extends GeometryShape
     }
 
     /**
-     * Gets base64_data
+     * Gets base64Data
      *
      * @return string
      */
     public function getBase64Data()
     {
-        return $this->container['base64_data'];
+        return $this->container['base64Data'];
     }
 
     /**
-     * Sets base64_data
+     * Sets base64Data
      *
-     * @param string $base64_data Video data encoded in base64.
+     * @param string $base64Data Video data encoded in base64.
      *
      * @return $this
      */
-    public function setBase64Data($base64_data)
+    public function setBase64Data($base64Data)
     {
-        $this->container['base64_data'] = $base64_data;
+        $this->container['base64Data'] = $base64Data;
 
         return $this;
     }

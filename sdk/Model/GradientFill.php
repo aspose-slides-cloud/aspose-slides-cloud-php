@@ -60,9 +60,9 @@ class GradientFill extends FillFormat
         'direction' => 'string',
         'shape' => 'string',
         'stops' => '\Aspose\Slides\Cloud\Sdk\Model\GradientFillStop[]',
-        'linear_angle' => 'double',
-        'is_scaled' => 'bool',
-        'tile_flip' => 'string'
+        'linearAngle' => 'double',
+        'isScaled' => 'bool',
+        'tileFlip' => 'string'
     ];
 
     /**
@@ -74,9 +74,9 @@ class GradientFill extends FillFormat
         'direction' => null,
         'shape' => null,
         'stops' => null,
-        'linear_angle' => 'double',
-        'is_scaled' => null,
-        'tile_flip' => null
+        'linearAngle' => 'double',
+        'isScaled' => null,
+        'tileFlip' => null
     ];
 
     /**
@@ -109,9 +109,9 @@ class GradientFill extends FillFormat
         'direction' => 'Direction',
         'shape' => 'Shape',
         'stops' => 'Stops',
-        'linear_angle' => 'LinearAngle',
-        'is_scaled' => 'IsScaled',
-        'tile_flip' => 'TileFlip'
+        'linearAngle' => 'LinearAngle',
+        'isScaled' => 'IsScaled',
+        'tileFlip' => 'TileFlip'
     ];
 
     /**
@@ -123,9 +123,9 @@ class GradientFill extends FillFormat
         'direction' => 'setDirection',
         'shape' => 'setShape',
         'stops' => 'setStops',
-        'linear_angle' => 'setLinearAngle',
-        'is_scaled' => 'setIsScaled',
-        'tile_flip' => 'setTileFlip'
+        'linearAngle' => 'setLinearAngle',
+        'isScaled' => 'setIsScaled',
+        'tileFlip' => 'setTileFlip'
     ];
 
     /**
@@ -137,9 +137,9 @@ class GradientFill extends FillFormat
         'direction' => 'getDirection',
         'shape' => 'getShape',
         'stops' => 'getStops',
-        'linear_angle' => 'getLinearAngle',
-        'is_scaled' => 'getIsScaled',
-        'tile_flip' => 'getTileFlip'
+        'linearAngle' => 'getLinearAngle',
+        'isScaled' => 'getIsScaled',
+        'tileFlip' => 'getTileFlip'
     ];
 
     /**
@@ -266,9 +266,9 @@ class GradientFill extends FillFormat
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['shape'] = isset($data['shape']) ? $data['shape'] : null;
         $this->container['stops'] = isset($data['stops']) ? $data['stops'] : null;
-        $this->container['linear_angle'] = isset($data['linear_angle']) ? $data['linear_angle'] : null;
-        $this->container['is_scaled'] = isset($data['is_scaled']) ? $data['is_scaled'] : null;
-        $this->container['tile_flip'] = isset($data['tile_flip']) ? $data['tile_flip'] : null;
+        $this->container['linearAngle'] = isset($data['linearAngle']) ? $data['linearAngle'] : null;
+        $this->container['isScaled'] = isset($data['isScaled']) ? $data['isScaled'] : null;
+        $this->container['tileFlip'] = isset($data['tileFlip']) ? $data['tileFlip'] : null;
     }
 
     /**
@@ -302,19 +302,19 @@ class GradientFill extends FillFormat
             );
         }
 
-        if ($this->container['linear_angle'] === null) {
-            $invalidProperties[] = "'linear_angle' can't be null";
+        if ($this->container['linearAngle'] === null) {
+            $invalidProperties[] = "'linearAngle' can't be null";
         }
-        if ($this->container['is_scaled'] === null) {
-            $invalidProperties[] = "'is_scaled' can't be null";
+        if ($this->container['isScaled'] === null) {
+            $invalidProperties[] = "'isScaled' can't be null";
         }
-        if ($this->container['tile_flip'] === null) {
-            $invalidProperties[] = "'tile_flip' can't be null";
+        if ($this->container['tileFlip'] === null) {
+            $invalidProperties[] = "'tileFlip' can't be null";
         }
         $allowedValues = $this->getTileFlipAllowableValues();
-        if (!in_array($this->container['tile_flip'], $allowedValues)) {
+        if (!in_array($this->container['tileFlip'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'tile_flip', must be one of '%s'",
+                "invalid value for 'tileFlip', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -348,17 +348,17 @@ class GradientFill extends FillFormat
         if (!in_array($this->container['shape'], $allowedValues)) {
             return false;
         }
-        if ($this->container['linear_angle'] === null) {
+        if ($this->container['linearAngle'] === null) {
             return false;
         }
-        if ($this->container['is_scaled'] === null) {
+        if ($this->container['isScaled'] === null) {
             return false;
         }
-        if ($this->container['tile_flip'] === null) {
+        if ($this->container['tileFlip'] === null) {
             return false;
         }
         $allowedValues = $this->getTileFlipAllowableValues();
-        if (!in_array($this->container['tile_flip'], $allowedValues)) {
+        if (!in_array($this->container['tileFlip'], $allowedValues)) {
             return false;
         }
         return true;
@@ -456,82 +456,82 @@ class GradientFill extends FillFormat
     }
 
     /**
-     * Gets linear_angle
+     * Gets linearAngle
      *
      * @return double
      */
     public function getLinearAngle()
     {
-        return $this->container['linear_angle'];
+        return $this->container['linearAngle'];
     }
 
     /**
-     * Sets linear_angle
+     * Sets linearAngle
      *
-     * @param double $linear_angle Gradient angle.
+     * @param double $linearAngle Gradient angle.
      *
      * @return $this
      */
-    public function setLinearAngle($linear_angle)
+    public function setLinearAngle($linearAngle)
     {
-        $this->container['linear_angle'] = $linear_angle;
+        $this->container['linearAngle'] = $linearAngle;
 
         return $this;
     }
 
     /**
-     * Gets is_scaled
+     * Gets isScaled
      *
      * @return bool
      */
     public function getIsScaled()
     {
-        return $this->container['is_scaled'];
+        return $this->container['isScaled'];
     }
 
     /**
-     * Sets is_scaled
+     * Sets isScaled
      *
-     * @param bool $is_scaled True if the gradient is scaled.
+     * @param bool $isScaled True if the gradient is scaled.
      *
      * @return $this
      */
-    public function setIsScaled($is_scaled)
+    public function setIsScaled($isScaled)
     {
-        $this->container['is_scaled'] = $is_scaled;
+        $this->container['isScaled'] = $isScaled;
 
         return $this;
     }
 
     /**
-     * Gets tile_flip
+     * Gets tileFlip
      *
      * @return string
      */
     public function getTileFlip()
     {
-        return $this->container['tile_flip'];
+        return $this->container['tileFlip'];
     }
 
     /**
-     * Sets tile_flip
+     * Sets tileFlip
      *
-     * @param string $tile_flip Gradient flipping mode.
+     * @param string $tileFlip Gradient flipping mode.
      *
      * @return $this
      */
-    public function setTileFlip($tile_flip)
+    public function setTileFlip($tileFlip)
     {
         $allowedValues = $this->getTileFlipAllowableValues();
-        if (!in_array($tile_flip, $allowedValues)) {
+        if (!in_array($tileFlip, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'tile_flip', must be one of '%s'",
+                    "Invalid value for 'tileFlip', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['tile_flip'] = $tile_flip;
+        $this->container['tileFlip'] = $tileFlip;
 
         return $this;
     }

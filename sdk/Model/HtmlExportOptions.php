@@ -57,17 +57,17 @@ class HtmlExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'save_as_zip' => 'bool',
-        'sub_directory_name' => 'string',
-        'show_hidden_slides' => 'bool',
-        'jpeg_quality' => 'int',
-        'pictures_compression' => 'string',
-        'delete_pictures_cropped_areas' => 'bool',
-        'notes_position' => 'string',
-        'comments_position' => 'string',
-        'comments_area_width' => 'int',
-        'comments_area_color' => 'string',
-        'show_comments_by_no_author' => 'bool'
+        'saveAsZip' => 'bool',
+        'subDirectoryName' => 'string',
+        'showHiddenSlides' => 'bool',
+        'jpegQuality' => 'int',
+        'picturesCompression' => 'string',
+        'deletePicturesCroppedAreas' => 'bool',
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string',
+        'showCommentsByNoAuthor' => 'bool'
     ];
 
     /**
@@ -76,17 +76,17 @@ class HtmlExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'save_as_zip' => null,
-        'sub_directory_name' => null,
-        'show_hidden_slides' => null,
-        'jpeg_quality' => 'byte',
-        'pictures_compression' => null,
-        'delete_pictures_cropped_areas' => null,
-        'notes_position' => null,
-        'comments_position' => null,
-        'comments_area_width' => 'int32',
-        'comments_area_color' => null,
-        'show_comments_by_no_author' => null
+        'saveAsZip' => null,
+        'subDirectoryName' => null,
+        'showHiddenSlides' => null,
+        'jpegQuality' => 'byte',
+        'picturesCompression' => null,
+        'deletePicturesCroppedAreas' => null,
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null,
+        'showCommentsByNoAuthor' => null
     ];
 
     /**
@@ -116,17 +116,17 @@ class HtmlExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'save_as_zip' => 'SaveAsZip',
-        'sub_directory_name' => 'SubDirectoryName',
-        'show_hidden_slides' => 'ShowHiddenSlides',
-        'jpeg_quality' => 'JpegQuality',
-        'pictures_compression' => 'PicturesCompression',
-        'delete_pictures_cropped_areas' => 'DeletePicturesCroppedAreas',
-        'notes_position' => 'NotesPosition',
-        'comments_position' => 'CommentsPosition',
-        'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor',
-        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor'
+        'saveAsZip' => 'SaveAsZip',
+        'subDirectoryName' => 'SubDirectoryName',
+        'showHiddenSlides' => 'ShowHiddenSlides',
+        'jpegQuality' => 'JpegQuality',
+        'picturesCompression' => 'PicturesCompression',
+        'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
     ];
 
     /**
@@ -135,17 +135,17 @@ class HtmlExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'save_as_zip' => 'setSaveAsZip',
-        'sub_directory_name' => 'setSubDirectoryName',
-        'show_hidden_slides' => 'setShowHiddenSlides',
-        'jpeg_quality' => 'setJpegQuality',
-        'pictures_compression' => 'setPicturesCompression',
-        'delete_pictures_cropped_areas' => 'setDeletePicturesCroppedAreas',
-        'notes_position' => 'setNotesPosition',
-        'comments_position' => 'setCommentsPosition',
-        'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor',
-        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor'
+        'saveAsZip' => 'setSaveAsZip',
+        'subDirectoryName' => 'setSubDirectoryName',
+        'showHiddenSlides' => 'setShowHiddenSlides',
+        'jpegQuality' => 'setJpegQuality',
+        'picturesCompression' => 'setPicturesCompression',
+        'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
     ];
 
     /**
@@ -154,17 +154,17 @@ class HtmlExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'save_as_zip' => 'getSaveAsZip',
-        'sub_directory_name' => 'getSubDirectoryName',
-        'show_hidden_slides' => 'getShowHiddenSlides',
-        'jpeg_quality' => 'getJpegQuality',
-        'pictures_compression' => 'getPicturesCompression',
-        'delete_pictures_cropped_areas' => 'getDeletePicturesCroppedAreas',
-        'notes_position' => 'getNotesPosition',
-        'comments_position' => 'getCommentsPosition',
-        'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor',
-        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor'
+        'saveAsZip' => 'getSaveAsZip',
+        'subDirectoryName' => 'getSubDirectoryName',
+        'showHiddenSlides' => 'getShowHiddenSlides',
+        'jpegQuality' => 'getJpegQuality',
+        'picturesCompression' => 'getPicturesCompression',
+        'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
     ];
 
     /**
@@ -280,17 +280,17 @@ class HtmlExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['save_as_zip'] = isset($data['save_as_zip']) ? $data['save_as_zip'] : null;
-        $this->container['sub_directory_name'] = isset($data['sub_directory_name']) ? $data['sub_directory_name'] : null;
-        $this->container['show_hidden_slides'] = isset($data['show_hidden_slides']) ? $data['show_hidden_slides'] : null;
-        $this->container['jpeg_quality'] = isset($data['jpeg_quality']) ? $data['jpeg_quality'] : null;
-        $this->container['pictures_compression'] = isset($data['pictures_compression']) ? $data['pictures_compression'] : null;
-        $this->container['delete_pictures_cropped_areas'] = isset($data['delete_pictures_cropped_areas']) ? $data['delete_pictures_cropped_areas'] : null;
-        $this->container['notes_position'] = isset($data['notes_position']) ? $data['notes_position'] : null;
-        $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
-        $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
-        $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
-        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
+        $this->container['saveAsZip'] = isset($data['saveAsZip']) ? $data['saveAsZip'] : null;
+        $this->container['subDirectoryName'] = isset($data['subDirectoryName']) ? $data['subDirectoryName'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
+        $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
+        $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
     }
 
     /**
@@ -302,53 +302,53 @@ class HtmlExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['save_as_zip'] === null) {
-            $invalidProperties[] = "'save_as_zip' can't be null";
+        if ($this->container['saveAsZip'] === null) {
+            $invalidProperties[] = "'saveAsZip' can't be null";
         }
-        if ($this->container['show_hidden_slides'] === null) {
-            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        if ($this->container['showHiddenSlides'] === null) {
+            $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
-        if ($this->container['jpeg_quality'] === null) {
-            $invalidProperties[] = "'jpeg_quality' can't be null";
+        if ($this->container['jpegQuality'] === null) {
+            $invalidProperties[] = "'jpegQuality' can't be null";
         }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+        if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'pictures_compression', must be one of '%s'",
+                "invalid value for 'picturesCompression', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['delete_pictures_cropped_areas'] === null) {
-            $invalidProperties[] = "'delete_pictures_cropped_areas' can't be null";
+        if ($this->container['deletePicturesCroppedAreas'] === null) {
+            $invalidProperties[] = "'deletePicturesCroppedAreas' can't be null";
         }
-        if ($this->container['notes_position'] === null) {
-            $invalidProperties[] = "'notes_position' can't be null";
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notes_position', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_position'] === null) {
-            $invalidProperties[] = "'comments_position' can't be null";
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'comments_position', must be one of '%s'",
+                "invalid value for 'commentsPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_area_width'] === null) {
-            $invalidProperties[] = "'comments_area_width' can't be null";
+        if ($this->container['commentsAreaWidth'] === null) {
+            $invalidProperties[] = "'commentsAreaWidth' can't be null";
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
-            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        if ($this->container['showCommentsByNoAuthor'] === null) {
+            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
         }
         return $invalidProperties;
     }
@@ -365,40 +365,40 @@ class HtmlExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['save_as_zip'] === null) {
+        if ($this->container['saveAsZip'] === null) {
             return false;
         }
-        if ($this->container['show_hidden_slides'] === null) {
+        if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
-        if ($this->container['jpeg_quality'] === null) {
+        if ($this->container['jpegQuality'] === null) {
             return false;
         }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($this->container['pictures_compression'], $allowedValues)) {
+        if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             return false;
         }
-        if ($this->container['delete_pictures_cropped_areas'] === null) {
+        if ($this->container['deletePicturesCroppedAreas'] === null) {
             return false;
         }
-        if ($this->container['notes_position'] === null) {
+        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_position'] === null) {
+        if ($this->container['commentsPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_area_width'] === null) {
+        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
+        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -406,292 +406,292 @@ class HtmlExportOptions extends ExportOptions
 
 
     /**
-     * Gets save_as_zip
+     * Gets saveAsZip
      *
      * @return bool
      */
     public function getSaveAsZip()
     {
-        return $this->container['save_as_zip'];
+        return $this->container['saveAsZip'];
     }
 
     /**
-     * Sets save_as_zip
+     * Sets saveAsZip
      *
-     * @param bool $save_as_zip Get or sets flag for save presentation as zip file
+     * @param bool $saveAsZip Get or sets flag for save presentation as zip file
      *
      * @return $this
      */
-    public function setSaveAsZip($save_as_zip)
+    public function setSaveAsZip($saveAsZip)
     {
-        $this->container['save_as_zip'] = $save_as_zip;
+        $this->container['saveAsZip'] = $saveAsZip;
 
         return $this;
     }
 
     /**
-     * Gets sub_directory_name
+     * Gets subDirectoryName
      *
      * @return string
      */
     public function getSubDirectoryName()
     {
-        return $this->container['sub_directory_name'];
+        return $this->container['subDirectoryName'];
     }
 
     /**
-     * Sets sub_directory_name
+     * Sets subDirectoryName
      *
-     * @param string $sub_directory_name Get or set name of subdirectory in zip-file for store external files
+     * @param string $subDirectoryName Get or set name of subdirectory in zip-file for store external files
      *
      * @return $this
      */
-    public function setSubDirectoryName($sub_directory_name)
+    public function setSubDirectoryName($subDirectoryName)
     {
-        $this->container['sub_directory_name'] = $sub_directory_name;
+        $this->container['subDirectoryName'] = $subDirectoryName;
 
         return $this;
     }
 
     /**
-     * Gets show_hidden_slides
+     * Gets showHiddenSlides
      *
      * @return bool
      */
     public function getShowHiddenSlides()
     {
-        return $this->container['show_hidden_slides'];
+        return $this->container['showHiddenSlides'];
     }
 
     /**
-     * Sets show_hidden_slides
+     * Sets showHiddenSlides
      *
-     * @param bool $show_hidden_slides Specifies whether the generated document should include hidden slides or not. Default is false.
+     * @param bool $showHiddenSlides Specifies whether the generated document should include hidden slides or not. Default is false.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($show_hidden_slides)
+    public function setShowHiddenSlides($showHiddenSlides)
     {
-        $this->container['show_hidden_slides'] = $show_hidden_slides;
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }
 
     /**
-     * Gets jpeg_quality
+     * Gets jpegQuality
      *
      * @return int
      */
     public function getJpegQuality()
     {
-        return $this->container['jpeg_quality'];
+        return $this->container['jpegQuality'];
     }
 
     /**
-     * Sets jpeg_quality
+     * Sets jpegQuality
      *
-     * @param int $jpeg_quality Returns or sets a value determining the quality of the JPEG images inside PDF document.
+     * @param int $jpegQuality Returns or sets a value determining the quality of the JPEG images inside PDF document.
      *
      * @return $this
      */
-    public function setJpegQuality($jpeg_quality)
+    public function setJpegQuality($jpegQuality)
     {
-        $this->container['jpeg_quality'] = $jpeg_quality;
+        $this->container['jpegQuality'] = $jpegQuality;
 
         return $this;
     }
 
     /**
-     * Gets pictures_compression
+     * Gets picturesCompression
      *
      * @return string
      */
     public function getPicturesCompression()
     {
-        return $this->container['pictures_compression'];
+        return $this->container['picturesCompression'];
     }
 
     /**
-     * Sets pictures_compression
+     * Sets picturesCompression
      *
-     * @param string $pictures_compression Represents the pictures compression level
+     * @param string $picturesCompression Represents the pictures compression level
      *
      * @return $this
      */
-    public function setPicturesCompression($pictures_compression)
+    public function setPicturesCompression($picturesCompression)
     {
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!is_null($pictures_compression) && !in_array($pictures_compression, $allowedValues)) {
+        if (!is_null($picturesCompression) && !in_array($picturesCompression, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'pictures_compression', must be one of '%s'",
+                    "Invalid value for 'picturesCompression', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['pictures_compression'] = $pictures_compression;
+        $this->container['picturesCompression'] = $picturesCompression;
 
         return $this;
     }
 
     /**
-     * Gets delete_pictures_cropped_areas
+     * Gets deletePicturesCroppedAreas
      *
      * @return bool
      */
     public function getDeletePicturesCroppedAreas()
     {
-        return $this->container['delete_pictures_cropped_areas'];
+        return $this->container['deletePicturesCroppedAreas'];
     }
 
     /**
-     * Sets delete_pictures_cropped_areas
+     * Sets deletePicturesCroppedAreas
      *
-     * @param bool $delete_pictures_cropped_areas A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
+     * @param bool $deletePicturesCroppedAreas A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
      *
      * @return $this
      */
-    public function setDeletePicturesCroppedAreas($delete_pictures_cropped_areas)
+    public function setDeletePicturesCroppedAreas($deletePicturesCroppedAreas)
     {
-        $this->container['delete_pictures_cropped_areas'] = $delete_pictures_cropped_areas;
+        $this->container['deletePicturesCroppedAreas'] = $deletePicturesCroppedAreas;
 
         return $this;
     }
 
     /**
-     * Gets notes_position
+     * Gets notesPosition
      *
      * @return string
      */
     public function getNotesPosition()
     {
-        return $this->container['notes_position'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets notes_position
+     * Sets notesPosition
      *
-     * @param string $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setNotesPosition($notes_position)
+    public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notes_position, $allowedValues)) {
+        if (!in_array($notesPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'notes_position', must be one of '%s'",
+                    "Invalid value for 'notesPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['notes_position'] = $notes_position;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_position
+     * Gets commentsPosition
      *
      * @return string
      */
     public function getCommentsPosition()
     {
-        return $this->container['comments_position'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets comments_position
+     * Sets commentsPosition
      *
-     * @param string $comments_position Gets or sets the position of the comments on the page.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setCommentsPosition($comments_position)
+    public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($comments_position, $allowedValues)) {
+        if (!in_array($commentsPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'comments_position', must be one of '%s'",
+                    "Invalid value for 'commentsPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['comments_position'] = $comments_position;
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
     public function getCommentsAreaWidth()
     {
-        return $this->container['comments_area_width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets comments_area_width
+     * Sets commentsAreaWidth
      *
-     * @param int $comments_area_width Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaWidth($comments_area_width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['comments_area_width'] = $comments_area_width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_color
+     * Gets commentsAreaColor
      *
      * @return string
      */
     public function getCommentsAreaColor()
     {
-        return $this->container['comments_area_color'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets comments_area_color
+     * Sets commentsAreaColor
      *
-     * @param string $comments_area_color Gets or sets the color of comments area (Applies only if comments are displayed on the right).
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaColor($comments_area_color)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['comments_area_color'] = $comments_area_color;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }
 
     /**
-     * Gets show_comments_by_no_author
+     * Gets showCommentsByNoAuthor
      *
      * @return bool
      */
     public function getShowCommentsByNoAuthor()
     {
-        return $this->container['show_comments_by_no_author'];
+        return $this->container['showCommentsByNoAuthor'];
     }
 
     /**
-     * Sets show_comments_by_no_author
+     * Sets showCommentsByNoAuthor
      *
-     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
      *
      * @return $this
      */
-    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
     {
-        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
+        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
 
         return $this;
     }

@@ -61,12 +61,12 @@ class EffectFormat implements ArrayAccess
     protected static $swaggerTypes = [
         'blur' => '\Aspose\Slides\Cloud\Sdk\Model\BlurEffect',
         'glow' => '\Aspose\Slides\Cloud\Sdk\Model\GlowEffect',
-        'inner_shadow' => '\Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect',
-        'outer_shadow' => '\Aspose\Slides\Cloud\Sdk\Model\OuterShadowEffect',
-        'preset_shadow' => '\Aspose\Slides\Cloud\Sdk\Model\PresetShadowEffect',
-        'soft_edge' => '\Aspose\Slides\Cloud\Sdk\Model\SoftEdgeEffect',
+        'innerShadow' => '\Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect',
+        'outerShadow' => '\Aspose\Slides\Cloud\Sdk\Model\OuterShadowEffect',
+        'presetShadow' => '\Aspose\Slides\Cloud\Sdk\Model\PresetShadowEffect',
+        'softEdge' => '\Aspose\Slides\Cloud\Sdk\Model\SoftEdgeEffect',
         'reflection' => '\Aspose\Slides\Cloud\Sdk\Model\ReflectionEffect',
-        'fill_overlay' => '\Aspose\Slides\Cloud\Sdk\Model\FillOverlayEffect'
+        'fillOverlay' => '\Aspose\Slides\Cloud\Sdk\Model\FillOverlayEffect'
     ];
 
     /**
@@ -77,12 +77,12 @@ class EffectFormat implements ArrayAccess
     protected static $swaggerFormats = [
         'blur' => null,
         'glow' => null,
-        'inner_shadow' => null,
-        'outer_shadow' => null,
-        'preset_shadow' => null,
-        'soft_edge' => null,
+        'innerShadow' => null,
+        'outerShadow' => null,
+        'presetShadow' => null,
+        'softEdge' => null,
         'reflection' => null,
-        'fill_overlay' => null
+        'fillOverlay' => null
     ];
 
     /**
@@ -114,12 +114,12 @@ class EffectFormat implements ArrayAccess
     protected static $attributeMap = [
         'blur' => 'Blur',
         'glow' => 'Glow',
-        'inner_shadow' => 'InnerShadow',
-        'outer_shadow' => 'OuterShadow',
-        'preset_shadow' => 'PresetShadow',
-        'soft_edge' => 'SoftEdge',
+        'innerShadow' => 'InnerShadow',
+        'outerShadow' => 'OuterShadow',
+        'presetShadow' => 'PresetShadow',
+        'softEdge' => 'SoftEdge',
         'reflection' => 'Reflection',
-        'fill_overlay' => 'FillOverlay'
+        'fillOverlay' => 'FillOverlay'
     ];
 
     /**
@@ -130,12 +130,12 @@ class EffectFormat implements ArrayAccess
     protected static $setters = [
         'blur' => 'setBlur',
         'glow' => 'setGlow',
-        'inner_shadow' => 'setInnerShadow',
-        'outer_shadow' => 'setOuterShadow',
-        'preset_shadow' => 'setPresetShadow',
-        'soft_edge' => 'setSoftEdge',
+        'innerShadow' => 'setInnerShadow',
+        'outerShadow' => 'setOuterShadow',
+        'presetShadow' => 'setPresetShadow',
+        'softEdge' => 'setSoftEdge',
         'reflection' => 'setReflection',
-        'fill_overlay' => 'setFillOverlay'
+        'fillOverlay' => 'setFillOverlay'
     ];
 
     /**
@@ -146,12 +146,12 @@ class EffectFormat implements ArrayAccess
     protected static $getters = [
         'blur' => 'getBlur',
         'glow' => 'getGlow',
-        'inner_shadow' => 'getInnerShadow',
-        'outer_shadow' => 'getOuterShadow',
-        'preset_shadow' => 'getPresetShadow',
-        'soft_edge' => 'getSoftEdge',
+        'innerShadow' => 'getInnerShadow',
+        'outerShadow' => 'getOuterShadow',
+        'presetShadow' => 'getPresetShadow',
+        'softEdge' => 'getSoftEdge',
         'reflection' => 'getReflection',
-        'fill_overlay' => 'getFillOverlay'
+        'fillOverlay' => 'getFillOverlay'
     ];
 
     /**
@@ -216,12 +216,12 @@ class EffectFormat implements ArrayAccess
     {
         $this->container['blur'] = isset($data['blur']) ? $data['blur'] : null;
         $this->container['glow'] = isset($data['glow']) ? $data['glow'] : null;
-        $this->container['inner_shadow'] = isset($data['inner_shadow']) ? $data['inner_shadow'] : null;
-        $this->container['outer_shadow'] = isset($data['outer_shadow']) ? $data['outer_shadow'] : null;
-        $this->container['preset_shadow'] = isset($data['preset_shadow']) ? $data['preset_shadow'] : null;
-        $this->container['soft_edge'] = isset($data['soft_edge']) ? $data['soft_edge'] : null;
+        $this->container['innerShadow'] = isset($data['innerShadow']) ? $data['innerShadow'] : null;
+        $this->container['outerShadow'] = isset($data['outerShadow']) ? $data['outerShadow'] : null;
+        $this->container['presetShadow'] = isset($data['presetShadow']) ? $data['presetShadow'] : null;
+        $this->container['softEdge'] = isset($data['softEdge']) ? $data['softEdge'] : null;
         $this->container['reflection'] = isset($data['reflection']) ? $data['reflection'] : null;
-        $this->container['fill_overlay'] = isset($data['fill_overlay']) ? $data['fill_overlay'] : null;
+        $this->container['fillOverlay'] = isset($data['fillOverlay']) ? $data['fillOverlay'] : null;
     }
 
     /**
@@ -298,97 +298,97 @@ class EffectFormat implements ArrayAccess
     }
 
     /**
-     * Gets inner_shadow
+     * Gets innerShadow
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect
      */
     public function getInnerShadow()
     {
-        return $this->container['inner_shadow'];
+        return $this->container['innerShadow'];
     }
 
     /**
-     * Sets inner_shadow
+     * Sets innerShadow
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect $inner_shadow inner shadow effect
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect $innerShadow inner shadow effect
      *
      * @return $this
      */
-    public function setInnerShadow($inner_shadow)
+    public function setInnerShadow($innerShadow)
     {
-        $this->container['inner_shadow'] = $inner_shadow;
+        $this->container['innerShadow'] = $innerShadow;
 
         return $this;
     }
 
     /**
-     * Gets outer_shadow
+     * Gets outerShadow
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\OuterShadowEffect
      */
     public function getOuterShadow()
     {
-        return $this->container['outer_shadow'];
+        return $this->container['outerShadow'];
     }
 
     /**
-     * Sets outer_shadow
+     * Sets outerShadow
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OuterShadowEffect $outer_shadow outer shadow effect
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OuterShadowEffect $outerShadow outer shadow effect
      *
      * @return $this
      */
-    public function setOuterShadow($outer_shadow)
+    public function setOuterShadow($outerShadow)
     {
-        $this->container['outer_shadow'] = $outer_shadow;
+        $this->container['outerShadow'] = $outerShadow;
 
         return $this;
     }
 
     /**
-     * Gets preset_shadow
+     * Gets presetShadow
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\PresetShadowEffect
      */
     public function getPresetShadow()
     {
-        return $this->container['preset_shadow'];
+        return $this->container['presetShadow'];
     }
 
     /**
-     * Sets preset_shadow
+     * Sets presetShadow
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PresetShadowEffect $preset_shadow preset shadow effect
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PresetShadowEffect $presetShadow preset shadow effect
      *
      * @return $this
      */
-    public function setPresetShadow($preset_shadow)
+    public function setPresetShadow($presetShadow)
     {
-        $this->container['preset_shadow'] = $preset_shadow;
+        $this->container['presetShadow'] = $presetShadow;
 
         return $this;
     }
 
     /**
-     * Gets soft_edge
+     * Gets softEdge
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\SoftEdgeEffect
      */
     public function getSoftEdge()
     {
-        return $this->container['soft_edge'];
+        return $this->container['softEdge'];
     }
 
     /**
-     * Sets soft_edge
+     * Sets softEdge
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SoftEdgeEffect $soft_edge soft edge effect
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SoftEdgeEffect $softEdge soft edge effect
      *
      * @return $this
      */
-    public function setSoftEdge($soft_edge)
+    public function setSoftEdge($softEdge)
     {
-        $this->container['soft_edge'] = $soft_edge;
+        $this->container['softEdge'] = $softEdge;
 
         return $this;
     }
@@ -418,25 +418,25 @@ class EffectFormat implements ArrayAccess
     }
 
     /**
-     * Gets fill_overlay
+     * Gets fillOverlay
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillOverlayEffect
      */
     public function getFillOverlay()
     {
-        return $this->container['fill_overlay'];
+        return $this->container['fillOverlay'];
     }
 
     /**
-     * Sets fill_overlay
+     * Sets fillOverlay
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillOverlayEffect $fill_overlay fill overlay effect
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillOverlayEffect $fillOverlay fill overlay effect
      *
      * @return $this
      */
-    public function setFillOverlay($fill_overlay)
+    public function setFillOverlay($fillOverlay)
     {
-        $this->container['fill_overlay'] = $fill_overlay;
+        $this->container['fillOverlay'] = $fillOverlay;
 
         return $this;
     }

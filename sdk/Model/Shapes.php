@@ -57,7 +57,7 @@ class Shapes extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'shapes_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'shapesLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class Shapes extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'shapes_links' => null
+        'shapesLinks' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class Shapes extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'shapes_links' => 'ShapesLinks'
+        'shapesLinks' => 'ShapesLinks'
     ];
 
     /**
@@ -105,7 +105,7 @@ class Shapes extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'shapes_links' => 'setShapesLinks'
+        'shapesLinks' => 'setShapesLinks'
     ];
 
     /**
@@ -114,7 +114,7 @@ class Shapes extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'shapes_links' => 'getShapesLinks'
+        'shapesLinks' => 'getShapesLinks'
     ];
 
     /**
@@ -173,7 +173,7 @@ class Shapes extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['shapes_links'] = isset($data['shapes_links']) ? $data['shapes_links'] : null;
+        $this->container['shapesLinks'] = isset($data['shapesLinks']) ? $data['shapesLinks'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class Shapes extends ResourceBase
 
 
     /**
-     * Gets shapes_links
+     * Gets shapesLinks
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getShapesLinks()
     {
-        return $this->container['shapes_links'];
+        return $this->container['shapesLinks'];
     }
 
     /**
-     * Sets shapes_links
+     * Sets shapesLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $shapes_links shapes_links
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $shapesLinks shapesLinks
      *
      * @return $this
      */
-    public function setShapesLinks($shapes_links)
+    public function setShapesLinks($shapesLinks)
     {
-        $this->container['shapes_links'] = $shapes_links;
+        $this->container['shapesLinks'] = $shapesLinks;
 
         return $this;
     }

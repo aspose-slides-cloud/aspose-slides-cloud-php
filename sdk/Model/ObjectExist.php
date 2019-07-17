@@ -60,7 +60,7 @@ class ObjectExist implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'exists' => 'bool',
-        'is_folder' => 'bool'
+        'isFolder' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class ObjectExist implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'exists' => null,
-        'is_folder' => null
+        'isFolder' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class ObjectExist implements ArrayAccess
      */
     protected static $attributeMap = [
         'exists' => 'Exists',
-        'is_folder' => 'IsFolder'
+        'isFolder' => 'IsFolder'
     ];
 
     /**
@@ -111,7 +111,7 @@ class ObjectExist implements ArrayAccess
      */
     protected static $setters = [
         'exists' => 'setExists',
-        'is_folder' => 'setIsFolder'
+        'isFolder' => 'setIsFolder'
     ];
 
     /**
@@ -121,7 +121,7 @@ class ObjectExist implements ArrayAccess
      */
     protected static $getters = [
         'exists' => 'getExists',
-        'is_folder' => 'getIsFolder'
+        'isFolder' => 'getIsFolder'
     ];
 
     /**
@@ -185,7 +185,7 @@ class ObjectExist implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
-        $this->container['is_folder'] = isset($data['is_folder']) ? $data['is_folder'] : null;
+        $this->container['isFolder'] = isset($data['isFolder']) ? $data['isFolder'] : null;
     }
 
     /**
@@ -200,8 +200,8 @@ class ObjectExist implements ArrayAccess
         if ($this->container['exists'] === null) {
             $invalidProperties[] = "'exists' can't be null";
         }
-        if ($this->container['is_folder'] === null) {
-            $invalidProperties[] = "'is_folder' can't be null";
+        if ($this->container['isFolder'] === null) {
+            $invalidProperties[] = "'isFolder' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,7 +218,7 @@ class ObjectExist implements ArrayAccess
         if ($this->container['exists'] === null) {
             return false;
         }
-        if ($this->container['is_folder'] === null) {
+        if ($this->container['isFolder'] === null) {
             return false;
         }
         return true;
@@ -250,25 +250,25 @@ class ObjectExist implements ArrayAccess
     }
 
     /**
-     * Gets is_folder
+     * Gets isFolder
      *
      * @return bool
      */
     public function getIsFolder()
     {
-        return $this->container['is_folder'];
+        return $this->container['isFolder'];
     }
 
     /**
-     * Sets is_folder
+     * Sets isFolder
      *
-     * @param bool $is_folder True if it is a folder, false if it is a file.
+     * @param bool $isFolder True if it is a folder, false if it is a file.
      *
      * @return $this
      */
-    public function setIsFolder($is_folder)
+    public function setIsFolder($isFolder)
     {
-        $this->container['is_folder'] = $is_folder;
+        $this->container['isFolder'] = $isFolder;
 
         return $this;
     }

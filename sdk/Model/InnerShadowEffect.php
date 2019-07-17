@@ -61,8 +61,8 @@ class InnerShadowEffect implements ArrayAccess
     protected static $swaggerTypes = [
         'direction' => 'double',
         'distance' => 'double',
-        'blur_radius' => 'double',
-        'shadow_color' => 'string'
+        'blurRadius' => 'double',
+        'shadowColor' => 'string'
     ];
 
     /**
@@ -73,8 +73,8 @@ class InnerShadowEffect implements ArrayAccess
     protected static $swaggerFormats = [
         'direction' => 'double',
         'distance' => 'double',
-        'blur_radius' => 'double',
-        'shadow_color' => null
+        'blurRadius' => 'double',
+        'shadowColor' => null
     ];
 
     /**
@@ -106,8 +106,8 @@ class InnerShadowEffect implements ArrayAccess
     protected static $attributeMap = [
         'direction' => 'Direction',
         'distance' => 'Distance',
-        'blur_radius' => 'BlurRadius',
-        'shadow_color' => 'ShadowColor'
+        'blurRadius' => 'BlurRadius',
+        'shadowColor' => 'ShadowColor'
     ];
 
     /**
@@ -118,8 +118,8 @@ class InnerShadowEffect implements ArrayAccess
     protected static $setters = [
         'direction' => 'setDirection',
         'distance' => 'setDistance',
-        'blur_radius' => 'setBlurRadius',
-        'shadow_color' => 'setShadowColor'
+        'blurRadius' => 'setBlurRadius',
+        'shadowColor' => 'setShadowColor'
     ];
 
     /**
@@ -130,8 +130,8 @@ class InnerShadowEffect implements ArrayAccess
     protected static $getters = [
         'direction' => 'getDirection',
         'distance' => 'getDistance',
-        'blur_radius' => 'getBlurRadius',
-        'shadow_color' => 'getShadowColor'
+        'blurRadius' => 'getBlurRadius',
+        'shadowColor' => 'getShadowColor'
     ];
 
     /**
@@ -196,8 +196,8 @@ class InnerShadowEffect implements ArrayAccess
     {
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['distance'] = isset($data['distance']) ? $data['distance'] : null;
-        $this->container['blur_radius'] = isset($data['blur_radius']) ? $data['blur_radius'] : null;
-        $this->container['shadow_color'] = isset($data['shadow_color']) ? $data['shadow_color'] : null;
+        $this->container['blurRadius'] = isset($data['blurRadius']) ? $data['blurRadius'] : null;
+        $this->container['shadowColor'] = isset($data['shadowColor']) ? $data['shadowColor'] : null;
     }
 
     /**
@@ -215,8 +215,8 @@ class InnerShadowEffect implements ArrayAccess
         if ($this->container['distance'] === null) {
             $invalidProperties[] = "'distance' can't be null";
         }
-        if ($this->container['blur_radius'] === null) {
-            $invalidProperties[] = "'blur_radius' can't be null";
+        if ($this->container['blurRadius'] === null) {
+            $invalidProperties[] = "'blurRadius' can't be null";
         }
         return $invalidProperties;
     }
@@ -236,7 +236,7 @@ class InnerShadowEffect implements ArrayAccess
         if ($this->container['distance'] === null) {
             return false;
         }
-        if ($this->container['blur_radius'] === null) {
+        if ($this->container['blurRadius'] === null) {
             return false;
         }
         return true;
@@ -292,49 +292,49 @@ class InnerShadowEffect implements ArrayAccess
     }
 
     /**
-     * Gets blur_radius
+     * Gets blurRadius
      *
      * @return double
      */
     public function getBlurRadius()
     {
-        return $this->container['blur_radius'];
+        return $this->container['blurRadius'];
     }
 
     /**
-     * Sets blur_radius
+     * Sets blurRadius
      *
-     * @param double $blur_radius blur radius
+     * @param double $blurRadius blur radius
      *
      * @return $this
      */
-    public function setBlurRadius($blur_radius)
+    public function setBlurRadius($blurRadius)
     {
-        $this->container['blur_radius'] = $blur_radius;
+        $this->container['blurRadius'] = $blurRadius;
 
         return $this;
     }
 
     /**
-     * Gets shadow_color
+     * Gets shadowColor
      *
      * @return string
      */
     public function getShadowColor()
     {
-        return $this->container['shadow_color'];
+        return $this->container['shadowColor'];
     }
 
     /**
-     * Sets shadow_color
+     * Sets shadowColor
      *
-     * @param string $shadow_color shadow color
+     * @param string $shadowColor shadow color
      *
      * @return $this
      */
-    public function setShadowColor($shadow_color)
+    public function setShadowColor($shadowColor)
     {
-        $this->container['shadow_color'] = $shadow_color;
+        $this->container['shadowColor'] = $shadowColor;
 
         return $this;
     }

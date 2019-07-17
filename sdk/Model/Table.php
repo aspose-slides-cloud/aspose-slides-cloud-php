@@ -60,13 +60,13 @@ class Table extends ShapeBase
         'style' => 'string',
         'rows' => '\Aspose\Slides\Cloud\Sdk\Model\TableRow[]',
         'columns' => '\Aspose\Slides\Cloud\Sdk\Model\TableColumn[]',
-        'first_col' => 'bool',
-        'first_row' => 'bool',
-        'horizontal_banding' => 'bool',
-        'last_col' => 'bool',
-        'last_row' => 'bool',
-        'right_to_left' => 'bool',
-        'vertical_banding' => 'bool'
+        'firstCol' => 'bool',
+        'firstRow' => 'bool',
+        'horizontalBanding' => 'bool',
+        'lastCol' => 'bool',
+        'lastRow' => 'bool',
+        'rightToLeft' => 'bool',
+        'verticalBanding' => 'bool'
     ];
 
     /**
@@ -78,13 +78,13 @@ class Table extends ShapeBase
         'style' => null,
         'rows' => null,
         'columns' => null,
-        'first_col' => null,
-        'first_row' => null,
-        'horizontal_banding' => null,
-        'last_col' => null,
-        'last_row' => null,
-        'right_to_left' => null,
-        'vertical_banding' => null
+        'firstCol' => null,
+        'firstRow' => null,
+        'horizontalBanding' => null,
+        'lastCol' => null,
+        'lastRow' => null,
+        'rightToLeft' => null,
+        'verticalBanding' => null
     ];
 
     /**
@@ -117,13 +117,13 @@ class Table extends ShapeBase
         'style' => 'Style',
         'rows' => 'Rows',
         'columns' => 'Columns',
-        'first_col' => 'FirstCol',
-        'first_row' => 'FirstRow',
-        'horizontal_banding' => 'HorizontalBanding',
-        'last_col' => 'LastCol',
-        'last_row' => 'LastRow',
-        'right_to_left' => 'RightToLeft',
-        'vertical_banding' => 'VerticalBanding'
+        'firstCol' => 'FirstCol',
+        'firstRow' => 'FirstRow',
+        'horizontalBanding' => 'HorizontalBanding',
+        'lastCol' => 'LastCol',
+        'lastRow' => 'LastRow',
+        'rightToLeft' => 'RightToLeft',
+        'verticalBanding' => 'VerticalBanding'
     ];
 
     /**
@@ -135,13 +135,13 @@ class Table extends ShapeBase
         'style' => 'setStyle',
         'rows' => 'setRows',
         'columns' => 'setColumns',
-        'first_col' => 'setFirstCol',
-        'first_row' => 'setFirstRow',
-        'horizontal_banding' => 'setHorizontalBanding',
-        'last_col' => 'setLastCol',
-        'last_row' => 'setLastRow',
-        'right_to_left' => 'setRightToLeft',
-        'vertical_banding' => 'setVerticalBanding'
+        'firstCol' => 'setFirstCol',
+        'firstRow' => 'setFirstRow',
+        'horizontalBanding' => 'setHorizontalBanding',
+        'lastCol' => 'setLastCol',
+        'lastRow' => 'setLastRow',
+        'rightToLeft' => 'setRightToLeft',
+        'verticalBanding' => 'setVerticalBanding'
     ];
 
     /**
@@ -153,13 +153,13 @@ class Table extends ShapeBase
         'style' => 'getStyle',
         'rows' => 'getRows',
         'columns' => 'getColumns',
-        'first_col' => 'getFirstCol',
-        'first_row' => 'getFirstRow',
-        'horizontal_banding' => 'getHorizontalBanding',
-        'last_col' => 'getLastCol',
-        'last_row' => 'getLastRow',
-        'right_to_left' => 'getRightToLeft',
-        'vertical_banding' => 'getVerticalBanding'
+        'firstCol' => 'getFirstCol',
+        'firstRow' => 'getFirstRow',
+        'horizontalBanding' => 'getHorizontalBanding',
+        'lastCol' => 'getLastCol',
+        'lastRow' => 'getLastRow',
+        'rightToLeft' => 'getRightToLeft',
+        'verticalBanding' => 'getVerticalBanding'
     ];
 
     /**
@@ -384,13 +384,13 @@ class Table extends ShapeBase
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
         $this->container['rows'] = isset($data['rows']) ? $data['rows'] : null;
         $this->container['columns'] = isset($data['columns']) ? $data['columns'] : null;
-        $this->container['first_col'] = isset($data['first_col']) ? $data['first_col'] : null;
-        $this->container['first_row'] = isset($data['first_row']) ? $data['first_row'] : null;
-        $this->container['horizontal_banding'] = isset($data['horizontal_banding']) ? $data['horizontal_banding'] : null;
-        $this->container['last_col'] = isset($data['last_col']) ? $data['last_col'] : null;
-        $this->container['last_row'] = isset($data['last_row']) ? $data['last_row'] : null;
-        $this->container['right_to_left'] = isset($data['right_to_left']) ? $data['right_to_left'] : null;
-        $this->container['vertical_banding'] = isset($data['vertical_banding']) ? $data['vertical_banding'] : null;
+        $this->container['firstCol'] = isset($data['firstCol']) ? $data['firstCol'] : null;
+        $this->container['firstRow'] = isset($data['firstRow']) ? $data['firstRow'] : null;
+        $this->container['horizontalBanding'] = isset($data['horizontalBanding']) ? $data['horizontalBanding'] : null;
+        $this->container['lastCol'] = isset($data['lastCol']) ? $data['lastCol'] : null;
+        $this->container['lastRow'] = isset($data['lastRow']) ? $data['lastRow'] : null;
+        $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
+        $this->container['verticalBanding'] = isset($data['verticalBanding']) ? $data['verticalBanding'] : null;
     }
 
     /**
@@ -413,26 +413,26 @@ class Table extends ShapeBase
             );
         }
 
-        if ($this->container['first_col'] === null) {
-            $invalidProperties[] = "'first_col' can't be null";
+        if ($this->container['firstCol'] === null) {
+            $invalidProperties[] = "'firstCol' can't be null";
         }
-        if ($this->container['first_row'] === null) {
-            $invalidProperties[] = "'first_row' can't be null";
+        if ($this->container['firstRow'] === null) {
+            $invalidProperties[] = "'firstRow' can't be null";
         }
-        if ($this->container['horizontal_banding'] === null) {
-            $invalidProperties[] = "'horizontal_banding' can't be null";
+        if ($this->container['horizontalBanding'] === null) {
+            $invalidProperties[] = "'horizontalBanding' can't be null";
         }
-        if ($this->container['last_col'] === null) {
-            $invalidProperties[] = "'last_col' can't be null";
+        if ($this->container['lastCol'] === null) {
+            $invalidProperties[] = "'lastCol' can't be null";
         }
-        if ($this->container['last_row'] === null) {
-            $invalidProperties[] = "'last_row' can't be null";
+        if ($this->container['lastRow'] === null) {
+            $invalidProperties[] = "'lastRow' can't be null";
         }
-        if ($this->container['right_to_left'] === null) {
-            $invalidProperties[] = "'right_to_left' can't be null";
+        if ($this->container['rightToLeft'] === null) {
+            $invalidProperties[] = "'rightToLeft' can't be null";
         }
-        if ($this->container['vertical_banding'] === null) {
-            $invalidProperties[] = "'vertical_banding' can't be null";
+        if ($this->container['verticalBanding'] === null) {
+            $invalidProperties[] = "'verticalBanding' can't be null";
         }
         return $invalidProperties;
     }
@@ -456,25 +456,25 @@ class Table extends ShapeBase
         if (!in_array($this->container['style'], $allowedValues)) {
             return false;
         }
-        if ($this->container['first_col'] === null) {
+        if ($this->container['firstCol'] === null) {
             return false;
         }
-        if ($this->container['first_row'] === null) {
+        if ($this->container['firstRow'] === null) {
             return false;
         }
-        if ($this->container['horizontal_banding'] === null) {
+        if ($this->container['horizontalBanding'] === null) {
             return false;
         }
-        if ($this->container['last_col'] === null) {
+        if ($this->container['lastCol'] === null) {
             return false;
         }
-        if ($this->container['last_row'] === null) {
+        if ($this->container['lastRow'] === null) {
             return false;
         }
-        if ($this->container['right_to_left'] === null) {
+        if ($this->container['rightToLeft'] === null) {
             return false;
         }
-        if ($this->container['vertical_banding'] === null) {
+        if ($this->container['verticalBanding'] === null) {
             return false;
         }
         return true;
@@ -563,169 +563,169 @@ class Table extends ShapeBase
     }
 
     /**
-     * Gets first_col
+     * Gets firstCol
      *
      * @return bool
      */
     public function getFirstCol()
     {
-        return $this->container['first_col'];
+        return $this->container['firstCol'];
     }
 
     /**
-     * Sets first_col
+     * Sets firstCol
      *
-     * @param bool $first_col Determines whether the first column of a table has to be drawn with a special formatting.
+     * @param bool $firstCol Determines whether the first column of a table has to be drawn with a special formatting.
      *
      * @return $this
      */
-    public function setFirstCol($first_col)
+    public function setFirstCol($firstCol)
     {
-        $this->container['first_col'] = $first_col;
+        $this->container['firstCol'] = $firstCol;
 
         return $this;
     }
 
     /**
-     * Gets first_row
+     * Gets firstRow
      *
      * @return bool
      */
     public function getFirstRow()
     {
-        return $this->container['first_row'];
+        return $this->container['firstRow'];
     }
 
     /**
-     * Sets first_row
+     * Sets firstRow
      *
-     * @param bool $first_row Determines whether the first row of a table has to be drawn with a special formatting.
+     * @param bool $firstRow Determines whether the first row of a table has to be drawn with a special formatting.
      *
      * @return $this
      */
-    public function setFirstRow($first_row)
+    public function setFirstRow($firstRow)
     {
-        $this->container['first_row'] = $first_row;
+        $this->container['firstRow'] = $firstRow;
 
         return $this;
     }
 
     /**
-     * Gets horizontal_banding
+     * Gets horizontalBanding
      *
      * @return bool
      */
     public function getHorizontalBanding()
     {
-        return $this->container['horizontal_banding'];
+        return $this->container['horizontalBanding'];
     }
 
     /**
-     * Sets horizontal_banding
+     * Sets horizontalBanding
      *
-     * @param bool $horizontal_banding Determines whether the even rows has to be drawn with a different formatting.
+     * @param bool $horizontalBanding Determines whether the even rows has to be drawn with a different formatting.
      *
      * @return $this
      */
-    public function setHorizontalBanding($horizontal_banding)
+    public function setHorizontalBanding($horizontalBanding)
     {
-        $this->container['horizontal_banding'] = $horizontal_banding;
+        $this->container['horizontalBanding'] = $horizontalBanding;
 
         return $this;
     }
 
     /**
-     * Gets last_col
+     * Gets lastCol
      *
      * @return bool
      */
     public function getLastCol()
     {
-        return $this->container['last_col'];
+        return $this->container['lastCol'];
     }
 
     /**
-     * Sets last_col
+     * Sets lastCol
      *
-     * @param bool $last_col Determines whether the last column of a table has to be drawn with a special formatting.
+     * @param bool $lastCol Determines whether the last column of a table has to be drawn with a special formatting.
      *
      * @return $this
      */
-    public function setLastCol($last_col)
+    public function setLastCol($lastCol)
     {
-        $this->container['last_col'] = $last_col;
+        $this->container['lastCol'] = $lastCol;
 
         return $this;
     }
 
     /**
-     * Gets last_row
+     * Gets lastRow
      *
      * @return bool
      */
     public function getLastRow()
     {
-        return $this->container['last_row'];
+        return $this->container['lastRow'];
     }
 
     /**
-     * Sets last_row
+     * Sets lastRow
      *
-     * @param bool $last_row Determines whether the last row of a table has to be drawn with a special formatting.
+     * @param bool $lastRow Determines whether the last row of a table has to be drawn with a special formatting.
      *
      * @return $this
      */
-    public function setLastRow($last_row)
+    public function setLastRow($lastRow)
     {
-        $this->container['last_row'] = $last_row;
+        $this->container['lastRow'] = $lastRow;
 
         return $this;
     }
 
     /**
-     * Gets right_to_left
+     * Gets rightToLeft
      *
      * @return bool
      */
     public function getRightToLeft()
     {
-        return $this->container['right_to_left'];
+        return $this->container['rightToLeft'];
     }
 
     /**
-     * Sets right_to_left
+     * Sets rightToLeft
      *
-     * @param bool $right_to_left Determines whether the table has right to left reading order.
+     * @param bool $rightToLeft Determines whether the table has right to left reading order.
      *
      * @return $this
      */
-    public function setRightToLeft($right_to_left)
+    public function setRightToLeft($rightToLeft)
     {
-        $this->container['right_to_left'] = $right_to_left;
+        $this->container['rightToLeft'] = $rightToLeft;
 
         return $this;
     }
 
     /**
-     * Gets vertical_banding
+     * Gets verticalBanding
      *
      * @return bool
      */
     public function getVerticalBanding()
     {
-        return $this->container['vertical_banding'];
+        return $this->container['verticalBanding'];
     }
 
     /**
-     * Sets vertical_banding
+     * Sets verticalBanding
      *
-     * @param bool $vertical_banding Determines whether the even columns has to be drawn with a different formatting.
+     * @param bool $verticalBanding Determines whether the even columns has to be drawn with a different formatting.
      *
      * @return $this
      */
-    public function setVerticalBanding($vertical_banding)
+    public function setVerticalBanding($verticalBanding)
     {
-        $this->container['vertical_banding'] = $vertical_banding;
+        $this->container['verticalBanding'] = $verticalBanding;
 
         return $this;
     }

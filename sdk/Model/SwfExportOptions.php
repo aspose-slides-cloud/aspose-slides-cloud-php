@@ -57,26 +57,26 @@ class SwfExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'show_hidden_slides' => 'bool',
+        'showHiddenSlides' => 'bool',
         'compressed' => 'bool',
-        'viewer_included' => 'bool',
-        'show_page_border' => 'bool',
-        'show_full_screen' => 'bool',
-        'show_page_stepper' => 'bool',
-        'show_search' => 'bool',
-        'show_top_pane' => 'bool',
-        'show_bottom_pane' => 'bool',
-        'show_left_pane' => 'bool',
-        'start_open_left_pane' => 'bool',
-        'enable_context_menu' => 'bool',
-        'logo_image' => 'string',
-        'logo_link' => 'string',
-        'jpeg_quality' => 'int',
-        'notes_position' => 'string',
-        'comments_position' => 'string',
-        'comments_area_width' => 'int',
-        'comments_area_color' => 'string',
-        'show_comments_by_no_author' => 'bool'
+        'viewerIncluded' => 'bool',
+        'showPageBorder' => 'bool',
+        'showFullScreen' => 'bool',
+        'showPageStepper' => 'bool',
+        'showSearch' => 'bool',
+        'showTopPane' => 'bool',
+        'showBottomPane' => 'bool',
+        'showLeftPane' => 'bool',
+        'startOpenLeftPane' => 'bool',
+        'enableContextMenu' => 'bool',
+        'logoImage' => 'string',
+        'logoLink' => 'string',
+        'jpegQuality' => 'int',
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string',
+        'showCommentsByNoAuthor' => 'bool'
     ];
 
     /**
@@ -85,26 +85,26 @@ class SwfExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'show_hidden_slides' => null,
+        'showHiddenSlides' => null,
         'compressed' => null,
-        'viewer_included' => null,
-        'show_page_border' => null,
-        'show_full_screen' => null,
-        'show_page_stepper' => null,
-        'show_search' => null,
-        'show_top_pane' => null,
-        'show_bottom_pane' => null,
-        'show_left_pane' => null,
-        'start_open_left_pane' => null,
-        'enable_context_menu' => null,
-        'logo_image' => null,
-        'logo_link' => null,
-        'jpeg_quality' => 'int32',
-        'notes_position' => null,
-        'comments_position' => null,
-        'comments_area_width' => 'int32',
-        'comments_area_color' => null,
-        'show_comments_by_no_author' => null
+        'viewerIncluded' => null,
+        'showPageBorder' => null,
+        'showFullScreen' => null,
+        'showPageStepper' => null,
+        'showSearch' => null,
+        'showTopPane' => null,
+        'showBottomPane' => null,
+        'showLeftPane' => null,
+        'startOpenLeftPane' => null,
+        'enableContextMenu' => null,
+        'logoImage' => null,
+        'logoLink' => null,
+        'jpegQuality' => 'int32',
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null,
+        'showCommentsByNoAuthor' => null
     ];
 
     /**
@@ -134,26 +134,26 @@ class SwfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'show_hidden_slides' => 'ShowHiddenSlides',
+        'showHiddenSlides' => 'ShowHiddenSlides',
         'compressed' => 'Compressed',
-        'viewer_included' => 'ViewerIncluded',
-        'show_page_border' => 'ShowPageBorder',
-        'show_full_screen' => 'ShowFullScreen',
-        'show_page_stepper' => 'ShowPageStepper',
-        'show_search' => 'ShowSearch',
-        'show_top_pane' => 'ShowTopPane',
-        'show_bottom_pane' => 'ShowBottomPane',
-        'show_left_pane' => 'ShowLeftPane',
-        'start_open_left_pane' => 'StartOpenLeftPane',
-        'enable_context_menu' => 'EnableContextMenu',
-        'logo_image' => 'LogoImage',
-        'logo_link' => 'LogoLink',
-        'jpeg_quality' => 'JpegQuality',
-        'notes_position' => 'NotesPosition',
-        'comments_position' => 'CommentsPosition',
-        'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor',
-        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor'
+        'viewerIncluded' => 'ViewerIncluded',
+        'showPageBorder' => 'ShowPageBorder',
+        'showFullScreen' => 'ShowFullScreen',
+        'showPageStepper' => 'ShowPageStepper',
+        'showSearch' => 'ShowSearch',
+        'showTopPane' => 'ShowTopPane',
+        'showBottomPane' => 'ShowBottomPane',
+        'showLeftPane' => 'ShowLeftPane',
+        'startOpenLeftPane' => 'StartOpenLeftPane',
+        'enableContextMenu' => 'EnableContextMenu',
+        'logoImage' => 'LogoImage',
+        'logoLink' => 'LogoLink',
+        'jpegQuality' => 'JpegQuality',
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
     ];
 
     /**
@@ -162,26 +162,26 @@ class SwfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'show_hidden_slides' => 'setShowHiddenSlides',
+        'showHiddenSlides' => 'setShowHiddenSlides',
         'compressed' => 'setCompressed',
-        'viewer_included' => 'setViewerIncluded',
-        'show_page_border' => 'setShowPageBorder',
-        'show_full_screen' => 'setShowFullScreen',
-        'show_page_stepper' => 'setShowPageStepper',
-        'show_search' => 'setShowSearch',
-        'show_top_pane' => 'setShowTopPane',
-        'show_bottom_pane' => 'setShowBottomPane',
-        'show_left_pane' => 'setShowLeftPane',
-        'start_open_left_pane' => 'setStartOpenLeftPane',
-        'enable_context_menu' => 'setEnableContextMenu',
-        'logo_image' => 'setLogoImage',
-        'logo_link' => 'setLogoLink',
-        'jpeg_quality' => 'setJpegQuality',
-        'notes_position' => 'setNotesPosition',
-        'comments_position' => 'setCommentsPosition',
-        'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor',
-        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor'
+        'viewerIncluded' => 'setViewerIncluded',
+        'showPageBorder' => 'setShowPageBorder',
+        'showFullScreen' => 'setShowFullScreen',
+        'showPageStepper' => 'setShowPageStepper',
+        'showSearch' => 'setShowSearch',
+        'showTopPane' => 'setShowTopPane',
+        'showBottomPane' => 'setShowBottomPane',
+        'showLeftPane' => 'setShowLeftPane',
+        'startOpenLeftPane' => 'setStartOpenLeftPane',
+        'enableContextMenu' => 'setEnableContextMenu',
+        'logoImage' => 'setLogoImage',
+        'logoLink' => 'setLogoLink',
+        'jpegQuality' => 'setJpegQuality',
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
     ];
 
     /**
@@ -190,26 +190,26 @@ class SwfExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'show_hidden_slides' => 'getShowHiddenSlides',
+        'showHiddenSlides' => 'getShowHiddenSlides',
         'compressed' => 'getCompressed',
-        'viewer_included' => 'getViewerIncluded',
-        'show_page_border' => 'getShowPageBorder',
-        'show_full_screen' => 'getShowFullScreen',
-        'show_page_stepper' => 'getShowPageStepper',
-        'show_search' => 'getShowSearch',
-        'show_top_pane' => 'getShowTopPane',
-        'show_bottom_pane' => 'getShowBottomPane',
-        'show_left_pane' => 'getShowLeftPane',
-        'start_open_left_pane' => 'getStartOpenLeftPane',
-        'enable_context_menu' => 'getEnableContextMenu',
-        'logo_image' => 'getLogoImage',
-        'logo_link' => 'getLogoLink',
-        'jpeg_quality' => 'getJpegQuality',
-        'notes_position' => 'getNotesPosition',
-        'comments_position' => 'getCommentsPosition',
-        'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor',
-        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor'
+        'viewerIncluded' => 'getViewerIncluded',
+        'showPageBorder' => 'getShowPageBorder',
+        'showFullScreen' => 'getShowFullScreen',
+        'showPageStepper' => 'getShowPageStepper',
+        'showSearch' => 'getShowSearch',
+        'showTopPane' => 'getShowTopPane',
+        'showBottomPane' => 'getShowBottomPane',
+        'showLeftPane' => 'getShowLeftPane',
+        'startOpenLeftPane' => 'getStartOpenLeftPane',
+        'enableContextMenu' => 'getEnableContextMenu',
+        'logoImage' => 'getLogoImage',
+        'logoLink' => 'getLogoLink',
+        'jpegQuality' => 'getJpegQuality',
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
     ];
 
     /**
@@ -302,26 +302,26 @@ class SwfExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['show_hidden_slides'] = isset($data['show_hidden_slides']) ? $data['show_hidden_slides'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
         $this->container['compressed'] = isset($data['compressed']) ? $data['compressed'] : null;
-        $this->container['viewer_included'] = isset($data['viewer_included']) ? $data['viewer_included'] : null;
-        $this->container['show_page_border'] = isset($data['show_page_border']) ? $data['show_page_border'] : null;
-        $this->container['show_full_screen'] = isset($data['show_full_screen']) ? $data['show_full_screen'] : null;
-        $this->container['show_page_stepper'] = isset($data['show_page_stepper']) ? $data['show_page_stepper'] : null;
-        $this->container['show_search'] = isset($data['show_search']) ? $data['show_search'] : null;
-        $this->container['show_top_pane'] = isset($data['show_top_pane']) ? $data['show_top_pane'] : null;
-        $this->container['show_bottom_pane'] = isset($data['show_bottom_pane']) ? $data['show_bottom_pane'] : null;
-        $this->container['show_left_pane'] = isset($data['show_left_pane']) ? $data['show_left_pane'] : null;
-        $this->container['start_open_left_pane'] = isset($data['start_open_left_pane']) ? $data['start_open_left_pane'] : null;
-        $this->container['enable_context_menu'] = isset($data['enable_context_menu']) ? $data['enable_context_menu'] : null;
-        $this->container['logo_image'] = isset($data['logo_image']) ? $data['logo_image'] : null;
-        $this->container['logo_link'] = isset($data['logo_link']) ? $data['logo_link'] : null;
-        $this->container['jpeg_quality'] = isset($data['jpeg_quality']) ? $data['jpeg_quality'] : null;
-        $this->container['notes_position'] = isset($data['notes_position']) ? $data['notes_position'] : null;
-        $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
-        $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
-        $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
-        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
+        $this->container['viewerIncluded'] = isset($data['viewerIncluded']) ? $data['viewerIncluded'] : null;
+        $this->container['showPageBorder'] = isset($data['showPageBorder']) ? $data['showPageBorder'] : null;
+        $this->container['showFullScreen'] = isset($data['showFullScreen']) ? $data['showFullScreen'] : null;
+        $this->container['showPageStepper'] = isset($data['showPageStepper']) ? $data['showPageStepper'] : null;
+        $this->container['showSearch'] = isset($data['showSearch']) ? $data['showSearch'] : null;
+        $this->container['showTopPane'] = isset($data['showTopPane']) ? $data['showTopPane'] : null;
+        $this->container['showBottomPane'] = isset($data['showBottomPane']) ? $data['showBottomPane'] : null;
+        $this->container['showLeftPane'] = isset($data['showLeftPane']) ? $data['showLeftPane'] : null;
+        $this->container['startOpenLeftPane'] = isset($data['startOpenLeftPane']) ? $data['startOpenLeftPane'] : null;
+        $this->container['enableContextMenu'] = isset($data['enableContextMenu']) ? $data['enableContextMenu'] : null;
+        $this->container['logoImage'] = isset($data['logoImage']) ? $data['logoImage'] : null;
+        $this->container['logoLink'] = isset($data['logoLink']) ? $data['logoLink'] : null;
+        $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
     }
 
     /**
@@ -333,72 +333,72 @@ class SwfExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['show_hidden_slides'] === null) {
-            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        if ($this->container['showHiddenSlides'] === null) {
+            $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
         if ($this->container['compressed'] === null) {
             $invalidProperties[] = "'compressed' can't be null";
         }
-        if ($this->container['viewer_included'] === null) {
-            $invalidProperties[] = "'viewer_included' can't be null";
+        if ($this->container['viewerIncluded'] === null) {
+            $invalidProperties[] = "'viewerIncluded' can't be null";
         }
-        if ($this->container['show_page_border'] === null) {
-            $invalidProperties[] = "'show_page_border' can't be null";
+        if ($this->container['showPageBorder'] === null) {
+            $invalidProperties[] = "'showPageBorder' can't be null";
         }
-        if ($this->container['show_full_screen'] === null) {
-            $invalidProperties[] = "'show_full_screen' can't be null";
+        if ($this->container['showFullScreen'] === null) {
+            $invalidProperties[] = "'showFullScreen' can't be null";
         }
-        if ($this->container['show_page_stepper'] === null) {
-            $invalidProperties[] = "'show_page_stepper' can't be null";
+        if ($this->container['showPageStepper'] === null) {
+            $invalidProperties[] = "'showPageStepper' can't be null";
         }
-        if ($this->container['show_search'] === null) {
-            $invalidProperties[] = "'show_search' can't be null";
+        if ($this->container['showSearch'] === null) {
+            $invalidProperties[] = "'showSearch' can't be null";
         }
-        if ($this->container['show_top_pane'] === null) {
-            $invalidProperties[] = "'show_top_pane' can't be null";
+        if ($this->container['showTopPane'] === null) {
+            $invalidProperties[] = "'showTopPane' can't be null";
         }
-        if ($this->container['show_bottom_pane'] === null) {
-            $invalidProperties[] = "'show_bottom_pane' can't be null";
+        if ($this->container['showBottomPane'] === null) {
+            $invalidProperties[] = "'showBottomPane' can't be null";
         }
-        if ($this->container['show_left_pane'] === null) {
-            $invalidProperties[] = "'show_left_pane' can't be null";
+        if ($this->container['showLeftPane'] === null) {
+            $invalidProperties[] = "'showLeftPane' can't be null";
         }
-        if ($this->container['start_open_left_pane'] === null) {
-            $invalidProperties[] = "'start_open_left_pane' can't be null";
+        if ($this->container['startOpenLeftPane'] === null) {
+            $invalidProperties[] = "'startOpenLeftPane' can't be null";
         }
-        if ($this->container['enable_context_menu'] === null) {
-            $invalidProperties[] = "'enable_context_menu' can't be null";
+        if ($this->container['enableContextMenu'] === null) {
+            $invalidProperties[] = "'enableContextMenu' can't be null";
         }
-        if ($this->container['jpeg_quality'] === null) {
-            $invalidProperties[] = "'jpeg_quality' can't be null";
+        if ($this->container['jpegQuality'] === null) {
+            $invalidProperties[] = "'jpegQuality' can't be null";
         }
-        if ($this->container['notes_position'] === null) {
-            $invalidProperties[] = "'notes_position' can't be null";
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notes_position', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_position'] === null) {
-            $invalidProperties[] = "'comments_position' can't be null";
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'comments_position', must be one of '%s'",
+                "invalid value for 'commentsPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_area_width'] === null) {
-            $invalidProperties[] = "'comments_area_width' can't be null";
+        if ($this->container['commentsAreaWidth'] === null) {
+            $invalidProperties[] = "'commentsAreaWidth' can't be null";
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
-            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        if ($this->container['showCommentsByNoAuthor'] === null) {
+            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
         }
         return $invalidProperties;
     }
@@ -415,63 +415,63 @@ class SwfExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['show_hidden_slides'] === null) {
+        if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
         if ($this->container['compressed'] === null) {
             return false;
         }
-        if ($this->container['viewer_included'] === null) {
+        if ($this->container['viewerIncluded'] === null) {
             return false;
         }
-        if ($this->container['show_page_border'] === null) {
+        if ($this->container['showPageBorder'] === null) {
             return false;
         }
-        if ($this->container['show_full_screen'] === null) {
+        if ($this->container['showFullScreen'] === null) {
             return false;
         }
-        if ($this->container['show_page_stepper'] === null) {
+        if ($this->container['showPageStepper'] === null) {
             return false;
         }
-        if ($this->container['show_search'] === null) {
+        if ($this->container['showSearch'] === null) {
             return false;
         }
-        if ($this->container['show_top_pane'] === null) {
+        if ($this->container['showTopPane'] === null) {
             return false;
         }
-        if ($this->container['show_bottom_pane'] === null) {
+        if ($this->container['showBottomPane'] === null) {
             return false;
         }
-        if ($this->container['show_left_pane'] === null) {
+        if ($this->container['showLeftPane'] === null) {
             return false;
         }
-        if ($this->container['start_open_left_pane'] === null) {
+        if ($this->container['startOpenLeftPane'] === null) {
             return false;
         }
-        if ($this->container['enable_context_menu'] === null) {
+        if ($this->container['enableContextMenu'] === null) {
             return false;
         }
-        if ($this->container['jpeg_quality'] === null) {
+        if ($this->container['jpegQuality'] === null) {
             return false;
         }
-        if ($this->container['notes_position'] === null) {
+        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_position'] === null) {
+        if ($this->container['commentsPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_area_width'] === null) {
+        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
+        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -479,25 +479,25 @@ class SwfExportOptions extends ExportOptions
 
 
     /**
-     * Gets show_hidden_slides
+     * Gets showHiddenSlides
      *
      * @return bool
      */
     public function getShowHiddenSlides()
     {
-        return $this->container['show_hidden_slides'];
+        return $this->container['showHiddenSlides'];
     }
 
     /**
-     * Sets show_hidden_slides
+     * Sets showHiddenSlides
      *
-     * @param bool $show_hidden_slides Specifies whether the generated document should include hidden slides or not. Default is false.
+     * @param bool $showHiddenSlides Specifies whether the generated document should include hidden slides or not. Default is false.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($show_hidden_slides)
+    public function setShowHiddenSlides($showHiddenSlides)
     {
-        $this->container['show_hidden_slides'] = $show_hidden_slides;
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }
@@ -527,451 +527,451 @@ class SwfExportOptions extends ExportOptions
     }
 
     /**
-     * Gets viewer_included
+     * Gets viewerIncluded
      *
      * @return bool
      */
     public function getViewerIncluded()
     {
-        return $this->container['viewer_included'];
+        return $this->container['viewerIncluded'];
     }
 
     /**
-     * Sets viewer_included
+     * Sets viewerIncluded
      *
-     * @param bool $viewer_included Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true.
+     * @param bool $viewerIncluded Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true.
      *
      * @return $this
      */
-    public function setViewerIncluded($viewer_included)
+    public function setViewerIncluded($viewerIncluded)
     {
-        $this->container['viewer_included'] = $viewer_included;
+        $this->container['viewerIncluded'] = $viewerIncluded;
 
         return $this;
     }
 
     /**
-     * Gets show_page_border
+     * Gets showPageBorder
      *
      * @return bool
      */
     public function getShowPageBorder()
     {
-        return $this->container['show_page_border'];
+        return $this->container['showPageBorder'];
     }
 
     /**
-     * Sets show_page_border
+     * Sets showPageBorder
      *
-     * @param bool $show_page_border Specifies whether border around pages should be shown. Default is true.
+     * @param bool $showPageBorder Specifies whether border around pages should be shown. Default is true.
      *
      * @return $this
      */
-    public function setShowPageBorder($show_page_border)
+    public function setShowPageBorder($showPageBorder)
     {
-        $this->container['show_page_border'] = $show_page_border;
+        $this->container['showPageBorder'] = $showPageBorder;
 
         return $this;
     }
 
     /**
-     * Gets show_full_screen
+     * Gets showFullScreen
      *
      * @return bool
      */
     public function getShowFullScreen()
     {
-        return $this->container['show_full_screen'];
+        return $this->container['showFullScreen'];
     }
 
     /**
-     * Sets show_full_screen
+     * Sets showFullScreen
      *
-     * @param bool $show_full_screen Show/hide fullscreen button. Can be overridden in flashvars. Default is true.
+     * @param bool $showFullScreen Show/hide fullscreen button. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowFullScreen($show_full_screen)
+    public function setShowFullScreen($showFullScreen)
     {
-        $this->container['show_full_screen'] = $show_full_screen;
+        $this->container['showFullScreen'] = $showFullScreen;
 
         return $this;
     }
 
     /**
-     * Gets show_page_stepper
+     * Gets showPageStepper
      *
      * @return bool
      */
     public function getShowPageStepper()
     {
-        return $this->container['show_page_stepper'];
+        return $this->container['showPageStepper'];
     }
 
     /**
-     * Sets show_page_stepper
+     * Sets showPageStepper
      *
-     * @param bool $show_page_stepper Show/hide page stepper. Can be overridden in flashvars. Default is true.
+     * @param bool $showPageStepper Show/hide page stepper. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowPageStepper($show_page_stepper)
+    public function setShowPageStepper($showPageStepper)
     {
-        $this->container['show_page_stepper'] = $show_page_stepper;
+        $this->container['showPageStepper'] = $showPageStepper;
 
         return $this;
     }
 
     /**
-     * Gets show_search
+     * Gets showSearch
      *
      * @return bool
      */
     public function getShowSearch()
     {
-        return $this->container['show_search'];
+        return $this->container['showSearch'];
     }
 
     /**
-     * Sets show_search
+     * Sets showSearch
      *
-     * @param bool $show_search Show/hide search section. Can be overridden in flashvars. Default is true.
+     * @param bool $showSearch Show/hide search section. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowSearch($show_search)
+    public function setShowSearch($showSearch)
     {
-        $this->container['show_search'] = $show_search;
+        $this->container['showSearch'] = $showSearch;
 
         return $this;
     }
 
     /**
-     * Gets show_top_pane
+     * Gets showTopPane
      *
      * @return bool
      */
     public function getShowTopPane()
     {
-        return $this->container['show_top_pane'];
+        return $this->container['showTopPane'];
     }
 
     /**
-     * Sets show_top_pane
+     * Sets showTopPane
      *
-     * @param bool $show_top_pane Show/hide whole top pane. Can be overridden in flashvars. Default is true.
+     * @param bool $showTopPane Show/hide whole top pane. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowTopPane($show_top_pane)
+    public function setShowTopPane($showTopPane)
     {
-        $this->container['show_top_pane'] = $show_top_pane;
+        $this->container['showTopPane'] = $showTopPane;
 
         return $this;
     }
 
     /**
-     * Gets show_bottom_pane
+     * Gets showBottomPane
      *
      * @return bool
      */
     public function getShowBottomPane()
     {
-        return $this->container['show_bottom_pane'];
+        return $this->container['showBottomPane'];
     }
 
     /**
-     * Sets show_bottom_pane
+     * Sets showBottomPane
      *
-     * @param bool $show_bottom_pane Show/hide bottom pane. Can be overridden in flashvars. Default is true.
+     * @param bool $showBottomPane Show/hide bottom pane. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowBottomPane($show_bottom_pane)
+    public function setShowBottomPane($showBottomPane)
     {
-        $this->container['show_bottom_pane'] = $show_bottom_pane;
+        $this->container['showBottomPane'] = $showBottomPane;
 
         return $this;
     }
 
     /**
-     * Gets show_left_pane
+     * Gets showLeftPane
      *
      * @return bool
      */
     public function getShowLeftPane()
     {
-        return $this->container['show_left_pane'];
+        return $this->container['showLeftPane'];
     }
 
     /**
-     * Sets show_left_pane
+     * Sets showLeftPane
      *
-     * @param bool $show_left_pane Show/hide left pane. Can be overridden in flashvars. Default is true.
+     * @param bool $showLeftPane Show/hide left pane. Can be overridden in flashvars. Default is true.
      *
      * @return $this
      */
-    public function setShowLeftPane($show_left_pane)
+    public function setShowLeftPane($showLeftPane)
     {
-        $this->container['show_left_pane'] = $show_left_pane;
+        $this->container['showLeftPane'] = $showLeftPane;
 
         return $this;
     }
 
     /**
-     * Gets start_open_left_pane
+     * Gets startOpenLeftPane
      *
      * @return bool
      */
     public function getStartOpenLeftPane()
     {
-        return $this->container['start_open_left_pane'];
+        return $this->container['startOpenLeftPane'];
     }
 
     /**
-     * Sets start_open_left_pane
+     * Sets startOpenLeftPane
      *
-     * @param bool $start_open_left_pane Start with opened left pane. Can be overridden in flashvars. Default is false.
+     * @param bool $startOpenLeftPane Start with opened left pane. Can be overridden in flashvars. Default is false.
      *
      * @return $this
      */
-    public function setStartOpenLeftPane($start_open_left_pane)
+    public function setStartOpenLeftPane($startOpenLeftPane)
     {
-        $this->container['start_open_left_pane'] = $start_open_left_pane;
+        $this->container['startOpenLeftPane'] = $startOpenLeftPane;
 
         return $this;
     }
 
     /**
-     * Gets enable_context_menu
+     * Gets enableContextMenu
      *
      * @return bool
      */
     public function getEnableContextMenu()
     {
-        return $this->container['enable_context_menu'];
+        return $this->container['enableContextMenu'];
     }
 
     /**
-     * Sets enable_context_menu
+     * Sets enableContextMenu
      *
-     * @param bool $enable_context_menu Enable/disable context menu. Default is true.
+     * @param bool $enableContextMenu Enable/disable context menu. Default is true.
      *
      * @return $this
      */
-    public function setEnableContextMenu($enable_context_menu)
+    public function setEnableContextMenu($enableContextMenu)
     {
-        $this->container['enable_context_menu'] = $enable_context_menu;
+        $this->container['enableContextMenu'] = $enableContextMenu;
 
         return $this;
     }
 
     /**
-     * Gets logo_image
+     * Gets logoImage
      *
      * @return string
      */
     public function getLogoImage()
     {
-        return $this->container['logo_image'];
+        return $this->container['logoImage'];
     }
 
     /**
-     * Sets logo_image
+     * Sets logoImage
      *
-     * @param string $logo_image Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly.
+     * @param string $logoImage Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly.
      *
      * @return $this
      */
-    public function setLogoImage($logo_image)
+    public function setLogoImage($logoImage)
     {
-        $this->container['logo_image'] = $logo_image;
+        $this->container['logoImage'] = $logoImage;
 
         return $this;
     }
 
     /**
-     * Gets logo_link
+     * Gets logoLink
      *
      * @return string
      */
     public function getLogoLink()
     {
-        return $this->container['logo_link'];
+        return $this->container['logoLink'];
     }
 
     /**
-     * Sets logo_link
+     * Sets logoLink
      *
-     * @param string $logo_link Gets or sets the full hyperlink address for a logo. Has an effect only if a LogoImage is specified.
+     * @param string $logoLink Gets or sets the full hyperlink address for a logo. Has an effect only if a LogoImage is specified.
      *
      * @return $this
      */
-    public function setLogoLink($logo_link)
+    public function setLogoLink($logoLink)
     {
-        $this->container['logo_link'] = $logo_link;
+        $this->container['logoLink'] = $logoLink;
 
         return $this;
     }
 
     /**
-     * Gets jpeg_quality
+     * Gets jpegQuality
      *
      * @return int
      */
     public function getJpegQuality()
     {
-        return $this->container['jpeg_quality'];
+        return $this->container['jpegQuality'];
     }
 
     /**
-     * Sets jpeg_quality
+     * Sets jpegQuality
      *
-     * @param int $jpeg_quality Specifies the quality of JPEG images. Default is 95.
+     * @param int $jpegQuality Specifies the quality of JPEG images. Default is 95.
      *
      * @return $this
      */
-    public function setJpegQuality($jpeg_quality)
+    public function setJpegQuality($jpegQuality)
     {
-        $this->container['jpeg_quality'] = $jpeg_quality;
+        $this->container['jpegQuality'] = $jpegQuality;
 
         return $this;
     }
 
     /**
-     * Gets notes_position
+     * Gets notesPosition
      *
      * @return string
      */
     public function getNotesPosition()
     {
-        return $this->container['notes_position'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets notes_position
+     * Sets notesPosition
      *
-     * @param string $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setNotesPosition($notes_position)
+    public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notes_position, $allowedValues)) {
+        if (!in_array($notesPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'notes_position', must be one of '%s'",
+                    "Invalid value for 'notesPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['notes_position'] = $notes_position;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_position
+     * Gets commentsPosition
      *
      * @return string
      */
     public function getCommentsPosition()
     {
-        return $this->container['comments_position'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets comments_position
+     * Sets commentsPosition
      *
-     * @param string $comments_position Gets or sets the position of the comments on the page.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setCommentsPosition($comments_position)
+    public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($comments_position, $allowedValues)) {
+        if (!in_array($commentsPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'comments_position', must be one of '%s'",
+                    "Invalid value for 'commentsPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['comments_position'] = $comments_position;
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
     public function getCommentsAreaWidth()
     {
-        return $this->container['comments_area_width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets comments_area_width
+     * Sets commentsAreaWidth
      *
-     * @param int $comments_area_width Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaWidth($comments_area_width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['comments_area_width'] = $comments_area_width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_color
+     * Gets commentsAreaColor
      *
      * @return string
      */
     public function getCommentsAreaColor()
     {
-        return $this->container['comments_area_color'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets comments_area_color
+     * Sets commentsAreaColor
      *
-     * @param string $comments_area_color Gets or sets the color of comments area (Applies only if comments are displayed on the right).
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaColor($comments_area_color)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['comments_area_color'] = $comments_area_color;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }
 
     /**
-     * Gets show_comments_by_no_author
+     * Gets showCommentsByNoAuthor
      *
      * @return bool
      */
     public function getShowCommentsByNoAuthor()
     {
-        return $this->container['show_comments_by_no_author'];
+        return $this->container['showCommentsByNoAuthor'];
     }
 
     /**
-     * Sets show_comments_by_no_author
+     * Sets showCommentsByNoAuthor
      *
-     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
      *
      * @return $this
      */
-    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
     {
-        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
+        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
 
         return $this;
     }

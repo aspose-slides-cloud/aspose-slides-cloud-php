@@ -57,8 +57,8 @@ class PatternFill extends FillFormat
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'back_color' => 'string',
-        'fore_color' => 'string',
+        'backColor' => 'string',
+        'foreColor' => 'string',
         'style' => 'string'
     ];
 
@@ -68,8 +68,8 @@ class PatternFill extends FillFormat
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'back_color' => null,
-        'fore_color' => null,
+        'backColor' => null,
+        'foreColor' => null,
         'style' => null
     ];
 
@@ -100,8 +100,8 @@ class PatternFill extends FillFormat
      * @var string[]
      */
     protected static $attributeMap = [
-        'back_color' => 'BackColor',
-        'fore_color' => 'ForeColor',
+        'backColor' => 'BackColor',
+        'foreColor' => 'ForeColor',
         'style' => 'Style'
     ];
 
@@ -111,8 +111,8 @@ class PatternFill extends FillFormat
      * @var string[]
      */
     protected static $setters = [
-        'back_color' => 'setBackColor',
-        'fore_color' => 'setForeColor',
+        'backColor' => 'setBackColor',
+        'foreColor' => 'setForeColor',
         'style' => 'setStyle'
     ];
 
@@ -122,8 +122,8 @@ class PatternFill extends FillFormat
      * @var string[]
      */
     protected static $getters = [
-        'back_color' => 'getBackColor',
-        'fore_color' => 'getForeColor',
+        'backColor' => 'getBackColor',
+        'foreColor' => 'getForeColor',
         'style' => 'getStyle'
     ];
 
@@ -306,8 +306,8 @@ class PatternFill extends FillFormat
     {
         parent::__construct($data);
 
-        $this->container['back_color'] = isset($data['back_color']) ? $data['back_color'] : null;
-        $this->container['fore_color'] = isset($data['fore_color']) ? $data['fore_color'] : null;
+        $this->container['backColor'] = isset($data['backColor']) ? $data['backColor'] : null;
+        $this->container['foreColor'] = isset($data['foreColor']) ? $data['foreColor'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
     }
 
@@ -358,49 +358,49 @@ class PatternFill extends FillFormat
 
 
     /**
-     * Gets back_color
+     * Gets backColor
      *
      * @return string
      */
     public function getBackColor()
     {
-        return $this->container['back_color'];
+        return $this->container['backColor'];
     }
 
     /**
-     * Sets back_color
+     * Sets backColor
      *
-     * @param string $back_color Gets or sets the back color of the pattern fill.
+     * @param string $backColor Gets or sets the back color of the pattern fill.
      *
      * @return $this
      */
-    public function setBackColor($back_color)
+    public function setBackColor($backColor)
     {
-        $this->container['back_color'] = $back_color;
+        $this->container['backColor'] = $backColor;
 
         return $this;
     }
 
     /**
-     * Gets fore_color
+     * Gets foreColor
      *
      * @return string
      */
     public function getForeColor()
     {
-        return $this->container['fore_color'];
+        return $this->container['foreColor'];
     }
 
     /**
-     * Sets fore_color
+     * Sets foreColor
      *
-     * @param string $fore_color Gets or sets the fore color of the pattern fill.
+     * @param string $foreColor Gets or sets the fore color of the pattern fill.
      *
      * @return $this
      */
-    public function setForeColor($fore_color)
+    public function setForeColor($foreColor)
     {
-        $this->container['fore_color'] = $fore_color;
+        $this->container['foreColor'] = $foreColor;
 
         return $this;
     }

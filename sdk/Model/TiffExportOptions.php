@@ -59,15 +59,15 @@ class TiffExportOptions extends ExportOptions
         'compression' => 'string',
         'width' => 'int',
         'height' => 'int',
-        'dpi_x' => 'int',
-        'dpi_y' => 'int',
-        'show_hidden_slides' => 'bool',
-        'pixel_format' => 'string',
-        'notes_position' => 'string',
-        'comments_position' => 'string',
-        'comments_area_width' => 'int',
-        'comments_area_color' => 'string',
-        'show_comments_by_no_author' => 'bool'
+        'dpiX' => 'int',
+        'dpiY' => 'int',
+        'showHiddenSlides' => 'bool',
+        'pixelFormat' => 'string',
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string',
+        'showCommentsByNoAuthor' => 'bool'
     ];
 
     /**
@@ -79,15 +79,15 @@ class TiffExportOptions extends ExportOptions
         'compression' => null,
         'width' => 'int32',
         'height' => 'int32',
-        'dpi_x' => 'int32',
-        'dpi_y' => 'int32',
-        'show_hidden_slides' => null,
-        'pixel_format' => null,
-        'notes_position' => null,
-        'comments_position' => null,
-        'comments_area_width' => 'int32',
-        'comments_area_color' => null,
-        'show_comments_by_no_author' => null
+        'dpiX' => 'int32',
+        'dpiY' => 'int32',
+        'showHiddenSlides' => null,
+        'pixelFormat' => null,
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null,
+        'showCommentsByNoAuthor' => null
     ];
 
     /**
@@ -120,15 +120,15 @@ class TiffExportOptions extends ExportOptions
         'compression' => 'Compression',
         'width' => 'Width',
         'height' => 'Height',
-        'dpi_x' => 'DpiX',
-        'dpi_y' => 'DpiY',
-        'show_hidden_slides' => 'ShowHiddenSlides',
-        'pixel_format' => 'PixelFormat',
-        'notes_position' => 'NotesPosition',
-        'comments_position' => 'CommentsPosition',
-        'comments_area_width' => 'CommentsAreaWidth',
-        'comments_area_color' => 'CommentsAreaColor',
-        'show_comments_by_no_author' => 'ShowCommentsByNoAuthor'
+        'dpiX' => 'DpiX',
+        'dpiY' => 'DpiY',
+        'showHiddenSlides' => 'ShowHiddenSlides',
+        'pixelFormat' => 'PixelFormat',
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
     ];
 
     /**
@@ -140,15 +140,15 @@ class TiffExportOptions extends ExportOptions
         'compression' => 'setCompression',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'dpi_x' => 'setDpiX',
-        'dpi_y' => 'setDpiY',
-        'show_hidden_slides' => 'setShowHiddenSlides',
-        'pixel_format' => 'setPixelFormat',
-        'notes_position' => 'setNotesPosition',
-        'comments_position' => 'setCommentsPosition',
-        'comments_area_width' => 'setCommentsAreaWidth',
-        'comments_area_color' => 'setCommentsAreaColor',
-        'show_comments_by_no_author' => 'setShowCommentsByNoAuthor'
+        'dpiX' => 'setDpiX',
+        'dpiY' => 'setDpiY',
+        'showHiddenSlides' => 'setShowHiddenSlides',
+        'pixelFormat' => 'setPixelFormat',
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
     ];
 
     /**
@@ -160,15 +160,15 @@ class TiffExportOptions extends ExportOptions
         'compression' => 'getCompression',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'dpi_x' => 'getDpiX',
-        'dpi_y' => 'getDpiY',
-        'show_hidden_slides' => 'getShowHiddenSlides',
-        'pixel_format' => 'getPixelFormat',
-        'notes_position' => 'getNotesPosition',
-        'comments_position' => 'getCommentsPosition',
-        'comments_area_width' => 'getCommentsAreaWidth',
-        'comments_area_color' => 'getCommentsAreaColor',
-        'show_comments_by_no_author' => 'getShowCommentsByNoAuthor'
+        'dpiX' => 'getDpiX',
+        'dpiY' => 'getDpiY',
+        'showHiddenSlides' => 'getShowHiddenSlides',
+        'pixelFormat' => 'getPixelFormat',
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
     ];
 
     /**
@@ -308,15 +308,15 @@ class TiffExportOptions extends ExportOptions
         $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['dpi_x'] = isset($data['dpi_x']) ? $data['dpi_x'] : null;
-        $this->container['dpi_y'] = isset($data['dpi_y']) ? $data['dpi_y'] : null;
-        $this->container['show_hidden_slides'] = isset($data['show_hidden_slides']) ? $data['show_hidden_slides'] : null;
-        $this->container['pixel_format'] = isset($data['pixel_format']) ? $data['pixel_format'] : null;
-        $this->container['notes_position'] = isset($data['notes_position']) ? $data['notes_position'] : null;
-        $this->container['comments_position'] = isset($data['comments_position']) ? $data['comments_position'] : null;
-        $this->container['comments_area_width'] = isset($data['comments_area_width']) ? $data['comments_area_width'] : null;
-        $this->container['comments_area_color'] = isset($data['comments_area_color']) ? $data['comments_area_color'] : null;
-        $this->container['show_comments_by_no_author'] = isset($data['show_comments_by_no_author']) ? $data['show_comments_by_no_author'] : null;
+        $this->container['dpiX'] = isset($data['dpiX']) ? $data['dpiX'] : null;
+        $this->container['dpiY'] = isset($data['dpiY']) ? $data['dpiY'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['pixelFormat'] = isset($data['pixelFormat']) ? $data['pixelFormat'] : null;
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
     }
 
     /**
@@ -339,47 +339,47 @@ class TiffExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['show_hidden_slides'] === null) {
-            $invalidProperties[] = "'show_hidden_slides' can't be null";
+        if ($this->container['showHiddenSlides'] === null) {
+            $invalidProperties[] = "'showHiddenSlides' can't be null";
         }
-        if ($this->container['pixel_format'] === null) {
-            $invalidProperties[] = "'pixel_format' can't be null";
+        if ($this->container['pixelFormat'] === null) {
+            $invalidProperties[] = "'pixelFormat' can't be null";
         }
         $allowedValues = $this->getPixelFormatAllowableValues();
-        if (!in_array($this->container['pixel_format'], $allowedValues)) {
+        if (!in_array($this->container['pixelFormat'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'pixel_format', must be one of '%s'",
+                "invalid value for 'pixelFormat', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['notes_position'] === null) {
-            $invalidProperties[] = "'notes_position' can't be null";
+        if ($this->container['notesPosition'] === null) {
+            $invalidProperties[] = "'notesPosition' can't be null";
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notes_position', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_position'] === null) {
-            $invalidProperties[] = "'comments_position' can't be null";
+        if ($this->container['commentsPosition'] === null) {
+            $invalidProperties[] = "'commentsPosition' can't be null";
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'comments_position', must be one of '%s'",
+                "invalid value for 'commentsPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['comments_area_width'] === null) {
-            $invalidProperties[] = "'comments_area_width' can't be null";
+        if ($this->container['commentsAreaWidth'] === null) {
+            $invalidProperties[] = "'commentsAreaWidth' can't be null";
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
-            $invalidProperties[] = "'show_comments_by_no_author' can't be null";
+        if ($this->container['showCommentsByNoAuthor'] === null) {
+            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
         }
         return $invalidProperties;
     }
@@ -403,34 +403,34 @@ class TiffExportOptions extends ExportOptions
         if (!in_array($this->container['compression'], $allowedValues)) {
             return false;
         }
-        if ($this->container['show_hidden_slides'] === null) {
+        if ($this->container['showHiddenSlides'] === null) {
             return false;
         }
-        if ($this->container['pixel_format'] === null) {
+        if ($this->container['pixelFormat'] === null) {
             return false;
         }
         $allowedValues = $this->getPixelFormatAllowableValues();
-        if (!in_array($this->container['pixel_format'], $allowedValues)) {
+        if (!in_array($this->container['pixelFormat'], $allowedValues)) {
             return false;
         }
-        if ($this->container['notes_position'] === null) {
+        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notes_position'], $allowedValues)) {
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_position'] === null) {
+        if ($this->container['commentsPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['comments_position'], $allowedValues)) {
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['comments_area_width'] === null) {
+        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
-        if ($this->container['show_comments_by_no_author'] === null) {
+        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -519,244 +519,244 @@ class TiffExportOptions extends ExportOptions
     }
 
     /**
-     * Gets dpi_x
+     * Gets dpiX
      *
      * @return int
      */
     public function getDpiX()
     {
-        return $this->container['dpi_x'];
+        return $this->container['dpiX'];
     }
 
     /**
-     * Sets dpi_x
+     * Sets dpiX
      *
-     * @param int $dpi_x dpi_x
+     * @param int $dpiX dpiX
      *
      * @return $this
      */
-    public function setDpiX($dpi_x)
+    public function setDpiX($dpiX)
     {
-        $this->container['dpi_x'] = $dpi_x;
+        $this->container['dpiX'] = $dpiX;
 
         return $this;
     }
 
     /**
-     * Gets dpi_y
+     * Gets dpiY
      *
      * @return int
      */
     public function getDpiY()
     {
-        return $this->container['dpi_y'];
+        return $this->container['dpiY'];
     }
 
     /**
-     * Sets dpi_y
+     * Sets dpiY
      *
-     * @param int $dpi_y dpi_y
+     * @param int $dpiY dpiY
      *
      * @return $this
      */
-    public function setDpiY($dpi_y)
+    public function setDpiY($dpiY)
     {
-        $this->container['dpi_y'] = $dpi_y;
+        $this->container['dpiY'] = $dpiY;
 
         return $this;
     }
 
     /**
-     * Gets show_hidden_slides
+     * Gets showHiddenSlides
      *
      * @return bool
      */
     public function getShowHiddenSlides()
     {
-        return $this->container['show_hidden_slides'];
+        return $this->container['showHiddenSlides'];
     }
 
     /**
-     * Sets show_hidden_slides
+     * Sets showHiddenSlides
      *
-     * @param bool $show_hidden_slides Specifies whether the generated document should include hidden slides or not. Default is false.
+     * @param bool $showHiddenSlides Specifies whether the generated document should include hidden slides or not. Default is false.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($show_hidden_slides)
+    public function setShowHiddenSlides($showHiddenSlides)
     {
-        $this->container['show_hidden_slides'] = $show_hidden_slides;
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }
 
     /**
-     * Gets pixel_format
+     * Gets pixelFormat
      *
      * @return string
      */
     public function getPixelFormat()
     {
-        return $this->container['pixel_format'];
+        return $this->container['pixelFormat'];
     }
 
     /**
-     * Sets pixel_format
+     * Sets pixelFormat
      *
-     * @param string $pixel_format Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
+     * @param string $pixelFormat Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
      *
      * @return $this
      */
-    public function setPixelFormat($pixel_format)
+    public function setPixelFormat($pixelFormat)
     {
         $allowedValues = $this->getPixelFormatAllowableValues();
-        if (!in_array($pixel_format, $allowedValues)) {
+        if (!in_array($pixelFormat, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'pixel_format', must be one of '%s'",
+                    "Invalid value for 'pixelFormat', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['pixel_format'] = $pixel_format;
+        $this->container['pixelFormat'] = $pixelFormat;
 
         return $this;
     }
 
     /**
-     * Gets notes_position
+     * Gets notesPosition
      *
      * @return string
      */
     public function getNotesPosition()
     {
-        return $this->container['notes_position'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets notes_position
+     * Sets notesPosition
      *
-     * @param string $notes_position Gets or sets the position of the notes on the page.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setNotesPosition($notes_position)
+    public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notes_position, $allowedValues)) {
+        if (!in_array($notesPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'notes_position', must be one of '%s'",
+                    "Invalid value for 'notesPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['notes_position'] = $notes_position;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_position
+     * Gets commentsPosition
      *
      * @return string
      */
     public function getCommentsPosition()
     {
-        return $this->container['comments_position'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets comments_position
+     * Sets commentsPosition
      *
-     * @param string $comments_position Gets or sets the position of the comments on the page.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setCommentsPosition($comments_position)
+    public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($comments_position, $allowedValues)) {
+        if (!in_array($commentsPosition, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'comments_position', must be one of '%s'",
+                    "Invalid value for 'commentsPosition', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['comments_position'] = $comments_position;
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
     public function getCommentsAreaWidth()
     {
-        return $this->container['comments_area_width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets comments_area_width
+     * Sets commentsAreaWidth
      *
-     * @param int $comments_area_width Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaWidth($comments_area_width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['comments_area_width'] = $comments_area_width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets comments_area_color
+     * Gets commentsAreaColor
      *
      * @return string
      */
     public function getCommentsAreaColor()
     {
-        return $this->container['comments_area_color'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets comments_area_color
+     * Sets commentsAreaColor
      *
-     * @param string $comments_area_color Gets or sets the color of comments area (Applies only if comments are displayed on the right).
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setCommentsAreaColor($comments_area_color)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['comments_area_color'] = $comments_area_color;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }
 
     /**
-     * Gets show_comments_by_no_author
+     * Gets showCommentsByNoAuthor
      *
      * @return bool
      */
     public function getShowCommentsByNoAuthor()
     {
-        return $this->container['show_comments_by_no_author'];
+        return $this->container['showCommentsByNoAuthor'];
     }
 
     /**
-     * Sets show_comments_by_no_author
+     * Sets showCommentsByNoAuthor
      *
-     * @param bool $show_comments_by_no_author True if comments that have no author are displayed. (Applies only if comments are displayed).
+     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
      *
      * @return $this
      */
-    public function setShowCommentsByNoAuthor($show_comments_by_no_author)
+    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
     {
-        $this->container['show_comments_by_no_author'] = $show_comments_by_no_author;
+        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
 
         return $this;
     }

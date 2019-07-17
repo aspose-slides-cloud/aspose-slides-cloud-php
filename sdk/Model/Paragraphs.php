@@ -57,7 +57,7 @@ class Paragraphs extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'paragraph_links' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'paragraphLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class Paragraphs extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'paragraph_links' => null
+        'paragraphLinks' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class Paragraphs extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'paragraph_links' => 'ParagraphLinks'
+        'paragraphLinks' => 'ParagraphLinks'
     ];
 
     /**
@@ -105,7 +105,7 @@ class Paragraphs extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'paragraph_links' => 'setParagraphLinks'
+        'paragraphLinks' => 'setParagraphLinks'
     ];
 
     /**
@@ -114,7 +114,7 @@ class Paragraphs extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'paragraph_links' => 'getParagraphLinks'
+        'paragraphLinks' => 'getParagraphLinks'
     ];
 
     /**
@@ -173,7 +173,7 @@ class Paragraphs extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['paragraph_links'] = isset($data['paragraph_links']) ? $data['paragraph_links'] : null;
+        $this->container['paragraphLinks'] = isset($data['paragraphLinks']) ? $data['paragraphLinks'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class Paragraphs extends ResourceBase
 
 
     /**
-     * Gets paragraph_links
+     * Gets paragraphLinks
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
      */
     public function getParagraphLinks()
     {
-        return $this->container['paragraph_links'];
+        return $this->container['paragraphLinks'];
     }
 
     /**
-     * Sets paragraph_links
+     * Sets paragraphLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $paragraph_links paragraph_links
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $paragraphLinks paragraphLinks
      *
      * @return $this
      */
-    public function setParagraphLinks($paragraph_links)
+    public function setParagraphLinks($paragraphLinks)
     {
-        $this->container['paragraph_links'] = $paragraph_links;
+        $this->container['paragraphLinks'] = $paragraphLinks;
 
         return $this;
     }

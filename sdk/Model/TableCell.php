@@ -60,21 +60,21 @@ class TableCell implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'row_span' => 'int',
-        'col_span' => 'int',
-        'margin_top' => 'double',
-        'margin_right' => 'double',
-        'margin_left' => 'double',
-        'margin_bottom' => 'double',
-        'text_anchor_type' => 'string',
-        'text_vertical_type' => 'string',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'border_top' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'border_right' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'border_left' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'border_bottom' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'border_diagonal_up' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'border_diagonal_down' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'rowSpan' => 'int',
+        'colSpan' => 'int',
+        'marginTop' => 'double',
+        'marginRight' => 'double',
+        'marginLeft' => 'double',
+        'marginBottom' => 'double',
+        'textAnchorType' => 'string',
+        'textVerticalType' => 'string',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'borderTop' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'borderRight' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'borderLeft' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'borderBottom' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'borderDiagonalUp' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'borderDiagonalDown' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -84,21 +84,21 @@ class TableCell implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'text' => null,
-        'row_span' => 'int32',
-        'col_span' => 'int32',
-        'margin_top' => 'double',
-        'margin_right' => 'double',
-        'margin_left' => 'double',
-        'margin_bottom' => 'double',
-        'text_anchor_type' => null,
-        'text_vertical_type' => null,
-        'fill_format' => null,
-        'border_top' => null,
-        'border_right' => null,
-        'border_left' => null,
-        'border_bottom' => null,
-        'border_diagonal_up' => null,
-        'border_diagonal_down' => null
+        'rowSpan' => 'int32',
+        'colSpan' => 'int32',
+        'marginTop' => 'double',
+        'marginRight' => 'double',
+        'marginLeft' => 'double',
+        'marginBottom' => 'double',
+        'textAnchorType' => null,
+        'textVerticalType' => null,
+        'fillFormat' => null,
+        'borderTop' => null,
+        'borderRight' => null,
+        'borderLeft' => null,
+        'borderBottom' => null,
+        'borderDiagonalUp' => null,
+        'borderDiagonalDown' => null
     ];
 
     /**
@@ -129,21 +129,21 @@ class TableCell implements ArrayAccess
      */
     protected static $attributeMap = [
         'text' => 'Text',
-        'row_span' => 'RowSpan',
-        'col_span' => 'ColSpan',
-        'margin_top' => 'MarginTop',
-        'margin_right' => 'MarginRight',
-        'margin_left' => 'MarginLeft',
-        'margin_bottom' => 'MarginBottom',
-        'text_anchor_type' => 'TextAnchorType',
-        'text_vertical_type' => 'TextVerticalType',
-        'fill_format' => 'FillFormat',
-        'border_top' => 'BorderTop',
-        'border_right' => 'BorderRight',
-        'border_left' => 'BorderLeft',
-        'border_bottom' => 'BorderBottom',
-        'border_diagonal_up' => 'BorderDiagonalUp',
-        'border_diagonal_down' => 'BorderDiagonalDown'
+        'rowSpan' => 'RowSpan',
+        'colSpan' => 'ColSpan',
+        'marginTop' => 'MarginTop',
+        'marginRight' => 'MarginRight',
+        'marginLeft' => 'MarginLeft',
+        'marginBottom' => 'MarginBottom',
+        'textAnchorType' => 'TextAnchorType',
+        'textVerticalType' => 'TextVerticalType',
+        'fillFormat' => 'FillFormat',
+        'borderTop' => 'BorderTop',
+        'borderRight' => 'BorderRight',
+        'borderLeft' => 'BorderLeft',
+        'borderBottom' => 'BorderBottom',
+        'borderDiagonalUp' => 'BorderDiagonalUp',
+        'borderDiagonalDown' => 'BorderDiagonalDown'
     ];
 
     /**
@@ -153,21 +153,21 @@ class TableCell implements ArrayAccess
      */
     protected static $setters = [
         'text' => 'setText',
-        'row_span' => 'setRowSpan',
-        'col_span' => 'setColSpan',
-        'margin_top' => 'setMarginTop',
-        'margin_right' => 'setMarginRight',
-        'margin_left' => 'setMarginLeft',
-        'margin_bottom' => 'setMarginBottom',
-        'text_anchor_type' => 'setTextAnchorType',
-        'text_vertical_type' => 'setTextVerticalType',
-        'fill_format' => 'setFillFormat',
-        'border_top' => 'setBorderTop',
-        'border_right' => 'setBorderRight',
-        'border_left' => 'setBorderLeft',
-        'border_bottom' => 'setBorderBottom',
-        'border_diagonal_up' => 'setBorderDiagonalUp',
-        'border_diagonal_down' => 'setBorderDiagonalDown'
+        'rowSpan' => 'setRowSpan',
+        'colSpan' => 'setColSpan',
+        'marginTop' => 'setMarginTop',
+        'marginRight' => 'setMarginRight',
+        'marginLeft' => 'setMarginLeft',
+        'marginBottom' => 'setMarginBottom',
+        'textAnchorType' => 'setTextAnchorType',
+        'textVerticalType' => 'setTextVerticalType',
+        'fillFormat' => 'setFillFormat',
+        'borderTop' => 'setBorderTop',
+        'borderRight' => 'setBorderRight',
+        'borderLeft' => 'setBorderLeft',
+        'borderBottom' => 'setBorderBottom',
+        'borderDiagonalUp' => 'setBorderDiagonalUp',
+        'borderDiagonalDown' => 'setBorderDiagonalDown'
     ];
 
     /**
@@ -177,21 +177,21 @@ class TableCell implements ArrayAccess
      */
     protected static $getters = [
         'text' => 'getText',
-        'row_span' => 'getRowSpan',
-        'col_span' => 'getColSpan',
-        'margin_top' => 'getMarginTop',
-        'margin_right' => 'getMarginRight',
-        'margin_left' => 'getMarginLeft',
-        'margin_bottom' => 'getMarginBottom',
-        'text_anchor_type' => 'getTextAnchorType',
-        'text_vertical_type' => 'getTextVerticalType',
-        'fill_format' => 'getFillFormat',
-        'border_top' => 'getBorderTop',
-        'border_right' => 'getBorderRight',
-        'border_left' => 'getBorderLeft',
-        'border_bottom' => 'getBorderBottom',
-        'border_diagonal_up' => 'getBorderDiagonalUp',
-        'border_diagonal_down' => 'getBorderDiagonalDown'
+        'rowSpan' => 'getRowSpan',
+        'colSpan' => 'getColSpan',
+        'marginTop' => 'getMarginTop',
+        'marginRight' => 'getMarginRight',
+        'marginLeft' => 'getMarginLeft',
+        'marginBottom' => 'getMarginBottom',
+        'textAnchorType' => 'getTextAnchorType',
+        'textVerticalType' => 'getTextVerticalType',
+        'fillFormat' => 'getFillFormat',
+        'borderTop' => 'getBorderTop',
+        'borderRight' => 'getBorderRight',
+        'borderLeft' => 'getBorderLeft',
+        'borderBottom' => 'getBorderBottom',
+        'borderDiagonalUp' => 'getBorderDiagonalUp',
+        'borderDiagonalDown' => 'getBorderDiagonalDown'
     ];
 
     /**
@@ -305,21 +305,21 @@ class TableCell implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['row_span'] = isset($data['row_span']) ? $data['row_span'] : null;
-        $this->container['col_span'] = isset($data['col_span']) ? $data['col_span'] : null;
-        $this->container['margin_top'] = isset($data['margin_top']) ? $data['margin_top'] : null;
-        $this->container['margin_right'] = isset($data['margin_right']) ? $data['margin_right'] : null;
-        $this->container['margin_left'] = isset($data['margin_left']) ? $data['margin_left'] : null;
-        $this->container['margin_bottom'] = isset($data['margin_bottom']) ? $data['margin_bottom'] : null;
-        $this->container['text_anchor_type'] = isset($data['text_anchor_type']) ? $data['text_anchor_type'] : null;
-        $this->container['text_vertical_type'] = isset($data['text_vertical_type']) ? $data['text_vertical_type'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['border_top'] = isset($data['border_top']) ? $data['border_top'] : null;
-        $this->container['border_right'] = isset($data['border_right']) ? $data['border_right'] : null;
-        $this->container['border_left'] = isset($data['border_left']) ? $data['border_left'] : null;
-        $this->container['border_bottom'] = isset($data['border_bottom']) ? $data['border_bottom'] : null;
-        $this->container['border_diagonal_up'] = isset($data['border_diagonal_up']) ? $data['border_diagonal_up'] : null;
-        $this->container['border_diagonal_down'] = isset($data['border_diagonal_down']) ? $data['border_diagonal_down'] : null;
+        $this->container['rowSpan'] = isset($data['rowSpan']) ? $data['rowSpan'] : null;
+        $this->container['colSpan'] = isset($data['colSpan']) ? $data['colSpan'] : null;
+        $this->container['marginTop'] = isset($data['marginTop']) ? $data['marginTop'] : null;
+        $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
+        $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
+        $this->container['marginBottom'] = isset($data['marginBottom']) ? $data['marginBottom'] : null;
+        $this->container['textAnchorType'] = isset($data['textAnchorType']) ? $data['textAnchorType'] : null;
+        $this->container['textVerticalType'] = isset($data['textVerticalType']) ? $data['textVerticalType'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['borderTop'] = isset($data['borderTop']) ? $data['borderTop'] : null;
+        $this->container['borderRight'] = isset($data['borderRight']) ? $data['borderRight'] : null;
+        $this->container['borderLeft'] = isset($data['borderLeft']) ? $data['borderLeft'] : null;
+        $this->container['borderBottom'] = isset($data['borderBottom']) ? $data['borderBottom'] : null;
+        $this->container['borderDiagonalUp'] = isset($data['borderDiagonalUp']) ? $data['borderDiagonalUp'] : null;
+        $this->container['borderDiagonalDown'] = isset($data['borderDiagonalDown']) ? $data['borderDiagonalDown'] : null;
     }
 
     /**
@@ -331,42 +331,42 @@ class TableCell implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['row_span'] === null) {
-            $invalidProperties[] = "'row_span' can't be null";
+        if ($this->container['rowSpan'] === null) {
+            $invalidProperties[] = "'rowSpan' can't be null";
         }
-        if ($this->container['col_span'] === null) {
-            $invalidProperties[] = "'col_span' can't be null";
+        if ($this->container['colSpan'] === null) {
+            $invalidProperties[] = "'colSpan' can't be null";
         }
-        if ($this->container['margin_top'] === null) {
-            $invalidProperties[] = "'margin_top' can't be null";
+        if ($this->container['marginTop'] === null) {
+            $invalidProperties[] = "'marginTop' can't be null";
         }
-        if ($this->container['margin_right'] === null) {
-            $invalidProperties[] = "'margin_right' can't be null";
+        if ($this->container['marginRight'] === null) {
+            $invalidProperties[] = "'marginRight' can't be null";
         }
-        if ($this->container['margin_left'] === null) {
-            $invalidProperties[] = "'margin_left' can't be null";
+        if ($this->container['marginLeft'] === null) {
+            $invalidProperties[] = "'marginLeft' can't be null";
         }
-        if ($this->container['margin_bottom'] === null) {
-            $invalidProperties[] = "'margin_bottom' can't be null";
+        if ($this->container['marginBottom'] === null) {
+            $invalidProperties[] = "'marginBottom' can't be null";
         }
-        if ($this->container['text_anchor_type'] === null) {
-            $invalidProperties[] = "'text_anchor_type' can't be null";
+        if ($this->container['textAnchorType'] === null) {
+            $invalidProperties[] = "'textAnchorType' can't be null";
         }
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
-        if (!in_array($this->container['text_anchor_type'], $allowedValues)) {
+        if (!in_array($this->container['textAnchorType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'text_anchor_type', must be one of '%s'",
+                "invalid value for 'textAnchorType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['text_vertical_type'] === null) {
-            $invalidProperties[] = "'text_vertical_type' can't be null";
+        if ($this->container['textVerticalType'] === null) {
+            $invalidProperties[] = "'textVerticalType' can't be null";
         }
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
-        if (!in_array($this->container['text_vertical_type'], $allowedValues)) {
+        if (!in_array($this->container['textVerticalType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'text_vertical_type', must be one of '%s'",
+                "invalid value for 'textVerticalType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -383,36 +383,36 @@ class TableCell implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['row_span'] === null) {
+        if ($this->container['rowSpan'] === null) {
             return false;
         }
-        if ($this->container['col_span'] === null) {
+        if ($this->container['colSpan'] === null) {
             return false;
         }
-        if ($this->container['margin_top'] === null) {
+        if ($this->container['marginTop'] === null) {
             return false;
         }
-        if ($this->container['margin_right'] === null) {
+        if ($this->container['marginRight'] === null) {
             return false;
         }
-        if ($this->container['margin_left'] === null) {
+        if ($this->container['marginLeft'] === null) {
             return false;
         }
-        if ($this->container['margin_bottom'] === null) {
+        if ($this->container['marginBottom'] === null) {
             return false;
         }
-        if ($this->container['text_anchor_type'] === null) {
+        if ($this->container['textAnchorType'] === null) {
             return false;
         }
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
-        if (!in_array($this->container['text_anchor_type'], $allowedValues)) {
+        if (!in_array($this->container['textAnchorType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['text_vertical_type'] === null) {
+        if ($this->container['textVerticalType'] === null) {
             return false;
         }
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
-        if (!in_array($this->container['text_vertical_type'], $allowedValues)) {
+        if (!in_array($this->container['textVerticalType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -444,379 +444,379 @@ class TableCell implements ArrayAccess
     }
 
     /**
-     * Gets row_span
+     * Gets rowSpan
      *
      * @return int
      */
     public function getRowSpan()
     {
-        return $this->container['row_span'];
+        return $this->container['rowSpan'];
     }
 
     /**
-     * Sets row_span
+     * Sets rowSpan
      *
-     * @param int $row_span The number of rows spanned by a merged cell.
+     * @param int $rowSpan The number of rows spanned by a merged cell.
      *
      * @return $this
      */
-    public function setRowSpan($row_span)
+    public function setRowSpan($rowSpan)
     {
-        $this->container['row_span'] = $row_span;
+        $this->container['rowSpan'] = $rowSpan;
 
         return $this;
     }
 
     /**
-     * Gets col_span
+     * Gets colSpan
      *
      * @return int
      */
     public function getColSpan()
     {
-        return $this->container['col_span'];
+        return $this->container['colSpan'];
     }
 
     /**
-     * Sets col_span
+     * Sets colSpan
      *
-     * @param int $col_span The number of columns spanned by a merged cell.
+     * @param int $colSpan The number of columns spanned by a merged cell.
      *
      * @return $this
      */
-    public function setColSpan($col_span)
+    public function setColSpan($colSpan)
     {
-        $this->container['col_span'] = $col_span;
+        $this->container['colSpan'] = $colSpan;
 
         return $this;
     }
 
     /**
-     * Gets margin_top
+     * Gets marginTop
      *
      * @return double
      */
     public function getMarginTop()
     {
-        return $this->container['margin_top'];
+        return $this->container['marginTop'];
     }
 
     /**
-     * Sets margin_top
+     * Sets marginTop
      *
-     * @param double $margin_top The top margin of the cell.
+     * @param double $marginTop The top margin of the cell.
      *
      * @return $this
      */
-    public function setMarginTop($margin_top)
+    public function setMarginTop($marginTop)
     {
-        $this->container['margin_top'] = $margin_top;
+        $this->container['marginTop'] = $marginTop;
 
         return $this;
     }
 
     /**
-     * Gets margin_right
+     * Gets marginRight
      *
      * @return double
      */
     public function getMarginRight()
     {
-        return $this->container['margin_right'];
+        return $this->container['marginRight'];
     }
 
     /**
-     * Sets margin_right
+     * Sets marginRight
      *
-     * @param double $margin_right The right margin of the cell.
+     * @param double $marginRight The right margin of the cell.
      *
      * @return $this
      */
-    public function setMarginRight($margin_right)
+    public function setMarginRight($marginRight)
     {
-        $this->container['margin_right'] = $margin_right;
+        $this->container['marginRight'] = $marginRight;
 
         return $this;
     }
 
     /**
-     * Gets margin_left
+     * Gets marginLeft
      *
      * @return double
      */
     public function getMarginLeft()
     {
-        return $this->container['margin_left'];
+        return $this->container['marginLeft'];
     }
 
     /**
-     * Sets margin_left
+     * Sets marginLeft
      *
-     * @param double $margin_left The left margin of the cell.
+     * @param double $marginLeft The left margin of the cell.
      *
      * @return $this
      */
-    public function setMarginLeft($margin_left)
+    public function setMarginLeft($marginLeft)
     {
-        $this->container['margin_left'] = $margin_left;
+        $this->container['marginLeft'] = $marginLeft;
 
         return $this;
     }
 
     /**
-     * Gets margin_bottom
+     * Gets marginBottom
      *
      * @return double
      */
     public function getMarginBottom()
     {
-        return $this->container['margin_bottom'];
+        return $this->container['marginBottom'];
     }
 
     /**
-     * Sets margin_bottom
+     * Sets marginBottom
      *
-     * @param double $margin_bottom The bottom margin of the cell.
+     * @param double $marginBottom The bottom margin of the cell.
      *
      * @return $this
      */
-    public function setMarginBottom($margin_bottom)
+    public function setMarginBottom($marginBottom)
     {
-        $this->container['margin_bottom'] = $margin_bottom;
+        $this->container['marginBottom'] = $marginBottom;
 
         return $this;
     }
 
     /**
-     * Gets text_anchor_type
+     * Gets textAnchorType
      *
      * @return string
      */
     public function getTextAnchorType()
     {
-        return $this->container['text_anchor_type'];
+        return $this->container['textAnchorType'];
     }
 
     /**
-     * Sets text_anchor_type
+     * Sets textAnchorType
      *
-     * @param string $text_anchor_type Text anchor type.
+     * @param string $textAnchorType Text anchor type.
      *
      * @return $this
      */
-    public function setTextAnchorType($text_anchor_type)
+    public function setTextAnchorType($textAnchorType)
     {
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
-        if (!in_array($text_anchor_type, $allowedValues)) {
+        if (!in_array($textAnchorType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'text_anchor_type', must be one of '%s'",
+                    "Invalid value for 'textAnchorType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['text_anchor_type'] = $text_anchor_type;
+        $this->container['textAnchorType'] = $textAnchorType;
 
         return $this;
     }
 
     /**
-     * Gets text_vertical_type
+     * Gets textVerticalType
      *
      * @return string
      */
     public function getTextVerticalType()
     {
-        return $this->container['text_vertical_type'];
+        return $this->container['textVerticalType'];
     }
 
     /**
-     * Sets text_vertical_type
+     * Sets textVerticalType
      *
-     * @param string $text_vertical_type The type of vertical text.
+     * @param string $textVerticalType The type of vertical text.
      *
      * @return $this
      */
-    public function setTextVerticalType($text_vertical_type)
+    public function setTextVerticalType($textVerticalType)
     {
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
-        if (!in_array($text_vertical_type, $allowedValues)) {
+        if (!in_array($textVerticalType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'text_vertical_type', must be one of '%s'",
+                    "Invalid value for 'textVerticalType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['text_vertical_type'] = $text_vertical_type;
+        $this->container['textVerticalType'] = $textVerticalType;
 
         return $this;
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format Fill properties set of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Fill properties set of the cell.
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets border_top
+     * Gets borderTop
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderTop()
     {
-        return $this->container['border_top'];
+        return $this->container['borderTop'];
     }
 
     /**
-     * Sets border_top
+     * Sets borderTop
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_top Line properties set for the top border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderTop Line properties set for the top border of the cell.
      *
      * @return $this
      */
-    public function setBorderTop($border_top)
+    public function setBorderTop($borderTop)
     {
-        $this->container['border_top'] = $border_top;
+        $this->container['borderTop'] = $borderTop;
 
         return $this;
     }
 
     /**
-     * Gets border_right
+     * Gets borderRight
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderRight()
     {
-        return $this->container['border_right'];
+        return $this->container['borderRight'];
     }
 
     /**
-     * Sets border_right
+     * Sets borderRight
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_right Line properties set for the right border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderRight Line properties set for the right border of the cell.
      *
      * @return $this
      */
-    public function setBorderRight($border_right)
+    public function setBorderRight($borderRight)
     {
-        $this->container['border_right'] = $border_right;
+        $this->container['borderRight'] = $borderRight;
 
         return $this;
     }
 
     /**
-     * Gets border_left
+     * Gets borderLeft
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderLeft()
     {
-        return $this->container['border_left'];
+        return $this->container['borderLeft'];
     }
 
     /**
-     * Sets border_left
+     * Sets borderLeft
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_left Line properties set for the left border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderLeft Line properties set for the left border of the cell.
      *
      * @return $this
      */
-    public function setBorderLeft($border_left)
+    public function setBorderLeft($borderLeft)
     {
-        $this->container['border_left'] = $border_left;
+        $this->container['borderLeft'] = $borderLeft;
 
         return $this;
     }
 
     /**
-     * Gets border_bottom
+     * Gets borderBottom
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderBottom()
     {
-        return $this->container['border_bottom'];
+        return $this->container['borderBottom'];
     }
 
     /**
-     * Sets border_bottom
+     * Sets borderBottom
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_bottom Line properties set for the bottom border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderBottom Line properties set for the bottom border of the cell.
      *
      * @return $this
      */
-    public function setBorderBottom($border_bottom)
+    public function setBorderBottom($borderBottom)
     {
-        $this->container['border_bottom'] = $border_bottom;
+        $this->container['borderBottom'] = $borderBottom;
 
         return $this;
     }
 
     /**
-     * Gets border_diagonal_up
+     * Gets borderDiagonalUp
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderDiagonalUp()
     {
-        return $this->container['border_diagonal_up'];
+        return $this->container['borderDiagonalUp'];
     }
 
     /**
-     * Sets border_diagonal_up
+     * Sets borderDiagonalUp
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_diagonal_up Line properties set for the diagonal up border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderDiagonalUp Line properties set for the diagonal up border of the cell.
      *
      * @return $this
      */
-    public function setBorderDiagonalUp($border_diagonal_up)
+    public function setBorderDiagonalUp($borderDiagonalUp)
     {
-        $this->container['border_diagonal_up'] = $border_diagonal_up;
+        $this->container['borderDiagonalUp'] = $borderDiagonalUp;
 
         return $this;
     }
 
     /**
-     * Gets border_diagonal_down
+     * Gets borderDiagonalDown
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getBorderDiagonalDown()
     {
-        return $this->container['border_diagonal_down'];
+        return $this->container['borderDiagonalDown'];
     }
 
     /**
-     * Sets border_diagonal_down
+     * Sets borderDiagonalDown
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $border_diagonal_down Line properties set for the diagonal down border of the cell.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $borderDiagonalDown Line properties set for the diagonal down border of the cell.
      *
      * @return $this
      */
-    public function setBorderDiagonalDown($border_diagonal_down)
+    public function setBorderDiagonalDown($borderDiagonalDown)
     {
-        $this->container['border_diagonal_down'] = $border_diagonal_down;
+        $this->container['borderDiagonalDown'] = $borderDiagonalDown;
 
         return $this;
     }

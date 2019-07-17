@@ -58,30 +58,30 @@ class Portion extends ResourceBase
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'font_bold' => 'string',
-        'font_italic' => 'string',
-        'font_underline' => 'string',
-        'strikethrough_type' => 'string',
-        'text_cap_type' => 'string',
+        'fontBold' => 'string',
+        'fontItalic' => 'string',
+        'fontUnderline' => 'string',
+        'strikethroughType' => 'string',
+        'textCapType' => 'string',
         'escapement' => 'double',
         'spacing' => 'double',
-        'font_color' => 'string',
-        'highlight_color' => 'string',
-        'font_height' => 'double',
-        'normalise_height' => 'string',
-        'proof_disabled' => 'string',
-        'smart_tag_clean' => 'bool',
-        'kerning_minimal_size' => 'double',
+        'fontColor' => 'string',
+        'highlightColor' => 'string',
+        'fontHeight' => 'double',
+        'normaliseHeight' => 'string',
+        'proofDisabled' => 'string',
+        'smartTagClean' => 'bool',
+        'kerningMinimalSize' => 'double',
         'kumimoji' => 'string',
-        'language_id' => 'string',
-        'alternative_language_id' => 'string',
-        'is_hard_underline_fill' => 'string',
-        'is_hard_underline_line' => 'string',
-        'fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effect_format' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'underline_fill_format' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'underline_line_format' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'languageId' => 'string',
+        'alternativeLanguageId' => 'string',
+        'isHardUnderlineFill' => 'string',
+        'isHardUnderlineLine' => 'string',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'underlineFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'underlineLineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -91,30 +91,30 @@ class Portion extends ResourceBase
       */
     protected static $swaggerFormats = [
         'text' => null,
-        'font_bold' => null,
-        'font_italic' => null,
-        'font_underline' => null,
-        'strikethrough_type' => null,
-        'text_cap_type' => null,
+        'fontBold' => null,
+        'fontItalic' => null,
+        'fontUnderline' => null,
+        'strikethroughType' => null,
+        'textCapType' => null,
         'escapement' => 'double',
         'spacing' => 'double',
-        'font_color' => null,
-        'highlight_color' => null,
-        'font_height' => 'double',
-        'normalise_height' => null,
-        'proof_disabled' => null,
-        'smart_tag_clean' => null,
-        'kerning_minimal_size' => 'double',
+        'fontColor' => null,
+        'highlightColor' => null,
+        'fontHeight' => 'double',
+        'normaliseHeight' => null,
+        'proofDisabled' => null,
+        'smartTagClean' => null,
+        'kerningMinimalSize' => 'double',
         'kumimoji' => null,
-        'language_id' => null,
-        'alternative_language_id' => null,
-        'is_hard_underline_fill' => null,
-        'is_hard_underline_line' => null,
-        'fill_format' => null,
-        'effect_format' => null,
-        'line_format' => null,
-        'underline_fill_format' => null,
-        'underline_line_format' => null
+        'languageId' => null,
+        'alternativeLanguageId' => null,
+        'isHardUnderlineFill' => null,
+        'isHardUnderlineLine' => null,
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null,
+        'underlineFillFormat' => null,
+        'underlineLineFormat' => null
     ];
 
     /**
@@ -145,30 +145,30 @@ class Portion extends ResourceBase
      */
     protected static $attributeMap = [
         'text' => 'Text',
-        'font_bold' => 'FontBold',
-        'font_italic' => 'FontItalic',
-        'font_underline' => 'FontUnderline',
-        'strikethrough_type' => 'StrikethroughType',
-        'text_cap_type' => 'TextCapType',
+        'fontBold' => 'FontBold',
+        'fontItalic' => 'FontItalic',
+        'fontUnderline' => 'FontUnderline',
+        'strikethroughType' => 'StrikethroughType',
+        'textCapType' => 'TextCapType',
         'escapement' => 'Escapement',
         'spacing' => 'Spacing',
-        'font_color' => 'FontColor',
-        'highlight_color' => 'HighlightColor',
-        'font_height' => 'FontHeight',
-        'normalise_height' => 'NormaliseHeight',
-        'proof_disabled' => 'ProofDisabled',
-        'smart_tag_clean' => 'SmartTagClean',
-        'kerning_minimal_size' => 'KerningMinimalSize',
+        'fontColor' => 'FontColor',
+        'highlightColor' => 'HighlightColor',
+        'fontHeight' => 'FontHeight',
+        'normaliseHeight' => 'NormaliseHeight',
+        'proofDisabled' => 'ProofDisabled',
+        'smartTagClean' => 'SmartTagClean',
+        'kerningMinimalSize' => 'KerningMinimalSize',
         'kumimoji' => 'Kumimoji',
-        'language_id' => 'LanguageId',
-        'alternative_language_id' => 'AlternativeLanguageId',
-        'is_hard_underline_fill' => 'IsHardUnderlineFill',
-        'is_hard_underline_line' => 'IsHardUnderlineLine',
-        'fill_format' => 'FillFormat',
-        'effect_format' => 'EffectFormat',
-        'line_format' => 'LineFormat',
-        'underline_fill_format' => 'UnderlineFillFormat',
-        'underline_line_format' => 'UnderlineLineFormat'
+        'languageId' => 'LanguageId',
+        'alternativeLanguageId' => 'AlternativeLanguageId',
+        'isHardUnderlineFill' => 'IsHardUnderlineFill',
+        'isHardUnderlineLine' => 'IsHardUnderlineLine',
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat',
+        'underlineFillFormat' => 'UnderlineFillFormat',
+        'underlineLineFormat' => 'UnderlineLineFormat'
     ];
 
     /**
@@ -178,30 +178,30 @@ class Portion extends ResourceBase
      */
     protected static $setters = [
         'text' => 'setText',
-        'font_bold' => 'setFontBold',
-        'font_italic' => 'setFontItalic',
-        'font_underline' => 'setFontUnderline',
-        'strikethrough_type' => 'setStrikethroughType',
-        'text_cap_type' => 'setTextCapType',
+        'fontBold' => 'setFontBold',
+        'fontItalic' => 'setFontItalic',
+        'fontUnderline' => 'setFontUnderline',
+        'strikethroughType' => 'setStrikethroughType',
+        'textCapType' => 'setTextCapType',
         'escapement' => 'setEscapement',
         'spacing' => 'setSpacing',
-        'font_color' => 'setFontColor',
-        'highlight_color' => 'setHighlightColor',
-        'font_height' => 'setFontHeight',
-        'normalise_height' => 'setNormaliseHeight',
-        'proof_disabled' => 'setProofDisabled',
-        'smart_tag_clean' => 'setSmartTagClean',
-        'kerning_minimal_size' => 'setKerningMinimalSize',
+        'fontColor' => 'setFontColor',
+        'highlightColor' => 'setHighlightColor',
+        'fontHeight' => 'setFontHeight',
+        'normaliseHeight' => 'setNormaliseHeight',
+        'proofDisabled' => 'setProofDisabled',
+        'smartTagClean' => 'setSmartTagClean',
+        'kerningMinimalSize' => 'setKerningMinimalSize',
         'kumimoji' => 'setKumimoji',
-        'language_id' => 'setLanguageId',
-        'alternative_language_id' => 'setAlternativeLanguageId',
-        'is_hard_underline_fill' => 'setIsHardUnderlineFill',
-        'is_hard_underline_line' => 'setIsHardUnderlineLine',
-        'fill_format' => 'setFillFormat',
-        'effect_format' => 'setEffectFormat',
-        'line_format' => 'setLineFormat',
-        'underline_fill_format' => 'setUnderlineFillFormat',
-        'underline_line_format' => 'setUnderlineLineFormat'
+        'languageId' => 'setLanguageId',
+        'alternativeLanguageId' => 'setAlternativeLanguageId',
+        'isHardUnderlineFill' => 'setIsHardUnderlineFill',
+        'isHardUnderlineLine' => 'setIsHardUnderlineLine',
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat',
+        'underlineFillFormat' => 'setUnderlineFillFormat',
+        'underlineLineFormat' => 'setUnderlineLineFormat'
     ];
 
     /**
@@ -211,30 +211,30 @@ class Portion extends ResourceBase
      */
     protected static $getters = [
         'text' => 'getText',
-        'font_bold' => 'getFontBold',
-        'font_italic' => 'getFontItalic',
-        'font_underline' => 'getFontUnderline',
-        'strikethrough_type' => 'getStrikethroughType',
-        'text_cap_type' => 'getTextCapType',
+        'fontBold' => 'getFontBold',
+        'fontItalic' => 'getFontItalic',
+        'fontUnderline' => 'getFontUnderline',
+        'strikethroughType' => 'getStrikethroughType',
+        'textCapType' => 'getTextCapType',
         'escapement' => 'getEscapement',
         'spacing' => 'getSpacing',
-        'font_color' => 'getFontColor',
-        'highlight_color' => 'getHighlightColor',
-        'font_height' => 'getFontHeight',
-        'normalise_height' => 'getNormaliseHeight',
-        'proof_disabled' => 'getProofDisabled',
-        'smart_tag_clean' => 'getSmartTagClean',
-        'kerning_minimal_size' => 'getKerningMinimalSize',
+        'fontColor' => 'getFontColor',
+        'highlightColor' => 'getHighlightColor',
+        'fontHeight' => 'getFontHeight',
+        'normaliseHeight' => 'getNormaliseHeight',
+        'proofDisabled' => 'getProofDisabled',
+        'smartTagClean' => 'getSmartTagClean',
+        'kerningMinimalSize' => 'getKerningMinimalSize',
         'kumimoji' => 'getKumimoji',
-        'language_id' => 'getLanguageId',
-        'alternative_language_id' => 'getAlternativeLanguageId',
-        'is_hard_underline_fill' => 'getIsHardUnderlineFill',
-        'is_hard_underline_line' => 'getIsHardUnderlineLine',
-        'fill_format' => 'getFillFormat',
-        'effect_format' => 'getEffectFormat',
-        'line_format' => 'getLineFormat',
-        'underline_fill_format' => 'getUnderlineFillFormat',
-        'underline_line_format' => 'getUnderlineLineFormat'
+        'languageId' => 'getLanguageId',
+        'alternativeLanguageId' => 'getAlternativeLanguageId',
+        'isHardUnderlineFill' => 'getIsHardUnderlineFill',
+        'isHardUnderlineLine' => 'getIsHardUnderlineLine',
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat',
+        'underlineFillFormat' => 'getUnderlineFillFormat',
+        'underlineLineFormat' => 'getUnderlineLineFormat'
     ];
 
     /**
@@ -500,30 +500,30 @@ class Portion extends ResourceBase
         parent::__construct($data);
 
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['font_bold'] = isset($data['font_bold']) ? $data['font_bold'] : null;
-        $this->container['font_italic'] = isset($data['font_italic']) ? $data['font_italic'] : null;
-        $this->container['font_underline'] = isset($data['font_underline']) ? $data['font_underline'] : null;
-        $this->container['strikethrough_type'] = isset($data['strikethrough_type']) ? $data['strikethrough_type'] : null;
-        $this->container['text_cap_type'] = isset($data['text_cap_type']) ? $data['text_cap_type'] : null;
+        $this->container['fontBold'] = isset($data['fontBold']) ? $data['fontBold'] : null;
+        $this->container['fontItalic'] = isset($data['fontItalic']) ? $data['fontItalic'] : null;
+        $this->container['fontUnderline'] = isset($data['fontUnderline']) ? $data['fontUnderline'] : null;
+        $this->container['strikethroughType'] = isset($data['strikethroughType']) ? $data['strikethroughType'] : null;
+        $this->container['textCapType'] = isset($data['textCapType']) ? $data['textCapType'] : null;
         $this->container['escapement'] = isset($data['escapement']) ? $data['escapement'] : null;
         $this->container['spacing'] = isset($data['spacing']) ? $data['spacing'] : null;
-        $this->container['font_color'] = isset($data['font_color']) ? $data['font_color'] : null;
-        $this->container['highlight_color'] = isset($data['highlight_color']) ? $data['highlight_color'] : null;
-        $this->container['font_height'] = isset($data['font_height']) ? $data['font_height'] : null;
-        $this->container['normalise_height'] = isset($data['normalise_height']) ? $data['normalise_height'] : null;
-        $this->container['proof_disabled'] = isset($data['proof_disabled']) ? $data['proof_disabled'] : null;
-        $this->container['smart_tag_clean'] = isset($data['smart_tag_clean']) ? $data['smart_tag_clean'] : null;
-        $this->container['kerning_minimal_size'] = isset($data['kerning_minimal_size']) ? $data['kerning_minimal_size'] : null;
+        $this->container['fontColor'] = isset($data['fontColor']) ? $data['fontColor'] : null;
+        $this->container['highlightColor'] = isset($data['highlightColor']) ? $data['highlightColor'] : null;
+        $this->container['fontHeight'] = isset($data['fontHeight']) ? $data['fontHeight'] : null;
+        $this->container['normaliseHeight'] = isset($data['normaliseHeight']) ? $data['normaliseHeight'] : null;
+        $this->container['proofDisabled'] = isset($data['proofDisabled']) ? $data['proofDisabled'] : null;
+        $this->container['smartTagClean'] = isset($data['smartTagClean']) ? $data['smartTagClean'] : null;
+        $this->container['kerningMinimalSize'] = isset($data['kerningMinimalSize']) ? $data['kerningMinimalSize'] : null;
         $this->container['kumimoji'] = isset($data['kumimoji']) ? $data['kumimoji'] : null;
-        $this->container['language_id'] = isset($data['language_id']) ? $data['language_id'] : null;
-        $this->container['alternative_language_id'] = isset($data['alternative_language_id']) ? $data['alternative_language_id'] : null;
-        $this->container['is_hard_underline_fill'] = isset($data['is_hard_underline_fill']) ? $data['is_hard_underline_fill'] : null;
-        $this->container['is_hard_underline_line'] = isset($data['is_hard_underline_line']) ? $data['is_hard_underline_line'] : null;
-        $this->container['fill_format'] = isset($data['fill_format']) ? $data['fill_format'] : null;
-        $this->container['effect_format'] = isset($data['effect_format']) ? $data['effect_format'] : null;
-        $this->container['line_format'] = isset($data['line_format']) ? $data['line_format'] : null;
-        $this->container['underline_fill_format'] = isset($data['underline_fill_format']) ? $data['underline_fill_format'] : null;
-        $this->container['underline_line_format'] = isset($data['underline_line_format']) ? $data['underline_line_format'] : null;
+        $this->container['languageId'] = isset($data['languageId']) ? $data['languageId'] : null;
+        $this->container['alternativeLanguageId'] = isset($data['alternativeLanguageId']) ? $data['alternativeLanguageId'] : null;
+        $this->container['isHardUnderlineFill'] = isset($data['isHardUnderlineFill']) ? $data['isHardUnderlineFill'] : null;
+        $this->container['isHardUnderlineLine'] = isset($data['isHardUnderlineLine']) ? $data['isHardUnderlineLine'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['underlineFillFormat'] = isset($data['underlineFillFormat']) ? $data['underlineFillFormat'] : null;
+        $this->container['underlineLineFormat'] = isset($data['underlineLineFormat']) ? $data['underlineLineFormat'] : null;
     }
 
     /**
@@ -536,57 +536,57 @@ class Portion extends ResourceBase
         $invalidProperties = parent::listInvalidProperties();
 
         $allowedValues = $this->getFontBoldAllowableValues();
-        if (!in_array($this->container['font_bold'], $allowedValues)) {
+        if (!in_array($this->container['fontBold'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'font_bold', must be one of '%s'",
+                "invalid value for 'fontBold', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getFontItalicAllowableValues();
-        if (!in_array($this->container['font_italic'], $allowedValues)) {
+        if (!in_array($this->container['fontItalic'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'font_italic', must be one of '%s'",
+                "invalid value for 'fontItalic', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getFontUnderlineAllowableValues();
-        if (!in_array($this->container['font_underline'], $allowedValues)) {
+        if (!in_array($this->container['fontUnderline'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'font_underline', must be one of '%s'",
+                "invalid value for 'fontUnderline', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getStrikethroughTypeAllowableValues();
-        if (!in_array($this->container['strikethrough_type'], $allowedValues)) {
+        if (!in_array($this->container['strikethroughType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'strikethrough_type', must be one of '%s'",
+                "invalid value for 'strikethroughType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getTextCapTypeAllowableValues();
-        if (!in_array($this->container['text_cap_type'], $allowedValues)) {
+        if (!in_array($this->container['textCapType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'text_cap_type', must be one of '%s'",
+                "invalid value for 'textCapType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getNormaliseHeightAllowableValues();
-        if (!in_array($this->container['normalise_height'], $allowedValues)) {
+        if (!in_array($this->container['normaliseHeight'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'normalise_height', must be one of '%s'",
+                "invalid value for 'normaliseHeight', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getProofDisabledAllowableValues();
-        if (!in_array($this->container['proof_disabled'], $allowedValues)) {
+        if (!in_array($this->container['proofDisabled'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'proof_disabled', must be one of '%s'",
+                "invalid value for 'proofDisabled', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -600,17 +600,17 @@ class Portion extends ResourceBase
         }
 
         $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
-        if (!in_array($this->container['is_hard_underline_fill'], $allowedValues)) {
+        if (!in_array($this->container['isHardUnderlineFill'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'is_hard_underline_fill', must be one of '%s'",
+                "invalid value for 'isHardUnderlineFill', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
-        if (!in_array($this->container['is_hard_underline_line'], $allowedValues)) {
+        if (!in_array($this->container['isHardUnderlineLine'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'is_hard_underline_line', must be one of '%s'",
+                "invalid value for 'isHardUnderlineLine', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -631,31 +631,31 @@ class Portion extends ResourceBase
         }
 
         $allowedValues = $this->getFontBoldAllowableValues();
-        if (!in_array($this->container['font_bold'], $allowedValues)) {
+        if (!in_array($this->container['fontBold'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getFontItalicAllowableValues();
-        if (!in_array($this->container['font_italic'], $allowedValues)) {
+        if (!in_array($this->container['fontItalic'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getFontUnderlineAllowableValues();
-        if (!in_array($this->container['font_underline'], $allowedValues)) {
+        if (!in_array($this->container['fontUnderline'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getStrikethroughTypeAllowableValues();
-        if (!in_array($this->container['strikethrough_type'], $allowedValues)) {
+        if (!in_array($this->container['strikethroughType'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getTextCapTypeAllowableValues();
-        if (!in_array($this->container['text_cap_type'], $allowedValues)) {
+        if (!in_array($this->container['textCapType'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getNormaliseHeightAllowableValues();
-        if (!in_array($this->container['normalise_height'], $allowedValues)) {
+        if (!in_array($this->container['normaliseHeight'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getProofDisabledAllowableValues();
-        if (!in_array($this->container['proof_disabled'], $allowedValues)) {
+        if (!in_array($this->container['proofDisabled'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getKumimojiAllowableValues();
@@ -663,11 +663,11 @@ class Portion extends ResourceBase
             return false;
         }
         $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
-        if (!in_array($this->container['is_hard_underline_fill'], $allowedValues)) {
+        if (!in_array($this->container['isHardUnderlineFill'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
-        if (!in_array($this->container['is_hard_underline_line'], $allowedValues)) {
+        if (!in_array($this->container['isHardUnderlineLine'], $allowedValues)) {
             return false;
         }
         return true;
@@ -699,166 +699,166 @@ class Portion extends ResourceBase
     }
 
     /**
-     * Gets font_bold
+     * Gets fontBold
      *
      * @return string
      */
     public function getFontBold()
     {
-        return $this->container['font_bold'];
+        return $this->container['fontBold'];
     }
 
     /**
-     * Sets font_bold
+     * Sets fontBold
      *
-     * @param string $font_bold font_bold
+     * @param string $fontBold fontBold
      *
      * @return $this
      */
-    public function setFontBold($font_bold)
+    public function setFontBold($fontBold)
     {
         $allowedValues = $this->getFontBoldAllowableValues();
-        if (!is_null($font_bold) && !in_array($font_bold, $allowedValues)) {
+        if (!is_null($fontBold) && !in_array($fontBold, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'font_bold', must be one of '%s'",
+                    "Invalid value for 'fontBold', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['font_bold'] = $font_bold;
+        $this->container['fontBold'] = $fontBold;
 
         return $this;
     }
 
     /**
-     * Gets font_italic
+     * Gets fontItalic
      *
      * @return string
      */
     public function getFontItalic()
     {
-        return $this->container['font_italic'];
+        return $this->container['fontItalic'];
     }
 
     /**
-     * Sets font_italic
+     * Sets fontItalic
      *
-     * @param string $font_italic font_italic
+     * @param string $fontItalic fontItalic
      *
      * @return $this
      */
-    public function setFontItalic($font_italic)
+    public function setFontItalic($fontItalic)
     {
         $allowedValues = $this->getFontItalicAllowableValues();
-        if (!is_null($font_italic) && !in_array($font_italic, $allowedValues)) {
+        if (!is_null($fontItalic) && !in_array($fontItalic, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'font_italic', must be one of '%s'",
+                    "Invalid value for 'fontItalic', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['font_italic'] = $font_italic;
+        $this->container['fontItalic'] = $fontItalic;
 
         return $this;
     }
 
     /**
-     * Gets font_underline
+     * Gets fontUnderline
      *
      * @return string
      */
     public function getFontUnderline()
     {
-        return $this->container['font_underline'];
+        return $this->container['fontUnderline'];
     }
 
     /**
-     * Sets font_underline
+     * Sets fontUnderline
      *
-     * @param string $font_underline font_underline
+     * @param string $fontUnderline fontUnderline
      *
      * @return $this
      */
-    public function setFontUnderline($font_underline)
+    public function setFontUnderline($fontUnderline)
     {
         $allowedValues = $this->getFontUnderlineAllowableValues();
-        if (!is_null($font_underline) && !in_array($font_underline, $allowedValues)) {
+        if (!is_null($fontUnderline) && !in_array($fontUnderline, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'font_underline', must be one of '%s'",
+                    "Invalid value for 'fontUnderline', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['font_underline'] = $font_underline;
+        $this->container['fontUnderline'] = $fontUnderline;
 
         return $this;
     }
 
     /**
-     * Gets strikethrough_type
+     * Gets strikethroughType
      *
      * @return string
      */
     public function getStrikethroughType()
     {
-        return $this->container['strikethrough_type'];
+        return $this->container['strikethroughType'];
     }
 
     /**
-     * Sets strikethrough_type
+     * Sets strikethroughType
      *
-     * @param string $strikethrough_type strikethrough_type
+     * @param string $strikethroughType strikethroughType
      *
      * @return $this
      */
-    public function setStrikethroughType($strikethrough_type)
+    public function setStrikethroughType($strikethroughType)
     {
         $allowedValues = $this->getStrikethroughTypeAllowableValues();
-        if (!is_null($strikethrough_type) && !in_array($strikethrough_type, $allowedValues)) {
+        if (!is_null($strikethroughType) && !in_array($strikethroughType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'strikethrough_type', must be one of '%s'",
+                    "Invalid value for 'strikethroughType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['strikethrough_type'] = $strikethrough_type;
+        $this->container['strikethroughType'] = $strikethroughType;
 
         return $this;
     }
 
     /**
-     * Gets text_cap_type
+     * Gets textCapType
      *
      * @return string
      */
     public function getTextCapType()
     {
-        return $this->container['text_cap_type'];
+        return $this->container['textCapType'];
     }
 
     /**
-     * Sets text_cap_type
+     * Sets textCapType
      *
-     * @param string $text_cap_type text_cap_type
+     * @param string $textCapType textCapType
      *
      * @return $this
      */
-    public function setTextCapType($text_cap_type)
+    public function setTextCapType($textCapType)
     {
         $allowedValues = $this->getTextCapTypeAllowableValues();
-        if (!is_null($text_cap_type) && !in_array($text_cap_type, $allowedValues)) {
+        if (!is_null($textCapType) && !in_array($textCapType, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'text_cap_type', must be one of '%s'",
+                    "Invalid value for 'textCapType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['text_cap_type'] = $text_cap_type;
+        $this->container['textCapType'] = $textCapType;
 
         return $this;
     }
@@ -912,187 +912,187 @@ class Portion extends ResourceBase
     }
 
     /**
-     * Gets font_color
+     * Gets fontColor
      *
      * @return string
      */
     public function getFontColor()
     {
-        return $this->container['font_color'];
+        return $this->container['fontColor'];
     }
 
     /**
-     * Sets font_color
+     * Sets fontColor
      *
-     * @param string $font_color font_color
+     * @param string $fontColor fontColor
      *
      * @return $this
      */
-    public function setFontColor($font_color)
+    public function setFontColor($fontColor)
     {
-        $this->container['font_color'] = $font_color;
+        $this->container['fontColor'] = $fontColor;
 
         return $this;
     }
 
     /**
-     * Gets highlight_color
+     * Gets highlightColor
      *
      * @return string
      */
     public function getHighlightColor()
     {
-        return $this->container['highlight_color'];
+        return $this->container['highlightColor'];
     }
 
     /**
-     * Sets highlight_color
+     * Sets highlightColor
      *
-     * @param string $highlight_color highlight_color
+     * @param string $highlightColor highlightColor
      *
      * @return $this
      */
-    public function setHighlightColor($highlight_color)
+    public function setHighlightColor($highlightColor)
     {
-        $this->container['highlight_color'] = $highlight_color;
+        $this->container['highlightColor'] = $highlightColor;
 
         return $this;
     }
 
     /**
-     * Gets font_height
+     * Gets fontHeight
      *
      * @return double
      */
     public function getFontHeight()
     {
-        return $this->container['font_height'];
+        return $this->container['fontHeight'];
     }
 
     /**
-     * Sets font_height
+     * Sets fontHeight
      *
-     * @param double $font_height font_height
+     * @param double $fontHeight fontHeight
      *
      * @return $this
      */
-    public function setFontHeight($font_height)
+    public function setFontHeight($fontHeight)
     {
-        $this->container['font_height'] = $font_height;
+        $this->container['fontHeight'] = $fontHeight;
 
         return $this;
     }
 
     /**
-     * Gets normalise_height
+     * Gets normaliseHeight
      *
      * @return string
      */
     public function getNormaliseHeight()
     {
-        return $this->container['normalise_height'];
+        return $this->container['normaliseHeight'];
     }
 
     /**
-     * Sets normalise_height
+     * Sets normaliseHeight
      *
-     * @param string $normalise_height normalise_height
+     * @param string $normaliseHeight normaliseHeight
      *
      * @return $this
      */
-    public function setNormaliseHeight($normalise_height)
+    public function setNormaliseHeight($normaliseHeight)
     {
         $allowedValues = $this->getNormaliseHeightAllowableValues();
-        if (!is_null($normalise_height) && !in_array($normalise_height, $allowedValues)) {
+        if (!is_null($normaliseHeight) && !in_array($normaliseHeight, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'normalise_height', must be one of '%s'",
+                    "Invalid value for 'normaliseHeight', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['normalise_height'] = $normalise_height;
+        $this->container['normaliseHeight'] = $normaliseHeight;
 
         return $this;
     }
 
     /**
-     * Gets proof_disabled
+     * Gets proofDisabled
      *
      * @return string
      */
     public function getProofDisabled()
     {
-        return $this->container['proof_disabled'];
+        return $this->container['proofDisabled'];
     }
 
     /**
-     * Sets proof_disabled
+     * Sets proofDisabled
      *
-     * @param string $proof_disabled proof_disabled
+     * @param string $proofDisabled proofDisabled
      *
      * @return $this
      */
-    public function setProofDisabled($proof_disabled)
+    public function setProofDisabled($proofDisabled)
     {
         $allowedValues = $this->getProofDisabledAllowableValues();
-        if (!is_null($proof_disabled) && !in_array($proof_disabled, $allowedValues)) {
+        if (!is_null($proofDisabled) && !in_array($proofDisabled, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'proof_disabled', must be one of '%s'",
+                    "Invalid value for 'proofDisabled', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['proof_disabled'] = $proof_disabled;
+        $this->container['proofDisabled'] = $proofDisabled;
 
         return $this;
     }
 
     /**
-     * Gets smart_tag_clean
+     * Gets smartTagClean
      *
      * @return bool
      */
     public function getSmartTagClean()
     {
-        return $this->container['smart_tag_clean'];
+        return $this->container['smartTagClean'];
     }
 
     /**
-     * Sets smart_tag_clean
+     * Sets smartTagClean
      *
-     * @param bool $smart_tag_clean smart_tag_clean
+     * @param bool $smartTagClean smartTagClean
      *
      * @return $this
      */
-    public function setSmartTagClean($smart_tag_clean)
+    public function setSmartTagClean($smartTagClean)
     {
-        $this->container['smart_tag_clean'] = $smart_tag_clean;
+        $this->container['smartTagClean'] = $smartTagClean;
 
         return $this;
     }
 
     /**
-     * Gets kerning_minimal_size
+     * Gets kerningMinimalSize
      *
      * @return double
      */
     public function getKerningMinimalSize()
     {
-        return $this->container['kerning_minimal_size'];
+        return $this->container['kerningMinimalSize'];
     }
 
     /**
-     * Sets kerning_minimal_size
+     * Sets kerningMinimalSize
      *
-     * @param double $kerning_minimal_size kerning_minimal_size
+     * @param double $kerningMinimalSize kerningMinimalSize
      *
      * @return $this
      */
-    public function setKerningMinimalSize($kerning_minimal_size)
+    public function setKerningMinimalSize($kerningMinimalSize)
     {
-        $this->container['kerning_minimal_size'] = $kerning_minimal_size;
+        $this->container['kerningMinimalSize'] = $kerningMinimalSize;
 
         return $this;
     }
@@ -1131,235 +1131,235 @@ class Portion extends ResourceBase
     }
 
     /**
-     * Gets language_id
+     * Gets languageId
      *
      * @return string
      */
     public function getLanguageId()
     {
-        return $this->container['language_id'];
+        return $this->container['languageId'];
     }
 
     /**
-     * Sets language_id
+     * Sets languageId
      *
-     * @param string $language_id language_id
+     * @param string $languageId languageId
      *
      * @return $this
      */
-    public function setLanguageId($language_id)
+    public function setLanguageId($languageId)
     {
-        $this->container['language_id'] = $language_id;
+        $this->container['languageId'] = $languageId;
 
         return $this;
     }
 
     /**
-     * Gets alternative_language_id
+     * Gets alternativeLanguageId
      *
      * @return string
      */
     public function getAlternativeLanguageId()
     {
-        return $this->container['alternative_language_id'];
+        return $this->container['alternativeLanguageId'];
     }
 
     /**
-     * Sets alternative_language_id
+     * Sets alternativeLanguageId
      *
-     * @param string $alternative_language_id alternative_language_id
+     * @param string $alternativeLanguageId alternativeLanguageId
      *
      * @return $this
      */
-    public function setAlternativeLanguageId($alternative_language_id)
+    public function setAlternativeLanguageId($alternativeLanguageId)
     {
-        $this->container['alternative_language_id'] = $alternative_language_id;
+        $this->container['alternativeLanguageId'] = $alternativeLanguageId;
 
         return $this;
     }
 
     /**
-     * Gets is_hard_underline_fill
+     * Gets isHardUnderlineFill
      *
      * @return string
      */
     public function getIsHardUnderlineFill()
     {
-        return $this->container['is_hard_underline_fill'];
+        return $this->container['isHardUnderlineFill'];
     }
 
     /**
-     * Sets is_hard_underline_fill
+     * Sets isHardUnderlineFill
      *
-     * @param string $is_hard_underline_fill is_hard_underline_fill
+     * @param string $isHardUnderlineFill isHardUnderlineFill
      *
      * @return $this
      */
-    public function setIsHardUnderlineFill($is_hard_underline_fill)
+    public function setIsHardUnderlineFill($isHardUnderlineFill)
     {
         $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
-        if (!is_null($is_hard_underline_fill) && !in_array($is_hard_underline_fill, $allowedValues)) {
+        if (!is_null($isHardUnderlineFill) && !in_array($isHardUnderlineFill, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'is_hard_underline_fill', must be one of '%s'",
+                    "Invalid value for 'isHardUnderlineFill', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['is_hard_underline_fill'] = $is_hard_underline_fill;
+        $this->container['isHardUnderlineFill'] = $isHardUnderlineFill;
 
         return $this;
     }
 
     /**
-     * Gets is_hard_underline_line
+     * Gets isHardUnderlineLine
      *
      * @return string
      */
     public function getIsHardUnderlineLine()
     {
-        return $this->container['is_hard_underline_line'];
+        return $this->container['isHardUnderlineLine'];
     }
 
     /**
-     * Sets is_hard_underline_line
+     * Sets isHardUnderlineLine
      *
-     * @param string $is_hard_underline_line is_hard_underline_line
+     * @param string $isHardUnderlineLine isHardUnderlineLine
      *
      * @return $this
      */
-    public function setIsHardUnderlineLine($is_hard_underline_line)
+    public function setIsHardUnderlineLine($isHardUnderlineLine)
     {
         $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
-        if (!is_null($is_hard_underline_line) && !in_array($is_hard_underline_line, $allowedValues)) {
+        if (!is_null($isHardUnderlineLine) && !in_array($isHardUnderlineLine, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'is_hard_underline_line', must be one of '%s'",
+                    "Invalid value for 'isHardUnderlineLine', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['is_hard_underline_line'] = $is_hard_underline_line;
+        $this->container['isHardUnderlineLine'] = $isHardUnderlineLine;
 
         return $this;
     }
 
     /**
-     * Gets fill_format
+     * Gets fillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getFillFormat()
     {
-        return $this->container['fill_format'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets fill_format
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fill_format fill_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat fillFormat
      *
      * @return $this
      */
-    public function setFillFormat($fill_format)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['fill_format'] = $fill_format;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets effect_format
+     * Gets effectFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
     public function getEffectFormat()
     {
-        return $this->container['effect_format'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets effect_format
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effect_format effect_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat effectFormat
      *
      * @return $this
      */
-    public function setEffectFormat($effect_format)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['effect_format'] = $effect_format;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets line_format
+     * Gets lineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getLineFormat()
     {
-        return $this->container['line_format'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets line_format
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $line_format line_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat lineFormat
      *
      * @return $this
      */
-    public function setLineFormat($line_format)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['line_format'] = $line_format;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }
 
     /**
-     * Gets underline_fill_format
+     * Gets underlineFillFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
     public function getUnderlineFillFormat()
     {
-        return $this->container['underline_fill_format'];
+        return $this->container['underlineFillFormat'];
     }
 
     /**
-     * Sets underline_fill_format
+     * Sets underlineFillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $underline_fill_format underline_fill_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $underlineFillFormat underlineFillFormat
      *
      * @return $this
      */
-    public function setUnderlineFillFormat($underline_fill_format)
+    public function setUnderlineFillFormat($underlineFillFormat)
     {
-        $this->container['underline_fill_format'] = $underline_fill_format;
+        $this->container['underlineFillFormat'] = $underlineFillFormat;
 
         return $this;
     }
 
     /**
-     * Gets underline_line_format
+     * Gets underlineLineFormat
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
     public function getUnderlineLineFormat()
     {
-        return $this->container['underline_line_format'];
+        return $this->container['underlineLineFormat'];
     }
 
     /**
-     * Sets underline_line_format
+     * Sets underlineLineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $underline_line_format underline_line_format
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $underlineLineFormat underlineLineFormat
      *
      * @return $this
      */
-    public function setUnderlineLineFormat($underline_line_format)
+    public function setUnderlineLineFormat($underlineLineFormat)
     {
-        $this->container['underline_line_format'] = $underline_line_format;
+        $this->container['underlineLineFormat'] = $underlineLineFormat;
 
         return $this;
     }

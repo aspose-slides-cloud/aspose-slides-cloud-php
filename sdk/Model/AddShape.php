@@ -57,7 +57,7 @@ class AddShape extends Task
       */
     protected static $swaggerTypes = [
         'shape' => '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase',
-        'shape_path' => 'string'
+        'shapePath' => 'string'
     ];
 
     /**
@@ -67,7 +67,7 @@ class AddShape extends Task
       */
     protected static $swaggerFormats = [
         'shape' => null,
-        'shape_path' => null
+        'shapePath' => null
     ];
 
     /**
@@ -98,7 +98,7 @@ class AddShape extends Task
      */
     protected static $attributeMap = [
         'shape' => 'Shape',
-        'shape_path' => 'ShapePath'
+        'shapePath' => 'ShapePath'
     ];
 
     /**
@@ -108,7 +108,7 @@ class AddShape extends Task
      */
     protected static $setters = [
         'shape' => 'setShape',
-        'shape_path' => 'setShapePath'
+        'shapePath' => 'setShapePath'
     ];
 
     /**
@@ -118,7 +118,7 @@ class AddShape extends Task
      */
     protected static $getters = [
         'shape' => 'getShape',
-        'shape_path' => 'getShapePath'
+        'shapePath' => 'getShapePath'
     ];
 
     /**
@@ -178,7 +178,7 @@ class AddShape extends Task
         parent::__construct($data);
 
         $this->container['shape'] = isset($data['shape']) ? $data['shape'] : null;
-        $this->container['shape_path'] = isset($data['shape_path']) ? $data['shape_path'] : null;
+        $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
     }
 
     /**
@@ -234,25 +234,25 @@ class AddShape extends Task
     }
 
     /**
-     * Gets shape_path
+     * Gets shapePath
      *
      * @return string
      */
     public function getShapePath()
     {
-        return $this->container['shape_path'];
+        return $this->container['shapePath'];
     }
 
     /**
-     * Sets shape_path
+     * Sets shapePath
      *
-     * @param string $shape_path shape_path
+     * @param string $shapePath shapePath
      *
      * @return $this
      */
-    public function setShapePath($shape_path)
+    public function setShapePath($shapePath)
     {
-        $this->container['shape_path'] = $shape_path;
+        $this->container['shapePath'] = $shapePath;
 
         return $this;
     }

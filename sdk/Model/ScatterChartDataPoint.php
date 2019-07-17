@@ -59,8 +59,8 @@ class ScatterChartDataPoint implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'x_value' => 'double',
-        'y_value' => 'double'
+        'xValue' => 'double',
+        'yValue' => 'double'
     ];
 
     /**
@@ -69,8 +69,8 @@ class ScatterChartDataPoint implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'x_value' => 'double',
-        'y_value' => 'double'
+        'xValue' => 'double',
+        'yValue' => 'double'
     ];
 
     /**
@@ -100,8 +100,8 @@ class ScatterChartDataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'x_value' => 'XValue',
-        'y_value' => 'YValue'
+        'xValue' => 'XValue',
+        'yValue' => 'YValue'
     ];
 
     /**
@@ -110,8 +110,8 @@ class ScatterChartDataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'x_value' => 'setXValue',
-        'y_value' => 'setYValue'
+        'xValue' => 'setXValue',
+        'yValue' => 'setYValue'
     ];
 
     /**
@@ -120,8 +120,8 @@ class ScatterChartDataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'x_value' => 'getXValue',
-        'y_value' => 'getYValue'
+        'xValue' => 'getXValue',
+        'yValue' => 'getYValue'
     ];
 
     /**
@@ -184,8 +184,8 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['x_value'] = isset($data['x_value']) ? $data['x_value'] : null;
-        $this->container['y_value'] = isset($data['y_value']) ? $data['y_value'] : null;
+        $this->container['xValue'] = isset($data['xValue']) ? $data['xValue'] : null;
+        $this->container['yValue'] = isset($data['yValue']) ? $data['yValue'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -201,11 +201,11 @@ class ScatterChartDataPoint implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['x_value'] === null) {
-            $invalidProperties[] = "'x_value' can't be null";
+        if ($this->container['xValue'] === null) {
+            $invalidProperties[] = "'xValue' can't be null";
         }
-        if ($this->container['y_value'] === null) {
-            $invalidProperties[] = "'y_value' can't be null";
+        if ($this->container['yValue'] === null) {
+            $invalidProperties[] = "'yValue' can't be null";
         }
         return $invalidProperties;
     }
@@ -219,10 +219,10 @@ class ScatterChartDataPoint implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['x_value'] === null) {
+        if ($this->container['xValue'] === null) {
             return false;
         }
-        if ($this->container['y_value'] === null) {
+        if ($this->container['yValue'] === null) {
             return false;
         }
         return true;
@@ -230,49 +230,49 @@ class ScatterChartDataPoint implements ArrayAccess
 
 
     /**
-     * Gets x_value
+     * Gets xValue
      *
      * @return double
      */
     public function getXValue()
     {
-        return $this->container['x_value'];
+        return $this->container['xValue'];
     }
 
     /**
-     * Sets x_value
+     * Sets xValue
      *
-     * @param double $x_value X-value
+     * @param double $xValue X-value
      *
      * @return $this
      */
-    public function setXValue($x_value)
+    public function setXValue($xValue)
     {
-        $this->container['x_value'] = $x_value;
+        $this->container['xValue'] = $xValue;
 
         return $this;
     }
 
     /**
-     * Gets y_value
+     * Gets yValue
      *
      * @return double
      */
     public function getYValue()
     {
-        return $this->container['y_value'];
+        return $this->container['yValue'];
     }
 
     /**
-     * Sets y_value
+     * Sets yValue
      *
-     * @param double $y_value Y-value
+     * @param double $yValue Y-value
      *
      * @return $this
      */
-    public function setYValue($y_value)
+    public function setYValue($yValue)
     {
-        $this->container['y_value'] = $y_value;
+        $this->container['yValue'] = $yValue;
 
         return $this;
     }

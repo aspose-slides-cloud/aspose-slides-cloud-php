@@ -60,7 +60,7 @@ class ChartTitle implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'has_title' => 'bool'
+        'hasTitle' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class ChartTitle implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'text' => null,
-        'has_title' => null
+        'hasTitle' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class ChartTitle implements ArrayAccess
      */
     protected static $attributeMap = [
         'text' => 'Text',
-        'has_title' => 'HasTitle'
+        'hasTitle' => 'HasTitle'
     ];
 
     /**
@@ -111,7 +111,7 @@ class ChartTitle implements ArrayAccess
      */
     protected static $setters = [
         'text' => 'setText',
-        'has_title' => 'setHasTitle'
+        'hasTitle' => 'setHasTitle'
     ];
 
     /**
@@ -121,7 +121,7 @@ class ChartTitle implements ArrayAccess
      */
     protected static $getters = [
         'text' => 'getText',
-        'has_title' => 'getHasTitle'
+        'hasTitle' => 'getHasTitle'
     ];
 
     /**
@@ -185,7 +185,7 @@ class ChartTitle implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['has_title'] = isset($data['has_title']) ? $data['has_title'] : null;
+        $this->container['hasTitle'] = isset($data['hasTitle']) ? $data['hasTitle'] : null;
     }
 
     /**
@@ -197,8 +197,8 @@ class ChartTitle implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['has_title'] === null) {
-            $invalidProperties[] = "'has_title' can't be null";
+        if ($this->container['hasTitle'] === null) {
+            $invalidProperties[] = "'hasTitle' can't be null";
         }
         return $invalidProperties;
     }
@@ -212,7 +212,7 @@ class ChartTitle implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['has_title'] === null) {
+        if ($this->container['hasTitle'] === null) {
             return false;
         }
         return true;
@@ -244,25 +244,25 @@ class ChartTitle implements ArrayAccess
     }
 
     /**
-     * Gets has_title
+     * Gets hasTitle
      *
      * @return bool
      */
     public function getHasTitle()
     {
-        return $this->container['has_title'];
+        return $this->container['hasTitle'];
     }
 
     /**
-     * Sets has_title
+     * Sets hasTitle
      *
-     * @param bool $has_title Get or sets value determines visibility of title
+     * @param bool $hasTitle Get or sets value determines visibility of title
      *
      * @return $this
      */
-    public function setHasTitle($has_title)
+    public function setHasTitle($hasTitle)
     {
-        $this->container['has_title'] = $has_title;
+        $this->container['hasTitle'] = $hasTitle;
 
         return $this;
     }

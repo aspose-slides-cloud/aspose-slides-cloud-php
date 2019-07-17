@@ -57,16 +57,16 @@ class AudioFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'audio_cd_end_track' => 'int',
-        'audio_cd_end_track_time' => 'int',
-        'audio_cd_start_track' => 'int',
-        'audio_cd_start_track_time' => 'int',
+        'audioCdEndTrack' => 'int',
+        'audioCdEndTrackTime' => 'int',
+        'audioCdStartTrack' => 'int',
+        'audioCdStartTrackTime' => 'int',
         'embedded' => 'bool',
-        'hide_at_showing' => 'bool',
-        'play_loop_mode' => 'bool',
-        'play_mode' => 'string',
+        'hideAtShowing' => 'bool',
+        'playLoopMode' => 'bool',
+        'playMode' => 'string',
         'volume' => 'string',
-        'base64_data' => 'string'
+        'base64Data' => 'string'
     ];
 
     /**
@@ -75,16 +75,16 @@ class AudioFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'audio_cd_end_track' => 'int32',
-        'audio_cd_end_track_time' => 'int32',
-        'audio_cd_start_track' => 'int32',
-        'audio_cd_start_track_time' => 'int32',
+        'audioCdEndTrack' => 'int32',
+        'audioCdEndTrackTime' => 'int32',
+        'audioCdStartTrack' => 'int32',
+        'audioCdStartTrackTime' => 'int32',
         'embedded' => null,
-        'hide_at_showing' => null,
-        'play_loop_mode' => null,
-        'play_mode' => null,
+        'hideAtShowing' => null,
+        'playLoopMode' => null,
+        'playMode' => null,
         'volume' => null,
-        'base64_data' => null
+        'base64Data' => null
     ];
 
     /**
@@ -114,16 +114,16 @@ class AudioFrame extends GeometryShape
      * @var string[]
      */
     protected static $attributeMap = [
-        'audio_cd_end_track' => 'AudioCdEndTrack',
-        'audio_cd_end_track_time' => 'AudioCdEndTrackTime',
-        'audio_cd_start_track' => 'AudioCdStartTrack',
-        'audio_cd_start_track_time' => 'AudioCdStartTrackTime',
+        'audioCdEndTrack' => 'AudioCdEndTrack',
+        'audioCdEndTrackTime' => 'AudioCdEndTrackTime',
+        'audioCdStartTrack' => 'AudioCdStartTrack',
+        'audioCdStartTrackTime' => 'AudioCdStartTrackTime',
         'embedded' => 'Embedded',
-        'hide_at_showing' => 'HideAtShowing',
-        'play_loop_mode' => 'PlayLoopMode',
-        'play_mode' => 'PlayMode',
+        'hideAtShowing' => 'HideAtShowing',
+        'playLoopMode' => 'PlayLoopMode',
+        'playMode' => 'PlayMode',
         'volume' => 'Volume',
-        'base64_data' => 'Base64Data'
+        'base64Data' => 'Base64Data'
     ];
 
     /**
@@ -132,16 +132,16 @@ class AudioFrame extends GeometryShape
      * @var string[]
      */
     protected static $setters = [
-        'audio_cd_end_track' => 'setAudioCdEndTrack',
-        'audio_cd_end_track_time' => 'setAudioCdEndTrackTime',
-        'audio_cd_start_track' => 'setAudioCdStartTrack',
-        'audio_cd_start_track_time' => 'setAudioCdStartTrackTime',
+        'audioCdEndTrack' => 'setAudioCdEndTrack',
+        'audioCdEndTrackTime' => 'setAudioCdEndTrackTime',
+        'audioCdStartTrack' => 'setAudioCdStartTrack',
+        'audioCdStartTrackTime' => 'setAudioCdStartTrackTime',
         'embedded' => 'setEmbedded',
-        'hide_at_showing' => 'setHideAtShowing',
-        'play_loop_mode' => 'setPlayLoopMode',
-        'play_mode' => 'setPlayMode',
+        'hideAtShowing' => 'setHideAtShowing',
+        'playLoopMode' => 'setPlayLoopMode',
+        'playMode' => 'setPlayMode',
         'volume' => 'setVolume',
-        'base64_data' => 'setBase64Data'
+        'base64Data' => 'setBase64Data'
     ];
 
     /**
@@ -150,16 +150,16 @@ class AudioFrame extends GeometryShape
      * @var string[]
      */
     protected static $getters = [
-        'audio_cd_end_track' => 'getAudioCdEndTrack',
-        'audio_cd_end_track_time' => 'getAudioCdEndTrackTime',
-        'audio_cd_start_track' => 'getAudioCdStartTrack',
-        'audio_cd_start_track_time' => 'getAudioCdStartTrackTime',
+        'audioCdEndTrack' => 'getAudioCdEndTrack',
+        'audioCdEndTrackTime' => 'getAudioCdEndTrackTime',
+        'audioCdStartTrack' => 'getAudioCdStartTrack',
+        'audioCdStartTrackTime' => 'getAudioCdStartTrackTime',
         'embedded' => 'getEmbedded',
-        'hide_at_showing' => 'getHideAtShowing',
-        'play_loop_mode' => 'getPlayLoopMode',
-        'play_mode' => 'getPlayMode',
+        'hideAtShowing' => 'getHideAtShowing',
+        'playLoopMode' => 'getPlayLoopMode',
+        'playMode' => 'getPlayMode',
         'volume' => 'getVolume',
-        'base64_data' => 'getBase64Data'
+        'base64Data' => 'getBase64Data'
     ];
 
     /**
@@ -258,16 +258,16 @@ class AudioFrame extends GeometryShape
     {
         parent::__construct($data);
 
-        $this->container['audio_cd_end_track'] = isset($data['audio_cd_end_track']) ? $data['audio_cd_end_track'] : null;
-        $this->container['audio_cd_end_track_time'] = isset($data['audio_cd_end_track_time']) ? $data['audio_cd_end_track_time'] : null;
-        $this->container['audio_cd_start_track'] = isset($data['audio_cd_start_track']) ? $data['audio_cd_start_track'] : null;
-        $this->container['audio_cd_start_track_time'] = isset($data['audio_cd_start_track_time']) ? $data['audio_cd_start_track_time'] : null;
+        $this->container['audioCdEndTrack'] = isset($data['audioCdEndTrack']) ? $data['audioCdEndTrack'] : null;
+        $this->container['audioCdEndTrackTime'] = isset($data['audioCdEndTrackTime']) ? $data['audioCdEndTrackTime'] : null;
+        $this->container['audioCdStartTrack'] = isset($data['audioCdStartTrack']) ? $data['audioCdStartTrack'] : null;
+        $this->container['audioCdStartTrackTime'] = isset($data['audioCdStartTrackTime']) ? $data['audioCdStartTrackTime'] : null;
         $this->container['embedded'] = isset($data['embedded']) ? $data['embedded'] : null;
-        $this->container['hide_at_showing'] = isset($data['hide_at_showing']) ? $data['hide_at_showing'] : null;
-        $this->container['play_loop_mode'] = isset($data['play_loop_mode']) ? $data['play_loop_mode'] : null;
-        $this->container['play_mode'] = isset($data['play_mode']) ? $data['play_mode'] : null;
+        $this->container['hideAtShowing'] = isset($data['hideAtShowing']) ? $data['hideAtShowing'] : null;
+        $this->container['playLoopMode'] = isset($data['playLoopMode']) ? $data['playLoopMode'] : null;
+        $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
-        $this->container['base64_data'] = isset($data['base64_data']) ? $data['base64_data'] : null;
+        $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
     }
 
     /**
@@ -280,9 +280,9 @@ class AudioFrame extends GeometryShape
         $invalidProperties = parent::listInvalidProperties();
 
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['play_mode'], $allowedValues)) {
+        if (!in_array($this->container['playMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'play_mode', must be one of '%s'",
+                "invalid value for 'playMode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -311,7 +311,7 @@ class AudioFrame extends GeometryShape
         }
 
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['play_mode'], $allowedValues)) {
+        if (!in_array($this->container['playMode'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getVolumeAllowableValues();
@@ -323,97 +323,97 @@ class AudioFrame extends GeometryShape
 
 
     /**
-     * Gets audio_cd_end_track
+     * Gets audioCdEndTrack
      *
      * @return int
      */
     public function getAudioCdEndTrack()
     {
-        return $this->container['audio_cd_end_track'];
+        return $this->container['audioCdEndTrack'];
     }
 
     /**
-     * Sets audio_cd_end_track
+     * Sets audioCdEndTrack
      *
-     * @param int $audio_cd_end_track Returns or sets a last track index.
+     * @param int $audioCdEndTrack Returns or sets a last track index.
      *
      * @return $this
      */
-    public function setAudioCdEndTrack($audio_cd_end_track)
+    public function setAudioCdEndTrack($audioCdEndTrack)
     {
-        $this->container['audio_cd_end_track'] = $audio_cd_end_track;
+        $this->container['audioCdEndTrack'] = $audioCdEndTrack;
 
         return $this;
     }
 
     /**
-     * Gets audio_cd_end_track_time
+     * Gets audioCdEndTrackTime
      *
      * @return int
      */
     public function getAudioCdEndTrackTime()
     {
-        return $this->container['audio_cd_end_track_time'];
+        return $this->container['audioCdEndTrackTime'];
     }
 
     /**
-     * Sets audio_cd_end_track_time
+     * Sets audioCdEndTrackTime
      *
-     * @param int $audio_cd_end_track_time Returns or sets a last track time.
+     * @param int $audioCdEndTrackTime Returns or sets a last track time.
      *
      * @return $this
      */
-    public function setAudioCdEndTrackTime($audio_cd_end_track_time)
+    public function setAudioCdEndTrackTime($audioCdEndTrackTime)
     {
-        $this->container['audio_cd_end_track_time'] = $audio_cd_end_track_time;
+        $this->container['audioCdEndTrackTime'] = $audioCdEndTrackTime;
 
         return $this;
     }
 
     /**
-     * Gets audio_cd_start_track
+     * Gets audioCdStartTrack
      *
      * @return int
      */
     public function getAudioCdStartTrack()
     {
-        return $this->container['audio_cd_start_track'];
+        return $this->container['audioCdStartTrack'];
     }
 
     /**
-     * Sets audio_cd_start_track
+     * Sets audioCdStartTrack
      *
-     * @param int $audio_cd_start_track Returns or sets a start track index.
+     * @param int $audioCdStartTrack Returns or sets a start track index.
      *
      * @return $this
      */
-    public function setAudioCdStartTrack($audio_cd_start_track)
+    public function setAudioCdStartTrack($audioCdStartTrack)
     {
-        $this->container['audio_cd_start_track'] = $audio_cd_start_track;
+        $this->container['audioCdStartTrack'] = $audioCdStartTrack;
 
         return $this;
     }
 
     /**
-     * Gets audio_cd_start_track_time
+     * Gets audioCdStartTrackTime
      *
      * @return int
      */
     public function getAudioCdStartTrackTime()
     {
-        return $this->container['audio_cd_start_track_time'];
+        return $this->container['audioCdStartTrackTime'];
     }
 
     /**
-     * Sets audio_cd_start_track_time
+     * Sets audioCdStartTrackTime
      *
-     * @param int $audio_cd_start_track_time Returns or sets a start track time.
+     * @param int $audioCdStartTrackTime Returns or sets a start track time.
      *
      * @return $this
      */
-    public function setAudioCdStartTrackTime($audio_cd_start_track_time)
+    public function setAudioCdStartTrackTime($audioCdStartTrackTime)
     {
-        $this->container['audio_cd_start_track_time'] = $audio_cd_start_track_time;
+        $this->container['audioCdStartTrackTime'] = $audioCdStartTrackTime;
 
         return $this;
     }
@@ -443,82 +443,82 @@ class AudioFrame extends GeometryShape
     }
 
     /**
-     * Gets hide_at_showing
+     * Gets hideAtShowing
      *
      * @return bool
      */
     public function getHideAtShowing()
     {
-        return $this->container['hide_at_showing'];
+        return $this->container['hideAtShowing'];
     }
 
     /**
-     * Sets hide_at_showing
+     * Sets hideAtShowing
      *
-     * @param bool $hide_at_showing Determines whether an AudioFrame is hidden.
+     * @param bool $hideAtShowing Determines whether an AudioFrame is hidden.
      *
      * @return $this
      */
-    public function setHideAtShowing($hide_at_showing)
+    public function setHideAtShowing($hideAtShowing)
     {
-        $this->container['hide_at_showing'] = $hide_at_showing;
+        $this->container['hideAtShowing'] = $hideAtShowing;
 
         return $this;
     }
 
     /**
-     * Gets play_loop_mode
+     * Gets playLoopMode
      *
      * @return bool
      */
     public function getPlayLoopMode()
     {
-        return $this->container['play_loop_mode'];
+        return $this->container['playLoopMode'];
     }
 
     /**
-     * Sets play_loop_mode
+     * Sets playLoopMode
      *
-     * @param bool $play_loop_mode Determines whether an audio is looped.
+     * @param bool $playLoopMode Determines whether an audio is looped.
      *
      * @return $this
      */
-    public function setPlayLoopMode($play_loop_mode)
+    public function setPlayLoopMode($playLoopMode)
     {
-        $this->container['play_loop_mode'] = $play_loop_mode;
+        $this->container['playLoopMode'] = $playLoopMode;
 
         return $this;
     }
 
     /**
-     * Gets play_mode
+     * Gets playMode
      *
      * @return string
      */
     public function getPlayMode()
     {
-        return $this->container['play_mode'];
+        return $this->container['playMode'];
     }
 
     /**
-     * Sets play_mode
+     * Sets playMode
      *
-     * @param string $play_mode Returns or sets the audio play mode.
+     * @param string $playMode Returns or sets the audio play mode.
      *
      * @return $this
      */
-    public function setPlayMode($play_mode)
+    public function setPlayMode($playMode)
     {
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!is_null($play_mode) && !in_array($play_mode, $allowedValues)) {
+        if (!is_null($playMode) && !in_array($playMode, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'play_mode', must be one of '%s'",
+                    "Invalid value for 'playMode', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['play_mode'] = $play_mode;
+        $this->container['playMode'] = $playMode;
 
         return $this;
     }
@@ -557,25 +557,25 @@ class AudioFrame extends GeometryShape
     }
 
     /**
-     * Gets base64_data
+     * Gets base64Data
      *
      * @return string
      */
     public function getBase64Data()
     {
-        return $this->container['base64_data'];
+        return $this->container['base64Data'];
     }
 
     /**
-     * Sets base64_data
+     * Sets base64Data
      *
-     * @param string $base64_data Audio data encoded in base64.
+     * @param string $base64Data Audio data encoded in base64.
      *
      * @return $this
      */
-    public function setBase64Data($base64_data)
+    public function setBase64Data($base64Data)
     {
-        $this->container['base64_data'] = $base64_data;
+        $this->container['base64Data'] = $base64Data;
 
         return $this;
     }

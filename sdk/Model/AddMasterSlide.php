@@ -57,9 +57,9 @@ class AddMasterSlide extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'clone_from_file' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'clone_from_position' => 'int',
-        'apply_to_all' => 'bool'
+        'cloneFromFile' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
+        'cloneFromPosition' => 'int',
+        'applyToAll' => 'bool'
     ];
 
     /**
@@ -68,9 +68,9 @@ class AddMasterSlide extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'clone_from_file' => null,
-        'clone_from_position' => 'int32',
-        'apply_to_all' => null
+        'cloneFromFile' => null,
+        'cloneFromPosition' => 'int32',
+        'applyToAll' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class AddMasterSlide extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'clone_from_file' => 'CloneFromFile',
-        'clone_from_position' => 'CloneFromPosition',
-        'apply_to_all' => 'ApplyToAll'
+        'cloneFromFile' => 'CloneFromFile',
+        'cloneFromPosition' => 'CloneFromPosition',
+        'applyToAll' => 'ApplyToAll'
     ];
 
     /**
@@ -111,9 +111,9 @@ class AddMasterSlide extends Task
      * @var string[]
      */
     protected static $setters = [
-        'clone_from_file' => 'setCloneFromFile',
-        'clone_from_position' => 'setCloneFromPosition',
-        'apply_to_all' => 'setApplyToAll'
+        'cloneFromFile' => 'setCloneFromFile',
+        'cloneFromPosition' => 'setCloneFromPosition',
+        'applyToAll' => 'setApplyToAll'
     ];
 
     /**
@@ -122,9 +122,9 @@ class AddMasterSlide extends Task
      * @var string[]
      */
     protected static $getters = [
-        'clone_from_file' => 'getCloneFromFile',
-        'clone_from_position' => 'getCloneFromPosition',
-        'apply_to_all' => 'getApplyToAll'
+        'cloneFromFile' => 'getCloneFromFile',
+        'cloneFromPosition' => 'getCloneFromPosition',
+        'applyToAll' => 'getApplyToAll'
     ];
 
     /**
@@ -183,9 +183,9 @@ class AddMasterSlide extends Task
     {
         parent::__construct($data);
 
-        $this->container['clone_from_file'] = isset($data['clone_from_file']) ? $data['clone_from_file'] : null;
-        $this->container['clone_from_position'] = isset($data['clone_from_position']) ? $data['clone_from_position'] : null;
-        $this->container['apply_to_all'] = isset($data['apply_to_all']) ? $data['apply_to_all'] : null;
+        $this->container['cloneFromFile'] = isset($data['cloneFromFile']) ? $data['cloneFromFile'] : null;
+        $this->container['cloneFromPosition'] = isset($data['cloneFromPosition']) ? $data['cloneFromPosition'] : null;
+        $this->container['applyToAll'] = isset($data['applyToAll']) ? $data['applyToAll'] : null;
     }
 
     /**
@@ -197,11 +197,11 @@ class AddMasterSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['clone_from_position'] === null) {
-            $invalidProperties[] = "'clone_from_position' can't be null";
+        if ($this->container['cloneFromPosition'] === null) {
+            $invalidProperties[] = "'cloneFromPosition' can't be null";
         }
-        if ($this->container['apply_to_all'] === null) {
-            $invalidProperties[] = "'apply_to_all' can't be null";
+        if ($this->container['applyToAll'] === null) {
+            $invalidProperties[] = "'applyToAll' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,10 +218,10 @@ class AddMasterSlide extends Task
             return false;
         }
 
-        if ($this->container['clone_from_position'] === null) {
+        if ($this->container['cloneFromPosition'] === null) {
             return false;
         }
-        if ($this->container['apply_to_all'] === null) {
+        if ($this->container['applyToAll'] === null) {
             return false;
         }
         return true;
@@ -229,73 +229,73 @@ class AddMasterSlide extends Task
 
 
     /**
-     * Gets clone_from_file
+     * Gets cloneFromFile
      *
      * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
      */
     public function getCloneFromFile()
     {
-        return $this->container['clone_from_file'];
+        return $this->container['cloneFromFile'];
     }
 
     /**
-     * Sets clone_from_file
+     * Sets cloneFromFile
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $clone_from_file Source presentation clone from.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $cloneFromFile Source presentation clone from.
      *
      * @return $this
      */
-    public function setCloneFromFile($clone_from_file)
+    public function setCloneFromFile($cloneFromFile)
     {
-        $this->container['clone_from_file'] = $clone_from_file;
+        $this->container['cloneFromFile'] = $cloneFromFile;
 
         return $this;
     }
 
     /**
-     * Gets clone_from_position
+     * Gets cloneFromPosition
      *
      * @return int
      */
     public function getCloneFromPosition()
     {
-        return $this->container['clone_from_position'];
+        return $this->container['cloneFromPosition'];
     }
 
     /**
-     * Sets clone_from_position
+     * Sets cloneFromPosition
      *
-     * @param int $clone_from_position Index of slide to clone.
+     * @param int $cloneFromPosition Index of slide to clone.
      *
      * @return $this
      */
-    public function setCloneFromPosition($clone_from_position)
+    public function setCloneFromPosition($cloneFromPosition)
     {
-        $this->container['clone_from_position'] = $clone_from_position;
+        $this->container['cloneFromPosition'] = $cloneFromPosition;
 
         return $this;
     }
 
     /**
-     * Gets apply_to_all
+     * Gets applyToAll
      *
      * @return bool
      */
     public function getApplyToAll()
     {
-        return $this->container['apply_to_all'];
+        return $this->container['applyToAll'];
     }
 
     /**
-     * Sets apply_to_all
+     * Sets applyToAll
      *
-     * @param bool $apply_to_all True if cloned master slide is applied to all slides.
+     * @param bool $applyToAll True if cloned master slide is applied to all slides.
      *
      * @return $this
      */
-    public function setApplyToAll($apply_to_all)
+    public function setApplyToAll($applyToAll)
     {
-        $this->container['apply_to_all'] = $apply_to_all;
+        $this->container['applyToAll'] = $applyToAll;
 
         return $this;
     }
