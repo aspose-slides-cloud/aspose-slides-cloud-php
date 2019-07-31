@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * RemoveShape Class Doc Comment
  *
  * @category Class
+ * @description Remove shape task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -216,7 +217,7 @@ class RemoveShape extends Task
     /**
      * Sets shapePath
      *
-     * @param string $shapePath shapePath
+     * @param string $shapePath Shape path for a grouped or smart art shape.
      *
      * @return $this
      */

@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * Placeholders Class Doc Comment
  *
  * @category Class
+ * @description Placeholder list.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -216,7 +217,7 @@ class Placeholders extends ResourceBase
     /**
      * Sets placeholderLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $placeholderLinks placeholderLinks
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $placeholderLinks List for placeholder links.
      *
      * @return $this
      */

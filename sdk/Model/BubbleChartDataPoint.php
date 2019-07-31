@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * BubbleChartDataPoint Class Doc Comment
  *
  * @category Class
+ * @description Bubble chart data point.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -222,7 +223,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     /**
      * Sets bubbleSize
      *
-     * @param double $bubbleSize bubbleSize
+     * @param double $bubbleSize Bubble size.
      *
      * @return $this
      */

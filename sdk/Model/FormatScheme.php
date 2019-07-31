@@ -235,7 +235,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets backgroundStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $backgroundStyles backgroundStyles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $backgroundStyles Background style links.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets effectStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $effectStyles effectStyles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $effectStyles Effect style links.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets fillStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $fillStyles fillStyles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $fillStyles Fill style links.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets lineStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $lineStyles lineStyles
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $lineStyles Line style links.
      *
      * @return $this
      */

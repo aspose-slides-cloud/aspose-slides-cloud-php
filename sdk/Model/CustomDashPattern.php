@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * CustomDashPattern Class Doc Comment
  *
  * @category Class
+ * @description Custom dash pattern.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -219,7 +220,7 @@ class CustomDashPattern implements ArrayAccess
     /**
      * Sets items
      *
-     * @param double[] $items items
+     * @param double[] $items Pattern items.
      *
      * @return $this
      */

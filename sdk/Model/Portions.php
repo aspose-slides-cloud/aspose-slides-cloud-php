@@ -217,7 +217,7 @@ class Portions extends ResourceBase
     /**
      * Sets portionLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionLinks portionLinks
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionLinks List of portion links.
      *
      * @return $this
      */

@@ -425,13 +425,27 @@ class PatternFill extends FillFormat
     public function setStyle($style)
     {
         $allowedValues = $this->getStyleAllowableValues();
-        if (!in_array($style, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'style', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($style)) {
+            if ($style >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $style = $allowedValues[$style];
+            }
+        } else {
+            if (!in_array($style, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['style'] = $style;
 

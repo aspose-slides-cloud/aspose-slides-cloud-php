@@ -717,13 +717,27 @@ class SmartArt extends ShapeBase
     public function setLayout($layout)
     {
         $allowedValues = $this->getLayoutAllowableValues();
-        if (!in_array($layout, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'layout', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($layout)) {
+            if ($layout >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $layout = $allowedValues[$layout];
+            }
+        } else {
+            if (!in_array($layout, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['layout'] = $layout;
 
@@ -750,13 +764,27 @@ class SmartArt extends ShapeBase
     public function setQuickStyle($quickStyle)
     {
         $allowedValues = $this->getQuickStyleAllowableValues();
-        if (!in_array($quickStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'quickStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($quickStyle)) {
+            if ($quickStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quickStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $quickStyle = $allowedValues[$quickStyle];
+            }
+        } else {
+            if (!in_array($quickStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quickStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['quickStyle'] = $quickStyle;
 
@@ -783,13 +811,27 @@ class SmartArt extends ShapeBase
     public function setColorStyle($colorStyle)
     {
         $allowedValues = $this->getColorStyleAllowableValues();
-        if (!in_array($colorStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'colorStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($colorStyle)) {
+            if ($colorStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'colorStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $colorStyle = $allowedValues[$colorStyle];
+            }
+        } else {
+            if (!in_array($colorStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'colorStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['colorStyle'] = $colorStyle;
 

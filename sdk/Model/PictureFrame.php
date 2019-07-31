@@ -217,7 +217,7 @@ class PictureFrame extends GeometryShape
     /**
      * Sets pictureFillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $pictureFillFormat pictureFillFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $pictureFillFormat Fill format.
      *
      * @return $this
      */

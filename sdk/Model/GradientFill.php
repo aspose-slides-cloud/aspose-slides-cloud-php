@@ -385,13 +385,27 @@ class GradientFill extends FillFormat
     public function setDirection($direction)
     {
         $allowedValues = $this->getDirectionAllowableValues();
-        if (!in_array($direction, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'direction', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($direction)) {
+            if ($direction >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'direction', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $direction = $allowedValues[$direction];
+            }
+        } else {
+            if (!in_array($direction, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'direction', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['direction'] = $direction;
 
@@ -418,13 +432,27 @@ class GradientFill extends FillFormat
     public function setShape($shape)
     {
         $allowedValues = $this->getShapeAllowableValues();
-        if (!in_array($shape, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'shape', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($shape)) {
+            if ($shape >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'shape', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $shape = $allowedValues[$shape];
+            }
+        } else {
+            if (!in_array($shape, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'shape', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['shape'] = $shape;
 
@@ -523,13 +551,27 @@ class GradientFill extends FillFormat
     public function setTileFlip($tileFlip)
     {
         $allowedValues = $this->getTileFlipAllowableValues();
-        if (!in_array($tileFlip, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tileFlip', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($tileFlip)) {
+            if ($tileFlip >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileFlip', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $tileFlip = $allowedValues[$tileFlip];
+            }
+        } else {
+            if (!in_array($tileFlip, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileFlip', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['tileFlip'] = $tileFlip;
 

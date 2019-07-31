@@ -334,13 +334,27 @@ class SeriesMarker implements ArrayAccess
     public function setSymbol($symbol)
     {
         $allowedValues = $this->getSymbolAllowableValues();
-        if (!in_array($symbol, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'symbol', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($symbol)) {
+            if ($symbol >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'symbol', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $symbol = $allowedValues[$symbol];
+            }
+        } else {
+            if (!in_array($symbol, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'symbol', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['symbol'] = $symbol;
 

@@ -200,6 +200,7 @@ class SaveSlide extends Task
     const FORMAT_PPTM = 'Pptm';
     const FORMAT_PPSM = 'Ppsm';
     const FORMAT_POTX = 'Potx';
+    const FORMAT_POT = 'Pot';
     const FORMAT_POTM = 'Potm';
     const FORMAT_SVG = 'Svg';
     
@@ -230,6 +231,7 @@ class SaveSlide extends Task
             self::FORMAT_PPTM,
             self::FORMAT_PPSM,
             self::FORMAT_POTX,
+            self::FORMAT_POT,
             self::FORMAT_POTM,
             self::FORMAT_SVG,
         ];
@@ -351,13 +353,27 @@ class SaveSlide extends Task
     public function setFormat($format)
     {
         $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'format', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($format)) {
+            if ($format >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $format = $allowedValues[$format];
+            }
+        } else {
+            if (!in_array($format, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['format'] = $format;
 

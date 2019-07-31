@@ -35,7 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ShapeExportFormat Class Doc Comment
  *
  * @category Class
- * @description Represents a format for export individual shape.
+ * @description Represents a format for individual shape export.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

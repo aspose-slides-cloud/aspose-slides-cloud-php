@@ -217,7 +217,7 @@ class SlideComments extends ResourceBase
     /**
      * Sets list
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideComment[] $list list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideComment[] $list Slide comment list.
      *
      * @return $this
      */

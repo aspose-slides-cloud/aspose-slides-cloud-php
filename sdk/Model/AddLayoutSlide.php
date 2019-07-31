@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * AddLayoutSlide Class Doc Comment
  *
  * @category Class
+ * @description Add layout slide task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -228,7 +229,7 @@ class AddLayoutSlide extends Task
     /**
      * Sets cloneFromFile
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $cloneFromFile cloneFromFile
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $cloneFromFile Source file.
      *
      * @return $this
      */
@@ -252,7 +253,7 @@ class AddLayoutSlide extends Task
     /**
      * Sets cloneFromPosition
      *
-     * @param int $cloneFromPosition cloneFromPosition
+     * @param int $cloneFromPosition Source layout slide position.
      *
      * @return $this
      */

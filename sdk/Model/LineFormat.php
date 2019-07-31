@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * LineFormat Class Doc Comment
  *
  * @category Class
+ * @description Line format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -496,20 +497,34 @@ class LineFormat implements ArrayAccess
     /**
      * Sets alignment
      *
-     * @param string $alignment alignment
+     * @param string $alignment Alignment.
      *
      * @return $this
      */
     public function setAlignment($alignment)
     {
         $allowedValues = $this->getAlignmentAllowableValues();
-        if (!in_array($alignment, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'alignment', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($alignment)) {
+            if ($alignment >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $alignment = $allowedValues[$alignment];
+            }
+        } else {
+            if (!in_array($alignment, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['alignment'] = $alignment;
 
@@ -529,20 +544,34 @@ class LineFormat implements ArrayAccess
     /**
      * Sets capStyle
      *
-     * @param string $capStyle capStyle
+     * @param string $capStyle Cap style.
      *
      * @return $this
      */
     public function setCapStyle($capStyle)
     {
         $allowedValues = $this->getCapStyleAllowableValues();
-        if (!in_array($capStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'capStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($capStyle)) {
+            if ($capStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'capStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $capStyle = $allowedValues[$capStyle];
+            }
+        } else {
+            if (!in_array($capStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'capStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['capStyle'] = $capStyle;
 
@@ -562,20 +591,34 @@ class LineFormat implements ArrayAccess
     /**
      * Sets dashStyle
      *
-     * @param string $dashStyle dashStyle
+     * @param string $dashStyle Dash style.
      *
      * @return $this
      */
     public function setDashStyle($dashStyle)
     {
         $allowedValues = $this->getDashStyleAllowableValues();
-        if (!in_array($dashStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'dashStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($dashStyle)) {
+            if ($dashStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dashStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $dashStyle = $allowedValues[$dashStyle];
+            }
+        } else {
+            if (!in_array($dashStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dashStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['dashStyle'] = $dashStyle;
 
@@ -595,20 +638,34 @@ class LineFormat implements ArrayAccess
     /**
      * Sets joinStyle
      *
-     * @param string $joinStyle joinStyle
+     * @param string $joinStyle Join style.
      *
      * @return $this
      */
     public function setJoinStyle($joinStyle)
     {
         $allowedValues = $this->getJoinStyleAllowableValues();
-        if (!in_array($joinStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'joinStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($joinStyle)) {
+            if ($joinStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'joinStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $joinStyle = $allowedValues[$joinStyle];
+            }
+        } else {
+            if (!in_array($joinStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'joinStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['joinStyle'] = $joinStyle;
 
@@ -628,20 +685,34 @@ class LineFormat implements ArrayAccess
     /**
      * Sets style
      *
-     * @param string $style style
+     * @param string $style Style.
      *
      * @return $this
      */
     public function setStyle($style)
     {
         $allowedValues = $this->getStyleAllowableValues();
-        if (!in_array($style, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'style', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($style)) {
+            if ($style >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $style = $allowedValues[$style];
+            }
+        } else {
+            if (!in_array($style, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['style'] = $style;
 
@@ -661,7 +732,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets beginArrowHead
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $beginArrowHead beginArrowHead
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $beginArrowHead Begin arrowhead.
      *
      * @return $this
      */
@@ -685,7 +756,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets endArrowHead
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $endArrowHead endArrowHead
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties $endArrowHead End arrowhead.
      *
      * @return $this
      */
@@ -709,7 +780,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets customDashPattern
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern $customDashPattern customDashPattern
+     * @param \Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern $customDashPattern Custom dash pattern.
      *
      * @return $this
      */
@@ -733,7 +804,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat fillFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Fill format.
      *
      * @return $this
      */
@@ -757,7 +828,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets miterLimit
      *
-     * @param double $miterLimit miterLimit
+     * @param double $miterLimit Miter limit.
      *
      * @return $this
      */
@@ -781,7 +852,7 @@ class LineFormat implements ArrayAccess
     /**
      * Sets width
      *
-     * @param double $width width
+     * @param double $width Width.
      *
      * @return $this
      */

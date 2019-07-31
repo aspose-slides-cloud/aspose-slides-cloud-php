@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ResourceUriElement Class Doc Comment
  *
  * @category Class
+ * @description Resource URI element.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -219,7 +220,7 @@ class ResourceUriElement implements ArrayAccess
     /**
      * Sets uri
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $uri uri
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $uri Resource URI.
      *
      * @return $this
      */

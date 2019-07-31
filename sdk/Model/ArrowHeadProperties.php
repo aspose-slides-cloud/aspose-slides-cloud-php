@@ -356,13 +356,27 @@ class ArrowHeadProperties implements ArrayAccess
     public function setLength($length)
     {
         $allowedValues = $this->getLengthAllowableValues();
-        if (!in_array($length, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'length', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($length)) {
+            if ($length >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'length', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $length = $allowedValues[$length];
+            }
+        } else {
+            if (!in_array($length, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'length', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['length'] = $length;
 
@@ -389,13 +403,27 @@ class ArrowHeadProperties implements ArrayAccess
     public function setStyle($style)
     {
         $allowedValues = $this->getStyleAllowableValues();
-        if (!in_array($style, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'style', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($style)) {
+            if ($style >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $style = $allowedValues[$style];
+            }
+        } else {
+            if (!in_array($style, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'style', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['style'] = $style;
 
@@ -422,13 +450,27 @@ class ArrowHeadProperties implements ArrayAccess
     public function setWidth($width)
     {
         $allowedValues = $this->getWidthAllowableValues();
-        if (!in_array($width, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'width', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($width)) {
+            if ($width >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'width', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $width = $allowedValues[$width];
+            }
+        } else {
+            if (!in_array($width, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'width', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['width'] = $width;
 

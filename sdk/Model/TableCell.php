@@ -607,13 +607,27 @@ class TableCell implements ArrayAccess
     public function setTextAnchorType($textAnchorType)
     {
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
-        if (!in_array($textAnchorType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'textAnchorType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($textAnchorType)) {
+            if ($textAnchorType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textAnchorType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $textAnchorType = $allowedValues[$textAnchorType];
+            }
+        } else {
+            if (!in_array($textAnchorType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textAnchorType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['textAnchorType'] = $textAnchorType;
 
@@ -640,13 +654,27 @@ class TableCell implements ArrayAccess
     public function setTextVerticalType($textVerticalType)
     {
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
-        if (!in_array($textVerticalType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'textVerticalType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($textVerticalType)) {
+            if ($textVerticalType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textVerticalType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $textVerticalType = $allowedValues[$textVerticalType];
+            }
+        } else {
+            if (!in_array($textVerticalType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textVerticalType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['textVerticalType'] = $textVerticalType;
 

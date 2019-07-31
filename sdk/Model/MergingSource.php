@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * MergingSource Class Doc Comment
  *
  * @category Class
+ * @description Merging source.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -225,7 +226,7 @@ class MergingSource implements ArrayAccess
     /**
      * Sets input
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $input input
+     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $input Source file.
      *
      * @return $this
      */
@@ -249,7 +250,7 @@ class MergingSource implements ArrayAccess
     /**
      * Sets slides
      *
-     * @param int[] $slides slides
+     * @param int[] $slides Indices of slides to be merged.
      *
      * @return $this
      */

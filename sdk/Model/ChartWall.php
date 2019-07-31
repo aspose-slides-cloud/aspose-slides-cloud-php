@@ -390,13 +390,27 @@ class ChartWall implements ArrayAccess
     public function setPictureType($pictureType)
     {
         $allowedValues = $this->getPictureTypeAllowableValues();
-        if (!in_array($pictureType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'pictureType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($pictureType)) {
+            if ($pictureType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pictureType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $pictureType = $allowedValues[$pictureType];
+            }
+        } else {
+            if (!in_array($pictureType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pictureType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['pictureType'] = $pictureType;
 

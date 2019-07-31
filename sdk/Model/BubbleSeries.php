@@ -265,13 +265,27 @@ class BubbleSeries extends Series
     public function setDataPointType($dataPointType)
     {
         $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($dataPointType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'dataPointType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($dataPointType)) {
+            if ($dataPointType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dataPointType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $dataPointType = $allowedValues[$dataPointType];
+            }
+        } else {
+            if (!in_array($dataPointType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dataPointType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['dataPointType'] = $dataPointType;
 

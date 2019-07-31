@@ -344,13 +344,27 @@ class Legend implements ArrayAccess
     public function setPosition($position)
     {
         $allowedValues = $this->getPositionAllowableValues();
-        if (!in_array($position, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'position', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($position)) {
+            if ($position >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'position', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $position = $allowedValues[$position];
+            }
+        } else {
+            if (!in_array($position, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'position', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['position'] = $position;
 

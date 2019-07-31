@@ -858,13 +858,27 @@ class SwfExportOptions extends ExportOptions
     public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notesPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'notesPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($notesPosition)) {
+            if ($notesPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $notesPosition = $allowedValues[$notesPosition];
+            }
+        } else {
+            if (!in_array($notesPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['notesPosition'] = $notesPosition;
 
@@ -891,13 +905,27 @@ class SwfExportOptions extends ExportOptions
     public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($commentsPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'commentsPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($commentsPosition)) {
+            if ($commentsPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $commentsPosition = $allowedValues[$commentsPosition];
+            }
+        } else {
+            if (!in_array($commentsPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['commentsPosition'] = $commentsPosition;
 

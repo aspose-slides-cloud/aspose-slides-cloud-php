@@ -235,7 +235,7 @@ class Connector extends GeometryShape
     /**
      * Sets startShapeConnectedTo
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $startShapeConnectedTo startShapeConnectedTo
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $startShapeConnectedTo Start shape link.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class Connector extends GeometryShape
     /**
      * Sets startShapeConnectedToIndex
      *
-     * @param int $startShapeConnectedToIndex startShapeConnectedToIndex
+     * @param int $startShapeConnectedToIndex Start shape index.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class Connector extends GeometryShape
     /**
      * Sets endShapeConnectedTo
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $endShapeConnectedTo endShapeConnectedTo
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $endShapeConnectedTo End shape link.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class Connector extends GeometryShape
     /**
      * Sets endShapeConnectedToIndex
      *
-     * @param int $endShapeConnectedToIndex endShapeConnectedToIndex
+     * @param int $endShapeConnectedToIndex End shape index.
      *
      * @return $this
      */

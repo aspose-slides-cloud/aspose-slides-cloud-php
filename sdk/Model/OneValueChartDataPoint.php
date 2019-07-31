@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * OneValueChartDataPoint Class Doc Comment
  *
  * @category Class
+ * @description One value chart data point.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -225,7 +226,7 @@ class OneValueChartDataPoint implements ArrayAccess
     /**
      * Sets value
      *
-     * @param double $value value
+     * @param double $value Value.
      *
      * @return $this
      */

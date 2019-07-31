@@ -396,13 +396,27 @@ class VideoFrame extends GeometryShape
     public function setPlayMode($playMode)
     {
         $allowedValues = $this->getPlayModeAllowableValues();
-        if (!is_null($playMode) && !in_array($playMode, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'playMode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($playMode)) {
+            if ($playMode >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'playMode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $playMode = $allowedValues[$playMode];
+            }
+        } else {
+            if (!is_null($playMode) && !in_array($playMode, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'playMode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['playMode'] = $playMode;
 
@@ -453,13 +467,27 @@ class VideoFrame extends GeometryShape
     public function setVolume($volume)
     {
         $allowedValues = $this->getVolumeAllowableValues();
-        if (!is_null($volume) && !in_array($volume, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'volume', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($volume)) {
+            if ($volume >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'volume', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $volume = $allowedValues[$volume];
+            }
+        } else {
+            if (!is_null($volume) && !in_array($volume, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'volume', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['volume'] = $volume;
 

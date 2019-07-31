@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * SvgExportOptions Class Doc Comment
  *
  * @category Class
+ * @description Provides options that control how a presentation is saved in SVG format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -533,13 +534,27 @@ class SvgExportOptions extends ExportOptions
     public function setPicturesCompression($picturesCompression)
     {
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!in_array($picturesCompression, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'picturesCompression', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($picturesCompression)) {
+            if ($picturesCompression >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'picturesCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $picturesCompression = $allowedValues[$picturesCompression];
+            }
+        } else {
+            if (!in_array($picturesCompression, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'picturesCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['picturesCompression'] = $picturesCompression;
 
@@ -590,13 +605,27 @@ class SvgExportOptions extends ExportOptions
     public function setExternalFontsHandling($externalFontsHandling)
     {
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
-        if (!in_array($externalFontsHandling, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'externalFontsHandling', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($externalFontsHandling)) {
+            if ($externalFontsHandling >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'externalFontsHandling', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $externalFontsHandling = $allowedValues[$externalFontsHandling];
+            }
+        } else {
+            if (!in_array($externalFontsHandling, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'externalFontsHandling', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['externalFontsHandling'] = $externalFontsHandling;
 

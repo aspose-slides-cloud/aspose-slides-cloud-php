@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * MasterSlide Class Doc Comment
  *
  * @category Class
+ * @description Master slide.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -228,7 +229,7 @@ class MasterSlide extends ResourceBase
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Name.
      *
      * @return $this
      */
@@ -252,7 +253,7 @@ class MasterSlide extends ResourceBase
     /**
      * Sets layoutSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $layoutSlides layoutSlides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $layoutSlides List of layout slide links.
      *
      * @return $this
      */
@@ -276,7 +277,7 @@ class MasterSlide extends ResourceBase
     /**
      * Sets dependingSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides dependingSlides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides List of depending slide links.
      *
      * @return $this
      */

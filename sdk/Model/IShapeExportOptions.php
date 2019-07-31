@@ -220,7 +220,7 @@ class IShapeExportOptions implements ArrayAccess
     /**
      * Sets format
      *
-     * @param string $format format
+     * @param string $format Export format.
      *
      * @return $this
      */

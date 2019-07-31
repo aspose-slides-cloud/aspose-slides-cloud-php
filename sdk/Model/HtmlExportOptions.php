@@ -60,6 +60,7 @@ class HtmlExportOptions extends ExportOptions
         'saveAsZip' => 'bool',
         'subDirectoryName' => 'string',
         'showHiddenSlides' => 'bool',
+        'svgResponsiveLayout' => 'bool',
         'jpegQuality' => 'int',
         'picturesCompression' => 'string',
         'deletePicturesCroppedAreas' => 'bool',
@@ -79,6 +80,7 @@ class HtmlExportOptions extends ExportOptions
         'saveAsZip' => null,
         'subDirectoryName' => null,
         'showHiddenSlides' => null,
+        'svgResponsiveLayout' => null,
         'jpegQuality' => 'byte',
         'picturesCompression' => null,
         'deletePicturesCroppedAreas' => null,
@@ -119,6 +121,7 @@ class HtmlExportOptions extends ExportOptions
         'saveAsZip' => 'SaveAsZip',
         'subDirectoryName' => 'SubDirectoryName',
         'showHiddenSlides' => 'ShowHiddenSlides',
+        'svgResponsiveLayout' => 'SvgResponsiveLayout',
         'jpegQuality' => 'JpegQuality',
         'picturesCompression' => 'PicturesCompression',
         'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
@@ -138,6 +141,7 @@ class HtmlExportOptions extends ExportOptions
         'saveAsZip' => 'setSaveAsZip',
         'subDirectoryName' => 'setSubDirectoryName',
         'showHiddenSlides' => 'setShowHiddenSlides',
+        'svgResponsiveLayout' => 'setSvgResponsiveLayout',
         'jpegQuality' => 'setJpegQuality',
         'picturesCompression' => 'setPicturesCompression',
         'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
@@ -157,6 +161,7 @@ class HtmlExportOptions extends ExportOptions
         'saveAsZip' => 'getSaveAsZip',
         'subDirectoryName' => 'getSubDirectoryName',
         'showHiddenSlides' => 'getShowHiddenSlides',
+        'svgResponsiveLayout' => 'getSvgResponsiveLayout',
         'jpegQuality' => 'getJpegQuality',
         'picturesCompression' => 'getPicturesCompression',
         'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
@@ -283,6 +288,7 @@ class HtmlExportOptions extends ExportOptions
         $this->container['saveAsZip'] = isset($data['saveAsZip']) ? $data['saveAsZip'] : null;
         $this->container['subDirectoryName'] = isset($data['subDirectoryName']) ? $data['subDirectoryName'] : null;
         $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['svgResponsiveLayout'] = isset($data['svgResponsiveLayout']) ? $data['svgResponsiveLayout'] : null;
         $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
         $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
         $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
@@ -307,6 +313,9 @@ class HtmlExportOptions extends ExportOptions
         }
         if ($this->container['showHiddenSlides'] === null) {
             $invalidProperties[] = "'showHiddenSlides' can't be null";
+        }
+        if ($this->container['svgResponsiveLayout'] === null) {
+            $invalidProperties[] = "'svgResponsiveLayout' can't be null";
         }
         if ($this->container['jpegQuality'] === null) {
             $invalidProperties[] = "'jpegQuality' can't be null";
@@ -369,6 +378,9 @@ class HtmlExportOptions extends ExportOptions
             return false;
         }
         if ($this->container['showHiddenSlides'] === null) {
+            return false;
+        }
+        if ($this->container['svgResponsiveLayout'] === null) {
             return false;
         }
         if ($this->container['jpegQuality'] === null) {
@@ -478,6 +490,30 @@ class HtmlExportOptions extends ExportOptions
     }
 
     /**
+     * Gets svgResponsiveLayout
+     *
+     * @return bool
+     */
+    public function getSvgResponsiveLayout()
+    {
+        return $this->container['svgResponsiveLayout'];
+    }
+
+    /**
+     * Sets svgResponsiveLayout
+     *
+     * @param bool $svgResponsiveLayout True to make layout responsive by excluding width and height attributes from svg container.
+     *
+     * @return $this
+     */
+    public function setSvgResponsiveLayout($svgResponsiveLayout)
+    {
+        $this->container['svgResponsiveLayout'] = $svgResponsiveLayout;
+
+        return $this;
+    }
+
+    /**
      * Gets jpegQuality
      *
      * @return int
@@ -521,13 +557,27 @@ class HtmlExportOptions extends ExportOptions
     public function setPicturesCompression($picturesCompression)
     {
         $allowedValues = $this->getPicturesCompressionAllowableValues();
-        if (!is_null($picturesCompression) && !in_array($picturesCompression, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'picturesCompression', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($picturesCompression)) {
+            if ($picturesCompression >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'picturesCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $picturesCompression = $allowedValues[$picturesCompression];
+            }
+        } else {
+            if (!is_null($picturesCompression) && !in_array($picturesCompression, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'picturesCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['picturesCompression'] = $picturesCompression;
 
@@ -578,13 +628,27 @@ class HtmlExportOptions extends ExportOptions
     public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notesPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'notesPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($notesPosition)) {
+            if ($notesPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $notesPosition = $allowedValues[$notesPosition];
+            }
+        } else {
+            if (!in_array($notesPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['notesPosition'] = $notesPosition;
 
@@ -611,13 +675,27 @@ class HtmlExportOptions extends ExportOptions
     public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($commentsPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'commentsPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($commentsPosition)) {
+            if ($commentsPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $commentsPosition = $allowedValues[$commentsPosition];
+            }
+        } else {
+            if (!in_array($commentsPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['commentsPosition'] = $commentsPosition;
 

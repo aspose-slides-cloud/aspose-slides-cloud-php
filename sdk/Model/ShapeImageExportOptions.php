@@ -340,13 +340,27 @@ class ShapeImageExportOptions implements ArrayAccess
     public function setThumbnailBounds($thumbnailBounds)
     {
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
-        if (!in_array($thumbnailBounds, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'thumbnailBounds', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($thumbnailBounds)) {
+            if ($thumbnailBounds >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'thumbnailBounds', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $thumbnailBounds = $allowedValues[$thumbnailBounds];
+            }
+        } else {
+            if (!in_array($thumbnailBounds, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'thumbnailBounds', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['thumbnailBounds'] = $thumbnailBounds;
 

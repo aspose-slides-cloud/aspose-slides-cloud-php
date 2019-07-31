@@ -687,7 +687,7 @@ class Portion extends ResourceBase
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Text.
      *
      * @return $this
      */
@@ -711,20 +711,34 @@ class Portion extends ResourceBase
     /**
      * Sets fontBold
      *
-     * @param string $fontBold fontBold
+     * @param string $fontBold True for bold font.
      *
      * @return $this
      */
     public function setFontBold($fontBold)
     {
         $allowedValues = $this->getFontBoldAllowableValues();
-        if (!is_null($fontBold) && !in_array($fontBold, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fontBold', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($fontBold)) {
+            if ($fontBold >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontBold', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $fontBold = $allowedValues[$fontBold];
+            }
+        } else {
+            if (!is_null($fontBold) && !in_array($fontBold, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontBold', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['fontBold'] = $fontBold;
 
@@ -744,20 +758,34 @@ class Portion extends ResourceBase
     /**
      * Sets fontItalic
      *
-     * @param string $fontItalic fontItalic
+     * @param string $fontItalic True for italic font.
      *
      * @return $this
      */
     public function setFontItalic($fontItalic)
     {
         $allowedValues = $this->getFontItalicAllowableValues();
-        if (!is_null($fontItalic) && !in_array($fontItalic, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fontItalic', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($fontItalic)) {
+            if ($fontItalic >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontItalic', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $fontItalic = $allowedValues[$fontItalic];
+            }
+        } else {
+            if (!is_null($fontItalic) && !in_array($fontItalic, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontItalic', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['fontItalic'] = $fontItalic;
 
@@ -777,20 +805,34 @@ class Portion extends ResourceBase
     /**
      * Sets fontUnderline
      *
-     * @param string $fontUnderline fontUnderline
+     * @param string $fontUnderline Text underline type.
      *
      * @return $this
      */
     public function setFontUnderline($fontUnderline)
     {
         $allowedValues = $this->getFontUnderlineAllowableValues();
-        if (!is_null($fontUnderline) && !in_array($fontUnderline, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fontUnderline', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($fontUnderline)) {
+            if ($fontUnderline >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontUnderline', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $fontUnderline = $allowedValues[$fontUnderline];
+            }
+        } else {
+            if (!is_null($fontUnderline) && !in_array($fontUnderline, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontUnderline', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['fontUnderline'] = $fontUnderline;
 
@@ -810,20 +852,34 @@ class Portion extends ResourceBase
     /**
      * Sets strikethroughType
      *
-     * @param string $strikethroughType strikethroughType
+     * @param string $strikethroughType Text strikethrough type.
      *
      * @return $this
      */
     public function setStrikethroughType($strikethroughType)
     {
         $allowedValues = $this->getStrikethroughTypeAllowableValues();
-        if (!is_null($strikethroughType) && !in_array($strikethroughType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'strikethroughType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($strikethroughType)) {
+            if ($strikethroughType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'strikethroughType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $strikethroughType = $allowedValues[$strikethroughType];
+            }
+        } else {
+            if (!is_null($strikethroughType) && !in_array($strikethroughType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'strikethroughType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['strikethroughType'] = $strikethroughType;
 
@@ -843,20 +899,34 @@ class Portion extends ResourceBase
     /**
      * Sets textCapType
      *
-     * @param string $textCapType textCapType
+     * @param string $textCapType Text capitalization type.
      *
      * @return $this
      */
     public function setTextCapType($textCapType)
     {
         $allowedValues = $this->getTextCapTypeAllowableValues();
-        if (!is_null($textCapType) && !in_array($textCapType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'textCapType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($textCapType)) {
+            if ($textCapType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textCapType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $textCapType = $allowedValues[$textCapType];
+            }
+        } else {
+            if (!is_null($textCapType) && !in_array($textCapType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textCapType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['textCapType'] = $textCapType;
 
@@ -876,7 +946,7 @@ class Portion extends ResourceBase
     /**
      * Sets escapement
      *
-     * @param double $escapement escapement
+     * @param double $escapement Superscript or subscript of the text.
      *
      * @return $this
      */
@@ -900,7 +970,7 @@ class Portion extends ResourceBase
     /**
      * Sets spacing
      *
-     * @param double $spacing spacing
+     * @param double $spacing Intercharacter spacing increment.
      *
      * @return $this
      */
@@ -924,7 +994,7 @@ class Portion extends ResourceBase
     /**
      * Sets fontColor
      *
-     * @param string $fontColor fontColor
+     * @param string $fontColor Font color.
      *
      * @return $this
      */
@@ -948,7 +1018,7 @@ class Portion extends ResourceBase
     /**
      * Sets highlightColor
      *
-     * @param string $highlightColor highlightColor
+     * @param string $highlightColor Highlight color.
      *
      * @return $this
      */
@@ -972,7 +1042,7 @@ class Portion extends ResourceBase
     /**
      * Sets fontHeight
      *
-     * @param double $fontHeight fontHeight
+     * @param double $fontHeight Font height.
      *
      * @return $this
      */
@@ -996,20 +1066,34 @@ class Portion extends ResourceBase
     /**
      * Sets normaliseHeight
      *
-     * @param string $normaliseHeight normaliseHeight
+     * @param string $normaliseHeight True to normalize the text.
      *
      * @return $this
      */
     public function setNormaliseHeight($normaliseHeight)
     {
         $allowedValues = $this->getNormaliseHeightAllowableValues();
-        if (!is_null($normaliseHeight) && !in_array($normaliseHeight, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'normaliseHeight', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($normaliseHeight)) {
+            if ($normaliseHeight >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'normaliseHeight', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $normaliseHeight = $allowedValues[$normaliseHeight];
+            }
+        } else {
+            if (!is_null($normaliseHeight) && !in_array($normaliseHeight, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'normaliseHeight', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['normaliseHeight'] = $normaliseHeight;
 
@@ -1029,20 +1113,34 @@ class Portion extends ResourceBase
     /**
      * Sets proofDisabled
      *
-     * @param string $proofDisabled proofDisabled
+     * @param string $proofDisabled True if the text proof should be disabled.
      *
      * @return $this
      */
     public function setProofDisabled($proofDisabled)
     {
         $allowedValues = $this->getProofDisabledAllowableValues();
-        if (!is_null($proofDisabled) && !in_array($proofDisabled, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'proofDisabled', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($proofDisabled)) {
+            if ($proofDisabled >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'proofDisabled', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $proofDisabled = $allowedValues[$proofDisabled];
+            }
+        } else {
+            if (!is_null($proofDisabled) && !in_array($proofDisabled, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'proofDisabled', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['proofDisabled'] = $proofDisabled;
 
@@ -1062,7 +1160,7 @@ class Portion extends ResourceBase
     /**
      * Sets smartTagClean
      *
-     * @param bool $smartTagClean smartTagClean
+     * @param bool $smartTagClean True if smart tag should be cleaned.
      *
      * @return $this
      */
@@ -1086,7 +1184,7 @@ class Portion extends ResourceBase
     /**
      * Sets kerningMinimalSize
      *
-     * @param double $kerningMinimalSize kerningMinimalSize
+     * @param double $kerningMinimalSize Minimal font size for kerning.
      *
      * @return $this
      */
@@ -1110,20 +1208,34 @@ class Portion extends ResourceBase
     /**
      * Sets kumimoji
      *
-     * @param string $kumimoji kumimoji
+     * @param string $kumimoji True if numbers should ignore East-Asian specific vertical text layout.
      *
      * @return $this
      */
     public function setKumimoji($kumimoji)
     {
         $allowedValues = $this->getKumimojiAllowableValues();
-        if (!is_null($kumimoji) && !in_array($kumimoji, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'kumimoji', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($kumimoji)) {
+            if ($kumimoji >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'kumimoji', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $kumimoji = $allowedValues[$kumimoji];
+            }
+        } else {
+            if (!is_null($kumimoji) && !in_array($kumimoji, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'kumimoji', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['kumimoji'] = $kumimoji;
 
@@ -1143,7 +1255,7 @@ class Portion extends ResourceBase
     /**
      * Sets languageId
      *
-     * @param string $languageId languageId
+     * @param string $languageId Proving language ID.
      *
      * @return $this
      */
@@ -1167,7 +1279,7 @@ class Portion extends ResourceBase
     /**
      * Sets alternativeLanguageId
      *
-     * @param string $alternativeLanguageId alternativeLanguageId
+     * @param string $alternativeLanguageId Alternative proving language ID.
      *
      * @return $this
      */
@@ -1191,20 +1303,34 @@ class Portion extends ResourceBase
     /**
      * Sets isHardUnderlineFill
      *
-     * @param string $isHardUnderlineFill isHardUnderlineFill
+     * @param string $isHardUnderlineFill True if underline style has own FillFormat properties.
      *
      * @return $this
      */
     public function setIsHardUnderlineFill($isHardUnderlineFill)
     {
         $allowedValues = $this->getIsHardUnderlineFillAllowableValues();
-        if (!is_null($isHardUnderlineFill) && !in_array($isHardUnderlineFill, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'isHardUnderlineFill', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($isHardUnderlineFill)) {
+            if ($isHardUnderlineFill >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'isHardUnderlineFill', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $isHardUnderlineFill = $allowedValues[$isHardUnderlineFill];
+            }
+        } else {
+            if (!is_null($isHardUnderlineFill) && !in_array($isHardUnderlineFill, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'isHardUnderlineFill', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['isHardUnderlineFill'] = $isHardUnderlineFill;
 
@@ -1224,20 +1350,34 @@ class Portion extends ResourceBase
     /**
      * Sets isHardUnderlineLine
      *
-     * @param string $isHardUnderlineLine isHardUnderlineLine
+     * @param string $isHardUnderlineLine True if underline style has own LineFormat properties.
      *
      * @return $this
      */
     public function setIsHardUnderlineLine($isHardUnderlineLine)
     {
         $allowedValues = $this->getIsHardUnderlineLineAllowableValues();
-        if (!is_null($isHardUnderlineLine) && !in_array($isHardUnderlineLine, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'isHardUnderlineLine', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($isHardUnderlineLine)) {
+            if ($isHardUnderlineLine >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'isHardUnderlineLine', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $isHardUnderlineLine = $allowedValues[$isHardUnderlineLine];
+            }
+        } else {
+            if (!is_null($isHardUnderlineLine) && !in_array($isHardUnderlineLine, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'isHardUnderlineLine', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['isHardUnderlineLine'] = $isHardUnderlineLine;
 
@@ -1257,7 +1397,7 @@ class Portion extends ResourceBase
     /**
      * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat fillFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Fill format.
      *
      * @return $this
      */
@@ -1281,7 +1421,7 @@ class Portion extends ResourceBase
     /**
      * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat effectFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Effect format.
      *
      * @return $this
      */
@@ -1305,7 +1445,7 @@ class Portion extends ResourceBase
     /**
      * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat lineFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Line format.
      *
      * @return $this
      */
@@ -1329,7 +1469,7 @@ class Portion extends ResourceBase
     /**
      * Sets underlineFillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $underlineFillFormat underlineFillFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $underlineFillFormat Underline fill format.
      *
      * @return $this
      */
@@ -1353,7 +1493,7 @@ class Portion extends ResourceBase
     /**
      * Sets underlineLineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $underlineLineFormat underlineLineFormat
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $underlineLineFormat Underline line format.
      *
      * @return $this
      */

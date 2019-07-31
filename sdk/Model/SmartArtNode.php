@@ -392,13 +392,27 @@ class SmartArtNode implements ArrayAccess
     public function setOrgChartLayout($orgChartLayout)
     {
         $allowedValues = $this->getOrgChartLayoutAllowableValues();
-        if (!in_array($orgChartLayout, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'orgChartLayout', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($orgChartLayout)) {
+            if ($orgChartLayout >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orgChartLayout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $orgChartLayout = $allowedValues[$orgChartLayout];
+            }
+        } else {
+            if (!in_array($orgChartLayout, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orgChartLayout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['orgChartLayout'] = $orgChartLayout;
 

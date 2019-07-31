@@ -62,6 +62,7 @@ class SlideExportFormat
     const PPTM = 'Pptm';
     const PPSM = 'Ppsm';
     const POTX = 'Potx';
+    const POT = 'Pot';
     const POTM = 'Potm';
     const SVG = 'Svg';
     
@@ -89,6 +90,7 @@ class SlideExportFormat
             self::PPTM,
             self::PPSM,
             self::POTX,
+            self::POT,
             self::POTM,
             self::SVG,
         ];

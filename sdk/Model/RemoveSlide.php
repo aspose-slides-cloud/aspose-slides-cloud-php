@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * RemoveSlide Class Doc Comment
  *
  * @category Class
+ * @description Remove slide task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -222,7 +223,7 @@ class RemoveSlide extends Task
     /**
      * Sets position
      *
-     * @param int $position position
+     * @param int $position Position of slide to be removed.
      *
      * @return $this
      */

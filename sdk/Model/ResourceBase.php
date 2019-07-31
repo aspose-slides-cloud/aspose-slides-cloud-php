@@ -254,7 +254,7 @@ class ResourceBase implements ArrayAccess
     /**
      * Sets alternateLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $alternateLinks alternateLinks
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $alternateLinks List of alternate links.
      *
      * @return $this
      */

@@ -455,13 +455,27 @@ class Chart extends ShapeBase
     public function setChartType($chartType)
     {
         $allowedValues = $this->getChartTypeAllowableValues();
-        if (!in_array($chartType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'chartType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($chartType)) {
+            if ($chartType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'chartType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $chartType = $allowedValues[$chartType];
+            }
+        } else {
+            if (!in_array($chartType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'chartType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['chartType'] = $chartType;
 

@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * TiffExportOptions Class Doc Comment
  *
  * @category Class
+ * @description Provides options that control how a presentation is saved in TIFF format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -450,20 +451,34 @@ class TiffExportOptions extends ExportOptions
     /**
      * Sets compression
      *
-     * @param string $compression compression
+     * @param string $compression Compression type.
      *
      * @return $this
      */
     public function setCompression($compression)
     {
         $allowedValues = $this->getCompressionAllowableValues();
-        if (!in_array($compression, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'compression', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($compression)) {
+            if ($compression >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'compression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $compression = $allowedValues[$compression];
+            }
+        } else {
+            if (!in_array($compression, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'compression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['compression'] = $compression;
 
@@ -483,7 +498,7 @@ class TiffExportOptions extends ExportOptions
     /**
      * Sets width
      *
-     * @param int $width width
+     * @param int $width Width.
      *
      * @return $this
      */
@@ -507,7 +522,7 @@ class TiffExportOptions extends ExportOptions
     /**
      * Sets height
      *
-     * @param int $height height
+     * @param int $height Height.
      *
      * @return $this
      */
@@ -531,7 +546,7 @@ class TiffExportOptions extends ExportOptions
     /**
      * Sets dpiX
      *
-     * @param int $dpiX dpiX
+     * @param int $dpiX Horizontal resolution, in dots per inch.
      *
      * @return $this
      */
@@ -555,7 +570,7 @@ class TiffExportOptions extends ExportOptions
     /**
      * Sets dpiY
      *
-     * @param int $dpiY dpiY
+     * @param int $dpiY Vertical resolution, in dots per inch.
      *
      * @return $this
      */
@@ -610,13 +625,27 @@ class TiffExportOptions extends ExportOptions
     public function setPixelFormat($pixelFormat)
     {
         $allowedValues = $this->getPixelFormatAllowableValues();
-        if (!in_array($pixelFormat, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'pixelFormat', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($pixelFormat)) {
+            if ($pixelFormat >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pixelFormat', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $pixelFormat = $allowedValues[$pixelFormat];
+            }
+        } else {
+            if (!in_array($pixelFormat, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pixelFormat', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['pixelFormat'] = $pixelFormat;
 
@@ -643,13 +672,27 @@ class TiffExportOptions extends ExportOptions
     public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notesPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'notesPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($notesPosition)) {
+            if ($notesPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $notesPosition = $allowedValues[$notesPosition];
+            }
+        } else {
+            if (!in_array($notesPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['notesPosition'] = $notesPosition;
 
@@ -676,13 +719,27 @@ class TiffExportOptions extends ExportOptions
     public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($commentsPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'commentsPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($commentsPosition)) {
+            if ($commentsPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $commentsPosition = $allowedValues[$commentsPosition];
+            }
+        } else {
+            if (!in_array($commentsPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['commentsPosition'] = $commentsPosition;
 

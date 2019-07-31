@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * TableColumn Class Doc Comment
  *
  * @category Class
+ * @description Table column.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -225,7 +226,7 @@ class TableColumn implements ArrayAccess
     /**
      * Sets width
      *
-     * @param double $width width
+     * @param double $width Width.
      *
      * @return $this
      */

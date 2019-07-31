@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * Slides Class Doc Comment
  *
  * @category Class
+ * @description Slide list.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -216,7 +217,7 @@ class Slides extends ResourceBase
     /**
      * Sets slideList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList slideList
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList List of slide links.
      *
      * @return $this
      */

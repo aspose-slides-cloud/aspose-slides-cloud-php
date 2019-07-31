@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * PptxExportOptions Class Doc Comment
  *
  * @category Class
+ * @description Provides options that control how a presentation is saved in PPTX format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -258,13 +259,27 @@ class PptxExportOptions extends ExportOptions
     public function setConformance($conformance)
     {
         $allowedValues = $this->getConformanceAllowableValues();
-        if (!in_array($conformance, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'conformance', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($conformance)) {
+            if ($conformance >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'conformance', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $conformance = $allowedValues[$conformance];
+            }
+        } else {
+            if (!in_array($conformance, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'conformance', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['conformance'] = $conformance;
 

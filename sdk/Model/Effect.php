@@ -862,13 +862,27 @@ class Effect implements ArrayAccess
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['type'] = $type;
 
@@ -895,13 +909,27 @@ class Effect implements ArrayAccess
     public function setSubtype($subtype)
     {
         $allowedValues = $this->getSubtypeAllowableValues();
-        if (!is_null($subtype) && !in_array($subtype, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'subtype', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($subtype)) {
+            if ($subtype >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'subtype', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $subtype = $allowedValues[$subtype];
+            }
+        } else {
+            if (!is_null($subtype) && !in_array($subtype, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'subtype', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['subtype'] = $subtype;
 
@@ -928,13 +956,27 @@ class Effect implements ArrayAccess
     public function setPresetClassType($presetClassType)
     {
         $allowedValues = $this->getPresetClassTypeAllowableValues();
-        if (!is_null($presetClassType) && !in_array($presetClassType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'presetClassType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($presetClassType)) {
+            if ($presetClassType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'presetClassType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $presetClassType = $allowedValues[$presetClassType];
+            }
+        } else {
+            if (!is_null($presetClassType) && !in_array($presetClassType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'presetClassType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['presetClassType'] = $presetClassType;
 
@@ -985,13 +1027,27 @@ class Effect implements ArrayAccess
     public function setTriggerType($triggerType)
     {
         $allowedValues = $this->getTriggerTypeAllowableValues();
-        if (!is_null($triggerType) && !in_array($triggerType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'triggerType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($triggerType)) {
+            if ($triggerType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'triggerType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $triggerType = $allowedValues[$triggerType];
+            }
+        } else {
+            if (!is_null($triggerType) && !in_array($triggerType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'triggerType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['triggerType'] = $triggerType;
 
@@ -1162,13 +1218,27 @@ class Effect implements ArrayAccess
     public function setRestart($restart)
     {
         $allowedValues = $this->getRestartAllowableValues();
-        if (!is_null($restart) && !in_array($restart, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'restart', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($restart)) {
+            if ($restart >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'restart', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $restart = $allowedValues[$restart];
+            }
+        } else {
+            if (!is_null($restart) && !in_array($restart, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'restart', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['restart'] = $restart;
 

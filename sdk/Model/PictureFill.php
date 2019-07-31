@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * PictureFill Class Doc Comment
  *
  * @category Class
+ * @description Picture fill.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -327,7 +328,7 @@ class PictureFill extends FillFormat
     /**
      * Sets cropBottom
      *
-     * @param double $cropBottom cropBottom
+     * @param double $cropBottom Percentage of image height that is cropped from the bottom.
      *
      * @return $this
      */
@@ -351,7 +352,7 @@ class PictureFill extends FillFormat
     /**
      * Sets cropLeft
      *
-     * @param double $cropLeft cropLeft
+     * @param double $cropLeft Percentage of image height that is cropped from the left.
      *
      * @return $this
      */
@@ -375,7 +376,7 @@ class PictureFill extends FillFormat
     /**
      * Sets cropRight
      *
-     * @param double $cropRight cropRight
+     * @param double $cropRight Percentage of image height that is cropped from the right.
      *
      * @return $this
      */
@@ -399,7 +400,7 @@ class PictureFill extends FillFormat
     /**
      * Sets cropTop
      *
-     * @param double $cropTop cropTop
+     * @param double $cropTop Percentage of image height that is cropped from the top.
      *
      * @return $this
      */
@@ -423,7 +424,7 @@ class PictureFill extends FillFormat
     /**
      * Sets dpi
      *
-     * @param int $dpi dpi
+     * @param int $dpi Picture resolution.
      *
      * @return $this
      */
@@ -447,7 +448,7 @@ class PictureFill extends FillFormat
     /**
      * Sets image
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $image image
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $image Internal image link.
      *
      * @return $this
      */
@@ -471,7 +472,7 @@ class PictureFill extends FillFormat
     /**
      * Sets base64Data
      *
-     * @param string $base64Data base64Data
+     * @param string $base64Data Base 64 image data.
      *
      * @return $this
      */
@@ -495,7 +496,7 @@ class PictureFill extends FillFormat
     /**
      * Sets svgData
      *
-     * @param string $svgData svgData
+     * @param string $svgData SVG image data.
      *
      * @return $this
      */
@@ -519,20 +520,34 @@ class PictureFill extends FillFormat
     /**
      * Sets pictureFillMode
      *
-     * @param string $pictureFillMode pictureFillMode
+     * @param string $pictureFillMode Fill mode.
      *
      * @return $this
      */
     public function setPictureFillMode($pictureFillMode)
     {
         $allowedValues = $this->getPictureFillModeAllowableValues();
-        if (!in_array($pictureFillMode, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'pictureFillMode', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($pictureFillMode)) {
+            if ($pictureFillMode >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pictureFillMode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $pictureFillMode = $allowedValues[$pictureFillMode];
+            }
+        } else {
+            if (!in_array($pictureFillMode, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'pictureFillMode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['pictureFillMode'] = $pictureFillMode;
 

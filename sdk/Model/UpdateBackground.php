@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * UpdateBackground Class Doc Comment
  *
  * @category Class
+ * @description Update background task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -222,7 +223,7 @@ class UpdateBackground extends Task
     /**
      * Sets slides
      *
-     * @param int[] $slides slides
+     * @param int[] $slides List of slide indices.
      *
      * @return $this
      */
@@ -246,7 +247,7 @@ class UpdateBackground extends Task
     /**
      * Sets background
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background background
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Background DTO.
      *
      * @return $this
      */

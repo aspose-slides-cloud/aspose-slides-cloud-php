@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * XpsExportOptions Class Doc Comment
  *
  * @category Class
+ * @description Provides options that control how a presentation is saved in XPS format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

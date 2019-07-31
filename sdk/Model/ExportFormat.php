@@ -56,6 +56,7 @@ class ExportFormat
     const PPSX = 'Ppsx';
     const PPTM = 'Pptm';
     const PPSM = 'Ppsm';
+    const POT = 'Pot';
     const POTX = 'Potx';
     const POTM = 'Potm';
     const HTML = 'Html';
@@ -84,6 +85,7 @@ class ExportFormat
             self::PPSX,
             self::PPTM,
             self::PPSM,
+            self::POT,
             self::POTX,
             self::POTM,
             self::HTML,

@@ -522,13 +522,27 @@ class PdfExportOptions extends ExportOptions
     public function setTextCompression($textCompression)
     {
         $allowedValues = $this->getTextCompressionAllowableValues();
-        if (!in_array($textCompression, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'textCompression', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($textCompression)) {
+            if ($textCompression >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $textCompression = $allowedValues[$textCompression];
+            }
+        } else {
+            if (!in_array($textCompression, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'textCompression', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['textCompression'] = $textCompression;
 
@@ -579,13 +593,27 @@ class PdfExportOptions extends ExportOptions
     public function setCompliance($compliance)
     {
         $allowedValues = $this->getComplianceAllowableValues();
-        if (!in_array($compliance, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'compliance', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($compliance)) {
+            if ($compliance >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'compliance', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $compliance = $allowedValues[$compliance];
+            }
+        } else {
+            if (!in_array($compliance, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'compliance', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['compliance'] = $compliance;
 
@@ -804,13 +832,27 @@ class PdfExportOptions extends ExportOptions
     public function setNotesPosition($notesPosition)
     {
         $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($notesPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'notesPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($notesPosition)) {
+            if ($notesPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $notesPosition = $allowedValues[$notesPosition];
+            }
+        } else {
+            if (!in_array($notesPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['notesPosition'] = $notesPosition;
 
@@ -837,13 +879,27 @@ class PdfExportOptions extends ExportOptions
     public function setCommentsPosition($commentsPosition)
     {
         $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($commentsPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'commentsPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($commentsPosition)) {
+            if ($commentsPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $commentsPosition = $allowedValues[$commentsPosition];
+            }
+        } else {
+            if (!in_array($commentsPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['commentsPosition'] = $commentsPosition;
 

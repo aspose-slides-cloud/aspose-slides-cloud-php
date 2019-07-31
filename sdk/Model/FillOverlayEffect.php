@@ -266,13 +266,27 @@ class FillOverlayEffect implements ArrayAccess
     public function setBlend($blend)
     {
         $allowedValues = $this->getBlendAllowableValues();
-        if (!in_array($blend, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'blend', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($blend)) {
+            if ($blend >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'blend', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $blend = $allowedValues[$blend];
+            }
+        } else {
+            if (!in_array($blend, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'blend', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['blend'] = $blend;
 

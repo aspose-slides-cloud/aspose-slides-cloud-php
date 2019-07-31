@@ -659,7 +659,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets marginLeft
      *
-     * @param double $marginLeft marginLeft
+     * @param double $marginLeft Left margin.
      *
      * @return $this
      */
@@ -683,7 +683,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets marginRight
      *
-     * @param double $marginRight marginRight
+     * @param double $marginRight Right margin.
      *
      * @return $this
      */
@@ -707,7 +707,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets spaceBefore
      *
-     * @param double $spaceBefore spaceBefore
+     * @param double $spaceBefore Left spacing.
      *
      * @return $this
      */
@@ -731,7 +731,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets spaceAfter
      *
-     * @param double $spaceAfter spaceAfter
+     * @param double $spaceAfter Right spacing.
      *
      * @return $this
      */
@@ -755,7 +755,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets spaceWithin
      *
-     * @param double $spaceWithin spaceWithin
+     * @param double $spaceWithin Spacing between lines.
      *
      * @return $this
      */
@@ -779,7 +779,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets indent
      *
-     * @param double $indent indent
+     * @param double $indent First line indent.
      *
      * @return $this
      */
@@ -803,20 +803,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets alignment
      *
-     * @param string $alignment alignment
+     * @param string $alignment Text alignment.
      *
      * @return $this
      */
     public function setAlignment($alignment)
     {
         $allowedValues = $this->getAlignmentAllowableValues();
-        if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'alignment', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($alignment)) {
+            if ($alignment >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $alignment = $allowedValues[$alignment];
+            }
+        } else {
+            if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['alignment'] = $alignment;
 
@@ -836,20 +850,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets fontAlignment
      *
-     * @param string $fontAlignment fontAlignment
+     * @param string $fontAlignment Font alignment.
      *
      * @return $this
      */
     public function setFontAlignment($fontAlignment)
     {
         $allowedValues = $this->getFontAlignmentAllowableValues();
-        if (!is_null($fontAlignment) && !in_array($fontAlignment, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'fontAlignment', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($fontAlignment)) {
+            if ($fontAlignment >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontAlignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $fontAlignment = $allowedValues[$fontAlignment];
+            }
+        } else {
+            if (!is_null($fontAlignment) && !in_array($fontAlignment, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'fontAlignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['fontAlignment'] = $fontAlignment;
 
@@ -869,7 +897,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets defaultTabSize
      *
-     * @param double $defaultTabSize defaultTabSize
+     * @param double $defaultTabSize Default tabulation size.
      *
      * @return $this
      */
@@ -893,7 +921,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets depth
      *
-     * @param int $depth depth
+     * @param int $depth Depth.
      *
      * @return $this
      */
@@ -917,7 +945,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets bulletChar
      *
-     * @param string $bulletChar bulletChar
+     * @param string $bulletChar Bullet char.
      *
      * @return $this
      */
@@ -941,7 +969,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets bulletHeight
      *
-     * @param double $bulletHeight bulletHeight
+     * @param double $bulletHeight Bullet height.
      *
      * @return $this
      */
@@ -965,20 +993,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets bulletType
      *
-     * @param string $bulletType bulletType
+     * @param string $bulletType Bullet type.
      *
      * @return $this
      */
     public function setBulletType($bulletType)
     {
         $allowedValues = $this->getBulletTypeAllowableValues();
-        if (!is_null($bulletType) && !in_array($bulletType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'bulletType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($bulletType)) {
+            if ($bulletType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'bulletType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $bulletType = $allowedValues[$bulletType];
+            }
+        } else {
+            if (!is_null($bulletType) && !in_array($bulletType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'bulletType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['bulletType'] = $bulletType;
 
@@ -998,7 +1040,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets numberedBulletStartWith
      *
-     * @param int $numberedBulletStartWith numberedBulletStartWith
+     * @param int $numberedBulletStartWith Starting number for a numbered bullet.
      *
      * @return $this
      */
@@ -1022,20 +1064,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets numberedBulletStyle
      *
-     * @param string $numberedBulletStyle numberedBulletStyle
+     * @param string $numberedBulletStyle Numbered bullet style.
      *
      * @return $this
      */
     public function setNumberedBulletStyle($numberedBulletStyle)
     {
         $allowedValues = $this->getNumberedBulletStyleAllowableValues();
-        if (!is_null($numberedBulletStyle) && !in_array($numberedBulletStyle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'numberedBulletStyle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($numberedBulletStyle)) {
+            if ($numberedBulletStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'numberedBulletStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $numberedBulletStyle = $allowedValues[$numberedBulletStyle];
+            }
+        } else {
+            if (!is_null($numberedBulletStyle) && !in_array($numberedBulletStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'numberedBulletStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['numberedBulletStyle'] = $numberedBulletStyle;
 
@@ -1055,20 +1111,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets hangingPunctuation
      *
-     * @param string $hangingPunctuation hangingPunctuation
+     * @param string $hangingPunctuation True if hanging punctuation is used with the paragraph.
      *
      * @return $this
      */
     public function setHangingPunctuation($hangingPunctuation)
     {
         $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!is_null($hangingPunctuation) && !in_array($hangingPunctuation, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'hangingPunctuation', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($hangingPunctuation)) {
+            if ($hangingPunctuation >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $hangingPunctuation = $allowedValues[$hangingPunctuation];
+            }
+        } else {
+            if (!is_null($hangingPunctuation) && !in_array($hangingPunctuation, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['hangingPunctuation'] = $hangingPunctuation;
 
@@ -1088,20 +1158,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets eastAsianLineBreak
      *
-     * @param string $eastAsianLineBreak eastAsianLineBreak
+     * @param string $eastAsianLineBreak True if East Asian line break is used with the paragraph.
      *
      * @return $this
      */
     public function setEastAsianLineBreak($eastAsianLineBreak)
     {
         $allowedValues = $this->getEastAsianLineBreakAllowableValues();
-        if (!is_null($eastAsianLineBreak) && !in_array($eastAsianLineBreak, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'eastAsianLineBreak', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($eastAsianLineBreak)) {
+            if ($eastAsianLineBreak >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'eastAsianLineBreak', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $eastAsianLineBreak = $allowedValues[$eastAsianLineBreak];
+            }
+        } else {
+            if (!is_null($eastAsianLineBreak) && !in_array($eastAsianLineBreak, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'eastAsianLineBreak', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['eastAsianLineBreak'] = $eastAsianLineBreak;
 
@@ -1121,20 +1205,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets latinLineBreak
      *
-     * @param string $latinLineBreak latinLineBreak
+     * @param string $latinLineBreak True if Latin line break is used with the paragraph.
      *
      * @return $this
      */
     public function setLatinLineBreak($latinLineBreak)
     {
         $allowedValues = $this->getLatinLineBreakAllowableValues();
-        if (!is_null($latinLineBreak) && !in_array($latinLineBreak, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'latinLineBreak', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($latinLineBreak)) {
+            if ($latinLineBreak >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'latinLineBreak', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $latinLineBreak = $allowedValues[$latinLineBreak];
+            }
+        } else {
+            if (!is_null($latinLineBreak) && !in_array($latinLineBreak, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'latinLineBreak', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['latinLineBreak'] = $latinLineBreak;
 
@@ -1154,20 +1252,34 @@ class Paragraph extends ResourceBase
     /**
      * Sets rightToLeft
      *
-     * @param string $rightToLeft rightToLeft
+     * @param string $rightToLeft True if right to left direction is used with the paragraph.
      *
      * @return $this
      */
     public function setRightToLeft($rightToLeft)
     {
         $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!is_null($rightToLeft) && !in_array($rightToLeft, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'rightToLeft', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($rightToLeft)) {
+            if ($rightToLeft >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'rightToLeft', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $rightToLeft = $allowedValues[$rightToLeft];
+            }
+        } else {
+            if (!is_null($rightToLeft) && !in_array($rightToLeft, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'rightToLeft', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['rightToLeft'] = $rightToLeft;
 
@@ -1187,7 +1299,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets portionList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionList portionList
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionList List of portion links.
      *
      * @return $this
      */

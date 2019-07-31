@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * UpdateShape Class Doc Comment
  *
  * @category Class
+ * @description Update shape task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -222,7 +223,7 @@ class UpdateShape extends Task
     /**
      * Sets shape
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $shape shape
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $shape Shape DTO.
      *
      * @return $this
      */
@@ -246,7 +247,7 @@ class UpdateShape extends Task
     /**
      * Sets shapePath
      *
-     * @param string $shapePath shapePath
+     * @param string $shapePath Shape path for a grouped or SmartArt shape.
      *
      * @return $this
      */

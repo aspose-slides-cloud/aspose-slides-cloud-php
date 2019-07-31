@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * GradientFillStop Class Doc Comment
  *
  * @category Class
+ * @description Gradient stop.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -231,7 +232,7 @@ class GradientFillStop implements ArrayAccess
     /**
      * Sets color
      *
-     * @param string $color color
+     * @param string $color Color.
      *
      * @return $this
      */
@@ -255,7 +256,7 @@ class GradientFillStop implements ArrayAccess
     /**
      * Sets position
      *
-     * @param double $position position
+     * @param double $position Stop position (0..1).
      *
      * @return $this
      */

@@ -217,7 +217,7 @@ class Images extends ResourceBase
     /**
      * Sets list
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Image[] $list list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Image[] $list Image list.
      *
      * @return $this
      */

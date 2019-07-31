@@ -283,7 +283,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent1
      *
-     * @param string $accent1 accent1
+     * @param string $accent1 First accent color.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent2
      *
-     * @param string $accent2 accent2
+     * @param string $accent2 Second accent color.
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent3
      *
-     * @param string $accent3 accent3
+     * @param string $accent3 Third accent color.
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent4
      *
-     * @param string $accent4 accent4
+     * @param string $accent4 Fourth accent color.
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent5
      *
-     * @param string $accent5 accent5
+     * @param string $accent5 Fifth accent color.
      *
      * @return $this
      */
@@ -403,7 +403,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets accent6
      *
-     * @param string $accent6 accent6
+     * @param string $accent6 Sixth accent color.
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets dark1
      *
-     * @param string $dark1 dark1
+     * @param string $dark1 First dark color.
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets dark2
      *
-     * @param string $dark2 dark2
+     * @param string $dark2 Second dark color.
      *
      * @return $this
      */
@@ -475,7 +475,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets followedHyperlink
      *
-     * @param string $followedHyperlink followedHyperlink
+     * @param string $followedHyperlink Visited hyperlink color.
      *
      * @return $this
      */
@@ -499,7 +499,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets hyperlink
      *
-     * @param string $hyperlink hyperlink
+     * @param string $hyperlink Hyperlink color/
      *
      * @return $this
      */
@@ -523,7 +523,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets light1
      *
-     * @param string $light1 light1
+     * @param string $light1 First light color.
      *
      * @return $this
      */
@@ -547,7 +547,7 @@ class ColorScheme extends ResourceBase
     /**
      * Sets light2
      *
-     * @param string $light2 light2
+     * @param string $light2 Second light color.
      *
      * @return $this
      */

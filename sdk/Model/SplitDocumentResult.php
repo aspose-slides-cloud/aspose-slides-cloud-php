@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * SplitDocumentResult Class Doc Comment
  *
  * @category Class
+ * @description Split document result.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -216,7 +217,7 @@ class SplitDocumentResult extends ResourceBase
     /**
      * Sets slides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $slides slides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $slides List of slide links.
      *
      * @return $this
      */

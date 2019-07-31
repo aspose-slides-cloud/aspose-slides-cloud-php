@@ -376,7 +376,7 @@ class Placeholder extends ResourceBase
     /**
      * Sets index
      *
-     * @param int $index index
+     * @param int $index Index.
      *
      * @return $this
      */
@@ -400,20 +400,34 @@ class Placeholder extends ResourceBase
     /**
      * Sets orientation
      *
-     * @param string $orientation orientation
+     * @param string $orientation Orientation.
      *
      * @return $this
      */
     public function setOrientation($orientation)
     {
         $allowedValues = $this->getOrientationAllowableValues();
-        if (!in_array($orientation, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'orientation', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($orientation)) {
+            if ($orientation >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orientation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $orientation = $allowedValues[$orientation];
+            }
+        } else {
+            if (!in_array($orientation, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orientation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['orientation'] = $orientation;
 
@@ -433,20 +447,34 @@ class Placeholder extends ResourceBase
     /**
      * Sets size
      *
-     * @param string $size size
+     * @param string $size Size.
      *
      * @return $this
      */
     public function setSize($size)
     {
         $allowedValues = $this->getSizeAllowableValues();
-        if (!in_array($size, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'size', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($size)) {
+            if ($size >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'size', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $size = $allowedValues[$size];
+            }
+        } else {
+            if (!in_array($size, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'size', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['size'] = $size;
 
@@ -466,20 +494,34 @@ class Placeholder extends ResourceBase
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Placeholder type.
      *
      * @return $this
      */
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['type'] = $type;
 
@@ -499,7 +541,7 @@ class Placeholder extends ResourceBase
     /**
      * Sets shape
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shape shape
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shape Shape link.
      *
      * @return $this
      */

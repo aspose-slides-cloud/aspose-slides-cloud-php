@@ -35,7 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * NotesSlideExportFormat Class Doc Comment
  *
  * @category Class
- * @description 
+ * @description Represents a format for notes slide export.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

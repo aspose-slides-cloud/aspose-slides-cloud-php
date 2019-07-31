@@ -37,6 +37,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * FontSet Class Doc Comment
  *
  * @category Class
+ * @description Font set.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -231,7 +232,7 @@ class FontSet implements ArrayAccess
     /**
      * Sets complexScript
      *
-     * @param string $complexScript complexScript
+     * @param string $complexScript Complex script font.
      *
      * @return $this
      */
@@ -255,7 +256,7 @@ class FontSet implements ArrayAccess
     /**
      * Sets eastAsian
      *
-     * @param string $eastAsian eastAsian
+     * @param string $eastAsian East Asian font.
      *
      * @return $this
      */
@@ -279,7 +280,7 @@ class FontSet implements ArrayAccess
     /**
      * Sets latin
      *
-     * @param string $latin latin
+     * @param string $latin Latin font.
      *
      * @return $this
      */

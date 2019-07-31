@@ -374,13 +374,27 @@ class PresetShadowEffect implements ArrayAccess
     public function setPreset($preset)
     {
         $allowedValues = $this->getPresetAllowableValues();
-        if (!in_array($preset, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'preset', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($preset)) {
+            if ($preset >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'preset', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $preset = $allowedValues[$preset];
+            }
+        } else {
+            if (!in_array($preset, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'preset', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['preset'] = $preset;
 

@@ -989,13 +989,27 @@ class Axis implements ArrayAccess
     public function setPosition($position)
     {
         $allowedValues = $this->getPositionAllowableValues();
-        if (!in_array($position, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'position', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($position)) {
+            if ($position >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'position', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $position = $allowedValues[$position];
+            }
+        } else {
+            if (!in_array($position, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'position', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['position'] = $position;
 
@@ -1022,13 +1036,27 @@ class Axis implements ArrayAccess
     public function setDisplayUnit($displayUnit)
     {
         $allowedValues = $this->getDisplayUnitAllowableValues();
-        if (!in_array($displayUnit, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'displayUnit', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($displayUnit)) {
+            if ($displayUnit >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'displayUnit', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $displayUnit = $allowedValues[$displayUnit];
+            }
+        } else {
+            if (!in_array($displayUnit, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'displayUnit', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['displayUnit'] = $displayUnit;
 
@@ -1055,13 +1083,27 @@ class Axis implements ArrayAccess
     public function setBaseUnitScale($baseUnitScale)
     {
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
-        if (!in_array($baseUnitScale, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'baseUnitScale', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($baseUnitScale)) {
+            if ($baseUnitScale >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'baseUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $baseUnitScale = $allowedValues[$baseUnitScale];
+            }
+        } else {
+            if (!in_array($baseUnitScale, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'baseUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['baseUnitScale'] = $baseUnitScale;
 
@@ -1136,13 +1178,27 @@ class Axis implements ArrayAccess
     public function setMajorUnitScale($majorUnitScale)
     {
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
-        if (!in_array($majorUnitScale, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'majorUnitScale', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($majorUnitScale)) {
+            if ($majorUnitScale >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'majorUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $majorUnitScale = $allowedValues[$majorUnitScale];
+            }
+        } else {
+            if (!in_array($majorUnitScale, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'majorUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['majorUnitScale'] = $majorUnitScale;
 
@@ -1169,13 +1225,27 @@ class Axis implements ArrayAccess
     public function setMajorTickMark($majorTickMark)
     {
         $allowedValues = $this->getMajorTickMarkAllowableValues();
-        if (!in_array($majorTickMark, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'majorTickMark', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($majorTickMark)) {
+            if ($majorTickMark >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'majorTickMark', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $majorTickMark = $allowedValues[$majorTickMark];
+            }
+        } else {
+            if (!in_array($majorTickMark, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'majorTickMark', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['majorTickMark'] = $majorTickMark;
 
@@ -1250,13 +1320,27 @@ class Axis implements ArrayAccess
     public function setMinorUnitScale($minorUnitScale)
     {
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
-        if (!in_array($minorUnitScale, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'minorUnitScale', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($minorUnitScale)) {
+            if ($minorUnitScale >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'minorUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $minorUnitScale = $allowedValues[$minorUnitScale];
+            }
+        } else {
+            if (!in_array($minorUnitScale, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'minorUnitScale', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['minorUnitScale'] = $minorUnitScale;
 
@@ -1283,13 +1367,27 @@ class Axis implements ArrayAccess
     public function setMinorTickMark($minorTickMark)
     {
         $allowedValues = $this->getMinorTickMarkAllowableValues();
-        if (!in_array($minorTickMark, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'minorTickMark', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($minorTickMark)) {
+            if ($minorTickMark >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'minorTickMark', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $minorTickMark = $allowedValues[$minorTickMark];
+            }
+        } else {
+            if (!in_array($minorTickMark, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'minorTickMark', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['minorTickMark'] = $minorTickMark;
 
@@ -1460,13 +1558,27 @@ class Axis implements ArrayAccess
     public function setCategoryAxisType($categoryAxisType)
     {
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
-        if (!in_array($categoryAxisType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'categoryAxisType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($categoryAxisType)) {
+            if ($categoryAxisType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'categoryAxisType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $categoryAxisType = $allowedValues[$categoryAxisType];
+            }
+        } else {
+            if (!in_array($categoryAxisType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'categoryAxisType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['categoryAxisType'] = $categoryAxisType;
 
@@ -1613,13 +1725,27 @@ class Axis implements ArrayAccess
     public function setCrossType($crossType)
     {
         $allowedValues = $this->getCrossTypeAllowableValues();
-        if (!in_array($crossType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'crossType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($crossType)) {
+            if ($crossType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'crossType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $crossType = $allowedValues[$crossType];
+            }
+        } else {
+            if (!in_array($crossType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'crossType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['crossType'] = $crossType;
 
@@ -1766,13 +1892,27 @@ class Axis implements ArrayAccess
     public function setTickLabelPosition($tickLabelPosition)
     {
         $allowedValues = $this->getTickLabelPositionAllowableValues();
-        if (!in_array($tickLabelPosition, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tickLabelPosition', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($tickLabelPosition)) {
+            if ($tickLabelPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tickLabelPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $tickLabelPosition = $allowedValues[$tickLabelPosition];
+            }
+        } else {
+            if (!in_array($tickLabelPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tickLabelPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['tickLabelPosition'] = $tickLabelPosition;
 

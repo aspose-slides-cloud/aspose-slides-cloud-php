@@ -335,8 +335,14 @@ class ObjectSerializer
                     $propertyValue = $data->{$property};
                 }
 
-                if (!isset($propertyValue) && is_array($data) && array_key_exists($property, $data)) {
-                    $propertyValue = $data[$property];
+                if (!isset($propertyValue) && is_array($data)) {
+                    if (array_key_exists($property, $data)) {
+            	        $propertyValue = $data[$property];
+                    } else if (array_key_exists(ucfirst($property), $data)) {
+            	        $propertyValue = $data[ucfirst($property)];
+                    } else if (array_key_exists(lcfirst($property), $data)) {
+            	        $propertyValue = $data[lcfirst($property)];
+                    }
                 }
 
                 if (isset($propertyValue)) {

@@ -179,6 +179,7 @@ class Save extends Task
     const FORMAT_PPSX = 'Ppsx';
     const FORMAT_PPTM = 'Pptm';
     const FORMAT_PPSM = 'Ppsm';
+    const FORMAT_POT = 'Pot';
     const FORMAT_POTX = 'Potx';
     const FORMAT_POTM = 'Potm';
     const FORMAT_HTML = 'Html';
@@ -210,6 +211,7 @@ class Save extends Task
             self::FORMAT_PPSX,
             self::FORMAT_PPTM,
             self::FORMAT_PPSM,
+            self::FORMAT_POT,
             self::FORMAT_POTX,
             self::FORMAT_POTM,
             self::FORMAT_HTML,
@@ -305,13 +307,27 @@ class Save extends Task
     public function setFormat($format)
     {
         $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'format', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($format)) {
+            if ($format >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $format = $allowedValues[$format];
+            }
+        } else {
+            if (!in_array($format, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['format'] = $format;
 

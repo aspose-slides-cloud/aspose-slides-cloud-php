@@ -235,7 +235,7 @@ class Theme extends ResourceBase
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Name.
      *
      * @return $this
      */
@@ -259,7 +259,7 @@ class Theme extends ResourceBase
     /**
      * Sets colorScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $colorScheme colorScheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $colorScheme Color scheme.
      *
      * @return $this
      */
@@ -283,7 +283,7 @@ class Theme extends ResourceBase
     /**
      * Sets fontScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $fontScheme fontScheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $fontScheme Font scheme.
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class Theme extends ResourceBase
     /**
      * Sets formatScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $formatScheme formatScheme
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $formatScheme Format scheme.
      *
      * @return $this
      */

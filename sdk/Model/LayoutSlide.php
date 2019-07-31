@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * LayoutSlide Class Doc Comment
  *
  * @category Class
+ * @description Layout slide.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -335,7 +336,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Name.
      *
      * @return $this
      */
@@ -359,20 +360,34 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string $type Layout slide type.
      *
      * @return $this
      */
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['type'] = $type;
 
@@ -392,7 +407,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets masterSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlide masterSlide
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlide Master slide link.
      *
      * @return $this
      */
@@ -416,7 +431,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets dependingSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides dependingSlides
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides List of depending slides.
      *
      * @return $this
      */

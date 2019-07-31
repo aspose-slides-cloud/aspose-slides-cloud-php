@@ -629,20 +629,34 @@ class GeometryShape extends ShapeBase
     /**
      * Sets geometryShapeType
      *
-     * @param string $geometryShapeType geometryShapeType
+     * @param string $geometryShapeType Geometry shape type.
      *
      * @return $this
      */
     public function setGeometryShapeType($geometryShapeType)
     {
         $allowedValues = $this->getGeometryShapeTypeAllowableValues();
-        if (!in_array($geometryShapeType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'geometryShapeType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($geometryShapeType)) {
+            if ($geometryShapeType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'geometryShapeType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $geometryShapeType = $allowedValues[$geometryShapeType];
+            }
+        } else {
+            if (!in_array($geometryShapeType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'geometryShapeType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['geometryShapeType'] = $geometryShapeType;
 

@@ -217,7 +217,7 @@ class Paragraphs extends ResourceBase
     /**
      * Sets paragraphLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $paragraphLinks paragraphLinks
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $paragraphLinks List of paragraph links.
      *
      * @return $this
      */

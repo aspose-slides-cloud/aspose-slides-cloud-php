@@ -720,13 +720,27 @@ class ReflectionEffect implements ArrayAccess
     public function setRectangleAlign($rectangleAlign)
     {
         $allowedValues = $this->getRectangleAlignAllowableValues();
-        if (!in_array($rectangleAlign, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'rectangleAlign', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($rectangleAlign)) {
+            if ($rectangleAlign >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'rectangleAlign', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $rectangleAlign = $allowedValues[$rectangleAlign];
+            }
+        } else {
+            if (!in_array($rectangleAlign, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'rectangleAlign', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['rectangleAlign'] = $rectangleAlign;
 

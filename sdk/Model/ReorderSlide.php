@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ReorderSlide Class Doc Comment
  *
  * @category Class
+ * @description Reorder slide task.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -234,7 +235,7 @@ class ReorderSlide extends Task
     /**
      * Sets oldPosition
      *
-     * @param int $oldPosition oldPosition
+     * @param int $oldPosition Old position.
      *
      * @return $this
      */
@@ -258,7 +259,7 @@ class ReorderSlide extends Task
     /**
      * Sets newPosition
      *
-     * @param int $newPosition newPosition
+     * @param int $newPosition New position.
      *
      * @return $this
      */

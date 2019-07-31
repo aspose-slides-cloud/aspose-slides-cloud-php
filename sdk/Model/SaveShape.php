@@ -283,13 +283,27 @@ class SaveShape extends Task
     public function setFormat($format)
     {
         $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'format', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($format)) {
+            if ($format >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $format = $allowedValues[$format];
+            }
+        } else {
+            if (!in_array($format, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'format', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['format'] = $format;
 

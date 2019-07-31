@@ -35,6 +35,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * ShapeBase Class Doc Comment
  *
  * @category Class
+ * @description Slide shape.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,6 +61,7 @@ class ShapeBase extends ResourceBase
         'width' => 'double',
         'height' => 'double',
         'alternativeText' => 'string',
+        'alternativeTextTitle' => 'string',
         'hidden' => 'bool',
         'x' => 'double',
         'y' => 'double',
@@ -82,6 +84,7 @@ class ShapeBase extends ResourceBase
         'width' => 'double',
         'height' => 'double',
         'alternativeText' => null,
+        'alternativeTextTitle' => null,
         'hidden' => null,
         'x' => 'double',
         'y' => 'double',
@@ -125,6 +128,7 @@ class ShapeBase extends ResourceBase
         'width' => 'Width',
         'height' => 'Height',
         'alternativeText' => 'AlternativeText',
+        'alternativeTextTitle' => 'AlternativeTextTitle',
         'hidden' => 'Hidden',
         'x' => 'X',
         'y' => 'Y',
@@ -147,6 +151,7 @@ class ShapeBase extends ResourceBase
         'width' => 'setWidth',
         'height' => 'setHeight',
         'alternativeText' => 'setAlternativeText',
+        'alternativeTextTitle' => 'setAlternativeTextTitle',
         'hidden' => 'setHidden',
         'x' => 'setX',
         'y' => 'setY',
@@ -169,6 +174,7 @@ class ShapeBase extends ResourceBase
         'width' => 'getWidth',
         'height' => 'getHeight',
         'alternativeText' => 'getAlternativeText',
+        'alternativeTextTitle' => 'getAlternativeTextTitle',
         'hidden' => 'getHidden',
         'x' => 'getX',
         'y' => 'getY',
@@ -683,6 +689,7 @@ class ShapeBase extends ResourceBase
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['alternativeText'] = isset($data['alternativeText']) ? $data['alternativeText'] : null;
+        $this->container['alternativeTextTitle'] = isset($data['alternativeTextTitle']) ? $data['alternativeTextTitle'] : null;
         $this->container['hidden'] = isset($data['hidden']) ? $data['hidden'] : null;
         $this->container['x'] = isset($data['x']) ? $data['x'] : null;
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
@@ -845,6 +852,30 @@ class ShapeBase extends ResourceBase
     public function setAlternativeText($alternativeText)
     {
         $this->container['alternativeText'] = $alternativeText;
+
+        return $this;
+    }
+
+    /**
+     * Gets alternativeTextTitle
+     *
+     * @return string
+     */
+    public function getAlternativeTextTitle()
+    {
+        return $this->container['alternativeTextTitle'];
+    }
+
+    /**
+     * Sets alternativeTextTitle
+     *
+     * @param string $alternativeTextTitle The title of alternative text associated with the shape.
+     *
+     * @return $this
+     */
+    public function setAlternativeTextTitle($alternativeTextTitle)
+    {
+        $this->container['alternativeTextTitle'] = $alternativeTextTitle;
 
         return $this;
     }
@@ -1061,13 +1092,27 @@ class ShapeBase extends ResourceBase
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['type'] = $type;
 
@@ -1094,13 +1139,27 @@ class ShapeBase extends ResourceBase
     public function setShapeType($shapeType)
     {
         $allowedValues = $this->getShapeTypeAllowableValues();
-        if (!is_null($shapeType) && !in_array($shapeType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'shapeType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+
+
+        if (is_numeric($shapeType)) {
+            if ($shapeType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'shapeType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $shapeType = $allowedValues[$shapeType];
+            }
+        } else {
+            if (!is_null($shapeType) && !in_array($shapeType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'shapeType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
         }
         $this->container['shapeType'] = $shapeType;
 

@@ -61,7 +61,8 @@ class SlideComment implements ArrayAccess
     protected static $swaggerTypes = [
         'author' => 'string',
         'text' => 'string',
-        'createdTime' => 'string'
+        'createdTime' => 'string',
+        'childComments' => '\Aspose\Slides\Cloud\Sdk\Model\SlideComment[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class SlideComment implements ArrayAccess
     protected static $swaggerFormats = [
         'author' => null,
         'text' => null,
-        'createdTime' => null
+        'createdTime' => null,
+        'childComments' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class SlideComment implements ArrayAccess
     protected static $attributeMap = [
         'author' => 'Author',
         'text' => 'Text',
-        'createdTime' => 'CreatedTime'
+        'createdTime' => 'CreatedTime',
+        'childComments' => 'ChildComments'
     ];
 
     /**
@@ -115,7 +118,8 @@ class SlideComment implements ArrayAccess
     protected static $setters = [
         'author' => 'setAuthor',
         'text' => 'setText',
-        'createdTime' => 'setCreatedTime'
+        'createdTime' => 'setCreatedTime',
+        'childComments' => 'setChildComments'
     ];
 
     /**
@@ -126,7 +130,8 @@ class SlideComment implements ArrayAccess
     protected static $getters = [
         'author' => 'getAuthor',
         'text' => 'getText',
-        'createdTime' => 'getCreatedTime'
+        'createdTime' => 'getCreatedTime',
+        'childComments' => 'getChildComments'
     ];
 
     /**
@@ -192,6 +197,7 @@ class SlideComment implements ArrayAccess
         $this->container['author'] = isset($data['author']) ? $data['author'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
+        $this->container['childComments'] = isset($data['childComments']) ? $data['childComments'] : null;
     }
 
     /**
@@ -232,7 +238,7 @@ class SlideComment implements ArrayAccess
     /**
      * Sets author
      *
-     * @param string $author author
+     * @param string $author Author.
      *
      * @return $this
      */
@@ -256,7 +262,7 @@ class SlideComment implements ArrayAccess
     /**
      * Sets text
      *
-     * @param string $text text
+     * @param string $text Text.
      *
      * @return $this
      */
@@ -280,13 +286,37 @@ class SlideComment implements ArrayAccess
     /**
      * Sets createdTime
      *
-     * @param string $createdTime createdTime
+     * @param string $createdTime Creation time.
      *
      * @return $this
      */
     public function setCreatedTime($createdTime)
     {
         $this->container['createdTime'] = $createdTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets childComments
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlideComment[]
+     */
+    public function getChildComments()
+    {
+        return $this->container['childComments'];
+    }
+
+    /**
+     * Sets childComments
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideComment[] $childComments Child comments.
+     *
+     * @return $this
+     */
+    public function setChildComments($childComments)
+    {
+        $this->container['childComments'] = $childComments;
 
         return $this;
     }

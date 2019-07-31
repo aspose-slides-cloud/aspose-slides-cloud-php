@@ -57,7 +57,8 @@ class OleObjectFrame extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'isObjectIcon' => 'bool',
+        'substitutePictureTitle' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class OleObjectFrame extends ShapeBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'isObjectIcon' => null,
+        'substitutePictureTitle' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class OleObjectFrame extends ShapeBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'isObjectIcon' => 'IsObjectIcon',
+        'substitutePictureTitle' => 'SubstitutePictureTitle'
     ];
 
     /**
@@ -105,7 +108,8 @@ class OleObjectFrame extends ShapeBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'isObjectIcon' => 'setIsObjectIcon',
+        'substitutePictureTitle' => 'setSubstitutePictureTitle'
     ];
 
     /**
@@ -114,7 +118,8 @@ class OleObjectFrame extends ShapeBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'isObjectIcon' => 'getIsObjectIcon',
+        'substitutePictureTitle' => 'getSubstitutePictureTitle'
     ];
 
     /**
@@ -173,6 +178,8 @@ class OleObjectFrame extends ShapeBase
     {
         parent::__construct($data);
 
+        $this->container['isObjectIcon'] = isset($data['isObjectIcon']) ? $data['isObjectIcon'] : null;
+        $this->container['substitutePictureTitle'] = isset($data['substitutePictureTitle']) ? $data['substitutePictureTitle'] : null;
     }
 
     /**
@@ -184,6 +191,9 @@ class OleObjectFrame extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['isObjectIcon'] === null) {
+            $invalidProperties[] = "'isObjectIcon' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -199,9 +209,60 @@ class OleObjectFrame extends ShapeBase
             return false;
         }
 
+        if ($this->container['isObjectIcon'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets isObjectIcon
+     *
+     * @return bool
+     */
+    public function getIsObjectIcon()
+    {
+        return $this->container['isObjectIcon'];
+    }
+
+    /**
+     * Sets isObjectIcon
+     *
+     * @param bool $isObjectIcon True if an object is visible as icon.
+     *
+     * @return $this
+     */
+    public function setIsObjectIcon($isObjectIcon)
+    {
+        $this->container['isObjectIcon'] = $isObjectIcon;
+
+        return $this;
+    }
+
+    /**
+     * Gets substitutePictureTitle
+     *
+     * @return string
+     */
+    public function getSubstitutePictureTitle()
+    {
+        return $this->container['substitutePictureTitle'];
+    }
+
+    /**
+     * Sets substitutePictureTitle
+     *
+     * @param string $substitutePictureTitle The title for OleObject icon.
+     *
+     * @return $this
+     */
+    public function setSubstitutePictureTitle($substitutePictureTitle)
+    {
+        $this->container['substitutePictureTitle'] = $substitutePictureTitle;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

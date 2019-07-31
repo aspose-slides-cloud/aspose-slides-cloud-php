@@ -217,7 +217,7 @@ class SolidFill extends FillFormat
     /**
      * Sets color
      *
-     * @param string $color color
+     * @param string $color Color.
      *
      * @return $this
      */

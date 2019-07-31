@@ -217,7 +217,7 @@ class Shapes extends ResourceBase
     /**
      * Sets shapesLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $shapesLinks shapesLinks
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $shapesLinks List of shape links.
      *
      * @return $this
      */
