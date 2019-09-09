@@ -93,7 +93,7 @@ class PutSlideSaveAsRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param int $format Output file format.
+     * @param string $format Output file format.
      * @param string $outPath Path to upload the output file to.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param int $width Output file width; 0 to not adjust the size. Default is 0.

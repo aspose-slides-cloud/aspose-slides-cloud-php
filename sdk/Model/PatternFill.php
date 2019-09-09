@@ -309,6 +309,8 @@ class PatternFill extends FillFormat
         $this->container['backColor'] = isset($data['backColor']) ? $data['backColor'] : null;
         $this->container['foreColor'] = isset($data['foreColor']) ? $data['foreColor'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
+        $this->container['type'] = 'Pattern';
+        
     }
 
     /**

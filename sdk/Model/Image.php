@@ -186,6 +186,7 @@ class Image extends ResourceBase
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
+        
     }
 
     /**

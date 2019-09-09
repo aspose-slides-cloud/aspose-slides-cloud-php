@@ -225,6 +225,7 @@ class SmartArtNode implements ArrayAccess
         $this->container['isAssistant'] = isset($data['isAssistant']) ? $data['isAssistant'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['orgChartLayout'] = isset($data['orgChartLayout']) ? $data['orgChartLayout'] : null;
+        
     }
 
     /**

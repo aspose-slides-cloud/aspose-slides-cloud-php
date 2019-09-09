@@ -180,6 +180,7 @@ class StorageExist implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
+        
     }
 
     /**

@@ -186,6 +186,8 @@ class AddMasterSlide extends Task
         $this->container['cloneFromFile'] = isset($data['cloneFromFile']) ? $data['cloneFromFile'] : null;
         $this->container['cloneFromPosition'] = isset($data['cloneFromPosition']) ? $data['cloneFromPosition'] : null;
         $this->container['applyToAll'] = isset($data['applyToAll']) ? $data['applyToAll'] : null;
+        $this->container['type'] = 'AddMasterSlide';
+        
     }
 
     /**

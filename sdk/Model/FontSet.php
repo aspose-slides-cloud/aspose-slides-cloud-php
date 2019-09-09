@@ -192,6 +192,7 @@ class FontSet implements ArrayAccess
         $this->container['complexScript'] = isset($data['complexScript']) ? $data['complexScript'] : null;
         $this->container['eastAsian'] = isset($data['eastAsian']) ? $data['eastAsian'] : null;
         $this->container['latin'] = isset($data['latin']) ? $data['latin'] : null;
+        
     }
 
     /**

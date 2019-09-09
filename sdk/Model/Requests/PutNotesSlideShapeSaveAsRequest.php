@@ -110,7 +110,7 @@ class PutNotesSlideShapeSaveAsRequest
      * @param int $slideIndex Slide index.
      * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Index of shape starting from 1
-     * @param int $format Export picture format.
+     * @param string $format Export picture format.
      * @param string $outPath Output path.
      * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options
      * @param string $password Document password.
@@ -118,7 +118,7 @@ class PutNotesSlideShapeSaveAsRequest
      * @param string $storage Presentation storage.
      * @param double $scaleX X scale ratio.
      * @param double $scaleY Y scale ratio.
-     * @param int $bounds Shape thumbnail bounds type.
+     * @param string $bounds Shape thumbnail bounds type.
      * @param string $fontsFolder Fonts folder.
      */
     public function __construct($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)

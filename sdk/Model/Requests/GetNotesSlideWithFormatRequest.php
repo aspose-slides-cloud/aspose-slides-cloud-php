@@ -83,7 +83,7 @@ class GetNotesSlideWithFormatRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param int $format Output file format.
+     * @param string $format Output file format.
      * @param int $width Output file width.
      * @param int $height Output file height.
      * @param string $password Document password.

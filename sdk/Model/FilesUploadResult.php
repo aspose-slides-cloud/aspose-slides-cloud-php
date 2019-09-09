@@ -186,6 +186,7 @@ class FilesUploadResult implements ArrayAccess
     {
         $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        
     }
 
     /**

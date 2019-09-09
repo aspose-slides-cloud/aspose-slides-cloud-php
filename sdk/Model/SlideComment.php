@@ -198,6 +198,7 @@ class SlideComment implements ArrayAccess
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
         $this->container['childComments'] = isset($data['childComments']) ? $data['childComments'] : null;
+        
     }
 
     /**

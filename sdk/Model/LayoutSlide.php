@@ -275,6 +275,7 @@ class LayoutSlide extends ResourceBase
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['masterSlide'] = isset($data['masterSlide']) ? $data['masterSlide'] : null;
         $this->container['dependingSlides'] = isset($data['dependingSlides']) ? $data['dependingSlides'] : null;
+        
     }
 
     /**

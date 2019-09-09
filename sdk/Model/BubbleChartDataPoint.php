@@ -174,6 +174,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
         parent::__construct($data);
 
         $this->container['bubbleSize'] = isset($data['bubbleSize']) ? $data['bubbleSize'] : null;
+        
     }
 
     /**

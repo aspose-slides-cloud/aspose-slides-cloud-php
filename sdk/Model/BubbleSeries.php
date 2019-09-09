@@ -197,6 +197,7 @@ class BubbleSeries extends Series
 
         $this->container['dataPointType'] = isset($data['dataPointType']) ? $data['dataPointType'] : null;
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
+        
     }
 
     /**

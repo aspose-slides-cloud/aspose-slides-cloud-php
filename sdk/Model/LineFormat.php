@@ -355,6 +355,7 @@ class LineFormat implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['miterLimit'] = isset($data['miterLimit']) ? $data['miterLimit'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        
     }
 
     /**

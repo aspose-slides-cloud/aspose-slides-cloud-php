@@ -289,6 +289,7 @@ class ReflectionEffect implements ArrayAccess
         $this->container['endReflectionOpacity'] = isset($data['endReflectionOpacity']) ? $data['endReflectionOpacity'] : null;
         $this->container['rectangleAlign'] = isset($data['rectangleAlign']) ? $data['rectangleAlign'] : null;
         $this->container['rotateShadowWithShape'] = isset($data['rotateShadowWithShape']) ? $data['rotateShadowWithShape'] : null;
+        
     }
 
     /**

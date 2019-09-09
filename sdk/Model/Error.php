@@ -198,6 +198,7 @@ class Error implements ArrayAccess
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['innerError'] = isset($data['innerError']) ? $data['innerError'] : null;
+        
     }
 
     /**

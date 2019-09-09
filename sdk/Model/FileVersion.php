@@ -180,6 +180,7 @@ class FileVersion extends StorageFile
 
         $this->container['versionId'] = isset($data['versionId']) ? $data['versionId'] : null;
         $this->container['isLatest'] = isset($data['isLatest']) ? $data['isLatest'] : null;
+        
     }
 
     /**

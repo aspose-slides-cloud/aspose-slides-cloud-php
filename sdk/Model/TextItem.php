@@ -186,6 +186,7 @@ class TextItem implements ArrayAccess
     {
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        
     }
 
     /**

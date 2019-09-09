@@ -607,6 +607,9 @@ class SmartArt extends ShapeBase
         $this->container['colorStyle'] = isset($data['colorStyle']) ? $data['colorStyle'] : null;
         $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;
         $this->container['isReversed'] = isset($data['isReversed']) ? $data['isReversed'] : null;
+        $this->container['type'] = 'SmartArt';
+        $this->container['shape_type'] = 'Diagram';
+        
     }
 
     /**

@@ -186,6 +186,7 @@ class DiscUsage implements ArrayAccess
     {
         $this->container['usedSize'] = isset($data['usedSize']) ? $data['usedSize'] : null;
         $this->container['totalSize'] = isset($data['totalSize']) ? $data['totalSize'] : null;
+        
     }
 
     /**

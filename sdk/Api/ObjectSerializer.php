@@ -325,6 +325,14 @@ class ObjectSerializer
                     $class = $subclass;
                 }
             }
+            foreach (ClassHierarchy::getDescendants(substr(strrchr($class, "\\"), 1)) as $subclass)
+            {
+                if (ClassHierarchy::isInstanceOfClass($data, $subclass))
+                {
+                    $class = '\Aspose\Slides\Cloud\Sdk\Model\\' . $subclass;
+                    break;
+                }
+            }
             $instance = new $class();
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];

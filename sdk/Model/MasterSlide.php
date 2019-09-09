@@ -186,6 +186,7 @@ class MasterSlide extends ResourceBase
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
         $this->container['dependingSlides'] = isset($data['dependingSlides']) ? $data['dependingSlides'] : null;
+        
     }
 
     /**

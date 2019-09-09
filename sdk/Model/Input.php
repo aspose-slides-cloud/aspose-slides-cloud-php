@@ -192,6 +192,7 @@ class Input implements ArrayAccess
         $this->container['template'] = isset($data['template']) ? $data['template'] : null;
         $this->container['htmlData'] = isset($data['htmlData']) ? $data['htmlData'] : null;
         $this->container['templateData'] = isset($data['templateData']) ? $data['templateData'] : null;
+        
     }
 
     /**

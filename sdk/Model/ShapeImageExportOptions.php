@@ -215,6 +215,7 @@ class ShapeImageExportOptions implements ArrayAccess
         $this->container['scaleY'] = isset($data['scaleY']) ? $data['scaleY'] : null;
         $this->container['thumbnailBounds'] = isset($data['thumbnailBounds']) ? $data['thumbnailBounds'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        
     }
 
     /**

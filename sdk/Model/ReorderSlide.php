@@ -180,6 +180,8 @@ class ReorderSlide extends Task
 
         $this->container['oldPosition'] = isset($data['oldPosition']) ? $data['oldPosition'] : null;
         $this->container['newPosition'] = isset($data['newPosition']) ? $data['newPosition'] : null;
+        $this->container['type'] = 'ReoderSlide';
+        
     }
 
     /**

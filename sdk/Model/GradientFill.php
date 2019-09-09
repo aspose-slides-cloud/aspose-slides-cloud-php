@@ -269,6 +269,8 @@ class GradientFill extends FillFormat
         $this->container['linearAngle'] = isset($data['linearAngle']) ? $data['linearAngle'] : null;
         $this->container['isScaled'] = isset($data['isScaled']) ? $data['isScaled'] : null;
         $this->container['tileFlip'] = isset($data['tileFlip']) ? $data['tileFlip'] : null;
+        $this->container['type'] = 'Gradient';
+        
     }
 
     /**

@@ -320,6 +320,7 @@ class TableCell implements ArrayAccess
         $this->container['borderBottom'] = isset($data['borderBottom']) ? $data['borderBottom'] : null;
         $this->container['borderDiagonalUp'] = isset($data['borderDiagonalUp']) ? $data['borderDiagonalUp'] : null;
         $this->container['borderDiagonalDown'] = isset($data['borderDiagonalDown']) ? $data['borderDiagonalDown'] : null;
+        
     }
 
     /**

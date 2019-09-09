@@ -174,6 +174,7 @@ class SplitDocumentResult extends ResourceBase
         parent::__construct($data);
 
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
+        
     }
 
     /**

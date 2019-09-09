@@ -192,6 +192,7 @@ class Theme extends ResourceBase
         $this->container['colorScheme'] = isset($data['colorScheme']) ? $data['colorScheme'] : null;
         $this->container['fontScheme'] = isset($data['fontScheme']) ? $data['fontScheme'] : null;
         $this->container['formatScheme'] = isset($data['formatScheme']) ? $data['formatScheme'] : null;
+        
     }
 
     /**

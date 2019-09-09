@@ -226,6 +226,8 @@ class ImageExportOptions extends ExportOptions
         $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
         $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
         $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['format'] = 'image';
+        
     }
 
     /**

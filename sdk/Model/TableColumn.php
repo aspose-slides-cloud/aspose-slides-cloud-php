@@ -180,6 +180,7 @@ class TableColumn implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        
     }
 
     /**

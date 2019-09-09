@@ -391,6 +391,9 @@ class Table extends ShapeBase
         $this->container['lastRow'] = isset($data['lastRow']) ? $data['lastRow'] : null;
         $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['verticalBanding'] = isset($data['verticalBanding']) ? $data['verticalBanding'] : null;
+        $this->container['type'] = 'Table';
+        $this->container['shape_type'] = 'Table';
+        
     }
 
     /**

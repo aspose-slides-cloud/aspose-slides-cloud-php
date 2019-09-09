@@ -173,6 +173,9 @@ class SmartArtShape extends ShapeBase
     {
         parent::__construct($data);
 
+        $this->container['type'] = 'SmartArtShape';
+        $this->container['shape_type'] = 'Custom';
+        
     }
 
     /**

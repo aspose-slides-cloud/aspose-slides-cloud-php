@@ -240,6 +240,7 @@ class ColorScheme extends ResourceBase
         $this->container['hyperlink'] = isset($data['hyperlink']) ? $data['hyperlink'] : null;
         $this->container['light1'] = isset($data['light1']) ? $data['light1'] : null;
         $this->container['light2'] = isset($data['light2']) ? $data['light2'] : null;
+        
     }
 
     /**

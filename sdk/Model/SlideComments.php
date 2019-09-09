@@ -174,6 +174,7 @@ class SlideComments extends ResourceBase
         parent::__construct($data);
 
         $this->container['list'] = isset($data['list']) ? $data['list'] : null;
+        
     }
 
     /**

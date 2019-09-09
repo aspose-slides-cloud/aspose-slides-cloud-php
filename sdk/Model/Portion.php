@@ -524,6 +524,7 @@ class Portion extends ResourceBase
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['underlineFillFormat'] = isset($data['underlineFillFormat']) ? $data['underlineFillFormat'] : null;
         $this->container['underlineLineFormat'] = isset($data['underlineLineFormat']) ? $data['underlineLineFormat'] : null;
+        
     }
 
     /**

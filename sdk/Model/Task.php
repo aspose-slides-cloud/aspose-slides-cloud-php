@@ -221,6 +221,7 @@ class Task implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);

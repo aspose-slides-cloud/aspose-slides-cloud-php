@@ -174,6 +174,8 @@ class Base64InputFile extends InputFile
         parent::__construct($data);
 
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['type'] = 'Base64';
+        
     }
 
     /**

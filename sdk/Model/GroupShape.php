@@ -173,6 +173,9 @@ class GroupShape extends ShapeBase
     {
         parent::__construct($data);
 
+        $this->container['type'] = 'GroupShape';
+        $this->container['shape_type'] = 'GroupShape';
+        
     }
 
     /**

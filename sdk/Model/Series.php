@@ -435,6 +435,7 @@ class Series implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);

@@ -180,6 +180,7 @@ class CustomDashPattern implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        
     }
 
     /**

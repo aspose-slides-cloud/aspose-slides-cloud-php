@@ -180,6 +180,7 @@ class OrderedMergeRequest implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['presentations'] = isset($data['presentations']) ? $data['presentations'] : null;
+        
     }
 
     /**

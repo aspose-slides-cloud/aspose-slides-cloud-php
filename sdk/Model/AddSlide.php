@@ -192,6 +192,8 @@ class AddSlide extends Task
         $this->container['cloneFromPosition'] = isset($data['cloneFromPosition']) ? $data['cloneFromPosition'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['layoutAlias'] = isset($data['layoutAlias']) ? $data['layoutAlias'] : null;
+        $this->container['type'] = 'AddSlide';
+        
     }
 
     /**

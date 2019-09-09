@@ -222,6 +222,7 @@ class EffectFormat implements ArrayAccess
         $this->container['softEdge'] = isset($data['softEdge']) ? $data['softEdge'] : null;
         $this->container['reflection'] = isset($data['reflection']) ? $data['reflection'] : null;
         $this->container['fillOverlay'] = isset($data['fillOverlay']) ? $data['fillOverlay'] : null;
+        
     }
 
     /**

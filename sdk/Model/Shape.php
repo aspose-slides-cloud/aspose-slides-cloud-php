@@ -180,6 +180,8 @@ class Shape extends GeometryShape
 
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['paragraphs'] = isset($data['paragraphs']) ? $data['paragraphs'] : null;
+        $this->container['type'] = 'Shape';
+        
     }
 
     /**

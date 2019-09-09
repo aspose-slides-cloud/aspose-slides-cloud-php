@@ -68,7 +68,7 @@ class GetSlidesImageWithFormatRequest
      *  
      * @param string $name Document name.
      * @param int $index Image index.
-     * @param int $format Export format (png, jpg, gif).
+     * @param string $format Export format (png, jpg, gif).
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

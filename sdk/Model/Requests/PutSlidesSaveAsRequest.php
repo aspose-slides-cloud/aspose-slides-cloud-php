@@ -78,7 +78,7 @@ class PutSlidesSaveAsRequest
      *  
      * @param string $name Document name.
      * @param string $outPath Output path.
-     * @param int $format Export format.
+     * @param string $format Export format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param string $password Document password.
      * @param string $storage Document storage.

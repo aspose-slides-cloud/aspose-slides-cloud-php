@@ -520,6 +520,7 @@ class Paragraph extends ResourceBase
         $this->container['latinLineBreak'] = isset($data['latinLineBreak']) ? $data['latinLineBreak'] : null;
         $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['portionList'] = isset($data['portionList']) ? $data['portionList'] : null;
+        
     }
 
     /**

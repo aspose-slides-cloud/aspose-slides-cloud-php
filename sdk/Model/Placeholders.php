@@ -174,6 +174,7 @@ class Placeholders extends ResourceBase
         parent::__construct($data);
 
         $this->container['placeholderLinks'] = isset($data['placeholderLinks']) ? $data['placeholderLinks'] : null;
+        
     }
 
     /**

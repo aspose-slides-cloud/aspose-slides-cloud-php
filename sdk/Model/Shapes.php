@@ -174,6 +174,7 @@ class Shapes extends ResourceBase
         parent::__construct($data);
 
         $this->container['shapesLinks'] = isset($data['shapesLinks']) ? $data['shapesLinks'] : null;
+        
     }
 
     /**

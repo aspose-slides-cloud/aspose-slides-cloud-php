@@ -191,6 +191,8 @@ class PptxExportOptions extends ExportOptions
         parent::__construct($data);
 
         $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
+        $this->container['format'] = 'pptx';
+        
     }
 
     /**

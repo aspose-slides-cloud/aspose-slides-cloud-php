@@ -249,6 +249,7 @@ class PresetShadowEffect implements ArrayAccess
         $this->container['distance'] = isset($data['distance']) ? $data['distance'] : null;
         $this->container['preset'] = isset($data['preset']) ? $data['preset'] : null;
         $this->container['shadowColor'] = isset($data['shadowColor']) ? $data['shadowColor'] : null;
+        
     }
 
     /**

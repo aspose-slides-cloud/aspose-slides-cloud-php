@@ -186,6 +186,7 @@ class GradientFillStop implements ArrayAccess
     {
         $this->container['color'] = isset($data['color']) ? $data['color'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
+        
     }
 
     /**

@@ -180,6 +180,7 @@ class NotesSlide extends ResourceBase
 
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
+        
     }
 
     /**

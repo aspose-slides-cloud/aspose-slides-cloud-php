@@ -174,6 +174,8 @@ class Merge extends Task
         parent::__construct($data);
 
         $this->container['presentations'] = isset($data['presentations']) ? $data['presentations'] : null;
+        $this->container['type'] = 'Merge';
+        
     }
 
     /**

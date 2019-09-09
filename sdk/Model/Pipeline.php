@@ -186,6 +186,7 @@ class Pipeline implements ArrayAccess
     {
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['tasks'] = isset($data['tasks']) ? $data['tasks'] : null;
+        
     }
 
     /**

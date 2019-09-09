@@ -234,6 +234,7 @@ class Slide extends ResourceBase
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['background'] = isset($data['background']) ? $data['background'] : null;
         $this->container['notesSlide'] = isset($data['notesSlide']) ? $data['notesSlide'] : null;
+        
     }
 
     /**

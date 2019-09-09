@@ -262,6 +262,8 @@ class SvgExportOptions extends ExportOptions
         $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
         $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
         $this->container['externalFontsHandling'] = isset($data['externalFontsHandling']) ? $data['externalFontsHandling'] : null;
+        $this->container['format'] = 'svg';
+        
     }
 
     /**

@@ -174,6 +174,7 @@ class Paragraphs extends ResourceBase
         parent::__construct($data);
 
         $this->container['paragraphLinks'] = isset($data['paragraphLinks']) ? $data['paragraphLinks'] : null;
+        
     }
 
     /**

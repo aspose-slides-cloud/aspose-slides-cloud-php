@@ -198,6 +198,7 @@ class Axes implements ArrayAccess
         $this->container['verticalAxis'] = isset($data['verticalAxis']) ? $data['verticalAxis'] : null;
         $this->container['secondaryHorizontalAxis'] = isset($data['secondaryHorizontalAxis']) ? $data['secondaryHorizontalAxis'] : null;
         $this->container['secondaryVerticalAxis'] = isset($data['secondaryVerticalAxis']) ? $data['secondaryVerticalAxis'] : null;
+        
     }
 
     /**

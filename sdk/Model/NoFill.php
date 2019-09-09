@@ -173,6 +173,8 @@ class NoFill extends FillFormat
     {
         parent::__construct($data);
 
+        $this->container['type'] = 'NoFill';
+        
     }
 
     /**

@@ -209,6 +209,7 @@ class SlideBackground extends ResourceBase
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        
     }
 
     /**

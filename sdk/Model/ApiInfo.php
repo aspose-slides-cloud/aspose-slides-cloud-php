@@ -186,6 +186,7 @@ class ApiInfo implements ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        
     }
 
     /**

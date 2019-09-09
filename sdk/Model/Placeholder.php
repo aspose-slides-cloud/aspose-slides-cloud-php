@@ -273,6 +273,7 @@ class Placeholder extends ResourceBase
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['shape'] = isset($data['shape']) ? $data['shape'] : null;
+        
     }
 
     /**

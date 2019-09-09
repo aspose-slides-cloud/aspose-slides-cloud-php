@@ -174,6 +174,7 @@ class SlideReplaceResult extends Slide
         parent::__construct($data);
 
         $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
+        
     }
 
     /**

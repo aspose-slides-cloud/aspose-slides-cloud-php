@@ -173,6 +173,8 @@ class ResponseOutputFile extends OutputFile
     {
         parent::__construct($data);
 
+        $this->container['type'] = 'Response';
+        
     }
 
     /**

@@ -186,6 +186,7 @@ class BlurEffect implements ArrayAccess
     {
         $this->container['radius'] = isset($data['radius']) ? $data['radius'] : null;
         $this->container['grow'] = isset($data['grow']) ? $data['grow'] : null;
+        
     }
 
     /**

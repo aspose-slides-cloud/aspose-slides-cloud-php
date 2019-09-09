@@ -192,6 +192,7 @@ class FormatScheme extends ResourceBase
         $this->container['effectStyles'] = isset($data['effectStyles']) ? $data['effectStyles'] : null;
         $this->container['fillStyles'] = isset($data['fillStyles']) ? $data['fillStyles'] : null;
         $this->container['lineStyles'] = isset($data['lineStyles']) ? $data['lineStyles'] : null;
+        
     }
 
     /**

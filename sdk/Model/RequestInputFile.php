@@ -174,6 +174,8 @@ class RequestInputFile extends InputFile
         parent::__construct($data);
 
         $this->container['index'] = isset($data['index']) ? $data['index'] : null;
+        $this->container['type'] = 'Request';
+        
     }
 
     /**

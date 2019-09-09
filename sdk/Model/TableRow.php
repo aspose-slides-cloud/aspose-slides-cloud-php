@@ -192,6 +192,7 @@ class TableRow implements ArrayAccess
         $this->container['cells'] = isset($data['cells']) ? $data['cells'] : null;
         $this->container['minimalHeight'] = isset($data['minimalHeight']) ? $data['minimalHeight'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        
     }
 
     /**

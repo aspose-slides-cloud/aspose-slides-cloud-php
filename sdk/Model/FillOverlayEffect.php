@@ -201,6 +201,7 @@ class FillOverlayEffect implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['blend'] = isset($data['blend']) ? $data['blend'] : null;
+        
     }
 
     /**

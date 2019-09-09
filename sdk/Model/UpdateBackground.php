@@ -180,6 +180,8 @@ class UpdateBackground extends Task
 
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
         $this->container['background'] = isset($data['background']) ? $data['background'] : null;
+        $this->container['type'] = 'UpdateBackground';
+        
     }
 
     /**

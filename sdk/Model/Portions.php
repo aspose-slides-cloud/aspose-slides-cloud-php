@@ -174,6 +174,7 @@ class Portions extends ResourceBase
         parent::__construct($data);
 
         $this->container['portionLinks'] = isset($data['portionLinks']) ? $data['portionLinks'] : null;
+        
     }
 
     /**

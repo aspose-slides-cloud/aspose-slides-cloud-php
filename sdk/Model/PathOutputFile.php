@@ -180,6 +180,8 @@ class PathOutputFile extends OutputFile
 
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['storage'] = isset($data['storage']) ? $data['storage'] : null;
+        $this->container['type'] = 'Path';
+        
     }
 
     /**

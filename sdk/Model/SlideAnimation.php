@@ -180,6 +180,7 @@ class SlideAnimation extends ResourceBase
 
         $this->container['mainSequence'] = isset($data['mainSequence']) ? $data['mainSequence'] : null;
         $this->container['interactiveSequences'] = isset($data['interactiveSequences']) ? $data['interactiveSequences'] : null;
+        
     }
 
     /**

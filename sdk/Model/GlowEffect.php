@@ -186,6 +186,7 @@ class GlowEffect implements ArrayAccess
     {
         $this->container['radius'] = isset($data['radius']) ? $data['radius'] : null;
         $this->container['color'] = isset($data['color']) ? $data['color'] : null;
+        
     }
 
     /**

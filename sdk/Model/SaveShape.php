@@ -215,6 +215,8 @@ class SaveShape extends Task
         $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+        $this->container['type'] = 'SaveShape';
+        
     }
 
     /**

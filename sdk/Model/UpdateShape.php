@@ -180,6 +180,8 @@ class UpdateShape extends Task
 
         $this->container['shape'] = isset($data['shape']) ? $data['shape'] : null;
         $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
+        $this->container['type'] = 'UpdateShape';
+        
     }
 
     /**

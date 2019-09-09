@@ -198,6 +198,7 @@ class Document extends ResourceBase
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
         $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
+        
     }
 
     /**

@@ -180,6 +180,7 @@ class SoftEdgeEffect implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['radius'] = isset($data['radius']) ? $data['radius'] : null;
+        
     }
 
     /**

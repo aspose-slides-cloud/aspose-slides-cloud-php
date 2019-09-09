@@ -82,8 +82,8 @@ class PutSlidesSlideSizeRequest
      * @param string $folder Document folder.
      * @param int $width Slide width.
      * @param int $height Slide height.
-     * @param int $sizeType Standard slide size type.
-     * @param int $scaleType Standard slide scale type.
+     * @param string $sizeType Standard slide size type.
+     * @param string $scaleType Standard slide scale type.
      */
     public function __construct($name, $password = null, $storage = null, $folder = null, $width = null, $height = null, $sizeType = null, $scaleType = null)
     {

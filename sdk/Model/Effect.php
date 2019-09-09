@@ -749,6 +749,7 @@ class Effect implements ArrayAccess
         $this->container['restart'] = isset($data['restart']) ? $data['restart'] : null;
         $this->container['speed'] = isset($data['speed']) ? $data['speed'] : null;
         $this->container['triggerDelayTime'] = isset($data['triggerDelayTime']) ? $data['triggerDelayTime'] : null;
+        
     }
 
     /**

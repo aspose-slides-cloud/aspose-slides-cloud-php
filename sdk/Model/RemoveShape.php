@@ -174,6 +174,8 @@ class RemoveShape extends Task
         parent::__construct($data);
 
         $this->container['shapePath'] = isset($data['shapePath']) ? $data['shapePath'] : null;
+        $this->container['type'] = 'RemoveShape';
+        
     }
 
     /**

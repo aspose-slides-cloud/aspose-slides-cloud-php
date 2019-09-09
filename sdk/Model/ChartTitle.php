@@ -186,6 +186,7 @@ class ChartTitle implements ArrayAccess
     {
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['hasTitle'] = isset($data['hasTitle']) ? $data['hasTitle'] : null;
+        
     }
 
     /**

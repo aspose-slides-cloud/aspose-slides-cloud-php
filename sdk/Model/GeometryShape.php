@@ -568,6 +568,7 @@ class GeometryShape extends ShapeBase
         parent::__construct($data);
 
         $this->container['geometryShapeType'] = isset($data['geometryShapeType']) ? $data['geometryShapeType'] : null;
+        
     }
 
     /**

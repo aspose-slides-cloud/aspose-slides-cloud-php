@@ -192,6 +192,8 @@ class ReplaceText extends Task
         $this->container['newText'] = isset($data['newText']) ? $data['newText'] : null;
         $this->container['ignoreCase'] = isset($data['ignoreCase']) ? $data['ignoreCase'] : null;
         $this->container['slidePosition'] = isset($data['slidePosition']) ? $data['slidePosition'] : null;
+        $this->container['type'] = 'ReplaceText';
+        
     }
 
     /**

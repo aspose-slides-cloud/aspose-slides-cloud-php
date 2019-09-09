@@ -61,7 +61,7 @@ class PutSlidesConvertRequest
     /*
      * Initializes a new instance of the PutSlidesConvertRequest class.
      *  
-     * @param int $format Export format.
+     * @param string $format Export format.
      * @param string $outPath Path to save result.
      * @param \SplFileObject $document Document data.
      * @param string $password Document password.

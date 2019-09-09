@@ -186,6 +186,7 @@ class PresentationsMergeRequest implements ArrayAccess
     {
         $this->container['presentationPaths'] = isset($data['presentationPaths']) ? $data['presentationPaths'] : null;
         $this->container['presentationPasswords'] = isset($data['presentationPasswords']) ? $data['presentationPasswords'] : null;
+        
     }
 
     /**

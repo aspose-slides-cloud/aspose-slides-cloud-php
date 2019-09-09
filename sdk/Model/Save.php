@@ -239,6 +239,8 @@ class Save extends Task
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['output'] = isset($data['output']) ? $data['output'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+        $this->container['type'] = 'Save';
+        
     }
 
     /**

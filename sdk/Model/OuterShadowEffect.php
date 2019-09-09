@@ -198,6 +198,7 @@ class OuterShadowEffect implements ArrayAccess
         $this->container['distance'] = isset($data['distance']) ? $data['distance'] : null;
         $this->container['blurRadius'] = isset($data['blurRadius']) ? $data['blurRadius'] : null;
         $this->container['shadowColor'] = isset($data['shadowColor']) ? $data['shadowColor'] : null;
+        
     }
 
     /**

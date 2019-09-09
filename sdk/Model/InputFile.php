@@ -203,6 +203,7 @@ class InputFile implements ArrayAccess
     {
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);

@@ -186,6 +186,7 @@ class InteractiveSequence implements ArrayAccess
     {
         $this->container['effects'] = isset($data['effects']) ? $data['effects'] : null;
         $this->container['triggerShapeIndex'] = isset($data['triggerShapeIndex']) ? $data['triggerShapeIndex'] : null;
+        
     }
 
     /**

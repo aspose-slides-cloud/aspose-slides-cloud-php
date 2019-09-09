@@ -192,6 +192,8 @@ class Connector extends GeometryShape
         $this->container['startShapeConnectedToIndex'] = isset($data['startShapeConnectedToIndex']) ? $data['startShapeConnectedToIndex'] : null;
         $this->container['endShapeConnectedTo'] = isset($data['endShapeConnectedTo']) ? $data['endShapeConnectedTo'] : null;
         $this->container['endShapeConnectedToIndex'] = isset($data['endShapeConnectedToIndex']) ? $data['endShapeConnectedToIndex'] : null;
+        $this->container['type'] = 'Connector';
+        
     }
 
     /**

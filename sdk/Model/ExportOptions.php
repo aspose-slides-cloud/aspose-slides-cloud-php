@@ -180,6 +180,7 @@ class ExportOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);

@@ -88,7 +88,7 @@ class PostSlideSaveAsRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param int $format Output file format.
+     * @param string $format Output file format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param int $width Output file width; 0 to not adjust the size. Default is 0.
      * @param int $height Output file height; 0 to not adjust the size. Default is 0.

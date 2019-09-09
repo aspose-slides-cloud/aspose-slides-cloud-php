@@ -237,6 +237,8 @@ class PictureFill extends FillFormat
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['svgData'] = isset($data['svgData']) ? $data['svgData'] : null;
         $this->container['pictureFillMode'] = isset($data['pictureFillMode']) ? $data['pictureFillMode'] : null;
+        $this->container['type'] = 'Picture';
+        
     }
 
     /**

@@ -223,6 +223,7 @@ class ChartWall implements ArrayAccess
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['thickness'] = isset($data['thickness']) ? $data['thickness'] : null;
         $this->container['pictureType'] = isset($data['pictureType']) ? $data['pictureType'] : null;
+        
     }
 
     /**

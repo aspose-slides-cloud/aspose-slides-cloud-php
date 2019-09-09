@@ -255,6 +255,7 @@ class ArrowHeadProperties implements ArrayAccess
         $this->container['length'] = isset($data['length']) ? $data['length'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        
     }
 
     /**

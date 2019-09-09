@@ -174,6 +174,7 @@ class TextItems extends ResourceBase
         parent::__construct($data);
 
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        
     }
 
     /**

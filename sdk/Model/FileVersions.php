@@ -180,6 +180,7 @@ class FileVersions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        
     }
 
     /**

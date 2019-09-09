@@ -180,6 +180,9 @@ class OleObjectFrame extends ShapeBase
 
         $this->container['isObjectIcon'] = isset($data['isObjectIcon']) ? $data['isObjectIcon'] : null;
         $this->container['substitutePictureTitle'] = isset($data['substitutePictureTitle']) ? $data['substitutePictureTitle'] : null;
+        $this->container['type'] = 'OleObjectFrame';
+        $this->container['shape_type'] = 'OleObjectFrame';
+        
     }
 
     /**

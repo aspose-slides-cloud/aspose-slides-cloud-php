@@ -174,6 +174,7 @@ class MasterSlides extends ResourceBase
         parent::__construct($data);
 
         $this->container['slideList'] = isset($data['slideList']) ? $data['slideList'] : null;
+        
     }
 
     /**

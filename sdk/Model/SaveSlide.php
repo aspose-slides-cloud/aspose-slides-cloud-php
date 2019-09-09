@@ -255,6 +255,8 @@ class SaveSlide extends Task
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
+        $this->container['type'] = 'SaveSlide';
+        
     }
 
     /**

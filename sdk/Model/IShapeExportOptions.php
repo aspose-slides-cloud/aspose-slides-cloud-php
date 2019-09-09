@@ -180,6 +180,7 @@ class IShapeExportOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        
     }
 
     /**

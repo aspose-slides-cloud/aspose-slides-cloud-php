@@ -198,6 +198,7 @@ class ResourceUri implements ArrayAccess
         $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
         $this->container['linkType'] = isset($data['linkType']) ? $data['linkType'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        
     }
 
     /**

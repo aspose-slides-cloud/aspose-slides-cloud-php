@@ -174,6 +174,8 @@ class SolidFill extends FillFormat
         parent::__construct($data);
 
         $this->container['color'] = isset($data['color']) ? $data['color'] : null;
+        $this->container['type'] = 'Solid';
+        
     }
 
     /**

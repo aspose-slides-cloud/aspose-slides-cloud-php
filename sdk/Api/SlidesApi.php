@@ -6784,7 +6784,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  int $format Output file format. (required)
+     * @param  string $format Output file format. (required)
      * @param  int $width Output file width. (optional)
      * @param  int $height Output file height. (optional)
      * @param  string $password Document password. (optional)
@@ -8809,7 +8809,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $index Image index. (required)
-     * @param  int $format Export format (png, jpg, gif). (required)
+     * @param  string $format Export format (png, jpg, gif). (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -13036,14 +13036,14 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
-     * @param  int $format Export picture format. (required)
+     * @param  string $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Presentation folder. (optional)
      * @param  string $storage Presentation storage. (optional)
      * @param  double $scale_x X scale ratio. (optional, default to 0.0)
      * @param  double $scale_y Y scale ratio. (optional, default to 0.0)
-     * @param  int $bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $bounds Shape thumbnail bounds type. (optional, default to 1)
      * @param  string $fonts_folder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
@@ -13391,14 +13391,14 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
-     * @param  int $format Export picture format. (required)
+     * @param  string $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Presentation folder. (optional)
      * @param  string $storage Presentation storage. (optional)
      * @param  double $scale_x X scale ratio. (optional, default to 0.0)
      * @param  double $scale_y Y scale ratio. (optional, default to 0.0)
-     * @param  int $bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $bounds Shape thumbnail bounds type. (optional, default to 1)
      * @param  string $fonts_folder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
@@ -14082,7 +14082,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  int $format Output file format. (required)
+     * @param  string $format Output file format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
      * @param  int $width Output file width; 0 to not adjust the size. Default is 0. (optional, default to 0)
      * @param  int $height Output file height; 0 to not adjust the size. Default is 0. (optional, default to 0)
@@ -14415,7 +14415,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postSlidesConvert'
      *
-     * @param  int $format Export format. (required)
+     * @param  string $format Export format. (required)
      * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $fonts_folder Custom fonts folder. (optional)
@@ -16002,7 +16002,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'postSlidesSaveAs'
      *
      * @param  string $name Document name. (required)
-     * @param  int $format Export format. (required)
+     * @param  string $format Export format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $storage Document storage. (optional)
@@ -16501,7 +16501,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
-     * @param  int $format Export format. Default value is jpeg. (optional, default to 0)
+     * @param  string $format Export format. Default value is jpeg. (optional, default to 0)
      * @param  int $width The width of created images. (optional)
      * @param  int $height The height of created images. (optional)
      * @param  int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document. (optional)
@@ -16824,7 +16824,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
-     * @param  int $format Export picture format. (required)
+     * @param  string $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
      * @param  string $password Document password. (optional)
@@ -16832,7 +16832,7 @@ class SlidesApi extends ApiBase
      * @param  string $storage Presentation storage. (optional)
      * @param  double $scale_x X scale ratio. (optional, default to 0.0)
      * @param  double $scale_y Y scale ratio. (optional, default to 0.0)
-     * @param  int $bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $bounds Shape thumbnail bounds type. (optional, default to 1)
      * @param  string $fonts_folder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
@@ -17525,7 +17525,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path (for smart art and group shapes). (required)
      * @param  int $shape_index Index of shape starting from 1 (required)
-     * @param  int $format Export picture format. (required)
+     * @param  string $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
      * @param  string $password Document password. (optional)
@@ -17533,7 +17533,7 @@ class SlidesApi extends ApiBase
      * @param  string $storage Presentation storage. (optional)
      * @param  double $scale_x X scale ratio. (optional, default to 0.0)
      * @param  double $scale_y Y scale ratio. (optional, default to 0.0)
-     * @param  int $bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $bounds Shape thumbnail bounds type. (optional, default to 1)
      * @param  string $fonts_folder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
@@ -18206,7 +18206,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  int $format Output file format. (required)
+     * @param  string $format Output file format. (required)
      * @param  string $out_path Path to upload the output file to. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
      * @param  int $width Output file width; 0 to not adjust the size. Default is 0. (optional, default to 0)
@@ -18538,7 +18538,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'putSlidesConvert'
      *
-     * @param  int $format Export format. (required)
+     * @param  string $format Export format. (required)
      * @param  string $out_path Path to save result. (required)
      * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
@@ -18824,7 +18824,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  string $out_path Output path. (required)
-     * @param  int $format Export format. (required)
+     * @param  string $format Export format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $storage Document storage. (optional)
@@ -19653,8 +19653,8 @@ class SlidesApi extends ApiBase
      * @param  string $folder Document folder. (optional)
      * @param  int $width Slide width. (optional, default to 0)
      * @param  int $height Slide height. (optional, default to 0)
-     * @param  int $size_type Standard slide size type. (optional)
-     * @param  int $scale_type Standard slide scale type. (optional, default to 0)
+     * @param  string $size_type Standard slide size type. (optional)
+     * @param  string $scale_type Standard slide scale type. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -173,6 +173,9 @@ class GraphicalObject extends ShapeBase
     {
         parent::__construct($data);
 
+        $this->container['type'] = 'GraphicalObject';
+        $this->container['shape_type'] = 'GraphicalObject';
+        
     }
 
     /**

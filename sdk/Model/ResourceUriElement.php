@@ -180,6 +180,7 @@ class ResourceUriElement implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['uri'] = isset($data['uri']) ? $data['uri'] : null;
+        
     }
 
     /**

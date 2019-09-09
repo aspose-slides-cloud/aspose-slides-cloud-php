@@ -700,6 +700,7 @@ class ShapeBase extends ResourceBase
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['shapeType'] = isset($data['shapeType']) ? $data['shapeType'] : null;
+        
     }
 
     /**

@@ -186,6 +186,8 @@ class XpsExportOptions extends ExportOptions
         $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
         $this->container['saveMetafilesAsPng'] = isset($data['saveMetafilesAsPng']) ? $data['saveMetafilesAsPng'] : null;
         $this->container['drawSlidesFrame'] = isset($data['drawSlidesFrame']) ? $data['drawSlidesFrame'] : null;
+        $this->container['format'] = 'xps';
+        
     }
 
     /**

@@ -186,6 +186,7 @@ class ErrorDetails implements ArrayAccess
     {
         $this->container['requestId'] = isset($data['requestId']) ? $data['requestId'] : null;
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        
     }
 
     /**

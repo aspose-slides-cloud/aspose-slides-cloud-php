@@ -186,6 +186,7 @@ class ObjectExist implements ArrayAccess
     {
         $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
         $this->container['isFolder'] = isset($data['isFolder']) ? $data['isFolder'] : null;
+        
     }
 
     /**

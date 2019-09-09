@@ -186,6 +186,7 @@ class FontScheme extends ResourceBase
         $this->container['major'] = isset($data['major']) ? $data['major'] : null;
         $this->container['minor'] = isset($data['minor']) ? $data['minor'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        
     }
 
     /**

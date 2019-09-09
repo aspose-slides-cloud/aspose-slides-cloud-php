@@ -192,6 +192,7 @@ class PresentationToMerge implements ArrayAccess
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
+        
     }
 
     /**

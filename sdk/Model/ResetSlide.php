@@ -174,6 +174,8 @@ class ResetSlide extends Task
         parent::__construct($data);
 
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
+        $this->container['type'] = 'ResetSlide';
+        
     }
 
     /**

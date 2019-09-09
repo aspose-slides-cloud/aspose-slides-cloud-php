@@ -56,7 +56,7 @@ class PostSlidesConvertRequest
     /*
      * Initializes a new instance of the PostSlidesConvertRequest class.
      *  
-     * @param int $format Export format.
+     * @param string $format Export format.
      * @param \SplFileObject $document Document data.
      * @param string $password Document password.
      * @param string $fontsFolder Custom fonts folder.

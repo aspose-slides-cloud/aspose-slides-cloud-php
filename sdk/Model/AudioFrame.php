@@ -268,6 +268,9 @@ class AudioFrame extends GeometryShape
         $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
+        $this->container['type'] = 'AudioFrame';
+        $this->container['shape_type'] = 'AudioFrame';
+        
     }
 
     /**

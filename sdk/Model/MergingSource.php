@@ -186,6 +186,7 @@ class MergingSource implements ArrayAccess
     {
         $this->container['input'] = isset($data['input']) ? $data['input'] : null;
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
+        
     }
 
     /**
