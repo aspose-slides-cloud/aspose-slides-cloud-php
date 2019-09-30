@@ -63,6 +63,7 @@ class PlotArea implements ArrayAccess
         'y' => 'double',
         'width' => 'double',
         'height' => 'double',
+        'layoutTargetType' => 'string',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
@@ -78,6 +79,7 @@ class PlotArea implements ArrayAccess
         'y' => 'double',
         'width' => 'double',
         'height' => 'double',
+        'layoutTargetType' => null,
         'fillFormat' => null,
         'effectFormat' => null,
         'lineFormat' => null
@@ -114,6 +116,7 @@ class PlotArea implements ArrayAccess
         'y' => 'Y',
         'width' => 'Width',
         'height' => 'Height',
+        'layoutTargetType' => 'LayoutTargetType',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
         'lineFormat' => 'LineFormat'
@@ -129,6 +132,7 @@ class PlotArea implements ArrayAccess
         'y' => 'setY',
         'width' => 'setWidth',
         'height' => 'setHeight',
+        'layoutTargetType' => 'setLayoutTargetType',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
         'lineFormat' => 'setLineFormat'
@@ -144,6 +148,7 @@ class PlotArea implements ArrayAccess
         'y' => 'getY',
         'width' => 'getWidth',
         'height' => 'getHeight',
+        'layoutTargetType' => 'getLayoutTargetType',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
         'lineFormat' => 'getLineFormat'
@@ -190,8 +195,23 @@ class PlotArea implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LAYOUT_TARGET_TYPE_INNER = 'Inner';
+    const LAYOUT_TARGET_TYPE_OUTER = 'Outer';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLayoutTargetTypeAllowableValues()
+    {
+        return [
+            self::LAYOUT_TARGET_TYPE_INNER,
+            self::LAYOUT_TARGET_TYPE_OUTER,
+        ];
+    }
     
 
     /**
@@ -213,6 +233,7 @@ class PlotArea implements ArrayAccess
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['layoutTargetType'] = isset($data['layoutTargetType']) ? $data['layoutTargetType'] : null;
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
@@ -240,6 +261,17 @@ class PlotArea implements ArrayAccess
         if ($this->container['height'] === null) {
             $invalidProperties[] = "'height' can't be null";
         }
+        if ($this->container['layoutTargetType'] === null) {
+            $invalidProperties[] = "'layoutTargetType' can't be null";
+        }
+        $allowedValues = $this->getLayoutTargetTypeAllowableValues();
+        if (!in_array($this->container['layoutTargetType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'layoutTargetType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -262,6 +294,13 @@ class PlotArea implements ArrayAccess
             return false;
         }
         if ($this->container['height'] === null) {
+            return false;
+        }
+        if ($this->container['layoutTargetType'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getLayoutTargetTypeAllowableValues();
+        if (!in_array($this->container['layoutTargetType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -360,6 +399,53 @@ class PlotArea implements ArrayAccess
     public function setHeight($height)
     {
         $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets layoutTargetType
+     *
+     * @return string
+     */
+    public function getLayoutTargetType()
+    {
+        return $this->container['layoutTargetType'];
+    }
+
+    /**
+     * Sets layoutTargetType
+     *
+     * @param string $layoutTargetType If layout of the plot area is defined manually specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside.
+     *
+     * @return $this
+     */
+    public function setLayoutTargetType($layoutTargetType)
+    {
+        $allowedValues = $this->getLayoutTargetTypeAllowableValues();
+
+
+        if (is_numeric($layoutTargetType)) {
+            if ($layoutTargetType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layoutTargetType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $layoutTargetType = $allowedValues[$layoutTargetType];
+            }
+        } else {
+            if (!in_array($layoutTargetType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layoutTargetType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['layoutTargetType'] = $layoutTargetType;
 
         return $this;
     }

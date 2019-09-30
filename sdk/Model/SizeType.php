@@ -61,6 +61,7 @@ class SizeType
     const HAGAKI_CARD = 'HagakiCard';
     const ON_SCREEN16X9 = 'OnScreen16x9';
     const ON_SCREEN16X10 = 'OnScreen16x10';
+    const WIDESCREEN = 'Widescreen';
     
     /**
      * Gets allowable values of the enum
@@ -85,6 +86,7 @@ class SizeType
             self::HAGAKI_CARD,
             self::ON_SCREEN16X9,
             self::ON_SCREEN16X10,
+            self::WIDESCREEN,
         ];
     }
 }
