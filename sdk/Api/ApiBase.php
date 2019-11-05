@@ -133,20 +133,19 @@ class ApiBase
     /**
      * Create request
      */
-    protected function createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, $httpMethod)
+    protected function createRequest($resourcePath, $queryParams, $headers, $httpBody, $httpMethod)
     {
         $this->requestToken();
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer '.$this->config->getAccessToken();
         }
 
-        $defaultHeaders = [];
-        $defaultHeaders['x-aspose-client'] = $this->config->getUserAgent();
-        $defaultHeaders['x-aspose-client-version'] = $this->config->getClientVersion();
+        $headers['x-aspose-client'] = $this->config->getUserAgent();
+        $headers['x-aspose-client-version'] = $this->config->getClientVersion();
         if ($this->config->getTimeout()) {
-            $defaultHeaders['x-aspose-timeout'] = $this->config->getTimeout();
+            $headers['x-aspose-timeout'] = $this->config->getTimeout();
         }
-        $headers = array_merge($defaultHeaders, $headerParams, $headers);
+        $headers = array_merge($headers, $this->config->getCustomHeaders());
         $resourcePath = $this->parseURL($resourcePath, $queryParams);
         $request = new Request($httpMethod, $resourcePath, $headers, $httpBody);
         if ($this->config->getDebug()) {

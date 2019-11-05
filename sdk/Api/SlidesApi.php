@@ -164,11 +164,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $request->srcPath);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -278,11 +279,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $request->srcPath);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -378,11 +380,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -483,11 +486,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -588,11 +592,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -738,11 +743,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -906,11 +912,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1073,11 +1080,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1247,11 +1255,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $request->portionIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1420,11 +1429,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1582,11 +1592,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1743,11 +1754,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -1911,11 +1923,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2078,11 +2091,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2252,11 +2266,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $request->portionIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2425,11 +2440,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2575,11 +2591,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2731,11 +2748,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $request->effectIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -2887,11 +2905,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $request->sequenceIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3049,11 +3068,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $request->sequenceIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $request->effectIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3199,11 +3219,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3349,11 +3370,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3499,11 +3521,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3661,11 +3684,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3822,11 +3846,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -3971,11 +3996,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -4115,11 +4141,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -4265,11 +4292,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "propertyName", $request->propertyName);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -4415,11 +4443,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'DELETE');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
      */
@@ -4551,11 +4580,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -4679,11 +4709,12 @@ class SlidesApi extends ApiBase
             $queryParams['storageName'] = ObjectSerializer::toQueryValue($request->storageName);
         }
 
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -4813,11 +4844,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -4947,11 +4979,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5097,11 +5130,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5241,11 +5275,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5391,11 +5426,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5535,11 +5571,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5685,11 +5722,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -5847,11 +5885,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6015,11 +6054,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6177,11 +6217,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6351,11 +6392,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $request->portionIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6519,11 +6561,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6675,11 +6718,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -6843,11 +6887,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $request->format);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7017,11 +7062,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $request->portionIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7185,11 +7231,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7344,11 +7391,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7506,11 +7554,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7674,11 +7723,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $request->paragraphIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7836,11 +7886,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -7992,11 +8043,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8115,11 +8167,12 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
 
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8259,11 +8312,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8403,11 +8457,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8553,11 +8608,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "propertyName", $request->propertyName);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8700,11 +8756,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $request->index);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8853,11 +8910,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $request->index);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $request->format);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -8997,11 +9055,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9153,11 +9212,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "placeholderIndex", $request->placeholderIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9303,11 +9363,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9452,11 +9513,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9602,11 +9664,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9752,11 +9815,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -9902,11 +9966,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10052,11 +10117,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10207,11 +10273,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10351,11 +10418,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10501,11 +10569,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10651,11 +10720,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10801,11 +10871,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -10951,11 +11022,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -11070,11 +11142,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $request->srcPath);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -11184,11 +11257,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $request->srcPath);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -11323,11 +11397,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $request->path);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -11495,7 +11570,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -11507,7 +11583,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -11681,7 +11757,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -11693,7 +11770,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -11860,7 +11937,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -11872,7 +11950,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12023,7 +12101,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -12035,7 +12114,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12203,11 +12282,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12380,11 +12460,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12552,7 +12633,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -12564,7 +12646,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12738,7 +12820,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -12750,7 +12833,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -12917,7 +13000,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -12929,7 +13013,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13115,7 +13199,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
@@ -13127,7 +13212,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13272,7 +13357,8 @@ class SlidesApi extends ApiBase
         if (isset($request->request)) {
             $_tempBody = $request->request;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -13284,7 +13370,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13470,7 +13556,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
@@ -13482,7 +13569,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13633,7 +13720,8 @@ class SlidesApi extends ApiBase
         if (isset($request->effect)) {
             $_tempBody = $request->effect;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -13645,7 +13733,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13796,7 +13884,8 @@ class SlidesApi extends ApiBase
         if (isset($request->sequence)) {
             $_tempBody = $request->sequence;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -13808,7 +13897,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -13965,7 +14054,8 @@ class SlidesApi extends ApiBase
         if (isset($request->effect)) {
             $_tempBody = $request->effect;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -13977,7 +14067,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14146,7 +14236,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
@@ -14158,7 +14249,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14308,11 +14399,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14449,7 +14541,8 @@ class SlidesApi extends ApiBase
         if (isset($request->document)) {
             $_tempBody = $request->document;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/octet-stream', 'multipart/form-data']);
 
@@ -14461,7 +14554,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14630,11 +14723,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14784,7 +14878,8 @@ class SlidesApi extends ApiBase
         if (isset($request->data)) {
             $_tempBody = $request->data;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/octet-stream', 'multipart/form-data']);
 
@@ -14796,7 +14891,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -14941,7 +15036,8 @@ class SlidesApi extends ApiBase
         if (isset($request->html)) {
             $_tempBody = $request->html;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -14953,7 +15049,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15108,11 +15204,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15281,7 +15378,8 @@ class SlidesApi extends ApiBase
         if (isset($request->data)) {
             $_tempBody = $request->data;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -15293,7 +15391,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15415,10 +15513,10 @@ class SlidesApi extends ApiBase
         if (isset($request->pipeline)) {
             $_tempBody = $request->pipeline;
         }
-        $headers= $this->headerSelector->selectHeadersForMultipart(['multipart/form-data']);
+        $this->headerSelector->selectHeadersForMultipart($headerParams, ['multipart/form-data']);
 
         $httpBody = ObjectSerializer::toMultipart($_tempBody, $request->get_files());
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15581,11 +15679,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15740,11 +15839,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -15894,11 +15994,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -16051,7 +16152,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['multipart/form-data'],
             ['application/json']);
 
@@ -16063,7 +16165,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -16208,7 +16310,8 @@ class SlidesApi extends ApiBase
         if (isset($request->properties)) {
             $_tempBody = $request->properties;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -16220,7 +16323,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -16389,11 +16492,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -16573,7 +16677,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -16585,7 +16690,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'POST');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -16736,7 +16841,8 @@ class SlidesApi extends ApiBase
         if (isset($request->slideDto)) {
             $_tempBody = $request->slideDto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -16748,7 +16854,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -16912,7 +17018,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -16924,7 +17031,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17069,7 +17176,8 @@ class SlidesApi extends ApiBase
         if (isset($request->request)) {
             $_tempBody = $request->request;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17081,7 +17189,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17256,7 +17364,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17268,7 +17377,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17437,7 +17546,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17449,7 +17559,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17613,7 +17723,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17625,7 +17736,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17776,7 +17887,8 @@ class SlidesApi extends ApiBase
         if (isset($request->animation)) {
             $_tempBody = $request->animation;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17788,7 +17900,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -17945,7 +18057,8 @@ class SlidesApi extends ApiBase
         if (isset($request->effect)) {
             $_tempBody = $request->effect;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -17957,7 +18070,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18120,7 +18233,8 @@ class SlidesApi extends ApiBase
         if (isset($request->effect)) {
             $_tempBody = $request->effect;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -18132,7 +18246,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18279,7 +18393,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -18291,7 +18406,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18454,7 +18569,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -18466,7 +18582,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18581,7 +18697,8 @@ class SlidesApi extends ApiBase
         if (isset($request->document)) {
             $_tempBody = $request->document;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/octet-stream', 'multipart/form-data']);
 
@@ -18593,7 +18710,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18738,7 +18855,8 @@ class SlidesApi extends ApiBase
         if (isset($request->html)) {
             $_tempBody = $request->html;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -18750,7 +18868,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -18881,7 +18999,8 @@ class SlidesApi extends ApiBase
         if (isset($request->options)) {
             $_tempBody = $request->options;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -18893,7 +19012,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19044,7 +19163,8 @@ class SlidesApi extends ApiBase
         if (isset($request->property)) {
             $_tempBody = $request->property;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -19056,7 +19176,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19207,7 +19327,8 @@ class SlidesApi extends ApiBase
         if (isset($request->slideDto)) {
             $_tempBody = $request->slideDto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -19219,7 +19340,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19370,7 +19491,8 @@ class SlidesApi extends ApiBase
         if (isset($request->background)) {
             $_tempBody = $request->background;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -19382,7 +19504,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19537,11 +19659,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19701,11 +19824,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -19856,7 +19980,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -19868,7 +19993,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -20031,7 +20156,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -20043,7 +20169,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -20212,7 +20338,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -20224,7 +20351,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -20399,7 +20526,8 @@ class SlidesApi extends ApiBase
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
@@ -20411,7 +20539,7 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -20536,11 +20664,12 @@ class SlidesApi extends ApiBase
 
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "storageName", $request->storageName);
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['application/json']);
 
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'GET');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
      */
@@ -20679,7 +20808,8 @@ class SlidesApi extends ApiBase
         if (isset($request->file)) {
             $_tempBody = $request->file;
         }
-        $headers = $this->headerSelector->selectHeaders(
+        $this->headerSelector->selectHeaders(
+            $headerParams,
             ['application/json'],
             ['multipart/form-data']);
 
@@ -20691,6 +20821,6 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
-        return $this->createRequest($resourcePath, $queryParams, $headers, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 }

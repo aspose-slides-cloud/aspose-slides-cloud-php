@@ -42,15 +42,12 @@ class HeaderSelector
      * @param string[] $contentTypes types of content
      * @return array 
      */
-    public function selectHeaders($accept, $contentTypes)
+    public function selectHeaders($headers, $accept, $contentTypes)
     {
-        $headers = [];
-
         $accept = $this->_selectAcceptHeader($accept);
         if ($accept !== null) {
             $headers['Accept'] = $accept;
         }
-
         $headers['Content-Type'] = $this->_selectContentTypeHeader($contentTypes);
         return $headers;
     }
@@ -60,10 +57,9 @@ class HeaderSelector
      * @param string[] $accept type of header
      * @return array
      */
-    public function selectHeadersForMultipart($accept)
+    public function selectHeadersForMultipart($headers, $accept)
     {
-        $headers = $this->selectHeaders($accept, []);
-
+        $this->selectHeaders($headers, $accept, []);
         unset($headers['Content-Type']);
         return $headers;
     }

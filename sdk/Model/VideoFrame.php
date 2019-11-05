@@ -251,7 +251,7 @@ class VideoFrame extends GeometryShape
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['type'] = 'VideoFrame';
-        $this->container['shape_type'] = 'VideoFrame';
+        $this->container['shapeType'] = 'VideoFrame';
         
     }
 

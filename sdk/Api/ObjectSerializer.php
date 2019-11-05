@@ -106,7 +106,7 @@ class ObjectSerializer
     {
         $replaceValue = "";
         if (!empty($value)) {
-            $replaceValue = "/".rawurlencode(self::toString($value));
+            $replaceValue = "/".self::toString($value);
         }
         return str_replace('/{'.$name.'}', $replaceValue, $url);
     }

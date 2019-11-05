@@ -138,12 +138,19 @@ class Configuration
      * @var string
      */
     protected $tempFolderPath;
+
+    /*
+     * Custom HTTP headers added to each request
+     *
+     * @var string
+     */
+    protected $customHeaders = [];
     
     /*
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '19.9.0';
+    protected $clientVersion = '19.10.0';
 
     /*
      * Constructor
@@ -518,6 +525,26 @@ class Configuration
     }
 
     /*
+     * Gets the custom headers array
+     *
+     * @return array custom headers array
+     */
+    public function getCustomHeaders()
+    {
+        return $this->customHeaders;
+    }
+
+    /*
+     * Sets the a custom header value
+     *
+     * @return string Custom header value
+     */
+    public function setCustomHeader($key, $value)
+    {
+        return $this->customHeaders[$key] = $value;
+    }
+
+    /*
      * Gets the default configuration instance
      *
      * @return Configuration
@@ -553,7 +580,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\Slides) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 19.9.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 19.10.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

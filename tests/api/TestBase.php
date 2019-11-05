@@ -30,6 +30,8 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\Api;
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\DownloadFileRequest;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
 use Aspose\Slides\Cloud\Sdk\Model\Requests\UploadFileRequest;
 use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteFileRequest;
 use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
@@ -67,6 +69,25 @@ class TestBase extends \PHPUnit_Framework_TestCase
     
     protected function initialize($functionName, $invalidFieldName, $invalidFieldValue)
     {
+        if (!self::$isInitialized)
+        {
+            $versionFile = $this->slidesApi->DownloadFile(new DownloadFileRequest("TempTests/version.txt", null, null));
+            $version = $versionFile->fread($versionFile->getSize());
+            if ($version != self::$expectedTestDataVersion)
+            {
+                foreach (scandir(realpath(__DIR__.'/../..').'/TestData') as $key => $value)
+                {
+                    $path = realpath(__DIR__.'/../..').'/TestData/'.$value;
+                    if (is_file($path))
+                    {
+                        $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$value, 'r');
+                        $this->slidesApi->UploadFile(new UploadFileRequest("TempTests/".$value, $stream));
+                    }
+                    $this->slidesApi->UploadFile(new UploadFileRequest("TempTests/version.txt", self::$expectedTestDataVersion));
+                }
+            }
+            self::$isInitialized = true;
+        }
         $expectedValues = $this->applyRules($functionName, $invalidFieldName, $invalidFieldValue);
         $fileRulesToApply = $this->applyFileRules($functionName, $invalidFieldName, $invalidFieldValue);
         if ($functionName != 'deleteFolder' &&  $invalidFieldName != 'recursive')
@@ -74,8 +95,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
         {
             if ($rule["Action"] == "Put")
             {
-                $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$rule["ActualName"], 'r');
-                $this->slidesApi->UploadFile(new UploadFileRequest($path, $stream));
+                $this->slidesApi->CopyFile(new CopyFileRequest("TempTests/".$rule["ActualName"], $path));
             }
             else if ($rule["Action"] == "Delete")
             {
@@ -159,4 +179,6 @@ class TestBase extends \PHPUnit_Framework_TestCase
 
     private $rules;
     private $fileRules;
+    private static $isInitialized = false;
+    private static $expectedTestDataVersion = "1";
 }

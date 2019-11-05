@@ -58,6 +58,7 @@ class Chart extends ShapeBase
       */
     protected static $swaggerTypes = [
         'chartType' => 'string',
+        'showDataLabelsOverMaximum' => 'bool',
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
         'categories' => 'string[]',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
@@ -76,6 +77,7 @@ class Chart extends ShapeBase
       */
     protected static $swaggerFormats = [
         'chartType' => null,
+        'showDataLabelsOverMaximum' => null,
         'series' => null,
         'categories' => null,
         'title' => null,
@@ -115,6 +117,7 @@ class Chart extends ShapeBase
      */
     protected static $attributeMap = [
         'chartType' => 'ChartType',
+        'showDataLabelsOverMaximum' => 'ShowDataLabelsOverMaximum',
         'series' => 'Series',
         'categories' => 'Categories',
         'title' => 'Title',
@@ -133,6 +136,7 @@ class Chart extends ShapeBase
      */
     protected static $setters = [
         'chartType' => 'setChartType',
+        'showDataLabelsOverMaximum' => 'setShowDataLabelsOverMaximum',
         'series' => 'setSeries',
         'categories' => 'setCategories',
         'title' => 'setTitle',
@@ -151,6 +155,7 @@ class Chart extends ShapeBase
      */
     protected static $getters = [
         'chartType' => 'getChartType',
+        'showDataLabelsOverMaximum' => 'getShowDataLabelsOverMaximum',
         'series' => 'getSeries',
         'categories' => 'getCategories',
         'title' => 'getTitle',
@@ -378,6 +383,7 @@ class Chart extends ShapeBase
         parent::__construct($data);
 
         $this->container['chartType'] = isset($data['chartType']) ? $data['chartType'] : null;
+        $this->container['showDataLabelsOverMaximum'] = isset($data['showDataLabelsOverMaximum']) ? $data['showDataLabelsOverMaximum'] : null;
         $this->container['series'] = isset($data['series']) ? $data['series'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
@@ -388,7 +394,7 @@ class Chart extends ShapeBase
         $this->container['axes'] = isset($data['axes']) ? $data['axes'] : null;
         $this->container['plotArea'] = isset($data['plotArea']) ? $data['plotArea'] : null;
         $this->container['type'] = 'Chart';
-        $this->container['shape_type'] = 'Chart';
+        $this->container['shapeType'] = 'Chart';
         
     }
 
@@ -481,6 +487,30 @@ class Chart extends ShapeBase
             }
         }
         $this->container['chartType'] = $chartType;
+
+        return $this;
+    }
+
+    /**
+     * Gets showDataLabelsOverMaximum
+     *
+     * @return bool
+     */
+    public function getShowDataLabelsOverMaximum()
+    {
+        return $this->container['showDataLabelsOverMaximum'];
+    }
+
+    /**
+     * Sets showDataLabelsOverMaximum
+     *
+     * @param bool $showDataLabelsOverMaximum True if data labels over the maximum of the chart shall be shown.
+     *
+     * @return $this
+     */
+    public function setShowDataLabelsOverMaximum($showDataLabelsOverMaximum)
+    {
+        $this->container['showDataLabelsOverMaximum'] = $showDataLabelsOverMaximum;
 
         return $this;
     }
