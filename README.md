@@ -27,7 +27,7 @@ From the command line:
 
 ### Sample usage
 
-The example code below converts a PowerPoint document to PDF format using asposeslidescloud library:
+The example code below converts a PowerPoint document to PDF format using slides-sdk-php library:
 ```php
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
