@@ -367,9 +367,6 @@ class LineFormat implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['alignment'] === null) {
-            $invalidProperties[] = "'alignment' can't be null";
-        }
         $allowedValues = $this->getAlignmentAllowableValues();
         if (!in_array($this->container['alignment'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -378,9 +375,6 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['capStyle'] === null) {
-            $invalidProperties[] = "'capStyle' can't be null";
-        }
         $allowedValues = $this->getCapStyleAllowableValues();
         if (!in_array($this->container['capStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -389,9 +383,6 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['dashStyle'] === null) {
-            $invalidProperties[] = "'dashStyle' can't be null";
-        }
         $allowedValues = $this->getDashStyleAllowableValues();
         if (!in_array($this->container['dashStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -400,9 +391,6 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['joinStyle'] === null) {
-            $invalidProperties[] = "'joinStyle' can't be null";
-        }
         $allowedValues = $this->getJoinStyleAllowableValues();
         if (!in_array($this->container['joinStyle'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -411,9 +399,6 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['style'] === null) {
-            $invalidProperties[] = "'style' can't be null";
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -422,12 +407,6 @@ class LineFormat implements ArrayAccess
             );
         }
 
-        if ($this->container['miterLimit'] === null) {
-            $invalidProperties[] = "'miterLimit' can't be null";
-        }
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -440,45 +419,24 @@ class LineFormat implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['alignment'] === null) {
-            return false;
-        }
         $allowedValues = $this->getAlignmentAllowableValues();
         if (!in_array($this->container['alignment'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['capStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getCapStyleAllowableValues();
         if (!in_array($this->container['capStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['dashStyle'] === null) {
-            return false;
-        }
         $allowedValues = $this->getDashStyleAllowableValues();
         if (!in_array($this->container['dashStyle'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['joinStyle'] === null) {
             return false;
         }
         $allowedValues = $this->getJoinStyleAllowableValues();
         if (!in_array($this->container['joinStyle'], $allowedValues)) {
             return false;
         }
-        if ($this->container['style'] === null) {
-            return false;
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['miterLimit'] === null) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
             return false;
         }
         return true;
@@ -518,7 +476,7 @@ class LineFormat implements ArrayAccess
                 $alignment = $allowedValues[$alignment];
             }
         } else {
-            if (!in_array($alignment, $allowedValues)) {
+            if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'alignment', must be one of '%s'",
@@ -565,7 +523,7 @@ class LineFormat implements ArrayAccess
                 $capStyle = $allowedValues[$capStyle];
             }
         } else {
-            if (!in_array($capStyle, $allowedValues)) {
+            if (!is_null($capStyle) && !in_array($capStyle, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'capStyle', must be one of '%s'",
@@ -612,7 +570,7 @@ class LineFormat implements ArrayAccess
                 $dashStyle = $allowedValues[$dashStyle];
             }
         } else {
-            if (!in_array($dashStyle, $allowedValues)) {
+            if (!is_null($dashStyle) && !in_array($dashStyle, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'dashStyle', must be one of '%s'",
@@ -659,7 +617,7 @@ class LineFormat implements ArrayAccess
                 $joinStyle = $allowedValues[$joinStyle];
             }
         } else {
-            if (!in_array($joinStyle, $allowedValues)) {
+            if (!is_null($joinStyle) && !in_array($joinStyle, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'joinStyle', must be one of '%s'",
@@ -706,7 +664,7 @@ class LineFormat implements ArrayAccess
                 $style = $allowedValues[$style];
             }
         } else {
-            if (!in_array($style, $allowedValues)) {
+            if (!is_null($style) && !in_array($style, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'style', must be one of '%s'",

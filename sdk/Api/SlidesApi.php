@@ -356,7 +356,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'createFolder'
      *
-     * @param  string $path Folder path to create e.g. &#39;folder_1/folder_2/&#39; (required)
+     * @param  string $path Folder path to create e.g. &#39;folder_1/folder_2/&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -364,10 +364,6 @@ class SlidesApi extends ApiBase
      */
     protected function createFolderRequest(Requests\CreateFolderRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling createFolder');
-        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
@@ -457,7 +453,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteFile'
      *
-     * @param  string $path File path e.g. &#39;/folder/file.ext&#39; (required)
+     * @param  string $path File path e.g. &#39;/folder/file.ext&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      * @param  string $version_id File version ID to delete (optional)
      *
@@ -466,10 +462,6 @@ class SlidesApi extends ApiBase
      */
     protected function deleteFileRequest(Requests\DeleteFileRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteFile');
-        }
 
         $resourcePath = '/slides/storage/file/{path}';
         $queryParams = [];
@@ -563,7 +555,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteFolder'
      *
-     * @param  string $path Folder path e.g. &#39;/folder&#39; (required)
+     * @param  string $path Folder path e.g. &#39;/folder&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      * @param  bool $recursive Enable to delete folders, subfolders and files (optional, default to false)
      *
@@ -572,10 +564,6 @@ class SlidesApi extends ApiBase
      */
     protected function deleteFolderRequest(Requests\DeleteFolderRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteFolder');
-        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
@@ -856,7 +844,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -875,10 +863,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlideParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlideParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -1025,7 +1009,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int[] $paragraphs The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $password Document password. (optional)
@@ -1044,10 +1028,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlideParagraphs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlideParagraphs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -1193,7 +1173,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -1213,10 +1193,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlidePortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlidePortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -1368,7 +1344,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int[] $portions The indices of the shapes to be deleted; delete all by default. (optional)
@@ -1388,10 +1364,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlidePortions');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlidePortions');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -1542,7 +1514,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -1560,10 +1532,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlideShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlideShape');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -1705,7 +1673,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int[] $shapes The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -1723,10 +1691,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteNotesSlideShapes');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteNotesSlideShapes');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}';
@@ -1867,7 +1831,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -1886,10 +1850,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -2036,7 +1996,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int[] $paragraphs The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $password Document password. (optional)
@@ -2055,10 +2015,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteParagraphs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteParagraphs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -2204,7 +2160,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -2224,10 +2180,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deletePortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deletePortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -2379,7 +2331,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int[] $portions The indices of the shapes to be deleted; delete all by default. (optional)
@@ -2399,10 +2351,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deletePortions');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deletePortions');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -3634,7 +3582,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -3652,10 +3600,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSlideShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSlideShape');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -3797,7 +3741,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int[] $shapes The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -3815,10 +3759,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSlideShapes');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSlideShapes');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
@@ -4551,7 +4491,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'downloadFile'
      *
-     * @param  string $path File path e.g. &#39;/folder/file.ext&#39; (required)
+     * @param  string $path File path e.g. &#39;/folder/file.ext&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      * @param  string $version_id File version ID to download (optional)
      *
@@ -4560,10 +4500,6 @@ class SlidesApi extends ApiBase
      */
     protected function downloadFileRequest(Requests\DownloadFileRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling downloadFile');
-        }
 
         $resourcePath = '/slides/storage/file/{path}';
         $queryParams = [];
@@ -4820,7 +4756,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getFileVersions'
      *
-     * @param  string $path File path e.g. &#39;/file.ext&#39; (required)
+     * @param  string $path File path e.g. &#39;/file.ext&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -4828,10 +4764,6 @@ class SlidesApi extends ApiBase
      */
     protected function getFileVersionsRequest(Requests\GetFileVersionsRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getFileVersions');
-        }
 
         $resourcePath = '/slides/storage/version/{path}';
         $queryParams = [];
@@ -4955,7 +4887,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getFilesList'
      *
-     * @param  string $path Folder path e.g. &#39;/folder&#39; (required)
+     * @param  string $path Folder path e.g. &#39;/folder&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -4963,10 +4895,6 @@ class SlidesApi extends ApiBase
      */
     protected function getFilesListRequest(Requests\GetFilesListRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getFilesList');
-        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
@@ -5835,7 +5763,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -5853,10 +5781,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShape');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -5998,7 +5922,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -6017,10 +5941,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShapeParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShapeParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -6167,7 +6087,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -6185,10 +6105,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShapeParagraphs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShapeParagraphs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -6330,7 +6246,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -6350,10 +6266,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShapePortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShapePortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -6505,7 +6417,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -6524,10 +6436,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShapePortions');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShapePortions');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -6674,7 +6582,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -6691,10 +6599,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideShapes');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getNotesSlideShapes');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}';
@@ -7000,7 +6904,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -7020,10 +6924,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getParagraphPortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getParagraphPortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -7175,7 +7075,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -7194,10 +7094,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getParagraphPortions');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getParagraphPortions');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -7504,7 +7400,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -7522,10 +7418,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideShape');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -7667,7 +7559,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  string $password Document password. (optional)
@@ -7686,10 +7578,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideShapeParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideShapeParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -7836,7 +7724,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -7854,10 +7742,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideShapeParagraphs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideShapeParagraphs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -7999,7 +7883,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -8016,10 +7900,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideShapes');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideShapes');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
@@ -11368,7 +11248,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'objectExists'
      *
-     * @param  string $path File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; (required)
+     * @param  string $path File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; (optional)
      * @param  string $storage_name Storage name (optional)
      * @param  string $version_id File version ID (optional)
      *
@@ -11377,10 +11257,6 @@ class SlidesApi extends ApiBase
      */
     protected function objectExistsRequest(Requests\ObjectExistsRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling objectExists');
-        }
 
         $resourcePath = '/slides/storage/exist/{path}';
         $queryParams = [];
@@ -11510,7 +11386,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
      * @param  string $password Document password. (optional)
@@ -11530,10 +11406,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -11691,7 +11563,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
@@ -11712,10 +11584,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewPortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewPortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -11878,7 +11746,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -11898,10 +11766,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewShape');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
@@ -12573,7 +12437,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
      * @param  string $password Document password. (optional)
@@ -12593,10 +12457,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postNotesSlideAddNewParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postNotesSlideAddNewParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -12754,7 +12614,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
@@ -12775,10 +12635,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postNotesSlideAddNewPortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postNotesSlideAddNewPortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -12941,7 +12797,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
@@ -12961,10 +12817,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postNotesSlideAddNewShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postNotesSlideAddNewShape');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{path}';
@@ -13118,7 +12970,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  string $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
@@ -13142,10 +12994,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postNotesSlideShapeSaveAs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postNotesSlideShapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -13475,7 +13323,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  string $format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options (optional)
@@ -13499,10 +13347,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postShapeSaveAs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling postShapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -16928,7 +16772,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  string $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
@@ -16953,10 +16797,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putNotesSlideShapeSaveAs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putNotesSlideShapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -17297,7 +17137,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -17318,10 +17158,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSetParagraphPortionProperties');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSetParagraphPortionProperties');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -17485,7 +17321,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
@@ -17505,10 +17341,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSetParagraphProperties');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSetParagraphProperties');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -17633,7 +17465,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Presentation name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Index of shape starting from 1 (required)
      * @param  string $format Export picture format. (required)
      * @param  string $out_path Output path. (required)
@@ -17658,10 +17490,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putShapeSaveAs');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putShapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -18514,7 +18342,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
      * @param  string $password Document password. (optional)
@@ -18533,10 +18361,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlideShapeInfo');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSlideShapeInfo');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -20101,7 +19925,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
      * @param  string $password Document password. (optional)
@@ -20120,10 +19944,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putUpdateNotesSlideShape');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putUpdateNotesSlideShape');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -20277,7 +20097,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
@@ -20297,10 +20117,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putUpdateNotesSlideShapeParagraph');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putUpdateNotesSlideShapeParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -20459,7 +20275,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  string $path Shape path (for smart art and group shapes). (required)
+     * @param  string $path Shape path (for smart art and group shapes). (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
@@ -20480,10 +20296,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putUpdateNotesSlideShapePortion');
-        }
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling putUpdateNotesSlideShapePortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
@@ -20775,7 +20587,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'uploadFile'
      *
-     * @param  string $path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. (required)
+     * @param  string $path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. (optional)
      * @param  \SplFileObject $file File to upload (required)
      * @param  string $storage_name Storage name (optional)
      *
@@ -20784,10 +20596,6 @@ class SlidesApi extends ApiBase
      */
     protected function uploadFileRequest(Requests\UploadFileRequest $request)
     {
-        // verify the required parameter 'path' is set
-        if ($request->path === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $path when calling uploadFile');
-        }
         // verify the required parameter 'file' is set
         if ($request->file === null) {
             throw new \InvalidArgumentException('Missing the required parameter $file when calling uploadFile');

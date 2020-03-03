@@ -115,7 +115,7 @@ class PostNotesSlideShapeSaveAsRequest
      * @param string $bounds Shape thumbnail bounds type.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $format, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $format, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

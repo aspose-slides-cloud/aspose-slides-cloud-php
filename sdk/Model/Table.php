@@ -405,9 +405,6 @@ class Table extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['style'] === null) {
-            $invalidProperties[] = "'style' can't be null";
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -416,27 +413,6 @@ class Table extends ShapeBase
             );
         }
 
-        if ($this->container['firstCol'] === null) {
-            $invalidProperties[] = "'firstCol' can't be null";
-        }
-        if ($this->container['firstRow'] === null) {
-            $invalidProperties[] = "'firstRow' can't be null";
-        }
-        if ($this->container['horizontalBanding'] === null) {
-            $invalidProperties[] = "'horizontalBanding' can't be null";
-        }
-        if ($this->container['lastCol'] === null) {
-            $invalidProperties[] = "'lastCol' can't be null";
-        }
-        if ($this->container['lastRow'] === null) {
-            $invalidProperties[] = "'lastRow' can't be null";
-        }
-        if ($this->container['rightToLeft'] === null) {
-            $invalidProperties[] = "'rightToLeft' can't be null";
-        }
-        if ($this->container['verticalBanding'] === null) {
-            $invalidProperties[] = "'verticalBanding' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -452,32 +428,8 @@ class Table extends ShapeBase
             return false;
         }
 
-        if ($this->container['style'] === null) {
-            return false;
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['firstCol'] === null) {
-            return false;
-        }
-        if ($this->container['firstRow'] === null) {
-            return false;
-        }
-        if ($this->container['horizontalBanding'] === null) {
-            return false;
-        }
-        if ($this->container['lastCol'] === null) {
-            return false;
-        }
-        if ($this->container['lastRow'] === null) {
-            return false;
-        }
-        if ($this->container['rightToLeft'] === null) {
-            return false;
-        }
-        if ($this->container['verticalBanding'] === null) {
             return false;
         }
         return true;
@@ -517,7 +469,7 @@ class Table extends ShapeBase
                 $style = $allowedValues[$style];
             }
         } else {
-            if (!in_array($style, $allowedValues)) {
+            if (!is_null($style) && !in_array($style, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'style', must be one of '%s'",

@@ -55,7 +55,7 @@ class UploadFileRequest
      * @param \SplFileObject $file File to upload
      * @param string $storageName Storage name
      */
-    public function __construct($path, $file, $storageName = null)
+    public function __construct($path = null, $file, $storageName = null)
     {
         $this->path = $path;
         $this->file = $file;

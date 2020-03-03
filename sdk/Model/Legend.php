@@ -261,9 +261,6 @@ class Legend implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
-        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!in_array($this->container['position'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -272,21 +269,6 @@ class Legend implements ArrayAccess
             );
         }
 
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
-        if ($this->container['height'] === null) {
-            $invalidProperties[] = "'height' can't be null";
-        }
-        if ($this->container['overlay'] === null) {
-            $invalidProperties[] = "'overlay' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -299,26 +281,8 @@ class Legend implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['position'] === null) {
-            return false;
-        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!in_array($this->container['position'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
-            return false;
-        }
-        if ($this->container['height'] === null) {
-            return false;
-        }
-        if ($this->container['overlay'] === null) {
             return false;
         }
         return true;
@@ -358,7 +322,7 @@ class Legend implements ArrayAccess
                 $position = $allowedValues[$position];
             }
         } else {
-            if (!in_array($position, $allowedValues)) {
+            if (!is_null($position) && !in_array($position, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'position', must be one of '%s'",

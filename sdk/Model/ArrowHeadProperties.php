@@ -267,9 +267,6 @@ class ArrowHeadProperties implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['length'] === null) {
-            $invalidProperties[] = "'length' can't be null";
-        }
         $allowedValues = $this->getLengthAllowableValues();
         if (!in_array($this->container['length'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -278,9 +275,6 @@ class ArrowHeadProperties implements ArrayAccess
             );
         }
 
-        if ($this->container['style'] === null) {
-            $invalidProperties[] = "'style' can't be null";
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -289,9 +283,6 @@ class ArrowHeadProperties implements ArrayAccess
             );
         }
 
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
         $allowedValues = $this->getWidthAllowableValues();
         if (!in_array($this->container['width'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -312,21 +303,12 @@ class ArrowHeadProperties implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['length'] === null) {
-            return false;
-        }
         $allowedValues = $this->getLengthAllowableValues();
         if (!in_array($this->container['length'], $allowedValues)) {
             return false;
         }
-        if ($this->container['style'] === null) {
-            return false;
-        }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
             return false;
         }
         $allowedValues = $this->getWidthAllowableValues();
@@ -370,7 +352,7 @@ class ArrowHeadProperties implements ArrayAccess
                 $length = $allowedValues[$length];
             }
         } else {
-            if (!in_array($length, $allowedValues)) {
+            if (!is_null($length) && !in_array($length, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'length', must be one of '%s'",
@@ -417,7 +399,7 @@ class ArrowHeadProperties implements ArrayAccess
                 $style = $allowedValues[$style];
             }
         } else {
-            if (!in_array($style, $allowedValues)) {
+            if (!is_null($style) && !in_array($style, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'style', must be one of '%s'",
@@ -464,7 +446,7 @@ class ArrowHeadProperties implements ArrayAccess
                 $width = $allowedValues[$width];
             }
         } else {
-            if (!in_array($width, $allowedValues)) {
+            if (!is_null($width) && !in_array($width, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'width', must be one of '%s'",

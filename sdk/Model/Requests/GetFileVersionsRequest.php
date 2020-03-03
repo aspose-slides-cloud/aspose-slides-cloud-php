@@ -49,7 +49,7 @@ class GetFileVersionsRequest
      * @param string $path File path e.g. &#39;/file.ext&#39;
      * @param string $storageName Storage name
      */
-    public function __construct($path, $storageName = null)
+    public function __construct($path = null, $storageName = null)
     {
         $this->path = $path;
         $this->storageName = $storageName;

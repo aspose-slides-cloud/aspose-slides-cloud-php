@@ -451,9 +451,6 @@ class Series implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -462,24 +459,6 @@ class Series implements ArrayAccess
             );
         }
 
-        if ($this->container['isColorVaried'] === null) {
-            $invalidProperties[] = "'isColorVaried' can't be null";
-        }
-        if ($this->container['smooth'] === null) {
-            $invalidProperties[] = "'smooth' can't be null";
-        }
-        if ($this->container['plotOnSecondAxis'] === null) {
-            $invalidProperties[] = "'plotOnSecondAxis' can't be null";
-        }
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
-        if ($this->container['invertIfNegative'] === null) {
-            $invalidProperties[] = "'invertIfNegative' can't be null";
-        }
-        if ($this->container['explosion'] === null) {
-            $invalidProperties[] = "'explosion' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -492,29 +471,8 @@ class Series implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['type'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['isColorVaried'] === null) {
-            return false;
-        }
-        if ($this->container['smooth'] === null) {
-            return false;
-        }
-        if ($this->container['plotOnSecondAxis'] === null) {
-            return false;
-        }
-        if ($this->container['order'] === null) {
-            return false;
-        }
-        if ($this->container['invertIfNegative'] === null) {
-            return false;
-        }
-        if ($this->container['explosion'] === null) {
             return false;
         }
         return true;
@@ -554,7 +512,7 @@ class Series implements ArrayAccess
                 $type = $allowedValues[$type];
             }
         } else {
-            if (!in_array($type, $allowedValues)) {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'type', must be one of '%s'",

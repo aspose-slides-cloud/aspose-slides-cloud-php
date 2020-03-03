@@ -249,21 +249,6 @@ class PlotArea implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
-        if ($this->container['width'] === null) {
-            $invalidProperties[] = "'width' can't be null";
-        }
-        if ($this->container['height'] === null) {
-            $invalidProperties[] = "'height' can't be null";
-        }
-        if ($this->container['layoutTargetType'] === null) {
-            $invalidProperties[] = "'layoutTargetType' can't be null";
-        }
         $allowedValues = $this->getLayoutTargetTypeAllowableValues();
         if (!in_array($this->container['layoutTargetType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -284,21 +269,6 @@ class PlotArea implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
-            return false;
-        }
-        if ($this->container['width'] === null) {
-            return false;
-        }
-        if ($this->container['height'] === null) {
-            return false;
-        }
-        if ($this->container['layoutTargetType'] === null) {
-            return false;
-        }
         $allowedValues = $this->getLayoutTargetTypeAllowableValues();
         if (!in_array($this->container['layoutTargetType'], $allowedValues)) {
             return false;
@@ -436,7 +406,7 @@ class PlotArea implements ArrayAccess
                 $layoutTargetType = $allowedValues[$layoutTargetType];
             }
         } else {
-            if (!in_array($layoutTargetType, $allowedValues)) {
+            if (!is_null($layoutTargetType) && !in_array($layoutTargetType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'layoutTargetType', must be one of '%s'",

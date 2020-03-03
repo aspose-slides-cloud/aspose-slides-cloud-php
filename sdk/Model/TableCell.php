@@ -332,27 +332,6 @@ class TableCell implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rowSpan'] === null) {
-            $invalidProperties[] = "'rowSpan' can't be null";
-        }
-        if ($this->container['colSpan'] === null) {
-            $invalidProperties[] = "'colSpan' can't be null";
-        }
-        if ($this->container['marginTop'] === null) {
-            $invalidProperties[] = "'marginTop' can't be null";
-        }
-        if ($this->container['marginRight'] === null) {
-            $invalidProperties[] = "'marginRight' can't be null";
-        }
-        if ($this->container['marginLeft'] === null) {
-            $invalidProperties[] = "'marginLeft' can't be null";
-        }
-        if ($this->container['marginBottom'] === null) {
-            $invalidProperties[] = "'marginBottom' can't be null";
-        }
-        if ($this->container['textAnchorType'] === null) {
-            $invalidProperties[] = "'textAnchorType' can't be null";
-        }
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
         if (!in_array($this->container['textAnchorType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -361,9 +340,6 @@ class TableCell implements ArrayAccess
             );
         }
 
-        if ($this->container['textVerticalType'] === null) {
-            $invalidProperties[] = "'textVerticalType' can't be null";
-        }
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
         if (!in_array($this->container['textVerticalType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -384,32 +360,8 @@ class TableCell implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['rowSpan'] === null) {
-            return false;
-        }
-        if ($this->container['colSpan'] === null) {
-            return false;
-        }
-        if ($this->container['marginTop'] === null) {
-            return false;
-        }
-        if ($this->container['marginRight'] === null) {
-            return false;
-        }
-        if ($this->container['marginLeft'] === null) {
-            return false;
-        }
-        if ($this->container['marginBottom'] === null) {
-            return false;
-        }
-        if ($this->container['textAnchorType'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTextAnchorTypeAllowableValues();
         if (!in_array($this->container['textAnchorType'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['textVerticalType'] === null) {
             return false;
         }
         $allowedValues = $this->getTextVerticalTypeAllowableValues();
@@ -621,7 +573,7 @@ class TableCell implements ArrayAccess
                 $textAnchorType = $allowedValues[$textAnchorType];
             }
         } else {
-            if (!in_array($textAnchorType, $allowedValues)) {
+            if (!is_null($textAnchorType) && !in_array($textAnchorType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'textAnchorType', must be one of '%s'",
@@ -668,7 +620,7 @@ class TableCell implements ArrayAccess
                 $textVerticalType = $allowedValues[$textVerticalType];
             }
         } else {
-            if (!in_array($textVerticalType, $allowedValues)) {
+            if (!is_null($textVerticalType) && !in_array($textVerticalType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'textVerticalType', must be one of '%s'",

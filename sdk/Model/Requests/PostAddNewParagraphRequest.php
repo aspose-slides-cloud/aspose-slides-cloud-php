@@ -91,7 +91,7 @@ class PostAddNewParagraphRequest
      * @param string $storage Document storage.
      * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
+    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

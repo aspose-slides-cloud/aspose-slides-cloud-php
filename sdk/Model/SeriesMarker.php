@@ -251,12 +251,6 @@ class SeriesMarker implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['size'] === null) {
-            $invalidProperties[] = "'size' can't be null";
-        }
-        if ($this->container['symbol'] === null) {
-            $invalidProperties[] = "'symbol' can't be null";
-        }
         $allowedValues = $this->getSymbolAllowableValues();
         if (!in_array($this->container['symbol'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -277,12 +271,6 @@ class SeriesMarker implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['size'] === null) {
-            return false;
-        }
-        if ($this->container['symbol'] === null) {
-            return false;
-        }
         $allowedValues = $this->getSymbolAllowableValues();
         if (!in_array($this->container['symbol'], $allowedValues)) {
             return false;
@@ -348,7 +336,7 @@ class SeriesMarker implements ArrayAccess
                 $symbol = $allowedValues[$symbol];
             }
         } else {
-            if (!in_array($symbol, $allowedValues)) {
+            if (!is_null($symbol) && !in_array($symbol, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'symbol', must be one of '%s'",

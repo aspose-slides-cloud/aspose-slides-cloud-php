@@ -49,7 +49,7 @@ class CreateFolderRequest
      * @param string $path Folder path to create e.g. &#39;folder_1/folder_2/&#39;
      * @param string $storageName Storage name
      */
-    public function __construct($path, $storageName = null)
+    public function __construct($path = null, $storageName = null)
     {
         $this->path = $path;
         $this->storageName = $storageName;

@@ -85,7 +85,7 @@ class DeleteNotesSlideParagraphsRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

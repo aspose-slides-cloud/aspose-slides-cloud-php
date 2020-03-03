@@ -594,15 +594,6 @@ class Axis implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['isVisible'] === null) {
-            $invalidProperties[] = "'isVisible' can't be null";
-        }
-        if ($this->container['hasTitle'] === null) {
-            $invalidProperties[] = "'hasTitle' can't be null";
-        }
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
-        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!in_array($this->container['position'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -611,9 +602,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['displayUnit'] === null) {
-            $invalidProperties[] = "'displayUnit' can't be null";
-        }
         $allowedValues = $this->getDisplayUnitAllowableValues();
         if (!in_array($this->container['displayUnit'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -622,9 +610,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['baseUnitScale'] === null) {
-            $invalidProperties[] = "'baseUnitScale' can't be null";
-        }
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
         if (!in_array($this->container['baseUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -633,15 +618,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['isAutomaticMajorUnit'] === null) {
-            $invalidProperties[] = "'isAutomaticMajorUnit' can't be null";
-        }
-        if ($this->container['majorUnit'] === null) {
-            $invalidProperties[] = "'majorUnit' can't be null";
-        }
-        if ($this->container['majorUnitScale'] === null) {
-            $invalidProperties[] = "'majorUnitScale' can't be null";
-        }
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
         if (!in_array($this->container['majorUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -650,9 +626,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['majorTickMark'] === null) {
-            $invalidProperties[] = "'majorTickMark' can't be null";
-        }
         $allowedValues = $this->getMajorTickMarkAllowableValues();
         if (!in_array($this->container['majorTickMark'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -661,15 +634,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['isAutomaticMinorUnit'] === null) {
-            $invalidProperties[] = "'isAutomaticMinorUnit' can't be null";
-        }
-        if ($this->container['minorUnit'] === null) {
-            $invalidProperties[] = "'minorUnit' can't be null";
-        }
-        if ($this->container['minorUnitScale'] === null) {
-            $invalidProperties[] = "'minorUnitScale' can't be null";
-        }
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
         if (!in_array($this->container['minorUnitScale'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -678,9 +642,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['minorTickMark'] === null) {
-            $invalidProperties[] = "'minorTickMark' can't be null";
-        }
         $allowedValues = $this->getMinorTickMarkAllowableValues();
         if (!in_array($this->container['minorTickMark'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -689,27 +650,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['isAutomaticMaxValue'] === null) {
-            $invalidProperties[] = "'isAutomaticMaxValue' can't be null";
-        }
-        if ($this->container['maxValue'] === null) {
-            $invalidProperties[] = "'maxValue' can't be null";
-        }
-        if ($this->container['isAutomaticMinValue'] === null) {
-            $invalidProperties[] = "'isAutomaticMinValue' can't be null";
-        }
-        if ($this->container['minValue'] === null) {
-            $invalidProperties[] = "'minValue' can't be null";
-        }
-        if ($this->container['isLogarithmic'] === null) {
-            $invalidProperties[] = "'isLogarithmic' can't be null";
-        }
-        if ($this->container['logBase'] === null) {
-            $invalidProperties[] = "'logBase' can't be null";
-        }
-        if ($this->container['categoryAxisType'] === null) {
-            $invalidProperties[] = "'categoryAxisType' can't be null";
-        }
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
         if (!in_array($this->container['categoryAxisType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -718,21 +658,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['axisBetweenCategories'] === null) {
-            $invalidProperties[] = "'axisBetweenCategories' can't be null";
-        }
-        if ($this->container['labelOffset'] === null) {
-            $invalidProperties[] = "'labelOffset' can't be null";
-        }
-        if ($this->container['isPlotOrderReversed'] === null) {
-            $invalidProperties[] = "'isPlotOrderReversed' can't be null";
-        }
-        if ($this->container['isNumberFormatLinkedToSource'] === null) {
-            $invalidProperties[] = "'isNumberFormatLinkedToSource' can't be null";
-        }
-        if ($this->container['crossType'] === null) {
-            $invalidProperties[] = "'crossType' can't be null";
-        }
         $allowedValues = $this->getCrossTypeAllowableValues();
         if (!in_array($this->container['crossType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -741,24 +666,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['crossAt'] === null) {
-            $invalidProperties[] = "'crossAt' can't be null";
-        }
-        if ($this->container['isAutomaticTickMarksSpacing'] === null) {
-            $invalidProperties[] = "'isAutomaticTickMarksSpacing' can't be null";
-        }
-        if ($this->container['tickMarksSpacing'] === null) {
-            $invalidProperties[] = "'tickMarksSpacing' can't be null";
-        }
-        if ($this->container['isAutomaticTickLabelSpacing'] === null) {
-            $invalidProperties[] = "'isAutomaticTickLabelSpacing' can't be null";
-        }
-        if ($this->container['tickLabelSpacing'] === null) {
-            $invalidProperties[] = "'tickLabelSpacing' can't be null";
-        }
-        if ($this->container['tickLabelPosition'] === null) {
-            $invalidProperties[] = "'tickLabelPosition' can't be null";
-        }
         $allowedValues = $this->getTickLabelPositionAllowableValues();
         if (!in_array($this->container['tickLabelPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -767,9 +674,6 @@ class Axis implements ArrayAccess
             );
         }
 
-        if ($this->container['tickLabelRotationAngle'] === null) {
-            $invalidProperties[] = "'tickLabelRotationAngle' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -782,140 +686,44 @@ class Axis implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['isVisible'] === null) {
-            return false;
-        }
-        if ($this->container['hasTitle'] === null) {
-            return false;
-        }
-        if ($this->container['position'] === null) {
-            return false;
-        }
         $allowedValues = $this->getPositionAllowableValues();
         if (!in_array($this->container['position'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['displayUnit'] === null) {
             return false;
         }
         $allowedValues = $this->getDisplayUnitAllowableValues();
         if (!in_array($this->container['displayUnit'], $allowedValues)) {
             return false;
         }
-        if ($this->container['baseUnitScale'] === null) {
-            return false;
-        }
         $allowedValues = $this->getBaseUnitScaleAllowableValues();
         if (!in_array($this->container['baseUnitScale'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['isAutomaticMajorUnit'] === null) {
-            return false;
-        }
-        if ($this->container['majorUnit'] === null) {
-            return false;
-        }
-        if ($this->container['majorUnitScale'] === null) {
             return false;
         }
         $allowedValues = $this->getMajorUnitScaleAllowableValues();
         if (!in_array($this->container['majorUnitScale'], $allowedValues)) {
             return false;
         }
-        if ($this->container['majorTickMark'] === null) {
-            return false;
-        }
         $allowedValues = $this->getMajorTickMarkAllowableValues();
         if (!in_array($this->container['majorTickMark'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['isAutomaticMinorUnit'] === null) {
-            return false;
-        }
-        if ($this->container['minorUnit'] === null) {
-            return false;
-        }
-        if ($this->container['minorUnitScale'] === null) {
             return false;
         }
         $allowedValues = $this->getMinorUnitScaleAllowableValues();
         if (!in_array($this->container['minorUnitScale'], $allowedValues)) {
             return false;
         }
-        if ($this->container['minorTickMark'] === null) {
-            return false;
-        }
         $allowedValues = $this->getMinorTickMarkAllowableValues();
         if (!in_array($this->container['minorTickMark'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['isAutomaticMaxValue'] === null) {
-            return false;
-        }
-        if ($this->container['maxValue'] === null) {
-            return false;
-        }
-        if ($this->container['isAutomaticMinValue'] === null) {
-            return false;
-        }
-        if ($this->container['minValue'] === null) {
-            return false;
-        }
-        if ($this->container['isLogarithmic'] === null) {
-            return false;
-        }
-        if ($this->container['logBase'] === null) {
-            return false;
-        }
-        if ($this->container['categoryAxisType'] === null) {
             return false;
         }
         $allowedValues = $this->getCategoryAxisTypeAllowableValues();
         if (!in_array($this->container['categoryAxisType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['axisBetweenCategories'] === null) {
-            return false;
-        }
-        if ($this->container['labelOffset'] === null) {
-            return false;
-        }
-        if ($this->container['isPlotOrderReversed'] === null) {
-            return false;
-        }
-        if ($this->container['isNumberFormatLinkedToSource'] === null) {
-            return false;
-        }
-        if ($this->container['crossType'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCrossTypeAllowableValues();
         if (!in_array($this->container['crossType'], $allowedValues)) {
             return false;
         }
-        if ($this->container['crossAt'] === null) {
-            return false;
-        }
-        if ($this->container['isAutomaticTickMarksSpacing'] === null) {
-            return false;
-        }
-        if ($this->container['tickMarksSpacing'] === null) {
-            return false;
-        }
-        if ($this->container['isAutomaticTickLabelSpacing'] === null) {
-            return false;
-        }
-        if ($this->container['tickLabelSpacing'] === null) {
-            return false;
-        }
-        if ($this->container['tickLabelPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTickLabelPositionAllowableValues();
         if (!in_array($this->container['tickLabelPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['tickLabelRotationAngle'] === null) {
             return false;
         }
         return true;
@@ -1003,7 +811,7 @@ class Axis implements ArrayAccess
                 $position = $allowedValues[$position];
             }
         } else {
-            if (!in_array($position, $allowedValues)) {
+            if (!is_null($position) && !in_array($position, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'position', must be one of '%s'",
@@ -1050,7 +858,7 @@ class Axis implements ArrayAccess
                 $displayUnit = $allowedValues[$displayUnit];
             }
         } else {
-            if (!in_array($displayUnit, $allowedValues)) {
+            if (!is_null($displayUnit) && !in_array($displayUnit, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'displayUnit', must be one of '%s'",
@@ -1097,7 +905,7 @@ class Axis implements ArrayAccess
                 $baseUnitScale = $allowedValues[$baseUnitScale];
             }
         } else {
-            if (!in_array($baseUnitScale, $allowedValues)) {
+            if (!is_null($baseUnitScale) && !in_array($baseUnitScale, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'baseUnitScale', must be one of '%s'",
@@ -1192,7 +1000,7 @@ class Axis implements ArrayAccess
                 $majorUnitScale = $allowedValues[$majorUnitScale];
             }
         } else {
-            if (!in_array($majorUnitScale, $allowedValues)) {
+            if (!is_null($majorUnitScale) && !in_array($majorUnitScale, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'majorUnitScale', must be one of '%s'",
@@ -1239,7 +1047,7 @@ class Axis implements ArrayAccess
                 $majorTickMark = $allowedValues[$majorTickMark];
             }
         } else {
-            if (!in_array($majorTickMark, $allowedValues)) {
+            if (!is_null($majorTickMark) && !in_array($majorTickMark, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'majorTickMark', must be one of '%s'",
@@ -1334,7 +1142,7 @@ class Axis implements ArrayAccess
                 $minorUnitScale = $allowedValues[$minorUnitScale];
             }
         } else {
-            if (!in_array($minorUnitScale, $allowedValues)) {
+            if (!is_null($minorUnitScale) && !in_array($minorUnitScale, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'minorUnitScale', must be one of '%s'",
@@ -1381,7 +1189,7 @@ class Axis implements ArrayAccess
                 $minorTickMark = $allowedValues[$minorTickMark];
             }
         } else {
-            if (!in_array($minorTickMark, $allowedValues)) {
+            if (!is_null($minorTickMark) && !in_array($minorTickMark, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'minorTickMark', must be one of '%s'",
@@ -1572,7 +1380,7 @@ class Axis implements ArrayAccess
                 $categoryAxisType = $allowedValues[$categoryAxisType];
             }
         } else {
-            if (!in_array($categoryAxisType, $allowedValues)) {
+            if (!is_null($categoryAxisType) && !in_array($categoryAxisType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'categoryAxisType', must be one of '%s'",
@@ -1739,7 +1547,7 @@ class Axis implements ArrayAccess
                 $crossType = $allowedValues[$crossType];
             }
         } else {
-            if (!in_array($crossType, $allowedValues)) {
+            if (!is_null($crossType) && !in_array($crossType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'crossType', must be one of '%s'",
@@ -1906,7 +1714,7 @@ class Axis implements ArrayAccess
                 $tickLabelPosition = $allowedValues[$tickLabelPosition];
             }
         } else {
-            if (!in_array($tickLabelPosition, $allowedValues)) {
+            if (!is_null($tickLabelPosition) && !in_array($tickLabelPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'tickLabelPosition', must be one of '%s'",

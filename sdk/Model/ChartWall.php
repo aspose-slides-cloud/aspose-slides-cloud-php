@@ -235,12 +235,6 @@ class ChartWall implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['thickness'] === null) {
-            $invalidProperties[] = "'thickness' can't be null";
-        }
-        if ($this->container['pictureType'] === null) {
-            $invalidProperties[] = "'pictureType' can't be null";
-        }
         $allowedValues = $this->getPictureTypeAllowableValues();
         if (!in_array($this->container['pictureType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -261,12 +255,6 @@ class ChartWall implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['thickness'] === null) {
-            return false;
-        }
-        if ($this->container['pictureType'] === null) {
-            return false;
-        }
         $allowedValues = $this->getPictureTypeAllowableValues();
         if (!in_array($this->container['pictureType'], $allowedValues)) {
             return false;
@@ -404,7 +392,7 @@ class ChartWall implements ArrayAccess
                 $pictureType = $allowedValues[$pictureType];
             }
         } else {
-            if (!in_array($pictureType, $allowedValues)) {
+            if (!is_null($pictureType) && !in_array($pictureType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'pictureType', must be one of '%s'",
