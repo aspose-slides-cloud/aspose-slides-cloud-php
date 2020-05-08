@@ -10911,6 +10911,151 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getSlidesViewProperties(Requests\GetSlidesViewPropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->getSlidesViewPropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getSlidesViewPropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getSlidesViewPropertiesWithHttpInfo(Requests\GetSlidesViewPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties';
+        $httpRequest = $this->getSlidesViewPropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getSlidesViewPropertiesAsync(Requests\GetSlidesViewPropertiesRequest $request)
+    {
+        return $this->getSlidesViewPropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getSlidesViewPropertiesAsyncWithHttpInfo(Requests\GetSlidesViewPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties';
+        $httpRequest = $this->getSlidesViewPropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getSlidesViewProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSlidesViewPropertiesRequest(Requests\GetSlidesViewPropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getSlidesViewProperties');
+        }
+
+        $resourcePath = '/slides/{name}/viewProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function moveFile(Requests\MoveFileRequest $request)
     {
         try {
@@ -19653,6 +19798,164 @@ class SlidesApi extends ApiBase
             ['application/json'],
             ['application/json']);
 
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSlidesViewProperties(Requests\PutSlidesViewPropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->putSlidesViewPropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSlidesViewPropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSlidesViewPropertiesWithHttpInfo(Requests\PutSlidesViewPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty';
+        $httpRequest = $this->putSlidesViewPropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSlidesViewPropertiesAsync(Requests\PutSlidesViewPropertiesRequest $request)
+    {
+        return $this->putSlidesViewPropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSlidesViewPropertiesAsyncWithHttpInfo(Requests\PutSlidesViewPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty';
+        $httpRequest = $this->putSlidesViewPropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlidesViewProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ViewProperties $dto The view properties data. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSlidesViewPropertiesRequest(Requests\PutSlidesViewPropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesViewProperties');
+        }
+
+        $resourcePath = '/slides/{name}/viewProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**

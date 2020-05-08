@@ -314,6 +314,13 @@ class Series implements ArrayAccess
     const TYPE_RADAR_WITH_MARKERS = 'RadarWithMarkers';
     const TYPE_FILLED_RADAR = 'FilledRadar';
     const TYPE_SERIES_OF_MIXED_TYPES = 'SeriesOfMixedTypes';
+    const TYPE_TREEMAP = 'Treemap';
+    const TYPE_SUNBURST = 'Sunburst';
+    const TYPE_HISTOGRAM = 'Histogram';
+    const TYPE_PARETO_LINE = 'ParetoLine';
+    const TYPE_BOX_AND_WHISKER = 'BoxAndWhisker';
+    const TYPE_WATERFALL = 'Waterfall';
+    const TYPE_FUNNEL = 'Funnel';
     
 
     
@@ -399,6 +406,13 @@ class Series implements ArrayAccess
             self::TYPE_RADAR_WITH_MARKERS,
             self::TYPE_FILLED_RADAR,
             self::TYPE_SERIES_OF_MIXED_TYPES,
+            self::TYPE_TREEMAP,
+            self::TYPE_SUNBURST,
+            self::TYPE_HISTOGRAM,
+            self::TYPE_PARETO_LINE,
+            self::TYPE_BOX_AND_WHISKER,
+            self::TYPE_WATERFALL,
+            self::TYPE_FUNNEL,
         ];
     }
     

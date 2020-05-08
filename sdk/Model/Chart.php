@@ -60,7 +60,7 @@ class Chart extends ShapeBase
         'chartType' => 'string',
         'showDataLabelsOverMaximum' => 'bool',
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
-        'categories' => 'string[]',
+        'categories' => '\Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
         'backWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'sideWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
@@ -282,6 +282,13 @@ class Chart extends ShapeBase
     const CHART_TYPE_RADAR_WITH_MARKERS = 'RadarWithMarkers';
     const CHART_TYPE_FILLED_RADAR = 'FilledRadar';
     const CHART_TYPE_SERIES_OF_MIXED_TYPES = 'SeriesOfMixedTypes';
+    const CHART_TYPE_TREEMAP = 'Treemap';
+    const CHART_TYPE_SUNBURST = 'Sunburst';
+    const CHART_TYPE_HISTOGRAM = 'Histogram';
+    const CHART_TYPE_PARETO_LINE = 'ParetoLine';
+    const CHART_TYPE_BOX_AND_WHISKER = 'BoxAndWhisker';
+    const CHART_TYPE_WATERFALL = 'Waterfall';
+    const CHART_TYPE_FUNNEL = 'Funnel';
     
 
     
@@ -367,6 +374,13 @@ class Chart extends ShapeBase
             self::CHART_TYPE_RADAR_WITH_MARKERS,
             self::CHART_TYPE_FILLED_RADAR,
             self::CHART_TYPE_SERIES_OF_MIXED_TYPES,
+            self::CHART_TYPE_TREEMAP,
+            self::CHART_TYPE_SUNBURST,
+            self::CHART_TYPE_HISTOGRAM,
+            self::CHART_TYPE_PARETO_LINE,
+            self::CHART_TYPE_BOX_AND_WHISKER,
+            self::CHART_TYPE_WATERFALL,
+            self::CHART_TYPE_FUNNEL,
         ];
     }
     
@@ -542,7 +556,7 @@ class Chart extends ShapeBase
     /**
      * Gets categories
      *
-     * @return string[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]
      */
     public function getCategories()
     {
@@ -552,7 +566,7 @@ class Chart extends ShapeBase
     /**
      * Sets categories
      *
-     * @param string[] $categories Gets or sets the categories for chart data
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartCategory[] $categories Gets or sets the categories for chart data
      *
      * @return $this
      */

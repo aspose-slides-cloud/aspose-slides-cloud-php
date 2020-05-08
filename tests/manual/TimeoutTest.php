@@ -41,14 +41,6 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class TimeoutTest extends TestBase
 {
-    private $api;
-
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->api = new SlidesApi(null, $this->config);
-    }
-
     /**
      * Test case for SaveSlideAs with little timeout
      */
@@ -70,7 +62,7 @@ class TimeoutTest extends TestBase
         $request = new PostSlideSaveAsRequest("test.ppt", 1, "svg", null, null, null, "password", "TempSlidesSDK", null, null);
         $result = $slidesApi->postSlideSaveAs($request);
         try {
-//            $result = $this->api->postSlideSaveAs($request);
+//            $result = $this->getApi()->postSlideSaveAs($request);
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideSaveAs");
         }*/

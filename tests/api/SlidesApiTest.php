@@ -38,14 +38,6 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class SlidesApiTest extends TestBase
 {
-    private $api;
-
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->api = new SlidesApi(null, $this->config);
-    }
-
     private function getCopyFileRequest()
     {
         $testsrcPath = TestUtils::getTestValue("copyFile", "srcPath", $this->values);
@@ -67,7 +59,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "copyFile");
@@ -84,7 +76,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", "srcPath", $request->srcPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "srcPath", $expectedCode, $expectedMessage);
@@ -101,7 +93,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", "destPath", $request->destPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "destPath", $expectedCode, $expectedMessage);
@@ -118,7 +110,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", "srcStorageName", $request->srcStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "srcStorageName", $expectedCode, $expectedMessage);
@@ -135,7 +127,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", "destStorageName", $request->destStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "destStorageName", $expectedCode, $expectedMessage);
@@ -152,7 +144,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFile", "versionId", $request->versionId);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFile($request);
+            $result = $this->getApi()->copyFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "versionId", $expectedCode, $expectedMessage);
@@ -181,7 +173,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFolder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFolder($request);
+            $result = $this->getApi()->copyFolder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "copyFolder");
@@ -198,7 +190,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFolder", "srcPath", $request->srcPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFolder($request);
+            $result = $this->getApi()->copyFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "srcPath", $expectedCode, $expectedMessage);
@@ -215,7 +207,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFolder", "destPath", $request->destPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFolder($request);
+            $result = $this->getApi()->copyFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "destPath", $expectedCode, $expectedMessage);
@@ -232,7 +224,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFolder", "srcStorageName", $request->srcStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFolder($request);
+            $result = $this->getApi()->copyFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "srcStorageName", $expectedCode, $expectedMessage);
@@ -249,7 +241,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("copyFolder", "destStorageName", $request->destStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->copyFolder($request);
+            $result = $this->getApi()->copyFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "destStorageName", $expectedCode, $expectedMessage);
@@ -276,7 +268,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createFolder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->createFolder($request);
+            $result = $this->getApi()->createFolder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "createFolder");
@@ -293,7 +285,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createFolder", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->createFolder($request);
+            $result = $this->getApi()->createFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createFolder", "path", $expectedCode, $expectedMessage);
@@ -310,7 +302,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createFolder", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->createFolder($request);
+            $result = $this->getApi()->createFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createFolder", "storageName", $expectedCode, $expectedMessage);
@@ -338,7 +330,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFile", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFile($request);
+            $result = $this->getApi()->deleteFile($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteFile");
@@ -355,7 +347,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFile", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFile($request);
+            $result = $this->getApi()->deleteFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "path", $expectedCode, $expectedMessage);
@@ -372,7 +364,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFile", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFile($request);
+            $result = $this->getApi()->deleteFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "storageName", $expectedCode, $expectedMessage);
@@ -389,7 +381,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFile", "versionId", $request->versionId);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFile($request);
+            $result = $this->getApi()->deleteFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "versionId", $expectedCode, $expectedMessage);
@@ -417,7 +409,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFolder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFolder($request);
+            $result = $this->getApi()->deleteFolder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteFolder");
@@ -434,7 +426,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFolder", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFolder($request);
+            $result = $this->getApi()->deleteFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "path", $expectedCode, $expectedMessage);
@@ -451,7 +443,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFolder", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFolder($request);
+            $result = $this->getApi()->deleteFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "storageName", $expectedCode, $expectedMessage);
@@ -468,7 +460,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteFolder", "recursive", $request->recursive);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteFolder($request);
+            $result = $this->getApi()->deleteFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "recursive", $expectedCode, $expectedMessage);
@@ -498,7 +490,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlide");
@@ -515,7 +507,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "name", $expectedCode, $expectedMessage);
@@ -532,7 +524,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -549,7 +541,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "password", $expectedCode, $expectedMessage);
@@ -566,7 +558,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "folder", $expectedCode, $expectedMessage);
@@ -583,7 +575,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlide($request);
+            $result = $this->getApi()->deleteNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "storage", $expectedCode, $expectedMessage);
@@ -616,7 +608,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlideParagraph");
@@ -633,7 +625,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "name", $expectedCode, $expectedMessage);
@@ -650,7 +642,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -667,7 +659,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "path", $expectedCode, $expectedMessage);
@@ -684,7 +676,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -701,7 +693,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -718,7 +710,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "password", $expectedCode, $expectedMessage);
@@ -735,7 +727,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "folder", $expectedCode, $expectedMessage);
@@ -752,7 +744,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraph($request);
+            $result = $this->getApi()->deleteNotesSlideParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "storage", $expectedCode, $expectedMessage);
@@ -785,7 +777,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlideParagraphs");
@@ -802,7 +794,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "name", $expectedCode, $expectedMessage);
@@ -819,7 +811,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "slideIndex", $expectedCode, $expectedMessage);
@@ -836,7 +828,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "path", $expectedCode, $expectedMessage);
@@ -853,7 +845,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -870,7 +862,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "paragraphs", $request->paragraphs);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "paragraphs", $expectedCode, $expectedMessage);
@@ -887,7 +879,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "password", $expectedCode, $expectedMessage);
@@ -904,7 +896,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "folder", $expectedCode, $expectedMessage);
@@ -921,7 +913,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideParagraphs($request);
+            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "storage", $expectedCode, $expectedMessage);
@@ -955,7 +947,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlidePortion");
@@ -972,7 +964,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "name", $expectedCode, $expectedMessage);
@@ -989,7 +981,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -1006,7 +998,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "path", $expectedCode, $expectedMessage);
@@ -1023,7 +1015,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -1040,7 +1032,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -1057,7 +1049,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "portionIndex", $expectedCode, $expectedMessage);
@@ -1074,7 +1066,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "password", $expectedCode, $expectedMessage);
@@ -1091,7 +1083,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "folder", $expectedCode, $expectedMessage);
@@ -1108,7 +1100,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortion($request);
+            $result = $this->getApi()->deleteNotesSlidePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "storage", $expectedCode, $expectedMessage);
@@ -1142,7 +1134,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlidePortions");
@@ -1159,7 +1151,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "name", $expectedCode, $expectedMessage);
@@ -1176,7 +1168,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "slideIndex", $expectedCode, $expectedMessage);
@@ -1193,7 +1185,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "path", $expectedCode, $expectedMessage);
@@ -1210,7 +1202,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "shapeIndex", $expectedCode, $expectedMessage);
@@ -1227,7 +1219,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -1244,7 +1236,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "portions", $request->portions);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "portions", $expectedCode, $expectedMessage);
@@ -1261,7 +1253,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "password", $expectedCode, $expectedMessage);
@@ -1278,7 +1270,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "folder", $expectedCode, $expectedMessage);
@@ -1295,7 +1287,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlidePortions($request);
+            $result = $this->getApi()->deleteNotesSlidePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "storage", $expectedCode, $expectedMessage);
@@ -1327,7 +1319,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlideShape");
@@ -1344,7 +1336,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "name", $expectedCode, $expectedMessage);
@@ -1361,7 +1353,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -1378,7 +1370,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "path", $expectedCode, $expectedMessage);
@@ -1395,7 +1387,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -1412,7 +1404,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "password", $expectedCode, $expectedMessage);
@@ -1429,7 +1421,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "folder", $expectedCode, $expectedMessage);
@@ -1446,7 +1438,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShape($request);
+            $result = $this->getApi()->deleteNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "storage", $expectedCode, $expectedMessage);
@@ -1478,7 +1470,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteNotesSlideShapes");
@@ -1495,7 +1487,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "name", $expectedCode, $expectedMessage);
@@ -1512,7 +1504,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
@@ -1529,7 +1521,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "path", $expectedCode, $expectedMessage);
@@ -1546,7 +1538,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "shapes", $request->shapes);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "shapes", $expectedCode, $expectedMessage);
@@ -1563,7 +1555,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "password", $expectedCode, $expectedMessage);
@@ -1580,7 +1572,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
@@ -1597,7 +1589,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteNotesSlideShapes($request);
+            $result = $this->getApi()->deleteNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
@@ -1630,7 +1622,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteParagraph");
@@ -1647,7 +1639,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "name", $expectedCode, $expectedMessage);
@@ -1664,7 +1656,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -1681,7 +1673,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "path", $expectedCode, $expectedMessage);
@@ -1698,7 +1690,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -1715,7 +1707,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -1732,7 +1724,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "password", $expectedCode, $expectedMessage);
@@ -1749,7 +1741,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "folder", $expectedCode, $expectedMessage);
@@ -1766,7 +1758,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraph($request);
+            $result = $this->getApi()->deleteParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "storage", $expectedCode, $expectedMessage);
@@ -1799,7 +1791,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteParagraphs");
@@ -1816,7 +1808,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "name", $expectedCode, $expectedMessage);
@@ -1833,7 +1825,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "slideIndex", $expectedCode, $expectedMessage);
@@ -1850,7 +1842,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "path", $expectedCode, $expectedMessage);
@@ -1867,7 +1859,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -1884,7 +1876,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "paragraphs", $request->paragraphs);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "paragraphs", $expectedCode, $expectedMessage);
@@ -1901,7 +1893,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "password", $expectedCode, $expectedMessage);
@@ -1918,7 +1910,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "folder", $expectedCode, $expectedMessage);
@@ -1935,7 +1927,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteParagraphs($request);
+            $result = $this->getApi()->deleteParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "storage", $expectedCode, $expectedMessage);
@@ -1969,7 +1961,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deletePortion");
@@ -1986,7 +1978,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "name", $expectedCode, $expectedMessage);
@@ -2003,7 +1995,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -2020,7 +2012,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "path", $expectedCode, $expectedMessage);
@@ -2037,7 +2029,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -2054,7 +2046,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -2071,7 +2063,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "portionIndex", $expectedCode, $expectedMessage);
@@ -2088,7 +2080,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "password", $expectedCode, $expectedMessage);
@@ -2105,7 +2097,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "folder", $expectedCode, $expectedMessage);
@@ -2122,7 +2114,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortion($request);
+            $result = $this->getApi()->deletePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "storage", $expectedCode, $expectedMessage);
@@ -2156,7 +2148,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deletePortions");
@@ -2173,7 +2165,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "name", $expectedCode, $expectedMessage);
@@ -2190,7 +2182,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "slideIndex", $expectedCode, $expectedMessage);
@@ -2207,7 +2199,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "path", $expectedCode, $expectedMessage);
@@ -2224,7 +2216,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "shapeIndex", $expectedCode, $expectedMessage);
@@ -2241,7 +2233,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -2258,7 +2250,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "portions", $request->portions);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "portions", $expectedCode, $expectedMessage);
@@ -2275,7 +2267,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "password", $expectedCode, $expectedMessage);
@@ -2292,7 +2284,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "folder", $expectedCode, $expectedMessage);
@@ -2309,7 +2301,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deletePortions($request);
+            $result = $this->getApi()->deletePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "storage", $expectedCode, $expectedMessage);
@@ -2339,7 +2331,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimation");
@@ -2356,7 +2348,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "name", $expectedCode, $expectedMessage);
@@ -2373,7 +2365,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
@@ -2390,7 +2382,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "password", $expectedCode, $expectedMessage);
@@ -2407,7 +2399,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "folder", $expectedCode, $expectedMessage);
@@ -2424,7 +2416,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimation($request);
+            $result = $this->getApi()->deleteSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "storage", $expectedCode, $expectedMessage);
@@ -2455,7 +2447,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimationEffect");
@@ -2472,7 +2464,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
@@ -2489,7 +2481,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -2506,7 +2498,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "effectIndex", $request->effectIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
@@ -2523,7 +2515,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
@@ -2540,7 +2532,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
@@ -2557,7 +2549,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
@@ -2588,7 +2580,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimationInteractiveSequence");
@@ -2605,7 +2597,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
@@ -2622,7 +2614,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
@@ -2639,7 +2631,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "sequenceIndex", $request->sequenceIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "sequenceIndex", $expectedCode, $expectedMessage);
@@ -2656,7 +2648,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
@@ -2673,7 +2665,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
@@ -2690,7 +2682,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequence", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
@@ -2722,7 +2714,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimationInteractiveSequenceEffect");
@@ -2739,7 +2731,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
@@ -2756,7 +2748,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -2773,7 +2765,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $request->sequenceIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
@@ -2790,7 +2782,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "effectIndex", $request->effectIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
@@ -2807,7 +2799,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
@@ -2824,7 +2816,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
@@ -2841,7 +2833,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequenceEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
@@ -2871,7 +2863,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimationInteractiveSequences");
@@ -2888,7 +2880,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "name", $expectedCode, $expectedMessage);
@@ -2905,7 +2897,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "slideIndex", $expectedCode, $expectedMessage);
@@ -2922,7 +2914,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "password", $expectedCode, $expectedMessage);
@@ -2939,7 +2931,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "folder", $expectedCode, $expectedMessage);
@@ -2956,7 +2948,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationInteractiveSequences", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationInteractiveSequences($request);
+            $result = $this->getApi()->deleteSlideAnimationInteractiveSequences($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "storage", $expectedCode, $expectedMessage);
@@ -2986,7 +2978,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideAnimationMainSequence");
@@ -3003,7 +2995,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "name", $expectedCode, $expectedMessage);
@@ -3020,7 +3012,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "slideIndex", $expectedCode, $expectedMessage);
@@ -3037,7 +3029,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "password", $expectedCode, $expectedMessage);
@@ -3054,7 +3046,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "folder", $expectedCode, $expectedMessage);
@@ -3071,7 +3063,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideAnimationMainSequence", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideAnimationMainSequence($request);
+            $result = $this->getApi()->deleteSlideAnimationMainSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "storage", $expectedCode, $expectedMessage);
@@ -3101,7 +3093,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideByIndex");
@@ -3118,7 +3110,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "name", $expectedCode, $expectedMessage);
@@ -3135,7 +3127,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "slideIndex", $expectedCode, $expectedMessage);
@@ -3152,7 +3144,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "password", $expectedCode, $expectedMessage);
@@ -3169,7 +3161,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "folder", $expectedCode, $expectedMessage);
@@ -3186,7 +3178,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideByIndex", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideByIndex($request);
+            $result = $this->getApi()->deleteSlideByIndex($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "storage", $expectedCode, $expectedMessage);
@@ -3218,7 +3210,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideShape");
@@ -3235,7 +3227,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "name", $expectedCode, $expectedMessage);
@@ -3252,7 +3244,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -3269,7 +3261,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "path", $expectedCode, $expectedMessage);
@@ -3286,7 +3278,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -3303,7 +3295,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "password", $expectedCode, $expectedMessage);
@@ -3320,7 +3312,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "folder", $expectedCode, $expectedMessage);
@@ -3337,7 +3329,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShape($request);
+            $result = $this->getApi()->deleteSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "storage", $expectedCode, $expectedMessage);
@@ -3369,7 +3361,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlideShapes");
@@ -3386,7 +3378,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "name", $expectedCode, $expectedMessage);
@@ -3403,7 +3395,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
@@ -3420,7 +3412,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "path", $expectedCode, $expectedMessage);
@@ -3437,7 +3429,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "shapes", $request->shapes);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "shapes", $expectedCode, $expectedMessage);
@@ -3454,7 +3446,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "password", $expectedCode, $expectedMessage);
@@ -3471,7 +3463,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "folder", $expectedCode, $expectedMessage);
@@ -3488,7 +3480,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlideShapes($request);
+            $result = $this->getApi()->deleteSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "storage", $expectedCode, $expectedMessage);
@@ -3518,7 +3510,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlidesCleanSlidesList");
@@ -3535,7 +3527,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "name", $expectedCode, $expectedMessage);
@@ -3552,7 +3544,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", "slides", $request->slides);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "slides", $expectedCode, $expectedMessage);
@@ -3569,7 +3561,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "password", $expectedCode, $expectedMessage);
@@ -3586,7 +3578,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "folder", $expectedCode, $expectedMessage);
@@ -3603,7 +3595,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesCleanSlidesList", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesCleanSlidesList($request);
+            $result = $this->getApi()->deleteSlidesCleanSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "storage", $expectedCode, $expectedMessage);
@@ -3632,7 +3624,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperties($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlidesDocumentProperties");
@@ -3649,7 +3641,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperties", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperties($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
@@ -3666,7 +3658,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperties", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperties($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
@@ -3683,7 +3675,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperties", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperties($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
@@ -3700,7 +3692,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperties", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperties($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
@@ -3730,7 +3722,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlidesDocumentProperty");
@@ -3747,7 +3739,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
@@ -3764,7 +3756,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", "propertyName", $request->propertyName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
@@ -3781,7 +3773,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
@@ -3798,7 +3790,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
@@ -3815,7 +3807,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesDocumentProperty", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesDocumentProperty($request);
+            $result = $this->getApi()->deleteSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
@@ -3845,7 +3837,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "deleteSlidesSlideBackground");
@@ -3862,7 +3854,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
@@ -3879,7 +3871,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
@@ -3896,7 +3888,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
@@ -3913,7 +3905,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
@@ -3930,7 +3922,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesSlideBackground", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->deleteSlidesSlideBackground($request);
+            $result = $this->getApi()->deleteSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
@@ -3958,7 +3950,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("downloadFile", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->downloadFile($request);
+            $result = $this->getApi()->downloadFile($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "downloadFile");
@@ -3975,7 +3967,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("downloadFile", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->downloadFile($request);
+            $result = $this->getApi()->downloadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "path", $expectedCode, $expectedMessage);
@@ -3992,7 +3984,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("downloadFile", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->downloadFile($request);
+            $result = $this->getApi()->downloadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "storageName", $expectedCode, $expectedMessage);
@@ -4009,7 +4001,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("downloadFile", "versionId", $request->versionId);
         $needAssertResponse = false;
         try {
-            $result = $this->api->downloadFile($request);
+            $result = $this->getApi()->downloadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "versionId", $expectedCode, $expectedMessage);
@@ -4035,7 +4027,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getDiscUsage", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getDiscUsage($request);
+            $result = $this->getApi()->getDiscUsage($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getDiscUsage");
@@ -4052,7 +4044,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getDiscUsage", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getDiscUsage($request);
+            $result = $this->getApi()->getDiscUsage($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getDiscUsage", "storageName", $expectedCode, $expectedMessage);
@@ -4079,7 +4071,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFileVersions", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFileVersions($request);
+            $result = $this->getApi()->getFileVersions($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getFileVersions");
@@ -4096,7 +4088,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFileVersions", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFileVersions($request);
+            $result = $this->getApi()->getFileVersions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFileVersions", "path", $expectedCode, $expectedMessage);
@@ -4113,7 +4105,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFileVersions", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFileVersions($request);
+            $result = $this->getApi()->getFileVersions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFileVersions", "storageName", $expectedCode, $expectedMessage);
@@ -4140,7 +4132,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFilesList", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFilesList($request);
+            $result = $this->getApi()->getFilesList($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getFilesList");
@@ -4157,7 +4149,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFilesList", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFilesList($request);
+            $result = $this->getApi()->getFilesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFilesList", "path", $expectedCode, $expectedMessage);
@@ -4174,7 +4166,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getFilesList", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getFilesList($request);
+            $result = $this->getApi()->getFilesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFilesList", "storageName", $expectedCode, $expectedMessage);
@@ -4204,7 +4196,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getLayoutSlide");
@@ -4221,7 +4213,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "name", $expectedCode, $expectedMessage);
@@ -4238,7 +4230,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -4255,7 +4247,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "password", $expectedCode, $expectedMessage);
@@ -4272,7 +4264,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "folder", $expectedCode, $expectedMessage);
@@ -4289,7 +4281,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlide($request);
+            $result = $this->getApi()->getLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "storage", $expectedCode, $expectedMessage);
@@ -4318,7 +4310,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlidesList($request);
+            $result = $this->getApi()->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getLayoutSlidesList");
@@ -4335,7 +4327,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlidesList($request);
+            $result = $this->getApi()->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "name", $expectedCode, $expectedMessage);
@@ -4352,7 +4344,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlidesList($request);
+            $result = $this->getApi()->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "password", $expectedCode, $expectedMessage);
@@ -4369,7 +4361,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlidesList($request);
+            $result = $this->getApi()->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "folder", $expectedCode, $expectedMessage);
@@ -4386,7 +4378,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getLayoutSlidesList", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getLayoutSlidesList($request);
+            $result = $this->getApi()->getLayoutSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "storage", $expectedCode, $expectedMessage);
@@ -4416,7 +4408,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getMasterSlide");
@@ -4433,7 +4425,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "name", $expectedCode, $expectedMessage);
@@ -4450,7 +4442,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -4467,7 +4459,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "password", $expectedCode, $expectedMessage);
@@ -4484,7 +4476,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "folder", $expectedCode, $expectedMessage);
@@ -4501,7 +4493,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlide($request);
+            $result = $this->getApi()->getMasterSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "storage", $expectedCode, $expectedMessage);
@@ -4530,7 +4522,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlidesList", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlidesList($request);
+            $result = $this->getApi()->getMasterSlidesList($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getMasterSlidesList");
@@ -4547,7 +4539,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlidesList", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlidesList($request);
+            $result = $this->getApi()->getMasterSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "name", $expectedCode, $expectedMessage);
@@ -4564,7 +4556,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlidesList", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlidesList($request);
+            $result = $this->getApi()->getMasterSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "password", $expectedCode, $expectedMessage);
@@ -4581,7 +4573,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlidesList", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlidesList($request);
+            $result = $this->getApi()->getMasterSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "folder", $expectedCode, $expectedMessage);
@@ -4598,7 +4590,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getMasterSlidesList", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getMasterSlidesList($request);
+            $result = $this->getApi()->getMasterSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "storage", $expectedCode, $expectedMessage);
@@ -4628,7 +4620,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlide");
@@ -4645,7 +4637,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "name", $expectedCode, $expectedMessage);
@@ -4662,7 +4654,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -4679,7 +4671,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "password", $expectedCode, $expectedMessage);
@@ -4696,7 +4688,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "folder", $expectedCode, $expectedMessage);
@@ -4713,7 +4705,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlide($request);
+            $result = $this->getApi()->getNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "storage", $expectedCode, $expectedMessage);
@@ -4745,7 +4737,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShape");
@@ -4762,7 +4754,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "name", $expectedCode, $expectedMessage);
@@ -4779,7 +4771,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -4796,7 +4788,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "path", $expectedCode, $expectedMessage);
@@ -4813,7 +4805,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -4830,7 +4822,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "password", $expectedCode, $expectedMessage);
@@ -4847,7 +4839,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "folder", $expectedCode, $expectedMessage);
@@ -4864,7 +4856,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShape($request);
+            $result = $this->getApi()->getNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "storage", $expectedCode, $expectedMessage);
@@ -4897,7 +4889,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShapeParagraph");
@@ -4914,7 +4906,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
@@ -4931,7 +4923,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -4948,7 +4940,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
@@ -4965,7 +4957,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -4982,7 +4974,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -4999,7 +4991,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
@@ -5016,7 +5008,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
@@ -5033,7 +5025,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
@@ -5065,7 +5057,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShapeParagraphs");
@@ -5082,7 +5074,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
@@ -5099,7 +5091,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
@@ -5116,7 +5108,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "path", $expectedCode, $expectedMessage);
@@ -5133,7 +5125,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -5150,7 +5142,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
@@ -5167,7 +5159,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
@@ -5184,7 +5176,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapeParagraphs($request);
+            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
@@ -5218,7 +5210,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShapePortion");
@@ -5235,7 +5227,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
@@ -5252,7 +5244,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -5269,7 +5261,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "path", $expectedCode, $expectedMessage);
@@ -5286,7 +5278,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -5303,7 +5295,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -5320,7 +5312,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
@@ -5337,7 +5329,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
@@ -5354,7 +5346,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
@@ -5371,7 +5363,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortion($request);
+            $result = $this->getApi()->getNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
@@ -5404,7 +5396,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShapePortions");
@@ -5421,7 +5413,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "name", $expectedCode, $expectedMessage);
@@ -5438,7 +5430,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "slideIndex", $expectedCode, $expectedMessage);
@@ -5455,7 +5447,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "path", $expectedCode, $expectedMessage);
@@ -5472,7 +5464,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "shapeIndex", $expectedCode, $expectedMessage);
@@ -5489,7 +5481,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -5506,7 +5498,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "password", $expectedCode, $expectedMessage);
@@ -5523,7 +5515,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "folder", $expectedCode, $expectedMessage);
@@ -5540,7 +5532,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapePortions($request);
+            $result = $this->getApi()->getNotesSlideShapePortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "storage", $expectedCode, $expectedMessage);
@@ -5571,7 +5563,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideShapes");
@@ -5588,7 +5580,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "name", $expectedCode, $expectedMessage);
@@ -5605,7 +5597,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
@@ -5622,7 +5614,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "path", $expectedCode, $expectedMessage);
@@ -5639,7 +5631,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "password", $expectedCode, $expectedMessage);
@@ -5656,7 +5648,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
@@ -5673,7 +5665,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideShapes($request);
+            $result = $this->getApi()->getNotesSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
@@ -5707,7 +5699,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getNotesSlideWithFormat");
@@ -5724,7 +5716,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "name", $expectedCode, $expectedMessage);
@@ -5741,7 +5733,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
@@ -5758,7 +5750,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
@@ -5775,7 +5767,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "width", $request->width);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
@@ -5792,7 +5784,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "height", $request->height);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
@@ -5809,7 +5801,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
@@ -5826,7 +5818,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "folder", $expectedCode, $expectedMessage);
@@ -5843,7 +5835,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "storage", $expectedCode, $expectedMessage);
@@ -5860,7 +5852,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideWithFormat", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getNotesSlideWithFormat($request);
+            $result = $this->getApi()->getNotesSlideWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
@@ -5894,7 +5886,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getParagraphPortion");
@@ -5911,7 +5903,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "name", $expectedCode, $expectedMessage);
@@ -5928,7 +5920,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -5945,7 +5937,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "path", $expectedCode, $expectedMessage);
@@ -5962,7 +5954,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -5979,7 +5971,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -5996,7 +5988,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
@@ -6013,7 +6005,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "password", $expectedCode, $expectedMessage);
@@ -6030,7 +6022,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "folder", $expectedCode, $expectedMessage);
@@ -6047,7 +6039,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortion($request);
+            $result = $this->getApi()->getParagraphPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "storage", $expectedCode, $expectedMessage);
@@ -6080,7 +6072,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getParagraphPortions");
@@ -6097,7 +6089,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "name", $expectedCode, $expectedMessage);
@@ -6114,7 +6106,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
@@ -6131,7 +6123,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "path", $expectedCode, $expectedMessage);
@@ -6148,7 +6140,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
@@ -6165,7 +6157,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -6182,7 +6174,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "password", $expectedCode, $expectedMessage);
@@ -6199,7 +6191,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "folder", $expectedCode, $expectedMessage);
@@ -6216,7 +6208,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getParagraphPortions($request);
+            $result = $this->getApi()->getParagraphPortions($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "storage", $expectedCode, $expectedMessage);
@@ -6247,7 +6239,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlideAnimation");
@@ -6264,7 +6256,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "name", $expectedCode, $expectedMessage);
@@ -6281,7 +6273,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
@@ -6298,7 +6290,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "shapeIndex", $expectedCode, $expectedMessage);
@@ -6315,7 +6307,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "password", $expectedCode, $expectedMessage);
@@ -6332,7 +6324,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "folder", $expectedCode, $expectedMessage);
@@ -6349,7 +6341,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideAnimation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideAnimation($request);
+            $result = $this->getApi()->getSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "storage", $expectedCode, $expectedMessage);
@@ -6381,7 +6373,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlideShape");
@@ -6398,7 +6390,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "name", $expectedCode, $expectedMessage);
@@ -6415,7 +6407,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -6432,7 +6424,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "path", $expectedCode, $expectedMessage);
@@ -6449,7 +6441,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -6466,7 +6458,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "password", $expectedCode, $expectedMessage);
@@ -6483,7 +6475,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "folder", $expectedCode, $expectedMessage);
@@ -6500,7 +6492,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShape($request);
+            $result = $this->getApi()->getSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "storage", $expectedCode, $expectedMessage);
@@ -6533,7 +6525,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlideShapeParagraph");
@@ -6550,7 +6542,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
@@ -6567,7 +6559,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -6584,7 +6576,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
@@ -6601,7 +6593,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -6618,7 +6610,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -6635,7 +6627,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
@@ -6652,7 +6644,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
@@ -6669,7 +6661,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraph($request);
+            $result = $this->getApi()->getSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
@@ -6701,7 +6693,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlideShapeParagraphs");
@@ -6718,7 +6710,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
@@ -6735,7 +6727,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
@@ -6752,7 +6744,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "path", $expectedCode, $expectedMessage);
@@ -6769,7 +6761,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -6786,7 +6778,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
@@ -6803,7 +6795,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
@@ -6820,7 +6812,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapeParagraphs($request);
+            $result = $this->getApi()->getSlideShapeParagraphs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
@@ -6851,7 +6843,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlideShapes");
@@ -6868,7 +6860,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "name", $expectedCode, $expectedMessage);
@@ -6885,7 +6877,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
@@ -6902,7 +6894,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "path", $expectedCode, $expectedMessage);
@@ -6919,7 +6911,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "password", $expectedCode, $expectedMessage);
@@ -6936,7 +6928,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "folder", $expectedCode, $expectedMessage);
@@ -6953,7 +6945,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlideShapes($request);
+            $result = $this->getApi()->getSlideShapes($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "storage", $expectedCode, $expectedMessage);
@@ -6978,7 +6970,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesApiInfo", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesApiInfo($request);
+            $result = $this->getApi()->getSlidesApiInfo($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesApiInfo");
@@ -7007,7 +6999,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocument($request);
+            $result = $this->getApi()->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesDocument");
@@ -7024,7 +7016,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocument($request);
+            $result = $this->getApi()->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "name", $expectedCode, $expectedMessage);
@@ -7041,7 +7033,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocument($request);
+            $result = $this->getApi()->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "password", $expectedCode, $expectedMessage);
@@ -7058,7 +7050,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocument($request);
+            $result = $this->getApi()->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "storage", $expectedCode, $expectedMessage);
@@ -7075,7 +7067,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocument", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocument($request);
+            $result = $this->getApi()->getSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "folder", $expectedCode, $expectedMessage);
@@ -7104,7 +7096,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperties($request);
+            $result = $this->getApi()->getSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesDocumentProperties");
@@ -7121,7 +7113,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperties", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperties($request);
+            $result = $this->getApi()->getSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
@@ -7138,7 +7130,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperties", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperties($request);
+            $result = $this->getApi()->getSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
@@ -7155,7 +7147,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperties", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperties($request);
+            $result = $this->getApi()->getSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
@@ -7172,7 +7164,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperties", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperties($request);
+            $result = $this->getApi()->getSlidesDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
@@ -7202,7 +7194,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesDocumentProperty");
@@ -7219,7 +7211,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
@@ -7236,7 +7228,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", "propertyName", $request->propertyName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
@@ -7253,7 +7245,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
@@ -7270,7 +7262,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
@@ -7287,7 +7279,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesDocumentProperty", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesDocumentProperty($request);
+            $result = $this->getApi()->getSlidesDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
@@ -7317,7 +7309,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesImageWithDefaultFormat");
@@ -7334,7 +7326,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "name", $expectedCode, $expectedMessage);
@@ -7351,7 +7343,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", "index", $request->index);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "index", $expectedCode, $expectedMessage);
@@ -7368,7 +7360,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "password", $expectedCode, $expectedMessage);
@@ -7385,7 +7377,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "folder", $expectedCode, $expectedMessage);
@@ -7402,7 +7394,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithDefaultFormat", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithDefaultFormat($request);
+            $result = $this->getApi()->getSlidesImageWithDefaultFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "storage", $expectedCode, $expectedMessage);
@@ -7433,7 +7425,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesImageWithFormat");
@@ -7450,7 +7442,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "name", $expectedCode, $expectedMessage);
@@ -7467,7 +7459,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "index", $request->index);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "index", $expectedCode, $expectedMessage);
@@ -7484,7 +7476,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "format", $expectedCode, $expectedMessage);
@@ -7501,7 +7493,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "password", $expectedCode, $expectedMessage);
@@ -7518,7 +7510,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "folder", $expectedCode, $expectedMessage);
@@ -7535,7 +7527,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImageWithFormat", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImageWithFormat($request);
+            $result = $this->getApi()->getSlidesImageWithFormat($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "storage", $expectedCode, $expectedMessage);
@@ -7564,7 +7556,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImages", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImages($request);
+            $result = $this->getApi()->getSlidesImages($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesImages");
@@ -7581,7 +7573,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImages", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImages($request);
+            $result = $this->getApi()->getSlidesImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "name", $expectedCode, $expectedMessage);
@@ -7598,7 +7590,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImages", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImages($request);
+            $result = $this->getApi()->getSlidesImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "password", $expectedCode, $expectedMessage);
@@ -7615,7 +7607,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImages", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImages($request);
+            $result = $this->getApi()->getSlidesImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "folder", $expectedCode, $expectedMessage);
@@ -7632,7 +7624,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesImages", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesImages($request);
+            $result = $this->getApi()->getSlidesImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "storage", $expectedCode, $expectedMessage);
@@ -7663,7 +7655,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesPlaceholder");
@@ -7680,7 +7672,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "name", $expectedCode, $expectedMessage);
@@ -7697,7 +7689,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "slideIndex", $expectedCode, $expectedMessage);
@@ -7714,7 +7706,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "placeholderIndex", $request->placeholderIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "placeholderIndex", $expectedCode, $expectedMessage);
@@ -7731,7 +7723,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "password", $expectedCode, $expectedMessage);
@@ -7748,7 +7740,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "folder", $expectedCode, $expectedMessage);
@@ -7765,7 +7757,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholder", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholder($request);
+            $result = $this->getApi()->getSlidesPlaceholder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "storage", $expectedCode, $expectedMessage);
@@ -7795,7 +7787,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesPlaceholders");
@@ -7812,7 +7804,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "name", $expectedCode, $expectedMessage);
@@ -7829,7 +7821,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "slideIndex", $expectedCode, $expectedMessage);
@@ -7846,7 +7838,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "password", $expectedCode, $expectedMessage);
@@ -7863,7 +7855,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "folder", $expectedCode, $expectedMessage);
@@ -7880,7 +7872,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPlaceholders", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPlaceholders($request);
+            $result = $this->getApi()->getSlidesPlaceholders($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "storage", $expectedCode, $expectedMessage);
@@ -7910,7 +7902,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesPresentationTextItems");
@@ -7927,7 +7919,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "name", $expectedCode, $expectedMessage);
@@ -7944,7 +7936,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", "withEmpty", $request->withEmpty);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "withEmpty", $expectedCode, $expectedMessage);
@@ -7961,7 +7953,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "password", $expectedCode, $expectedMessage);
@@ -7978,7 +7970,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "folder", $expectedCode, $expectedMessage);
@@ -7995,7 +7987,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesPresentationTextItems", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesPresentationTextItems($request);
+            $result = $this->getApi()->getSlidesPresentationTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "storage", $expectedCode, $expectedMessage);
@@ -8025,7 +8017,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlide");
@@ -8042,7 +8034,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "name", $expectedCode, $expectedMessage);
@@ -8059,7 +8051,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -8076,7 +8068,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "password", $expectedCode, $expectedMessage);
@@ -8093,7 +8085,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "folder", $expectedCode, $expectedMessage);
@@ -8110,7 +8102,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlide($request);
+            $result = $this->getApi()->getSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "storage", $expectedCode, $expectedMessage);
@@ -8140,7 +8132,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlideBackground");
@@ -8157,7 +8149,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
@@ -8174,7 +8166,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
@@ -8191,7 +8183,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
@@ -8208,7 +8200,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
@@ -8225,7 +8217,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideBackground", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideBackground($request);
+            $result = $this->getApi()->getSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
@@ -8255,7 +8247,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlideComments");
@@ -8272,7 +8264,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "name", $expectedCode, $expectedMessage);
@@ -8289,7 +8281,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "slideIndex", $expectedCode, $expectedMessage);
@@ -8306,7 +8298,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "password", $expectedCode, $expectedMessage);
@@ -8323,7 +8315,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "folder", $expectedCode, $expectedMessage);
@@ -8340,7 +8332,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideComments", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideComments($request);
+            $result = $this->getApi()->getSlidesSlideComments($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "storage", $expectedCode, $expectedMessage);
@@ -8370,7 +8362,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlideImages");
@@ -8387,7 +8379,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "name", $expectedCode, $expectedMessage);
@@ -8404,7 +8396,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "slideIndex", $expectedCode, $expectedMessage);
@@ -8421,7 +8413,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "password", $expectedCode, $expectedMessage);
@@ -8438,7 +8430,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "folder", $expectedCode, $expectedMessage);
@@ -8455,7 +8447,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideImages", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideImages($request);
+            $result = $this->getApi()->getSlidesSlideImages($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "storage", $expectedCode, $expectedMessage);
@@ -8486,7 +8478,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlideTextItems");
@@ -8503,7 +8495,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "name", $expectedCode, $expectedMessage);
@@ -8520,7 +8512,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "slideIndex", $expectedCode, $expectedMessage);
@@ -8537,7 +8529,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "withEmpty", $request->withEmpty);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "withEmpty", $expectedCode, $expectedMessage);
@@ -8554,7 +8546,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "password", $expectedCode, $expectedMessage);
@@ -8571,7 +8563,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "folder", $expectedCode, $expectedMessage);
@@ -8588,7 +8580,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlideTextItems", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlideTextItems($request);
+            $result = $this->getApi()->getSlidesSlideTextItems($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "storage", $expectedCode, $expectedMessage);
@@ -8617,7 +8609,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlidesList", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlidesList($request);
+            $result = $this->getApi()->getSlidesSlidesList($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesSlidesList");
@@ -8634,7 +8626,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlidesList", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlidesList($request);
+            $result = $this->getApi()->getSlidesSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "name", $expectedCode, $expectedMessage);
@@ -8651,7 +8643,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlidesList", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlidesList($request);
+            $result = $this->getApi()->getSlidesSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "password", $expectedCode, $expectedMessage);
@@ -8668,7 +8660,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlidesList", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlidesList($request);
+            $result = $this->getApi()->getSlidesSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "folder", $expectedCode, $expectedMessage);
@@ -8685,7 +8677,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesSlidesList", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesSlidesList($request);
+            $result = $this->getApi()->getSlidesSlidesList($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "storage", $expectedCode, $expectedMessage);
@@ -8715,7 +8707,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesTheme");
@@ -8732,7 +8724,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "name", $expectedCode, $expectedMessage);
@@ -8749,7 +8741,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "slideIndex", $expectedCode, $expectedMessage);
@@ -8766,7 +8758,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "password", $expectedCode, $expectedMessage);
@@ -8783,7 +8775,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "folder", $expectedCode, $expectedMessage);
@@ -8800,7 +8792,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesTheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesTheme($request);
+            $result = $this->getApi()->getSlidesTheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "storage", $expectedCode, $expectedMessage);
@@ -8830,7 +8822,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeColorScheme");
@@ -8847,7 +8839,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "name", $expectedCode, $expectedMessage);
@@ -8864,7 +8856,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "slideIndex", $expectedCode, $expectedMessage);
@@ -8881,7 +8873,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "password", $expectedCode, $expectedMessage);
@@ -8898,7 +8890,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "folder", $expectedCode, $expectedMessage);
@@ -8915,7 +8907,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeColorScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeColorScheme($request);
+            $result = $this->getApi()->getSlidesThemeColorScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "storage", $expectedCode, $expectedMessage);
@@ -8945,7 +8937,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeFontScheme");
@@ -8962,7 +8954,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "name", $expectedCode, $expectedMessage);
@@ -8979,7 +8971,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "slideIndex", $expectedCode, $expectedMessage);
@@ -8996,7 +8988,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "password", $expectedCode, $expectedMessage);
@@ -9013,7 +9005,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "folder", $expectedCode, $expectedMessage);
@@ -9030,7 +9022,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFontScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFontScheme($request);
+            $result = $this->getApi()->getSlidesThemeFontScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "storage", $expectedCode, $expectedMessage);
@@ -9060,7 +9052,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSlidesThemeFormatScheme");
@@ -9077,7 +9069,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "name", $expectedCode, $expectedMessage);
@@ -9094,7 +9086,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "slideIndex", $expectedCode, $expectedMessage);
@@ -9111,7 +9103,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "password", $expectedCode, $expectedMessage);
@@ -9128,7 +9120,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "folder", $expectedCode, $expectedMessage);
@@ -9145,13 +9137,110 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlidesThemeFormatScheme", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->getSlidesThemeFormatScheme($request);
+            $result = $this->getApi()->getSlidesThemeFormatScheme($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlidesViewPropertiesRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlidesViewProperties", "name", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlidesViewProperties", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlidesViewProperties", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlidesViewProperties", "storage", $this->values);
+        $request = new Requests\GetSlidesViewPropertiesRequest($testname, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlidesViewProperties
+     * Read presentation document properties.
+     */
+    public function testGetSlidesViewProperties()
+    {
+        $request = $this->getGetSlidesViewPropertiesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesViewProperties", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlidesViewProperties");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlidesViewPropertiesInvalidname()
+    {
+        $request = $this->getGetSlidesViewPropertiesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlidesViewProperties", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesViewProperties", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlidesViewProperties", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlidesViewProperties", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlidesViewPropertiesInvalidpassword()
+    {
+        $request = $this->getGetSlidesViewPropertiesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlidesViewProperties", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesViewProperties", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlidesViewProperties", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlidesViewProperties", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlidesViewPropertiesInvalidfolder()
+    {
+        $request = $this->getGetSlidesViewPropertiesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlidesViewProperties", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesViewProperties", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlidesViewProperties", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlidesViewPropertiesInvalidstorage()
+    {
+        $request = $this->getGetSlidesViewPropertiesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlidesViewProperties", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlidesViewProperties", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlidesViewProperties", "storage", $this->okToFailValues);
         }
     }
     private function getMoveFileRequest()
@@ -9175,7 +9264,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "moveFile");
@@ -9192,7 +9281,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", "srcPath", $request->srcPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "srcPath", $expectedCode, $expectedMessage);
@@ -9209,7 +9298,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", "destPath", $request->destPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "destPath", $expectedCode, $expectedMessage);
@@ -9226,7 +9315,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", "srcStorageName", $request->srcStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "srcStorageName", $expectedCode, $expectedMessage);
@@ -9243,7 +9332,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", "destStorageName", $request->destStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "destStorageName", $expectedCode, $expectedMessage);
@@ -9260,7 +9349,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFile", "versionId", $request->versionId);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFile($request);
+            $result = $this->getApi()->moveFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "versionId", $expectedCode, $expectedMessage);
@@ -9289,7 +9378,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFolder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFolder($request);
+            $result = $this->getApi()->moveFolder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "moveFolder");
@@ -9306,7 +9395,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFolder", "srcPath", $request->srcPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFolder($request);
+            $result = $this->getApi()->moveFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "srcPath", $expectedCode, $expectedMessage);
@@ -9323,7 +9412,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFolder", "destPath", $request->destPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFolder($request);
+            $result = $this->getApi()->moveFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "destPath", $expectedCode, $expectedMessage);
@@ -9340,7 +9429,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFolder", "srcStorageName", $request->srcStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFolder($request);
+            $result = $this->getApi()->moveFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "srcStorageName", $expectedCode, $expectedMessage);
@@ -9357,7 +9446,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("moveFolder", "destStorageName", $request->destStorageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->moveFolder($request);
+            $result = $this->getApi()->moveFolder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "destStorageName", $expectedCode, $expectedMessage);
@@ -9385,7 +9474,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("objectExists", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->objectExists($request);
+            $result = $this->getApi()->objectExists($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "objectExists");
@@ -9402,7 +9491,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("objectExists", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->objectExists($request);
+            $result = $this->getApi()->objectExists($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "path", $expectedCode, $expectedMessage);
@@ -9419,7 +9508,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("objectExists", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->objectExists($request);
+            $result = $this->getApi()->objectExists($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "storageName", $expectedCode, $expectedMessage);
@@ -9436,7 +9525,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("objectExists", "versionId", $request->versionId);
         $needAssertResponse = false;
         try {
-            $result = $this->api->objectExists($request);
+            $result = $this->getApi()->objectExists($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "versionId", $expectedCode, $expectedMessage);
@@ -9470,7 +9559,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postAddNewParagraph");
@@ -9487,7 +9576,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "name", $expectedCode, $expectedMessage);
@@ -9504,7 +9593,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -9521,7 +9610,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "path", $expectedCode, $expectedMessage);
@@ -9538,7 +9627,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -9555,7 +9644,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "dto", $expectedCode, $expectedMessage);
@@ -9572,7 +9661,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "password", $expectedCode, $expectedMessage);
@@ -9589,7 +9678,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "folder", $expectedCode, $expectedMessage);
@@ -9606,7 +9695,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "storage", $expectedCode, $expectedMessage);
@@ -9623,7 +9712,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewParagraph($request);
+            $result = $this->getApi()->postAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "position", $expectedCode, $expectedMessage);
@@ -9658,7 +9747,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postAddNewPortion");
@@ -9675,7 +9764,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "name", $expectedCode, $expectedMessage);
@@ -9692,7 +9781,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -9709,7 +9798,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "path", $expectedCode, $expectedMessage);
@@ -9726,7 +9815,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -9743,7 +9832,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -9760,7 +9849,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "dto", $expectedCode, $expectedMessage);
@@ -9777,7 +9866,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "password", $expectedCode, $expectedMessage);
@@ -9794,7 +9883,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "folder", $expectedCode, $expectedMessage);
@@ -9811,7 +9900,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "storage", $expectedCode, $expectedMessage);
@@ -9828,7 +9917,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewPortion($request);
+            $result = $this->getApi()->postAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "position", $expectedCode, $expectedMessage);
@@ -9862,7 +9951,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postAddNewShape");
@@ -9879,7 +9968,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "name", $expectedCode, $expectedMessage);
@@ -9896,7 +9985,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -9913,7 +10002,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "path", $expectedCode, $expectedMessage);
@@ -9930,7 +10019,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "dto", $expectedCode, $expectedMessage);
@@ -9947,7 +10036,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "password", $expectedCode, $expectedMessage);
@@ -9964,7 +10053,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "folder", $expectedCode, $expectedMessage);
@@ -9981,7 +10070,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "storage", $expectedCode, $expectedMessage);
@@ -9998,7 +10087,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "shapeToClone", $request->shapeToClone);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
@@ -10015,7 +10104,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNewShape($request);
+            $result = $this->getApi()->postAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "position", $expectedCode, $expectedMessage);
@@ -10046,7 +10135,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postAddNotesSlide");
@@ -10063,7 +10152,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "name", $expectedCode, $expectedMessage);
@@ -10080,7 +10169,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -10097,7 +10186,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "dto", $expectedCode, $expectedMessage);
@@ -10114,7 +10203,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "password", $expectedCode, $expectedMessage);
@@ -10131,7 +10220,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "folder", $expectedCode, $expectedMessage);
@@ -10148,7 +10237,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postAddNotesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postAddNotesSlide($request);
+            $result = $this->getApi()->postAddNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "storage", $expectedCode, $expectedMessage);
@@ -10181,7 +10270,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postCopyLayoutSlideFromSourcePresentation");
@@ -10198,7 +10287,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
@@ -10215,7 +10304,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $request->cloneFrom);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
@@ -10232,7 +10321,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $request->cloneFromPosition);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
@@ -10249,7 +10338,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $request->cloneFromPassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
@@ -10266,7 +10355,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $request->cloneFromStorage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
@@ -10283,7 +10372,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
@@ -10300,7 +10389,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
@@ -10317,7 +10406,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyLayoutSlideFromSourcePresentation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyLayoutSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyLayoutSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
@@ -10351,7 +10440,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postCopyMasterSlideFromSourcePresentation");
@@ -10368,7 +10457,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
@@ -10385,7 +10474,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "cloneFrom", $request->cloneFrom);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
@@ -10402,7 +10491,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "cloneFromPosition", $request->cloneFromPosition);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
@@ -10419,7 +10508,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "cloneFromPassword", $request->cloneFromPassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
@@ -10436,7 +10525,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "cloneFromStorage", $request->cloneFromStorage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
@@ -10453,7 +10542,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "applyToAll", $request->applyToAll);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "applyToAll", $expectedCode, $expectedMessage);
@@ -10470,7 +10559,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
@@ -10487,7 +10576,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
@@ -10504,7 +10593,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postCopyMasterSlideFromSourcePresentation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postCopyMasterSlideFromSourcePresentation($request);
+            $result = $this->getApi()->postCopyMasterSlideFromSourcePresentation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
@@ -10538,7 +10627,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postNotesSlideAddNewParagraph");
@@ -10555,7 +10644,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "name", $expectedCode, $expectedMessage);
@@ -10572,7 +10661,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -10589,7 +10678,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "path", $expectedCode, $expectedMessage);
@@ -10606,7 +10695,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -10623,7 +10712,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "dto", $expectedCode, $expectedMessage);
@@ -10640,7 +10729,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "password", $expectedCode, $expectedMessage);
@@ -10657,7 +10746,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "folder", $expectedCode, $expectedMessage);
@@ -10674,7 +10763,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "storage", $expectedCode, $expectedMessage);
@@ -10691,7 +10780,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewParagraph($request);
+            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "position", $expectedCode, $expectedMessage);
@@ -10726,7 +10815,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postNotesSlideAddNewPortion");
@@ -10743,7 +10832,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "name", $expectedCode, $expectedMessage);
@@ -10760,7 +10849,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -10777,7 +10866,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "path", $expectedCode, $expectedMessage);
@@ -10794,7 +10883,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -10811,7 +10900,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -10828,7 +10917,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "dto", $expectedCode, $expectedMessage);
@@ -10845,7 +10934,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "password", $expectedCode, $expectedMessage);
@@ -10862,7 +10951,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "folder", $expectedCode, $expectedMessage);
@@ -10879,7 +10968,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "storage", $expectedCode, $expectedMessage);
@@ -10896,7 +10985,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewPortion($request);
+            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "position", $expectedCode, $expectedMessage);
@@ -10930,7 +11019,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postNotesSlideAddNewShape");
@@ -10947,7 +11036,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "name", $expectedCode, $expectedMessage);
@@ -10964,7 +11053,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -10981,7 +11070,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "path", $expectedCode, $expectedMessage);
@@ -10998,7 +11087,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "dto", $expectedCode, $expectedMessage);
@@ -11015,7 +11104,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "password", $expectedCode, $expectedMessage);
@@ -11032,7 +11121,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "folder", $expectedCode, $expectedMessage);
@@ -11049,7 +11138,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "storage", $expectedCode, $expectedMessage);
@@ -11066,7 +11155,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "shapeToClone", $request->shapeToClone);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
@@ -11083,7 +11172,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideAddNewShape($request);
+            $result = $this->getApi()->postNotesSlideAddNewShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "position", $expectedCode, $expectedMessage);
@@ -11121,7 +11210,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postNotesSlideShapeSaveAs");
@@ -11138,7 +11227,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
@@ -11155,7 +11244,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -11172,7 +11261,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "path", $expectedCode, $expectedMessage);
@@ -11189,7 +11278,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -11206,7 +11295,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
@@ -11223,7 +11312,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
@@ -11240,7 +11329,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
@@ -11257,7 +11346,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -11274,7 +11363,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -11291,7 +11380,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "scaleX", $request->scaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
@@ -11308,7 +11397,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "scaleY", $request->scaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
@@ -11325,7 +11414,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "bounds", $request->bounds);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
@@ -11342,7 +11431,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -11372,7 +11461,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postPresentationMerge");
@@ -11389,7 +11478,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "name", $expectedCode, $expectedMessage);
@@ -11406,7 +11495,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "request", $request->request);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "request", $expectedCode, $expectedMessage);
@@ -11423,7 +11512,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "password", $expectedCode, $expectedMessage);
@@ -11440,7 +11529,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "storage", $expectedCode, $expectedMessage);
@@ -11457,7 +11546,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postPresentationMerge", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postPresentationMerge($request);
+            $result = $this->getApi()->postPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "folder", $expectedCode, $expectedMessage);
@@ -11495,7 +11584,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postShapeSaveAs");
@@ -11512,7 +11601,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "name", $expectedCode, $expectedMessage);
@@ -11529,7 +11618,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -11546,7 +11635,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "path", $expectedCode, $expectedMessage);
@@ -11563,7 +11652,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -11580,7 +11669,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "format", $expectedCode, $expectedMessage);
@@ -11597,7 +11686,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "options", $expectedCode, $expectedMessage);
@@ -11614,7 +11703,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "password", $expectedCode, $expectedMessage);
@@ -11631,7 +11720,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -11648,7 +11737,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -11665,7 +11754,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "scaleX", $request->scaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
@@ -11682,7 +11771,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "scaleY", $request->scaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
@@ -11699,7 +11788,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "bounds", $request->bounds);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
@@ -11716,7 +11805,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postShapeSaveAs($request);
+            $result = $this->getApi()->postShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -11747,7 +11836,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideAnimationEffect");
@@ -11764,7 +11853,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
@@ -11781,7 +11870,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -11798,7 +11887,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "effect", $request->effect);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
@@ -11815,7 +11904,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
@@ -11832,7 +11921,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
@@ -11849,7 +11938,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationEffect($request);
+            $result = $this->getApi()->postSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
@@ -11880,7 +11969,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideAnimationInteractiveSequence");
@@ -11897,7 +11986,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
@@ -11914,7 +12003,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
@@ -11931,7 +12020,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "sequence", $request->sequence);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "sequence", $expectedCode, $expectedMessage);
@@ -11948,7 +12037,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
@@ -11965,7 +12054,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
@@ -11982,7 +12071,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequence", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequence($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequence($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
@@ -12014,7 +12103,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideAnimationInteractiveSequenceEffect");
@@ -12031,7 +12120,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
@@ -12048,7 +12137,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -12065,7 +12154,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $request->sequenceIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
@@ -12082,7 +12171,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "effect", $request->effect);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
@@ -12099,7 +12188,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
@@ -12116,7 +12205,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
@@ -12133,7 +12222,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideAnimationInteractiveSequenceEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->postSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
@@ -12168,7 +12257,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideSaveAs");
@@ -12185,7 +12274,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "name", $expectedCode, $expectedMessage);
@@ -12202,7 +12291,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -12219,7 +12308,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "format", $expectedCode, $expectedMessage);
@@ -12236,7 +12325,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "options", $expectedCode, $expectedMessage);
@@ -12253,7 +12342,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "width", $request->width);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "width", $expectedCode, $expectedMessage);
@@ -12270,7 +12359,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "height", $request->height);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "height", $expectedCode, $expectedMessage);
@@ -12287,7 +12376,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "password", $expectedCode, $expectedMessage);
@@ -12304,7 +12393,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -12321,7 +12410,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -12338,7 +12427,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlideSaveAs($request);
+            $result = $this->getApi()->postSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -12369,7 +12458,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesAdd");
@@ -12386,7 +12475,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "name", $expectedCode, $expectedMessage);
@@ -12403,7 +12492,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "position", $expectedCode, $expectedMessage);
@@ -12420,7 +12509,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "password", $expectedCode, $expectedMessage);
@@ -12437,7 +12526,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "folder", $expectedCode, $expectedMessage);
@@ -12454,7 +12543,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "storage", $expectedCode, $expectedMessage);
@@ -12471,7 +12560,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesAdd", "layoutAlias", $request->layoutAlias);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesAdd($request);
+            $result = $this->getApi()->postSlidesAdd($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "layoutAlias", $expectedCode, $expectedMessage);
@@ -12500,7 +12589,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesConvert($request);
+            $result = $this->getApi()->postSlidesConvert($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesConvert");
@@ -12517,7 +12606,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesConvert($request);
+            $result = $this->getApi()->postSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "format", $expectedCode, $expectedMessage);
@@ -12534,7 +12623,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "document", $request->document);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesConvert($request);
+            $result = $this->getApi()->postSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "document", $expectedCode, $expectedMessage);
@@ -12552,7 +12641,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesConvert($request);
+            $result = $this->getApi()->postSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "password", $expectedCode, $expectedMessage);
@@ -12569,7 +12658,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesConvert($request);
+            $result = $this->getApi()->postSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
@@ -12603,7 +12692,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesCopy");
@@ -12620,7 +12709,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "name", $expectedCode, $expectedMessage);
@@ -12637,7 +12726,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "slideToCopy", $request->slideToCopy);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "slideToCopy", $expectedCode, $expectedMessage);
@@ -12654,7 +12743,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "position", $request->position);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "position", $expectedCode, $expectedMessage);
@@ -12671,7 +12760,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "source", $request->source);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "source", $expectedCode, $expectedMessage);
@@ -12688,7 +12777,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "sourcePassword", $request->sourcePassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "sourcePassword", $expectedCode, $expectedMessage);
@@ -12705,7 +12794,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "sourceStorage", $request->sourceStorage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "sourceStorage", $expectedCode, $expectedMessage);
@@ -12722,7 +12811,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "password", $expectedCode, $expectedMessage);
@@ -12739,7 +12828,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "folder", $expectedCode, $expectedMessage);
@@ -12756,7 +12845,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesCopy", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesCopy($request);
+            $result = $this->getApi()->postSlidesCopy($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "storage", $expectedCode, $expectedMessage);
@@ -12787,7 +12876,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesDocument");
@@ -12804,7 +12893,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "name", $expectedCode, $expectedMessage);
@@ -12821,7 +12910,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "data", $request->data);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "data", $expectedCode, $expectedMessage);
@@ -12839,7 +12928,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "inputPassword", $request->inputPassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "inputPassword", $expectedCode, $expectedMessage);
@@ -12856,7 +12945,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "password", $expectedCode, $expectedMessage);
@@ -12873,7 +12962,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "storage", $expectedCode, $expectedMessage);
@@ -12890,7 +12979,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocument", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocument($request);
+            $result = $this->getApi()->postSlidesDocument($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "folder", $expectedCode, $expectedMessage);
@@ -12920,7 +13009,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesDocumentFromHtml");
@@ -12937,7 +13026,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
@@ -12954,7 +13043,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", "html", $request->html);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
@@ -12971,7 +13060,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
@@ -12988,7 +13077,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
@@ -13005,7 +13094,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromHtml", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->postSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
@@ -13037,7 +13126,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesDocumentFromSource");
@@ -13054,7 +13143,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "name", $expectedCode, $expectedMessage);
@@ -13071,7 +13160,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "sourcePath", $request->sourcePath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourcePath", $expectedCode, $expectedMessage);
@@ -13088,7 +13177,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "sourcePassword", $request->sourcePassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourcePassword", $expectedCode, $expectedMessage);
@@ -13105,7 +13194,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "sourceStorage", $request->sourceStorage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourceStorage", $expectedCode, $expectedMessage);
@@ -13122,7 +13211,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "password", $expectedCode, $expectedMessage);
@@ -13139,7 +13228,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "storage", $expectedCode, $expectedMessage);
@@ -13156,7 +13245,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromSource", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromSource($request);
+            $result = $this->getApi()->postSlidesDocumentFromSource($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "folder", $expectedCode, $expectedMessage);
@@ -13190,7 +13279,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesDocumentFromTemplate");
@@ -13207,7 +13296,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "name", $expectedCode, $expectedMessage);
@@ -13224,7 +13313,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "templatePath", $request->templatePath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templatePath", $expectedCode, $expectedMessage);
@@ -13241,7 +13330,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "data", $request->data);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "data", $expectedCode, $expectedMessage);
@@ -13258,7 +13347,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "templatePassword", $request->templatePassword);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templatePassword", $expectedCode, $expectedMessage);
@@ -13275,7 +13364,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "templateStorage", $request->templateStorage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templateStorage", $expectedCode, $expectedMessage);
@@ -13292,7 +13381,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "isImageDataEmbedded", $request->isImageDataEmbedded);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "isImageDataEmbedded", $expectedCode, $expectedMessage);
@@ -13309,7 +13398,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "password", $expectedCode, $expectedMessage);
@@ -13326,7 +13415,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "storage", $expectedCode, $expectedMessage);
@@ -13343,7 +13432,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesDocumentFromTemplate", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesDocumentFromTemplate($request);
+            $result = $this->getApi()->postSlidesDocumentFromTemplate($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "folder", $expectedCode, $expectedMessage);
@@ -13370,7 +13459,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPipeline", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPipeline($request);
+            $result = $this->getApi()->postSlidesPipeline($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesPipeline");
@@ -13387,7 +13476,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPipeline", "pipeline", $request->pipeline);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPipeline($request);
+            $result = $this->getApi()->postSlidesPipeline($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPipeline", "pipeline", $expectedCode, $expectedMessage);
@@ -13420,7 +13509,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesPresentationReplaceText");
@@ -13437,7 +13526,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "name", $expectedCode, $expectedMessage);
@@ -13454,7 +13543,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "oldValue", $request->oldValue);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "oldValue", $expectedCode, $expectedMessage);
@@ -13471,7 +13560,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "newValue", $request->newValue);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "newValue", $expectedCode, $expectedMessage);
@@ -13488,7 +13577,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "ignoreCase", $request->ignoreCase);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
@@ -13505,7 +13594,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "password", $expectedCode, $expectedMessage);
@@ -13522,7 +13611,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "folder", $expectedCode, $expectedMessage);
@@ -13539,7 +13628,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPresentationReplaceText", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesPresentationReplaceText($request);
+            $result = $this->getApi()->postSlidesPresentationReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "storage", $expectedCode, $expectedMessage);
@@ -13570,7 +13659,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesReorder");
@@ -13587,7 +13676,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "name", $expectedCode, $expectedMessage);
@@ -13604,7 +13693,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "slideIndex", $expectedCode, $expectedMessage);
@@ -13621,7 +13710,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "newPosition", $request->newPosition);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "newPosition", $expectedCode, $expectedMessage);
@@ -13638,7 +13727,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "password", $expectedCode, $expectedMessage);
@@ -13655,7 +13744,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "folder", $expectedCode, $expectedMessage);
@@ -13672,7 +13761,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorder", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorder($request);
+            $result = $this->getApi()->postSlidesReorder($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "storage", $expectedCode, $expectedMessage);
@@ -13703,7 +13792,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesReorderMany");
@@ -13720,7 +13809,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "name", $expectedCode, $expectedMessage);
@@ -13737,7 +13826,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "oldPositions", $request->oldPositions);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "oldPositions", $expectedCode, $expectedMessage);
@@ -13754,7 +13843,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "newPositions", $request->newPositions);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "newPositions", $expectedCode, $expectedMessage);
@@ -13771,7 +13860,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "password", $expectedCode, $expectedMessage);
@@ -13788,7 +13877,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "folder", $expectedCode, $expectedMessage);
@@ -13805,7 +13894,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesReorderMany", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesReorderMany($request);
+            $result = $this->getApi()->postSlidesReorderMany($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "storage", $expectedCode, $expectedMessage);
@@ -13837,7 +13926,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesSaveAs");
@@ -13854,7 +13943,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "name", $expectedCode, $expectedMessage);
@@ -13871,7 +13960,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "format", $expectedCode, $expectedMessage);
@@ -13888,7 +13977,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "options", $expectedCode, $expectedMessage);
@@ -13905,7 +13994,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "password", $expectedCode, $expectedMessage);
@@ -13922,7 +14011,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -13939,7 +14028,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -13956,7 +14045,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSaveAs($request);
+            $result = $this->getApi()->postSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -13986,7 +14075,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesSetDocumentProperties");
@@ -14003,7 +14092,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "name", $expectedCode, $expectedMessage);
@@ -14020,7 +14109,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", "properties", $request->properties);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "properties", $expectedCode, $expectedMessage);
@@ -14037,7 +14126,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "password", $expectedCode, $expectedMessage);
@@ -14054,7 +14143,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "folder", $expectedCode, $expectedMessage);
@@ -14071,7 +14160,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSetDocumentProperties", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSetDocumentProperties($request);
+            $result = $this->getApi()->postSlidesSetDocumentProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "storage", $expectedCode, $expectedMessage);
@@ -14104,7 +14193,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesSlideReplaceText");
@@ -14121,7 +14210,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "name", $expectedCode, $expectedMessage);
@@ -14138,7 +14227,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "slideIndex", $expectedCode, $expectedMessage);
@@ -14155,7 +14244,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "oldValue", $request->oldValue);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "oldValue", $expectedCode, $expectedMessage);
@@ -14172,7 +14261,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "newValue", $request->newValue);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "newValue", $expectedCode, $expectedMessage);
@@ -14189,7 +14278,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "ignoreCase", $request->ignoreCase);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
@@ -14206,7 +14295,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "password", $expectedCode, $expectedMessage);
@@ -14223,7 +14312,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "folder", $expectedCode, $expectedMessage);
@@ -14240,7 +14329,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSlideReplaceText", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSlideReplaceText($request);
+            $result = $this->getApi()->postSlidesSlideReplaceText($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "storage", $expectedCode, $expectedMessage);
@@ -14277,7 +14366,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlidesSplit");
@@ -14294,7 +14383,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "name", $expectedCode, $expectedMessage);
@@ -14311,7 +14400,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "options", $expectedCode, $expectedMessage);
@@ -14328,7 +14417,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "format", $expectedCode, $expectedMessage);
@@ -14345,7 +14434,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "width", $request->width);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "width", $expectedCode, $expectedMessage);
@@ -14362,7 +14451,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "height", $request->height);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "height", $expectedCode, $expectedMessage);
@@ -14379,7 +14468,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "to", $request->to);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "to", $expectedCode, $expectedMessage);
@@ -14396,7 +14485,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "from", $request->from);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "from", $expectedCode, $expectedMessage);
@@ -14413,7 +14502,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "destFolder", $request->destFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "destFolder", $expectedCode, $expectedMessage);
@@ -14430,7 +14519,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "password", $expectedCode, $expectedMessage);
@@ -14447,7 +14536,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "storage", $expectedCode, $expectedMessage);
@@ -14464,7 +14553,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "folder", $expectedCode, $expectedMessage);
@@ -14481,7 +14570,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlidesSplit", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->postSlidesSplit($request);
+            $result = $this->getApi()->postSlidesSplit($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "fontsFolder", $expectedCode, $expectedMessage);
@@ -14512,7 +14601,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putLayoutSlide");
@@ -14529,7 +14618,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "name", $expectedCode, $expectedMessage);
@@ -14546,7 +14635,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -14563,7 +14652,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "slideDto", $request->slideDto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "slideDto", $expectedCode, $expectedMessage);
@@ -14580,7 +14669,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "password", $expectedCode, $expectedMessage);
@@ -14597,7 +14686,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "folder", $expectedCode, $expectedMessage);
@@ -14614,7 +14703,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putLayoutSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putLayoutSlide($request);
+            $result = $this->getApi()->putLayoutSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "storage", $expectedCode, $expectedMessage);
@@ -14653,7 +14742,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putNotesSlideShapeSaveAs");
@@ -14670,7 +14759,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
@@ -14687,7 +14776,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -14704,7 +14793,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "path", $expectedCode, $expectedMessage);
@@ -14721,7 +14810,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -14738,7 +14827,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
@@ -14755,7 +14844,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
@@ -14772,7 +14861,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
@@ -14789,7 +14878,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
@@ -14806,7 +14895,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -14823,7 +14912,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -14840,7 +14929,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "scaleX", $request->scaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
@@ -14857,7 +14946,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "scaleY", $request->scaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
@@ -14874,7 +14963,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "bounds", $request->bounds);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
@@ -14891,7 +14980,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putNotesSlideShapeSaveAs($request);
+            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -14921,7 +15010,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putPresentationMerge");
@@ -14938,7 +15027,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "name", $expectedCode, $expectedMessage);
@@ -14955,7 +15044,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "request", $request->request);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "request", $expectedCode, $expectedMessage);
@@ -14972,7 +15061,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "password", $expectedCode, $expectedMessage);
@@ -14989,7 +15078,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "storage", $expectedCode, $expectedMessage);
@@ -15006,7 +15095,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putPresentationMerge", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putPresentationMerge($request);
+            $result = $this->getApi()->putPresentationMerge($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "folder", $expectedCode, $expectedMessage);
@@ -15041,7 +15130,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSetParagraphPortionProperties");
@@ -15058,7 +15147,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
@@ -15075,7 +15164,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
@@ -15092,7 +15181,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "path", $expectedCode, $expectedMessage);
@@ -15109,7 +15198,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
@@ -15126,7 +15215,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -15143,7 +15232,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
@@ -15160,7 +15249,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
@@ -15177,7 +15266,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
@@ -15194,7 +15283,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
@@ -15211,7 +15300,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphPortionProperties($request);
+            $result = $this->getApi()->putSetParagraphPortionProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
@@ -15245,7 +15334,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSetParagraphProperties");
@@ -15262,7 +15351,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "name", $expectedCode, $expectedMessage);
@@ -15279,7 +15368,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
@@ -15296,7 +15385,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "path", $expectedCode, $expectedMessage);
@@ -15313,7 +15402,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
@@ -15330,7 +15419,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -15347,7 +15436,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "dto", $expectedCode, $expectedMessage);
@@ -15364,7 +15453,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "password", $expectedCode, $expectedMessage);
@@ -15381,7 +15470,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "folder", $expectedCode, $expectedMessage);
@@ -15398,7 +15487,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSetParagraphProperties($request);
+            $result = $this->getApi()->putSetParagraphProperties($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "storage", $expectedCode, $expectedMessage);
@@ -15437,7 +15526,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putShapeSaveAs");
@@ -15454,7 +15543,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "name", $expectedCode, $expectedMessage);
@@ -15471,7 +15560,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -15488,7 +15577,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "path", $expectedCode, $expectedMessage);
@@ -15505,7 +15594,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
@@ -15522,7 +15611,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "format", $expectedCode, $expectedMessage);
@@ -15539,7 +15628,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
@@ -15556,7 +15645,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "options", $expectedCode, $expectedMessage);
@@ -15573,7 +15662,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "password", $expectedCode, $expectedMessage);
@@ -15590,7 +15679,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -15607,7 +15696,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -15624,7 +15713,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "scaleX", $request->scaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
@@ -15641,7 +15730,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "scaleY", $request->scaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
@@ -15658,7 +15747,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "bounds", $request->bounds);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
@@ -15675,7 +15764,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putShapeSaveAs($request);
+            $result = $this->getApi()->putShapeSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -15706,7 +15795,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlideAnimation");
@@ -15723,7 +15812,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "name", $expectedCode, $expectedMessage);
@@ -15740,7 +15829,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
@@ -15757,7 +15846,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "animation", $request->animation);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "animation", $expectedCode, $expectedMessage);
@@ -15774,7 +15863,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "password", $expectedCode, $expectedMessage);
@@ -15791,7 +15880,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "folder", $expectedCode, $expectedMessage);
@@ -15808,7 +15897,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimation", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimation($request);
+            $result = $this->getApi()->putSlideAnimation($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "storage", $expectedCode, $expectedMessage);
@@ -15840,7 +15929,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlideAnimationEffect");
@@ -15857,7 +15946,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
@@ -15874,7 +15963,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -15891,7 +15980,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "effectIndex", $request->effectIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
@@ -15908,7 +15997,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "effect", $request->effect);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
@@ -15925,7 +16014,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
@@ -15942,7 +16031,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
@@ -15959,7 +16048,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationEffect($request);
+            $result = $this->getApi()->putSlideAnimationEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
@@ -15992,7 +16081,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlideAnimationInteractiveSequenceEffect");
@@ -16009,7 +16098,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
@@ -16026,7 +16115,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
@@ -16043,7 +16132,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $request->sequenceIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
@@ -16060,7 +16149,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "effectIndex", $request->effectIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
@@ -16077,7 +16166,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "effect", $request->effect);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
@@ -16094,7 +16183,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
@@ -16111,7 +16200,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
@@ -16128,7 +16217,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideAnimationInteractiveSequenceEffect", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideAnimationInteractiveSequenceEffect($request);
+            $result = $this->getApi()->putSlideAnimationInteractiveSequenceEffect($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
@@ -16164,7 +16253,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlideSaveAs");
@@ -16181,7 +16270,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "name", $expectedCode, $expectedMessage);
@@ -16198,7 +16287,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
@@ -16215,7 +16304,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "format", $expectedCode, $expectedMessage);
@@ -16232,7 +16321,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "outPath", $expectedCode, $expectedMessage);
@@ -16249,7 +16338,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "options", $expectedCode, $expectedMessage);
@@ -16266,7 +16355,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "width", $request->width);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "width", $expectedCode, $expectedMessage);
@@ -16283,7 +16372,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "height", $request->height);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "height", $expectedCode, $expectedMessage);
@@ -16300,7 +16389,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "password", $expectedCode, $expectedMessage);
@@ -16317,7 +16406,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -16334,7 +16423,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -16351,7 +16440,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideSaveAs($request);
+            $result = $this->getApi()->putSlideSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -16384,7 +16473,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlideShapeInfo");
@@ -16401,7 +16490,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "name", $expectedCode, $expectedMessage);
@@ -16418,7 +16507,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "slideIndex", $expectedCode, $expectedMessage);
@@ -16435,7 +16524,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "path", $expectedCode, $expectedMessage);
@@ -16452,7 +16541,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
@@ -16469,7 +16558,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "dto", $expectedCode, $expectedMessage);
@@ -16486,7 +16575,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "password", $expectedCode, $expectedMessage);
@@ -16503,7 +16592,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "folder", $expectedCode, $expectedMessage);
@@ -16520,7 +16609,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlideShapeInfo($request);
+            $result = $this->getApi()->putSlideShapeInfo($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "storage", $expectedCode, $expectedMessage);
@@ -16550,7 +16639,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesConvert");
@@ -16567,7 +16656,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "format", $expectedCode, $expectedMessage);
@@ -16584,7 +16673,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "outPath", $expectedCode, $expectedMessage);
@@ -16601,7 +16690,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "document", $request->document);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "document", $expectedCode, $expectedMessage);
@@ -16619,7 +16708,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "password", $expectedCode, $expectedMessage);
@@ -16636,7 +16725,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesConvert($request);
+            $result = $this->getApi()->putSlidesConvert($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
@@ -16666,7 +16755,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesDocumentFromHtml");
@@ -16683,7 +16772,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
@@ -16700,7 +16789,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "html", $request->html);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
@@ -16717,7 +16806,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
@@ -16734,7 +16823,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
@@ -16751,7 +16840,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesDocumentFromHtml($request);
+            $result = $this->getApi()->putSlidesDocumentFromHtml($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
@@ -16784,7 +16873,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSaveAs");
@@ -16801,7 +16890,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "name", $expectedCode, $expectedMessage);
@@ -16818,7 +16907,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "outPath", $request->outPath);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "outPath", $expectedCode, $expectedMessage);
@@ -16835,7 +16924,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "format", $request->format);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "format", $expectedCode, $expectedMessage);
@@ -16852,7 +16941,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "options", $request->options);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "options", $expectedCode, $expectedMessage);
@@ -16869,7 +16958,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "password", $expectedCode, $expectedMessage);
@@ -16886,7 +16975,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
@@ -16903,7 +16992,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
@@ -16920,7 +17009,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSaveAs", "fontsFolder", $request->fontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSaveAs($request);
+            $result = $this->getApi()->putSlidesSaveAs($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
@@ -16951,7 +17040,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSetDocumentProperty");
@@ -16968,7 +17057,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "name", $expectedCode, $expectedMessage);
@@ -16985,7 +17074,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "propertyName", $request->propertyName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
@@ -17002,7 +17091,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "property", $request->property);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "property", $expectedCode, $expectedMessage);
@@ -17019,7 +17108,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "password", $expectedCode, $expectedMessage);
@@ -17036,7 +17125,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "folder", $expectedCode, $expectedMessage);
@@ -17053,7 +17142,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSetDocumentProperty", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSetDocumentProperty($request);
+            $result = $this->getApi()->putSlidesSetDocumentProperty($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "storage", $expectedCode, $expectedMessage);
@@ -17084,7 +17173,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSlide");
@@ -17101,7 +17190,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "name", $expectedCode, $expectedMessage);
@@ -17118,7 +17207,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -17135,7 +17224,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "slideDto", $request->slideDto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "slideDto", $expectedCode, $expectedMessage);
@@ -17152,7 +17241,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "password", $expectedCode, $expectedMessage);
@@ -17169,7 +17258,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "folder", $expectedCode, $expectedMessage);
@@ -17186,7 +17275,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlide($request);
+            $result = $this->getApi()->putSlidesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "storage", $expectedCode, $expectedMessage);
@@ -17217,7 +17306,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSlideBackground");
@@ -17234,7 +17323,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
@@ -17251,7 +17340,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
@@ -17268,7 +17357,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "background", $request->background);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "background", $expectedCode, $expectedMessage);
@@ -17285,7 +17374,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
@@ -17302,7 +17391,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
@@ -17319,7 +17408,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackground", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackground($request);
+            $result = $this->getApi()->putSlidesSlideBackground($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
@@ -17350,7 +17439,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSlideBackgroundColor");
@@ -17367,7 +17456,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "name", $expectedCode, $expectedMessage);
@@ -17384,7 +17473,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "slideIndex", $expectedCode, $expectedMessage);
@@ -17401,7 +17490,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "color", $request->color);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "color", $expectedCode, $expectedMessage);
@@ -17418,7 +17507,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "folder", $expectedCode, $expectedMessage);
@@ -17435,7 +17524,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "password", $expectedCode, $expectedMessage);
@@ -17452,7 +17541,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideBackgroundColor", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideBackgroundColor($request);
+            $result = $this->getApi()->putSlidesSlideBackgroundColor($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "storage", $expectedCode, $expectedMessage);
@@ -17485,7 +17574,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesSlideSize");
@@ -17502,7 +17591,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
@@ -17519,7 +17608,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
@@ -17536,7 +17625,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
@@ -17553,7 +17642,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
@@ -17570,7 +17659,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "width", $request->width);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
@@ -17587,7 +17676,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "height", $request->height);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
@@ -17604,7 +17693,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "sizeType", $request->sizeType);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
@@ -17621,13 +17710,128 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "scaleType", $request->scaleType);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putSlidesSlideSize($request);
+            $result = $this->getApi()->putSlidesSlideSize($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "scaleType", $this->okToFailValues);
+        }
+    }
+    private function getPutSlidesViewPropertiesRequest()
+    {
+        $testname = TestUtils::getTestValue("putSlidesViewProperties", "name", $this->values);
+        $testdto = TestUtils::getTestValue("putSlidesViewProperties", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlidesViewProperties", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlidesViewProperties", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlidesViewProperties", "storage", $this->values);
+        $request = new Requests\PutSlidesViewPropertiesRequest($testname, $testdto, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSlidesViewProperties
+     * Update presentation document properties.
+     */
+    public function testPutSlidesViewProperties()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSlidesViewProperties");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSlidesViewPropertiesInvalidname()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSlidesViewProperties", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesViewProperties", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesViewProperties", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesViewPropertiesInvaliddto()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSlidesViewProperties", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesViewProperties", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesViewProperties", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesViewPropertiesInvalidpassword()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSlidesViewProperties", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesViewProperties", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesViewProperties", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesViewPropertiesInvalidfolder()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlidesViewProperties", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesViewProperties", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesViewPropertiesInvalidstorage()
+    {
+        $request = $this->getPutSlidesViewPropertiesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlidesViewProperties", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesViewProperties", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesViewProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesViewProperties", "storage", $this->okToFailValues);
         }
     }
     private function getPutUpdateNotesSlideRequest()
@@ -17652,7 +17856,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putUpdateNotesSlide");
@@ -17669,7 +17873,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "name", $expectedCode, $expectedMessage);
@@ -17686,7 +17890,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
@@ -17703,7 +17907,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "dto", $expectedCode, $expectedMessage);
@@ -17720,7 +17924,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "password", $expectedCode, $expectedMessage);
@@ -17737,7 +17941,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "folder", $expectedCode, $expectedMessage);
@@ -17754,7 +17958,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlide", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlide($request);
+            $result = $this->getApi()->putUpdateNotesSlide($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "storage", $expectedCode, $expectedMessage);
@@ -17787,7 +17991,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putUpdateNotesSlideShape");
@@ -17804,7 +18008,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "name", $expectedCode, $expectedMessage);
@@ -17821,7 +18025,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -17838,7 +18042,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "path", $expectedCode, $expectedMessage);
@@ -17855,7 +18059,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -17872,7 +18076,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "dto", $expectedCode, $expectedMessage);
@@ -17889,7 +18093,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "password", $expectedCode, $expectedMessage);
@@ -17906,7 +18110,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "folder", $expectedCode, $expectedMessage);
@@ -17923,7 +18127,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShape($request);
+            $result = $this->getApi()->putUpdateNotesSlideShape($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "storage", $expectedCode, $expectedMessage);
@@ -17957,7 +18161,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putUpdateNotesSlideShapeParagraph");
@@ -17974,7 +18178,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
@@ -17991,7 +18195,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
@@ -18008,7 +18212,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
@@ -18025,7 +18229,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
@@ -18042,7 +18246,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -18059,7 +18263,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "dto", $expectedCode, $expectedMessage);
@@ -18076,7 +18280,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
@@ -18093,7 +18297,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
@@ -18110,7 +18314,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapeParagraph($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
@@ -18145,7 +18349,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putUpdateNotesSlideShapePortion");
@@ -18162,7 +18366,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "name", $request->name);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
@@ -18179,7 +18383,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "slideIndex", $request->slideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
@@ -18196,7 +18400,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "path", $expectedCode, $expectedMessage);
@@ -18213,7 +18417,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "shapeIndex", $request->shapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
@@ -18230,7 +18434,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "paragraphIndex", $request->paragraphIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
@@ -18247,7 +18451,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "portionIndex", $request->portionIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
@@ -18264,7 +18468,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "dto", $request->dto);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "dto", $expectedCode, $expectedMessage);
@@ -18281,7 +18485,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "password", $request->password);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
@@ -18298,7 +18502,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "folder", $request->folder);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
@@ -18315,7 +18519,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "storage", $request->storage);
         $needAssertResponse = false;
         try {
-            $result = $this->api->putUpdateNotesSlideShapePortion($request);
+            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
@@ -18341,7 +18545,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("storageExists", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->storageExists($request);
+            $result = $this->getApi()->storageExists($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "storageExists");
@@ -18358,7 +18562,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("storageExists", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->storageExists($request);
+            $result = $this->getApi()->storageExists($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "storageExists", "storageName", $expectedCode, $expectedMessage);
@@ -18386,7 +18590,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->api->uploadFile($request);
+            $result = $this->getApi()->uploadFile($request);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "uploadFile");
@@ -18403,7 +18607,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "path", $request->path);
         $needAssertResponse = false;
         try {
-            $result = $this->api->uploadFile($request);
+            $result = $this->getApi()->uploadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "path", $expectedCode, $expectedMessage);
@@ -18420,7 +18624,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "file", $request->file);
         $needAssertResponse = false;
         try {
-            $result = $this->api->uploadFile($request);
+            $result = $this->getApi()->uploadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "file", $expectedCode, $expectedMessage);
@@ -18438,7 +18642,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "storageName", $request->storageName);
         $needAssertResponse = false;
         try {
-            $result = $this->api->uploadFile($request);
+            $result = $this->getApi()->uploadFile($request);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "storageName", $expectedCode, $expectedMessage);

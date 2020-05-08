@@ -135,10 +135,10 @@ class ApiBase
      */
     protected function createRequest($resourcePath, $queryParams, $headers, $httpBody, $httpMethod)
     {
-        $this->requestToken();
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer '.$this->config->getAccessToken();
+        if ($this->config->getAccessToken() == null) {
+            $this->requestToken();
         }
+        $headers['Authorization'] = 'Bearer '.$this->config->getAccessToken();
 
         $headers['x-aspose-client'] = $this->config->getUserAgent();
         $headers['x-aspose-client-version'] = $this->config->getClientVersion();

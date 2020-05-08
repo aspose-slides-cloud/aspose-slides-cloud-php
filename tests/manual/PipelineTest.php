@@ -47,14 +47,6 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class PipelineTest extends TestBase
 {
-    private $api;
-
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->api = new SlidesApi(null, $this->config);
-    }
-
     /**
      * Test case for postSlidesPipeline with two files
      */
@@ -83,7 +75,7 @@ class PipelineTest extends TestBase
         $files = [ fopen("TestData/TemplatingCVDataWithBase64.xml", 'r'), fopen("TestData/TemplateCV.pptx", 'r') ];
 
         $request = new PostSlidesPipelineRequest($pipeline, $files);
-        $result = $this->api->postSlidesPipeline($request);
+        $result = $this->getApi()->postSlidesPipeline($request);
         Assert::assertTrue($result->isFile());
     }
 }

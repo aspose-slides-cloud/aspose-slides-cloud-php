@@ -38,40 +38,48 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class TestBase extends \PHPUnit_Framework_TestCase
 {
-    protected $fileApi;
-    protected $config;
     protected $values;
     protected $okToFailValues;
 
     protected function setUp()
     {
-        $this->config = new Configuration();
-        $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-        $appKey = $testConfig["AppKey"];
-        $appSid = $testConfig["AppSid"];
-        $baseUrl = $testConfig["BaseUrl"];
-        $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
-        $debug = $testConfig["Debug"];
-        $this->config->setAppKey($appKey);
-        $this->config->setAppSid($appSid);
-        $this->config->setHost($baseUrl);
-        $this->config->setAuthHost($authBaseUrl);
-        $this->config->setDebug($debug);
+        if ($this->values == null)
+        {
+            $rules = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testRules.json")), true);
+            $this->fileRules = $rules["Files"];
+            $this->rules = $rules["Results"];
+            $this->values = $rules["Values"];
+            $this->okToFailValues = $rules["OKToNotFail"];
+        }
+    }
 
-        $rules = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testRules.json")), true);
-        $this->fileRules = $rules["Files"];
-        $this->rules = $rules["Results"];
-        $this->values = $rules["Values"];
-        $this->okToFailValues = $rules["OKToNotFail"];
+    protected function getApi()
+    {
+        if (self::$api == null)
+        {
+            $config = new Configuration();
+            $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
+            $appKey = $testConfig["AppKey"];
+            $appSid = $testConfig["AppSid"];
+            $baseUrl = $testConfig["BaseUrl"];
+            $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
+            $debug = $testConfig["Debug"];
+            $config->setAppKey($appKey);
+            $config->setAppSid($appSid);
+            $config->setHost($baseUrl);
+            $config->setAuthHost($authBaseUrl);
+            $config->setDebug($debug);
 
-        $this->slidesApi = new SlidesApi(null, $this->config);
+            self::$api = new SlidesApi(null, $config);
+        }
+        return self::$api;
     }
     
     protected function initialize($functionName, $invalidFieldName, $invalidFieldValue)
     {
         if (!self::$isInitialized)
         {
-            $versionFile = $this->slidesApi->DownloadFile(new DownloadFileRequest("TempTests/version.txt", null, null));
+            $versionFile = $this->getApi()->DownloadFile(new DownloadFileRequest("TempTests/version.txt", null, null));
             $version = $versionFile->fread($versionFile->getSize());
             if ($version != self::$expectedTestDataVersion)
             {
@@ -81,9 +89,9 @@ class TestBase extends \PHPUnit_Framework_TestCase
                     if (is_file($path))
                     {
                         $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$value, 'r');
-                        $this->slidesApi->UploadFile(new UploadFileRequest("TempTests/".$value, $stream));
+                        $this->getApi()->UploadFile(new UploadFileRequest("TempTests/".$value, $stream));
                     }
-                    $this->slidesApi->UploadFile(new UploadFileRequest("TempTests/version.txt", self::$expectedTestDataVersion));
+                    $this->getApi()->UploadFile(new UploadFileRequest("TempTests/version.txt", self::$expectedTestDataVersion));
                 }
             }
             self::$isInitialized = true;
@@ -95,11 +103,11 @@ class TestBase extends \PHPUnit_Framework_TestCase
         {
             if ($rule["Action"] == "Put")
             {
-                $this->slidesApi->CopyFile(new CopyFileRequest("TempTests/".$rule["ActualName"], $path));
+                $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".$rule["ActualName"], $path));
             }
             else if ($rule["Action"] == "Delete")
             {
-                $this->slidesApi->DeleteFile(new DeleteFileRequest($path));
+                $this->getApi()->DeleteFile(new DeleteFileRequest($path));
             }
         }
         return $expectedValues;
@@ -181,4 +189,5 @@ class TestBase extends \PHPUnit_Framework_TestCase
     private $fileRules;
     private static $isInitialized = false;
     private static $expectedTestDataVersion = "1";
+    private static $api;
 }

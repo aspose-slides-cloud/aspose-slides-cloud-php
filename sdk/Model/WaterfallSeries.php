@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Document Class Doc Comment
+ * WaterfallSeries Class Doc Comment
  *
  * @category Class
- * @description Represents document DTO.
+ * @description One value series.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Document extends ResourceBase 
+class WaterfallSeries extends OneValueSeries 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Document extends ResourceBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Document';
+    protected static $swaggerModelName = 'WaterfallSeries';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,7 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'showConnectorLines' => 'bool'
     ];
 
     /**
@@ -71,12 +66,7 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'documentProperties' => null,
-        'viewProperties' => null,
-        'slides' => null,
-        'images' => null,
-        'layoutSlides' => null,
-        'masterSlides' => null
+        'showConnectorLines' => null
     ];
 
     /**
@@ -106,12 +96,7 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'documentProperties' => 'DocumentProperties',
-        'viewProperties' => 'ViewProperties',
-        'slides' => 'Slides',
-        'images' => 'Images',
-        'layoutSlides' => 'LayoutSlides',
-        'masterSlides' => 'MasterSlides'
+        'showConnectorLines' => 'ShowConnectorLines'
     ];
 
     /**
@@ -120,12 +105,7 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'documentProperties' => 'setDocumentProperties',
-        'viewProperties' => 'setViewProperties',
-        'slides' => 'setSlides',
-        'images' => 'setImages',
-        'layoutSlides' => 'setLayoutSlides',
-        'masterSlides' => 'setMasterSlides'
+        'showConnectorLines' => 'setShowConnectorLines'
     ];
 
     /**
@@ -134,12 +114,7 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'documentProperties' => 'getDocumentProperties',
-        'viewProperties' => 'getViewProperties',
-        'slides' => 'getSlides',
-        'images' => 'getImages',
-        'layoutSlides' => 'getLayoutSlides',
-        'masterSlides' => 'getMasterSlides'
+        'showConnectorLines' => 'getShowConnectorLines'
     ];
 
     /**
@@ -198,12 +173,7 @@ class Document extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['documentProperties'] = isset($data['documentProperties']) ? $data['documentProperties'] : null;
-        $this->container['viewProperties'] = isset($data['viewProperties']) ? $data['viewProperties'] : null;
-        $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
-        $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
+        $this->container['showConnectorLines'] = isset($data['showConnectorLines']) ? $data['showConnectorLines'] : null;
         
     }
 
@@ -236,145 +206,25 @@ class Document extends ResourceBase
 
 
     /**
-     * Gets documentProperties
+     * Gets showConnectorLines
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getDocumentProperties()
+    public function getShowConnectorLines()
     {
-        return $this->container['documentProperties'];
+        return $this->container['showConnectorLines'];
     }
 
     /**
-     * Sets documentProperties
+     * Sets showConnectorLines
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
+     * @param bool $showConnectorLines True if inner points are shown.
      *
      * @return $this
      */
-    public function setDocumentProperties($documentProperties)
+    public function setShowConnectorLines($showConnectorLines)
     {
-        $this->container['documentProperties'] = $documentProperties;
-
-        return $this;
-    }
-
-    /**
-     * Gets viewProperties
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getViewProperties()
-    {
-        return $this->container['viewProperties'];
-    }
-
-    /**
-     * Sets viewProperties
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $viewProperties Link to Document properties.
-     *
-     * @return $this
-     */
-    public function setViewProperties($viewProperties)
-    {
-        $this->container['viewProperties'] = $viewProperties;
-
-        return $this;
-    }
-
-    /**
-     * Gets slides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getSlides()
-    {
-        return $this->container['slides'];
-    }
-
-    /**
-     * Sets slides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $slides Link to slides collection.
-     *
-     * @return $this
-     */
-    public function setSlides($slides)
-    {
-        $this->container['slides'] = $slides;
-
-        return $this;
-    }
-
-    /**
-     * Gets images
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getImages()
-    {
-        return $this->container['images'];
-    }
-
-    /**
-     * Sets images
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Link to images collection.
-     *
-     * @return $this
-     */
-    public function setImages($images)
-    {
-        $this->container['images'] = $images;
-
-        return $this;
-    }
-
-    /**
-     * Gets layoutSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getLayoutSlides()
-    {
-        return $this->container['layoutSlides'];
-    }
-
-    /**
-     * Sets layoutSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
-     *
-     * @return $this
-     */
-    public function setLayoutSlides($layoutSlides)
-    {
-        $this->container['layoutSlides'] = $layoutSlides;
-
-        return $this;
-    }
-
-    /**
-     * Gets masterSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getMasterSlides()
-    {
-        return $this->container['masterSlides'];
-    }
-
-    /**
-     * Sets masterSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
-     *
-     * @return $this
-     */
-    public function setMasterSlides($masterSlides)
-    {
-        $this->container['masterSlides'] = $masterSlides;
+        $this->container['showConnectorLines'] = $showConnectorLines;
 
         return $this;
     }

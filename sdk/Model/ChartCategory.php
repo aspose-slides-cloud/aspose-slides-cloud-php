@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Document Class Doc Comment
+ * ChartCategory Class Doc Comment
  *
  * @category Class
- * @description Represents document DTO.
+ * @description Represents chart category resource
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Document extends ResourceBase 
+class ChartCategory implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class Document extends ResourceBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Document';
+    protected static $swaggerModelName = 'ChartCategory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +59,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'categories' => '\Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]',
+        'value' => 'string',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -71,12 +72,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'documentProperties' => null,
-        'viewProperties' => null,
-        'slides' => null,
-        'images' => null,
-        'layoutSlides' => null,
-        'masterSlides' => null
+        'categories' => null,
+        'value' => null,
+        'fillFormat' => null,
+        'effectFormat' => null,
+        'lineFormat' => null
     ];
 
     /**
@@ -86,7 +86,7 @@ class Document extends ResourceBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -96,7 +96,7 @@ class Document extends ResourceBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -106,12 +106,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'documentProperties' => 'DocumentProperties',
-        'viewProperties' => 'ViewProperties',
-        'slides' => 'Slides',
-        'images' => 'Images',
-        'layoutSlides' => 'LayoutSlides',
-        'masterSlides' => 'MasterSlides'
+        'categories' => 'Categories',
+        'value' => 'Value',
+        'fillFormat' => 'FillFormat',
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat'
     ];
 
     /**
@@ -120,12 +119,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'documentProperties' => 'setDocumentProperties',
-        'viewProperties' => 'setViewProperties',
-        'slides' => 'setSlides',
-        'images' => 'setImages',
-        'layoutSlides' => 'setLayoutSlides',
-        'masterSlides' => 'setMasterSlides'
+        'categories' => 'setCategories',
+        'value' => 'setValue',
+        'fillFormat' => 'setFillFormat',
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat'
     ];
 
     /**
@@ -134,12 +132,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'documentProperties' => 'getDocumentProperties',
-        'viewProperties' => 'getViewProperties',
-        'slides' => 'getSlides',
-        'images' => 'getImages',
-        'layoutSlides' => 'getLayoutSlides',
-        'masterSlides' => 'getMasterSlides'
+        'categories' => 'getCategories',
+        'value' => 'getValue',
+        'fillFormat' => 'getFillFormat',
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat'
     ];
 
     /**
@@ -150,7 +147,7 @@ class Document extends ResourceBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -160,7 +157,7 @@ class Document extends ResourceBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -170,7 +167,7 @@ class Document extends ResourceBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -187,6 +184,12 @@ class Document extends ResourceBase
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -196,14 +199,11 @@ class Document extends ResourceBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['documentProperties'] = isset($data['documentProperties']) ? $data['documentProperties'] : null;
-        $this->container['viewProperties'] = isset($data['viewProperties']) ? $data['viewProperties'] : null;
-        $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
-        $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
+        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         
     }
 
@@ -214,7 +214,7 @@ class Document extends ResourceBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -227,154 +227,127 @@ class Document extends ResourceBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         return true;
     }
 
 
     /**
-     * Gets documentProperties
+     * Gets categories
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]
      */
-    public function getDocumentProperties()
+    public function getCategories()
     {
-        return $this->container['documentProperties'];
+        return $this->container['categories'];
     }
 
     /**
-     * Sets documentProperties
+     * Sets categories
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartCategory[] $categories Gets or sets the categories for chart data
      *
      * @return $this
      */
-    public function setDocumentProperties($documentProperties)
+    public function setCategories($categories)
     {
-        $this->container['documentProperties'] = $documentProperties;
+        $this->container['categories'] = $categories;
 
         return $this;
     }
 
     /**
-     * Gets viewProperties
+     * Gets value
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return string
      */
-    public function getViewProperties()
+    public function getValue()
     {
-        return $this->container['viewProperties'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets viewProperties
+     * Sets value
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $viewProperties Link to Document properties.
+     * @param string $value Category value
      *
      * @return $this
      */
-    public function setViewProperties($viewProperties)
+    public function setValue($value)
     {
-        $this->container['viewProperties'] = $viewProperties;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets slides
+     * Gets fillFormat
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
-    public function getSlides()
+    public function getFillFormat()
     {
-        return $this->container['slides'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets slides
+     * Sets fillFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $slides Link to slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
      *
      * @return $this
      */
-    public function setSlides($slides)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['slides'] = $slides;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }
 
     /**
-     * Gets images
+     * Gets effectFormat
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
      */
-    public function getImages()
+    public function getEffectFormat()
     {
-        return $this->container['images'];
+        return $this->container['effectFormat'];
     }
 
     /**
-     * Sets images
+     * Sets effectFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Link to images collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
      *
      * @return $this
      */
-    public function setImages($images)
+    public function setEffectFormat($effectFormat)
     {
-        $this->container['images'] = $images;
+        $this->container['effectFormat'] = $effectFormat;
 
         return $this;
     }
 
     /**
-     * Gets layoutSlides
+     * Gets lineFormat
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
      */
-    public function getLayoutSlides()
+    public function getLineFormat()
     {
-        return $this->container['layoutSlides'];
+        return $this->container['lineFormat'];
     }
 
     /**
-     * Sets layoutSlides
+     * Sets lineFormat
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
      *
      * @return $this
      */
-    public function setLayoutSlides($layoutSlides)
+    public function setLineFormat($lineFormat)
     {
-        $this->container['layoutSlides'] = $layoutSlides;
-
-        return $this;
-    }
-
-    /**
-     * Gets masterSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getMasterSlides()
-    {
-        return $this->container['masterSlides'];
-    }
-
-    /**
-     * Sets masterSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
-     *
-     * @return $this
-     */
-    public function setMasterSlides($masterSlides)
-    {
-        $this->container['masterSlides'] = $masterSlides;
+        $this->container['lineFormat'] = $lineFormat;
 
         return $this;
     }

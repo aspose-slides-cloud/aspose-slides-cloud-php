@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Document Class Doc Comment
+ * NormalViewRestoredProperties Class Doc Comment
  *
  * @category Class
- * @description Represents document DTO.
+ * @description The sizing of the slide region.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Document extends ResourceBase 
+class NormalViewRestoredProperties implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class Document extends ResourceBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Document';
+    protected static $swaggerModelName = 'NormalViewRestoredProperties';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +59,8 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'autoAdjust' => 'bool',
+        'dimensionSize' => 'double'
     ];
 
     /**
@@ -71,12 +69,8 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'documentProperties' => null,
-        'viewProperties' => null,
-        'slides' => null,
-        'images' => null,
-        'layoutSlides' => null,
-        'masterSlides' => null
+        'autoAdjust' => null,
+        'dimensionSize' => 'double'
     ];
 
     /**
@@ -86,7 +80,7 @@ class Document extends ResourceBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -96,7 +90,7 @@ class Document extends ResourceBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -106,12 +100,8 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'documentProperties' => 'DocumentProperties',
-        'viewProperties' => 'ViewProperties',
-        'slides' => 'Slides',
-        'images' => 'Images',
-        'layoutSlides' => 'LayoutSlides',
-        'masterSlides' => 'MasterSlides'
+        'autoAdjust' => 'AutoAdjust',
+        'dimensionSize' => 'DimensionSize'
     ];
 
     /**
@@ -120,12 +110,8 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'documentProperties' => 'setDocumentProperties',
-        'viewProperties' => 'setViewProperties',
-        'slides' => 'setSlides',
-        'images' => 'setImages',
-        'layoutSlides' => 'setLayoutSlides',
-        'masterSlides' => 'setMasterSlides'
+        'autoAdjust' => 'setAutoAdjust',
+        'dimensionSize' => 'setDimensionSize'
     ];
 
     /**
@@ -134,12 +120,8 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'documentProperties' => 'getDocumentProperties',
-        'viewProperties' => 'getViewProperties',
-        'slides' => 'getSlides',
-        'images' => 'getImages',
-        'layoutSlides' => 'getLayoutSlides',
-        'masterSlides' => 'getMasterSlides'
+        'autoAdjust' => 'getAutoAdjust',
+        'dimensionSize' => 'getDimensionSize'
     ];
 
     /**
@@ -150,7 +132,7 @@ class Document extends ResourceBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -160,7 +142,7 @@ class Document extends ResourceBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -170,7 +152,7 @@ class Document extends ResourceBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -187,6 +169,12 @@ class Document extends ResourceBase
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -196,14 +184,8 @@ class Document extends ResourceBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['documentProperties'] = isset($data['documentProperties']) ? $data['documentProperties'] : null;
-        $this->container['viewProperties'] = isset($data['viewProperties']) ? $data['viewProperties'] : null;
-        $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
-        $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
+        $this->container['autoAdjust'] = isset($data['autoAdjust']) ? $data['autoAdjust'] : null;
+        $this->container['dimensionSize'] = isset($data['dimensionSize']) ? $data['dimensionSize'] : null;
         
     }
 
@@ -214,7 +196,7 @@ class Document extends ResourceBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -227,154 +209,55 @@ class Document extends ResourceBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         return true;
     }
 
 
     /**
-     * Gets documentProperties
+     * Gets autoAdjust
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getDocumentProperties()
+    public function getAutoAdjust()
     {
-        return $this->container['documentProperties'];
+        return $this->container['autoAdjust'];
     }
 
     /**
-     * Sets documentProperties
+     * Sets autoAdjust
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
+     * @param bool $autoAdjust True if the size of the side content region should compensate for the new size when resizing the window containing the view within the application.
      *
      * @return $this
      */
-    public function setDocumentProperties($documentProperties)
+    public function setAutoAdjust($autoAdjust)
     {
-        $this->container['documentProperties'] = $documentProperties;
+        $this->container['autoAdjust'] = $autoAdjust;
 
         return $this;
     }
 
     /**
-     * Gets viewProperties
+     * Gets dimensionSize
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return double
      */
-    public function getViewProperties()
+    public function getDimensionSize()
     {
-        return $this->container['viewProperties'];
+        return $this->container['dimensionSize'];
     }
 
     /**
-     * Sets viewProperties
+     * Sets dimensionSize
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $viewProperties Link to Document properties.
+     * @param double $dimensionSize The size of the slide region.
      *
      * @return $this
      */
-    public function setViewProperties($viewProperties)
+    public function setDimensionSize($dimensionSize)
     {
-        $this->container['viewProperties'] = $viewProperties;
-
-        return $this;
-    }
-
-    /**
-     * Gets slides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getSlides()
-    {
-        return $this->container['slides'];
-    }
-
-    /**
-     * Sets slides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $slides Link to slides collection.
-     *
-     * @return $this
-     */
-    public function setSlides($slides)
-    {
-        $this->container['slides'] = $slides;
-
-        return $this;
-    }
-
-    /**
-     * Gets images
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getImages()
-    {
-        return $this->container['images'];
-    }
-
-    /**
-     * Sets images
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Link to images collection.
-     *
-     * @return $this
-     */
-    public function setImages($images)
-    {
-        $this->container['images'] = $images;
-
-        return $this;
-    }
-
-    /**
-     * Gets layoutSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getLayoutSlides()
-    {
-        return $this->container['layoutSlides'];
-    }
-
-    /**
-     * Sets layoutSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
-     *
-     * @return $this
-     */
-    public function setLayoutSlides($layoutSlides)
-    {
-        $this->container['layoutSlides'] = $layoutSlides;
-
-        return $this;
-    }
-
-    /**
-     * Gets masterSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getMasterSlides()
-    {
-        return $this->container['masterSlides'];
-    }
-
-    /**
-     * Sets masterSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
-     *
-     * @return $this
-     */
-    public function setMasterSlides($masterSlides)
-    {
-        $this->container['masterSlides'] = $masterSlides;
+        $this->container['dimensionSize'] = $dimensionSize;
 
         return $this;
     }

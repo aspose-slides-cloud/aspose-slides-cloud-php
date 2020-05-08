@@ -41,14 +41,6 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class AbstractClassTest extends TestBase
 {
-    private $api;
-
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->api = new SlidesApi(null, $this->config);
-    }
-
     /**
      * Test case for postSlidesPipeline with two files
      */
@@ -57,7 +49,7 @@ class AbstractClassTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
 
         $request = new GetSlideShapeRequest("test.ppt", 1, "", 1, "password", "TempSlidesSDK", null);
-        $result = $this->api->getSlideShape($request);
+        $result = $this->getApi()->getSlideShape($request);
         Assert::assertTrue($result->getText() == "1");
     }
 

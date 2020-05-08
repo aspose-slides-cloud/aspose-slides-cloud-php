@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Document Class Doc Comment
+ * BoxAndWhiskerSeries Class Doc Comment
  *
  * @category Class
- * @description Represents document DTO.
+ * @description One value series.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Document extends ResourceBase 
+class BoxAndWhiskerSeries extends OneValueSeries 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Document extends ResourceBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Document';
+    protected static $swaggerModelName = 'BoxAndWhiskerSeries';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'quartileMethod' => 'string',
+        'showInnerPoints' => 'bool',
+        'showMeanLine' => 'bool',
+        'showMeanMarkers' => 'bool',
+        'showOutlierPoints' => 'bool'
     ];
 
     /**
@@ -71,12 +70,11 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'documentProperties' => null,
-        'viewProperties' => null,
-        'slides' => null,
-        'images' => null,
-        'layoutSlides' => null,
-        'masterSlides' => null
+        'quartileMethod' => null,
+        'showInnerPoints' => null,
+        'showMeanLine' => null,
+        'showMeanMarkers' => null,
+        'showOutlierPoints' => null
     ];
 
     /**
@@ -106,12 +104,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'documentProperties' => 'DocumentProperties',
-        'viewProperties' => 'ViewProperties',
-        'slides' => 'Slides',
-        'images' => 'Images',
-        'layoutSlides' => 'LayoutSlides',
-        'masterSlides' => 'MasterSlides'
+        'quartileMethod' => 'QuartileMethod',
+        'showInnerPoints' => 'ShowInnerPoints',
+        'showMeanLine' => 'ShowMeanLine',
+        'showMeanMarkers' => 'ShowMeanMarkers',
+        'showOutlierPoints' => 'ShowOutlierPoints'
     ];
 
     /**
@@ -120,12 +117,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'documentProperties' => 'setDocumentProperties',
-        'viewProperties' => 'setViewProperties',
-        'slides' => 'setSlides',
-        'images' => 'setImages',
-        'layoutSlides' => 'setLayoutSlides',
-        'masterSlides' => 'setMasterSlides'
+        'quartileMethod' => 'setQuartileMethod',
+        'showInnerPoints' => 'setShowInnerPoints',
+        'showMeanLine' => 'setShowMeanLine',
+        'showMeanMarkers' => 'setShowMeanMarkers',
+        'showOutlierPoints' => 'setShowOutlierPoints'
     ];
 
     /**
@@ -134,12 +130,11 @@ class Document extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'documentProperties' => 'getDocumentProperties',
-        'viewProperties' => 'getViewProperties',
-        'slides' => 'getSlides',
-        'images' => 'getImages',
-        'layoutSlides' => 'getLayoutSlides',
-        'masterSlides' => 'getMasterSlides'
+        'quartileMethod' => 'getQuartileMethod',
+        'showInnerPoints' => 'getShowInnerPoints',
+        'showMeanLine' => 'getShowMeanLine',
+        'showMeanMarkers' => 'getShowMeanMarkers',
+        'showOutlierPoints' => 'getShowOutlierPoints'
     ];
 
     /**
@@ -183,8 +178,23 @@ class Document extends ResourceBase
         return self::$swaggerModelName;
     }
 
+    const QUARTILE_METHOD_EXCLUSIVE = 'Exclusive';
+    const QUARTILE_METHOD_INCLUSIVE = 'Inclusive';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQuartileMethodAllowableValues()
+    {
+        return [
+            self::QUARTILE_METHOD_EXCLUSIVE,
+            self::QUARTILE_METHOD_INCLUSIVE,
+        ];
+    }
     
 
 
@@ -198,12 +208,11 @@ class Document extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['documentProperties'] = isset($data['documentProperties']) ? $data['documentProperties'] : null;
-        $this->container['viewProperties'] = isset($data['viewProperties']) ? $data['viewProperties'] : null;
-        $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
-        $this->container['images'] = isset($data['images']) ? $data['images'] : null;
-        $this->container['layoutSlides'] = isset($data['layoutSlides']) ? $data['layoutSlides'] : null;
-        $this->container['masterSlides'] = isset($data['masterSlides']) ? $data['masterSlides'] : null;
+        $this->container['quartileMethod'] = isset($data['quartileMethod']) ? $data['quartileMethod'] : null;
+        $this->container['showInnerPoints'] = isset($data['showInnerPoints']) ? $data['showInnerPoints'] : null;
+        $this->container['showMeanLine'] = isset($data['showMeanLine']) ? $data['showMeanLine'] : null;
+        $this->container['showMeanMarkers'] = isset($data['showMeanMarkers']) ? $data['showMeanMarkers'] : null;
+        $this->container['showOutlierPoints'] = isset($data['showOutlierPoints']) ? $data['showOutlierPoints'] : null;
         
     }
 
@@ -215,6 +224,14 @@ class Document extends ResourceBase
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'quartileMethod', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -231,150 +248,153 @@ class Document extends ResourceBase
             return false;
         }
 
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets documentProperties
+     * Gets quartileMethod
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return string
      */
-    public function getDocumentProperties()
+    public function getQuartileMethod()
     {
-        return $this->container['documentProperties'];
+        return $this->container['quartileMethod'];
     }
 
     /**
-     * Sets documentProperties
+     * Sets quartileMethod
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
+     * @param string $quartileMethod Quartile method.
      *
      * @return $this
      */
-    public function setDocumentProperties($documentProperties)
+    public function setQuartileMethod($quartileMethod)
     {
-        $this->container['documentProperties'] = $documentProperties;
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+
+
+        if (is_numeric($quartileMethod)) {
+            if ($quartileMethod >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $quartileMethod = $allowedValues[$quartileMethod];
+            }
+        } else {
+            if (!is_null($quartileMethod) && !in_array($quartileMethod, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['quartileMethod'] = $quartileMethod;
 
         return $this;
     }
 
     /**
-     * Gets viewProperties
+     * Gets showInnerPoints
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getViewProperties()
+    public function getShowInnerPoints()
     {
-        return $this->container['viewProperties'];
+        return $this->container['showInnerPoints'];
     }
 
     /**
-     * Sets viewProperties
+     * Sets showInnerPoints
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $viewProperties Link to Document properties.
+     * @param bool $showInnerPoints True if inner points are shown.
      *
      * @return $this
      */
-    public function setViewProperties($viewProperties)
+    public function setShowInnerPoints($showInnerPoints)
     {
-        $this->container['viewProperties'] = $viewProperties;
+        $this->container['showInnerPoints'] = $showInnerPoints;
 
         return $this;
     }
 
     /**
-     * Gets slides
+     * Gets showMeanLine
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getSlides()
+    public function getShowMeanLine()
     {
-        return $this->container['slides'];
+        return $this->container['showMeanLine'];
     }
 
     /**
-     * Sets slides
+     * Sets showMeanLine
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $slides Link to slides collection.
+     * @param bool $showMeanLine True if mean line is shown.
      *
      * @return $this
      */
-    public function setSlides($slides)
+    public function setShowMeanLine($showMeanLine)
     {
-        $this->container['slides'] = $slides;
+        $this->container['showMeanLine'] = $showMeanLine;
 
         return $this;
     }
 
     /**
-     * Gets images
+     * Gets showMeanMarkers
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getImages()
+    public function getShowMeanMarkers()
     {
-        return $this->container['images'];
+        return $this->container['showMeanMarkers'];
     }
 
     /**
-     * Sets images
+     * Sets showMeanMarkers
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Link to images collection.
+     * @param bool $showMeanMarkers True if mean markers are shown.
      *
      * @return $this
      */
-    public function setImages($images)
+    public function setShowMeanMarkers($showMeanMarkers)
     {
-        $this->container['images'] = $images;
+        $this->container['showMeanMarkers'] = $showMeanMarkers;
 
         return $this;
     }
 
     /**
-     * Gets layoutSlides
+     * Gets showOutlierPoints
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return bool
      */
-    public function getLayoutSlides()
+    public function getShowOutlierPoints()
     {
-        return $this->container['layoutSlides'];
+        return $this->container['showOutlierPoints'];
     }
 
     /**
-     * Sets layoutSlides
+     * Sets showOutlierPoints
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
+     * @param bool $showOutlierPoints True if outlier points are shown.
      *
      * @return $this
      */
-    public function setLayoutSlides($layoutSlides)
+    public function setShowOutlierPoints($showOutlierPoints)
     {
-        $this->container['layoutSlides'] = $layoutSlides;
-
-        return $this;
-    }
-
-    /**
-     * Gets masterSlides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
-     */
-    public function getMasterSlides()
-    {
-        return $this->container['masterSlides'];
-    }
-
-    /**
-     * Sets masterSlides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
-     *
-     * @return $this
-     */
-    public function setMasterSlides($masterSlides)
-    {
-        $this->container['masterSlides'] = $masterSlides;
+        $this->container['showOutlierPoints'] = $showOutlierPoints;
 
         return $this;
     }
