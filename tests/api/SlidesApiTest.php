@@ -10602,6 +10602,238 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "storage", $this->okToFailValues);
         }
     }
+    private function getPostGetNotesSlideRequest()
+    {
+        $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", $this->values);
+        $testdocument = TestUtils::getStreamValue();
+        $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", $this->values);
+        $request = new Requests\PostGetNotesSlideRequest($testslideIndex, $testdocument, $testpassword);
+        return $request;
+    }
+
+    /**
+     * Test case for postGetNotesSlide
+     * Read notes slide info.
+     */
+    public function testPostGetNotesSlide()
+    {
+        $request = $this->getPostGetNotesSlideRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlide($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postGetNotesSlide");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostGetNotesSlideInvalidslideIndex()
+    {
+        $request = $this->getPostGetNotesSlideRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlide", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlide($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlide", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideInvaliddocument()
+    {
+        $request = $this->getPostGetNotesSlideRequest();
+        $request->document = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", "document", $request->document);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlide($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlide", "document", $expectedCode, $expectedMessage);
+        } catch (Exception $ex) {
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlide", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideInvalidpassword()
+    {
+        $request = $this->getPostGetNotesSlideRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postGetNotesSlide", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlide($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlide", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlide", "password", $this->okToFailValues);
+        }
+    }
+    private function getPostGetNotesSlideWithFormatRequest()
+    {
+        $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", $this->values);
+        $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", $this->values);
+        $testdocument = TestUtils::getStreamValue();
+        $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", $this->values);
+        $testheight = TestUtils::getTestValue("postGetNotesSlideWithFormat", "height", $this->values);
+        $testpassword = TestUtils::getTestValue("postGetNotesSlideWithFormat", "password", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("postGetNotesSlideWithFormat", "fontsFolder", $this->values);
+        $request = new Requests\PostGetNotesSlideWithFormatRequest($testslideIndex, $testformat, $testdocument, $testwidth, $testheight, $testpassword, $testfontsFolder);
+        return $request;
+    }
+
+    /**
+     * Test case for postGetNotesSlideWithFormat
+     * Convert notes slide to the specified image format.
+     */
+    public function testPostGetNotesSlideWithFormat()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postGetNotesSlideWithFormat");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidslideIndex()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlideWithFormat", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidformat()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->format = TestUtils::invalidizeValue("format", "postGetNotesSlideWithFormat", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "format", $request->format);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "format", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvaliddocument()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->document = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "document", $request->document);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "document", $expectedCode, $expectedMessage);
+        } catch (Exception $ex) {
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidwidth()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->width = TestUtils::invalidizeValue("width", "postGetNotesSlideWithFormat", $request->width, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "width", $request->width);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "width", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidheight()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->height = TestUtils::invalidizeValue("height", "postGetNotesSlideWithFormat", $request->height, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "height", $request->height);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "height", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidpassword()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postGetNotesSlideWithFormat", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideWithFormatInvalidfontsFolder()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "postGetNotesSlideWithFormat", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "fontsFolder", $request->fontsFolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "fontsFolder", $this->okToFailValues);
+        }
+    }
     private function getPostNotesSlideAddNewParagraphRequest()
     {
         $testname = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "name", $this->values);

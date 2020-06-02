@@ -136,9 +136,10 @@ class TestBase extends \PHPUnit_Framework_TestCase
 
     private function applyRule($rule, &$expectedCode, &$expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue)
     {
-        if ($this->checkMethod($rule, $functionName, $invalidFieldName)
+        if ($this->checkMethod($rule, $functionName)
             && $this->checkInvalid($rule, $invalidFieldName)
-            && $this->checkParameter($rule, $invalidFieldName))
+            && $this->checkParameter($rule, $invalidFieldName)
+            && $this->checkLanguage($rule))
         {
             if (array_key_exists("Code", $rule))
             {
@@ -170,7 +171,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
         }
     }
 
-    private function checkMethod($rule, $functionName, $invalidFieldName)
+    private function checkMethod($rule, $functionName)
     {
         return !array_key_exists("Method", $rule) || strcasecmp($functionName, $rule["Method"]) == 0;
     }
@@ -183,6 +184,11 @@ class TestBase extends \PHPUnit_Framework_TestCase
     private function checkParameter($rule, $invalidFieldName)
     {
         return !array_key_exists("Parameter", $rule) || strcasecmp($invalidFieldName, $rule["Parameter"]) == 0;
+    }
+
+    private function checkLanguage($rule)
+    {
+        return !array_key_exists("Language", $rule) || strcasecmp("PHP", $rule["Language"]) == 0;
     }
 
     private $rules;

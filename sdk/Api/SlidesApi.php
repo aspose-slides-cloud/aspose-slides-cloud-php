@@ -12478,6 +12478,320 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function postGetNotesSlide(Requests\PostGetNotesSlideRequest $request)
+    {
+        try {
+            list($response) = $this->postGetNotesSlideWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postGetNotesSlideWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postGetNotesSlideWithHttpInfo(Requests\PostGetNotesSlideRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlide';
+        $httpRequest = $this->postGetNotesSlideRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\NotesSlide', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postGetNotesSlideAsync(Requests\PostGetNotesSlideRequest $request)
+    {
+        return $this->postGetNotesSlideAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postGetNotesSlideAsyncWithHttpInfo(Requests\PostGetNotesSlideRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlide';
+        $httpRequest = $this->postGetNotesSlideRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postGetNotesSlide'
+     *
+     * @param  int $slide_index Slide index. (required)
+     * @param  \SplFileObject $document Document data. (optional)
+     * @param  string $password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postGetNotesSlideRequest(Requests\PostGetNotesSlideRequest $request)
+    {
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postGetNotesSlide');
+        }
+
+        $resourcePath = '/slides/slides/{slideIndex}/notesSlide';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $_tempBody = null;
+        if (isset($request->document)) {
+            $_tempBody = $request->document;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/octet-stream', 'multipart/form-data']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postGetNotesSlideWithFormat(Requests\PostGetNotesSlideWithFormatRequest $request)
+    {
+        try {
+            list($response) = $this->postGetNotesSlideWithFormatWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postGetNotesSlideWithFormatWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postGetNotesSlideWithFormatWithHttpInfo(Requests\PostGetNotesSlideWithFormatRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->postGetNotesSlideWithFormatRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postGetNotesSlideWithFormatAsync(Requests\PostGetNotesSlideWithFormatRequest $request)
+    {
+        return $this->postGetNotesSlideWithFormatAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postGetNotesSlideWithFormatAsyncWithHttpInfo(Requests\PostGetNotesSlideWithFormatRequest $request)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->postGetNotesSlideWithFormatRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postGetNotesSlideWithFormat'
+     *
+     * @param  int $slide_index Slide index. (required)
+     * @param  string $format Output file format. (required)
+     * @param  \SplFileObject $document Document data. (optional)
+     * @param  int $width Output file width. (optional)
+     * @param  int $height Output file height. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $fonts_folder Storage folder containing custom fonts to be used with the document. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postGetNotesSlideWithFormatRequest(Requests\PostGetNotesSlideWithFormatRequest $request)
+    {
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postGetNotesSlideWithFormat');
+        }
+        // verify the required parameter 'format' is set
+        if ($request->format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling postGetNotesSlideWithFormat');
+        }
+
+        $resourcePath = '/slides/slides/{slideIndex}/notesSlide/{format}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->width !== null) {
+            $queryParams['width'] = ObjectSerializer::toQueryValue($request->width);
+        }
+        // query params
+        if ($request->height !== null) {
+            $queryParams['height'] = ObjectSerializer::toQueryValue($request->height);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->fontsFolder !== null) {
+            $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $request->format);
+        $_tempBody = null;
+        if (isset($request->document)) {
+            $_tempBody = $request->document;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['application/octet-stream', 'multipart/form-data']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function postNotesSlideAddNewParagraph(Requests\PostNotesSlideAddNewParagraphRequest $request)
     {
         try {
@@ -19818,7 +20132,7 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesViewPropertiesWithHttpInfo(Requests\PutSlidesViewPropertiesRequest $request)
     {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty';
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties';
         $httpRequest = $this->putSlidesViewPropertiesRequest($request);
         try {
             $response = $this->httpCall($httpRequest);
@@ -19835,7 +20149,7 @@ class SlidesApi extends ApiBase
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty', $e->getResponseHeaders());
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 default: $this->handleApiException($e);
@@ -19858,7 +20172,7 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesViewPropertiesAsyncWithHttpInfo(Requests\PutSlidesViewPropertiesRequest $request)
     {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentProperty';
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ViewProperties';
         $httpRequest = $this->putSlidesViewPropertiesRequest($request);
 
         return $this->client
