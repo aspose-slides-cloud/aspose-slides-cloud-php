@@ -74,7 +74,8 @@ class PdfExportOptions extends ExportOptions
         'commentsAreaColor' => 'string',
         'showCommentsByNoAuthor' => 'bool',
         'imageTransparentColor' => 'string',
-        'applyImageTransparent' => 'bool'
+        'applyImageTransparent' => 'bool',
+        'accessPermissions' => 'string'
     ];
 
     /**
@@ -100,7 +101,8 @@ class PdfExportOptions extends ExportOptions
         'commentsAreaColor' => null,
         'showCommentsByNoAuthor' => null,
         'imageTransparentColor' => null,
-        'applyImageTransparent' => null
+        'applyImageTransparent' => null,
+        'accessPermissions' => null
     ];
 
     /**
@@ -147,7 +149,8 @@ class PdfExportOptions extends ExportOptions
         'commentsAreaColor' => 'CommentsAreaColor',
         'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor',
         'imageTransparentColor' => 'ImageTransparentColor',
-        'applyImageTransparent' => 'ApplyImageTransparent'
+        'applyImageTransparent' => 'ApplyImageTransparent',
+        'accessPermissions' => 'AccessPermissions'
     ];
 
     /**
@@ -173,7 +176,8 @@ class PdfExportOptions extends ExportOptions
         'commentsAreaColor' => 'setCommentsAreaColor',
         'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor',
         'imageTransparentColor' => 'setImageTransparentColor',
-        'applyImageTransparent' => 'setApplyImageTransparent'
+        'applyImageTransparent' => 'setApplyImageTransparent',
+        'accessPermissions' => 'setAccessPermissions'
     ];
 
     /**
@@ -199,7 +203,8 @@ class PdfExportOptions extends ExportOptions
         'commentsAreaColor' => 'getCommentsAreaColor',
         'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor',
         'imageTransparentColor' => 'getImageTransparentColor',
-        'applyImageTransparent' => 'getApplyImageTransparent'
+        'applyImageTransparent' => 'getApplyImageTransparent',
+        'accessPermissions' => 'getAccessPermissions'
     ];
 
     /**
@@ -247,12 +252,23 @@ class PdfExportOptions extends ExportOptions
     const TEXT_COMPRESSION_FLATE = 'Flate';
     const COMPLIANCE_PDF15 = 'Pdf15';
     const COMPLIANCE_PDF_A1B = 'PdfA1b';
+    const COMPLIANCE_PDF_A1A = 'PdfA1a';
+    const COMPLIANCE_PDF_UA = 'PdfUa';
     const NOTES_POSITION_NONE = 'None';
     const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
     const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
     const COMMENTS_POSITION_NONE = 'None';
     const COMMENTS_POSITION_BOTTOM = 'Bottom';
     const COMMENTS_POSITION_RIGHT = 'Right';
+    const ACCESS_PERMISSIONS_NONE = 'None';
+    const ACCESS_PERMISSIONS_PRINT_DOCUMENT = 'PrintDocument';
+    const ACCESS_PERMISSIONS_MODIFY_CONTENT = 'ModifyContent';
+    const ACCESS_PERMISSIONS_COPY_TEXT_AND_GRAPHICS = 'CopyTextAndGraphics';
+    const ACCESS_PERMISSIONS_ADD_OR_MODIFY_FIELDS = 'AddOrModifyFields';
+    const ACCESS_PERMISSIONS_FILL_EXISTING_FIELDS = 'FillExistingFields';
+    const ACCESS_PERMISSIONS_EXTRACT_TEXT_AND_GRAPHICS = 'ExtractTextAndGraphics';
+    const ACCESS_PERMISSIONS_ASSEMBLE_DOCUMENT = 'AssembleDocument';
+    const ACCESS_PERMISSIONS_HIGH_QUALITY_PRINT = 'HighQualityPrint';
     
 
     
@@ -279,6 +295,8 @@ class PdfExportOptions extends ExportOptions
         return [
             self::COMPLIANCE_PDF15,
             self::COMPLIANCE_PDF_A1B,
+            self::COMPLIANCE_PDF_A1A,
+            self::COMPLIANCE_PDF_UA,
         ];
     }
     
@@ -307,6 +325,26 @@ class PdfExportOptions extends ExportOptions
             self::COMMENTS_POSITION_NONE,
             self::COMMENTS_POSITION_BOTTOM,
             self::COMMENTS_POSITION_RIGHT,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAccessPermissionsAllowableValues()
+    {
+        return [
+            self::ACCESS_PERMISSIONS_NONE,
+            self::ACCESS_PERMISSIONS_PRINT_DOCUMENT,
+            self::ACCESS_PERMISSIONS_MODIFY_CONTENT,
+            self::ACCESS_PERMISSIONS_COPY_TEXT_AND_GRAPHICS,
+            self::ACCESS_PERMISSIONS_ADD_OR_MODIFY_FIELDS,
+            self::ACCESS_PERMISSIONS_FILL_EXISTING_FIELDS,
+            self::ACCESS_PERMISSIONS_EXTRACT_TEXT_AND_GRAPHICS,
+            self::ACCESS_PERMISSIONS_ASSEMBLE_DOCUMENT,
+            self::ACCESS_PERMISSIONS_HIGH_QUALITY_PRINT,
         ];
     }
     
@@ -340,6 +378,7 @@ class PdfExportOptions extends ExportOptions
         $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
         $this->container['imageTransparentColor'] = isset($data['imageTransparentColor']) ? $data['imageTransparentColor'] : null;
         $this->container['applyImageTransparent'] = isset($data['applyImageTransparent']) ? $data['applyImageTransparent'] : null;
+        $this->container['accessPermissions'] = isset($data['accessPermissions']) ? $data['accessPermissions'] : null;
         $this->container['format'] = 'pdf';
         
     }
@@ -427,6 +466,17 @@ class PdfExportOptions extends ExportOptions
         if ($this->container['applyImageTransparent'] === null) {
             $invalidProperties[] = "'applyImageTransparent' can't be null";
         }
+        if ($this->container['accessPermissions'] === null) {
+            $invalidProperties[] = "'accessPermissions' can't be null";
+        }
+        $allowedValues = $this->getAccessPermissionsAllowableValues();
+        if (!in_array($this->container['accessPermissions'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'accessPermissions', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -498,6 +548,13 @@ class PdfExportOptions extends ExportOptions
             return false;
         }
         if ($this->container['applyImageTransparent'] === null) {
+            return false;
+        }
+        if ($this->container['accessPermissions'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getAccessPermissionsAllowableValues();
+        if (!in_array($this->container['accessPermissions'], $allowedValues)) {
             return false;
         }
         return true;
@@ -1024,6 +1081,53 @@ class PdfExportOptions extends ExportOptions
     public function setApplyImageTransparent($applyImageTransparent)
     {
         $this->container['applyImageTransparent'] = $applyImageTransparent;
+
+        return $this;
+    }
+
+    /**
+     * Gets accessPermissions
+     *
+     * @return string
+     */
+    public function getAccessPermissions()
+    {
+        return $this->container['accessPermissions'];
+    }
+
+    /**
+     * Sets accessPermissions
+     *
+     * @param string $accessPermissions Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.
+     *
+     * @return $this
+     */
+    public function setAccessPermissions($accessPermissions)
+    {
+        $allowedValues = $this->getAccessPermissionsAllowableValues();
+
+
+        if (is_numeric($accessPermissions)) {
+            if ($accessPermissions >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'accessPermissions', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $accessPermissions = $allowedValues[$accessPermissions];
+            }
+        } else {
+            if (!in_array($accessPermissions, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'accessPermissions', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['accessPermissions'] = $accessPermissions;
 
         return $this;
     }

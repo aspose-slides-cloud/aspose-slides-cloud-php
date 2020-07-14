@@ -44,11 +44,6 @@ class GetNotesSlideShapesRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * Document password.
      */
     public $password;
@@ -68,16 +63,14 @@ class GetNotesSlideShapesRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -113,22 +106,6 @@ class GetNotesSlideShapesRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

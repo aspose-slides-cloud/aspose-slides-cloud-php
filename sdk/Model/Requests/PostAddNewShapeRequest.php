@@ -44,11 +44,6 @@ class PostAddNewShapeRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * Shape DTO.
      */
     public $dto;
@@ -83,7 +78,6 @@ class PostAddNewShapeRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO.
      * @param string $password Document password.
      * @param string $folder Document folder.
@@ -91,11 +85,10 @@ class PostAddNewShapeRequest
      * @param int $shapeToClone Optional index for clone shape instead of adding a new one.
      * @param int $position Position of the new shape in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $path = null, $dto = null, $password = null, $folder = null, $storage = null, $shapeToClone = null, $position = null)
+    public function __construct($name, $slideIndex, $dto = null, $password = null, $folder = null, $storage = null, $shapeToClone = null, $position = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->dto = $dto;
         $this->password = $password;
         $this->folder = $folder;
@@ -134,22 +127,6 @@ class PostAddNewShapeRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

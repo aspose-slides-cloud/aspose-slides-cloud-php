@@ -186,6 +186,7 @@ class ClassHierarchy
             'DiscUsage' => [],
             'Effect' => [],
             'EffectFormat' => [],
+            'EntityExists' => [],
             'Error' => [],
             'ErrorDetails' => [],
             'ExportFormat' => [],

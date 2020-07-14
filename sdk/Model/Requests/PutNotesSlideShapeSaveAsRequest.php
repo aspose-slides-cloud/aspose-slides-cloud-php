@@ -44,11 +44,6 @@ class PutNotesSlideShapeSaveAsRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * Index of shape starting from 1
      */
     public $shapeIndex;
@@ -108,7 +103,6 @@ class PutNotesSlideShapeSaveAsRequest
      *  
      * @param string $name Presentation name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Index of shape starting from 1
      * @param string $format Export picture format.
      * @param string $outPath Output path.
@@ -121,11 +115,10 @@ class PutNotesSlideShapeSaveAsRequest
      * @param string $bounds Shape thumbnail bounds type.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $format, $outPath, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $format, $outPath, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->shapeIndex = $shapeIndex;
         $this->format = $format;
         $this->outPath = $outPath;
@@ -169,22 +162,6 @@ class PutNotesSlideShapeSaveAsRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

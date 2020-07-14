@@ -203,6 +203,7 @@ class SaveSlide extends Task
     const FORMAT_POT = 'Pot';
     const FORMAT_POTM = 'Potm';
     const FORMAT_SVG = 'Svg';
+    const FORMAT_FODP = 'Fodp';
     
 
     
@@ -234,6 +235,7 @@ class SaveSlide extends Task
             self::FORMAT_POT,
             self::FORMAT_POTM,
             self::FORMAT_SVG,
+            self::FORMAT_FODP,
         ];
     }
     

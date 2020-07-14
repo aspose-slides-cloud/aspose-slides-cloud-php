@@ -44,11 +44,6 @@ class PutUpdateNotesSlideShapeParagraphRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * Shape index.
      */
     public $shapeIndex;
@@ -83,7 +78,6 @@ class PutUpdateNotesSlideShapeParagraphRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
      * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO.
@@ -91,11 +85,10 @@ class PutUpdateNotesSlideShapeParagraphRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $paragraphIndex, $dto = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->shapeIndex = $shapeIndex;
         $this->paragraphIndex = $paragraphIndex;
         $this->dto = $dto;
@@ -134,22 +127,6 @@ class PutUpdateNotesSlideShapeParagraphRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

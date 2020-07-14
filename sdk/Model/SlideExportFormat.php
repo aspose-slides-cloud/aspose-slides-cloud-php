@@ -65,6 +65,7 @@ class SlideExportFormat
     const POT = 'Pot';
     const POTM = 'Potm';
     const SVG = 'Svg';
+    const FODP = 'Fodp';
     
     /**
      * Gets allowable values of the enum
@@ -93,6 +94,7 @@ class SlideExportFormat
             self::POT,
             self::POTM,
             self::SVG,
+            self::FODP,
         ];
     }
 }

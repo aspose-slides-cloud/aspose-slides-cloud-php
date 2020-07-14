@@ -48,7 +48,7 @@ class AbstractClassTest extends TestBase
     {
         list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
 
-        $request = new GetSlideShapeRequest("test.ppt", 1, "", 1, "password", "TempSlidesSDK", null);
+        $request = new GetSlideShapeRequest("test.ppt", 1, 1, "password", "TempSlidesSDK", null);
         $result = $this->getApi()->getSlideShape($request);
         Assert::assertTrue($result->getText() == "1");
     }

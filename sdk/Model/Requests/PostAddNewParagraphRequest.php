@@ -44,11 +44,6 @@ class PostAddNewParagraphRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * Shape index.
      */
     public $shapeIndex;
@@ -83,7 +78,6 @@ class PostAddNewParagraphRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param int $shapeIndex Shape index.
      * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO.
      * @param string $password Document password.
@@ -91,11 +85,10 @@ class PostAddNewParagraphRequest
      * @param string $storage Document storage.
      * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $dto = null, $password = null, $folder = null, $storage = null, $position = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->shapeIndex = $shapeIndex;
         $this->dto = $dto;
         $this->password = $password;
@@ -134,22 +127,6 @@ class PostAddNewParagraphRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

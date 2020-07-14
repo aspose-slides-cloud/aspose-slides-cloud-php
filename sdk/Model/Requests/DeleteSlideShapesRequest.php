@@ -44,11 +44,6 @@ class DeleteSlideShapesRequest
     public $slideIndex;
 
     /*
-     * Shape path (for smart art and group shapes).
-     */
-    public $path;
-
-    /*
      * The indices of the shapes to be deleted; delete all by default.
      */
     public $shapes;
@@ -73,17 +68,15 @@ class DeleteSlideShapesRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param string $path Shape path (for smart art and group shapes).
      * @param int[] $shapes The indices of the shapes to be deleted; delete all by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->path = $path;
         $this->shapes = $shapes;
         $this->password = $password;
         $this->folder = $folder;
@@ -120,22 +113,6 @@ class DeleteSlideShapesRequest
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path (for smart art and group shapes).
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
         return $this;
     }
     /*

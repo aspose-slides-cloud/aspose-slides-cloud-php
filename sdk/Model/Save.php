@@ -189,6 +189,7 @@ class Save extends Task
     const FORMAT_PNG = 'Png';
     const FORMAT_GIF = 'Gif';
     const FORMAT_BMP = 'Bmp';
+    const FORMAT_FODP = 'Fodp';
     
 
     
@@ -221,6 +222,7 @@ class Save extends Task
             self::FORMAT_PNG,
             self::FORMAT_GIF,
             self::FORMAT_BMP,
+            self::FORMAT_FODP,
         ];
     }
     

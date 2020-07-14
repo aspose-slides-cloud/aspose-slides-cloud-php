@@ -588,13 +588,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlideParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlideParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlideParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteNotesSlideParagraph", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deleteNotesSlideParagraph", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlideParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlideParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlideParagraph", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlideParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlideParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -649,23 +648,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlideParagraphInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlideParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlideParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlideParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlideParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlideParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -757,13 +739,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlideParagraphs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlideParagraphs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlideParagraphs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteNotesSlideParagraphs", "shapeIndex", $this->values);
         $testparagraphs = TestUtils::getTestValue("deleteNotesSlideParagraphs", "paragraphs", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlideParagraphs", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlideParagraphs", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlideParagraphs", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlideParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphs, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlideParagraphsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphs, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -818,23 +799,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlideParagraphsInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlideParagraphsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlideParagraphs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideParagraphs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlideParagraphs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlideParagraphs", "path", $this->okToFailValues);
         }
     }
 
@@ -926,14 +890,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlidePortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlidePortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlidePortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteNotesSlidePortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deleteNotesSlidePortion", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("deleteNotesSlidePortion", "portionIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlidePortion", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlidePortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlidePortion", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlidePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlidePortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -988,23 +951,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlidePortionInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlidePortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlidePortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlidePortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlidePortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlidePortion", "path", $this->okToFailValues);
         }
     }
 
@@ -1113,14 +1059,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlidePortions", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlidePortions", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlidePortions", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteNotesSlidePortions", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deleteNotesSlidePortions", "paragraphIndex", $this->values);
         $testportions = TestUtils::getTestValue("deleteNotesSlidePortions", "portions", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlidePortions", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlidePortions", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlidePortions", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlidePortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportions, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlidePortionsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportions, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -1175,23 +1120,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlidePortionsInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlidePortionsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlidePortions", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlidePortions", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlidePortions($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlidePortions", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlidePortions", "path", $this->okToFailValues);
         }
     }
 
@@ -1300,12 +1228,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlideShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlideShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlideShape", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteNotesSlideShape", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlideShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlideShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlideShape", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlideShapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlideShapeRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -1360,23 +1287,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlideShapeInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlideShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlideShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlideShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlideShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlideShape", "path", $this->okToFailValues);
         }
     }
 
@@ -1451,12 +1361,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteNotesSlideShapes", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteNotesSlideShapes", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteNotesSlideShapes", "path", $this->values);
         $testshapes = TestUtils::getTestValue("deleteNotesSlideShapes", "shapes", $this->values);
         $testpassword = TestUtils::getTestValue("deleteNotesSlideShapes", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteNotesSlideShapes", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteNotesSlideShapes", "storage", $this->values);
-        $request = new Requests\DeleteNotesSlideShapesRequest($testname, $testslideIndex, $testpath, $testshapes, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteNotesSlideShapesRequest($testname, $testslideIndex, $testshapes, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -1511,23 +1420,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteNotesSlideShapesInvalidpath()
-    {
-        $request = $this->getDeleteNotesSlideShapesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteNotesSlideShapes", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteNotesSlideShapes", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteNotesSlideShapes($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteNotesSlideShapes", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteNotesSlideShapes", "path", $this->okToFailValues);
         }
     }
 
@@ -1602,13 +1494,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteParagraph", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deleteParagraph", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deleteParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteParagraph", "storage", $this->values);
-        $request = new Requests\DeleteParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -1663,23 +1554,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteParagraphInvalidpath()
-    {
-        $request = $this->getDeleteParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -1771,13 +1645,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteParagraphs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteParagraphs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteParagraphs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteParagraphs", "shapeIndex", $this->values);
         $testparagraphs = TestUtils::getTestValue("deleteParagraphs", "paragraphs", $this->values);
         $testpassword = TestUtils::getTestValue("deleteParagraphs", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteParagraphs", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteParagraphs", "storage", $this->values);
-        $request = new Requests\DeleteParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphs, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteParagraphsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphs, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -1832,23 +1705,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteParagraphsInvalidpath()
-    {
-        $request = $this->getDeleteParagraphsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteParagraphs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteParagraphs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteParagraphs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteParagraphs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteParagraphs", "path", $this->okToFailValues);
         }
     }
 
@@ -1940,14 +1796,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deletePortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deletePortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deletePortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deletePortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deletePortion", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("deletePortion", "portionIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deletePortion", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deletePortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deletePortion", "storage", $this->values);
-        $request = new Requests\DeletePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeletePortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -2002,23 +1857,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeletePortionInvalidpath()
-    {
-        $request = $this->getDeletePortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deletePortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deletePortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deletePortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deletePortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deletePortion", "path", $this->okToFailValues);
         }
     }
 
@@ -2127,14 +1965,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deletePortions", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deletePortions", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deletePortions", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deletePortions", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("deletePortions", "paragraphIndex", $this->values);
         $testportions = TestUtils::getTestValue("deletePortions", "portions", $this->values);
         $testpassword = TestUtils::getTestValue("deletePortions", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deletePortions", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deletePortions", "storage", $this->values);
-        $request = new Requests\DeletePortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportions, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeletePortionsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportions, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -2189,23 +2026,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeletePortionsInvalidpath()
-    {
-        $request = $this->getDeletePortionsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deletePortions", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deletePortions", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deletePortions($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deletePortions", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deletePortions", "path", $this->okToFailValues);
         }
     }
 
@@ -3191,12 +3011,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteSlideShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteSlideShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteSlideShape", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("deleteSlideShape", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("deleteSlideShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteSlideShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteSlideShape", "storage", $this->values);
-        $request = new Requests\DeleteSlideShapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteSlideShapeRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -3251,23 +3070,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteSlideShapeInvalidpath()
-    {
-        $request = $this->getDeleteSlideShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteSlideShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteSlideShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteSlideShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteSlideShape", "path", $this->okToFailValues);
         }
     }
 
@@ -3342,12 +3144,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("deleteSlideShapes", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("deleteSlideShapes", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("deleteSlideShapes", "path", $this->values);
         $testshapes = TestUtils::getTestValue("deleteSlideShapes", "shapes", $this->values);
         $testpassword = TestUtils::getTestValue("deleteSlideShapes", "password", $this->values);
         $testfolder = TestUtils::getTestValue("deleteSlideShapes", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("deleteSlideShapes", "storage", $this->values);
-        $request = new Requests\DeleteSlideShapesRequest($testname, $testslideIndex, $testpath, $testshapes, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\DeleteSlideShapesRequest($testname, $testslideIndex, $testshapes, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -3402,23 +3203,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testDeleteSlideShapesInvalidpath()
-    {
-        $request = $this->getDeleteSlideShapesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "deleteSlideShapes", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideShapes", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->deleteSlideShapes($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "deleteSlideShapes", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("deleteSlideShapes", "path", $this->okToFailValues);
         }
     }
 
@@ -3487,6 +3271,308 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSlideSubshapeRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSlideSubshape", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSlideSubshape", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSlideSubshape", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteSlideSubshape", "shapeIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSlideSubshape", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSlideSubshape", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSlideSubshape", "storage", $this->values);
+        $request = new Requests\DeleteSlideSubshapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSlideSubshape
+     * Remove a shape (for smart art and group shapes).
+     */
+    public function testDeleteSlideSubshape()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSlideSubshape");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidname()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSlideSubshape", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidslideIndex()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSlideSubshape", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidpath()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSlideSubshape", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidshapeIndex()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteSlideSubshape", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidpassword()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSlideSubshape", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidfolder()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSlideSubshape", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapeInvalidstorage()
+    {
+        $request = $this->getDeleteSlideSubshapeRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSlideSubshape", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshape", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshape", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshape", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSlideSubshapesRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSlideSubshapes", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSlideSubshapes", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSlideSubshapes", "path", $this->values);
+        $testshapes = TestUtils::getTestValue("deleteSlideSubshapes", "shapes", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSlideSubshapes", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSlideSubshapes", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSlideSubshapes", "storage", $this->values);
+        $request = new Requests\DeleteSlideSubshapesRequest($testname, $testslideIndex, $testpath, $testshapes, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSlideSubshapes
+     * Remove a range of shapes (for smart art and group shapes).
+     */
+    public function testDeleteSlideSubshapes()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSlideSubshapes");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidname()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSlideSubshapes", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidslideIndex()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSlideSubshapes", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidpath()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSlideSubshapes", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidshapes()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->shapes = TestUtils::invalidizeValue("shapes", "deleteSlideSubshapes", $request->shapes, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "shapes", $request->shapes);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "shapes", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "shapes", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidpassword()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSlideSubshapes", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidfolder()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSlideSubshapes", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSlideSubshapesInvalidstorage()
+    {
+        $request = $this->getDeleteSlideSubshapesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSlideSubshapes", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlideSubshapes", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlideSubshapes", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlideSubshapes", "storage", $this->okToFailValues);
         }
     }
     private function getDeleteSlidesCleanSlidesListRequest()
@@ -3929,6 +4015,718 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSubshapeParagraphRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSubshapeParagraph", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSubshapeParagraph", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSubshapeParagraph", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteSubshapeParagraph", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("deleteSubshapeParagraph", "paragraphIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSubshapeParagraph", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSubshapeParagraph", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSubshapeParagraph", "storage", $this->values);
+        $request = new Requests\DeleteSubshapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSubshapeParagraph
+     * Remove a paragraph (for smart art and group shapes).
+     */
+    public function testDeleteSubshapeParagraph()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSubshapeParagraph");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidname()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSubshapeParagraph", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidslideIndex()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSubshapeParagraph", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidpath()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSubshapeParagraph", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidshapeIndex()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteSubshapeParagraph", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidparagraphIndex()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "deleteSubshapeParagraph", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidpassword()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSubshapeParagraph", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidfolder()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSubshapeParagraph", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphInvalidstorage()
+    {
+        $request = $this->getDeleteSubshapeParagraphRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSubshapeParagraph", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraph", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraph", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSubshapeParagraphsRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSubshapeParagraphs", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSubshapeParagraphs", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSubshapeParagraphs", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteSubshapeParagraphs", "shapeIndex", $this->values);
+        $testparagraphs = TestUtils::getTestValue("deleteSubshapeParagraphs", "paragraphs", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSubshapeParagraphs", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSubshapeParagraphs", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSubshapeParagraphs", "storage", $this->values);
+        $request = new Requests\DeleteSubshapeParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphs, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSubshapeParagraphs
+     * Remove a range of paragraphs (for smart art and group shapes).
+     */
+    public function testDeleteSubshapeParagraphs()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSubshapeParagraphs");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidname()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSubshapeParagraphs", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidslideIndex()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSubshapeParagraphs", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidpath()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSubshapeParagraphs", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidshapeIndex()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteSubshapeParagraphs", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidparagraphs()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->paragraphs = TestUtils::invalidizeValue("paragraphs", "deleteSubshapeParagraphs", $request->paragraphs, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "paragraphs", $request->paragraphs);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "paragraphs", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "paragraphs", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidpassword()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSubshapeParagraphs", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidfolder()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSubshapeParagraphs", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapeParagraphsInvalidstorage()
+    {
+        $request = $this->getDeleteSubshapeParagraphsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSubshapeParagraphs", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapeParagraphs", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapeParagraphs", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSubshapePortionRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSubshapePortion", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSubshapePortion", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSubshapePortion", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteSubshapePortion", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("deleteSubshapePortion", "paragraphIndex", $this->values);
+        $testportionIndex = TestUtils::getTestValue("deleteSubshapePortion", "portionIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSubshapePortion", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSubshapePortion", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSubshapePortion", "storage", $this->values);
+        $request = new Requests\DeleteSubshapePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSubshapePortion
+     * Remove a portion (for smart art and group shapes).
+     */
+    public function testDeleteSubshapePortion()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSubshapePortion");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidname()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSubshapePortion", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidslideIndex()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSubshapePortion", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidpath()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSubshapePortion", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidshapeIndex()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteSubshapePortion", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidparagraphIndex()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "deleteSubshapePortion", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidportionIndex()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->portionIndex = TestUtils::invalidizeValue("portionIndex", "deleteSubshapePortion", $request->portionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "portionIndex", $request->portionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "portionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidpassword()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSubshapePortion", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidfolder()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSubshapePortion", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionInvalidstorage()
+    {
+        $request = $this->getDeleteSubshapePortionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSubshapePortion", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortion", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortion", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortion", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSubshapePortionsRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSubshapePortions", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteSubshapePortions", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("deleteSubshapePortions", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteSubshapePortions", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("deleteSubshapePortions", "paragraphIndex", $this->values);
+        $testportions = TestUtils::getTestValue("deleteSubshapePortions", "portions", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSubshapePortions", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSubshapePortions", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSubshapePortions", "storage", $this->values);
+        $request = new Requests\DeleteSubshapePortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportions, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSubshapePortions
+     * Remove a range of portions (for smart art and group shapes).
+     */
+    public function testDeleteSubshapePortions()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSubshapePortions");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidname()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSubshapePortions", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidslideIndex()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSubshapePortions", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidpath()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "deleteSubshapePortions", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidshapeIndex()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteSubshapePortions", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidparagraphIndex()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "deleteSubshapePortions", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidportions()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->portions = TestUtils::invalidizeValue("portions", "deleteSubshapePortions", $request->portions, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "portions", $request->portions);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "portions", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "portions", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidpassword()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSubshapePortions", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidfolder()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSubshapePortions", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSubshapePortionsInvalidstorage()
+    {
+        $request = $this->getDeleteSubshapePortionsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSubshapePortions", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSubshapePortions", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSubshapePortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSubshapePortions", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSubshapePortions", "storage", $this->okToFailValues);
         }
     }
     private function getDownloadFileRequest()
@@ -4714,16 +5512,130 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("getNotesSlide", "storage", $this->okToFailValues);
         }
     }
+    private function getGetNotesSlideExistsRequest()
+    {
+        $testname = TestUtils::getTestValue("getNotesSlideExists", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getNotesSlideExists", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getNotesSlideExists", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getNotesSlideExists", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getNotesSlideExists", "storage", $this->values);
+        $request = new Requests\GetNotesSlideExistsRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getNotesSlideExists
+     * Get info whether a notes slide exists.
+     */
+    public function testGetNotesSlideExists()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getNotesSlideExists");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetNotesSlideExistsInvalidname()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getNotesSlideExists", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideExists", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideExists", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideExistsInvalidslideIndex()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getNotesSlideExists", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideExists", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideExistsInvalidpassword()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getNotesSlideExists", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideExists", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideExists", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideExistsInvalidfolder()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getNotesSlideExists", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideExists", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideExists", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideExistsInvalidstorage()
+    {
+        $request = $this->getGetNotesSlideExistsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getNotesSlideExists", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideExists", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideExists", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideExists", "storage", $this->okToFailValues);
+        }
+    }
     private function getGetNotesSlideShapeRequest()
     {
         $testname = TestUtils::getTestValue("getNotesSlideShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShape", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShape", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShape", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapeRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -4778,23 +5690,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapeInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShape", "path", $this->okToFailValues);
         }
     }
 
@@ -4869,13 +5764,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideShapeParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapeParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShapeParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShapeParagraph", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getNotesSlideShapeParagraph", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShapeParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShapeParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShapeParagraph", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapeParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -4930,23 +5824,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapeParagraphInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapeParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShapeParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShapeParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShapeParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -5038,12 +5915,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShapeParagraphs", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapeParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapeParagraphsRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -5098,23 +5974,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapeParagraphsInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapeParagraphsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShapeParagraphs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapeParagraphs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShapeParagraphs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShapeParagraphs", "path", $this->okToFailValues);
         }
     }
 
@@ -5189,14 +6048,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideShapePortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapePortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShapePortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShapePortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getNotesSlideShapePortion", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("getNotesSlideShapePortion", "portionIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShapePortion", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShapePortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShapePortion", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapePortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -5251,23 +6109,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapePortionInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapePortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShapePortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShapePortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShapePortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShapePortion", "path", $this->okToFailValues);
         }
     }
 
@@ -5376,13 +6217,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideShapePortions", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapePortions", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShapePortions", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getNotesSlideShapePortions", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getNotesSlideShapePortions", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShapePortions", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShapePortions", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShapePortions", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapePortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapePortionsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -5437,23 +6277,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapePortionsInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapePortionsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShapePortions", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapePortions", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShapePortions($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShapePortions", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShapePortions", "path", $this->okToFailValues);
         }
     }
 
@@ -5545,11 +6368,10 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getNotesSlideShapes", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getNotesSlideShapes", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getNotesSlideShapes", "path", $this->values);
         $testpassword = TestUtils::getTestValue("getNotesSlideShapes", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getNotesSlideShapes", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getNotesSlideShapes", "storage", $this->values);
-        $request = new Requests\GetNotesSlideShapesRequest($testname, $testslideIndex, $testpath, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetNotesSlideShapesRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -5604,23 +6426,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetNotesSlideShapesInvalidpath()
-    {
-        $request = $this->getGetNotesSlideShapesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getNotesSlideShapes", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideShapes", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getNotesSlideShapes($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getNotesSlideShapes", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getNotesSlideShapes", "path", $this->okToFailValues);
         }
     }
 
@@ -5865,14 +6670,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getParagraphPortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getParagraphPortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getParagraphPortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getParagraphPortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getParagraphPortion", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("getParagraphPortion", "portionIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getParagraphPortion", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getParagraphPortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getParagraphPortion", "storage", $this->values);
-        $request = new Requests\GetParagraphPortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetParagraphPortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -5927,23 +6731,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetParagraphPortionInvalidpath()
-    {
-        $request = $this->getGetParagraphPortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getParagraphPortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getParagraphPortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getParagraphPortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getParagraphPortion", "path", $this->okToFailValues);
         }
     }
 
@@ -6052,13 +6839,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getParagraphPortions", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getParagraphPortions", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getParagraphPortions", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getParagraphPortions", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getParagraphPortions", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getParagraphPortions", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getParagraphPortions", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getParagraphPortions", "storage", $this->values);
-        $request = new Requests\GetParagraphPortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetParagraphPortionsRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -6113,23 +6899,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetParagraphPortionsInvalidpath()
-    {
-        $request = $this->getGetParagraphPortionsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getParagraphPortions", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphPortions", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getParagraphPortions($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getParagraphPortions", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getParagraphPortions", "path", $this->okToFailValues);
         }
     }
 
@@ -6354,12 +7123,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlideShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getSlideShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getSlideShape", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getSlideShape", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getSlideShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getSlideShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getSlideShape", "storage", $this->values);
-        $request = new Requests\GetSlideShapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetSlideShapeRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -6414,23 +7182,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetSlideShapeInvalidpath()
-    {
-        $request = $this->getGetSlideShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getSlideShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getSlideShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlideShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlideShape", "path", $this->okToFailValues);
         }
     }
 
@@ -6505,13 +7256,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlideShapeParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getSlideShapeParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getSlideShapeParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getSlideShapeParagraph", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("getSlideShapeParagraph", "paragraphIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getSlideShapeParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getSlideShapeParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getSlideShapeParagraph", "storage", $this->values);
-        $request = new Requests\GetSlideShapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetSlideShapeParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -6566,23 +7316,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetSlideShapeParagraphInvalidpath()
-    {
-        $request = $this->getGetSlideShapeParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getSlideShapeParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getSlideShapeParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlideShapeParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -6674,12 +7407,11 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlideShapeParagraphs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getSlideShapeParagraphs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getSlideShapeParagraphs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("getSlideShapeParagraphs", "shapeIndex", $this->values);
         $testpassword = TestUtils::getTestValue("getSlideShapeParagraphs", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getSlideShapeParagraphs", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getSlideShapeParagraphs", "storage", $this->values);
-        $request = new Requests\GetSlideShapeParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetSlideShapeParagraphsRequest($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -6734,23 +7466,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testGetSlideShapeParagraphsInvalidpath()
-    {
-        $request = $this->getGetSlideShapeParagraphsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getSlideShapeParagraphs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapeParagraphs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getSlideShapeParagraphs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlideShapeParagraphs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlideShapeParagraphs", "path", $this->okToFailValues);
         }
     }
 
@@ -6825,11 +7540,10 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("getSlideShapes", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("getSlideShapes", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("getSlideShapes", "path", $this->values);
         $testpassword = TestUtils::getTestValue("getSlideShapes", "password", $this->values);
         $testfolder = TestUtils::getTestValue("getSlideShapes", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("getSlideShapes", "storage", $this->values);
-        $request = new Requests\GetSlideShapesRequest($testname, $testslideIndex, $testpath, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\GetSlideShapesRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -6887,23 +7601,6 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testGetSlideShapesInvalidpath()
-    {
-        $request = $this->getGetSlideShapesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "getSlideShapes", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShapes", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->getSlideShapes($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "getSlideShapes", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("getSlideShapes", "path", $this->okToFailValues);
-        }
-    }
-
     public function testGetSlideShapesInvalidpassword()
     {
         $request = $this->getGetSlideShapesRequest();
@@ -6952,6 +7649,610 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlideSubshapeRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlideSubshape", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlideSubshape", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSlideSubshape", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("getSlideSubshape", "shapeIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlideSubshape", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlideSubshape", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlideSubshape", "storage", $this->values);
+        $request = new Requests\GetSlideSubshapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlideSubshape
+     * Read slide shape info (for smart art and group shapes).
+     */
+    public function testGetSlideSubshape()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlideSubshape");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidname()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlideSubshape", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidslideIndex()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlideSubshape", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidpath()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSlideSubshape", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidshapeIndex()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "getSlideSubshape", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidpassword()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlideSubshape", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidfolder()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlideSubshape", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeInvalidstorage()
+    {
+        $request = $this->getGetSlideSubshapeRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlideSubshape", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshape", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshape", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshape", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlideSubshapeParagraphRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlideSubshapeParagraph", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlideSubshapeParagraph", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSlideSubshapeParagraph", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("getSlideSubshapeParagraph", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("getSlideSubshapeParagraph", "paragraphIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlideSubshapeParagraph", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlideSubshapeParagraph", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlideSubshapeParagraph", "storage", $this->values);
+        $request = new Requests\GetSlideSubshapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlideSubshapeParagraph
+     * Read shape paragraph info (for smart art and group shapes).
+     */
+    public function testGetSlideSubshapeParagraph()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlideSubshapeParagraph");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidname()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlideSubshapeParagraph", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidslideIndex()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlideSubshapeParagraph", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidpath()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSlideSubshapeParagraph", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidshapeIndex()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "getSlideSubshapeParagraph", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidparagraphIndex()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getSlideSubshapeParagraph", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidpassword()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlideSubshapeParagraph", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidfolder()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlideSubshapeParagraph", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphInvalidstorage()
+    {
+        $request = $this->getGetSlideSubshapeParagraphRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlideSubshapeParagraph", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraph", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraph", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlideSubshapeParagraphsRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlideSubshapeParagraphs", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlideSubshapeParagraphs", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSlideSubshapeParagraphs", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("getSlideSubshapeParagraphs", "shapeIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlideSubshapeParagraphs", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlideSubshapeParagraphs", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlideSubshapeParagraphs", "storage", $this->values);
+        $request = new Requests\GetSlideSubshapeParagraphsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlideSubshapeParagraphs
+     * Read shape paragraphs info (for smart art and group shapes).
+     */
+    public function testGetSlideSubshapeParagraphs()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlideSubshapeParagraphs");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidname()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlideSubshapeParagraphs", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidslideIndex()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlideSubshapeParagraphs", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidpath()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSlideSubshapeParagraphs", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidshapeIndex()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "getSlideSubshapeParagraphs", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidpassword()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlideSubshapeParagraphs", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidfolder()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlideSubshapeParagraphs", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapeParagraphsInvalidstorage()
+    {
+        $request = $this->getGetSlideSubshapeParagraphsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlideSubshapeParagraphs", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapeParagraphs", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapeParagraphs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapeParagraphs", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlideSubshapesRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlideSubshapes", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlideSubshapes", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSlideSubshapes", "path", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlideSubshapes", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlideSubshapes", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlideSubshapes", "storage", $this->values);
+        $request = new Requests\GetSlideSubshapesRequest($testname, $testslideIndex, $testpath, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlideSubshapes
+     * Read slide shapes info.
+     */
+    public function testGetSlideSubshapes()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlideSubshapes");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidname()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlideSubshapes", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidslideIndex()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlideSubshapes", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidpath()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSlideSubshapes", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidpassword()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlideSubshapes", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidfolder()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlideSubshapes", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideSubshapesInvalidstorage()
+    {
+        $request = $this->getGetSlideSubshapesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlideSubshapes", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideSubshapes", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideSubshapes($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideSubshapes", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideSubshapes", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlidesApiInfoRequest()
@@ -9243,6 +10544,362 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("getSlidesViewProperties", "storage", $this->okToFailValues);
         }
     }
+    private function getGetSubshapeParagraphPortionRequest()
+    {
+        $testname = TestUtils::getTestValue("getSubshapeParagraphPortion", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSubshapeParagraphPortion", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSubshapeParagraphPortion", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("getSubshapeParagraphPortion", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("getSubshapeParagraphPortion", "paragraphIndex", $this->values);
+        $testportionIndex = TestUtils::getTestValue("getSubshapeParagraphPortion", "portionIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSubshapeParagraphPortion", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSubshapeParagraphPortion", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSubshapeParagraphPortion", "storage", $this->values);
+        $request = new Requests\GetSubshapeParagraphPortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSubshapeParagraphPortion
+     * Read paragraph portion info (for smart art and group shapes).
+     */
+    public function testGetSubshapeParagraphPortion()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSubshapeParagraphPortion");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidname()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSubshapeParagraphPortion", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidslideIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSubshapeParagraphPortion", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidpath()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSubshapeParagraphPortion", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidshapeIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "getSubshapeParagraphPortion", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidparagraphIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getSubshapeParagraphPortion", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidportionIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->portionIndex = TestUtils::invalidizeValue("portionIndex", "getSubshapeParagraphPortion", $request->portionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "portionIndex", $request->portionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "portionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidpassword()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSubshapeParagraphPortion", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidfolder()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSubshapeParagraphPortion", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionInvalidstorage()
+    {
+        $request = $this->getGetSubshapeParagraphPortionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSubshapeParagraphPortion", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortion", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortion", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortion", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSubshapeParagraphPortionsRequest()
+    {
+        $testname = TestUtils::getTestValue("getSubshapeParagraphPortions", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSubshapeParagraphPortions", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("getSubshapeParagraphPortions", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("getSubshapeParagraphPortions", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("getSubshapeParagraphPortions", "paragraphIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSubshapeParagraphPortions", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSubshapeParagraphPortions", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSubshapeParagraphPortions", "storage", $this->values);
+        $request = new Requests\GetSubshapeParagraphPortionsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSubshapeParagraphPortions
+     * Read paragraph portions info (for smart art and group shapes).
+     */
+    public function testGetSubshapeParagraphPortions()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSubshapeParagraphPortions");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidname()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSubshapeParagraphPortions", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidslideIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSubshapeParagraphPortions", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidpath()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "getSubshapeParagraphPortions", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidshapeIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "getSubshapeParagraphPortions", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidparagraphIndex()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getSubshapeParagraphPortions", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidpassword()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSubshapeParagraphPortions", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidfolder()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSubshapeParagraphPortions", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSubshapeParagraphPortionsInvalidstorage()
+    {
+        $request = $this->getGetSubshapeParagraphPortionsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSubshapeParagraphPortions", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSubshapeParagraphPortions", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSubshapeParagraphPortions($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSubshapeParagraphPortions", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSubshapeParagraphPortions", "storage", $this->okToFailValues);
+        }
+    }
     private function getMoveFileRequest()
     {
         $testsrcPath = TestUtils::getTestValue("moveFile", "srcPath", $this->values);
@@ -9538,14 +11195,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postAddNewParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postAddNewParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postAddNewParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postAddNewParagraph", "shapeIndex", $this->values);
         $testdto = TestUtils::getTestValue("postAddNewParagraph", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("postAddNewParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("postAddNewParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postAddNewParagraph", "storage", $this->values);
         $testposition = TestUtils::getTestValue("postAddNewParagraph", "position", $this->values);
-        $request = new Requests\PostAddNewParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        $request = new Requests\PostAddNewParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
         return $request;
     }
 
@@ -9600,23 +11256,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostAddNewParagraphInvalidpath()
-    {
-        $request = $this->getPostAddNewParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postAddNewParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postAddNewParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postAddNewParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postAddNewParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -9725,7 +11364,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postAddNewPortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postAddNewPortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postAddNewPortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postAddNewPortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("postAddNewPortion", "paragraphIndex", $this->values);
         $testdto = TestUtils::getTestValue("postAddNewPortion", "dto", $this->values);
@@ -9733,7 +11371,7 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("postAddNewPortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postAddNewPortion", "storage", $this->values);
         $testposition = TestUtils::getTestValue("postAddNewPortion", "position", $this->values);
-        $request = new Requests\PostAddNewPortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        $request = new Requests\PostAddNewPortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
         return $request;
     }
 
@@ -9788,23 +11426,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostAddNewPortionInvalidpath()
-    {
-        $request = $this->getPostAddNewPortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postAddNewPortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewPortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postAddNewPortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postAddNewPortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postAddNewPortion", "path", $this->okToFailValues);
         }
     }
 
@@ -9930,14 +11551,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postAddNewShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postAddNewShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postAddNewShape", "path", $this->values);
         $testdto = TestUtils::getTestValue("postAddNewShape", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("postAddNewShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("postAddNewShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postAddNewShape", "storage", $this->values);
         $testshapeToClone = TestUtils::getTestValue("postAddNewShape", "shapeToClone", $this->values);
         $testposition = TestUtils::getTestValue("postAddNewShape", "position", $this->values);
-        $request = new Requests\PostAddNewShapeRequest($testname, $testslideIndex, $testpath, $testdto, $testpassword, $testfolder, $teststorage, $testshapeToClone, $testposition);
+        $request = new Requests\PostAddNewShapeRequest($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage, $testshapeToClone, $testposition);
         return $request;
     }
 
@@ -9992,23 +11612,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostAddNewShapeInvalidpath()
-    {
-        $request = $this->getPostAddNewShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postAddNewShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postAddNewShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postAddNewShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postAddNewShape", "path", $this->okToFailValues);
         }
     }
 
@@ -10111,6 +11714,585 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "position", $this->okToFailValues);
+        }
+    }
+    private function getPostAddNewSubshapeRequest()
+    {
+        $testname = TestUtils::getTestValue("postAddNewSubshape", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postAddNewSubshape", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("postAddNewSubshape", "path", $this->values);
+        $testdto = TestUtils::getTestValue("postAddNewSubshape", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("postAddNewSubshape", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postAddNewSubshape", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postAddNewSubshape", "storage", $this->values);
+        $testshapeToClone = TestUtils::getTestValue("postAddNewSubshape", "shapeToClone", $this->values);
+        $testposition = TestUtils::getTestValue("postAddNewSubshape", "position", $this->values);
+        $request = new Requests\PostAddNewSubshapeRequest($testname, $testslideIndex, $testpath, $testdto, $testpassword, $testfolder, $teststorage, $testshapeToClone, $testposition);
+        return $request;
+    }
+
+    /**
+     * Test case for postAddNewSubshape
+     * Create new shape (for smart art and group shapes).
+     */
+    public function testPostAddNewSubshape()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postAddNewSubshape");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidname()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postAddNewSubshape", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidslideIndex()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postAddNewSubshape", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidpath()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->path = TestUtils::invalidizeValue("path", "postAddNewSubshape", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvaliddto()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "postAddNewSubshape", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidpassword()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postAddNewSubshape", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidfolder()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postAddNewSubshape", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidstorage()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postAddNewSubshape", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidshapeToClone()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->shapeToClone = TestUtils::invalidizeValue("shapeToClone", "postAddNewSubshape", $request->shapeToClone, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "shapeToClone", $request->shapeToClone);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "shapeToClone", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "shapeToClone", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeInvalidposition()
+    {
+        $request = $this->getPostAddNewSubshapeRequest();
+        $request->position = TestUtils::invalidizeValue("position", "postAddNewSubshape", $request->position, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshape", "position", $request->position);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshape($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshape", "position", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshape", "position", $this->okToFailValues);
+        }
+    }
+    private function getPostAddNewSubshapeParagraphRequest()
+    {
+        $testname = TestUtils::getTestValue("postAddNewSubshapeParagraph", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postAddNewSubshapeParagraph", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("postAddNewSubshapeParagraph", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("postAddNewSubshapeParagraph", "shapeIndex", $this->values);
+        $testdto = TestUtils::getTestValue("postAddNewSubshapeParagraph", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("postAddNewSubshapeParagraph", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postAddNewSubshapeParagraph", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postAddNewSubshapeParagraph", "storage", $this->values);
+        $testposition = TestUtils::getTestValue("postAddNewSubshapeParagraph", "position", $this->values);
+        $request = new Requests\PostAddNewSubshapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        return $request;
+    }
+
+    /**
+     * Test case for postAddNewSubshapeParagraph
+     * Creates new paragraph (for smart art and group shapes).
+     */
+    public function testPostAddNewSubshapeParagraph()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postAddNewSubshapeParagraph");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidname()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postAddNewSubshapeParagraph", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidslideIndex()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postAddNewSubshapeParagraph", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidpath()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->path = TestUtils::invalidizeValue("path", "postAddNewSubshapeParagraph", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidshapeIndex()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "postAddNewSubshapeParagraph", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvaliddto()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "postAddNewSubshapeParagraph", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidpassword()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postAddNewSubshapeParagraph", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidfolder()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postAddNewSubshapeParagraph", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidstorage()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postAddNewSubshapeParagraph", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapeParagraphInvalidposition()
+    {
+        $request = $this->getPostAddNewSubshapeParagraphRequest();
+        $request->position = TestUtils::invalidizeValue("position", "postAddNewSubshapeParagraph", $request->position, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapeParagraph", "position", $request->position);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapeParagraph($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "position", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapeParagraph", "position", $this->okToFailValues);
+        }
+    }
+    private function getPostAddNewSubshapePortionRequest()
+    {
+        $testname = TestUtils::getTestValue("postAddNewSubshapePortion", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postAddNewSubshapePortion", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("postAddNewSubshapePortion", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("postAddNewSubshapePortion", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("postAddNewSubshapePortion", "paragraphIndex", $this->values);
+        $testdto = TestUtils::getTestValue("postAddNewSubshapePortion", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("postAddNewSubshapePortion", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postAddNewSubshapePortion", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postAddNewSubshapePortion", "storage", $this->values);
+        $testposition = TestUtils::getTestValue("postAddNewSubshapePortion", "position", $this->values);
+        $request = new Requests\PostAddNewSubshapePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        return $request;
+    }
+
+    /**
+     * Test case for postAddNewSubshapePortion
+     * Creates new portion (for smart art and group shapes).
+     */
+    public function testPostAddNewSubshapePortion()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postAddNewSubshapePortion");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidname()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postAddNewSubshapePortion", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidslideIndex()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postAddNewSubshapePortion", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidpath()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->path = TestUtils::invalidizeValue("path", "postAddNewSubshapePortion", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidshapeIndex()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "postAddNewSubshapePortion", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidparagraphIndex()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "postAddNewSubshapePortion", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvaliddto()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "postAddNewSubshapePortion", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidpassword()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postAddNewSubshapePortion", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidfolder()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postAddNewSubshapePortion", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidstorage()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postAddNewSubshapePortion", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPostAddNewSubshapePortionInvalidposition()
+    {
+        $request = $this->getPostAddNewSubshapePortionRequest();
+        $request->position = TestUtils::invalidizeValue("position", "postAddNewSubshapePortion", $request->position, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postAddNewSubshapePortion", "position", $request->position);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postAddNewSubshapePortion($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postAddNewSubshapePortion", "position", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postAddNewSubshapePortion", "position", $this->okToFailValues);
         }
     }
     private function getPostAddNotesSlideRequest()
@@ -10682,6 +12864,86 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("postGetNotesSlide", "password", $this->okToFailValues);
         }
     }
+    private function getPostGetNotesSlideExistsRequest()
+    {
+        $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", $this->values);
+        $testdocument = TestUtils::getStreamValue();
+        $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", $this->values);
+        $request = new Requests\PostGetNotesSlideExistsRequest($testslideIndex, $testdocument, $testpassword);
+        return $request;
+    }
+
+    /**
+     * Test case for postGetNotesSlideExists
+     * Get info whether a notes slide exists.
+     */
+    public function testPostGetNotesSlideExists()
+    {
+        $request = $this->getPostGetNotesSlideExistsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postGetNotesSlideExists");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostGetNotesSlideExistsInvalidslideIndex()
+    {
+        $request = $this->getPostGetNotesSlideExistsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlideExists", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideExists", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideExistsInvaliddocument()
+    {
+        $request = $this->getPostGetNotesSlideExistsRequest();
+        $request->document = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", "document", $request->document);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideExists", "document", $expectedCode, $expectedMessage);
+        } catch (Exception $ex) {
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideExists", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideExistsInvalidpassword()
+    {
+        $request = $this->getPostGetNotesSlideExistsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postGetNotesSlideExists", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideExists", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideExists", "password", $this->okToFailValues);
+        }
+    }
     private function getPostGetNotesSlideWithFormatRequest()
     {
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", $this->values);
@@ -10838,14 +13100,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "shapeIndex", $this->values);
         $testdto = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "storage", $this->values);
         $testposition = TestUtils::getTestValue("postNotesSlideAddNewParagraph", "position", $this->values);
-        $request = new Requests\PostNotesSlideAddNewParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        $request = new Requests\PostNotesSlideAddNewParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
         return $request;
     }
 
@@ -10900,23 +13161,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostNotesSlideAddNewParagraphInvalidpath()
-    {
-        $request = $this->getPostNotesSlideAddNewParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postNotesSlideAddNewParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postNotesSlideAddNewParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postNotesSlideAddNewParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -11025,7 +13269,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postNotesSlideAddNewPortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postNotesSlideAddNewPortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postNotesSlideAddNewPortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postNotesSlideAddNewPortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("postNotesSlideAddNewPortion", "paragraphIndex", $this->values);
         $testdto = TestUtils::getTestValue("postNotesSlideAddNewPortion", "dto", $this->values);
@@ -11033,7 +13276,7 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("postNotesSlideAddNewPortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postNotesSlideAddNewPortion", "storage", $this->values);
         $testposition = TestUtils::getTestValue("postNotesSlideAddNewPortion", "position", $this->values);
-        $request = new Requests\PostNotesSlideAddNewPortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
+        $request = new Requests\PostNotesSlideAddNewPortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage, $testposition);
         return $request;
     }
 
@@ -11088,23 +13331,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostNotesSlideAddNewPortionInvalidpath()
-    {
-        $request = $this->getPostNotesSlideAddNewPortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postNotesSlideAddNewPortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewPortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postNotesSlideAddNewPortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postNotesSlideAddNewPortion", "path", $this->okToFailValues);
         }
     }
 
@@ -11230,14 +13456,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postNotesSlideAddNewShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postNotesSlideAddNewShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postNotesSlideAddNewShape", "path", $this->values);
         $testdto = TestUtils::getTestValue("postNotesSlideAddNewShape", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("postNotesSlideAddNewShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("postNotesSlideAddNewShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("postNotesSlideAddNewShape", "storage", $this->values);
         $testshapeToClone = TestUtils::getTestValue("postNotesSlideAddNewShape", "shapeToClone", $this->values);
         $testposition = TestUtils::getTestValue("postNotesSlideAddNewShape", "position", $this->values);
-        $request = new Requests\PostNotesSlideAddNewShapeRequest($testname, $testslideIndex, $testpath, $testdto, $testpassword, $testfolder, $teststorage, $testshapeToClone, $testposition);
+        $request = new Requests\PostNotesSlideAddNewShapeRequest($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage, $testshapeToClone, $testposition);
         return $request;
     }
 
@@ -11292,23 +13517,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostNotesSlideAddNewShapeInvalidpath()
-    {
-        $request = $this->getPostNotesSlideAddNewShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postNotesSlideAddNewShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideAddNewShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postNotesSlideAddNewShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postNotesSlideAddNewShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postNotesSlideAddNewShape", "path", $this->okToFailValues);
         }
     }
 
@@ -11417,7 +13625,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "shapeIndex", $this->values);
         $testformat = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "format", $this->values);
         $testoptions = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "options", $this->values);
@@ -11428,7 +13635,7 @@ class SlidesApiTest extends TestBase
         $testscaleY = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "scaleY", $this->values);
         $testbounds = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "bounds", $this->values);
         $testfontsFolder = TestUtils::getTestValue("postNotesSlideShapeSaveAs", "fontsFolder", $this->values);
-        $request = new Requests\PostNotesSlideShapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        $request = new Requests\PostNotesSlideShapeSaveAsRequest($testname, $testslideIndex, $testshapeIndex, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
         return $request;
     }
 
@@ -11483,23 +13690,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostNotesSlideShapeSaveAsInvalidpath()
-    {
-        $request = $this->getPostNotesSlideShapeSaveAsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postNotesSlideShapeSaveAs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postNotesSlideShapeSaveAs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postNotesSlideShapeSaveAs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postNotesSlideShapeSaveAs", "path", $this->okToFailValues);
         }
     }
 
@@ -11791,7 +13981,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("postShapeSaveAs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("postShapeSaveAs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("postShapeSaveAs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("postShapeSaveAs", "shapeIndex", $this->values);
         $testformat = TestUtils::getTestValue("postShapeSaveAs", "format", $this->values);
         $testoptions = TestUtils::getTestValue("postShapeSaveAs", "options", $this->values);
@@ -11802,7 +13991,7 @@ class SlidesApiTest extends TestBase
         $testscaleY = TestUtils::getTestValue("postShapeSaveAs", "scaleY", $this->values);
         $testbounds = TestUtils::getTestValue("postShapeSaveAs", "bounds", $this->values);
         $testfontsFolder = TestUtils::getTestValue("postShapeSaveAs", "fontsFolder", $this->values);
-        $request = new Requests\PostShapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        $request = new Requests\PostShapeSaveAsRequest($testname, $testslideIndex, $testshapeIndex, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
         return $request;
     }
 
@@ -11857,23 +14046,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPostShapeSaveAsInvalidpath()
-    {
-        $request = $this->getPostShapeSaveAsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "postShapeSaveAs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postShapeSaveAs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postShapeSaveAs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postShapeSaveAs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postShapeSaveAs", "path", $this->okToFailValues);
         }
     }
 
@@ -14811,6 +16983,265 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("postSlidesSplit", "fontsFolder", $this->okToFailValues);
         }
     }
+    private function getPostSubshapeSaveAsRequest()
+    {
+        $testname = TestUtils::getTestValue("postSubshapeSaveAs", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postSubshapeSaveAs", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("postSubshapeSaveAs", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("postSubshapeSaveAs", "shapeIndex", $this->values);
+        $testformat = TestUtils::getTestValue("postSubshapeSaveAs", "format", $this->values);
+        $testoptions = TestUtils::getTestValue("postSubshapeSaveAs", "options", $this->values);
+        $testpassword = TestUtils::getTestValue("postSubshapeSaveAs", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postSubshapeSaveAs", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postSubshapeSaveAs", "storage", $this->values);
+        $testscaleX = TestUtils::getTestValue("postSubshapeSaveAs", "scaleX", $this->values);
+        $testscaleY = TestUtils::getTestValue("postSubshapeSaveAs", "scaleY", $this->values);
+        $testbounds = TestUtils::getTestValue("postSubshapeSaveAs", "bounds", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("postSubshapeSaveAs", "fontsFolder", $this->values);
+        $request = new Requests\PostSubshapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        return $request;
+    }
+
+    /**
+     * Test case for postSubshapeSaveAs
+     * Render shape to specified picture format (for smart art and group shapes).
+     */
+    public function testPostSubshapeSaveAs()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSubshapeSaveAs");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidname()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postSubshapeSaveAs", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidslideIndex()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postSubshapeSaveAs", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidpath()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "postSubshapeSaveAs", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidshapeIndex()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "postSubshapeSaveAs", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidformat()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->format = TestUtils::invalidizeValue("format", "postSubshapeSaveAs", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "format", $request->format);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "format", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidoptions()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->options = TestUtils::invalidizeValue("options", "postSubshapeSaveAs", $request->options, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "options", $request->options);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "options", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidpassword()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postSubshapeSaveAs", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidfolder()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postSubshapeSaveAs", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidstorage()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postSubshapeSaveAs", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidscaleX()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->scaleX = TestUtils::invalidizeValue("scaleX", "postSubshapeSaveAs", $request->scaleX, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "scaleX", $request->scaleX);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "scaleX", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidscaleY()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->scaleY = TestUtils::invalidizeValue("scaleY", "postSubshapeSaveAs", $request->scaleY, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "scaleY", $request->scaleY);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "scaleY", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidbounds()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->bounds = TestUtils::invalidizeValue("bounds", "postSubshapeSaveAs", $request->bounds, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "bounds", $request->bounds);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "bounds", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSubshapeSaveAsInvalidfontsFolder()
+    {
+        $request = $this->getPostSubshapeSaveAsRequest();
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "postSubshapeSaveAs", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSubshapeSaveAs", "fontsFolder", $request->fontsFolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSubshapeSaveAs", "fontsFolder", $this->okToFailValues);
+        }
+    }
     private function getPutLayoutSlideRequest()
     {
         $testname = TestUtils::getTestValue("putLayoutSlide", "name", $this->values);
@@ -14948,7 +17379,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "shapeIndex", $this->values);
         $testformat = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "format", $this->values);
         $testoutPath = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "outPath", $this->values);
@@ -14960,7 +17390,7 @@ class SlidesApiTest extends TestBase
         $testscaleY = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "scaleY", $this->values);
         $testbounds = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "bounds", $this->values);
         $testfontsFolder = TestUtils::getTestValue("putNotesSlideShapeSaveAs", "fontsFolder", $this->values);
-        $request = new Requests\PutNotesSlideShapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        $request = new Requests\PutNotesSlideShapeSaveAsRequest($testname, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
         return $request;
     }
 
@@ -15015,23 +17445,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutNotesSlideShapeSaveAsInvalidpath()
-    {
-        $request = $this->getPutNotesSlideShapeSaveAsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putNotesSlideShapeSaveAs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideShapeSaveAs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putNotesSlideShapeSaveAs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putNotesSlideShapeSaveAs", "path", $this->okToFailValues);
         }
     }
 
@@ -15340,7 +17753,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putSetParagraphPortionProperties", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putSetParagraphPortionProperties", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putSetParagraphPortionProperties", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putSetParagraphPortionProperties", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("putSetParagraphPortionProperties", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("putSetParagraphPortionProperties", "portionIndex", $this->values);
@@ -15348,7 +17760,7 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("putSetParagraphPortionProperties", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putSetParagraphPortionProperties", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putSetParagraphPortionProperties", "storage", $this->values);
-        $request = new Requests\PutSetParagraphPortionPropertiesRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutSetParagraphPortionPropertiesRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -15403,23 +17815,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutSetParagraphPortionPropertiesInvalidpath()
-    {
-        $request = $this->getPutSetParagraphPortionPropertiesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putSetParagraphPortionProperties", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphPortionProperties", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSetParagraphPortionProperties($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSetParagraphPortionProperties", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSetParagraphPortionProperties", "path", $this->okToFailValues);
         }
     }
 
@@ -15545,14 +17940,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putSetParagraphProperties", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putSetParagraphProperties", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putSetParagraphProperties", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putSetParagraphProperties", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("putSetParagraphProperties", "paragraphIndex", $this->values);
         $testdto = TestUtils::getTestValue("putSetParagraphProperties", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("putSetParagraphProperties", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putSetParagraphProperties", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putSetParagraphProperties", "storage", $this->values);
-        $request = new Requests\PutSetParagraphPropertiesRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutSetParagraphPropertiesRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -15607,23 +18001,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutSetParagraphPropertiesInvalidpath()
-    {
-        $request = $this->getPutSetParagraphPropertiesRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putSetParagraphProperties", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putSetParagraphProperties", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSetParagraphProperties($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSetParagraphProperties", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSetParagraphProperties", "path", $this->okToFailValues);
         }
     }
 
@@ -15728,11 +18105,402 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("putSetParagraphProperties", "storage", $this->okToFailValues);
         }
     }
+    private function getPutSetSubshapeParagraphPortionPropertiesRequest()
+    {
+        $testname = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "paragraphIndex", $this->values);
+        $testportionIndex = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "portionIndex", $this->values);
+        $testdto = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSetSubshapeParagraphPortionProperties", "storage", $this->values);
+        $request = new Requests\PutSetSubshapeParagraphPortionPropertiesRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSetSubshapeParagraphPortionProperties
+     * Update portion properties (for smart art and group shapes).
+     */
+    public function testPutSetSubshapeParagraphPortionProperties()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSetSubshapeParagraphPortionProperties");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidname()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSetSubshapeParagraphPortionProperties", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidslideIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putSetSubshapeParagraphPortionProperties", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidpath()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->path = TestUtils::invalidizeValue("path", "putSetSubshapeParagraphPortionProperties", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidshapeIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "putSetSubshapeParagraphPortionProperties", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidparagraphIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "putSetSubshapeParagraphPortionProperties", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidportionIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->portionIndex = TestUtils::invalidizeValue("portionIndex", "putSetSubshapeParagraphPortionProperties", $request->portionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "portionIndex", $request->portionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "portionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvaliddto()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSetSubshapeParagraphPortionProperties", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidpassword()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSetSubshapeParagraphPortionProperties", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidfolder()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSetSubshapeParagraphPortionProperties", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPortionPropertiesInvalidstorage()
+    {
+        $request = $this->getPutSetSubshapeParagraphPortionPropertiesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSetSubshapeParagraphPortionProperties", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphPortionProperties", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphPortionProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPutSetSubshapeParagraphPropertiesRequest()
+    {
+        $testname = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "shapeIndex", $this->values);
+        $testparagraphIndex = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "paragraphIndex", $this->values);
+        $testdto = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSetSubshapeParagraphProperties", "storage", $this->values);
+        $request = new Requests\PutSetSubshapeParagraphPropertiesRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSetSubshapeParagraphProperties
+     * Update paragraph properties (for smart art and group shapes).
+     */
+    public function testPutSetSubshapeParagraphProperties()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSetSubshapeParagraphProperties");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidname()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSetSubshapeParagraphProperties", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidslideIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putSetSubshapeParagraphProperties", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidpath()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->path = TestUtils::invalidizeValue("path", "putSetSubshapeParagraphProperties", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidshapeIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "putSetSubshapeParagraphProperties", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidparagraphIndex()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->paragraphIndex = TestUtils::invalidizeValue("paragraphIndex", "putSetSubshapeParagraphProperties", $request->paragraphIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "paragraphIndex", $request->paragraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "paragraphIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvaliddto()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSetSubshapeParagraphProperties", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidpassword()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSetSubshapeParagraphProperties", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidfolder()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSetSubshapeParagraphProperties", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSetSubshapeParagraphPropertiesInvalidstorage()
+    {
+        $request = $this->getPutSetSubshapeParagraphPropertiesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSetSubshapeParagraphProperties", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSetSubshapeParagraphProperties", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSetSubshapeParagraphProperties($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSetSubshapeParagraphProperties", "storage", $this->okToFailValues);
+        }
+    }
     private function getPutShapeSaveAsRequest()
     {
         $testname = TestUtils::getTestValue("putShapeSaveAs", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putShapeSaveAs", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putShapeSaveAs", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putShapeSaveAs", "shapeIndex", $this->values);
         $testformat = TestUtils::getTestValue("putShapeSaveAs", "format", $this->values);
         $testoutPath = TestUtils::getTestValue("putShapeSaveAs", "outPath", $this->values);
@@ -15744,7 +18512,7 @@ class SlidesApiTest extends TestBase
         $testscaleY = TestUtils::getTestValue("putShapeSaveAs", "scaleY", $this->values);
         $testbounds = TestUtils::getTestValue("putShapeSaveAs", "bounds", $this->values);
         $testfontsFolder = TestUtils::getTestValue("putShapeSaveAs", "fontsFolder", $this->values);
-        $request = new Requests\PutShapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        $request = new Requests\PutShapeSaveAsRequest($testname, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
         return $request;
     }
 
@@ -15799,23 +18567,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutShapeSaveAsInvalidpath()
-    {
-        $request = $this->getPutShapeSaveAsRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putShapeSaveAs", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putShapeSaveAs", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putShapeSaveAs($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putShapeSaveAs", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putShapeSaveAs", "path", $this->okToFailValues);
         }
     }
 
@@ -16685,13 +19436,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putSlideShapeInfo", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putSlideShapeInfo", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putSlideShapeInfo", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putSlideShapeInfo", "shapeIndex", $this->values);
         $testdto = TestUtils::getTestValue("putSlideShapeInfo", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("putSlideShapeInfo", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putSlideShapeInfo", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putSlideShapeInfo", "storage", $this->values);
-        $request = new Requests\PutSlideShapeInfoRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutSlideShapeInfoRequest($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -16746,23 +19496,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutSlideShapeInfoInvalidpath()
-    {
-        $request = $this->getPutSlideShapeInfoRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putSlideShapeInfo", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlideShapeInfo", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlideShapeInfo($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlideShapeInfo", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlideShapeInfo", "path", $this->okToFailValues);
         }
     }
 
@@ -16848,6 +19581,175 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPutSlideSubshapeInfoRequest()
+    {
+        $testname = TestUtils::getTestValue("putSlideSubshapeInfo", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putSlideSubshapeInfo", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("putSlideSubshapeInfo", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("putSlideSubshapeInfo", "shapeIndex", $this->values);
+        $testdto = TestUtils::getTestValue("putSlideSubshapeInfo", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlideSubshapeInfo", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlideSubshapeInfo", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlideSubshapeInfo", "storage", $this->values);
+        $request = new Requests\PutSlideSubshapeInfoRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSlideSubshapeInfo
+     * Update shape properties (for smart art and group shapes).
+     */
+    public function testPutSlideSubshapeInfo()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSlideSubshapeInfo");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidname()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSlideSubshapeInfo", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidslideIndex()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putSlideSubshapeInfo", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidpath()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->path = TestUtils::invalidizeValue("path", "putSlideSubshapeInfo", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidshapeIndex()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "putSlideSubshapeInfo", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvaliddto()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSlideSubshapeInfo", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidpassword()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSlideSubshapeInfo", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidfolder()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlideSubshapeInfo", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideSubshapeInfoInvalidstorage()
+    {
+        $request = $this->getPutSlideSubshapeInfoRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlideSubshapeInfo", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideSubshapeInfo", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideSubshapeInfo($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideSubshapeInfo", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideSubshapeInfo", "storage", $this->okToFailValues);
         }
     }
     private function getPutSlidesConvertRequest()
@@ -18066,6 +20968,283 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("putSlidesViewProperties", "storage", $this->okToFailValues);
         }
     }
+    private function getPutSubshapeSaveAsRequest()
+    {
+        $testname = TestUtils::getTestValue("putSubshapeSaveAs", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putSubshapeSaveAs", "slideIndex", $this->values);
+        $testpath = TestUtils::getTestValue("putSubshapeSaveAs", "path", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("putSubshapeSaveAs", "shapeIndex", $this->values);
+        $testformat = TestUtils::getTestValue("putSubshapeSaveAs", "format", $this->values);
+        $testoutPath = TestUtils::getTestValue("putSubshapeSaveAs", "outPath", $this->values);
+        $testoptions = TestUtils::getTestValue("putSubshapeSaveAs", "options", $this->values);
+        $testpassword = TestUtils::getTestValue("putSubshapeSaveAs", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSubshapeSaveAs", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSubshapeSaveAs", "storage", $this->values);
+        $testscaleX = TestUtils::getTestValue("putSubshapeSaveAs", "scaleX", $this->values);
+        $testscaleY = TestUtils::getTestValue("putSubshapeSaveAs", "scaleY", $this->values);
+        $testbounds = TestUtils::getTestValue("putSubshapeSaveAs", "bounds", $this->values);
+        $testfontsFolder = TestUtils::getTestValue("putSubshapeSaveAs", "fontsFolder", $this->values);
+        $request = new Requests\PutSubshapeSaveAsRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+        return $request;
+    }
+
+    /**
+     * Test case for putSubshapeSaveAs
+     * Render shape to specified picture format.
+     */
+    public function testPutSubshapeSaveAs()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSubshapeSaveAs");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidname()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSubshapeSaveAs", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidslideIndex()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putSubshapeSaveAs", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidpath()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->path = TestUtils::invalidizeValue("path", "putSubshapeSaveAs", $request->path, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "path", $request->path);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "path", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidshapeIndex()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "putSubshapeSaveAs", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidformat()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->format = TestUtils::invalidizeValue("format", "putSubshapeSaveAs", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "format", $request->format);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "format", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidoutPath()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->outPath = TestUtils::invalidizeValue("outPath", "putSubshapeSaveAs", $request->outPath, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "outPath", $request->outPath);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "outPath", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "outPath", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidoptions()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->options = TestUtils::invalidizeValue("options", "putSubshapeSaveAs", $request->options, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "options", $request->options);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "options", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidpassword()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSubshapeSaveAs", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidfolder()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSubshapeSaveAs", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidstorage()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSubshapeSaveAs", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidscaleX()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->scaleX = TestUtils::invalidizeValue("scaleX", "putSubshapeSaveAs", $request->scaleX, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "scaleX", $request->scaleX);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "scaleX", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidscaleY()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->scaleY = TestUtils::invalidizeValue("scaleY", "putSubshapeSaveAs", $request->scaleY, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "scaleY", $request->scaleY);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "scaleY", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidbounds()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->bounds = TestUtils::invalidizeValue("bounds", "putSubshapeSaveAs", $request->bounds, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "bounds", $request->bounds);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "bounds", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSubshapeSaveAsInvalidfontsFolder()
+    {
+        $request = $this->getPutSubshapeSaveAsRequest();
+        $request->fontsFolder = TestUtils::invalidizeValue("fontsFolder", "putSubshapeSaveAs", $request->fontsFolder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSubshapeSaveAs", "fontsFolder", $request->fontsFolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSubshapeSaveAs($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSubshapeSaveAs", "fontsFolder", $this->okToFailValues);
+        }
+    }
     private function getPutUpdateNotesSlideRequest()
     {
         $testname = TestUtils::getTestValue("putUpdateNotesSlide", "name", $this->values);
@@ -18203,13 +21382,12 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putUpdateNotesSlideShape", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putUpdateNotesSlideShape", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putUpdateNotesSlideShape", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putUpdateNotesSlideShape", "shapeIndex", $this->values);
         $testdto = TestUtils::getTestValue("putUpdateNotesSlideShape", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("putUpdateNotesSlideShape", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putUpdateNotesSlideShape", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putUpdateNotesSlideShape", "storage", $this->values);
-        $request = new Requests\PutUpdateNotesSlideShapeRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutUpdateNotesSlideShapeRequest($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -18264,23 +21442,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutUpdateNotesSlideShapeInvalidpath()
-    {
-        $request = $this->getPutUpdateNotesSlideShapeRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putUpdateNotesSlideShape", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShape", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putUpdateNotesSlideShape($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putUpdateNotesSlideShape", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putUpdateNotesSlideShape", "path", $this->okToFailValues);
         }
     }
 
@@ -18372,14 +21533,13 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "paragraphIndex", $this->values);
         $testdto = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "dto", $this->values);
         $testpassword = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putUpdateNotesSlideShapeParagraph", "storage", $this->values);
-        $request = new Requests\PutUpdateNotesSlideShapeParagraphRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutUpdateNotesSlideShapeParagraphRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -18434,23 +21594,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutUpdateNotesSlideShapeParagraphInvalidpath()
-    {
-        $request = $this->getPutUpdateNotesSlideShapeParagraphRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putUpdateNotesSlideShapeParagraph", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapeParagraph", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putUpdateNotesSlideShapeParagraph($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "path", $this->okToFailValues);
         }
     }
 
@@ -18559,7 +21702,6 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "name", $this->values);
         $testslideIndex = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "slideIndex", $this->values);
-        $testpath = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "path", $this->values);
         $testshapeIndex = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "shapeIndex", $this->values);
         $testparagraphIndex = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "paragraphIndex", $this->values);
         $testportionIndex = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "portionIndex", $this->values);
@@ -18567,7 +21709,7 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "password", $this->values);
         $testfolder = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "folder", $this->values);
         $teststorage = TestUtils::getTestValue("putUpdateNotesSlideShapePortion", "storage", $this->values);
-        $request = new Requests\PutUpdateNotesSlideShapePortionRequest($testname, $testslideIndex, $testpath, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        $request = new Requests\PutUpdateNotesSlideShapePortionRequest($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testdto, $testpassword, $testfolder, $teststorage);
         return $request;
     }
 
@@ -18622,23 +21764,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "slideIndex", $this->okToFailValues);
-        }
-    }
-
-    public function testPutUpdateNotesSlideShapePortionInvalidpath()
-    {
-        $request = $this->getPutUpdateNotesSlideShapePortionRequest();
-        $request->path = TestUtils::invalidizeValue("path", "putUpdateNotesSlideShapePortion", $request->path, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("putUpdateNotesSlideShapePortion", "path", $request->path);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putUpdateNotesSlideShapePortion($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "path", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "path", $this->okToFailValues);
         }
     }
 
