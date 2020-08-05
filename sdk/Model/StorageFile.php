@@ -205,10 +205,6 @@ class StorageFile implements ArrayAccess
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**

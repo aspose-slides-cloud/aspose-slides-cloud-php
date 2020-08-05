@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlideAnimation operation.
+ * Request model for postChartSeries operation.
  */
-class GetSlideAnimationRequest
+class PostChartSeriesRequest
 {
     /*
      * Document name.
@@ -44,9 +44,14 @@ class GetSlideAnimationRequest
     public $slideIndex;
 
     /*
-     * Shape index. If specified, only effects related to that shape are returned.
+     * Shape index (must be a chart).
      */
     public $shapeIndex;
+
+    /*
+     * Series DTO.
+     */
+    public $series;
 
     /*
      * Document password.
@@ -64,20 +69,22 @@ class GetSlideAnimationRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlideAnimationRequest class.
+     * Initializes a new instance of the PostChartSeriesRequest class.
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param int $shapeIndex Shape index. If specified, only effects related to that shape are returned.
+     * @param int $shapeIndex Shape index (must be a chart).
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Series $series Series DTO.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $series = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
         $this->shapeIndex = $shapeIndex;
+        $this->series = $series;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -116,7 +123,7 @@ class GetSlideAnimationRequest
         return $this;
     }
     /*
-     * Shape index. If specified, only effects related to that shape are returned.
+     * Shape index (must be a chart).
      */
     public function get_shapeIndex()
     {
@@ -124,11 +131,27 @@ class GetSlideAnimationRequest
     }
 
     /*
-     * Shape index. If specified, only effects related to that shape are returned.
+     * Shape index (must be a chart).
      */
     public function set_shapeIndex($value)
     {
         $this->shapeIndex = $value;
+        return $this;
+    }
+    /*
+     * Series DTO.
+     */
+    public function get_series()
+    {
+        return $this->series;
+    }
+
+    /*
+     * Series DTO.
+     */
+    public function set_series($value)
+    {
+        $this->series = $value;
         return $this;
     }
     /*

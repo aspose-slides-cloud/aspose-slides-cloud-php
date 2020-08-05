@@ -311,6 +311,157 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("createFolder", "storageName", $this->okToFailValues);
         }
     }
+    private function getDeleteChartSeriesRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteChartSeries", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("deleteChartSeries", "slideIndex", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("deleteChartSeries", "shapeIndex", $this->values);
+        $testseriesIndex = TestUtils::getTestValue("deleteChartSeries", "seriesIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteChartSeries", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteChartSeries", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteChartSeries", "storage", $this->values);
+        $request = new Requests\DeleteChartSeriesRequest($testname, $testslideIndex, $testshapeIndex, $testseriesIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteChartSeries
+     * Delete a series from a chart.
+     */
+    public function testDeleteChartSeries()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteChartSeries");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidname()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteChartSeries", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidslideIndex()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "deleteChartSeries", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidshapeIndex()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "deleteChartSeries", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidseriesIndex()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->seriesIndex = TestUtils::invalidizeValue("seriesIndex", "deleteChartSeries", $request->seriesIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "seriesIndex", $request->seriesIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "seriesIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidpassword()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteChartSeries", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidfolder()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteChartSeries", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteChartSeriesInvalidstorage()
+    {
+        $request = $this->getDeleteChartSeriesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteChartSeries", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteChartSeries", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteChartSeries", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteChartSeries", "storage", $this->okToFailValues);
+        }
+    }
     private function getDeleteFileRequest()
     {
         $testpath = TestUtils::getTestValue("deleteFile", "path", $this->values);
@@ -12428,6 +12579,157 @@ class SlidesApiTest extends TestBase
             TestUtils::assertResponse("postAddNotesSlide", "storage", $this->okToFailValues);
         }
     }
+    private function getPostChartSeriesRequest()
+    {
+        $testname = TestUtils::getTestValue("postChartSeries", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postChartSeries", "slideIndex", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("postChartSeries", "shapeIndex", $this->values);
+        $testseries = TestUtils::getTestValue("postChartSeries", "series", $this->values);
+        $testpassword = TestUtils::getTestValue("postChartSeries", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postChartSeries", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postChartSeries", "storage", $this->values);
+        $request = new Requests\PostChartSeriesRequest($testname, $testslideIndex, $testshapeIndex, $testseries, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postChartSeries
+     * Add a new series to a chart.
+     */
+    public function testPostChartSeries()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postChartSeries");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostChartSeriesInvalidname()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postChartSeries", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidslideIndex()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postChartSeries", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidshapeIndex()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "postChartSeries", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidseries()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->series = TestUtils::invalidizeValue("series", "postChartSeries", $request->series, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "series", $request->series);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "series", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "series", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidpassword()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postChartSeries", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidfolder()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postChartSeries", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostChartSeriesInvalidstorage()
+    {
+        $request = $this->getPostChartSeriesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postChartSeries", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postChartSeries", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postChartSeries", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postChartSeries", "storage", $this->okToFailValues);
+        }
+    }
     private function getPostCopyLayoutSlideFromSourcePresentationRequest()
     {
         $testname = TestUtils::getTestValue("postCopyLayoutSlideFromSourcePresentation", "name", $this->values);
@@ -17240,6 +17542,175 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "fontsFolder", $this->okToFailValues);
+        }
+    }
+    private function getPutChartSeriesRequest()
+    {
+        $testname = TestUtils::getTestValue("putChartSeries", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putChartSeries", "slideIndex", $this->values);
+        $testshapeIndex = TestUtils::getTestValue("putChartSeries", "shapeIndex", $this->values);
+        $testseriesIndex = TestUtils::getTestValue("putChartSeries", "seriesIndex", $this->values);
+        $testseries = TestUtils::getTestValue("putChartSeries", "series", $this->values);
+        $testpassword = TestUtils::getTestValue("putChartSeries", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putChartSeries", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putChartSeries", "storage", $this->values);
+        $request = new Requests\PutChartSeriesRequest($testname, $testslideIndex, $testshapeIndex, $testseriesIndex, $testseries, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putChartSeries
+     * Update a series in a chart.
+     */
+    public function testPutChartSeries()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putChartSeries");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutChartSeriesInvalidname()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putChartSeries", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidslideIndex()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putChartSeries", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidshapeIndex()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->shapeIndex = TestUtils::invalidizeValue("shapeIndex", "putChartSeries", $request->shapeIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "shapeIndex", $request->shapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "shapeIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidseriesIndex()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->seriesIndex = TestUtils::invalidizeValue("seriesIndex", "putChartSeries", $request->seriesIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "seriesIndex", $request->seriesIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "seriesIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidseries()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->series = TestUtils::invalidizeValue("series", "putChartSeries", $request->series, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "series", $request->series);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "series", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "series", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidpassword()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putChartSeries", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidfolder()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putChartSeries", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutChartSeriesInvalidstorage()
+    {
+        $request = $this->getPutChartSeriesRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putChartSeries", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putChartSeries", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putChartSeries($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putChartSeries", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putChartSeries", "storage", $this->okToFailValues);
         }
     }
     private function getPutLayoutSlideRequest()

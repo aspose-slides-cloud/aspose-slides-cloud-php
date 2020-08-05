@@ -187,10 +187,6 @@ class ResourceBase implements ArrayAccess
         $this->container['selfUri'] = isset($data['selfUri']) ? $data['selfUri'] : null;
         $this->container['alternateLinks'] = isset($data['alternateLinks']) ? $data['alternateLinks'] : null;
         
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**

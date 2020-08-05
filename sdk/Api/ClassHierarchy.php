@@ -72,9 +72,12 @@ class ClassHierarchy
         foreach ($classDeterminers as $key => $value)
         {
             if (!
-                ((property_exists($object, $key) && strcasecmp($value, $object->{$key}) == 0)
-                || (property_exists($object, lcfirst($key)) && strcasecmp($value, $object->{lcfirst($key)}) == 0)
-                || (property_exists($object, ucfirst($key)) && strcasecmp($value, $object->{ucfirst($key)}) == 0)))
+                (((is_array($object) && array_key_exists($key, $object) && strcasecmp($value, $object[$key]) == 0)
+                    || (!is_array($object) && property_exists($object, $key) && strcasecmp($value, $object->{$key}) == 0))
+                || ((is_array($object) && array_key_exists(lcfirst($key), $object) && strcasecmp($value, $object[lcfirst($key)]) == 0)
+                    || (!is_array($object) && property_exists($object, lcfirst($key)) && strcasecmp($value, $object->{lcfirst($key)}) == 0))
+                || ((is_array($object) && array_key_exists(ucfirst($key), $object) && strcasecmp($value, $object[ucfirst($key)]) == 0)
+                    || (!is_array($object) && property_exists($object, ucfirst($key)) && strcasecmp($value, $object->{ucfirst($key)}) == 0))))
             {
                 return 0;
             }
@@ -249,7 +252,7 @@ class ClassHierarchy
             'AddSlide' => ['Type' => 'AddSlide',],
             'Base64InputFile' => ['Type' => 'Base64',],
             'BubbleChartDataPoint' => [],
-            'BubbleSeries' => [],
+            'BubbleSeries' => ['DataPointType' => 'Bubble',],
             'ColorScheme' => [],
             'Document' => [],
             'DocumentProperties' => [],
@@ -269,7 +272,7 @@ class ClassHierarchy
             'Merge' => ['Type' => 'Merge',],
             'NoFill' => ['Type' => 'NoFill',],
             'NotesSlide' => [],
-            'OneValueSeries' => [],
+            'OneValueSeries' => ['DataPointType' => 'OneValue',],
             'Paragraph' => [],
             'Paragraphs' => [],
             'PathInputFile' => ['Type' => 'Path',],
@@ -292,7 +295,7 @@ class ClassHierarchy
             'Save' => ['Type' => 'Save',],
             'SaveShape' => ['Type' => 'SaveShape',],
             'SaveSlide' => ['Type' => 'SaveSlide',],
-            'ScatterSeries' => [],
+            'ScatterSeries' => ['DataPointType' => 'Scatter',],
             'ShapeBase' => [],
             'Shapes' => [],
             'Slide' => [],
@@ -311,7 +314,7 @@ class ClassHierarchy
             'UpdateShape' => ['Type' => 'UpdateShape',],
             'ViewProperties' => [],
             'XpsExportOptions' => ['Format' => 'xps',],
-            'BoxAndWhiskerSeries' => [],
+            'BoxAndWhiskerSeries' => ['DataPointType' => 'OneValue',],
             'Chart' => ['Type' => 'Chart','ShapeType' => 'Chart',],
             'DocumentReplaceResult' => [],
             'GeometryShape' => [],
@@ -322,7 +325,7 @@ class ClassHierarchy
             'SmartArt' => ['Type' => 'SmartArt','ShapeType' => 'Diagram',],
             'SmartArtShape' => ['Type' => 'SmartArtShape','ShapeType' => 'Custom',],
             'Table' => ['Type' => 'Table','ShapeType' => 'Table',],
-            'WaterfallSeries' => [],
+            'WaterfallSeries' => ['DataPointType' => 'OneValue',],
             'AudioFrame' => ['Type' => 'AudioFrame','ShapeType' => 'AudioFrame',],
             'Connector' => ['Type' => 'Connector',],
             'PictureFrame' => ['Type' => 'PictureFrame','ShapeType' => 'PictureFrame',],

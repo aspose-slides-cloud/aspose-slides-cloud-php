@@ -213,6 +213,7 @@ class BoxAndWhiskerSeries extends OneValueSeries
         $this->container['showMeanLine'] = isset($data['showMeanLine']) ? $data['showMeanLine'] : null;
         $this->container['showMeanMarkers'] = isset($data['showMeanMarkers']) ? $data['showMeanMarkers'] : null;
         $this->container['showOutlierPoints'] = isset($data['showOutlierPoints']) ? $data['showOutlierPoints'] : null;
+        $this->container['dataPointType'] = 'OneValue';
         
     }
 

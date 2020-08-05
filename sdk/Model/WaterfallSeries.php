@@ -174,6 +174,7 @@ class WaterfallSeries extends OneValueSeries
         parent::__construct($data);
 
         $this->container['showConnectorLines'] = isset($data['showConnectorLines']) ? $data['showConnectorLines'] : null;
+        $this->container['dataPointType'] = 'OneValue';
         
     }
 

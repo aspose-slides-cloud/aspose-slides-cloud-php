@@ -57,7 +57,7 @@ class Portions extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'portionLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'items' => '\Aspose\Slides\Cloud\Sdk\Model\Portion[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class Portions extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'portionLinks' => null
+        'items' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class Portions extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'portionLinks' => 'PortionLinks'
+        'items' => 'Items'
     ];
 
     /**
@@ -105,7 +105,7 @@ class Portions extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
-        'portionLinks' => 'setPortionLinks'
+        'items' => 'setItems'
     ];
 
     /**
@@ -114,7 +114,7 @@ class Portions extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
-        'portionLinks' => 'getPortionLinks'
+        'items' => 'getItems'
     ];
 
     /**
@@ -173,7 +173,7 @@ class Portions extends ResourceBase
     {
         parent::__construct($data);
 
-        $this->container['portionLinks'] = isset($data['portionLinks']) ? $data['portionLinks'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         
     }
 
@@ -206,25 +206,25 @@ class Portions extends ResourceBase
 
 
     /**
-     * Gets portionLinks
+     * Gets items
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Portion[]
      */
-    public function getPortionLinks()
+    public function getItems()
     {
-        return $this->container['portionLinks'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets portionLinks
+     * Sets items
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionLinks List of portion links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion[] $items List of portion links.
      *
      * @return $this
      */
-    public function setPortionLinks($portionLinks)
+    public function setItems($items)
     {
-        $this->container['portionLinks'] = $portionLinks;
+        $this->container['items'] = $items;
 
         return $this;
     }

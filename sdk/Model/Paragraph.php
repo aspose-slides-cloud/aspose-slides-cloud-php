@@ -76,7 +76,7 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => 'string',
         'latinLineBreak' => 'string',
         'rightToLeft' => 'string',
-        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\Portion[]'
     ];
 
     /**
@@ -1290,7 +1290,7 @@ class Paragraph extends ResourceBase
     /**
      * Gets portionList
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Portion[]
      */
     public function getPortionList()
     {
@@ -1300,7 +1300,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets portionList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $portionList List of portion links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion[] $portionList List of portion links.
      *
      * @return $this
      */

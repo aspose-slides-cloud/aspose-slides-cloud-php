@@ -57,7 +57,6 @@ class BubbleSeries extends Series
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPointType' => 'string',
         'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]'
     ];
 
@@ -67,7 +66,6 @@ class BubbleSeries extends Series
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPointType' => null,
         'dataPoints' => null
     ];
 
@@ -98,7 +96,6 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPointType' => 'DataPointType',
         'dataPoints' => 'DataPoints'
     ];
 
@@ -108,7 +105,6 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $setters = [
-        'dataPointType' => 'setDataPointType',
         'dataPoints' => 'setDataPoints'
     ];
 
@@ -118,7 +114,6 @@ class BubbleSeries extends Series
      * @var string[]
      */
     protected static $getters = [
-        'dataPointType' => 'getDataPointType',
         'dataPoints' => 'getDataPoints'
     ];
 
@@ -163,25 +158,8 @@ class BubbleSeries extends Series
         return self::$swaggerModelName;
     }
 
-    const DATA_POINT_TYPE_ONE_VALUE = 'OneValue';
-    const DATA_POINT_TYPE_SCATTER = 'Scatter';
-    const DATA_POINT_TYPE_BUBBLE = 'Bubble';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDataPointTypeAllowableValues()
-    {
-        return [
-            self::DATA_POINT_TYPE_ONE_VALUE,
-            self::DATA_POINT_TYPE_SCATTER,
-            self::DATA_POINT_TYPE_BUBBLE,
-        ];
-    }
     
 
 
@@ -195,8 +173,8 @@ class BubbleSeries extends Series
     {
         parent::__construct($data);
 
-        $this->container['dataPointType'] = isset($data['dataPointType']) ? $data['dataPointType'] : null;
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
+        $this->container['dataPointType'] = 'Bubble';
         
     }
 
@@ -208,17 +186,6 @@ class BubbleSeries extends Series
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['dataPointType'] === null) {
-            $invalidProperties[] = "'dataPointType' can't be null";
-        }
-        $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($this->container['dataPointType'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'dataPointType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -235,63 +202,9 @@ class BubbleSeries extends Series
             return false;
         }
 
-        if ($this->container['dataPointType'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getDataPointTypeAllowableValues();
-        if (!in_array($this->container['dataPointType'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
-
-    /**
-     * Gets dataPointType
-     *
-     * @return string
-     */
-    public function getDataPointType()
-    {
-        return $this->container['dataPointType'];
-    }
-
-    /**
-     * Sets dataPointType
-     *
-     * @param string $dataPointType Data point type.
-     *
-     * @return $this
-     */
-    public function setDataPointType($dataPointType)
-    {
-        $allowedValues = $this->getDataPointTypeAllowableValues();
-
-
-        if (is_numeric($dataPointType)) {
-            if ($dataPointType >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'dataPointType', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $dataPointType = $allowedValues[$dataPointType];
-            }
-        } else {
-            if (!in_array($dataPointType, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'dataPointType', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['dataPointType'] = $dataPointType;
-
-        return $this;
-    }
 
     /**
      * Gets dataPoints

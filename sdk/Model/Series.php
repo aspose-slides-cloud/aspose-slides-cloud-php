@@ -75,7 +75,8 @@ class Series implements ArrayAccess
         'marker' => '\Aspose\Slides\Cloud\Sdk\Model\SeriesMarker',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'dataPointType' => 'string'
     ];
 
     /**
@@ -100,7 +101,8 @@ class Series implements ArrayAccess
         'marker' => null,
         'fillFormat' => null,
         'effectFormat' => null,
-        'lineFormat' => null
+        'lineFormat' => null,
+        'dataPointType' => null
     ];
 
     /**
@@ -146,7 +148,8 @@ class Series implements ArrayAccess
         'marker' => 'Marker',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat'
+        'lineFormat' => 'LineFormat',
+        'dataPointType' => 'DataPointType'
     ];
 
     /**
@@ -171,7 +174,8 @@ class Series implements ArrayAccess
         'marker' => 'setMarker',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat'
+        'lineFormat' => 'setLineFormat',
+        'dataPointType' => 'setDataPointType'
     ];
 
     /**
@@ -196,7 +200,8 @@ class Series implements ArrayAccess
         'marker' => 'getMarker',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat'
+        'lineFormat' => 'getLineFormat',
+        'dataPointType' => 'getDataPointType'
     ];
 
     /**
@@ -321,6 +326,9 @@ class Series implements ArrayAccess
     const TYPE_BOX_AND_WHISKER = 'BoxAndWhisker';
     const TYPE_WATERFALL = 'Waterfall';
     const TYPE_FUNNEL = 'Funnel';
+    const DATA_POINT_TYPE_ONE_VALUE = 'OneValue';
+    const DATA_POINT_TYPE_SCATTER = 'Scatter';
+    const DATA_POINT_TYPE_BUBBLE = 'Bubble';
     
 
     
@@ -416,6 +424,20 @@ class Series implements ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDataPointTypeAllowableValues()
+    {
+        return [
+            self::DATA_POINT_TYPE_ONE_VALUE,
+            self::DATA_POINT_TYPE_SCATTER,
+            self::DATA_POINT_TYPE_BUBBLE,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -449,11 +471,8 @@ class Series implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['dataPointType'] = isset($data['dataPointType']) ? $data['dataPointType'] : null;
         
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
@@ -473,6 +492,14 @@ class Series implements ArrayAccess
             );
         }
 
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+        if (!in_array($this->container['dataPointType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'dataPointType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -487,6 +514,10 @@ class Series implements ArrayAccess
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+        if (!in_array($this->container['dataPointType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -920,6 +951,53 @@ class Series implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataPointType
+     *
+     * @return string
+     */
+    public function getDataPointType()
+    {
+        return $this->container['dataPointType'];
+    }
+
+    /**
+     * Sets dataPointType
+     *
+     * @param string $dataPointType dataPointType
+     *
+     * @return $this
+     */
+    public function setDataPointType($dataPointType)
+    {
+        $allowedValues = $this->getDataPointTypeAllowableValues();
+
+
+        if (is_numeric($dataPointType)) {
+            if ($dataPointType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dataPointType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $dataPointType = $allowedValues[$dataPointType];
+            }
+        } else {
+            if (!is_null($dataPointType) && !in_array($dataPointType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'dataPointType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['dataPointType'] = $dataPointType;
 
         return $this;
     }

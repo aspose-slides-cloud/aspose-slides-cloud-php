@@ -187,10 +187,6 @@ class ScatterChartDataPoint implements ArrayAccess
         $this->container['xValue'] = isset($data['xValue']) ? $data['xValue'] : null;
         $this->container['yValue'] = isset($data['yValue']) ? $data['yValue'] : null;
         
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**

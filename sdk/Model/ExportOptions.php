@@ -181,10 +181,6 @@ class ExportOptions implements ArrayAccess
     {
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
