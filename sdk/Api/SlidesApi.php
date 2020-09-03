@@ -385,6 +385,338 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deleteChartCategory(Requests\DeleteChartCategoryRequest $request)
+    {
+        try {
+            list($response) = $this->deleteChartCategoryWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteChartCategoryWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteChartCategoryWithHttpInfo(Requests\DeleteChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->deleteChartCategoryRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteChartCategoryAsync(Requests\DeleteChartCategoryRequest $request)
+    {
+        return $this->deleteChartCategoryAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteChartCategoryAsyncWithHttpInfo(Requests\DeleteChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->deleteChartCategoryRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteChartCategory'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  int $category_index Category index. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteChartCategoryRequest(Requests\DeleteChartCategoryRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteChartCategory');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteChartCategory');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteChartCategory');
+        }
+        // verify the required parameter 'category_index' is set
+        if ($request->categoryIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $categoryIndex when calling deleteChartCategory');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "categoryIndex", $request->categoryIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteChartDataPoint(Requests\DeleteChartDataPointRequest $request)
+    {
+        try {
+            list($response) = $this->deleteChartDataPointWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteChartDataPointWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteChartDataPointWithHttpInfo(Requests\DeleteChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->deleteChartDataPointRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteChartDataPointAsync(Requests\DeleteChartDataPointRequest $request)
+    {
+        return $this->deleteChartDataPointAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteChartDataPointAsyncWithHttpInfo(Requests\DeleteChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->deleteChartDataPointRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteChartDataPoint'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  int $series_index Series index. (required)
+     * @param  int $point_index Data point index. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteChartDataPointRequest(Requests\DeleteChartDataPointRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteChartDataPoint');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteChartDataPoint');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteChartDataPoint');
+        }
+        // verify the required parameter 'series_index' is set
+        if ($request->seriesIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $seriesIndex when calling deleteChartDataPoint');
+        }
+        // verify the required parameter 'point_index' is set
+        if ($request->pointIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $pointIndex when calling deleteChartDataPoint');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $request->seriesIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "pointIndex", $request->pointIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
     public function deleteChartSeries(Requests\DeleteChartSeriesRequest $request)
     {
         try {
@@ -9817,24 +10149,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSlidesApiInfo(Requests\GetSlidesApiInfoRequest $request)
+    public function getSlidesApiInfo()
     {
         try {
-            list($response) = $this->getSlidesApiInfoWithHttpInfo($request);
+            list($response) = $this->getSlidesApiInfoWithHttpInfo();
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlidesApiInfoWithHttpInfo($request);
+            list($response) = $this->getSlidesApiInfoWithHttpInfo();
             return $response;
         } 
     }
 
     /**
      */
-    public function getSlidesApiInfoWithHttpInfo(Requests\GetSlidesApiInfoRequest $request)
+    public function getSlidesApiInfoWithHttpInfo()
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ApiInfo';
-        $httpRequest = $this->getSlidesApiInfoRequest($request);
+        $httpRequest = $this->getSlidesApiInfoRequest();
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -9861,9 +10193,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSlidesApiInfoAsync(Requests\GetSlidesApiInfoRequest $request)
+    public function getSlidesApiInfoAsync()
     {
-        return $this->getSlidesApiInfoAsyncWithHttpInfo($request)
+        return $this->getSlidesApiInfoAsyncWithHttpInfo()
             ->then(function ($response) {
                 return $response[0];
             });
@@ -9871,10 +10203,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSlidesApiInfoAsyncWithHttpInfo(Requests\GetSlidesApiInfoRequest $request)
+    public function getSlidesApiInfoAsyncWithHttpInfo()
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ApiInfo';
-        $httpRequest = $this->getSlidesApiInfoRequest($request);
+        $httpRequest = $this->getSlidesApiInfoRequest();
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -9923,7 +10255,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSlidesApiInfoRequest(Requests\GetSlidesApiInfoRequest $request)
+    protected function getSlidesApiInfoRequest()
     {
 
         $resourcePath = '/slides/info';
@@ -14860,6 +15192,352 @@ class SlidesApi extends ApiBase
         $_tempBody = null;
         if (isset($request->dto)) {
             $_tempBody = $request->dto;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postChartCategory(Requests\PostChartCategoryRequest $request)
+    {
+        try {
+            list($response) = $this->postChartCategoryWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postChartCategoryWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postChartCategoryWithHttpInfo(Requests\PostChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->postChartCategoryRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postChartCategoryAsync(Requests\PostChartCategoryRequest $request)
+    {
+        return $this->postChartCategoryAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postChartCategoryAsyncWithHttpInfo(Requests\PostChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->postChartCategoryRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postChartCategory'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postChartCategoryRequest(Requests\PostChartCategoryRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postChartCategory');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postChartCategory');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postChartCategory');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $_tempBody = null;
+        if (isset($request->category)) {
+            $_tempBody = $request->category;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postChartDataPoint(Requests\PostChartDataPointRequest $request)
+    {
+        try {
+            list($response) = $this->postChartDataPointWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postChartDataPointWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postChartDataPointWithHttpInfo(Requests\PostChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->postChartDataPointRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postChartDataPointAsync(Requests\PostChartDataPointRequest $request)
+    {
+        return $this->postChartDataPointAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postChartDataPointAsyncWithHttpInfo(Requests\PostChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->postChartDataPointRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postChartDataPoint'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  int $series_index Series index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postChartDataPointRequest(Requests\PostChartDataPointRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postChartDataPoint');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postChartDataPoint');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postChartDataPoint');
+        }
+        // verify the required parameter 'series_index' is set
+        if ($request->seriesIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $seriesIndex when calling postChartDataPoint');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $request->seriesIndex);
+        $_tempBody = null;
+        if (isset($request->dataPoint)) {
+            $_tempBody = $request->dataPoint;
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -20248,6 +20926,364 @@ class SlidesApi extends ApiBase
             }
         }
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function putChartCategory(Requests\PutChartCategoryRequest $request)
+    {
+        try {
+            list($response) = $this->putChartCategoryWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putChartCategoryWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putChartCategoryWithHttpInfo(Requests\PutChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->putChartCategoryRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putChartCategoryAsync(Requests\PutChartCategoryRequest $request)
+    {
+        return $this->putChartCategoryAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putChartCategoryAsyncWithHttpInfo(Requests\PutChartCategoryRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->putChartCategoryRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putChartCategory'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  int $category_index Category index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putChartCategoryRequest(Requests\PutChartCategoryRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putChartCategory');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putChartCategory');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling putChartCategory');
+        }
+        // verify the required parameter 'category_index' is set
+        if ($request->categoryIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $categoryIndex when calling putChartCategory');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "categoryIndex", $request->categoryIndex);
+        $_tempBody = null;
+        if (isset($request->category)) {
+            $_tempBody = $request->category;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putChartDataPoint(Requests\PutChartDataPointRequest $request)
+    {
+        try {
+            list($response) = $this->putChartDataPointWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putChartDataPointWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putChartDataPointWithHttpInfo(Requests\PutChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->putChartDataPointRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Chart', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putChartDataPointAsync(Requests\PutChartDataPointRequest $request)
+    {
+        return $this->putChartDataPointAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putChartDataPointAsyncWithHttpInfo(Requests\PutChartDataPointRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Chart';
+        $httpRequest = $this->putChartDataPointRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putChartDataPoint'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  int $shape_index Shape index. (required)
+     * @param  int $series_index Series index. (required)
+     * @param  int $point_index Data point index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putChartDataPointRequest(Requests\PutChartDataPointRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putChartDataPoint');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putChartDataPoint');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($request->shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling putChartDataPoint');
+        }
+        // verify the required parameter 'series_index' is set
+        if ($request->seriesIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $seriesIndex when calling putChartDataPoint');
+        }
+        // verify the required parameter 'point_index' is set
+        if ($request->pointIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $pointIndex when calling putChartDataPoint');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $request->shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $request->seriesIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "pointIndex", $request->pointIndex);
+        $_tempBody = null;
+        if (isset($request->dataPoint)) {
+            $_tempBody = $request->dataPoint;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */

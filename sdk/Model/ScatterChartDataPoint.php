@@ -29,8 +29,6 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
@@ -42,9 +40,9 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScatterChartDataPoint implements ArrayAccess
+class ScatterChartDataPoint extends DataPoint 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -80,7 +78,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -90,7 +88,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -132,7 +130,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -142,7 +140,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -152,7 +150,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -169,12 +167,6 @@ class ScatterChartDataPoint implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -184,6 +176,8 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['xValue'] = isset($data['xValue']) ? $data['xValue'] : null;
         $this->container['yValue'] = isset($data['yValue']) ? $data['yValue'] : null;
         
@@ -196,7 +190,7 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['xValue'] === null) {
             $invalidProperties[] = "'xValue' can't be null";
@@ -215,6 +209,9 @@ class ScatterChartDataPoint implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         if ($this->container['xValue'] === null) {
             return false;

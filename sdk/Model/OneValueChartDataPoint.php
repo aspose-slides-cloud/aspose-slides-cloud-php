@@ -29,8 +29,6 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
@@ -42,7 +40,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint implements ArrayAccess
+class OneValueChartDataPoint extends DataPoint 
 {
     const DISCRIMINATOR = null;
 
@@ -78,7 +76,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -88,7 +86,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -127,7 +125,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -137,7 +135,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -147,7 +145,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -164,12 +162,6 @@ class OneValueChartDataPoint implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -179,6 +171,8 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         
     }
@@ -190,7 +184,7 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
@@ -206,6 +200,9 @@ class OneValueChartDataPoint implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         if ($this->container['value'] === null) {
             return false;

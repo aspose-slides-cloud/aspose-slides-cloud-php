@@ -27,18 +27,39 @@
  */
 
 
-namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
-/*
- * Request model for getSlidesApiInfo operation.
- */
-class GetSlidesApiInfoRequest
+namespace Aspose\Slides\Cloud\Sdk\Tests\Extra;
+ 
+use \Exception;
+use PHPUnit\Framework\Assert;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Api\ApiException;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlideShapeRequest;
+use Aspose\Slides\Cloud\Sdk\Model\Chart;
+use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
+
+class AbstractClassTest extends TestBase
 {
-    /*
-     * Initializes a new instance of the GetSlidesApiInfoRequest class.
-     *  
+    /**
+     * Test case for postSlidesPipeline with two files
      */
-    public function __construct()
+    public function testShape()
     {
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
+
+        $request = new GetSlideShapeRequest("test.ppt", 1, 1, "password", "TempSlidesSDK", null);
+        $result = $this->getApi()->getSlideShape($request);
+        Assert::assertTrue($result->getText() == "1");
     }
 
+    /**
+     * Test case for postSlidesPipeline with two files
+     */
+    public function testChart()
+    {
+        $chart = new Chart();
+        Assert::assertTrue($chart->getType() == "Chart");
+        Assert::assertTrue($chart->getShapeType() == "Chart");
+    }
 }

@@ -1,11 +1,11 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2018 Aspose.Slides for Cloud
+ * <copyright company="Aspose" file="RepeatRequestException.php">
+ *  Copyright (c) 2018 Aspose.Slides for Cloud
  * </copyright>
  * <summary>
- *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
  *  in the Software without restriction, including without limitation the rights
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -26,40 +26,10 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
+namespace Aspose\Slides\Cloud\Sdk\Api;
 
-namespace Aspose\Slides\Cloud\Sdk\Tests\Manual;
- 
 use \Exception;
-use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlideShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Chart;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
-use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
-class AbstractClassTest extends TestBase
+class RepeatRequestException extends Exception
 {
-    /**
-     * Test case for postSlidesPipeline with two files
-     */
-    public function testShape()
-    {
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
-
-        $request = new GetSlideShapeRequest("test.ppt", 1, 1, "password", "TempSlidesSDK", null);
-        $result = $this->getApi()->getSlideShape($request);
-        Assert::assertTrue($result->getText() == "1");
-    }
-
-    /**
-     * Test case for postSlidesPipeline with two files
-     */
-    public function testChart()
-    {
-        $chart = new Chart();
-        Assert::assertTrue($chart->getType() == "Chart");
-        Assert::assertTrue($chart->getShapeType() == "Chart");
-    }
 }

@@ -81,9 +81,14 @@ class ApiBase
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {
             $errorResponse = $e->getResponse();
+            $code = $e->getCode();
+            if ($this->isAuthError($code, $errorResponse)) {
+                $this->requestToken();
+                throw new RepeatRequestException("Request must be retried");
+            }
             throw new ApiException(
-                "[{$e->getCode()}] {$e->getMessage()}",
-                $e->getCode(),
+                "[{$code}] {$e->getMessage()}",
+                $code,
                 $errorResponse ? $errorResponse->getHeaders() : null,
                 $errorResponse ? $errorResponse->getBody() : null);
         }
@@ -91,7 +96,7 @@ class ApiBase
         if ($statusCode < 200 || $statusCode > 299) {
             if ($statusCode === 401) {
                 $this->requestToken();
-                throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                throw new RepeatRequestException("Request must be retried");
             }
             throw new ApiException(
                 sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()),
@@ -140,8 +145,7 @@ class ApiBase
         }
         $headers['Authorization'] = 'Bearer '.$this->config->getAccessToken();
 
-        $headers['x-aspose-client'] = $this->config->getUserAgent();
-        $headers['x-aspose-client-version'] = $this->config->getClientVersion();
+        $headers['x-aspose-client'] = $this->config->getUserAgent()." v".$this->config->getClientVersion();
         if ($this->config->getTimeout()) {
             $headers['x-aspose-timeout'] = $this->config->getTimeout();
         }
@@ -158,6 +162,7 @@ class ApiBase
     {
         if ($e->getCode() >= 400) {
             try {
+                $e->getResponseBody()->rewind();
                 $errorObject = json_decode($e->getResponseBody()->getContents());
                 if (property_exists($errorObject, "error")) {
                     $errorObject = $errorObject->error;
@@ -177,9 +182,19 @@ class ApiBase
     {
         $requestUrl = $this->config->getAuthHost()."/connect/token";
         $postData = "grant_type=client_credentials"."&client_id=".$this->config->getAppSid()."&client_secret=".$this->config->getAppKey();
-        $response = $this->client->send(new Request('POST', $requestUrl,  [ 'Content-Type' => 'application/x-www-form-urlencoded' ], $postData));
-        $result = json_decode($response->getBody()->getContents(), true);
-        $this->config->setAccessToken($result["access_token"]);
+
+        try {
+            $response = $this->client->send(new Request('POST', $requestUrl,  [ 'Content-Type' => 'application/x-www-form-urlencoded' ], $postData));
+            $result = json_decode($response->getBody()->getContents(), true);
+            $this->config->setAccessToken($result["access_token"]);
+        } catch (RequestException $e) {
+            $errorResponse = $e->getResponse();
+            throw new ApiException(
+                "[{$e->getCode()}] {$e->getMessage()}",
+                401,
+                $errorResponse ? $errorResponse->getHeaders() : null,
+                $errorResponse ? $errorResponse->getBody() : null);
+        }
     }
     
     /*
@@ -210,5 +225,19 @@ class ApiBase
             $logInfo .= $name.': '.(is_array($value) ? implode(",", $value) : $value)."\n";
         }
         return $logInfo .= "Body: ".$body."\n";
+    }
+
+    private function isAuthError($code, $response)
+    {
+        if ($code == 401) {
+            return true;
+        }
+        if ($code == 400) {
+            $body = json_decode($response->getBody()->getContents());
+            if (isset($body->error) && isset($body->error->message) && strpos($body->error->message, " Authority") !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }

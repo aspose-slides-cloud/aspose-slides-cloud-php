@@ -29,29 +29,27 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ExportOptions Class Doc Comment
+ * WaterfallChartDataPoint Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description One value chart data point.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ExportOptions implements ArrayAccess
+class WaterfallChartDataPoint extends OneValueChartDataPoint 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExportOptions';
+    protected static $swaggerModelName = 'WaterfallChartDataPoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +57,7 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'defaultRegularFont' => 'string',
-        'format' => 'string'
+        'setAsTotal' => 'bool'
     ];
 
     /**
@@ -69,8 +66,7 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'defaultRegularFont' => null,
-        'format' => null
+        'setAsTotal' => null
     ];
 
     /**
@@ -80,7 +76,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -90,7 +86,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -100,8 +96,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultRegularFont' => 'DefaultRegularFont',
-        'format' => 'Format'
+        'setAsTotal' => 'SetAsTotal'
     ];
 
     /**
@@ -110,8 +105,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'defaultRegularFont' => 'setDefaultRegularFont',
-        'format' => 'setFormat'
+        'setAsTotal' => 'setSetAsTotal'
     ];
 
     /**
@@ -120,8 +114,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'defaultRegularFont' => 'getDefaultRegularFont',
-        'format' => 'getFormat'
+        'setAsTotal' => 'getSetAsTotal'
     ];
 
     /**
@@ -132,7 +125,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -142,7 +135,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -152,7 +145,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -169,12 +162,6 @@ class ExportOptions implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -184,8 +171,9 @@ class ExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        parent::__construct($data);
+
+        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
         
     }
 
@@ -196,7 +184,7 @@ class ExportOptions implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -209,55 +197,34 @@ class ExportOptions implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /**
-     * Gets defaultRegularFont
+     * Gets setAsTotal
      *
-     * @return string
+     * @return bool
      */
-    public function getDefaultRegularFont()
+    public function getSetAsTotal()
     {
-        return $this->container['defaultRegularFont'];
+        return $this->container['setAsTotal'];
     }
 
     /**
-     * Sets defaultRegularFont
+     * Sets setAsTotal
      *
-     * @param string $defaultRegularFont Setting user password to protect the PDF document.
+     * @param bool $setAsTotal Value.
      *
      * @return $this
      */
-    public function setDefaultRegularFont($defaultRegularFont)
+    public function setSetAsTotal($setAsTotal)
     {
-        $this->container['defaultRegularFont'] = $defaultRegularFont;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string $format format
-     *
-     * @return $this
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
+        $this->container['setAsTotal'] = $setAsTotal;
 
         return $this;
     }

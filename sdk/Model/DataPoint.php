@@ -34,15 +34,15 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ExportOptions Class Doc Comment
+ * DataPoint Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description Data point.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ExportOptions implements ArrayAccess
+class DataPoint implements ArrayAccess
 {
     const DISCRIMINATOR = 'Type';
 
@@ -51,7 +51,7 @@ class ExportOptions implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExportOptions';
+    protected static $swaggerModelName = 'DataPoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,7 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'defaultRegularFont' => 'string',
-        'format' => 'string'
+        
     ];
 
     /**
@@ -69,8 +68,7 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'defaultRegularFont' => null,
-        'format' => null
+        
     ];
 
     /**
@@ -100,8 +98,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultRegularFont' => 'DefaultRegularFont',
-        'format' => 'Format'
+        
     ];
 
     /**
@@ -110,8 +107,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'defaultRegularFont' => 'setDefaultRegularFont',
-        'format' => 'setFormat'
+        
     ];
 
     /**
@@ -120,8 +116,7 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'defaultRegularFont' => 'getDefaultRegularFont',
-        'format' => 'getFormat'
+        
     ];
 
     /**
@@ -184,8 +179,6 @@ class ExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
     }
 
@@ -213,54 +206,6 @@ class ExportOptions implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets defaultRegularFont
-     *
-     * @return string
-     */
-    public function getDefaultRegularFont()
-    {
-        return $this->container['defaultRegularFont'];
-    }
-
-    /**
-     * Sets defaultRegularFont
-     *
-     * @param string $defaultRegularFont Setting user password to protect the PDF document.
-     *
-     * @return $this
-     */
-    public function setDefaultRegularFont($defaultRegularFont)
-    {
-        $this->container['defaultRegularFont'] = $defaultRegularFont;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string $format format
-     *
-     * @return $this
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

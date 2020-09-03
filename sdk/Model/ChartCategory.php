@@ -63,7 +63,8 @@ class ChartCategory implements ArrayAccess
         'value' => 'string',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]'
     ];
 
     /**
@@ -76,7 +77,8 @@ class ChartCategory implements ArrayAccess
         'value' => null,
         'fillFormat' => null,
         'effectFormat' => null,
-        'lineFormat' => null
+        'lineFormat' => null,
+        'dataPoints' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class ChartCategory implements ArrayAccess
         'value' => 'Value',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat'
+        'lineFormat' => 'LineFormat',
+        'dataPoints' => 'DataPoints'
     ];
 
     /**
@@ -123,7 +126,8 @@ class ChartCategory implements ArrayAccess
         'value' => 'setValue',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat'
+        'lineFormat' => 'setLineFormat',
+        'dataPoints' => 'setDataPoints'
     ];
 
     /**
@@ -136,7 +140,8 @@ class ChartCategory implements ArrayAccess
         'value' => 'getValue',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat'
+        'lineFormat' => 'getLineFormat',
+        'dataPoints' => 'getDataPoints'
     ];
 
     /**
@@ -204,6 +209,7 @@ class ChartCategory implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
         
     }
 
@@ -348,6 +354,30 @@ class ChartCategory implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataPoints
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]
+     */
+    public function getDataPoints()
+    {
+        return $this->container['dataPoints'];
+    }
+
+    /**
+     * Sets dataPoints
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[] $dataPoints Gets or sets the data points for chart data
+     *
+     * @return $this
+     */
+    public function setDataPoints($dataPoints)
+    {
+        $this->container['dataPoints'] = $dataPoints;
 
         return $this;
     }
