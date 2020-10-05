@@ -29,20 +29,18 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * IShapeExportOptions Class Doc Comment
+ * Sections Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description Section list.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IShapeExportOptions implements ArrayAccess
+class Sections extends ResourceBase 
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +49,7 @@ class IShapeExportOptions implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IShapeExportOptions';
+    protected static $swaggerModelName = 'Sections';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +57,7 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'sectionList' => '\Aspose\Slides\Cloud\Sdk\Model\Section[]'
     ];
 
     /**
@@ -68,7 +66,7 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'sectionList' => null
     ];
 
     /**
@@ -78,7 +76,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -88,7 +86,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -98,7 +96,7 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'sectionList' => 'SectionList'
     ];
 
     /**
@@ -107,7 +105,7 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'sectionList' => 'setSectionList'
     ];
 
     /**
@@ -116,7 +114,7 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'sectionList' => 'getSectionList'
     ];
 
     /**
@@ -127,7 +125,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -137,7 +135,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -147,7 +145,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -164,12 +162,6 @@ class IShapeExportOptions implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -179,6 +171,9 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
+        $this->container['sectionList'] = isset($data['sectionList']) ? $data['sectionList'] : null;
         
     }
 
@@ -189,7 +184,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -202,10 +197,37 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets sectionList
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Section[]
+     */
+    public function getSectionList()
+    {
+        return $this->container['sectionList'];
+    }
+
+    /**
+     * Sets sectionList
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Section[] $sectionList List of slide links.
+     *
+     * @return $this
+     */
+    public function setSectionList($sectionList)
+    {
+        $this->container['sectionList'] = $sectionList;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

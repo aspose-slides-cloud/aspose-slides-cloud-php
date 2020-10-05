@@ -80,6 +80,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "srcPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFile", "srcPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFile", "srcPath", $this->okToFailValues);
@@ -97,6 +99,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "destPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFile", "destPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFile", "destPath", $this->okToFailValues);
@@ -114,6 +118,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "srcStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFile", "srcStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFile", "srcStorageName", $this->okToFailValues);
@@ -131,6 +137,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "destStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFile", "destStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFile", "destStorageName", $this->okToFailValues);
@@ -148,6 +156,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFile", "versionId", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFile", "versionId", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFile", "versionId", $this->okToFailValues);
@@ -194,6 +204,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "srcPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFolder", "srcPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFolder", "srcPath", $this->okToFailValues);
@@ -211,6 +223,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "destPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFolder", "destPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFolder", "destPath", $this->okToFailValues);
@@ -228,6 +242,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "srcStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFolder", "srcStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFolder", "srcStorageName", $this->okToFailValues);
@@ -245,6 +261,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "copyFolder", "destStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "copyFolder", "destStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("copyFolder", "destStorageName", $this->okToFailValues);
@@ -289,6 +307,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createFolder", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createFolder", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("createFolder", "path", $this->okToFailValues);
@@ -306,6 +326,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createFolder", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createFolder", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("createFolder", "storageName", $this->okToFailValues);
@@ -355,6 +377,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "name", $this->okToFailValues);
@@ -372,6 +396,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "slideIndex", $this->okToFailValues);
@@ -389,6 +415,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "shapeIndex", $this->okToFailValues);
@@ -406,6 +434,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "categoryIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "categoryIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "categoryIndex", $this->okToFailValues);
@@ -423,6 +453,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "password", $this->okToFailValues);
@@ -440,6 +472,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "folder", $this->okToFailValues);
@@ -457,6 +491,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartCategory", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartCategory", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartCategory", "storage", $this->okToFailValues);
@@ -507,6 +543,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "name", $this->okToFailValues);
@@ -524,6 +562,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "slideIndex", $this->okToFailValues);
@@ -541,6 +581,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "shapeIndex", $this->okToFailValues);
@@ -558,6 +600,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "seriesIndex", $this->okToFailValues);
@@ -575,6 +619,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "pointIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "pointIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "pointIndex", $this->okToFailValues);
@@ -592,6 +638,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "password", $this->okToFailValues);
@@ -609,6 +657,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "folder", $this->okToFailValues);
@@ -626,6 +676,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartDataPoint", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartDataPoint", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartDataPoint", "storage", $this->okToFailValues);
@@ -675,6 +727,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "name", $this->okToFailValues);
@@ -692,6 +746,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "slideIndex", $this->okToFailValues);
@@ -709,6 +765,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "shapeIndex", $this->okToFailValues);
@@ -726,6 +784,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "seriesIndex", $this->okToFailValues);
@@ -743,6 +803,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "password", $this->okToFailValues);
@@ -760,6 +822,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "folder", $this->okToFailValues);
@@ -777,6 +841,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteChartSeries", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteChartSeries", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteChartSeries", "storage", $this->okToFailValues);
@@ -822,6 +888,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFile", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFile", "path", $this->okToFailValues);
@@ -839,6 +907,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFile", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFile", "storageName", $this->okToFailValues);
@@ -856,6 +926,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFile", "versionId", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFile", "versionId", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFile", "versionId", $this->okToFailValues);
@@ -901,6 +973,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFolder", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFolder", "path", $this->okToFailValues);
@@ -918,6 +992,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFolder", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFolder", "storageName", $this->okToFailValues);
@@ -935,6 +1011,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteFolder", "recursive", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteFolder", "recursive", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteFolder", "recursive", $this->okToFailValues);
@@ -982,6 +1060,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlide", "name", $this->okToFailValues);
@@ -999,6 +1079,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlide", "slideIndex", $this->okToFailValues);
@@ -1016,6 +1098,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlide", "password", $this->okToFailValues);
@@ -1033,6 +1117,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlide", "folder", $this->okToFailValues);
@@ -1050,6 +1136,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlide", "storage", $this->okToFailValues);
@@ -1099,6 +1187,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "name", $this->okToFailValues);
@@ -1116,6 +1206,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "slideIndex", $this->okToFailValues);
@@ -1133,6 +1225,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "shapeIndex", $this->okToFailValues);
@@ -1150,6 +1244,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "paragraphIndex", $this->okToFailValues);
@@ -1167,6 +1263,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "password", $this->okToFailValues);
@@ -1184,6 +1282,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "folder", $this->okToFailValues);
@@ -1201,6 +1301,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraph", "storage", $this->okToFailValues);
@@ -1250,6 +1352,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "name", $this->okToFailValues);
@@ -1267,6 +1371,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "slideIndex", $this->okToFailValues);
@@ -1284,6 +1390,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "shapeIndex", $this->okToFailValues);
@@ -1301,6 +1409,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "paragraphs", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "paragraphs", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "paragraphs", $this->okToFailValues);
@@ -1318,6 +1428,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "password", $this->okToFailValues);
@@ -1335,6 +1447,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "folder", $this->okToFailValues);
@@ -1352,6 +1466,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideParagraphs", "storage", $this->okToFailValues);
@@ -1402,6 +1518,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "name", $this->okToFailValues);
@@ -1419,6 +1537,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "slideIndex", $this->okToFailValues);
@@ -1436,6 +1556,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "shapeIndex", $this->okToFailValues);
@@ -1453,6 +1575,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "paragraphIndex", $this->okToFailValues);
@@ -1470,6 +1594,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "portionIndex", $this->okToFailValues);
@@ -1487,6 +1613,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "password", $this->okToFailValues);
@@ -1504,6 +1632,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "folder", $this->okToFailValues);
@@ -1521,6 +1651,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortion", "storage", $this->okToFailValues);
@@ -1571,6 +1703,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "name", $this->okToFailValues);
@@ -1588,6 +1722,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "slideIndex", $this->okToFailValues);
@@ -1605,6 +1741,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "shapeIndex", $this->okToFailValues);
@@ -1622,6 +1760,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "paragraphIndex", $this->okToFailValues);
@@ -1639,6 +1779,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "portions", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "portions", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "portions", $this->okToFailValues);
@@ -1656,6 +1798,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "password", $this->okToFailValues);
@@ -1673,6 +1817,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "folder", $this->okToFailValues);
@@ -1690,6 +1836,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlidePortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlidePortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlidePortions", "storage", $this->okToFailValues);
@@ -1738,6 +1886,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "name", $this->okToFailValues);
@@ -1755,6 +1905,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "slideIndex", $this->okToFailValues);
@@ -1772,6 +1924,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "shapeIndex", $this->okToFailValues);
@@ -1789,6 +1943,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "password", $this->okToFailValues);
@@ -1806,6 +1962,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "folder", $this->okToFailValues);
@@ -1823,6 +1981,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShape", "storage", $this->okToFailValues);
@@ -1871,6 +2031,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "name", $this->okToFailValues);
@@ -1888,6 +2050,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "slideIndex", $this->okToFailValues);
@@ -1905,6 +2069,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "shapes", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "shapes", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "shapes", $this->okToFailValues);
@@ -1922,6 +2088,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "password", $this->okToFailValues);
@@ -1939,6 +2107,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "folder", $this->okToFailValues);
@@ -1956,6 +2126,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteNotesSlideShapes", "storage", $this->okToFailValues);
@@ -2005,6 +2177,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "name", $this->okToFailValues);
@@ -2022,6 +2196,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "slideIndex", $this->okToFailValues);
@@ -2039,6 +2215,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "shapeIndex", $this->okToFailValues);
@@ -2056,6 +2234,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "paragraphIndex", $this->okToFailValues);
@@ -2073,6 +2253,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "password", $this->okToFailValues);
@@ -2090,6 +2272,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "folder", $this->okToFailValues);
@@ -2107,6 +2291,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraph", "storage", $this->okToFailValues);
@@ -2156,6 +2342,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "name", $this->okToFailValues);
@@ -2173,6 +2361,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "slideIndex", $this->okToFailValues);
@@ -2190,6 +2380,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "shapeIndex", $this->okToFailValues);
@@ -2207,6 +2399,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "paragraphs", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "paragraphs", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "paragraphs", $this->okToFailValues);
@@ -2224,6 +2418,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "password", $this->okToFailValues);
@@ -2241,6 +2437,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "folder", $this->okToFailValues);
@@ -2258,6 +2456,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteParagraphs", "storage", $this->okToFailValues);
@@ -2308,6 +2508,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "name", $this->okToFailValues);
@@ -2325,6 +2527,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "slideIndex", $this->okToFailValues);
@@ -2342,6 +2546,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "shapeIndex", $this->okToFailValues);
@@ -2359,6 +2565,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "paragraphIndex", $this->okToFailValues);
@@ -2376,6 +2584,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "portionIndex", $this->okToFailValues);
@@ -2393,6 +2603,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "password", $this->okToFailValues);
@@ -2410,6 +2622,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "folder", $this->okToFailValues);
@@ -2427,6 +2641,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortion", "storage", $this->okToFailValues);
@@ -2477,6 +2693,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "name", $this->okToFailValues);
@@ -2494,6 +2712,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "slideIndex", $this->okToFailValues);
@@ -2511,6 +2731,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "shapeIndex", $this->okToFailValues);
@@ -2528,6 +2750,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "paragraphIndex", $this->okToFailValues);
@@ -2545,6 +2769,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "portions", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "portions", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "portions", $this->okToFailValues);
@@ -2562,6 +2788,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "password", $this->okToFailValues);
@@ -2579,6 +2807,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "folder", $this->okToFailValues);
@@ -2596,9 +2826,301 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deletePortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deletePortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deletePortions", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSectionRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSection", "name", $this->values);
+        $testsectionIndex = TestUtils::getTestValue("deleteSection", "sectionIndex", $this->values);
+        $testwithSlides = TestUtils::getTestValue("deleteSection", "withSlides", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSection", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSection", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSection", "storage", $this->values);
+        $request = new Requests\DeleteSectionRequest($testname, $testsectionIndex, $testwithSlides, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSection
+     * Delete a presentation section.
+     */
+    public function testDeleteSection()
+    {
+        $request = $this->getDeleteSectionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSection");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSectionInvalidname()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSection", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionInvalidsectionIndex()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->sectionIndex = TestUtils::invalidizeValue("sectionIndex", "deleteSection", $request->sectionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "sectionIndex", $request->sectionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "sectionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "sectionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "sectionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionInvalidwithSlides()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->withSlides = TestUtils::invalidizeValue("withSlides", "deleteSection", $request->withSlides, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "withSlides", $request->withSlides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "withSlides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "withSlides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "withSlides", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionInvalidpassword()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSection", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionInvalidfolder()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSection", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionInvalidstorage()
+    {
+        $request = $this->getDeleteSectionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSection", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSection", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSection", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSection", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSection", "storage", $this->okToFailValues);
+        }
+    }
+    private function getDeleteSectionsRequest()
+    {
+        $testname = TestUtils::getTestValue("deleteSections", "name", $this->values);
+        $testsections = TestUtils::getTestValue("deleteSections", "sections", $this->values);
+        $testwithSlides = TestUtils::getTestValue("deleteSections", "withSlides", $this->values);
+        $testpassword = TestUtils::getTestValue("deleteSections", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("deleteSections", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("deleteSections", "storage", $this->values);
+        $request = new Requests\DeleteSectionsRequest($testname, $testsections, $testwithSlides, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for deleteSections
+     * Delete presentation sections.
+     */
+    public function testDeleteSections()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSections");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSectionsInvalidname()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "deleteSections", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionsInvalidsections()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->sections = TestUtils::invalidizeValue("sections", "deleteSections", $request->sections, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "sections", $request->sections);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "sections", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "sections", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "sections", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionsInvalidwithSlides()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->withSlides = TestUtils::invalidizeValue("withSlides", "deleteSections", $request->withSlides, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "withSlides", $request->withSlides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "withSlides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "withSlides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "withSlides", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionsInvalidpassword()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "deleteSections", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionsInvalidfolder()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "deleteSections", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testDeleteSectionsInvalidstorage()
+    {
+        $request = $this->getDeleteSectionsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "deleteSections", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSections", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSections", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSections", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSections", "storage", $this->okToFailValues);
         }
     }
     private function getDeleteSlideAnimationRequest()
@@ -2643,6 +3165,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimation", "name", $this->okToFailValues);
@@ -2660,6 +3184,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimation", "slideIndex", $this->okToFailValues);
@@ -2677,6 +3203,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimation", "password", $this->okToFailValues);
@@ -2694,6 +3222,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimation", "folder", $this->okToFailValues);
@@ -2711,6 +3241,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimation", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimation", "storage", $this->okToFailValues);
@@ -2759,6 +3291,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "name", $this->okToFailValues);
@@ -2776,6 +3310,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "slideIndex", $this->okToFailValues);
@@ -2793,6 +3329,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "effectIndex", $this->okToFailValues);
@@ -2810,6 +3348,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "password", $this->okToFailValues);
@@ -2827,6 +3367,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "folder", $this->okToFailValues);
@@ -2844,6 +3386,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationEffect", "storage", $this->okToFailValues);
@@ -2892,6 +3436,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "name", $this->okToFailValues);
@@ -2909,6 +3455,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "slideIndex", $this->okToFailValues);
@@ -2926,6 +3474,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "sequenceIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "sequenceIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "sequenceIndex", $this->okToFailValues);
@@ -2943,6 +3493,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "password", $this->okToFailValues);
@@ -2960,6 +3512,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "folder", $this->okToFailValues);
@@ -2977,6 +3531,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequence", "storage", $this->okToFailValues);
@@ -3026,6 +3582,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "name", $this->okToFailValues);
@@ -3043,6 +3601,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "slideIndex", $this->okToFailValues);
@@ -3060,6 +3620,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $this->okToFailValues);
@@ -3077,6 +3639,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "effectIndex", $this->okToFailValues);
@@ -3094,6 +3658,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "password", $this->okToFailValues);
@@ -3111,6 +3677,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "folder", $this->okToFailValues);
@@ -3128,6 +3696,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequenceEffect", "storage", $this->okToFailValues);
@@ -3175,6 +3745,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequences", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequences", "name", $this->okToFailValues);
@@ -3192,6 +3764,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequences", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequences", "slideIndex", $this->okToFailValues);
@@ -3209,6 +3783,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequences", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequences", "password", $this->okToFailValues);
@@ -3226,6 +3802,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequences", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequences", "folder", $this->okToFailValues);
@@ -3243,6 +3821,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationInteractiveSequences", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationInteractiveSequences", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationInteractiveSequences", "storage", $this->okToFailValues);
@@ -3290,6 +3870,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationMainSequence", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationMainSequence", "name", $this->okToFailValues);
@@ -3307,6 +3889,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationMainSequence", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationMainSequence", "slideIndex", $this->okToFailValues);
@@ -3324,6 +3908,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationMainSequence", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationMainSequence", "password", $this->okToFailValues);
@@ -3341,6 +3927,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationMainSequence", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationMainSequence", "folder", $this->okToFailValues);
@@ -3358,6 +3946,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideAnimationMainSequence", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideAnimationMainSequence", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideAnimationMainSequence", "storage", $this->okToFailValues);
@@ -3405,6 +3995,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideByIndex", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideByIndex", "name", $this->okToFailValues);
@@ -3422,6 +4014,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideByIndex", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideByIndex", "slideIndex", $this->okToFailValues);
@@ -3439,6 +4033,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideByIndex", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideByIndex", "password", $this->okToFailValues);
@@ -3456,6 +4052,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideByIndex", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideByIndex", "folder", $this->okToFailValues);
@@ -3473,6 +4071,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideByIndex", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideByIndex", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideByIndex", "storage", $this->okToFailValues);
@@ -3521,6 +4121,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "name", $this->okToFailValues);
@@ -3538,6 +4140,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "slideIndex", $this->okToFailValues);
@@ -3555,6 +4159,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "shapeIndex", $this->okToFailValues);
@@ -3572,6 +4178,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "password", $this->okToFailValues);
@@ -3589,6 +4197,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "folder", $this->okToFailValues);
@@ -3606,6 +4216,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShape", "storage", $this->okToFailValues);
@@ -3654,6 +4266,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "name", $this->okToFailValues);
@@ -3671,6 +4285,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "slideIndex", $this->okToFailValues);
@@ -3688,6 +4304,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "shapes", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "shapes", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "shapes", $this->okToFailValues);
@@ -3705,6 +4323,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "password", $this->okToFailValues);
@@ -3722,6 +4342,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "folder", $this->okToFailValues);
@@ -3739,6 +4361,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideShapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideShapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideShapes", "storage", $this->okToFailValues);
@@ -3788,6 +4412,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "name", $this->okToFailValues);
@@ -3805,6 +4431,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "slideIndex", $this->okToFailValues);
@@ -3822,6 +4450,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "path", $this->okToFailValues);
@@ -3839,6 +4469,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "shapeIndex", $this->okToFailValues);
@@ -3856,6 +4488,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "password", $this->okToFailValues);
@@ -3873,6 +4507,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "folder", $this->okToFailValues);
@@ -3890,6 +4526,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshape", "storage", $this->okToFailValues);
@@ -3939,6 +4577,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "name", $this->okToFailValues);
@@ -3956,6 +4596,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "slideIndex", $this->okToFailValues);
@@ -3973,6 +4615,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "path", $this->okToFailValues);
@@ -3990,6 +4634,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "shapes", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "shapes", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "shapes", $this->okToFailValues);
@@ -4007,6 +4653,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "password", $this->okToFailValues);
@@ -4024,6 +4672,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "folder", $this->okToFailValues);
@@ -4041,6 +4691,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlideSubshapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlideSubshapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlideSubshapes", "storage", $this->okToFailValues);
@@ -4088,6 +4740,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesCleanSlidesList", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesCleanSlidesList", "name", $this->okToFailValues);
@@ -4105,6 +4759,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "slides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesCleanSlidesList", "slides", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesCleanSlidesList", "slides", $this->okToFailValues);
@@ -4122,6 +4778,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesCleanSlidesList", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesCleanSlidesList", "password", $this->okToFailValues);
@@ -4139,6 +4797,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesCleanSlidesList", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesCleanSlidesList", "folder", $this->okToFailValues);
@@ -4156,6 +4816,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesCleanSlidesList", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesCleanSlidesList", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesCleanSlidesList", "storage", $this->okToFailValues);
@@ -4202,6 +4864,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperties", "name", $this->okToFailValues);
@@ -4219,6 +4883,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperties", "password", $this->okToFailValues);
@@ -4236,6 +4902,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperties", "folder", $this->okToFailValues);
@@ -4253,6 +4921,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperties", "storage", $this->okToFailValues);
@@ -4300,6 +4970,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperty", "name", $this->okToFailValues);
@@ -4317,6 +4989,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperty", "propertyName", $this->okToFailValues);
@@ -4334,6 +5008,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperty", "password", $this->okToFailValues);
@@ -4351,6 +5027,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperty", "folder", $this->okToFailValues);
@@ -4368,6 +5046,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesDocumentProperty", "storage", $this->okToFailValues);
@@ -4415,6 +5095,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "name", $this->okToFailValues);
@@ -4432,6 +5114,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "slideIndex", $this->okToFailValues);
@@ -4449,6 +5133,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "password", $this->okToFailValues);
@@ -4466,6 +5152,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "folder", $this->okToFailValues);
@@ -4483,6 +5171,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlidesSlideBackground", "storage", $this->okToFailValues);
@@ -4533,6 +5223,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "name", $this->okToFailValues);
@@ -4550,6 +5242,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "slideIndex", $this->okToFailValues);
@@ -4567,6 +5261,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "path", $this->okToFailValues);
@@ -4584,6 +5280,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -4601,6 +5299,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "paragraphIndex", $this->okToFailValues);
@@ -4618,6 +5318,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "password", $this->okToFailValues);
@@ -4635,6 +5337,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "folder", $this->okToFailValues);
@@ -4652,6 +5356,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraph", "storage", $this->okToFailValues);
@@ -4702,6 +5408,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "name", $this->okToFailValues);
@@ -4719,6 +5427,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "slideIndex", $this->okToFailValues);
@@ -4736,6 +5446,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "path", $this->okToFailValues);
@@ -4753,6 +5465,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "shapeIndex", $this->okToFailValues);
@@ -4770,6 +5484,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "paragraphs", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "paragraphs", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "paragraphs", $this->okToFailValues);
@@ -4787,6 +5503,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "password", $this->okToFailValues);
@@ -4804,6 +5522,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "folder", $this->okToFailValues);
@@ -4821,6 +5541,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapeParagraphs", "storage", $this->okToFailValues);
@@ -4872,6 +5594,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "name", $this->okToFailValues);
@@ -4889,6 +5613,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "slideIndex", $this->okToFailValues);
@@ -4906,6 +5632,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "path", $this->okToFailValues);
@@ -4923,6 +5651,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "shapeIndex", $this->okToFailValues);
@@ -4940,6 +5670,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "paragraphIndex", $this->okToFailValues);
@@ -4957,6 +5689,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "portionIndex", $this->okToFailValues);
@@ -4974,6 +5708,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "password", $this->okToFailValues);
@@ -4991,6 +5727,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "folder", $this->okToFailValues);
@@ -5008,6 +5746,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortion", "storage", $this->okToFailValues);
@@ -5059,6 +5799,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "name", $this->okToFailValues);
@@ -5076,6 +5818,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "slideIndex", $this->okToFailValues);
@@ -5093,6 +5837,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "path", $this->okToFailValues);
@@ -5110,6 +5856,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "shapeIndex", $this->okToFailValues);
@@ -5127,6 +5875,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "paragraphIndex", $this->okToFailValues);
@@ -5144,6 +5894,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "portions", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "portions", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "portions", $this->okToFailValues);
@@ -5161,6 +5913,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "password", $this->okToFailValues);
@@ -5178,6 +5932,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "folder", $this->okToFailValues);
@@ -5195,6 +5951,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "deleteSubshapePortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSubshapePortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "storage", $this->okToFailValues);
@@ -5240,6 +5998,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadFile", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("downloadFile", "path", $this->okToFailValues);
@@ -5257,6 +6017,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadFile", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("downloadFile", "storageName", $this->okToFailValues);
@@ -5274,6 +6036,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadFile", "versionId", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadFile", "versionId", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("downloadFile", "versionId", $this->okToFailValues);
@@ -5317,6 +6081,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getDiscUsage", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getDiscUsage", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getDiscUsage", "storageName", $this->okToFailValues);
@@ -5361,6 +6127,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFileVersions", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getFileVersions", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getFileVersions", "path", $this->okToFailValues);
@@ -5378,6 +6146,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFileVersions", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getFileVersions", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getFileVersions", "storageName", $this->okToFailValues);
@@ -5422,6 +6192,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFilesList", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getFilesList", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getFilesList", "path", $this->okToFailValues);
@@ -5439,6 +6211,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getFilesList", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getFilesList", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getFilesList", "storageName", $this->okToFailValues);
@@ -5486,6 +6260,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlide", "name", $this->okToFailValues);
@@ -5503,6 +6279,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlide", "slideIndex", $this->okToFailValues);
@@ -5520,6 +6298,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlide", "password", $this->okToFailValues);
@@ -5537,6 +6317,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlide", "folder", $this->okToFailValues);
@@ -5554,6 +6336,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlide", "storage", $this->okToFailValues);
@@ -5600,6 +6384,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlidesList", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlidesList", "name", $this->okToFailValues);
@@ -5617,6 +6403,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlidesList", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlidesList", "password", $this->okToFailValues);
@@ -5634,6 +6422,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlidesList", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlidesList", "folder", $this->okToFailValues);
@@ -5651,6 +6441,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getLayoutSlidesList", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getLayoutSlidesList", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getLayoutSlidesList", "storage", $this->okToFailValues);
@@ -5698,6 +6490,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlide", "name", $this->okToFailValues);
@@ -5715,6 +6509,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlide", "slideIndex", $this->okToFailValues);
@@ -5732,6 +6528,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlide", "password", $this->okToFailValues);
@@ -5749,6 +6547,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlide", "folder", $this->okToFailValues);
@@ -5766,6 +6566,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlide", "storage", $this->okToFailValues);
@@ -5812,6 +6614,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlidesList", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlidesList", "name", $this->okToFailValues);
@@ -5829,6 +6633,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlidesList", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlidesList", "password", $this->okToFailValues);
@@ -5846,6 +6652,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlidesList", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlidesList", "folder", $this->okToFailValues);
@@ -5863,6 +6671,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getMasterSlidesList", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getMasterSlidesList", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getMasterSlidesList", "storage", $this->okToFailValues);
@@ -5910,6 +6720,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlide", "name", $this->okToFailValues);
@@ -5927,6 +6739,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlide", "slideIndex", $this->okToFailValues);
@@ -5944,6 +6758,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlide", "password", $this->okToFailValues);
@@ -5961,6 +6777,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlide", "folder", $this->okToFailValues);
@@ -5978,6 +6796,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlide", "storage", $this->okToFailValues);
@@ -6025,6 +6845,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideExists", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideExists", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideExists", "name", $this->okToFailValues);
@@ -6042,6 +6864,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideExists", "slideIndex", $this->okToFailValues);
@@ -6059,6 +6883,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideExists", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideExists", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideExists", "password", $this->okToFailValues);
@@ -6076,6 +6902,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideExists", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideExists", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideExists", "folder", $this->okToFailValues);
@@ -6093,9 +6921,136 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideExists", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideExists", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideExists", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetNotesSlideHeaderFooterRequest()
+    {
+        $testname = TestUtils::getTestValue("getNotesSlideHeaderFooter", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getNotesSlideHeaderFooter", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getNotesSlideHeaderFooter", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("getNotesSlideHeaderFooter", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("getNotesSlideHeaderFooter", "folder", $this->values);
+        $request = new Requests\GetNotesSlideHeaderFooterRequest($testname, $testslideIndex, $testpassword, $teststorage, $testfolder);
+        return $request;
+    }
+
+    /**
+     * Test case for getNotesSlideHeaderFooter
+     * Get header/footer info for the notes slide.
+     */
+    public function testGetNotesSlideHeaderFooter()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getNotesSlideHeaderFooter");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetNotesSlideHeaderFooterInvalidname()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getNotesSlideHeaderFooter", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideHeaderFooter", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideHeaderFooterInvalidslideIndex()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getNotesSlideHeaderFooter", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideHeaderFooter", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideHeaderFooterInvalidpassword()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getNotesSlideHeaderFooter", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideHeaderFooter", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideHeaderFooterInvalidstorage()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getNotesSlideHeaderFooter", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideHeaderFooter", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testGetNotesSlideHeaderFooterInvalidfolder()
+    {
+        $request = $this->getGetNotesSlideHeaderFooterRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getNotesSlideHeaderFooter", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getNotesSlideHeaderFooter", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getNotesSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getNotesSlideHeaderFooter", "folder", $this->okToFailValues);
         }
     }
     private function getGetNotesSlideShapeRequest()
@@ -6141,6 +7096,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "name", $this->okToFailValues);
@@ -6158,6 +7115,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "slideIndex", $this->okToFailValues);
@@ -6175,6 +7134,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "shapeIndex", $this->okToFailValues);
@@ -6192,6 +7153,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "password", $this->okToFailValues);
@@ -6209,6 +7172,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "folder", $this->okToFailValues);
@@ -6226,6 +7191,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShape", "storage", $this->okToFailValues);
@@ -6275,6 +7242,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "name", $this->okToFailValues);
@@ -6292,6 +7261,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "slideIndex", $this->okToFailValues);
@@ -6309,6 +7280,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -6326,6 +7299,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "paragraphIndex", $this->okToFailValues);
@@ -6343,6 +7318,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "password", $this->okToFailValues);
@@ -6360,6 +7337,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "folder", $this->okToFailValues);
@@ -6377,6 +7356,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraph", "storage", $this->okToFailValues);
@@ -6425,6 +7406,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "name", $this->okToFailValues);
@@ -6442,6 +7425,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "slideIndex", $this->okToFailValues);
@@ -6459,6 +7444,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "shapeIndex", $this->okToFailValues);
@@ -6476,6 +7463,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "password", $this->okToFailValues);
@@ -6493,6 +7482,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "folder", $this->okToFailValues);
@@ -6510,6 +7501,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapeParagraphs", "storage", $this->okToFailValues);
@@ -6560,6 +7553,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "name", $this->okToFailValues);
@@ -6577,6 +7572,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "slideIndex", $this->okToFailValues);
@@ -6594,6 +7591,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "shapeIndex", $this->okToFailValues);
@@ -6611,6 +7610,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "paragraphIndex", $this->okToFailValues);
@@ -6628,6 +7629,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "portionIndex", $this->okToFailValues);
@@ -6645,6 +7648,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "password", $this->okToFailValues);
@@ -6662,6 +7667,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "folder", $this->okToFailValues);
@@ -6679,6 +7686,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortion", "storage", $this->okToFailValues);
@@ -6728,6 +7737,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "name", $this->okToFailValues);
@@ -6745,6 +7756,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "slideIndex", $this->okToFailValues);
@@ -6762,6 +7775,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "shapeIndex", $this->okToFailValues);
@@ -6779,6 +7794,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "paragraphIndex", $this->okToFailValues);
@@ -6796,6 +7813,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "password", $this->okToFailValues);
@@ -6813,6 +7832,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "folder", $this->okToFailValues);
@@ -6830,6 +7851,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapePortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapePortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapePortions", "storage", $this->okToFailValues);
@@ -6877,6 +7900,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "name", $this->okToFailValues);
@@ -6894,6 +7919,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "slideIndex", $this->okToFailValues);
@@ -6911,6 +7938,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "password", $this->okToFailValues);
@@ -6928,6 +7957,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "folder", $this->okToFailValues);
@@ -6945,6 +7976,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideShapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideShapes", "storage", $this->okToFailValues);
@@ -6996,6 +8029,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "name", $this->okToFailValues);
@@ -7013,6 +8048,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "slideIndex", $this->okToFailValues);
@@ -7030,6 +8067,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "format", $this->okToFailValues);
@@ -7047,6 +8086,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "width", $this->okToFailValues);
@@ -7064,6 +8105,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "height", $this->okToFailValues);
@@ -7081,6 +8124,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "password", $this->okToFailValues);
@@ -7098,6 +8143,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "folder", $this->okToFailValues);
@@ -7115,6 +8162,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "storage", $this->okToFailValues);
@@ -7132,6 +8181,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getNotesSlideWithFormat", "fontsFolder", $this->okToFailValues);
@@ -7182,6 +8233,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "name", $this->okToFailValues);
@@ -7199,6 +8252,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "slideIndex", $this->okToFailValues);
@@ -7216,6 +8271,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "shapeIndex", $this->okToFailValues);
@@ -7233,6 +8290,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "paragraphIndex", $this->okToFailValues);
@@ -7250,6 +8309,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "portionIndex", $this->okToFailValues);
@@ -7267,6 +8328,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "password", $this->okToFailValues);
@@ -7284,6 +8347,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "folder", $this->okToFailValues);
@@ -7301,6 +8366,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortion", "storage", $this->okToFailValues);
@@ -7350,6 +8417,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "name", $this->okToFailValues);
@@ -7367,6 +8436,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "slideIndex", $this->okToFailValues);
@@ -7384,6 +8455,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "shapeIndex", $this->okToFailValues);
@@ -7401,6 +8474,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "paragraphIndex", $this->okToFailValues);
@@ -7418,6 +8493,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "password", $this->okToFailValues);
@@ -7435,6 +8512,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "folder", $this->okToFailValues);
@@ -7452,9 +8531,116 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getParagraphPortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphPortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getParagraphPortions", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSectionsRequest()
+    {
+        $testname = TestUtils::getTestValue("getSections", "name", $this->values);
+        $testpassword = TestUtils::getTestValue("getSections", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSections", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSections", "storage", $this->values);
+        $request = new Requests\GetSectionsRequest($testname, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSections
+     * Read presentation sections info.
+     */
+    public function testGetSections()
+    {
+        $request = $this->getGetSectionsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSections", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSections($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSections");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSectionsInvalidname()
+    {
+        $request = $this->getGetSectionsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSections", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSections", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSections", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSections", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSections", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSectionsInvalidpassword()
+    {
+        $request = $this->getGetSectionsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSections", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSections", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSections", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSections", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSections", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSectionsInvalidfolder()
+    {
+        $request = $this->getGetSectionsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSections", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSections", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSections", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSections", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSections", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSectionsInvalidstorage()
+    {
+        $request = $this->getGetSectionsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSections", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSections", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSections", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSections", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSections", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlideAnimationRequest()
@@ -7500,6 +8686,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "name", $this->okToFailValues);
@@ -7517,6 +8705,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "slideIndex", $this->okToFailValues);
@@ -7534,6 +8724,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "shapeIndex", $this->okToFailValues);
@@ -7551,6 +8743,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "password", $this->okToFailValues);
@@ -7568,6 +8762,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "folder", $this->okToFailValues);
@@ -7585,9 +8781,136 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideAnimation", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideAnimation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideAnimation", "storage", $this->okToFailValues);
+        }
+    }
+    private function getGetSlideHeaderFooterRequest()
+    {
+        $testname = TestUtils::getTestValue("getSlideHeaderFooter", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("getSlideHeaderFooter", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("getSlideHeaderFooter", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("getSlideHeaderFooter", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("getSlideHeaderFooter", "storage", $this->values);
+        $request = new Requests\GetSlideHeaderFooterRequest($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for getSlideHeaderFooter
+     * Get footer info for the slide.
+     */
+    public function testGetSlideHeaderFooter()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getSlideHeaderFooter");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetSlideHeaderFooterInvalidname()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        $request->name = TestUtils::invalidizeValue("name", "getSlideHeaderFooter", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideHeaderFooter", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideHeaderFooterInvalidslideIndex()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "getSlideHeaderFooter", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideHeaderFooter", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideHeaderFooterInvalidpassword()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        $request->password = TestUtils::invalidizeValue("password", "getSlideHeaderFooter", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideHeaderFooter", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideHeaderFooterInvalidfolder()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "getSlideHeaderFooter", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideHeaderFooter", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testGetSlideHeaderFooterInvalidstorage()
+    {
+        $request = $this->getGetSlideHeaderFooterRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "getSlideHeaderFooter", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("getSlideHeaderFooter", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSlideHeaderFooter", "storage", $this->okToFailValues);
         }
     }
     private function getGetSlideShapeRequest()
@@ -7633,6 +8956,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "name", $this->okToFailValues);
@@ -7650,6 +8975,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "slideIndex", $this->okToFailValues);
@@ -7667,6 +8994,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "shapeIndex", $this->okToFailValues);
@@ -7684,6 +9013,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "password", $this->okToFailValues);
@@ -7701,6 +9032,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "folder", $this->okToFailValues);
@@ -7718,6 +9051,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShape", "storage", $this->okToFailValues);
@@ -7767,6 +9102,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "name", $this->okToFailValues);
@@ -7784,6 +9121,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "slideIndex", $this->okToFailValues);
@@ -7801,6 +9140,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -7818,6 +9159,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "paragraphIndex", $this->okToFailValues);
@@ -7835,6 +9178,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "password", $this->okToFailValues);
@@ -7852,6 +9197,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "folder", $this->okToFailValues);
@@ -7869,6 +9216,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraph", "storage", $this->okToFailValues);
@@ -7917,6 +9266,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "name", $this->okToFailValues);
@@ -7934,6 +9285,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "slideIndex", $this->okToFailValues);
@@ -7951,6 +9304,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "shapeIndex", $this->okToFailValues);
@@ -7968,6 +9323,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "password", $this->okToFailValues);
@@ -7985,6 +9342,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "folder", $this->okToFailValues);
@@ -8002,6 +9361,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapeParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapeParagraphs", "storage", $this->okToFailValues);
@@ -8049,6 +9410,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "name", $this->okToFailValues);
@@ -8066,6 +9429,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "slideIndex", $this->okToFailValues);
@@ -8083,6 +9448,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "password", $this->okToFailValues);
@@ -8100,6 +9467,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "folder", $this->okToFailValues);
@@ -8117,6 +9486,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideShapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideShapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideShapes", "storage", $this->okToFailValues);
@@ -8166,6 +9537,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "name", $this->okToFailValues);
@@ -8183,6 +9556,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "slideIndex", $this->okToFailValues);
@@ -8200,6 +9575,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "path", $this->okToFailValues);
@@ -8217,6 +9594,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "shapeIndex", $this->okToFailValues);
@@ -8234,6 +9613,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "password", $this->okToFailValues);
@@ -8251,6 +9632,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "folder", $this->okToFailValues);
@@ -8268,6 +9651,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshape", "storage", $this->okToFailValues);
@@ -8318,6 +9703,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "name", $this->okToFailValues);
@@ -8335,6 +9722,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "slideIndex", $this->okToFailValues);
@@ -8352,6 +9741,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "path", $this->okToFailValues);
@@ -8369,6 +9760,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -8386,6 +9779,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "paragraphIndex", $this->okToFailValues);
@@ -8403,6 +9798,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "password", $this->okToFailValues);
@@ -8420,6 +9817,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "folder", $this->okToFailValues);
@@ -8437,6 +9836,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraph", "storage", $this->okToFailValues);
@@ -8486,6 +9887,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "name", $this->okToFailValues);
@@ -8503,6 +9906,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "slideIndex", $this->okToFailValues);
@@ -8520,6 +9925,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "path", $this->okToFailValues);
@@ -8537,6 +9944,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "shapeIndex", $this->okToFailValues);
@@ -8554,6 +9963,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "password", $this->okToFailValues);
@@ -8571,6 +9982,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "folder", $this->okToFailValues);
@@ -8588,6 +10001,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapeParagraphs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapeParagraphs", "storage", $this->okToFailValues);
@@ -8636,6 +10051,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "name", $this->okToFailValues);
@@ -8653,6 +10070,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "slideIndex", $this->okToFailValues);
@@ -8670,6 +10089,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "path", $this->okToFailValues);
@@ -8687,6 +10108,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "password", $this->okToFailValues);
@@ -8704,6 +10127,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "folder", $this->okToFailValues);
@@ -8721,6 +10146,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlideSubshapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlideSubshapes", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlideSubshapes", "storage", $this->okToFailValues);
@@ -8786,6 +10213,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocument", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocument", "name", $this->okToFailValues);
@@ -8803,6 +10232,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocument", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocument", "password", $this->okToFailValues);
@@ -8820,6 +10251,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocument", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocument", "storage", $this->okToFailValues);
@@ -8837,6 +10270,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocument", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocument", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocument", "folder", $this->okToFailValues);
@@ -8883,6 +10318,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperties", "name", $this->okToFailValues);
@@ -8900,6 +10337,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperties", "password", $this->okToFailValues);
@@ -8917,6 +10356,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperties", "folder", $this->okToFailValues);
@@ -8934,6 +10375,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperties", "storage", $this->okToFailValues);
@@ -8981,6 +10424,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperty", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperty", "name", $this->okToFailValues);
@@ -8998,6 +10443,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperty", "propertyName", $this->okToFailValues);
@@ -9015,6 +10462,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperty", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperty", "password", $this->okToFailValues);
@@ -9032,6 +10481,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperty", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperty", "folder", $this->okToFailValues);
@@ -9049,6 +10500,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesDocumentProperty", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesDocumentProperty", "storage", $this->okToFailValues);
@@ -9096,6 +10549,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithDefaultFormat", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithDefaultFormat", "name", $this->okToFailValues);
@@ -9113,6 +10568,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "index", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithDefaultFormat", "index", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithDefaultFormat", "index", $this->okToFailValues);
@@ -9130,6 +10587,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithDefaultFormat", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithDefaultFormat", "password", $this->okToFailValues);
@@ -9147,6 +10606,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithDefaultFormat", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithDefaultFormat", "folder", $this->okToFailValues);
@@ -9164,6 +10625,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithDefaultFormat", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithDefaultFormat", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithDefaultFormat", "storage", $this->okToFailValues);
@@ -9212,6 +10675,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "name", $this->okToFailValues);
@@ -9229,6 +10694,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "index", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "index", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "index", $this->okToFailValues);
@@ -9246,6 +10713,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "format", $this->okToFailValues);
@@ -9263,6 +10732,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "password", $this->okToFailValues);
@@ -9280,6 +10751,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "folder", $this->okToFailValues);
@@ -9297,6 +10770,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImageWithFormat", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImageWithFormat", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImageWithFormat", "storage", $this->okToFailValues);
@@ -9343,6 +10818,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImages", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImages", "name", $this->okToFailValues);
@@ -9360,6 +10837,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImages", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImages", "password", $this->okToFailValues);
@@ -9377,6 +10856,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImages", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImages", "folder", $this->okToFailValues);
@@ -9394,6 +10875,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesImages", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesImages", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesImages", "storage", $this->okToFailValues);
@@ -9442,6 +10925,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "name", $this->okToFailValues);
@@ -9459,6 +10944,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "slideIndex", $this->okToFailValues);
@@ -9476,6 +10963,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "placeholderIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "placeholderIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "placeholderIndex", $this->okToFailValues);
@@ -9493,6 +10982,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "password", $this->okToFailValues);
@@ -9510,6 +11001,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "folder", $this->okToFailValues);
@@ -9527,6 +11020,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholder", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholder", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholder", "storage", $this->okToFailValues);
@@ -9574,6 +11069,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholders", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholders", "name", $this->okToFailValues);
@@ -9591,6 +11088,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholders", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholders", "slideIndex", $this->okToFailValues);
@@ -9608,6 +11107,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholders", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholders", "password", $this->okToFailValues);
@@ -9625,6 +11126,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholders", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholders", "folder", $this->okToFailValues);
@@ -9642,6 +11145,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPlaceholders", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPlaceholders", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPlaceholders", "storage", $this->okToFailValues);
@@ -9689,6 +11194,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPresentationTextItems", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPresentationTextItems", "name", $this->okToFailValues);
@@ -9706,6 +11213,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "withEmpty", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPresentationTextItems", "withEmpty", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPresentationTextItems", "withEmpty", $this->okToFailValues);
@@ -9723,6 +11232,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPresentationTextItems", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPresentationTextItems", "password", $this->okToFailValues);
@@ -9740,6 +11251,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPresentationTextItems", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPresentationTextItems", "folder", $this->okToFailValues);
@@ -9757,6 +11270,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesPresentationTextItems", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesPresentationTextItems", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesPresentationTextItems", "storage", $this->okToFailValues);
@@ -9804,6 +11319,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlide", "name", $this->okToFailValues);
@@ -9821,6 +11338,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlide", "slideIndex", $this->okToFailValues);
@@ -9838,6 +11357,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlide", "password", $this->okToFailValues);
@@ -9855,6 +11376,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlide", "folder", $this->okToFailValues);
@@ -9872,6 +11395,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlide", "storage", $this->okToFailValues);
@@ -9919,6 +11444,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideBackground", "name", $this->okToFailValues);
@@ -9936,6 +11463,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideBackground", "slideIndex", $this->okToFailValues);
@@ -9953,6 +11482,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideBackground", "password", $this->okToFailValues);
@@ -9970,6 +11501,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideBackground", "folder", $this->okToFailValues);
@@ -9987,6 +11520,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideBackground", "storage", $this->okToFailValues);
@@ -10034,6 +11569,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideComments", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideComments", "name", $this->okToFailValues);
@@ -10051,6 +11588,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideComments", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideComments", "slideIndex", $this->okToFailValues);
@@ -10068,6 +11607,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideComments", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideComments", "password", $this->okToFailValues);
@@ -10085,6 +11626,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideComments", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideComments", "folder", $this->okToFailValues);
@@ -10102,6 +11645,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideComments", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideComments", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideComments", "storage", $this->okToFailValues);
@@ -10149,6 +11694,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideImages", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideImages", "name", $this->okToFailValues);
@@ -10166,6 +11713,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideImages", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideImages", "slideIndex", $this->okToFailValues);
@@ -10183,6 +11732,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideImages", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideImages", "password", $this->okToFailValues);
@@ -10200,6 +11751,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideImages", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideImages", "folder", $this->okToFailValues);
@@ -10217,6 +11770,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideImages", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideImages", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideImages", "storage", $this->okToFailValues);
@@ -10265,6 +11820,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "name", $this->okToFailValues);
@@ -10282,6 +11839,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "slideIndex", $this->okToFailValues);
@@ -10299,6 +11858,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "withEmpty", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "withEmpty", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "withEmpty", $this->okToFailValues);
@@ -10316,6 +11877,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "password", $this->okToFailValues);
@@ -10333,6 +11896,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "folder", $this->okToFailValues);
@@ -10350,6 +11915,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlideTextItems", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlideTextItems", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlideTextItems", "storage", $this->okToFailValues);
@@ -10396,6 +11963,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlidesList", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlidesList", "name", $this->okToFailValues);
@@ -10413,6 +11982,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlidesList", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlidesList", "password", $this->okToFailValues);
@@ -10430,6 +12001,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlidesList", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlidesList", "folder", $this->okToFailValues);
@@ -10447,6 +12020,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesSlidesList", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesSlidesList", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesSlidesList", "storage", $this->okToFailValues);
@@ -10494,6 +12069,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesTheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesTheme", "name", $this->okToFailValues);
@@ -10511,6 +12088,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesTheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesTheme", "slideIndex", $this->okToFailValues);
@@ -10528,6 +12107,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesTheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesTheme", "password", $this->okToFailValues);
@@ -10545,6 +12126,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesTheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesTheme", "folder", $this->okToFailValues);
@@ -10562,6 +12145,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesTheme", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesTheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesTheme", "storage", $this->okToFailValues);
@@ -10609,6 +12194,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeColorScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeColorScheme", "name", $this->okToFailValues);
@@ -10626,6 +12213,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeColorScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeColorScheme", "slideIndex", $this->okToFailValues);
@@ -10643,6 +12232,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeColorScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeColorScheme", "password", $this->okToFailValues);
@@ -10660,6 +12251,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeColorScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeColorScheme", "folder", $this->okToFailValues);
@@ -10677,6 +12270,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeColorScheme", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeColorScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeColorScheme", "storage", $this->okToFailValues);
@@ -10724,6 +12319,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFontScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFontScheme", "name", $this->okToFailValues);
@@ -10741,6 +12338,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFontScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFontScheme", "slideIndex", $this->okToFailValues);
@@ -10758,6 +12357,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFontScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFontScheme", "password", $this->okToFailValues);
@@ -10775,6 +12376,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFontScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFontScheme", "folder", $this->okToFailValues);
@@ -10792,6 +12395,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFontScheme", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFontScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFontScheme", "storage", $this->okToFailValues);
@@ -10839,6 +12444,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFormatScheme", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "name", $this->okToFailValues);
@@ -10856,6 +12463,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFormatScheme", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "slideIndex", $this->okToFailValues);
@@ -10873,6 +12482,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFormatScheme", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "password", $this->okToFailValues);
@@ -10890,6 +12501,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFormatScheme", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "folder", $this->okToFailValues);
@@ -10907,6 +12520,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesThemeFormatScheme", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesThemeFormatScheme", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesThemeFormatScheme", "storage", $this->okToFailValues);
@@ -10953,6 +12568,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesViewProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesViewProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesViewProperties", "name", $this->okToFailValues);
@@ -10970,6 +12587,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesViewProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesViewProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesViewProperties", "password", $this->okToFailValues);
@@ -10987,6 +12606,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesViewProperties", "folder", $this->okToFailValues);
@@ -11004,6 +12625,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSlidesViewProperties", "storage", $this->okToFailValues);
@@ -11055,6 +12678,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "name", $this->okToFailValues);
@@ -11072,6 +12697,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "slideIndex", $this->okToFailValues);
@@ -11089,6 +12716,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "path", $this->okToFailValues);
@@ -11106,6 +12735,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "shapeIndex", $this->okToFailValues);
@@ -11123,6 +12754,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "paragraphIndex", $this->okToFailValues);
@@ -11140,6 +12773,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "portionIndex", $this->okToFailValues);
@@ -11157,6 +12792,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "password", $this->okToFailValues);
@@ -11174,6 +12811,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "folder", $this->okToFailValues);
@@ -11191,6 +12830,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortion", "storage", $this->okToFailValues);
@@ -11241,6 +12882,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "name", $this->okToFailValues);
@@ -11258,6 +12901,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "slideIndex", $this->okToFailValues);
@@ -11275,6 +12920,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "path", $this->okToFailValues);
@@ -11292,6 +12939,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "shapeIndex", $this->okToFailValues);
@@ -11309,6 +12958,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "paragraphIndex", $this->okToFailValues);
@@ -11326,6 +12977,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "password", $this->okToFailValues);
@@ -11343,6 +12996,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "folder", $this->okToFailValues);
@@ -11360,6 +13015,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSubshapeParagraphPortions", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSubshapeParagraphPortions", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getSubshapeParagraphPortions", "storage", $this->okToFailValues);
@@ -11407,6 +13064,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "srcPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFile", "srcPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFile", "srcPath", $this->okToFailValues);
@@ -11424,6 +13083,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "destPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFile", "destPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFile", "destPath", $this->okToFailValues);
@@ -11441,6 +13102,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "srcStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFile", "srcStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFile", "srcStorageName", $this->okToFailValues);
@@ -11458,6 +13121,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "destStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFile", "destStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFile", "destStorageName", $this->okToFailValues);
@@ -11475,6 +13140,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFile", "versionId", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFile", "versionId", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFile", "versionId", $this->okToFailValues);
@@ -11521,6 +13188,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "srcPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFolder", "srcPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFolder", "srcPath", $this->okToFailValues);
@@ -11538,6 +13207,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "destPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFolder", "destPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFolder", "destPath", $this->okToFailValues);
@@ -11555,6 +13226,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "srcStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFolder", "srcStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFolder", "srcStorageName", $this->okToFailValues);
@@ -11572,6 +13245,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "moveFolder", "destStorageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "moveFolder", "destStorageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("moveFolder", "destStorageName", $this->okToFailValues);
@@ -11617,6 +13292,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "objectExists", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("objectExists", "path", $this->okToFailValues);
@@ -11634,6 +13311,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "objectExists", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("objectExists", "storageName", $this->okToFailValues);
@@ -11651,6 +13330,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "objectExists", "versionId", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "objectExists", "versionId", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("objectExists", "versionId", $this->okToFailValues);
@@ -11701,6 +13382,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "name", $this->okToFailValues);
@@ -11718,6 +13401,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "slideIndex", $this->okToFailValues);
@@ -11735,6 +13420,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "shapeIndex", $this->okToFailValues);
@@ -11752,6 +13439,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "dto", $this->okToFailValues);
@@ -11769,6 +13458,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "password", $this->okToFailValues);
@@ -11786,6 +13477,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "folder", $this->okToFailValues);
@@ -11803,6 +13496,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "storage", $this->okToFailValues);
@@ -11820,6 +13515,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewParagraph", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewParagraph", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewParagraph", "position", $this->okToFailValues);
@@ -11871,6 +13568,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "name", $this->okToFailValues);
@@ -11888,6 +13587,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "slideIndex", $this->okToFailValues);
@@ -11905,6 +13606,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "shapeIndex", $this->okToFailValues);
@@ -11922,6 +13625,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "paragraphIndex", $this->okToFailValues);
@@ -11939,6 +13644,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "dto", $this->okToFailValues);
@@ -11956,6 +13663,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "password", $this->okToFailValues);
@@ -11973,6 +13682,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "folder", $this->okToFailValues);
@@ -11990,6 +13701,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "storage", $this->okToFailValues);
@@ -12007,6 +13720,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewPortion", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewPortion", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewPortion", "position", $this->okToFailValues);
@@ -12057,6 +13772,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "name", $this->okToFailValues);
@@ -12074,6 +13791,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "slideIndex", $this->okToFailValues);
@@ -12091,6 +13810,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "dto", $this->okToFailValues);
@@ -12108,6 +13829,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "password", $this->okToFailValues);
@@ -12125,6 +13848,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "folder", $this->okToFailValues);
@@ -12142,6 +13867,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "storage", $this->okToFailValues);
@@ -12159,6 +13886,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "shapeToClone", $this->okToFailValues);
@@ -12176,6 +13905,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewShape", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewShape", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewShape", "position", $this->okToFailValues);
@@ -12227,6 +13958,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "name", $this->okToFailValues);
@@ -12244,6 +13977,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "slideIndex", $this->okToFailValues);
@@ -12261,6 +13996,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "path", $this->okToFailValues);
@@ -12278,6 +14015,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "dto", $this->okToFailValues);
@@ -12295,6 +14034,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "password", $this->okToFailValues);
@@ -12312,6 +14053,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "folder", $this->okToFailValues);
@@ -12329,6 +14072,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "storage", $this->okToFailValues);
@@ -12346,6 +14091,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "shapeToClone", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "shapeToClone", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "shapeToClone", $this->okToFailValues);
@@ -12363,6 +14110,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshape", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshape", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshape", "position", $this->okToFailValues);
@@ -12414,6 +14163,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "name", $this->okToFailValues);
@@ -12431,6 +14182,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "slideIndex", $this->okToFailValues);
@@ -12448,6 +14201,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "path", $this->okToFailValues);
@@ -12465,6 +14220,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -12482,6 +14239,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "dto", $this->okToFailValues);
@@ -12499,6 +14258,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "password", $this->okToFailValues);
@@ -12516,6 +14277,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "folder", $this->okToFailValues);
@@ -12533,6 +14296,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "storage", $this->okToFailValues);
@@ -12550,6 +14315,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapeParagraph", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapeParagraph", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapeParagraph", "position", $this->okToFailValues);
@@ -12602,6 +14369,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "name", $this->okToFailValues);
@@ -12619,6 +14388,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "slideIndex", $this->okToFailValues);
@@ -12636,6 +14407,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "path", $this->okToFailValues);
@@ -12653,6 +14426,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "shapeIndex", $this->okToFailValues);
@@ -12670,6 +14445,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "paragraphIndex", $this->okToFailValues);
@@ -12687,6 +14464,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "dto", $this->okToFailValues);
@@ -12704,6 +14483,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "password", $this->okToFailValues);
@@ -12721,6 +14502,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "folder", $this->okToFailValues);
@@ -12738,6 +14521,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "storage", $this->okToFailValues);
@@ -12755,6 +14540,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNewSubshapePortion", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNewSubshapePortion", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNewSubshapePortion", "position", $this->okToFailValues);
@@ -12803,6 +14590,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "name", $this->okToFailValues);
@@ -12820,6 +14609,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "slideIndex", $this->okToFailValues);
@@ -12837,6 +14628,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "dto", $this->okToFailValues);
@@ -12854,6 +14647,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "password", $this->okToFailValues);
@@ -12871,6 +14666,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "folder", $this->okToFailValues);
@@ -12888,6 +14685,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postAddNotesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postAddNotesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postAddNotesSlide", "storage", $this->okToFailValues);
@@ -12937,6 +14736,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "name", $this->okToFailValues);
@@ -12954,6 +14755,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "slideIndex", $this->okToFailValues);
@@ -12971,6 +14774,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "shapeIndex", $this->okToFailValues);
@@ -12988,6 +14793,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "category", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "category", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "category", $this->okToFailValues);
@@ -13005,6 +14812,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "password", $this->okToFailValues);
@@ -13022,6 +14831,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "folder", $this->okToFailValues);
@@ -13039,6 +14850,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartCategory", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartCategory", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartCategory", "storage", $this->okToFailValues);
@@ -13089,6 +14902,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "name", $this->okToFailValues);
@@ -13106,6 +14921,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "slideIndex", $this->okToFailValues);
@@ -13123,6 +14940,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "shapeIndex", $this->okToFailValues);
@@ -13140,6 +14959,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "seriesIndex", $this->okToFailValues);
@@ -13157,6 +14978,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "dataPoint", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "dataPoint", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "dataPoint", $this->okToFailValues);
@@ -13174,6 +14997,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "password", $this->okToFailValues);
@@ -13191,6 +15016,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "folder", $this->okToFailValues);
@@ -13208,6 +15035,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartDataPoint", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartDataPoint", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartDataPoint", "storage", $this->okToFailValues);
@@ -13257,6 +15086,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "name", $this->okToFailValues);
@@ -13274,6 +15105,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "slideIndex", $this->okToFailValues);
@@ -13291,6 +15124,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "shapeIndex", $this->okToFailValues);
@@ -13308,6 +15143,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "series", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "series", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "series", $this->okToFailValues);
@@ -13325,6 +15162,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "password", $this->okToFailValues);
@@ -13342,6 +15181,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "folder", $this->okToFailValues);
@@ -13359,6 +15200,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postChartSeries", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postChartSeries", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postChartSeries", "storage", $this->okToFailValues);
@@ -13409,6 +15252,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "name", $this->okToFailValues);
@@ -13426,6 +15271,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFrom", $this->okToFailValues);
@@ -13443,6 +15290,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", $this->okToFailValues);
@@ -13460,6 +15309,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", $this->okToFailValues);
@@ -13477,6 +15328,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", $this->okToFailValues);
@@ -13494,6 +15347,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "password", $this->okToFailValues);
@@ -13511,6 +15366,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "folder", $this->okToFailValues);
@@ -13528,6 +15385,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyLayoutSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyLayoutSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyLayoutSlideFromSourcePresentation", "storage", $this->okToFailValues);
@@ -13579,6 +15438,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "name", $this->okToFailValues);
@@ -13596,6 +15457,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFrom", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "cloneFrom", $this->okToFailValues);
@@ -13613,6 +15476,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPosition", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "cloneFromPosition", $this->okToFailValues);
@@ -13630,6 +15495,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromPassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "cloneFromPassword", $this->okToFailValues);
@@ -13647,6 +15514,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "cloneFromStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "cloneFromStorage", $this->okToFailValues);
@@ -13664,6 +15533,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "applyToAll", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "applyToAll", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "applyToAll", $this->okToFailValues);
@@ -13681,6 +15552,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "password", $this->okToFailValues);
@@ -13698,6 +15571,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "folder", $this->okToFailValues);
@@ -13715,6 +15590,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postCopyMasterSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postCopyMasterSlideFromSourcePresentation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postCopyMasterSlideFromSourcePresentation", "storage", $this->okToFailValues);
@@ -13722,10 +15599,10 @@ class SlidesApiTest extends TestBase
     }
     private function getPostGetNotesSlideRequest()
     {
-        $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", $this->values);
         $testdocument = TestUtils::getStreamValue();
+        $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", $this->values);
         $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", $this->values);
-        $request = new Requests\PostGetNotesSlideRequest($testslideIndex, $testdocument, $testpassword);
+        $request = new Requests\PostGetNotesSlideRequest($testdocument, $testslideIndex, $testpassword);
         return $request;
     }
 
@@ -13749,23 +15626,6 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPostGetNotesSlideInvalidslideIndex()
-    {
-        $request = $this->getPostGetNotesSlideRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlide", $request->slideIndex, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", "slideIndex", $request->slideIndex);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postGetNotesSlide($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postGetNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postGetNotesSlide", "slideIndex", $this->okToFailValues);
-        }
-    }
-
     public function testPostGetNotesSlideInvaliddocument()
     {
         $request = $this->getPostGetNotesSlideRequest();
@@ -13777,10 +15637,30 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlide", "document", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlide", "document", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlide", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideInvalidslideIndex()
+    {
+        $request = $this->getPostGetNotesSlideRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlide", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlide($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlide", "slideIndex", $this->okToFailValues);
         }
     }
 
@@ -13795,6 +15675,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlide", "password", $this->okToFailValues);
@@ -13802,10 +15684,10 @@ class SlidesApiTest extends TestBase
     }
     private function getPostGetNotesSlideExistsRequest()
     {
-        $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", $this->values);
         $testdocument = TestUtils::getStreamValue();
+        $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", $this->values);
         $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", $this->values);
-        $request = new Requests\PostGetNotesSlideExistsRequest($testslideIndex, $testdocument, $testpassword);
+        $request = new Requests\PostGetNotesSlideExistsRequest($testdocument, $testslideIndex, $testpassword);
         return $request;
     }
 
@@ -13829,23 +15711,6 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPostGetNotesSlideExistsInvalidslideIndex()
-    {
-        $request = $this->getPostGetNotesSlideExistsRequest();
-        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlideExists", $request->slideIndex, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", "slideIndex", $request->slideIndex);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postGetNotesSlideExists($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postGetNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postGetNotesSlideExists", "slideIndex", $this->okToFailValues);
-        }
-    }
-
     public function testPostGetNotesSlideExistsInvaliddocument()
     {
         $request = $this->getPostGetNotesSlideExistsRequest();
@@ -13857,10 +15722,30 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideExists", "document", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideExists", "document", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideExists", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostGetNotesSlideExistsInvalidslideIndex()
+    {
+        $request = $this->getPostGetNotesSlideExistsRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlideExists", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideExists($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideExists", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideExists", "slideIndex", $this->okToFailValues);
         }
     }
 
@@ -13875,6 +15760,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideExists", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideExists", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideExists", "password", $this->okToFailValues);
@@ -13882,14 +15769,14 @@ class SlidesApiTest extends TestBase
     }
     private function getPostGetNotesSlideWithFormatRequest()
     {
+        $testdocument = TestUtils::getStreamValue();
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", $this->values);
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", $this->values);
-        $testdocument = TestUtils::getStreamValue();
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", $this->values);
         $testheight = TestUtils::getTestValue("postGetNotesSlideWithFormat", "height", $this->values);
         $testpassword = TestUtils::getTestValue("postGetNotesSlideWithFormat", "password", $this->values);
         $testfontsFolder = TestUtils::getTestValue("postGetNotesSlideWithFormat", "fontsFolder", $this->values);
-        $request = new Requests\PostGetNotesSlideWithFormatRequest($testslideIndex, $testformat, $testdocument, $testwidth, $testheight, $testpassword, $testfontsFolder);
+        $request = new Requests\PostGetNotesSlideWithFormatRequest($testdocument, $testslideIndex, $testformat, $testwidth, $testheight, $testpassword, $testfontsFolder);
         return $request;
     }
 
@@ -13913,6 +15800,25 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testPostGetNotesSlideWithFormatInvaliddocument()
+    {
+        $request = $this->getPostGetNotesSlideWithFormatRequest();
+        $request->document = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "document", $request->document);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postGetNotesSlideWithFormat", "document", $this->okToFailValues);
+        }
+    }
+
     public function testPostGetNotesSlideWithFormatInvalidslideIndex()
     {
         $request = $this->getPostGetNotesSlideWithFormatRequest();
@@ -13924,6 +15830,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "slideIndex", $this->okToFailValues);
@@ -13941,27 +15849,11 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "format", $this->okToFailValues);
-        }
-    }
-
-    public function testPostGetNotesSlideWithFormatInvaliddocument()
-    {
-        $request = $this->getPostGetNotesSlideWithFormatRequest();
-        $request->document = null;
-        list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideWithFormat", "document", $request->document);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postGetNotesSlideWithFormat($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "document", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postGetNotesSlideWithFormat", "document", $this->okToFailValues);
         }
     }
 
@@ -13976,6 +15868,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "width", $this->okToFailValues);
@@ -13993,6 +15887,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "height", $this->okToFailValues);
@@ -14010,6 +15906,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "password", $this->okToFailValues);
@@ -14027,6 +15925,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postGetNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postGetNotesSlideWithFormat", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postGetNotesSlideWithFormat", "fontsFolder", $this->okToFailValues);
@@ -14077,6 +15977,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "name", $this->okToFailValues);
@@ -14094,6 +15996,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "slideIndex", $this->okToFailValues);
@@ -14111,6 +16015,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "shapeIndex", $this->okToFailValues);
@@ -14128,6 +16034,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "dto", $this->okToFailValues);
@@ -14145,6 +16053,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "password", $this->okToFailValues);
@@ -14162,6 +16072,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "folder", $this->okToFailValues);
@@ -14179,6 +16091,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "storage", $this->okToFailValues);
@@ -14196,6 +16110,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewParagraph", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewParagraph", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewParagraph", "position", $this->okToFailValues);
@@ -14247,6 +16163,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "name", $this->okToFailValues);
@@ -14264,6 +16182,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "slideIndex", $this->okToFailValues);
@@ -14281,6 +16201,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "shapeIndex", $this->okToFailValues);
@@ -14298,6 +16220,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "paragraphIndex", $this->okToFailValues);
@@ -14315,6 +16239,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "dto", $this->okToFailValues);
@@ -14332,6 +16258,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "password", $this->okToFailValues);
@@ -14349,6 +16277,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "folder", $this->okToFailValues);
@@ -14366,6 +16296,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "storage", $this->okToFailValues);
@@ -14383,6 +16315,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewPortion", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewPortion", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewPortion", "position", $this->okToFailValues);
@@ -14433,6 +16367,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "name", $this->okToFailValues);
@@ -14450,6 +16386,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "slideIndex", $this->okToFailValues);
@@ -14467,6 +16405,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "dto", $this->okToFailValues);
@@ -14484,6 +16424,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "password", $this->okToFailValues);
@@ -14501,6 +16443,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "folder", $this->okToFailValues);
@@ -14518,6 +16462,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "storage", $this->okToFailValues);
@@ -14535,6 +16481,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "shapeToClone", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "shapeToClone", $this->okToFailValues);
@@ -14552,6 +16500,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideAddNewShape", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideAddNewShape", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideAddNewShape", "position", $this->okToFailValues);
@@ -14606,6 +16556,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "name", $this->okToFailValues);
@@ -14623,6 +16575,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -14640,6 +16594,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -14657,6 +16613,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "format", $this->okToFailValues);
@@ -14674,6 +16632,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "options", $this->okToFailValues);
@@ -14691,6 +16651,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "password", $this->okToFailValues);
@@ -14708,6 +16670,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "folder", $this->okToFailValues);
@@ -14725,6 +16689,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "storage", $this->okToFailValues);
@@ -14742,6 +16708,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "scaleX", $this->okToFailValues);
@@ -14759,6 +16727,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "scaleY", $this->okToFailValues);
@@ -14776,6 +16746,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "bounds", $this->okToFailValues);
@@ -14793,6 +16765,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postNotesSlideShapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -14840,6 +16814,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postPresentationMerge", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postPresentationMerge", "name", $this->okToFailValues);
@@ -14857,6 +16833,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "request", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postPresentationMerge", "request", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postPresentationMerge", "request", $this->okToFailValues);
@@ -14874,6 +16852,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postPresentationMerge", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postPresentationMerge", "password", $this->okToFailValues);
@@ -14891,6 +16871,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postPresentationMerge", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postPresentationMerge", "storage", $this->okToFailValues);
@@ -14908,9 +16890,301 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postPresentationMerge", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postPresentationMerge", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postPresentationMerge", "folder", $this->okToFailValues);
+        }
+    }
+    private function getPostSectionRequest()
+    {
+        $testname = TestUtils::getTestValue("postSection", "name", $this->values);
+        $testsectionName = TestUtils::getTestValue("postSection", "sectionName", $this->values);
+        $testslideIndex = TestUtils::getTestValue("postSection", "slideIndex", $this->values);
+        $testpassword = TestUtils::getTestValue("postSection", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postSection", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postSection", "storage", $this->values);
+        $request = new Requests\PostSectionRequest($testname, $testsectionName, $testslideIndex, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postSection
+     * Create a section starting at a specified slide index.
+     */
+    public function testPostSection()
+    {
+        $request = $this->getPostSectionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSection");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostSectionInvalidname()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postSection", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionInvalidsectionName()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->sectionName = TestUtils::invalidizeValue("sectionName", "postSection", $request->sectionName, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "sectionName", $request->sectionName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "sectionName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "sectionName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "sectionName", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionInvalidslideIndex()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "postSection", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionInvalidpassword()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postSection", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionInvalidfolder()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postSection", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionInvalidstorage()
+    {
+        $request = $this->getPostSectionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postSection", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSection", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSection", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSection", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSection", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPostSectionMoveRequest()
+    {
+        $testname = TestUtils::getTestValue("postSectionMove", "name", $this->values);
+        $testsectionIndex = TestUtils::getTestValue("postSectionMove", "sectionIndex", $this->values);
+        $testnewPosition = TestUtils::getTestValue("postSectionMove", "newPosition", $this->values);
+        $testpassword = TestUtils::getTestValue("postSectionMove", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("postSectionMove", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("postSectionMove", "storage", $this->values);
+        $request = new Requests\PostSectionMoveRequest($testname, $testsectionIndex, $testnewPosition, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for postSectionMove
+     * Move presentation section to a specified position.
+     */
+    public function testPostSectionMove()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSectionMove");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPostSectionMoveInvalidname()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->name = TestUtils::invalidizeValue("name", "postSectionMove", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionMoveInvalidsectionIndex()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->sectionIndex = TestUtils::invalidizeValue("sectionIndex", "postSectionMove", $request->sectionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "sectionIndex", $request->sectionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "sectionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "sectionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "sectionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionMoveInvalidnewPosition()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->newPosition = TestUtils::invalidizeValue("newPosition", "postSectionMove", $request->newPosition, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "newPosition", $request->newPosition);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "newPosition", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "newPosition", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "newPosition", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionMoveInvalidpassword()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->password = TestUtils::invalidizeValue("password", "postSectionMove", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionMoveInvalidfolder()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "postSectionMove", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSectionMoveInvalidstorage()
+    {
+        $request = $this->getPostSectionMoveRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "postSectionMove", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSectionMove", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSectionMove($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSectionMove", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSectionMove", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSectionMove", "storage", $this->okToFailValues);
         }
     }
     private function getPostShapeSaveAsRequest()
@@ -14962,6 +17236,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "name", $this->okToFailValues);
@@ -14979,6 +17255,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -14996,6 +17274,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -15013,6 +17293,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "format", $this->okToFailValues);
@@ -15030,6 +17312,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "options", $this->okToFailValues);
@@ -15047,6 +17331,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "password", $this->okToFailValues);
@@ -15064,6 +17350,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "folder", $this->okToFailValues);
@@ -15081,6 +17369,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "storage", $this->okToFailValues);
@@ -15098,6 +17388,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "scaleX", $this->okToFailValues);
@@ -15115,6 +17407,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "scaleY", $this->okToFailValues);
@@ -15132,6 +17426,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "bounds", $this->okToFailValues);
@@ -15149,6 +17445,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postShapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -15197,6 +17495,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "name", $this->okToFailValues);
@@ -15214,6 +17514,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "slideIndex", $this->okToFailValues);
@@ -15231,6 +17533,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "effect", $this->okToFailValues);
@@ -15248,6 +17552,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "password", $this->okToFailValues);
@@ -15265,6 +17571,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "folder", $this->okToFailValues);
@@ -15282,6 +17590,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationEffect", "storage", $this->okToFailValues);
@@ -15330,6 +17640,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "name", $this->okToFailValues);
@@ -15347,6 +17659,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "slideIndex", $this->okToFailValues);
@@ -15364,6 +17678,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "sequence", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "sequence", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "sequence", $this->okToFailValues);
@@ -15381,6 +17697,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "password", $this->okToFailValues);
@@ -15398,6 +17716,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "folder", $this->okToFailValues);
@@ -15415,6 +17735,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequence", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequence", "storage", $this->okToFailValues);
@@ -15464,6 +17786,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "name", $this->okToFailValues);
@@ -15481,6 +17805,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "slideIndex", $this->okToFailValues);
@@ -15498,6 +17824,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $this->okToFailValues);
@@ -15515,6 +17843,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "effect", $this->okToFailValues);
@@ -15532,6 +17862,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "password", $this->okToFailValues);
@@ -15549,6 +17881,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "folder", $this->okToFailValues);
@@ -15566,6 +17900,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideAnimationInteractiveSequenceEffect", "storage", $this->okToFailValues);
@@ -15618,6 +17954,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "name", $this->okToFailValues);
@@ -15635,6 +17973,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "slideIndex", $this->okToFailValues);
@@ -15652,6 +17992,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "format", $this->okToFailValues);
@@ -15669,6 +18011,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "options", $this->okToFailValues);
@@ -15686,6 +18030,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "width", $this->okToFailValues);
@@ -15703,6 +18049,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "height", $this->okToFailValues);
@@ -15720,6 +18068,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "password", $this->okToFailValues);
@@ -15737,6 +18087,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "folder", $this->okToFailValues);
@@ -15754,6 +18106,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "storage", $this->okToFailValues);
@@ -15771,6 +18125,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlideSaveAs", "fontsFolder", $this->okToFailValues);
@@ -15819,6 +18175,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "name", $this->okToFailValues);
@@ -15836,6 +18194,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "position", $this->okToFailValues);
@@ -15853,6 +18213,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "password", $this->okToFailValues);
@@ -15870,6 +18232,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "folder", $this->okToFailValues);
@@ -15887,6 +18251,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "storage", $this->okToFailValues);
@@ -15904,6 +18270,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesAdd", "layoutAlias", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesAdd", "layoutAlias", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesAdd", "layoutAlias", $this->okToFailValues);
@@ -15911,11 +18279,11 @@ class SlidesApiTest extends TestBase
     }
     private function getPostSlidesConvertRequest()
     {
-        $testformat = TestUtils::getTestValue("postSlidesConvert", "format", $this->values);
         $testdocument = TestUtils::getStreamValue();
+        $testformat = TestUtils::getTestValue("postSlidesConvert", "format", $this->values);
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", $this->values);
         $testfontsFolder = TestUtils::getTestValue("postSlidesConvert", "fontsFolder", $this->values);
-        $request = new Requests\PostSlidesConvertRequest($testformat, $testdocument, $testpassword, $testfontsFolder);
+        $request = new Requests\PostSlidesConvertRequest($testdocument, $testformat, $testpassword, $testfontsFolder);
         return $request;
     }
 
@@ -15939,23 +18307,6 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPostSlidesConvertInvalidformat()
-    {
-        $request = $this->getPostSlidesConvertRequest();
-        $request->format = TestUtils::invalidizeValue("format", "postSlidesConvert", $request->format, $this->values);
-        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "format", $request->format);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->postSlidesConvert($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postSlidesConvert", "format", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postSlidesConvert", "format", $this->okToFailValues);
-        }
-    }
-
     public function testPostSlidesConvertInvaliddocument()
     {
         $request = $this->getPostSlidesConvertRequest();
@@ -15967,10 +18318,30 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "document", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesConvert", "document", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesConvert", "document", $this->okToFailValues);
+        }
+    }
+
+    public function testPostSlidesConvertInvalidformat()
+    {
+        $request = $this->getPostSlidesConvertRequest();
+        $request->format = TestUtils::invalidizeValue("format", "postSlidesConvert", $request->format, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesConvert", "format", $request->format);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSlidesConvert($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesConvert", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesConvert", "format", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesConvert", "format", $this->okToFailValues);
         }
     }
 
@@ -15985,6 +18356,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesConvert", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesConvert", "password", $this->okToFailValues);
@@ -16002,6 +18375,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesConvert", "fontsFolder", $this->okToFailValues);
@@ -16053,6 +18428,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "name", $this->okToFailValues);
@@ -16070,6 +18447,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "slideToCopy", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "slideToCopy", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "slideToCopy", $this->okToFailValues);
@@ -16087,6 +18466,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "position", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "position", $this->okToFailValues);
@@ -16104,6 +18485,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "source", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "source", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "source", $this->okToFailValues);
@@ -16121,6 +18504,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "sourcePassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "sourcePassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "sourcePassword", $this->okToFailValues);
@@ -16138,6 +18523,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "sourceStorage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "sourceStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "sourceStorage", $this->okToFailValues);
@@ -16155,6 +18542,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "password", $this->okToFailValues);
@@ -16172,6 +18561,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "folder", $this->okToFailValues);
@@ -16189,6 +18580,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesCopy", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesCopy", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesCopy", "storage", $this->okToFailValues);
@@ -16237,6 +18630,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "name", $this->okToFailValues);
@@ -16254,7 +18649,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "data", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "data", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "data", $this->okToFailValues);
@@ -16272,6 +18668,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "inputPassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "inputPassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "inputPassword", $this->okToFailValues);
@@ -16289,6 +18687,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "password", $this->okToFailValues);
@@ -16306,6 +18706,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "storage", $this->okToFailValues);
@@ -16323,6 +18725,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocument", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocument", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocument", "folder", $this->okToFailValues);
@@ -16370,6 +18774,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromHtml", "name", $this->okToFailValues);
@@ -16387,6 +18793,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromHtml", "html", $this->okToFailValues);
@@ -16404,6 +18812,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromHtml", "password", $this->okToFailValues);
@@ -16421,6 +18831,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromHtml", "storage", $this->okToFailValues);
@@ -16438,6 +18850,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromHtml", "folder", $this->okToFailValues);
@@ -16487,6 +18901,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "name", $this->okToFailValues);
@@ -16504,6 +18920,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourcePath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "sourcePath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "sourcePath", $this->okToFailValues);
@@ -16521,6 +18939,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourcePassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "sourcePassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "sourcePassword", $this->okToFailValues);
@@ -16538,6 +18958,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "sourceStorage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "sourceStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "sourceStorage", $this->okToFailValues);
@@ -16555,6 +18977,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "password", $this->okToFailValues);
@@ -16572,6 +18996,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "storage", $this->okToFailValues);
@@ -16589,6 +19015,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromSource", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromSource", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromSource", "folder", $this->okToFailValues);
@@ -16640,6 +19068,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "name", $this->okToFailValues);
@@ -16657,6 +19087,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templatePath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "templatePath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "templatePath", $this->okToFailValues);
@@ -16674,6 +19106,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "data", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "data", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "data", $this->okToFailValues);
@@ -16691,6 +19125,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templatePassword", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "templatePassword", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "templatePassword", $this->okToFailValues);
@@ -16708,6 +19144,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "templateStorage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "templateStorage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "templateStorage", $this->okToFailValues);
@@ -16725,6 +19163,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "isImageDataEmbedded", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "isImageDataEmbedded", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "isImageDataEmbedded", $this->okToFailValues);
@@ -16742,6 +19182,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "password", $this->okToFailValues);
@@ -16759,6 +19201,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "storage", $this->okToFailValues);
@@ -16776,6 +19220,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesDocumentFromTemplate", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesDocumentFromTemplate", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesDocumentFromTemplate", "folder", $this->okToFailValues);
@@ -16820,6 +19266,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPipeline", "pipeline", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPipeline", "pipeline", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPipeline", "pipeline", $this->okToFailValues);
@@ -16870,6 +19318,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "name", $this->okToFailValues);
@@ -16887,6 +19337,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "oldValue", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "oldValue", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "oldValue", $this->okToFailValues);
@@ -16904,6 +19356,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "newValue", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "newValue", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "newValue", $this->okToFailValues);
@@ -16921,6 +19375,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "ignoreCase", $this->okToFailValues);
@@ -16938,6 +19394,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "password", $this->okToFailValues);
@@ -16955,6 +19413,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "folder", $this->okToFailValues);
@@ -16972,6 +19432,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesPresentationReplaceText", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPresentationReplaceText", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesPresentationReplaceText", "storage", $this->okToFailValues);
@@ -17020,6 +19482,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "name", $this->okToFailValues);
@@ -17037,6 +19501,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "slideIndex", $this->okToFailValues);
@@ -17054,6 +19520,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "newPosition", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "newPosition", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "newPosition", $this->okToFailValues);
@@ -17071,6 +19539,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "password", $this->okToFailValues);
@@ -17088,6 +19558,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "folder", $this->okToFailValues);
@@ -17105,6 +19577,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorder", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorder", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorder", "storage", $this->okToFailValues);
@@ -17153,6 +19627,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "name", $this->okToFailValues);
@@ -17170,6 +19646,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "oldPositions", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "oldPositions", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "oldPositions", $this->okToFailValues);
@@ -17187,6 +19665,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "newPositions", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "newPositions", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "newPositions", $this->okToFailValues);
@@ -17204,6 +19684,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "password", $this->okToFailValues);
@@ -17221,6 +19703,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "folder", $this->okToFailValues);
@@ -17238,6 +19722,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesReorderMany", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesReorderMany", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesReorderMany", "storage", $this->okToFailValues);
@@ -17287,6 +19773,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "name", $this->okToFailValues);
@@ -17304,6 +19792,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "format", $this->okToFailValues);
@@ -17321,6 +19811,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "options", $this->okToFailValues);
@@ -17338,6 +19830,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "password", $this->okToFailValues);
@@ -17355,6 +19849,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "storage", $this->okToFailValues);
@@ -17372,6 +19868,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "folder", $this->okToFailValues);
@@ -17389,6 +19887,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSaveAs", "fontsFolder", $this->okToFailValues);
@@ -17436,6 +19936,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSetDocumentProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSetDocumentProperties", "name", $this->okToFailValues);
@@ -17453,6 +19955,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "properties", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSetDocumentProperties", "properties", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSetDocumentProperties", "properties", $this->okToFailValues);
@@ -17470,6 +19974,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSetDocumentProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSetDocumentProperties", "password", $this->okToFailValues);
@@ -17487,6 +19993,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSetDocumentProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSetDocumentProperties", "folder", $this->okToFailValues);
@@ -17504,6 +20012,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSetDocumentProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSetDocumentProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSetDocumentProperties", "storage", $this->okToFailValues);
@@ -17554,6 +20064,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "name", $this->okToFailValues);
@@ -17571,6 +20083,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "slideIndex", $this->okToFailValues);
@@ -17588,6 +20102,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "oldValue", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "oldValue", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "oldValue", $this->okToFailValues);
@@ -17605,6 +20121,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "newValue", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "newValue", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "newValue", $this->okToFailValues);
@@ -17622,6 +20140,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "ignoreCase", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "ignoreCase", $this->okToFailValues);
@@ -17639,6 +20159,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "password", $this->okToFailValues);
@@ -17656,6 +20178,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "folder", $this->okToFailValues);
@@ -17673,6 +20197,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSlideReplaceText", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSlideReplaceText", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSlideReplaceText", "storage", $this->okToFailValues);
@@ -17727,6 +20253,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "name", $this->okToFailValues);
@@ -17744,6 +20272,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "options", $this->okToFailValues);
@@ -17761,6 +20291,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "format", $this->okToFailValues);
@@ -17778,6 +20310,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "width", $this->okToFailValues);
@@ -17795,6 +20329,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "height", $this->okToFailValues);
@@ -17812,6 +20348,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "to", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "to", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "to", $this->okToFailValues);
@@ -17829,6 +20367,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "from", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "from", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "from", $this->okToFailValues);
@@ -17846,6 +20386,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "destFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "destFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "destFolder", $this->okToFailValues);
@@ -17863,6 +20405,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "password", $this->okToFailValues);
@@ -17880,6 +20424,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "storage", $this->okToFailValues);
@@ -17897,6 +20443,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "folder", $this->okToFailValues);
@@ -17914,6 +20462,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSlidesSplit", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesSplit", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSlidesSplit", "fontsFolder", $this->okToFailValues);
@@ -17969,6 +20519,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "name", $this->okToFailValues);
@@ -17986,6 +20538,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -18003,6 +20557,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "path", $this->okToFailValues);
@@ -18020,6 +20576,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -18037,6 +20595,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "format", $this->okToFailValues);
@@ -18054,6 +20614,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "options", $this->okToFailValues);
@@ -18071,6 +20633,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "password", $this->okToFailValues);
@@ -18088,6 +20652,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "folder", $this->okToFailValues);
@@ -18105,6 +20671,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "storage", $this->okToFailValues);
@@ -18122,6 +20690,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "scaleX", $this->okToFailValues);
@@ -18139,6 +20709,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "scaleY", $this->okToFailValues);
@@ -18156,6 +20728,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "bounds", $this->okToFailValues);
@@ -18173,6 +20747,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("postSubshapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -18223,6 +20799,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "name", $this->okToFailValues);
@@ -18240,6 +20818,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "slideIndex", $this->okToFailValues);
@@ -18257,6 +20837,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "shapeIndex", $this->okToFailValues);
@@ -18274,6 +20856,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "categoryIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "categoryIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "categoryIndex", $this->okToFailValues);
@@ -18291,6 +20875,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "category", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "category", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "category", $this->okToFailValues);
@@ -18308,6 +20894,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "password", $this->okToFailValues);
@@ -18325,6 +20913,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "folder", $this->okToFailValues);
@@ -18342,6 +20932,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartCategory", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartCategory", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartCategory", "storage", $this->okToFailValues);
@@ -18393,6 +20985,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "name", $this->okToFailValues);
@@ -18410,6 +21004,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "slideIndex", $this->okToFailValues);
@@ -18427,6 +21023,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "shapeIndex", $this->okToFailValues);
@@ -18444,6 +21042,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "seriesIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "seriesIndex", $this->okToFailValues);
@@ -18461,6 +21061,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "pointIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "pointIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "pointIndex", $this->okToFailValues);
@@ -18478,6 +21080,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "dataPoint", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "dataPoint", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "dataPoint", $this->okToFailValues);
@@ -18495,6 +21099,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "password", $this->okToFailValues);
@@ -18512,6 +21118,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "folder", $this->okToFailValues);
@@ -18529,6 +21137,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartDataPoint", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartDataPoint", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartDataPoint", "storage", $this->okToFailValues);
@@ -18579,6 +21189,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "name", $this->okToFailValues);
@@ -18596,6 +21208,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "slideIndex", $this->okToFailValues);
@@ -18613,6 +21227,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "shapeIndex", $this->okToFailValues);
@@ -18630,6 +21246,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "seriesIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "seriesIndex", $this->okToFailValues);
@@ -18647,6 +21265,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "series", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "series", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "series", $this->okToFailValues);
@@ -18664,6 +21284,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "password", $this->okToFailValues);
@@ -18681,6 +21303,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "folder", $this->okToFailValues);
@@ -18698,6 +21322,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putChartSeries", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putChartSeries", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putChartSeries", "storage", $this->okToFailValues);
@@ -18746,6 +21372,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "name", $this->okToFailValues);
@@ -18763,6 +21391,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "slideIndex", $this->okToFailValues);
@@ -18780,6 +21410,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "slideDto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "slideDto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "slideDto", $this->okToFailValues);
@@ -18797,6 +21429,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "password", $this->okToFailValues);
@@ -18814,6 +21448,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "folder", $this->okToFailValues);
@@ -18831,9 +21467,156 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putLayoutSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putLayoutSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putLayoutSlide", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPutNotesSlideHeaderFooterRequest()
+    {
+        $testname = TestUtils::getTestValue("putNotesSlideHeaderFooter", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putNotesSlideHeaderFooter", "slideIndex", $this->values);
+        $testdto = TestUtils::getTestValue("putNotesSlideHeaderFooter", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putNotesSlideHeaderFooter", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putNotesSlideHeaderFooter", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putNotesSlideHeaderFooter", "folder", $this->values);
+        $request = new Requests\PutNotesSlideHeaderFooterRequest($testname, $testslideIndex, $testdto, $testpassword, $teststorage, $testfolder);
+        return $request;
+    }
+
+    /**
+     * Test case for putNotesSlideHeaderFooter
+     * Set header/footer the notes slide.
+     */
+    public function testPutNotesSlideHeaderFooter()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putNotesSlideHeaderFooter");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvalidname()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putNotesSlideHeaderFooter", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvalidslideIndex()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putNotesSlideHeaderFooter", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvaliddto()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putNotesSlideHeaderFooter", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvalidpassword()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putNotesSlideHeaderFooter", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvalidstorage()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putNotesSlideHeaderFooter", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPutNotesSlideHeaderFooterInvalidfolder()
+    {
+        $request = $this->getPutNotesSlideHeaderFooterRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putNotesSlideHeaderFooter", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putNotesSlideHeaderFooter", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putNotesSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putNotesSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putNotesSlideHeaderFooter", "folder", $this->okToFailValues);
         }
     }
     private function getPutNotesSlideShapeSaveAsRequest()
@@ -18886,6 +21669,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "name", $this->okToFailValues);
@@ -18903,6 +21688,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -18920,6 +21707,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -18937,6 +21726,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "format", $this->okToFailValues);
@@ -18954,6 +21745,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "outPath", $this->okToFailValues);
@@ -18971,6 +21764,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "options", $this->okToFailValues);
@@ -18988,6 +21783,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "password", $this->okToFailValues);
@@ -19005,6 +21802,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "folder", $this->okToFailValues);
@@ -19022,6 +21821,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "storage", $this->okToFailValues);
@@ -19039,6 +21840,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "scaleX", $this->okToFailValues);
@@ -19056,6 +21859,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "scaleY", $this->okToFailValues);
@@ -19073,6 +21878,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "bounds", $this->okToFailValues);
@@ -19090,6 +21897,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putNotesSlideShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putNotesSlideShapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -19137,6 +21946,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putPresentationMerge", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putPresentationMerge", "name", $this->okToFailValues);
@@ -19154,6 +21965,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "request", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putPresentationMerge", "request", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putPresentationMerge", "request", $this->okToFailValues);
@@ -19171,6 +21984,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putPresentationMerge", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putPresentationMerge", "password", $this->okToFailValues);
@@ -19188,6 +22003,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putPresentationMerge", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putPresentationMerge", "storage", $this->okToFailValues);
@@ -19205,9 +22022,281 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putPresentationMerge", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putPresentationMerge", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putPresentationMerge", "folder", $this->okToFailValues);
+        }
+    }
+    private function getPutSectionRequest()
+    {
+        $testname = TestUtils::getTestValue("putSection", "name", $this->values);
+        $testsectionIndex = TestUtils::getTestValue("putSection", "sectionIndex", $this->values);
+        $testsectionName = TestUtils::getTestValue("putSection", "sectionName", $this->values);
+        $testpassword = TestUtils::getTestValue("putSection", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSection", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSection", "storage", $this->values);
+        $request = new Requests\PutSectionRequest($testname, $testsectionIndex, $testsectionName, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSection
+     * Update section name.
+     */
+    public function testPutSection()
+    {
+        $request = $this->getPutSectionRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSection");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSectionInvalidname()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSection", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionInvalidsectionIndex()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->sectionIndex = TestUtils::invalidizeValue("sectionIndex", "putSection", $request->sectionIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "sectionIndex", $request->sectionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "sectionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "sectionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "sectionIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionInvalidsectionName()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->sectionName = TestUtils::invalidizeValue("sectionName", "putSection", $request->sectionName, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "sectionName", $request->sectionName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "sectionName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "sectionName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "sectionName", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionInvalidpassword()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSection", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionInvalidfolder()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSection", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionInvalidstorage()
+    {
+        $request = $this->getPutSectionRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSection", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSection", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSection($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSection", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSection", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSection", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPutSectionsRequest()
+    {
+        $testname = TestUtils::getTestValue("putSections", "name", $this->values);
+        $testsections = TestUtils::getTestValue("putSections", "sections", $this->values);
+        $testpassword = TestUtils::getTestValue("putSections", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSections", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSections", "storage", $this->values);
+        $request = new Requests\PutSectionsRequest($testname, $testsections, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSections
+     * Replace existing presentation sections with the ones provided in the sections DTO.
+     */
+    public function testPutSections()
+    {
+        $request = $this->getPutSectionsRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSections");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSectionsInvalidname()
+    {
+        $request = $this->getPutSectionsRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSections", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSections", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSections", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSections", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionsInvalidsections()
+    {
+        $request = $this->getPutSectionsRequest();
+        $request->sections = TestUtils::invalidizeValue("sections", "putSections", $request->sections, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", "sections", $request->sections);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSections", "sections", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSections", "sections", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSections", "sections", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionsInvalidpassword()
+    {
+        $request = $this->getPutSectionsRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSections", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSections", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSections", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSections", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionsInvalidfolder()
+    {
+        $request = $this->getPutSectionsRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSections", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSections", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSections", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSections", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSectionsInvalidstorage()
+    {
+        $request = $this->getPutSectionsRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSections", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSections", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSections($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSections", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSections", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSections", "storage", $this->okToFailValues);
         }
     }
     private function getPutSetParagraphPortionPropertiesRequest()
@@ -19256,6 +22345,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "name", $this->okToFailValues);
@@ -19273,6 +22364,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "slideIndex", $this->okToFailValues);
@@ -19290,6 +22383,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "shapeIndex", $this->okToFailValues);
@@ -19307,6 +22402,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "paragraphIndex", $this->okToFailValues);
@@ -19324,6 +22421,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "portionIndex", $this->okToFailValues);
@@ -19341,6 +22440,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "dto", $this->okToFailValues);
@@ -19358,6 +22459,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "password", $this->okToFailValues);
@@ -19375,6 +22478,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "folder", $this->okToFailValues);
@@ -19392,6 +22497,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphPortionProperties", "storage", $this->okToFailValues);
@@ -19442,6 +22549,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "name", $this->okToFailValues);
@@ -19459,6 +22568,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "slideIndex", $this->okToFailValues);
@@ -19476,6 +22587,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "shapeIndex", $this->okToFailValues);
@@ -19493,6 +22606,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "paragraphIndex", $this->okToFailValues);
@@ -19510,6 +22625,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "dto", $this->okToFailValues);
@@ -19527,6 +22644,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "password", $this->okToFailValues);
@@ -19544,6 +22663,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "folder", $this->okToFailValues);
@@ -19561,6 +22682,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetParagraphProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetParagraphProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetParagraphProperties", "storage", $this->okToFailValues);
@@ -19613,6 +22736,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "name", $this->okToFailValues);
@@ -19630,6 +22755,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "slideIndex", $this->okToFailValues);
@@ -19647,6 +22774,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "path", $this->okToFailValues);
@@ -19664,6 +22793,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "shapeIndex", $this->okToFailValues);
@@ -19681,6 +22812,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "paragraphIndex", $this->okToFailValues);
@@ -19698,6 +22831,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "portionIndex", $this->okToFailValues);
@@ -19715,6 +22850,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "dto", $this->okToFailValues);
@@ -19732,6 +22869,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "password", $this->okToFailValues);
@@ -19749,6 +22888,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "folder", $this->okToFailValues);
@@ -19766,6 +22907,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphPortionProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphPortionProperties", "storage", $this->okToFailValues);
@@ -19817,6 +22960,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "name", $this->okToFailValues);
@@ -19834,6 +22979,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "slideIndex", $this->okToFailValues);
@@ -19851,6 +22998,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "path", $this->okToFailValues);
@@ -19868,6 +23017,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "shapeIndex", $this->okToFailValues);
@@ -19885,6 +23036,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "paragraphIndex", $this->okToFailValues);
@@ -19902,6 +23055,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "dto", $this->okToFailValues);
@@ -19919,6 +23074,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "password", $this->okToFailValues);
@@ -19936,6 +23093,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "folder", $this->okToFailValues);
@@ -19953,6 +23112,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSetSubshapeParagraphProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSetSubshapeParagraphProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSetSubshapeParagraphProperties", "storage", $this->okToFailValues);
@@ -20008,6 +23169,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "name", $this->okToFailValues);
@@ -20025,6 +23188,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -20042,6 +23207,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -20059,6 +23226,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "format", $this->okToFailValues);
@@ -20076,6 +23245,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "outPath", $this->okToFailValues);
@@ -20093,6 +23264,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "options", $this->okToFailValues);
@@ -20110,6 +23283,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "password", $this->okToFailValues);
@@ -20127,6 +23302,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "folder", $this->okToFailValues);
@@ -20144,6 +23321,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "storage", $this->okToFailValues);
@@ -20161,6 +23340,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "scaleX", $this->okToFailValues);
@@ -20178,6 +23359,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "scaleY", $this->okToFailValues);
@@ -20195,6 +23378,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "bounds", $this->okToFailValues);
@@ -20212,6 +23397,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putShapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putShapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -20260,6 +23447,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "name", $this->okToFailValues);
@@ -20277,6 +23466,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "slideIndex", $this->okToFailValues);
@@ -20294,6 +23485,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "animation", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "animation", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "animation", $this->okToFailValues);
@@ -20311,6 +23504,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "password", $this->okToFailValues);
@@ -20328,6 +23523,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "folder", $this->okToFailValues);
@@ -20345,6 +23542,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimation", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimation", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimation", "storage", $this->okToFailValues);
@@ -20394,6 +23593,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "name", $this->okToFailValues);
@@ -20411,6 +23612,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "slideIndex", $this->okToFailValues);
@@ -20428,6 +23631,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "effectIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "effectIndex", $this->okToFailValues);
@@ -20445,6 +23650,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "effect", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "effect", $this->okToFailValues);
@@ -20462,6 +23669,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "password", $this->okToFailValues);
@@ -20479,6 +23688,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "folder", $this->okToFailValues);
@@ -20496,6 +23707,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationEffect", "storage", $this->okToFailValues);
@@ -20546,6 +23759,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "name", $this->okToFailValues);
@@ -20563,6 +23778,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "slideIndex", $this->okToFailValues);
@@ -20580,6 +23797,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "sequenceIndex", $this->okToFailValues);
@@ -20597,6 +23816,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "effectIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "effectIndex", $this->okToFailValues);
@@ -20614,6 +23835,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "effect", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "effect", $this->okToFailValues);
@@ -20631,6 +23854,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "password", $this->okToFailValues);
@@ -20648,6 +23873,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "folder", $this->okToFailValues);
@@ -20665,9 +23892,156 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideAnimationInteractiveSequenceEffect", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideAnimationInteractiveSequenceEffect", "storage", $this->okToFailValues);
+        }
+    }
+    private function getPutSlideHeaderFooterRequest()
+    {
+        $testname = TestUtils::getTestValue("putSlideHeaderFooter", "name", $this->values);
+        $testslideIndex = TestUtils::getTestValue("putSlideHeaderFooter", "slideIndex", $this->values);
+        $testdto = TestUtils::getTestValue("putSlideHeaderFooter", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlideHeaderFooter", "password", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlideHeaderFooter", "folder", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlideHeaderFooter", "storage", $this->values);
+        $request = new Requests\PutSlideHeaderFooterRequest($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+        return $request;
+    }
+
+    /**
+     * Test case for putSlideHeaderFooter
+     * Set footer the slide.
+     */
+    public function testPutSlideHeaderFooter()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSlideHeaderFooter");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvalidname()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSlideHeaderFooter", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvalidslideIndex()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->slideIndex = TestUtils::invalidizeValue("slideIndex", "putSlideHeaderFooter", $request->slideIndex, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "slideIndex", $request->slideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "slideIndex", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvaliddto()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSlideHeaderFooter", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvalidpassword()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSlideHeaderFooter", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvalidfolder()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlideHeaderFooter", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "folder", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlideHeaderFooterInvalidstorage()
+    {
+        $request = $this->getPutSlideHeaderFooterRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlideHeaderFooter", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlideHeaderFooter", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlideHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlideHeaderFooter", "storage", $this->okToFailValues);
         }
     }
     private function getPutSlideSaveAsRequest()
@@ -20718,6 +24092,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "name", $this->okToFailValues);
@@ -20735,6 +24111,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "slideIndex", $this->okToFailValues);
@@ -20752,6 +24130,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "format", $this->okToFailValues);
@@ -20769,6 +24149,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "outPath", $this->okToFailValues);
@@ -20786,6 +24168,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "options", $this->okToFailValues);
@@ -20803,6 +24187,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "width", $this->okToFailValues);
@@ -20820,6 +24206,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "height", $this->okToFailValues);
@@ -20837,6 +24225,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "password", $this->okToFailValues);
@@ -20854,6 +24244,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "folder", $this->okToFailValues);
@@ -20871,6 +24263,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "storage", $this->okToFailValues);
@@ -20888,6 +24282,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSaveAs", "fontsFolder", $this->okToFailValues);
@@ -20937,6 +24333,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "name", $this->okToFailValues);
@@ -20954,6 +24352,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "slideIndex", $this->okToFailValues);
@@ -20971,6 +24371,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "shapeIndex", $this->okToFailValues);
@@ -20988,6 +24390,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "dto", $this->okToFailValues);
@@ -21005,6 +24409,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "password", $this->okToFailValues);
@@ -21022,6 +24428,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "folder", $this->okToFailValues);
@@ -21039,6 +24447,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideShapeInfo", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideShapeInfo", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideShapeInfo", "storage", $this->okToFailValues);
@@ -21089,6 +24499,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "name", $this->okToFailValues);
@@ -21106,6 +24518,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "slideIndex", $this->okToFailValues);
@@ -21123,6 +24537,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "path", $this->okToFailValues);
@@ -21140,6 +24556,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "shapeIndex", $this->okToFailValues);
@@ -21157,6 +24575,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "dto", $this->okToFailValues);
@@ -21174,6 +24594,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "password", $this->okToFailValues);
@@ -21191,6 +24613,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "folder", $this->okToFailValues);
@@ -21208,6 +24632,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlideSubshapeInfo", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlideSubshapeInfo", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlideSubshapeInfo", "storage", $this->okToFailValues);
@@ -21215,12 +24641,12 @@ class SlidesApiTest extends TestBase
     }
     private function getPutSlidesConvertRequest()
     {
+        $testdocument = TestUtils::getStreamValue();
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", $this->values);
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", $this->values);
-        $testdocument = TestUtils::getStreamValue();
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", $this->values);
         $testfontsFolder = TestUtils::getTestValue("putSlidesConvert", "fontsFolder", $this->values);
-        $request = new Requests\PutSlidesConvertRequest($testformat, $testoutPath, $testdocument, $testpassword, $testfontsFolder);
+        $request = new Requests\PutSlidesConvertRequest($testdocument, $testformat, $testoutPath, $testpassword, $testfontsFolder);
         return $request;
     }
 
@@ -21244,6 +24670,25 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testPutSlidesConvertInvaliddocument()
+    {
+        $request = $this->getPutSlidesConvertRequest();
+        $request->document = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "document", $request->document);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesConvert($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesConvert", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesConvert", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesConvert", "document", $this->okToFailValues);
+        }
+    }
+
     public function testPutSlidesConvertInvalidformat()
     {
         $request = $this->getPutSlidesConvertRequest();
@@ -21255,6 +24700,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesConvert", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesConvert", "format", $this->okToFailValues);
@@ -21272,27 +24719,11 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesConvert", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesConvert", "outPath", $this->okToFailValues);
-        }
-    }
-
-    public function testPutSlidesConvertInvaliddocument()
-    {
-        $request = $this->getPutSlidesConvertRequest();
-        $request->document = null;
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesConvert", "document", $request->document);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesConvert($request);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesConvert", "document", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesConvert", "document", $this->okToFailValues);
         }
     }
 
@@ -21307,6 +24738,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesConvert", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesConvert", "password", $this->okToFailValues);
@@ -21324,6 +24757,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesConvert", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesConvert", "fontsFolder", $this->okToFailValues);
@@ -21371,6 +24806,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesDocumentFromHtml", "name", $this->okToFailValues);
@@ -21388,6 +24825,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesDocumentFromHtml", "html", $this->okToFailValues);
@@ -21405,6 +24844,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesDocumentFromHtml", "password", $this->okToFailValues);
@@ -21422,6 +24863,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesDocumentFromHtml", "storage", $this->okToFailValues);
@@ -21439,9 +24882,136 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesDocumentFromHtml", "folder", $this->okToFailValues);
+        }
+    }
+    private function getPutSlidesHeaderFooterRequest()
+    {
+        $testname = TestUtils::getTestValue("putSlidesHeaderFooter", "name", $this->values);
+        $testdto = TestUtils::getTestValue("putSlidesHeaderFooter", "dto", $this->values);
+        $testpassword = TestUtils::getTestValue("putSlidesHeaderFooter", "password", $this->values);
+        $teststorage = TestUtils::getTestValue("putSlidesHeaderFooter", "storage", $this->values);
+        $testfolder = TestUtils::getTestValue("putSlidesHeaderFooter", "folder", $this->values);
+        $request = new Requests\PutSlidesHeaderFooterRequest($testname, $testdto, $testpassword, $teststorage, $testfolder);
+        return $request;
+    }
+
+    /**
+     * Test case for putSlidesHeaderFooter
+     * Set footers for all slides in a presentation.
+     */
+    public function testPutSlidesHeaderFooter()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSlidesHeaderFooter");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testPutSlidesHeaderFooterInvalidname()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        $request->name = TestUtils::invalidizeValue("name", "putSlidesHeaderFooter", $request->name, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", "name", $request->name);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesHeaderFooter", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesHeaderFooter", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesHeaderFooter", "name", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesHeaderFooterInvaliddto()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        $request->dto = TestUtils::invalidizeValue("dto", "putSlidesHeaderFooter", $request->dto, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", "dto", $request->dto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesHeaderFooter", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesHeaderFooter", "dto", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesHeaderFooterInvalidpassword()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        $request->password = TestUtils::invalidizeValue("password", "putSlidesHeaderFooter", $request->password, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", "password", $request->password);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesHeaderFooter", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesHeaderFooter", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesHeaderFooter", "password", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesHeaderFooterInvalidstorage()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        $request->storage = TestUtils::invalidizeValue("storage", "putSlidesHeaderFooter", $request->storage, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", "storage", $request->storage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesHeaderFooter", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesHeaderFooter", "storage", $this->okToFailValues);
+        }
+    }
+
+    public function testPutSlidesHeaderFooterInvalidfolder()
+    {
+        $request = $this->getPutSlidesHeaderFooterRequest();
+        $request->folder = TestUtils::invalidizeValue("folder", "putSlidesHeaderFooter", $request->folder, $this->values);
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesHeaderFooter", "folder", $request->folder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->putSlidesHeaderFooter($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesHeaderFooter", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesHeaderFooter", "folder", $this->okToFailValues);
         }
     }
     private function getPutSlidesSaveAsRequest()
@@ -21489,6 +25059,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "name", $this->okToFailValues);
@@ -21506,6 +25078,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "outPath", $this->okToFailValues);
@@ -21523,6 +25097,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "format", $this->okToFailValues);
@@ -21540,6 +25116,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "options", $this->okToFailValues);
@@ -21557,6 +25135,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "password", $this->okToFailValues);
@@ -21574,6 +25154,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "storage", $this->okToFailValues);
@@ -21591,6 +25173,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "folder", $this->okToFailValues);
@@ -21608,6 +25192,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSaveAs", "fontsFolder", $this->okToFailValues);
@@ -21656,6 +25242,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "name", $this->okToFailValues);
@@ -21673,6 +25261,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "propertyName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "propertyName", $this->okToFailValues);
@@ -21690,6 +25280,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "property", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "property", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "property", $this->okToFailValues);
@@ -21707,6 +25299,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "password", $this->okToFailValues);
@@ -21724,6 +25318,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "folder", $this->okToFailValues);
@@ -21741,6 +25337,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSetDocumentProperty", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSetDocumentProperty", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSetDocumentProperty", "storage", $this->okToFailValues);
@@ -21789,6 +25387,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "name", $this->okToFailValues);
@@ -21806,6 +25406,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "slideIndex", $this->okToFailValues);
@@ -21823,6 +25425,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "slideDto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "slideDto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "slideDto", $this->okToFailValues);
@@ -21840,6 +25444,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "password", $this->okToFailValues);
@@ -21857,6 +25463,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "folder", $this->okToFailValues);
@@ -21874,6 +25482,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlide", "storage", $this->okToFailValues);
@@ -21922,6 +25532,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "name", $this->okToFailValues);
@@ -21939,6 +25551,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "slideIndex", $this->okToFailValues);
@@ -21956,6 +25570,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "background", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "background", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "background", $this->okToFailValues);
@@ -21973,6 +25589,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "folder", $this->okToFailValues);
@@ -21990,6 +25608,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "password", $this->okToFailValues);
@@ -22007,6 +25627,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackground", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackground", "storage", $this->okToFailValues);
@@ -22055,6 +25677,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "name", $this->okToFailValues);
@@ -22072,6 +25696,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "slideIndex", $this->okToFailValues);
@@ -22089,6 +25715,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "color", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "color", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "color", $this->okToFailValues);
@@ -22106,6 +25734,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "folder", $this->okToFailValues);
@@ -22123,6 +25753,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "password", $this->okToFailValues);
@@ -22140,6 +25772,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideBackgroundColor", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideBackgroundColor", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideBackgroundColor", "storage", $this->okToFailValues);
@@ -22190,6 +25824,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "name", $this->okToFailValues);
@@ -22207,6 +25843,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "password", $this->okToFailValues);
@@ -22224,6 +25862,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "storage", $this->okToFailValues);
@@ -22241,6 +25881,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "folder", $this->okToFailValues);
@@ -22258,6 +25900,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "width", $this->okToFailValues);
@@ -22275,6 +25919,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "height", $this->okToFailValues);
@@ -22292,6 +25938,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "sizeType", $this->okToFailValues);
@@ -22309,6 +25957,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideSize", "scaleType", $this->okToFailValues);
@@ -22356,6 +26006,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesViewProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesViewProperties", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesViewProperties", "name", $this->okToFailValues);
@@ -22373,6 +26025,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesViewProperties", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesViewProperties", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesViewProperties", "dto", $this->okToFailValues);
@@ -22390,6 +26044,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesViewProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesViewProperties", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesViewProperties", "password", $this->okToFailValues);
@@ -22407,6 +26063,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesViewProperties", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesViewProperties", "folder", $this->okToFailValues);
@@ -22424,6 +26082,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesViewProperties", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesViewProperties", "storage", $this->okToFailValues);
@@ -22480,6 +26140,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "name", $this->okToFailValues);
@@ -22497,6 +26159,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "slideIndex", $this->okToFailValues);
@@ -22514,6 +26178,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "path", $this->okToFailValues);
@@ -22531,6 +26197,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "shapeIndex", $this->okToFailValues);
@@ -22548,6 +26216,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "format", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "format", $this->okToFailValues);
@@ -22565,6 +26235,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "outPath", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "outPath", $this->okToFailValues);
@@ -22582,6 +26254,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "options", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "options", $this->okToFailValues);
@@ -22599,6 +26273,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "password", $this->okToFailValues);
@@ -22616,6 +26292,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "folder", $this->okToFailValues);
@@ -22633,6 +26311,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "storage", $this->okToFailValues);
@@ -22650,6 +26330,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "scaleX", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "scaleX", $this->okToFailValues);
@@ -22667,6 +26349,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "scaleY", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "scaleY", $this->okToFailValues);
@@ -22684,6 +26368,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "bounds", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "bounds", $this->okToFailValues);
@@ -22701,6 +26387,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSubshapeSaveAs", "fontsFolder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSubshapeSaveAs", "fontsFolder", $this->okToFailValues);
@@ -22749,6 +26437,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "name", $this->okToFailValues);
@@ -22766,6 +26456,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "slideIndex", $this->okToFailValues);
@@ -22783,6 +26475,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "dto", $this->okToFailValues);
@@ -22800,6 +26494,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "password", $this->okToFailValues);
@@ -22817,6 +26513,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "folder", $this->okToFailValues);
@@ -22834,6 +26532,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlide", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlide", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlide", "storage", $this->okToFailValues);
@@ -22883,6 +26583,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "name", $this->okToFailValues);
@@ -22900,6 +26602,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "slideIndex", $this->okToFailValues);
@@ -22917,6 +26621,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "shapeIndex", $this->okToFailValues);
@@ -22934,6 +26640,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "dto", $this->okToFailValues);
@@ -22951,6 +26659,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "password", $this->okToFailValues);
@@ -22968,6 +26678,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "folder", $this->okToFailValues);
@@ -22985,6 +26697,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShape", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShape", "storage", $this->okToFailValues);
@@ -23035,6 +26749,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "name", $this->okToFailValues);
@@ -23052,6 +26768,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "slideIndex", $this->okToFailValues);
@@ -23069,6 +26787,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "shapeIndex", $this->okToFailValues);
@@ -23086,6 +26806,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "paragraphIndex", $this->okToFailValues);
@@ -23103,6 +26825,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "dto", $this->okToFailValues);
@@ -23120,6 +26844,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "password", $this->okToFailValues);
@@ -23137,6 +26863,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "folder", $this->okToFailValues);
@@ -23154,6 +26882,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapeParagraph", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapeParagraph", "storage", $this->okToFailValues);
@@ -23205,6 +26935,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "name", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "name", $this->okToFailValues);
@@ -23222,6 +26954,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "slideIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "slideIndex", $this->okToFailValues);
@@ -23239,6 +26973,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "shapeIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "shapeIndex", $this->okToFailValues);
@@ -23256,6 +26992,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "paragraphIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "paragraphIndex", $this->okToFailValues);
@@ -23273,6 +27011,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "portionIndex", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "portionIndex", $this->okToFailValues);
@@ -23290,6 +27030,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "dto", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "dto", $this->okToFailValues);
@@ -23307,6 +27049,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "password", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "password", $this->okToFailValues);
@@ -23324,6 +27068,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "folder", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "folder", $this->okToFailValues);
@@ -23341,6 +27087,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putUpdateNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putUpdateNotesSlideShapePortion", "storage", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putUpdateNotesSlideShapePortion", "storage", $this->okToFailValues);
@@ -23384,6 +27132,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "storageExists", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "storageExists", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("storageExists", "storageName", $this->okToFailValues);
@@ -23429,6 +27179,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "uploadFile", "path", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("uploadFile", "path", $this->okToFailValues);
@@ -23446,7 +27198,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "file", $expectedCode, $expectedMessage);
-        } catch (Exception $ex) {
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "uploadFile", "file", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("uploadFile", "file", $this->okToFailValues);
@@ -23464,6 +27217,8 @@ class SlidesApiTest extends TestBase
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "uploadFile", "storageName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "uploadFile", "storageName", $expectedCode, $expectedMessage);
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("uploadFile", "storageName", $this->okToFailValues);

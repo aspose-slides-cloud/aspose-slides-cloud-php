@@ -85,7 +85,7 @@ class PostChartDataPointRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $shapeIndex, $seriesIndex, $dataPoint = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $seriesIndex, $dataPoint, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

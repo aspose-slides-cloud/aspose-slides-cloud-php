@@ -49,7 +49,7 @@ class PostSlidesPipelineRequest
      * @param \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object.
      * @param \SplFileObject[] $files files to upload with the pipeline
      */
-    public function __construct($pipeline = null, $files = null)
+    public function __construct($pipeline, $files = null)
     {
         $this->pipeline = $pipeline;
         $this->files = $files;

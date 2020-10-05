@@ -29,20 +29,18 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * IShapeExportOptions Class Doc Comment
+ * HeaderFooter Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description Represents header/footer info of slide
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IShapeExportOptions implements ArrayAccess
+class HeaderFooter extends ResourceBase 
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +49,7 @@ class IShapeExportOptions implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IShapeExportOptions';
+    protected static $swaggerModelName = 'HeaderFooter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +57,11 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'isDateTimeVisible' => 'bool',
+        'dateTimeText' => 'string',
+        'isFooterVisible' => 'bool',
+        'footerText' => 'string',
+        'isSlideNumberVisible' => 'bool'
     ];
 
     /**
@@ -68,7 +70,11 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'isDateTimeVisible' => null,
+        'dateTimeText' => null,
+        'isFooterVisible' => null,
+        'footerText' => null,
+        'isSlideNumberVisible' => null
     ];
 
     /**
@@ -78,7 +84,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -88,7 +94,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -98,7 +104,11 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'isDateTimeVisible' => 'IsDateTimeVisible',
+        'dateTimeText' => 'DateTimeText',
+        'isFooterVisible' => 'IsFooterVisible',
+        'footerText' => 'FooterText',
+        'isSlideNumberVisible' => 'IsSlideNumberVisible'
     ];
 
     /**
@@ -107,7 +117,11 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'isDateTimeVisible' => 'setIsDateTimeVisible',
+        'dateTimeText' => 'setDateTimeText',
+        'isFooterVisible' => 'setIsFooterVisible',
+        'footerText' => 'setFooterText',
+        'isSlideNumberVisible' => 'setIsSlideNumberVisible'
     ];
 
     /**
@@ -116,7 +130,11 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'isDateTimeVisible' => 'getIsDateTimeVisible',
+        'dateTimeText' => 'getDateTimeText',
+        'isFooterVisible' => 'getIsFooterVisible',
+        'footerText' => 'getFooterText',
+        'isSlideNumberVisible' => 'getIsSlideNumberVisible'
     ];
 
     /**
@@ -127,7 +145,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -137,7 +155,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -147,7 +165,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -164,12 +182,6 @@ class IShapeExportOptions implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -179,6 +191,13 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
+        $this->container['isDateTimeVisible'] = isset($data['isDateTimeVisible']) ? $data['isDateTimeVisible'] : null;
+        $this->container['dateTimeText'] = isset($data['dateTimeText']) ? $data['dateTimeText'] : null;
+        $this->container['isFooterVisible'] = isset($data['isFooterVisible']) ? $data['isFooterVisible'] : null;
+        $this->container['footerText'] = isset($data['footerText']) ? $data['footerText'] : null;
+        $this->container['isSlideNumberVisible'] = isset($data['isSlideNumberVisible']) ? $data['isSlideNumberVisible'] : null;
         
     }
 
@@ -189,7 +208,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -202,10 +221,133 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets isDateTimeVisible
+     *
+     * @return bool
+     */
+    public function getIsDateTimeVisible()
+    {
+        return $this->container['isDateTimeVisible'];
+    }
+
+    /**
+     * Sets isDateTimeVisible
+     *
+     * @param bool $isDateTimeVisible True if date is displayed in the footer
+     *
+     * @return $this
+     */
+    public function setIsDateTimeVisible($isDateTimeVisible)
+    {
+        $this->container['isDateTimeVisible'] = $isDateTimeVisible;
+
+        return $this;
+    }
+
+    /**
+     * Gets dateTimeText
+     *
+     * @return string
+     */
+    public function getDateTimeText()
+    {
+        return $this->container['dateTimeText'];
+    }
+
+    /**
+     * Sets dateTimeText
+     *
+     * @param string $dateTimeText Text to be displayed as date in the footer
+     *
+     * @return $this
+     */
+    public function setDateTimeText($dateTimeText)
+    {
+        $this->container['dateTimeText'] = $dateTimeText;
+
+        return $this;
+    }
+
+    /**
+     * Gets isFooterVisible
+     *
+     * @return bool
+     */
+    public function getIsFooterVisible()
+    {
+        return $this->container['isFooterVisible'];
+    }
+
+    /**
+     * Sets isFooterVisible
+     *
+     * @param bool $isFooterVisible True if footer is displayed
+     *
+     * @return $this
+     */
+    public function setIsFooterVisible($isFooterVisible)
+    {
+        $this->container['isFooterVisible'] = $isFooterVisible;
+
+        return $this;
+    }
+
+    /**
+     * Gets footerText
+     *
+     * @return string
+     */
+    public function getFooterText()
+    {
+        return $this->container['footerText'];
+    }
+
+    /**
+     * Sets footerText
+     *
+     * @param string $footerText Text to be displayed in the footer
+     *
+     * @return $this
+     */
+    public function setFooterText($footerText)
+    {
+        $this->container['footerText'] = $footerText;
+
+        return $this;
+    }
+
+    /**
+     * Gets isSlideNumberVisible
+     *
+     * @return bool
+     */
+    public function getIsSlideNumberVisible()
+    {
+        return $this->container['isSlideNumberVisible'];
+    }
+
+    /**
+     * Sets isSlideNumberVisible
+     *
+     * @param bool $isSlideNumberVisible True if slide number is displayed in the footer
+     *
+     * @return $this
+     */
+    public function setIsSlideNumberVisible($isSlideNumberVisible)
+    {
+        $this->container['isSlideNumberVisible'] = $isSlideNumberVisible;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

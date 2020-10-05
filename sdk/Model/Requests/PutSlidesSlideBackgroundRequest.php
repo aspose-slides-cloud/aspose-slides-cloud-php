@@ -73,7 +73,7 @@ class PutSlidesSlideBackgroundRequest
      * @param string $password Document password.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $background = null, $folder = null, $password = null, $storage = null)
+    public function __construct($name, $slideIndex, $background, $folder = null, $password = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

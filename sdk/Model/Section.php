@@ -29,20 +29,18 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * IShapeExportOptions Class Doc Comment
+ * Section Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description Presentation section.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IShapeExportOptions implements ArrayAccess
+class Section extends ResourceBase 
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +49,7 @@ class IShapeExportOptions implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IShapeExportOptions';
+    protected static $swaggerModelName = 'Section';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +57,9 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'name' => 'string',
+        'firstSlideIndex' => 'int',
+        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
     ];
 
     /**
@@ -68,7 +68,9 @@ class IShapeExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'name' => null,
+        'firstSlideIndex' => 'int32',
+        'slideList' => null
     ];
 
     /**
@@ -78,7 +80,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -88,7 +90,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -98,7 +100,9 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'name' => 'Name',
+        'firstSlideIndex' => 'FirstSlideIndex',
+        'slideList' => 'SlideList'
     ];
 
     /**
@@ -107,7 +111,9 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'name' => 'setName',
+        'firstSlideIndex' => 'setFirstSlideIndex',
+        'slideList' => 'setSlideList'
     ];
 
     /**
@@ -116,7 +122,9 @@ class IShapeExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'name' => 'getName',
+        'firstSlideIndex' => 'getFirstSlideIndex',
+        'slideList' => 'getSlideList'
     ];
 
     /**
@@ -127,7 +135,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -137,7 +145,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -147,7 +155,7 @@ class IShapeExportOptions implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -164,12 +172,6 @@ class IShapeExportOptions implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -179,6 +181,11 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['firstSlideIndex'] = isset($data['firstSlideIndex']) ? $data['firstSlideIndex'] : null;
+        $this->container['slideList'] = isset($data['slideList']) ? $data['slideList'] : null;
         
     }
 
@@ -189,8 +196,11 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['firstSlideIndex'] === null) {
+            $invalidProperties[] = "'firstSlideIndex' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -202,10 +212,88 @@ class IShapeExportOptions implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
+        if ($this->container['firstSlideIndex'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets firstSlideIndex
+     *
+     * @return int
+     */
+    public function getFirstSlideIndex()
+    {
+        return $this->container['firstSlideIndex'];
+    }
+
+    /**
+     * Sets firstSlideIndex
+     *
+     * @param int $firstSlideIndex One-based index of slide with which the section starts.
+     *
+     * @return $this
+     */
+    public function setFirstSlideIndex($firstSlideIndex)
+    {
+        $this->container['firstSlideIndex'] = $firstSlideIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets slideList
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     */
+    public function getSlideList()
+    {
+        return $this->container['slideList'];
+    }
+
+    /**
+     * Sets slideList
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList Links to the shapes contained in the section.
+     *
+     * @return $this
+     */
+    public function setSlideList($slideList)
+    {
+        $this->container['slideList'] = $slideList;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

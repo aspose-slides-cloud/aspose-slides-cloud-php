@@ -34,6 +34,11 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostGetNotesSlideWithFormatRequest
 {
     /*
+     * Document data.
+     */
+    public $document;
+
+    /*
      * Slide index.
      */
     public $slideIndex;
@@ -42,11 +47,6 @@ class PostGetNotesSlideWithFormatRequest
      * Output file format.
      */
     public $format;
-
-    /*
-     * Document data.
-     */
-    public $document;
 
     /*
      * Output file width.
@@ -71,25 +71,41 @@ class PostGetNotesSlideWithFormatRequest
     /*
      * Initializes a new instance of the PostGetNotesSlideWithFormatRequest class.
      *  
+     * @param \SplFileObject $document Document data.
      * @param int $slideIndex Slide index.
      * @param string $format Output file format.
-     * @param \SplFileObject $document Document data.
      * @param int $width Output file width.
      * @param int $height Output file height.
      * @param string $password Document password.
      * @param string $fontsFolder Storage folder containing custom fonts to be used with the document.
      */
-    public function __construct($slideIndex, $format, $document = null, $width = null, $height = null, $password = null, $fontsFolder = null)
+    public function __construct($document, $slideIndex, $format, $width = null, $height = null, $password = null, $fontsFolder = null)
     {
+        $this->document = $document;
         $this->slideIndex = $slideIndex;
         $this->format = $format;
-        $this->document = $document;
         $this->width = $width;
         $this->height = $height;
         $this->password = $password;
         $this->fontsFolder = $fontsFolder;
     }
 
+    /*
+     * Document data.
+     */
+    public function get_document()
+    {
+        return $this->document;
+    }
+
+    /*
+     * Document data.
+     */
+    public function set_document($value)
+    {
+        $this->document = $value;
+        return $this;
+    }
     /*
      * Slide index.
      */
@@ -120,22 +136,6 @@ class PostGetNotesSlideWithFormatRequest
     public function set_format($value)
     {
         $this->format = $value;
-        return $this;
-    }
-    /*
-     * Document data.
-     */
-    public function get_document()
-    {
-        return $this->document;
-    }
-
-    /*
-     * Document data.
-     */
-    public function set_document($value)
-    {
-        $this->document = $value;
         return $this;
     }
     /*

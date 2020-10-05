@@ -29,20 +29,18 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ChartCategory Class Doc Comment
+ * NotesSlideHeaderFooter Class Doc Comment
  *
  * @category Class
- * @description Represents chart category resource
+ * @description Represents header/footer info of notes slide
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ChartCategory implements ArrayAccess
+class NotesSlideHeaderFooter extends ResourceBase 
 {
     const DISCRIMINATOR = null;
 
@@ -51,7 +49,7 @@ class ChartCategory implements ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ChartCategory';
+    protected static $swaggerModelName = 'NotesSlideHeaderFooter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +57,13 @@ class ChartCategory implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'parentCategories' => 'string[]',
-        'level' => 'int',
-        'value' => 'string',
-        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]'
+        'isDateTimeVisible' => 'bool',
+        'dateTimeText' => 'string',
+        'isFooterVisible' => 'bool',
+        'footerText' => 'string',
+        'isHeaderVisible' => 'bool',
+        'headerText' => 'string',
+        'isSlideNumberVisible' => 'bool'
     ];
 
     /**
@@ -74,13 +72,13 @@ class ChartCategory implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'parentCategories' => null,
-        'level' => 'int32',
-        'value' => null,
-        'fillFormat' => null,
-        'effectFormat' => null,
-        'lineFormat' => null,
-        'dataPoints' => null
+        'isDateTimeVisible' => null,
+        'dateTimeText' => null,
+        'isFooterVisible' => null,
+        'footerText' => null,
+        'isHeaderVisible' => null,
+        'headerText' => null,
+        'isSlideNumberVisible' => null
     ];
 
     /**
@@ -90,7 +88,7 @@ class ChartCategory implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -100,7 +98,7 @@ class ChartCategory implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -110,13 +108,13 @@ class ChartCategory implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'parentCategories' => 'ParentCategories',
-        'level' => 'Level',
-        'value' => 'Value',
-        'fillFormat' => 'FillFormat',
-        'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat',
-        'dataPoints' => 'DataPoints'
+        'isDateTimeVisible' => 'IsDateTimeVisible',
+        'dateTimeText' => 'DateTimeText',
+        'isFooterVisible' => 'IsFooterVisible',
+        'footerText' => 'FooterText',
+        'isHeaderVisible' => 'IsHeaderVisible',
+        'headerText' => 'HeaderText',
+        'isSlideNumberVisible' => 'IsSlideNumberVisible'
     ];
 
     /**
@@ -125,13 +123,13 @@ class ChartCategory implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'parentCategories' => 'setParentCategories',
-        'level' => 'setLevel',
-        'value' => 'setValue',
-        'fillFormat' => 'setFillFormat',
-        'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat',
-        'dataPoints' => 'setDataPoints'
+        'isDateTimeVisible' => 'setIsDateTimeVisible',
+        'dateTimeText' => 'setDateTimeText',
+        'isFooterVisible' => 'setIsFooterVisible',
+        'footerText' => 'setFooterText',
+        'isHeaderVisible' => 'setIsHeaderVisible',
+        'headerText' => 'setHeaderText',
+        'isSlideNumberVisible' => 'setIsSlideNumberVisible'
     ];
 
     /**
@@ -140,13 +138,13 @@ class ChartCategory implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'parentCategories' => 'getParentCategories',
-        'level' => 'getLevel',
-        'value' => 'getValue',
-        'fillFormat' => 'getFillFormat',
-        'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat',
-        'dataPoints' => 'getDataPoints'
+        'isDateTimeVisible' => 'getIsDateTimeVisible',
+        'dateTimeText' => 'getDateTimeText',
+        'isFooterVisible' => 'getIsFooterVisible',
+        'footerText' => 'getFooterText',
+        'isHeaderVisible' => 'getIsHeaderVisible',
+        'headerText' => 'getHeaderText',
+        'isSlideNumberVisible' => 'getIsSlideNumberVisible'
     ];
 
     /**
@@ -157,7 +155,7 @@ class ChartCategory implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -167,7 +165,7 @@ class ChartCategory implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -177,7 +175,7 @@ class ChartCategory implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -194,12 +192,6 @@ class ChartCategory implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -209,13 +201,15 @@ class ChartCategory implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['parentCategories'] = isset($data['parentCategories']) ? $data['parentCategories'] : null;
-        $this->container['level'] = isset($data['level']) ? $data['level'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
-        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
-        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
+        parent::__construct($data);
+
+        $this->container['isDateTimeVisible'] = isset($data['isDateTimeVisible']) ? $data['isDateTimeVisible'] : null;
+        $this->container['dateTimeText'] = isset($data['dateTimeText']) ? $data['dateTimeText'] : null;
+        $this->container['isFooterVisible'] = isset($data['isFooterVisible']) ? $data['isFooterVisible'] : null;
+        $this->container['footerText'] = isset($data['footerText']) ? $data['footerText'] : null;
+        $this->container['isHeaderVisible'] = isset($data['isHeaderVisible']) ? $data['isHeaderVisible'] : null;
+        $this->container['headerText'] = isset($data['headerText']) ? $data['headerText'] : null;
+        $this->container['isSlideNumberVisible'] = isset($data['isSlideNumberVisible']) ? $data['isSlideNumberVisible'] : null;
         
     }
 
@@ -226,7 +220,7 @@ class ChartCategory implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -239,175 +233,178 @@ class ChartCategory implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /**
-     * Gets parentCategories
+     * Gets isDateTimeVisible
      *
-     * @return string[]
+     * @return bool
      */
-    public function getParentCategories()
+    public function getIsDateTimeVisible()
     {
-        return $this->container['parentCategories'];
+        return $this->container['isDateTimeVisible'];
     }
 
     /**
-     * Sets parentCategories
+     * Sets isDateTimeVisible
      *
-     * @param string[] $parentCategories Gets or sets the parent categories. Used with Sunburst &amp; treemap categories; ignored for other chart types.
+     * @param bool $isDateTimeVisible True if date is displayed in the footer
      *
      * @return $this
      */
-    public function setParentCategories($parentCategories)
+    public function setIsDateTimeVisible($isDateTimeVisible)
     {
-        $this->container['parentCategories'] = $parentCategories;
+        $this->container['isDateTimeVisible'] = $isDateTimeVisible;
 
         return $this;
     }
 
     /**
-     * Gets level
-     *
-     * @return int
-     */
-    public function getLevel()
-    {
-        return $this->container['level'];
-    }
-
-    /**
-     * Sets level
-     *
-     * @param int $level Gets or sets the grouping level for the category. Used with Sunburst &amp; treemap categories; ignored for other chart types.
-     *
-     * @return $this
-     */
-    public function setLevel($level)
-    {
-        $this->container['level'] = $level;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
+     * Gets dateTimeText
      *
      * @return string
      */
-    public function getValue()
+    public function getDateTimeText()
     {
-        return $this->container['value'];
+        return $this->container['dateTimeText'];
     }
 
     /**
-     * Sets value
+     * Sets dateTimeText
      *
-     * @param string $value Category value
+     * @param string $dateTimeText Text to be displayed as date in the footer
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setDateTimeText($dateTimeText)
     {
-        $this->container['value'] = $value;
+        $this->container['dateTimeText'] = $dateTimeText;
 
         return $this;
     }
 
     /**
-     * Gets fillFormat
+     * Gets isFooterVisible
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
+     * @return bool
      */
-    public function getFillFormat()
+    public function getIsFooterVisible()
     {
-        return $this->container['fillFormat'];
+        return $this->container['isFooterVisible'];
     }
 
     /**
-     * Sets fillFormat
+     * Sets isFooterVisible
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
+     * @param bool $isFooterVisible True if footer is displayed
      *
      * @return $this
      */
-    public function setFillFormat($fillFormat)
+    public function setIsFooterVisible($isFooterVisible)
     {
-        $this->container['fillFormat'] = $fillFormat;
+        $this->container['isFooterVisible'] = $isFooterVisible;
 
         return $this;
     }
 
     /**
-     * Gets effectFormat
+     * Gets footerText
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
+     * @return string
      */
-    public function getEffectFormat()
+    public function getFooterText()
     {
-        return $this->container['effectFormat'];
+        return $this->container['footerText'];
     }
 
     /**
-     * Sets effectFormat
+     * Sets footerText
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
+     * @param string $footerText Text to be displayed in the footer
      *
      * @return $this
      */
-    public function setEffectFormat($effectFormat)
+    public function setFooterText($footerText)
     {
-        $this->container['effectFormat'] = $effectFormat;
+        $this->container['footerText'] = $footerText;
 
         return $this;
     }
 
     /**
-     * Gets lineFormat
+     * Gets isHeaderVisible
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
+     * @return bool
      */
-    public function getLineFormat()
+    public function getIsHeaderVisible()
     {
-        return $this->container['lineFormat'];
+        return $this->container['isHeaderVisible'];
     }
 
     /**
-     * Sets lineFormat
+     * Sets isHeaderVisible
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
+     * @param bool $isHeaderVisible True if header is displayed
      *
      * @return $this
      */
-    public function setLineFormat($lineFormat)
+    public function setIsHeaderVisible($isHeaderVisible)
     {
-        $this->container['lineFormat'] = $lineFormat;
+        $this->container['isHeaderVisible'] = $isHeaderVisible;
 
         return $this;
     }
 
     /**
-     * Gets dataPoints
+     * Gets headerText
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]
+     * @return string
      */
-    public function getDataPoints()
+    public function getHeaderText()
     {
-        return $this->container['dataPoints'];
+        return $this->container['headerText'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets headerText
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[] $dataPoints Gets or sets the data points for chart data
+     * @param string $headerText Text to be displayed in the header
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setHeaderText($headerText)
     {
-        $this->container['dataPoints'] = $dataPoints;
+        $this->container['headerText'] = $headerText;
+
+        return $this;
+    }
+
+    /**
+     * Gets isSlideNumberVisible
+     *
+     * @return bool
+     */
+    public function getIsSlideNumberVisible()
+    {
+        return $this->container['isSlideNumberVisible'];
+    }
+
+    /**
+     * Sets isSlideNumberVisible
+     *
+     * @param bool $isSlideNumberVisible True if slide number is displayed in the footer
+     *
+     * @return $this
+     */
+    public function setIsSlideNumberVisible($isSlideNumberVisible)
+    {
+        $this->container['isSlideNumberVisible'] = $isSlideNumberVisible;
 
         return $this;
     }

@@ -79,7 +79,7 @@ class PostSlideAnimationInteractiveSequenceEffectRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $sequenceIndex, $effect = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $sequenceIndex, $effect, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

@@ -34,6 +34,11 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PutSlidesConvertRequest
 {
     /*
+     * Document data.
+     */
+    public $document;
+
+    /*
      * Export format.
      */
     public $format;
@@ -42,11 +47,6 @@ class PutSlidesConvertRequest
      * Path to save result.
      */
     public $outPath;
-
-    /*
-     * Document data.
-     */
-    public $document;
 
     /*
      * Document password.
@@ -61,21 +61,37 @@ class PutSlidesConvertRequest
     /*
      * Initializes a new instance of the PutSlidesConvertRequest class.
      *  
+     * @param \SplFileObject $document Document data.
      * @param string $format Export format.
      * @param string $outPath Path to save result.
-     * @param \SplFileObject $document Document data.
      * @param string $password Document password.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($format, $outPath, $document = null, $password = null, $fontsFolder = null)
+    public function __construct($document, $format, $outPath, $password = null, $fontsFolder = null)
     {
+        $this->document = $document;
         $this->format = $format;
         $this->outPath = $outPath;
-        $this->document = $document;
         $this->password = $password;
         $this->fontsFolder = $fontsFolder;
     }
 
+    /*
+     * Document data.
+     */
+    public function get_document()
+    {
+        return $this->document;
+    }
+
+    /*
+     * Document data.
+     */
+    public function set_document($value)
+    {
+        $this->document = $value;
+        return $this;
+    }
     /*
      * Export format.
      */
@@ -106,22 +122,6 @@ class PutSlidesConvertRequest
     public function set_outPath($value)
     {
         $this->outPath = $value;
-        return $this;
-    }
-    /*
-     * Document data.
-     */
-    public function get_document()
-    {
-        return $this->document;
-    }
-
-    /*
-     * Document data.
-     */
-    public function set_document($value)
-    {
-        $this->document = $value;
         return $this;
     }
     /*

@@ -29,6 +29,7 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\Utils;
 
 use \Exception;
+use \InvalidArgumentException;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
@@ -143,6 +144,12 @@ class TestUtils
     {
         Assert::assertEquals($expectedCode, $ex->getCode());
         Assert::assertRegExp("/".$expectedMessage."/", $ex->getResponseObject()->getMessage());
+    }
+
+    public static function assertInvalidArgumentException(InvalidArgumentException $ex, $functionName, $fieldName, $expectedCode, $expectedMessage)
+    {
+        Assert::assertEquals($expectedCode, 400);
+        Assert::assertRegExp("/".$expectedMessage."/", $ex->getMessage());
     }
 
     public static function assertResponse($functionName, $fieldName, $okToFailValues)

@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlideAnimationEffect operation.
+ * Request model for getSlideHeaderFooter operation.
  */
-class PutSlideAnimationEffectRequest
+class GetSlideHeaderFooterRequest
 {
     /*
      * Document name.
@@ -39,19 +39,9 @@ class PutSlideAnimationEffectRequest
     public $name;
 
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public $slideIndex;
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public $effectIndex;
-
-    /*
-     * Animation effect DTO.
-     */
-    public $effect;
 
     /*
      * Document password.
@@ -69,22 +59,18 @@ class PutSlideAnimationEffectRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the PutSlideAnimationEffectRequest class.
+     * Initializes a new instance of the GetSlideHeaderFooterRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param int $effectIndex The position of the effect to be modified.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO.
+     * @param int $slideIndex The position of the slide to be reordered.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $effectIndex, $effect, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
-        $this->effectIndex = $effectIndex;
-        $this->effect = $effect;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -107,7 +93,7 @@ class PutSlideAnimationEffectRequest
         return $this;
     }
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public function get_slideIndex()
     {
@@ -115,43 +101,11 @@ class PutSlideAnimationEffectRequest
     }
 
     /*
-     * Slide index.
+     * The position of the slide to be reordered.
      */
     public function set_slideIndex($value)
     {
         $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * The position of the effect to be modified.
-     */
-    public function get_effectIndex()
-    {
-        return $this->effectIndex;
-    }
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public function set_effectIndex($value)
-    {
-        $this->effectIndex = $value;
-        return $this;
-    }
-    /*
-     * Animation effect DTO.
-     */
-    public function get_effect()
-    {
-        return $this->effect;
-    }
-
-    /*
-     * Animation effect DTO.
-     */
-    public function set_effect($value)
-    {
-        $this->effect = $value;
         return $this;
     }
     /*

@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlideAnimationEffect operation.
+ * Request model for putSlidesHeaderFooter operation.
  */
-class PutSlideAnimationEffectRequest
+class PutSlidesHeaderFooterRequest
 {
     /*
      * Document name.
@@ -39,19 +39,9 @@ class PutSlideAnimationEffectRequest
     public $name;
 
     /*
-     * Slide index.
+     * HeaderFooter instance.
      */
-    public $slideIndex;
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public $effectIndex;
-
-    /*
-     * Animation effect DTO.
-     */
-    public $effect;
+    public $dto;
 
     /*
      * Document password.
@@ -59,35 +49,31 @@ class PutSlideAnimationEffectRequest
     public $password;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
      * Document storage.
      */
     public $storage;
 
     /*
-     * Initializes a new instance of the PutSlideAnimationEffectRequest class.
+     * Document folder.
+     */
+    public $folder;
+
+    /*
+     * Initializes a new instance of the PutSlidesHeaderFooterRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param int $effectIndex The position of the effect to be modified.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\HeaderFooter $dto HeaderFooter instance.
      * @param string $password Document password.
-     * @param string $folder Document folder.
      * @param string $storage Document storage.
+     * @param string $folder Document folder.
      */
-    public function __construct($name, $slideIndex, $effectIndex, $effect, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $dto, $password = null, $storage = null, $folder = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->effectIndex = $effectIndex;
-        $this->effect = $effect;
+        $this->dto = $dto;
         $this->password = $password;
-        $this->folder = $folder;
         $this->storage = $storage;
+        $this->folder = $folder;
     }
 
     /*
@@ -107,51 +93,19 @@ class PutSlideAnimationEffectRequest
         return $this;
     }
     /*
-     * Slide index.
+     * HeaderFooter instance.
      */
-    public function get_slideIndex()
+    public function get_dto()
     {
-        return $this->slideIndex;
+        return $this->dto;
     }
 
     /*
-     * Slide index.
+     * HeaderFooter instance.
      */
-    public function set_slideIndex($value)
+    public function set_dto($value)
     {
-        $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * The position of the effect to be modified.
-     */
-    public function get_effectIndex()
-    {
-        return $this->effectIndex;
-    }
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public function set_effectIndex($value)
-    {
-        $this->effectIndex = $value;
-        return $this;
-    }
-    /*
-     * Animation effect DTO.
-     */
-    public function get_effect()
-    {
-        return $this->effect;
-    }
-
-    /*
-     * Animation effect DTO.
-     */
-    public function set_effect($value)
-    {
-        $this->effect = $value;
+        $this->dto = $value;
         return $this;
     }
     /*
@@ -171,22 +125,6 @@ class PutSlideAnimationEffectRequest
         return $this;
     }
     /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
      * Document storage.
      */
     public function get_storage()
@@ -200,6 +138,22 @@ class PutSlideAnimationEffectRequest
     public function set_storage($value)
     {
         $this->storage = $value;
+        return $this;
+    }
+    /*
+     * Document folder.
+     */
+    public function get_folder()
+    {
+        return $this->folder;
+    }
+
+    /*
+     * Document folder.
+     */
+    public function set_folder($value)
+    {
+        $this->folder = $value;
         return $this;
     }
 }

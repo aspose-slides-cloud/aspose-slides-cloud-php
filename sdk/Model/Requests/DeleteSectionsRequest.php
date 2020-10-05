@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlideAnimationEffect operation.
+ * Request model for deleteSections operation.
  */
-class PutSlideAnimationEffectRequest
+class DeleteSectionsRequest
 {
     /*
      * Document name.
@@ -39,19 +39,14 @@ class PutSlideAnimationEffectRequest
     public $name;
 
     /*
-     * Slide index.
+     * The indices of the sections to be deleted; delete all by default.
      */
-    public $slideIndex;
+    public $sections;
 
     /*
-     * The position of the effect to be modified.
+     * True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
      */
-    public $effectIndex;
-
-    /*
-     * Animation effect DTO.
-     */
-    public $effect;
+    public $withSlides;
 
     /*
      * Document password.
@@ -69,22 +64,20 @@ class PutSlideAnimationEffectRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the PutSlideAnimationEffectRequest class.
+     * Initializes a new instance of the DeleteSectionsRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param int $effectIndex The position of the effect to be modified.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO.
+     * @param int[] $sections The indices of the sections to be deleted; delete all by default.
+     * @param bool $withSlides True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $effectIndex, $effect, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->effectIndex = $effectIndex;
-        $this->effect = $effect;
+        $this->sections = $sections;
+        $this->withSlides = $withSlides;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -107,51 +100,35 @@ class PutSlideAnimationEffectRequest
         return $this;
     }
     /*
-     * Slide index.
+     * The indices of the sections to be deleted; delete all by default.
      */
-    public function get_slideIndex()
+    public function get_sections()
     {
-        return $this->slideIndex;
+        return $this->sections;
     }
 
     /*
-     * Slide index.
+     * The indices of the sections to be deleted; delete all by default.
      */
-    public function set_slideIndex($value)
+    public function set_sections($value)
     {
-        $this->slideIndex = $value;
+        $this->sections = $value;
         return $this;
     }
     /*
-     * The position of the effect to be modified.
+     * True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
      */
-    public function get_effectIndex()
+    public function get_withSlides()
     {
-        return $this->effectIndex;
+        return $this->withSlides;
     }
 
     /*
-     * The position of the effect to be modified.
+     * True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
      */
-    public function set_effectIndex($value)
+    public function set_withSlides($value)
     {
-        $this->effectIndex = $value;
-        return $this;
-    }
-    /*
-     * Animation effect DTO.
-     */
-    public function get_effect()
-    {
-        return $this->effect;
-    }
-
-    /*
-     * Animation effect DTO.
-     */
-    public function set_effect($value)
-    {
-        $this->effect = $value;
+        $this->withSlides = $value;
         return $this;
     }
     /*

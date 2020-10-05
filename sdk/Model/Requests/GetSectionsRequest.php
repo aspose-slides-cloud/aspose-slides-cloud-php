@@ -29,29 +29,14 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlideAnimationEffect operation.
+ * Request model for getSections operation.
  */
-class PutSlideAnimationEffectRequest
+class GetSectionsRequest
 {
     /*
      * Document name.
      */
     public $name;
-
-    /*
-     * Slide index.
-     */
-    public $slideIndex;
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public $effectIndex;
-
-    /*
-     * Animation effect DTO.
-     */
-    public $effect;
 
     /*
      * Document password.
@@ -69,22 +54,16 @@ class PutSlideAnimationEffectRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the PutSlideAnimationEffectRequest class.
+     * Initializes a new instance of the GetSectionsRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param int $effectIndex The position of the effect to be modified.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $effectIndex, $effect, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->effectIndex = $effectIndex;
-        $this->effect = $effect;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -104,54 +83,6 @@ class PutSlideAnimationEffectRequest
     public function set_name($value)
     {
         $this->name = $value;
-        return $this;
-    }
-    /*
-     * Slide index.
-     */
-    public function get_slideIndex()
-    {
-        return $this->slideIndex;
-    }
-
-    /*
-     * Slide index.
-     */
-    public function set_slideIndex($value)
-    {
-        $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * The position of the effect to be modified.
-     */
-    public function get_effectIndex()
-    {
-        return $this->effectIndex;
-    }
-
-    /*
-     * The position of the effect to be modified.
-     */
-    public function set_effectIndex($value)
-    {
-        $this->effectIndex = $value;
-        return $this;
-    }
-    /*
-     * Animation effect DTO.
-     */
-    public function get_effect()
-    {
-        return $this->effect;
-    }
-
-    /*
-     * Animation effect DTO.
-     */
-    public function set_effect($value)
-    {
-        $this->effect = $value;
         return $this;
     }
     /*

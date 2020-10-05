@@ -2872,6 +2872,317 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deleteSection(Requests\DeleteSectionRequest $request)
+    {
+        try {
+            list($response) = $this->deleteSectionWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteSectionWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteSectionWithHttpInfo(Requests\DeleteSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->deleteSectionRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteSectionAsync(Requests\DeleteSectionRequest $request)
+    {
+        return $this->deleteSectionAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteSectionAsyncWithHttpInfo(Requests\DeleteSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->deleteSectionRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteSection'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $section_index Section index. (required)
+     * @param  bool $with_slides True to delete the slides related to the deleted section; move them to the remaining sections otherwise. (optional, default to false)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteSectionRequest(Requests\DeleteSectionRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteSection');
+        }
+        // verify the required parameter 'section_index' is set
+        if ($request->sectionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sectionIndex when calling deleteSection');
+        }
+
+        $resourcePath = '/slides/{name}/sections/{sectionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->withSlides !== null) {
+            $queryParams['withSlides'] = ObjectSerializer::toQueryValue($request->withSlides);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $request->sectionIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteSections(Requests\DeleteSectionsRequest $request)
+    {
+        try {
+            list($response) = $this->deleteSectionsWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteSectionsWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteSectionsWithHttpInfo(Requests\DeleteSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->deleteSectionsRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteSectionsAsync(Requests\DeleteSectionsRequest $request)
+    {
+        return $this->deleteSectionsAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteSectionsAsyncWithHttpInfo(Requests\DeleteSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->deleteSectionsRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteSections'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int[] $sections The indices of the sections to be deleted; delete all by default. (optional)
+     * @param  bool $with_slides True to delete the slides related to the deleted sections; move them to the remaining sections otherwise. (optional, default to false)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteSectionsRequest(Requests\DeleteSectionsRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteSections');
+        }
+
+        $resourcePath = '/slides/{name}/sections';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->sections !== null) {
+            $queryParams['sections'] = ObjectSerializer::toQueryValue($request->sections);
+        }
+        // query params
+        if ($request->withSlides !== null) {
+            $queryParams['withSlides'] = ObjectSerializer::toQueryValue($request->withSlides);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
     public function deleteSlideAnimation(Requests\DeleteSlideAnimationRequest $request)
     {
         try {
@@ -7268,6 +7579,157 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getNotesSlideHeaderFooter(Requests\GetNotesSlideHeaderFooterRequest $request)
+    {
+        try {
+            list($response) = $this->getNotesSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getNotesSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getNotesSlideHeaderFooterWithHttpInfo(Requests\GetNotesSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter';
+        $httpRequest = $this->getNotesSlideHeaderFooterRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getNotesSlideHeaderFooterAsync(Requests\GetNotesSlideHeaderFooterRequest $request)
+    {
+        return $this->getNotesSlideHeaderFooterAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getNotesSlideHeaderFooterAsyncWithHttpInfo(Requests\GetNotesSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter';
+        $httpRequest = $this->getNotesSlideHeaderFooterRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getNotesSlideHeaderFooter'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getNotesSlideHeaderFooterRequest(Requests\GetNotesSlideHeaderFooterRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getNotesSlideHeaderFooter');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getNotesSlideHeaderFooter');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getNotesSlideShape(Requests\GetNotesSlideShapeRequest $request)
     {
         try {
@@ -8729,6 +9191,151 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getSections(Requests\GetSectionsRequest $request)
+    {
+        try {
+            list($response) = $this->getSectionsWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getSectionsWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getSectionsWithHttpInfo(Requests\GetSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->getSectionsRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getSectionsAsync(Requests\GetSectionsRequest $request)
+    {
+        return $this->getSectionsAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getSectionsAsyncWithHttpInfo(Requests\GetSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->getSectionsRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getSections'
+     *
+     * @param  string $name Document name. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSectionsRequest(Requests\GetSectionsRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getSections');
+        }
+
+        $resourcePath = '/slides/{name}/sections';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getSlideAnimation(Requests\GetSlideAnimationRequest $request)
     {
         try {
@@ -8861,6 +9468,157 @@ class SlidesApi extends ApiBase
         if ($request->shapeIndex !== null) {
             $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($request->shapeIndex);
         }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getSlideHeaderFooter(Requests\GetSlideHeaderFooterRequest $request)
+    {
+        try {
+            list($response) = $this->getSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getSlideHeaderFooterWithHttpInfo(Requests\GetSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter';
+        $httpRequest = $this->getSlideHeaderFooterRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getSlideHeaderFooterAsync(Requests\GetSlideHeaderFooterRequest $request)
+    {
+        return $this->getSlideHeaderFooterAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getSlideHeaderFooterAsyncWithHttpInfo(Requests\GetSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter';
+        $httpRequest = $this->getSlideHeaderFooterRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getSlideHeaderFooter'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index The position of the slide to be reordered. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSlideHeaderFooterRequest(Requests\GetSlideHeaderFooterRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getSlideHeaderFooter');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideHeaderFooter');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/headerFooter';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
         // query params
         if ($request->password !== null) {
             $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
@@ -14085,7 +14843,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -14107,6 +14865,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postAddNewParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postAddNewParagraph');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs';
@@ -14261,7 +15023,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -14287,6 +15049,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling postAddNewPortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postAddNewPortion');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
@@ -14792,7 +15558,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path. (optional)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -14814,6 +15580,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postAddNewSubshapeParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postAddNewSubshapeParagraph');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs';
@@ -14970,7 +15740,7 @@ class SlidesApi extends ApiBase
      * @param  string $path Shape path. (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -14996,6 +15766,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling postAddNewSubshapePortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postAddNewSubshapePortion');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
@@ -15150,7 +15924,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A NotesSlide object with notes slide data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A NotesSlide object with notes slide data. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -15167,6 +15941,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNotesSlide');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postAddNotesSlide');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
@@ -15315,7 +16093,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -15336,6 +16114,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postChartCategory');
+        }
+        // verify the required parameter 'category' is set
+        if ($request->category === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $category when calling postChartCategory');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories';
@@ -15486,7 +16268,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $series_index Series index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -15511,6 +16293,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'series_index' is set
         if ($request->seriesIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $seriesIndex when calling postChartDataPoint');
+        }
+        // verify the required parameter 'data_point' is set
+        if ($request->dataPoint === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dataPoint when calling postChartDataPoint');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints';
@@ -15661,7 +16447,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index (must be a chart). (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Series $series Series DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Series $series Series DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -15682,6 +16468,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postChartSeries');
+        }
+        // verify the required parameter 'series' is set
+        if ($request->series === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $series when calling postChartSeries');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series';
@@ -16179,8 +16969,8 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postGetNotesSlide'
      *
+     * @param  \SplFileObject $document Document data. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
      *
      * @throws \InvalidArgumentException
@@ -16188,6 +16978,10 @@ class SlidesApi extends ApiBase
      */
     protected function postGetNotesSlideRequest(Requests\PostGetNotesSlideRequest $request)
     {
+        // verify the required parameter 'document' is set
+        if ($request->document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postGetNotesSlide');
+        }
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postGetNotesSlide');
@@ -16327,8 +17121,8 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postGetNotesSlideExists'
      *
+     * @param  \SplFileObject $document Document data. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
      *
      * @throws \InvalidArgumentException
@@ -16336,6 +17130,10 @@ class SlidesApi extends ApiBase
      */
     protected function postGetNotesSlideExistsRequest(Requests\PostGetNotesSlideExistsRequest $request)
     {
+        // verify the required parameter 'document' is set
+        if ($request->document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postGetNotesSlideExists');
+        }
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postGetNotesSlideExists');
@@ -16472,9 +17270,9 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postGetNotesSlideWithFormat'
      *
+     * @param  \SplFileObject $document Document data. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  string $format Output file format. (required)
-     * @param  \SplFileObject $document Document data. (optional)
      * @param  int $width Output file width. (optional)
      * @param  int $height Output file height. (optional)
      * @param  string $password Document password. (optional)
@@ -16485,6 +17283,10 @@ class SlidesApi extends ApiBase
      */
     protected function postGetNotesSlideWithFormatRequest(Requests\PostGetNotesSlideWithFormatRequest $request)
     {
+        // verify the required parameter 'document' is set
+        if ($request->document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postGetNotesSlideWithFormat');
+        }
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postGetNotesSlideWithFormat');
@@ -16644,7 +17446,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -16666,6 +17468,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling postNotesSlideAddNewParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postNotesSlideAddNewParagraph');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs';
@@ -16820,7 +17626,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -16846,6 +17652,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling postNotesSlideAddNewPortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postNotesSlideAddNewPortion');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
@@ -16999,7 +17809,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -17018,6 +17828,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postNotesSlideAddNewShape');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling postNotesSlideAddNewShape');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes';
@@ -17365,7 +18179,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'postPresentationMerge'
      *
      * @param  string $name Document name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request PresentationsMergeRequest with a list of presentations to merge. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request PresentationsMergeRequest with a list of presentations to merge. (required)
      * @param  string $password Document password. (optional)
      * @param  string $storage Document storage. (optional)
      * @param  string $folder Document folder. (optional)
@@ -17378,6 +18192,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postPresentationMerge');
+        }
+        // verify the required parameter 'request' is set
+        if ($request->request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $request when calling postPresentationMerge');
         }
 
         $resourcePath = '/slides/{name}/merge';
@@ -17416,6 +18234,329 @@ class SlidesApi extends ApiBase
                 $httpBody = \GuzzleHttp\json_encode($httpBody);
             }
         }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSection(Requests\PostSectionRequest $request)
+    {
+        try {
+            list($response) = $this->postSectionWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSectionWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSectionWithHttpInfo(Requests\PostSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->postSectionRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSectionAsync(Requests\PostSectionRequest $request)
+    {
+        return $this->postSectionAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSectionAsyncWithHttpInfo(Requests\PostSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->postSectionRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSection'
+     *
+     * @param  string $name Document name. (required)
+     * @param  string $section_name Section name. (required)
+     * @param  int $slide_index Slide index (one-based). (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSectionRequest(Requests\PostSectionRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSection');
+        }
+        // verify the required parameter 'section_name' is set
+        if ($request->sectionName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sectionName when calling postSection');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postSection');
+        }
+
+        $resourcePath = '/slides/{name}/sections';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->sectionName !== null) {
+            $queryParams['sectionName'] = ObjectSerializer::toQueryValue($request->sectionName);
+        }
+        // query params
+        if ($request->slideIndex !== null) {
+            $queryParams['slideIndex'] = ObjectSerializer::toQueryValue($request->slideIndex);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSectionMove(Requests\PostSectionMoveRequest $request)
+    {
+        try {
+            list($response) = $this->postSectionMoveWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSectionMoveWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSectionMoveWithHttpInfo(Requests\PostSectionMoveRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->postSectionMoveRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSectionMoveAsync(Requests\PostSectionMoveRequest $request)
+    {
+        return $this->postSectionMoveAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSectionMoveAsyncWithHttpInfo(Requests\PostSectionMoveRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->postSectionMoveRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSectionMove'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $section_index The position of the section to be reordered. (required)
+     * @param  int $new_position The new position of the reordered section. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSectionMoveRequest(Requests\PostSectionMoveRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSectionMove');
+        }
+        // verify the required parameter 'section_index' is set
+        if ($request->sectionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sectionIndex when calling postSectionMove');
+        }
+        // verify the required parameter 'new_position' is set
+        if ($request->newPosition === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $newPosition when calling postSectionMove');
+        }
+
+        $resourcePath = '/slides/{name}/sections/{sectionIndex}/move';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->newPosition !== null) {
+            $queryParams['newPosition'] = ObjectSerializer::toQueryValue($request->newPosition);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $request->sectionIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
@@ -17717,7 +18858,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -17734,6 +18875,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postSlideAnimationEffect');
+        }
+        // verify the required parameter 'effect' is set
+        if ($request->effect === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $effect when calling postSlideAnimationEffect');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence';
@@ -17881,7 +19026,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence $sequence Animation sequence DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence $sequence Animation sequence DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -17898,6 +19043,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postSlideAnimationInteractiveSequence');
+        }
+        // verify the required parameter 'sequence' is set
+        if ($request->sequence === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sequence when calling postSlideAnimationInteractiveSequence');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences';
@@ -18046,7 +19195,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $sequence_index The position of the interactive sequence. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -18067,6 +19216,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'sequence_index' is set
         if ($request->sequenceIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $sequenceIndex when calling postSlideAnimationInteractiveSequenceEffect');
+        }
+        // verify the required parameter 'effect' is set
+        if ($request->effect === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $effect when calling postSlideAnimationInteractiveSequenceEffect');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}';
@@ -18547,8 +19700,8 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postSlidesConvert'
      *
+     * @param  \SplFileObject $document Document data. (required)
      * @param  string $format Export format. (required)
-     * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $fonts_folder Custom fonts folder. (optional)
      *
@@ -18557,6 +19710,10 @@ class SlidesApi extends ApiBase
      */
     protected function postSlidesConvertRequest(Requests\PostSlidesConvertRequest $request)
     {
+        // verify the required parameter 'document' is set
+        if ($request->document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postSlidesConvert');
+        }
         // verify the required parameter 'format' is set
         if ($request->format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling postSlidesConvert');
@@ -19534,7 +20691,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'postSlidesPipeline'
      *
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object. (required)
      * @param  \SplFileObject[] $files files to upload with the pipeline (optional)
      *
      * @throws \InvalidArgumentException
@@ -19542,6 +20699,10 @@ class SlidesApi extends ApiBase
      */
     protected function postSlidesPipelineRequest(Requests\PostSlidesPipelineRequest $request)
     {
+        // verify the required parameter 'pipeline' is set
+        if ($request->pipeline === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $pipeline when calling postSlidesPipeline');
+        }
 
         $resourcePath = '/slides/pipeline';
         $queryParams = [];
@@ -20312,7 +21473,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'postSlidesSetDocumentProperties'
      *
      * @param  string $name Document name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\DocumentProperties $properties New properties. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DocumentProperties $properties New properties. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -20325,6 +21486,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesSetDocumentProperties');
+        }
+        // verify the required parameter 'properties' is set
+        if ($request->properties === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $properties when calling postSlidesSetDocumentProperties');
         }
 
         $resourcePath = '/slides/{name}/documentproperties';
@@ -21035,7 +22200,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $category_index Category index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category Category DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -21060,6 +22225,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'category_index' is set
         if ($request->categoryIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $categoryIndex when calling putChartCategory');
+        }
+        // verify the required parameter 'category' is set
+        if ($request->category === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $category when calling putChartCategory');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}';
@@ -21212,7 +22381,7 @@ class SlidesApi extends ApiBase
      * @param  int $shape_index Shape index. (required)
      * @param  int $series_index Series index. (required)
      * @param  int $point_index Data point index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DataPoint $data_point Data point DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -21241,6 +22410,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'point_index' is set
         if ($request->pointIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $pointIndex when calling putChartDataPoint');
+        }
+        // verify the required parameter 'data_point' is set
+        if ($request->dataPoint === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dataPoint when calling putChartDataPoint');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}';
@@ -21393,7 +22566,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index (must be a chart). (required)
      * @param  int $series_index Series index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Series $series Series DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Series $series Series DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -21418,6 +22591,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'series_index' is set
         if ($request->seriesIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $seriesIndex when calling putChartSeries');
+        }
+        // verify the required parameter 'series' is set
+        if ($request->series === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $series when calling putChartSeries');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}';
@@ -21567,7 +22744,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\LayoutSlide $slide_dto Slide update data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\LayoutSlide $slide_dto Slide update data. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -21584,6 +22761,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putLayoutSlide');
+        }
+        // verify the required parameter 'slide_dto' is set
+        if ($request->slideDto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideDto when calling putLayoutSlide');
         }
 
         $resourcePath = '/slides/{name}/layoutSlides/{slideIndex}';
@@ -21609,6 +22790,174 @@ class SlidesApi extends ApiBase
         $_tempBody = null;
         if (isset($request->slideDto)) {
             $_tempBody = $request->slideDto;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putNotesSlideHeaderFooter(Requests\PutNotesSlideHeaderFooterRequest $request)
+    {
+        try {
+            list($response) = $this->putNotesSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putNotesSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putNotesSlideHeaderFooterWithHttpInfo(Requests\PutNotesSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter';
+        $httpRequest = $this->putNotesSlideHeaderFooterRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putNotesSlideHeaderFooterAsync(Requests\PutNotesSlideHeaderFooterRequest $request)
+    {
+        return $this->putNotesSlideHeaderFooterAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putNotesSlideHeaderFooterAsyncWithHttpInfo(Requests\PutNotesSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter';
+        $httpRequest = $this->putNotesSlideHeaderFooterRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putNotesSlideHeaderFooter'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index Slide index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter $dto Header/footer to set. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putNotesSlideHeaderFooterRequest(Requests\PutNotesSlideHeaderFooterRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putNotesSlideHeaderFooter');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putNotesSlideHeaderFooter');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putNotesSlideHeaderFooter');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -21901,7 +23250,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'putPresentationMerge'
      *
      * @param  string $name Document name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request OrderedMergeRequest with a list of presentations and slide indices to merge. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request OrderedMergeRequest with a list of presentations and slide indices to merge. (required)
      * @param  string $password Document password. (optional)
      * @param  string $storage Document storage. (optional)
      * @param  string $folder Document folder. (optional)
@@ -21914,6 +23263,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling putPresentationMerge');
+        }
+        // verify the required parameter 'request' is set
+        if ($request->request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $request when calling putPresentationMerge');
         }
 
         $resourcePath = '/slides/{name}/merge';
@@ -21938,6 +23291,328 @@ class SlidesApi extends ApiBase
         $_tempBody = null;
         if (isset($request->request)) {
             $_tempBody = $request->request;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSection(Requests\PutSectionRequest $request)
+    {
+        try {
+            list($response) = $this->putSectionWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSectionWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSectionWithHttpInfo(Requests\PutSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->putSectionRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSectionAsync(Requests\PutSectionRequest $request)
+    {
+        return $this->putSectionAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSectionAsyncWithHttpInfo(Requests\PutSectionRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->putSectionRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSection'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $section_index The position of the section to be updated. (required)
+     * @param  string $section_name Section name. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSectionRequest(Requests\PutSectionRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSection');
+        }
+        // verify the required parameter 'section_index' is set
+        if ($request->sectionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sectionIndex when calling putSection');
+        }
+        // verify the required parameter 'section_name' is set
+        if ($request->sectionName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sectionName when calling putSection');
+        }
+
+        $resourcePath = '/slides/{name}/sections/{sectionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->sectionName !== null) {
+            $queryParams['sectionName'] = ObjectSerializer::toQueryValue($request->sectionName);
+        }
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $request->sectionIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSections(Requests\PutSectionsRequest $request)
+    {
+        try {
+            list($response) = $this->putSectionsWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSectionsWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSectionsWithHttpInfo(Requests\PutSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->putSectionsRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Sections', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSectionsAsync(Requests\PutSectionsRequest $request)
+    {
+        return $this->putSectionsAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSectionsAsyncWithHttpInfo(Requests\PutSectionsRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
+        $httpRequest = $this->putSectionsRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSections'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Sections $sections Sections DTO. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSectionsRequest(Requests\PutSectionsRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSections');
+        }
+        // verify the required parameter 'sections' is set
+        if ($request->sections === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $sections when calling putSections');
+        }
+
+        $resourcePath = '/slides/{name}/sections';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->sections)) {
+            $_tempBody = $request->sections;
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -22063,7 +23738,7 @@ class SlidesApi extends ApiBase
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -22092,6 +23767,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'portion_index' is set
         if ($request->portionIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling putSetParagraphPortionProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSetParagraphPortionProperties');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
@@ -22244,7 +23923,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -22269,6 +23948,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling putSetParagraphProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSetParagraphProperties');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
@@ -22422,7 +24105,7 @@ class SlidesApi extends ApiBase
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -22451,6 +24134,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'portion_index' is set
         if ($request->portionIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling putSetSubshapeParagraphPortionProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSetSubshapeParagraphPortionProperties');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
@@ -22605,7 +24292,7 @@ class SlidesApi extends ApiBase
      * @param  string $path Shape path. (optional)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -22630,6 +24317,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling putSetSubshapeParagraphProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSetSubshapeParagraphProperties');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}';
@@ -22951,7 +24642,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideAnimation $animation Animation DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideAnimation $animation Animation DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -22968,6 +24659,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlideAnimation');
+        }
+        // verify the required parameter 'animation' is set
+        if ($request->animation === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $animation when calling putSlideAnimation');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation';
@@ -23116,7 +24811,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $effect_index The position of the effect to be modified. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -23137,6 +24832,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'effect_index' is set
         if ($request->effectIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $effectIndex when calling putSlideAnimationEffect');
+        }
+        // verify the required parameter 'effect' is set
+        if ($request->effect === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $effect when calling putSlideAnimationEffect');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}';
@@ -23287,7 +24986,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $sequence_index The position of the interactive sequence. (required)
      * @param  int $effect_index The position of the effect to be modified. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Effect $effect Animation effect DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -23312,6 +25011,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'effect_index' is set
         if ($request->effectIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $effectIndex when calling putSlideAnimationInteractiveSequenceEffect');
+        }
+        // verify the required parameter 'effect' is set
+        if ($request->effect === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $effect when calling putSlideAnimationInteractiveSequenceEffect');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}';
@@ -23339,6 +25042,174 @@ class SlidesApi extends ApiBase
         $_tempBody = null;
         if (isset($request->effect)) {
             $_tempBody = $request->effect;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSlideHeaderFooter(Requests\PutSlideHeaderFooterRequest $request)
+    {
+        try {
+            list($response) = $this->putSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSlideHeaderFooterWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSlideHeaderFooterWithHttpInfo(Requests\PutSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter';
+        $httpRequest = $this->putSlideHeaderFooterRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSlideHeaderFooterAsync(Requests\PutSlideHeaderFooterRequest $request)
+    {
+        return $this->putSlideHeaderFooterAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSlideHeaderFooterAsyncWithHttpInfo(Requests\PutSlideHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\HeaderFooter';
+        $httpRequest = $this->putSlideHeaderFooterRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlideHeaderFooter'
+     *
+     * @param  string $name Document name. (required)
+     * @param  int $slide_index The position of the slide to be reordered. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\HeaderFooter $dto Footer to set. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSlideHeaderFooterRequest(Requests\PutSlideHeaderFooterRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlideHeaderFooter');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($request->slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlideHeaderFooter');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlideHeaderFooter');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/headerFooter';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -23622,7 +25493,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -23643,6 +25514,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling putSlideShapeInfo');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlideShapeInfo');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}';
@@ -23793,7 +25668,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  string $path Shape path. (optional)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -23814,6 +25689,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling putSlideSubshapeInfo');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlideSubshapeInfo');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}';
@@ -23927,9 +25806,9 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'putSlidesConvert'
      *
+     * @param  \SplFileObject $document Document data. (required)
      * @param  string $format Export format. (required)
      * @param  string $out_path Path to save result. (required)
-     * @param  \SplFileObject $document Document data. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $fonts_folder Custom fonts folder. (optional)
      *
@@ -23938,6 +25817,10 @@ class SlidesApi extends ApiBase
      */
     protected function putSlidesConvertRequest(Requests\PutSlidesConvertRequest $request)
     {
+        // verify the required parameter 'document' is set
+        if ($request->document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling putSlidesConvert');
+        }
         // verify the required parameter 'format' is set
         if ($request->format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling putSlidesConvert');
@@ -24127,6 +26010,168 @@ class SlidesApi extends ApiBase
         $_tempBody = null;
         if (isset($request->html)) {
             $_tempBody = $request->html;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSlidesHeaderFooter(Requests\PutSlidesHeaderFooterRequest $request)
+    {
+        try {
+            list($response) = $this->putSlidesHeaderFooterWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSlidesHeaderFooterWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSlidesHeaderFooterWithHttpInfo(Requests\PutSlidesHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->putSlidesHeaderFooterRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSlidesHeaderFooterAsync(Requests\PutSlidesHeaderFooterRequest $request)
+    {
+        return $this->putSlidesHeaderFooterAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSlidesHeaderFooterAsyncWithHttpInfo(Requests\PutSlidesHeaderFooterRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->putSlidesHeaderFooterRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlidesHeaderFooter'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\HeaderFooter $dto HeaderFooter instance. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSlidesHeaderFooterRequest(Requests\PutSlidesHeaderFooterRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesHeaderFooter');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesHeaderFooter');
+        }
+
+        $resourcePath = '/slides/{name}/headerFooter';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->password !== null) {
+            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -24393,7 +26438,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  string $property_name The property name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\DocumentProperty $property Property with the value. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\DocumentProperty $property Property with the value. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -24410,6 +26455,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'property_name' is set
         if ($request->propertyName === null) {
             throw new \InvalidArgumentException('Missing the required parameter $propertyName when calling putSlidesSetDocumentProperty');
+        }
+        // verify the required parameter 'property' is set
+        if ($request->property === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $property when calling putSlidesSetDocumentProperty');
         }
 
         $resourcePath = '/slides/{name}/documentproperties/{propertyName}';
@@ -24557,7 +26606,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Slide $slide_dto Slide update data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Slide $slide_dto Slide update data. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -24574,6 +26623,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlidesSlide');
+        }
+        // verify the required parameter 'slide_dto' is set
+        if ($request->slideDto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideDto when calling putSlidesSlide');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}';
@@ -24721,7 +26774,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data. (required)
      * @param  string $folder Document folder. (optional)
      * @param  string $password Document password. (optional)
      * @param  string $storage Document storage. (optional)
@@ -24738,6 +26791,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlidesSlideBackground');
+        }
+        // verify the required parameter 'background' is set
+        if ($request->background === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $background when calling putSlidesSlideBackground');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/background';
@@ -25209,7 +27266,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'putSlidesViewProperties'
      *
      * @param  string $name Document name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ViewProperties $dto The view properties data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ViewProperties $dto The view properties data. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -25222,6 +27279,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'name' is set
         if ($request->name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesViewProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesViewProperties');
         }
 
         $resourcePath = '/slides/{name}/viewProperties';
@@ -25541,7 +27602,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A NotesSlide object with notes slide data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto A NotesSlide object with notes slide data. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -25558,6 +27619,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($request->slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putUpdateNotesSlide');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putUpdateNotesSlide');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
@@ -25706,7 +27771,7 @@ class SlidesApi extends ApiBase
      * @param  string $name Document name. (required)
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto Shape DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -25727,6 +27792,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($request->shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling putUpdateNotesSlideShape');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putUpdateNotesSlideShape');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}';
@@ -25877,7 +27946,7 @@ class SlidesApi extends ApiBase
      * @param  int $slide_index Slide index. (required)
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -25902,6 +27971,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'paragraph_index' is set
         if ($request->paragraphIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling putUpdateNotesSlideShapeParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putUpdateNotesSlideShapeParagraph');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
@@ -26054,7 +28127,7 @@ class SlidesApi extends ApiBase
      * @param  int $shape_index Shape index. (required)
      * @param  int $paragraph_index Paragraph index. (required)
      * @param  int $portion_index Portion index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO. (required)
      * @param  string $password Document password. (optional)
      * @param  string $folder Document folder. (optional)
      * @param  string $storage Document storage. (optional)
@@ -26083,6 +28156,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'portion_index' is set
         if ($request->portionIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling putUpdateNotesSlideShapePortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putUpdateNotesSlideShapePortion');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';

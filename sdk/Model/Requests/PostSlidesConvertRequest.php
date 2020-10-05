@@ -34,14 +34,14 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostSlidesConvertRequest
 {
     /*
-     * Export format.
-     */
-    public $format;
-
-    /*
      * Document data.
      */
     public $document;
+
+    /*
+     * Export format.
+     */
+    public $format;
 
     /*
      * Document password.
@@ -56,35 +56,19 @@ class PostSlidesConvertRequest
     /*
      * Initializes a new instance of the PostSlidesConvertRequest class.
      *  
-     * @param string $format Export format.
      * @param \SplFileObject $document Document data.
+     * @param string $format Export format.
      * @param string $password Document password.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($format, $document = null, $password = null, $fontsFolder = null)
+    public function __construct($document, $format, $password = null, $fontsFolder = null)
     {
-        $this->format = $format;
         $this->document = $document;
+        $this->format = $format;
         $this->password = $password;
         $this->fontsFolder = $fontsFolder;
     }
 
-    /*
-     * Export format.
-     */
-    public function get_format()
-    {
-        return $this->format;
-    }
-
-    /*
-     * Export format.
-     */
-    public function set_format($value)
-    {
-        $this->format = $value;
-        return $this;
-    }
     /*
      * Document data.
      */
@@ -99,6 +83,22 @@ class PostSlidesConvertRequest
     public function set_document($value)
     {
         $this->document = $value;
+        return $this;
+    }
+    /*
+     * Export format.
+     */
+    public function get_format()
+    {
+        return $this->format;
+    }
+
+    /*
+     * Export format.
+     */
+    public function set_format($value)
+    {
+        $this->format = $value;
         return $this;
     }
     /*

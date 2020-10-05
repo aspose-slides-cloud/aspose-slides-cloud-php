@@ -73,7 +73,7 @@ class PutLayoutSlideRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $slideDto = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $slideDto, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

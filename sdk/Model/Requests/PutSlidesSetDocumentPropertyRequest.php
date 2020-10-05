@@ -73,7 +73,7 @@ class PutSlidesSetDocumentPropertyRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $propertyName, $property = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $propertyName, $property, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->propertyName = $propertyName;

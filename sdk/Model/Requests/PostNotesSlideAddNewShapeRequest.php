@@ -85,7 +85,7 @@ class PostNotesSlideAddNewShapeRequest
      * @param int $shapeToClone Optional index for clone shape instead of adding a new one.
      * @param int $position Position of the new shape in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $dto = null, $password = null, $folder = null, $storage = null, $shapeToClone = null, $position = null)
+    public function __construct($name, $slideIndex, $dto, $password = null, $folder = null, $storage = null, $shapeToClone = null, $position = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

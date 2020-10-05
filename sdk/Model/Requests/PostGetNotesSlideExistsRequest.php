@@ -34,14 +34,14 @@ namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 class PostGetNotesSlideExistsRequest
 {
     /*
-     * Slide index.
-     */
-    public $slideIndex;
-
-    /*
      * Document data.
      */
     public $document;
+
+    /*
+     * Slide index.
+     */
+    public $slideIndex;
 
     /*
      * Document password.
@@ -51,33 +51,17 @@ class PostGetNotesSlideExistsRequest
     /*
      * Initializes a new instance of the PostGetNotesSlideExistsRequest class.
      *  
-     * @param int $slideIndex Slide index.
      * @param \SplFileObject $document Document data.
+     * @param int $slideIndex Slide index.
      * @param string $password Document password.
      */
-    public function __construct($slideIndex, $document = null, $password = null)
+    public function __construct($document, $slideIndex, $password = null)
     {
-        $this->slideIndex = $slideIndex;
         $this->document = $document;
+        $this->slideIndex = $slideIndex;
         $this->password = $password;
     }
 
-    /*
-     * Slide index.
-     */
-    public function get_slideIndex()
-    {
-        return $this->slideIndex;
-    }
-
-    /*
-     * Slide index.
-     */
-    public function set_slideIndex($value)
-    {
-        $this->slideIndex = $value;
-        return $this;
-    }
     /*
      * Document data.
      */
@@ -92,6 +76,22 @@ class PostGetNotesSlideExistsRequest
     public function set_document($value)
     {
         $this->document = $value;
+        return $this;
+    }
+    /*
+     * Slide index.
+     */
+    public function get_slideIndex()
+    {
+        return $this->slideIndex;
+    }
+
+    /*
+     * Slide index.
+     */
+    public function set_slideIndex($value)
+    {
+        $this->slideIndex = $value;
         return $this;
     }
     /*

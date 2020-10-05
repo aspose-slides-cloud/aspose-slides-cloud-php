@@ -163,12 +163,15 @@ class ApiBase
         if ($e->getCode() >= 400) {
             try {
                 $e->getResponseBody()->rewind();
-                $errorObject = json_decode($e->getResponseBody()->getContents());
-                if (property_exists($errorObject, "error")) {
-                    $errorObject = $errorObject->error;
+                $c = $e->getResponseBody()->getContents();
+                if ($c) {
+                    $errorObject = json_decode($c);
+                    if (property_exists($errorObject, "error")) {
+                        $errorObject = $errorObject->error;
+                    }
+                    $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
+                    $e->setResponseObject($error);
                 }
-                $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
-                $e->setResponseObject($error);
             } catch (Exception $ex) {
                 //leave as is if could not parse the error
             }
@@ -232,9 +235,9 @@ class ApiBase
         if ($code == 401) {
             return true;
         }
-        if ($code == 400) {
-            $body = json_decode($response->getBody()->getContents());
-            if (isset($body->error) && isset($body->error->message) && strpos($body->error->message, " Authority") !== false) {
+        if ($code == 500) {
+            $c = $response->getBody()->getContents();
+            if (!$c) {
                 return true;
             }
         }

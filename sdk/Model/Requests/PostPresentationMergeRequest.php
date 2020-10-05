@@ -67,7 +67,7 @@ class PostPresentationMergeRequest
      * @param string $storage Document storage.
      * @param string $folder Document folder.
      */
-    public function __construct($name, $request = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $request, $password = null, $storage = null, $folder = null)
     {
         $this->name = $name;
         $this->request = $request;
