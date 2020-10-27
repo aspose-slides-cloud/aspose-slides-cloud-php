@@ -58,9 +58,9 @@ class Theme extends ResourceBase
       */
     protected static $swaggerTypes = [
         'name' => 'string',
-        'colorScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'fontScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'formatScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'colorScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'fontScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'formatScheme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -250,7 +250,7 @@ class Theme extends ResourceBase
     /**
      * Gets colorScheme
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getColorScheme()
     {
@@ -260,7 +260,7 @@ class Theme extends ResourceBase
     /**
      * Sets colorScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $colorScheme Color scheme.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $colorScheme Color scheme.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class Theme extends ResourceBase
     /**
      * Gets fontScheme
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getFontScheme()
     {
@@ -284,7 +284,7 @@ class Theme extends ResourceBase
     /**
      * Sets fontScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $fontScheme Font scheme.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $fontScheme Font scheme.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class Theme extends ResourceBase
     /**
      * Gets formatScheme
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getFormatScheme()
     {
@@ -308,7 +308,7 @@ class Theme extends ResourceBase
     /**
      * Sets formatScheme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $formatScheme Format scheme.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $formatScheme Format scheme.
      *
      * @return $this
      */

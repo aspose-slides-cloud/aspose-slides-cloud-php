@@ -57,12 +57,12 @@ class Document extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'documentProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'viewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'slides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'layoutSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'masterSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -238,7 +238,7 @@ class Document extends ResourceBase
     /**
      * Gets documentProperties
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getDocumentProperties()
     {
@@ -248,7 +248,7 @@ class Document extends ResourceBase
     /**
      * Sets documentProperties
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $documentProperties Link to Document properties.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $documentProperties Link to Document properties.
      *
      * @return $this
      */
@@ -262,7 +262,7 @@ class Document extends ResourceBase
     /**
      * Gets viewProperties
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getViewProperties()
     {
@@ -272,7 +272,7 @@ class Document extends ResourceBase
     /**
      * Sets viewProperties
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $viewProperties Link to Document properties.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $viewProperties Link to Document properties.
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class Document extends ResourceBase
     /**
      * Gets slides
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getSlides()
     {
@@ -296,7 +296,7 @@ class Document extends ResourceBase
     /**
      * Sets slides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $slides Link to slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $slides Link to slides collection.
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class Document extends ResourceBase
     /**
      * Gets images
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getImages()
     {
@@ -320,7 +320,7 @@ class Document extends ResourceBase
     /**
      * Sets images
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Link to images collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $images Link to images collection.
      *
      * @return $this
      */
@@ -334,7 +334,7 @@ class Document extends ResourceBase
     /**
      * Gets layoutSlides
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getLayoutSlides()
     {
@@ -344,7 +344,7 @@ class Document extends ResourceBase
     /**
      * Sets layoutSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlides Link to layout slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $layoutSlides Link to layout slides collection.
      *
      * @return $this
      */
@@ -358,7 +358,7 @@ class Document extends ResourceBase
     /**
      * Gets masterSlides
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getMasterSlides()
     {
@@ -368,7 +368,7 @@ class Document extends ResourceBase
     /**
      * Sets masterSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlides Link to master slides collection.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $masterSlides Link to master slides collection.
      *
      * @return $this
      */

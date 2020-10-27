@@ -57,7 +57,7 @@ class LayoutSlides extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class LayoutSlides extends ResourceBase
     /**
      * Gets slideList
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getSlideList()
     {
@@ -218,7 +218,7 @@ class LayoutSlides extends ResourceBase
     /**
      * Sets slideList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList List of layout slide links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $slideList List of layout slide links.
      *
      * @return $this
      */

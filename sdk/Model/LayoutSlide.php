@@ -59,8 +59,8 @@ class LayoutSlide extends ResourceBase
     protected static $swaggerTypes = [
         'name' => 'string',
         'type' => 'string',
-        'masterSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'dependingSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'masterSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'dependingSlides' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -398,7 +398,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Gets masterSlide
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getMasterSlide()
     {
@@ -408,7 +408,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets masterSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $masterSlide Master slide link.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $masterSlide Master slide link.
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Gets dependingSlides
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getDependingSlides()
     {
@@ -432,7 +432,7 @@ class LayoutSlide extends ResourceBase
     /**
      * Sets dependingSlides
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $dependingSlides List of depending slides.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $dependingSlides List of depending slides.
      *
      * @return $this
      */

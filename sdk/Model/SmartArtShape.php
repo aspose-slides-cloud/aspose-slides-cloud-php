@@ -40,7 +40,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartArtShape extends ShapeBase 
+class SmartArtShape extends GeometryShape 
 {
     const DISCRIMINATOR = null;
 
@@ -174,7 +174,6 @@ class SmartArtShape extends ShapeBase
         parent::__construct($data);
 
         $this->container['type'] = 'SmartArtShape';
-        $this->container['shapeType'] = 'Custom';
         
     }
 

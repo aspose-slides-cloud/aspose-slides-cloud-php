@@ -62,7 +62,7 @@ class PictureFill extends FillFormat
         'cropRight' => 'double',
         'cropTop' => 'double',
         'dpi' => 'int',
-        'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'base64Data' => 'string',
         'svgData' => 'string',
         'pictureFillMode' => 'string'
@@ -440,7 +440,7 @@ class PictureFill extends FillFormat
     /**
      * Gets image
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getImage()
     {
@@ -450,7 +450,7 @@ class PictureFill extends FillFormat
     /**
      * Sets image
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $image Internal image link.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $image Internal image link.
      *
      * @return $this
      */

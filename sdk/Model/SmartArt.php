@@ -608,7 +608,6 @@ class SmartArt extends ShapeBase
         $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;
         $this->container['isReversed'] = isset($data['isReversed']) ? $data['isReversed'] : null;
         $this->container['type'] = 'SmartArt';
-        $this->container['shapeType'] = 'Diagram';
         
     }
 

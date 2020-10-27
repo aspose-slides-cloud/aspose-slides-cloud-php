@@ -175,7 +175,6 @@ class PictureFrame extends GeometryShape
 
         $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
         $this->container['type'] = 'PictureFrame';
-        $this->container['shapeType'] = 'PictureFrame';
         
     }
 

@@ -57,7 +57,7 @@ class Paragraphs extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'paragraphLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'paragraphLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class Paragraphs extends ResourceBase
     /**
      * Gets paragraphLinks
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getParagraphLinks()
     {
@@ -218,7 +218,7 @@ class Paragraphs extends ResourceBase
     /**
      * Sets paragraphLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $paragraphLinks List of paragraph links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $paragraphLinks List of paragraph links.
      *
      * @return $this
      */

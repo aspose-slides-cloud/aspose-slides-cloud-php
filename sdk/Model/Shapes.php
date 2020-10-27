@@ -57,7 +57,7 @@ class Shapes extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'shapesLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'shapesLinks' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class Shapes extends ResourceBase
     /**
      * Gets shapesLinks
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getShapesLinks()
     {
@@ -218,7 +218,7 @@ class Shapes extends ResourceBase
     /**
      * Sets shapesLinks
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $shapesLinks List of shape links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $shapesLinks List of shape links.
      *
      * @return $this
      */

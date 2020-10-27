@@ -26,40 +26,44 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-
-namespace Aspose\Slides\Cloud\Sdk\Tests\Extra;
+namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use \Exception;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
+use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlideSaveAsRequest;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlideShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
-class AbstractClassTest extends TestBase
+class TimeoutTest extends TestBase
 {
     /**
-     * Test case for postSlidesPipeline with two files
+     * Test case for SaveSlideAs with little timeout
      */
-    public function testShape()
+    public function testSaveSlideAsSvgTimeout()
     {
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
+/* unstable test
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", null, null);
 
-        $request = new GetSlideShapeRequest("test.ppt", 1, 1, "password", "TempSlidesSDK", null);
-        $result = $this->getApi()->getSlideShape($request);
-        Assert::assertTrue($result->getText() == "1");
-    }
+        $config = new Configuration();
+        $config->setAppKey($this->config->getAppKey());
+        $config->setAppSid($this->config->getAppSid());
+        $config->setHost($this->config->getHost());
+        $config->setAuthHost($this->config->getAuthHost());
+        $config->setDebug($this->config->getDebug());
+        $config->setTimeout(1);
 
-    /**
-     * Test case for postSlidesPipeline with two files
-     */
-    public function testChart()
-    {
-        $chart = new Chart();
-        Assert::assertTrue($chart->getType() == "Chart");
-        Assert::assertTrue($chart->getShapeType() == "Chart");
+        $slidesApi = new SlidesApi(null, $config);
+
+        $request = new PostSlideSaveAsRequest("test.ppt", 1, "svg", null, null, null, "password", "TempSlidesSDK", null, null);
+        $result = $slidesApi->postSlideSaveAs($request);
+        try {
+//            $result = $this->getApi()->postSlideSaveAs($request);
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postSlideSaveAs");
+        }*/
     }
 }

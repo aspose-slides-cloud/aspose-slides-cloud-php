@@ -38,18 +38,15 @@ use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class TestBase extends \PHPUnit_Framework_TestCase
 {
-    protected $values;
-    protected $okToFailValues;
-
     protected function setUp()
     {
-        if ($this->values == null)
+        if (self::$values == null)
         {
             $rules = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testRules.json")), true);
-            $this->fileRules = $rules["Files"];
-            $this->rules = $rules["Results"];
-            $this->values = $rules["Values"];
-            $this->okToFailValues = $rules["OKToNotFail"];
+            self::$fileRules = $rules["Files"];
+            self::$rules = $rules["Results"];
+            self::$values = $rules["Values"];
+            self::$okToFailValues = $rules["OKToNotFail"];
         }
     }
 
@@ -117,7 +114,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
     {
         $expectedCode = 0;
         $expectedMessage = "An error occured.";
-        foreach ($this->rules as $rule)
+        foreach (self::$rules as $rule)
         {
             $this->applyRule($rule, $expectedCode, $expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue);
         }
@@ -127,7 +124,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
     private function applyFileRules($functionName, $invalidFieldName, $invalidFieldValue)
     {
         $rulesToApply = [];
-        foreach ($this->fileRules as $rule)
+        foreach (self::$fileRules as $rule)
         {
             $this->applyFileRule($rule, $rulesToApply, $functionName, $invalidFieldName, $invalidFieldValue);
         }
@@ -191,8 +188,10 @@ class TestBase extends \PHPUnit_Framework_TestCase
         return !array_key_exists("Language", $rule) || strcasecmp("PHP", $rule["Language"]) == 0;
     }
 
-    private $rules;
-    private $fileRules;
+    protected static $values;
+    protected static $okToFailValues;
+    private static $rules;
+    private static $fileRules;
     private static $isInitialized = false;
     private static $expectedTestDataVersion = "1";
     private static $api;

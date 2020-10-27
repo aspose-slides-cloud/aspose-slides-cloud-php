@@ -60,14 +60,14 @@ class Slide extends ResourceBase
         'width' => 'double',
         'height' => 'double',
         'showMasterShapes' => 'bool',
-        'layoutSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'theme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'placeholders' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'comments' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'background' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
-        'notesSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'layoutSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'theme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'placeholders' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'images' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'comments' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'background' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'notesSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -358,7 +358,7 @@ class Slide extends ResourceBase
     /**
      * Gets layoutSlide
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getLayoutSlide()
     {
@@ -368,7 +368,7 @@ class Slide extends ResourceBase
     /**
      * Sets layoutSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $layoutSlide Gets or sets the  link to the layout slide.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $layoutSlide Gets or sets the  link to the layout slide.
      *
      * @return $this
      */
@@ -382,7 +382,7 @@ class Slide extends ResourceBase
     /**
      * Gets shapes
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getShapes()
     {
@@ -392,7 +392,7 @@ class Slide extends ResourceBase
     /**
      * Sets shapes
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shapes Gets or sets the  link to list of top-level shapes.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Gets or sets the  link to list of top-level shapes.
      *
      * @return $this
      */
@@ -406,7 +406,7 @@ class Slide extends ResourceBase
     /**
      * Gets theme
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getTheme()
     {
@@ -416,7 +416,7 @@ class Slide extends ResourceBase
     /**
      * Sets theme
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $theme Gets or sets the link to theme.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $theme Gets or sets the link to theme.
      *
      * @return $this
      */
@@ -430,7 +430,7 @@ class Slide extends ResourceBase
     /**
      * Gets placeholders
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getPlaceholders()
     {
@@ -440,7 +440,7 @@ class Slide extends ResourceBase
     /**
      * Sets placeholders
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $placeholders Gets or sets the  link to placeholders.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $placeholders Gets or sets the  link to placeholders.
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class Slide extends ResourceBase
     /**
      * Gets images
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getImages()
     {
@@ -464,7 +464,7 @@ class Slide extends ResourceBase
     /**
      * Sets images
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $images Gets or sets the link to images.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $images Gets or sets the link to images.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class Slide extends ResourceBase
     /**
      * Gets comments
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getComments()
     {
@@ -488,7 +488,7 @@ class Slide extends ResourceBase
     /**
      * Sets comments
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $comments Gets or sets the link to comments.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $comments Gets or sets the link to comments.
      *
      * @return $this
      */
@@ -502,7 +502,7 @@ class Slide extends ResourceBase
     /**
      * Gets background
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getBackground()
     {
@@ -512,7 +512,7 @@ class Slide extends ResourceBase
     /**
      * Sets background
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $background Get or sets the link to slide's background
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $background Get or sets the link to slide's background
      *
      * @return $this
      */
@@ -526,7 +526,7 @@ class Slide extends ResourceBase
     /**
      * Gets notesSlide
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getNotesSlide()
     {
@@ -536,7 +536,7 @@ class Slide extends ResourceBase
     /**
      * Sets notesSlide
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $notesSlide Get or sets the link to notes slide.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $notesSlide Get or sets the link to notes slide.
      *
      * @return $this
      */

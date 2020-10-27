@@ -26,8 +26,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-
-namespace Aspose\Slides\Cloud\Sdk\Tests\Extra;
+namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use \Exception;
 use PHPUnit\Framework\Assert;

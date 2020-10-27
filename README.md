@@ -10,6 +10,11 @@ This repository contains Aspose.Slides Cloud SDK for PHP source code. This SDK a
 * Full read & write access to Document Object Model, including slides, shapes, paragraphs, portions and many others
 * Support of Aspose.Storage API
 
+### New Features & Recent API Changes
+#### 20.10
+* Removed ShapeType property from BaseShape class; replaced GeometryShapeType with ShapeType property for GeometryShape.
+* Removed redundant ResourceUriElement class. All properties of ResourceUriElement type are changed to ResourceUri type.
+
 ## Licensing
 All Aspose.Slides Cloud SDKs are licensed under MIT License.
 

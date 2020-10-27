@@ -392,7 +392,6 @@ class Table extends ShapeBase
         $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['verticalBanding'] = isset($data['verticalBanding']) ? $data['verticalBanding'] : null;
         $this->container['type'] = 'Table';
-        $this->container['shapeType'] = 'Table';
         
     }
 

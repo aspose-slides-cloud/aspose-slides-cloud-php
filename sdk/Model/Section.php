@@ -59,7 +59,7 @@ class Section extends ResourceBase
     protected static $swaggerTypes = [
         'name' => 'string',
         'firstSlideIndex' => 'int',
-        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]'
+        'slideList' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
     ];
 
     /**
@@ -274,7 +274,7 @@ class Section extends ResourceBase
     /**
      * Gets slideList
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
      */
     public function getSlideList()
     {
@@ -284,7 +284,7 @@ class Section extends ResourceBase
     /**
      * Sets slideList
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement[] $slideList Links to the shapes contained in the section.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $slideList Links to the shapes contained in the section.
      *
      * @return $this
      */

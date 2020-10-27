@@ -60,7 +60,7 @@ class SmartArtNode implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'nodes' => '\Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[]',
-        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement',
+        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'isAssistant' => 'bool',
         'text' => 'string',
         'orgChartLayout' => 'string'
@@ -304,7 +304,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Gets shapes
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getShapes()
     {
@@ -314,7 +314,7 @@ class SmartArtNode implements ArrayAccess
     /**
      * Sets shapes
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shapes Gets or sets the link to shapes.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Gets or sets the link to shapes.
      *
      * @return $this
      */

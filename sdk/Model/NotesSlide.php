@@ -58,7 +58,7 @@ class NotesSlide extends ResourceBase
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -238,7 +238,7 @@ class NotesSlide extends ResourceBase
     /**
      * Gets shapes
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getShapes()
     {
@@ -248,7 +248,7 @@ class NotesSlide extends ResourceBase
     /**
      * Sets shapes
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shapes Get or sets the  link to list notes slide shapes.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Get or sets the  link to list notes slide shapes.
      *
      * @return $this
      */

@@ -61,7 +61,7 @@ class Placeholder extends ResourceBase
         'orientation' => 'string',
         'size' => 'string',
         'type' => 'string',
-        'shape' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement'
+        'shape' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -532,7 +532,7 @@ class Placeholder extends ResourceBase
     /**
      * Gets shape
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
      */
     public function getShape()
     {
@@ -542,7 +542,7 @@ class Placeholder extends ResourceBase
     /**
      * Sets shape
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUriElement $shape Shape link.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shape Shape link.
      *
      * @return $this
      */

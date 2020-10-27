@@ -408,7 +408,6 @@ class Chart extends ShapeBase
         $this->container['axes'] = isset($data['axes']) ? $data['axes'] : null;
         $this->container['plotArea'] = isset($data['plotArea']) ? $data['plotArea'] : null;
         $this->container['type'] = 'Chart';
-        $this->container['shapeType'] = 'Chart';
         
     }
 
