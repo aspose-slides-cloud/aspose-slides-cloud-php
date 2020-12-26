@@ -56,13 +56,13 @@ class TestBase extends \PHPUnit_Framework_TestCase
         {
             $config = new Configuration();
             $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-            $appKey = $testConfig["AppKey"];
-            $appSid = $testConfig["AppSid"];
+            $clientId = $testConfig["ClientId"];
+            $clientSecret = $testConfig["ClientSecret"];
             $baseUrl = $testConfig["BaseUrl"];
             $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
             $debug = $testConfig["Debug"];
-            $config->setAppKey($appKey);
-            $config->setAppSid($appSid);
+            $config->setAppSid($clientId);
+            $config->setAppKey($clientSecret);
             $config->setHost($baseUrl);
             $config->setAuthHost($authBaseUrl);
             $config->setDebug($debug);
@@ -77,8 +77,13 @@ class TestBase extends \PHPUnit_Framework_TestCase
         if (!self::$isInitialized)
         {
             $versionFile = $this->getApi()->DownloadFile(new DownloadFileRequest("TempTests/version.txt", null, null));
-            $version = $versionFile->fread($versionFile->getSize());
-            if ($version != self::$expectedTestDataVersion)
+            $versionLength = $versionFile->getSize();
+            $version = 0;
+            if ($versionLength > 0)
+            {
+                $version = $versionFile->fread($versionFile->getSize());
+            }
+            if ($versionLength <= 0 || $version != self::$expectedTestDataVersion)
             {
                 foreach (scandir(realpath(__DIR__.'/../..').'/TestData') as $key => $value)
                 {

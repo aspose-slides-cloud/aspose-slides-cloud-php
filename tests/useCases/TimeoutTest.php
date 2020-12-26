@@ -49,8 +49,8 @@ class TimeoutTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", null, null);
 
         $config = new Configuration();
-        $config->setAppKey($this->config->getAppKey());
-        $config->setAppSid($this->config->getAppSid());
+        $config->setAppSid($this->config->getClientId());
+        $config->setAppKey($this->config->getClientSecret());
         $config->setHost($this->config->getHost());
         $config->setAuthHost($this->config->getAuthHost());
         $config->setDebug($this->config->getDebug());

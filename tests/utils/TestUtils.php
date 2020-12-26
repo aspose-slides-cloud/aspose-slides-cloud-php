@@ -37,8 +37,8 @@ use Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 class TestUtils
 {
     public const folderName = "TempSlidesSDK";
-    public const fileName = "test.ppt";
-    public const changedFileName = "changedtest.ppt";
+    public const fileName = "test.pptx";
+    public const changedFileName = "changedtest.pptx";
     public const templateFileName = "TemplateCV.pptx";
     public static $fileStream = null;
 

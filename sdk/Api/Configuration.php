@@ -35,32 +35,18 @@ namespace Aspose\Slides\Cloud\Sdk\Api;
 class Configuration
 {
     private static $_defaultConfiguration;
-
-    /*
-     * Associate array to store API key(s)
-     *
-     * @var string[]
-     */
-    protected $apiKeys = [];
     
     /*
-     * AppKey for API
+     * ClientId for API
      *
-     */
-    protected $appKey = '';
-    
-    /*
-     * AppSid for API
-     * @var string
      */
     protected $appSid = '';
-
+    
     /*
-     * Associate array to store API prefix (e.g. Bearer)
-     *
-     * @var string[]
+     * ClientSecret for API
+     * @var string
      */
-    protected $apiKeyPrefixes = [];
+    protected $appKey = '';
 
     /*
      * Access token for OAuth
@@ -150,7 +136,7 @@ class Configuration
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '20.10.0';
+    protected $clientVersion = '20.12.0';
 
     /*
      * Constructor
@@ -169,23 +155,9 @@ class Configuration
     {
         return $this->clientVersion;
     }
-
-    /*
-     * Sets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $key              API key or token
-     *
-     * @return $this
-     */
-    public function setApiKey($apiKeyIdentifier, $key)
-    {
-        $this->apiKeys[$apiKeyIdentifier] = $key;
-        return $this;
-    }
     
     /*
-     * Sets AppSid
+     * Sets ClientId
      *
      * @param string $appSid
      *
@@ -198,7 +170,7 @@ class Configuration
     }
     
     /*
-     * Gets AppSid
+     * Gets ClientId
      * @return $appSid
      */
     public function getAppSid()
@@ -207,7 +179,7 @@ class Configuration
     }
     
     /*
-     * Sets AppKey
+     * Sets ClientSecret
      *
      * @param string $appKey
      *
@@ -220,50 +192,12 @@ class Configuration
     }
     
     /*
-     * Gets AppKey
+     * Gets ClientSecret
      * @return $appKey
      */
     public function getAppKey()
     {
         return $this->appKey;
-    }
-
-    /*
-     * Gets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string API key or token
-     */
-    public function getApiKey($apiKeyIdentifier)
-    {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
-    }
-
-    /*
-     * Sets the prefix for API key (e.g. Bearer)
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix           API key prefix, e.g. Bearer
-     *
-     * @return $this
-     */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
-    {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-        return $this;
-    }
-
-    /*
-     * Gets API key prefix
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string
-     */
-    public function getApiKeyPrefix($apiKeyIdentifier)
-    {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
 
     /*
@@ -580,7 +514,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\Slides) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 20.10.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 20.12.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

@@ -40,8 +40,8 @@ use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesConvertRequest;
 
 $config = new Configuration();
-$config->setAppSid("MyAppSid");
-$config->setAppKey("MyAppKey");
+$config->setAppSid("MyClientId");
+$config->setAppKey("MyClientSecret");
 $api = new SlidesApi(null, $config);
 $request = new PostSlidesConvertRequest(ExportFormat::PDF, fopen("MyPresentation.pptx", 'r'));
 $result = $api->postSlidesConvert($request);

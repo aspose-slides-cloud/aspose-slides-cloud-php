@@ -45,13 +45,13 @@ class AuthTest extends TestBase
     {
         $config = new Configuration();
         $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-        $appKey = $testConfig["AppKey"];
-        $appSid = $testConfig["AppSid"];
+        $clientId = $testConfig["ClientId"];
+        $clientSecret = $testConfig["ClientSecret"];
         $baseUrl = $testConfig["BaseUrl"];
         $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
         $debug = $testConfig["Debug"];
-        $config->setAppKey($appKey);
-        $config->setAppSid($appSid);
+        $config->setAppSid($clientId);
+        $config->setAppKey($clientSecret);
         $config->setHost($baseUrl);
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
@@ -67,13 +67,13 @@ class AuthTest extends TestBase
     {
         $config = new Configuration();
         $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-        $appKey = "invalid";
-        $appSid = $testConfig["AppSid"];
+        $clientId = "invalid";
+        $clientSecret = $testConfig["ClientSecret"];
         $baseUrl = $testConfig["BaseUrl"];
         $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
         $debug = $testConfig["Debug"];
-        $config->setAppKey($appKey);
-        $config->setAppSid($appSid);
+        $config->setAppSid($clientId);
+        $config->setAppKey($clientSecret);
         $config->setHost($baseUrl);
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
@@ -94,20 +94,20 @@ class AuthTest extends TestBase
     {
         $config = new Configuration();
         $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-        $appKey = $testConfig["AppKey"];
-        $appSid = $testConfig["AppSid"];
+        $clientId = $testConfig["ClientId"];
+        $clientSecret = $testConfig["ClientSecret"];
         $baseUrl = $testConfig["BaseUrl"];
         $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
         $debug = $testConfig["Debug"];
-        $config->setAppKey($appKey);
-        $config->setAppSid($appSid);
+        $config->setAppSid($clientId);
+        $config->setAppKey($clientSecret);
         $config->setHost($baseUrl);
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
         $api = new SlidesApi(null, $config);
         $api->getSlidesApiInfo();
-        $appKey = "invalid";
-        $config->setAppKey($appKey);
+        $clientId = "invalid";
+        $config->setAppSid($clientId);
         $api = new SlidesApi(null, $config);
         $api->getSlidesApiInfo();
     }
@@ -119,13 +119,13 @@ class AuthTest extends TestBase
     {
         $config = new Configuration();
         $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../../testConfig.json")), true);
-        $appKey = $testConfig["AppKey"];
-        $appSid = $testConfig["AppSid"];
+        $clientId = $testConfig["ClientId"];
+        $clientSecret = $testConfig["ClientSecret"];
         $baseUrl = $testConfig["BaseUrl"];
         $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
         $debug = $testConfig["Debug"];
-        $config->setAppKey($appKey);
-        $config->setAppSid($appSid);
+        $config->setAppSid($clientId);
+        $config->setAppKey($clientSecret);
         $config->setHost($baseUrl);
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
