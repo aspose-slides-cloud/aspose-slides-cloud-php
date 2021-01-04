@@ -12,6 +12,10 @@ This repository contains Aspose.Slides Cloud SDK for PHP source code. This SDK a
 * Support of Aspose.Storage API
 
 ### New Features & Recent API Changes
+
+#### 20.12
+* New property "HttpRequestTimeout" is added to SDK configuration. It allows to specify a custom timeout (in seconds) for HTTP requests made by the SDK.
+
 #### 20.10
 * Removed ShapeType property from BaseShape class; replaced GeometryShapeType with ShapeType property for GeometryShape.
 * Removed redundant ResourceUriElement class. All properties of ResourceUriElement type are changed to ResourceUri type.
