@@ -523,16 +523,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -691,16 +691,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -855,16 +855,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1212,16 +1212,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1373,16 +1373,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1536,16 +1536,16 @@ class SlidesApi extends ApiBase
             $queryParams['paragraphs'] = ObjectSerializer::toQueryValue($request->paragraphs);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1703,16 +1703,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -1872,16 +1872,16 @@ class SlidesApi extends ApiBase
             $queryParams['portions'] = ObjectSerializer::toQueryValue($request->portions);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2030,16 +2030,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2187,16 +2187,16 @@ class SlidesApi extends ApiBase
             $queryParams['shapes'] = ObjectSerializer::toQueryValue($request->shapes);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2348,16 +2348,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2511,16 +2511,16 @@ class SlidesApi extends ApiBase
             $queryParams['paragraphs'] = ObjectSerializer::toQueryValue($request->paragraphs);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2678,16 +2678,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -2847,16 +2847,16 @@ class SlidesApi extends ApiBase
             $queryParams['portions'] = ObjectSerializer::toQueryValue($request->portions);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3005,16 +3005,16 @@ class SlidesApi extends ApiBase
             $queryParams['withSlides'] = ObjectSerializer::toQueryValue($request->withSlides);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3161,16 +3161,16 @@ class SlidesApi extends ApiBase
             $queryParams['withSlides'] = ObjectSerializer::toQueryValue($request->withSlides);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3311,16 +3311,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3467,16 +3467,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3624,16 +3624,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3786,16 +3786,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -3939,16 +3939,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4090,16 +4090,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4241,16 +4241,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4397,16 +4397,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4554,16 +4554,16 @@ class SlidesApi extends ApiBase
             $queryParams['shapes'] = ObjectSerializer::toQueryValue($request->shapes);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4711,16 +4711,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -4870,16 +4870,16 @@ class SlidesApi extends ApiBase
             $queryParams['shapes'] = ObjectSerializer::toQueryValue($request->shapes);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5022,16 +5022,16 @@ class SlidesApi extends ApiBase
             $queryParams['slides'] = ObjectSerializer::toQueryValue($request->slides);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5167,16 +5167,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5317,16 +5317,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5468,16 +5468,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5630,16 +5630,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5795,16 +5795,16 @@ class SlidesApi extends ApiBase
             $queryParams['paragraphs'] = ObjectSerializer::toQueryValue($request->paragraphs);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -5964,16 +5964,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -6135,16 +6135,16 @@ class SlidesApi extends ApiBase
             $queryParams['portions'] = ObjectSerializer::toQueryValue($request->portions);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -6813,16 +6813,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -6959,16 +6959,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7109,16 +7109,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7255,16 +7255,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7405,16 +7405,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7556,16 +7556,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7707,16 +7707,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -7863,16 +7863,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8025,16 +8025,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8183,16 +8183,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8350,16 +8350,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8514,16 +8514,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8667,16 +8667,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -8831,10 +8831,6 @@ class SlidesApi extends ApiBase
             $queryParams['height'] = ObjectSerializer::toQueryValue($request->height);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -8845,6 +8841,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9002,16 +9002,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9166,16 +9166,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9314,16 +9314,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9469,16 +9469,16 @@ class SlidesApi extends ApiBase
             $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($request->shapeIndex);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9620,16 +9620,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9776,16 +9776,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -9938,16 +9938,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10096,16 +10096,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10248,16 +10248,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10405,16 +10405,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10569,16 +10569,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10729,16 +10729,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -10883,16 +10883,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11154,16 +11154,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11299,16 +11299,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11449,16 +11449,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11597,16 +11597,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11750,16 +11750,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -11897,16 +11897,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12052,16 +12052,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12204,16 +12204,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12355,9 +12355,150 @@ class SlidesApi extends ApiBase
             $queryParams['withEmpty'] = ObjectSerializer::toQueryValue($request->withEmpty);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getSlidesProtectionProperties(Requests\GetSlidesProtectionPropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->getSlidesProtectionPropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getSlidesProtectionPropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getSlidesProtectionPropertiesWithHttpInfo(Requests\GetSlidesProtectionPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->getSlidesProtectionPropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getSlidesProtectionPropertiesAsync(Requests\GetSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->getSlidesProtectionPropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getSlidesProtectionPropertiesAsyncWithHttpInfo(Requests\GetSlidesProtectionPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->getSlidesProtectionPropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getSlidesProtectionProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSlidesProtectionPropertiesRequest(Requests\GetSlidesProtectionPropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getSlidesProtectionProperties');
+        }
+
+        $resourcePath = '/slides/{name}/protectionProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
@@ -12365,6 +12506,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12505,16 +12650,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12656,16 +12801,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12807,16 +12952,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -12958,9 +13103,151 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getSlidesSlideProperties(Requests\GetSlidesSlidePropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->getSlidesSlidePropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getSlidesSlidePropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getSlidesSlidePropertiesWithHttpInfo(Requests\GetSlidesSlidePropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties';
+        $httpRequest = $this->getSlidesSlidePropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getSlidesSlidePropertiesAsync(Requests\GetSlidesSlidePropertiesRequest $request)
+    {
+        return $this->getSlidesSlidePropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getSlidesSlidePropertiesAsyncWithHttpInfo(Requests\GetSlidesSlidePropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties';
+        $httpRequest = $this->getSlidesSlidePropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getSlidesSlideProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getSlidesSlidePropertiesRequest(Requests\GetSlidesSlidePropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getSlidesSlideProperties');
+        }
+
+        $resourcePath = '/slides/{name}/slideProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
@@ -12969,9 +13256,12 @@ class SlidesApi extends ApiBase
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
@@ -13114,16 +13404,16 @@ class SlidesApi extends ApiBase
             $queryParams['withEmpty'] = ObjectSerializer::toQueryValue($request->withEmpty);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -13260,16 +13550,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -13410,16 +13700,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -13561,16 +13851,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -13712,16 +14002,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -13863,16 +14153,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -14009,16 +14299,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -14175,16 +14465,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -14341,16 +14631,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -14877,10 +15167,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -14891,6 +15177,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15061,10 +15351,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -15075,6 +15361,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15233,10 +15523,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -15251,6 +15537,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15408,10 +15698,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -15426,6 +15712,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15592,10 +15882,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -15606,6 +15892,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15778,10 +16068,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -15792,6 +16078,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -15953,16 +16243,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16126,16 +16416,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16305,16 +16595,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16480,16 +16770,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16659,16 +16949,8 @@ class SlidesApi extends ApiBase
             $queryParams['cloneFromPosition'] = ObjectSerializer::toQueryValue($request->cloneFromPosition);
         }
         // query params
-        if ($request->cloneFromPassword !== null) {
-            $queryParams['cloneFromPassword'] = ObjectSerializer::toQueryValue($request->cloneFromPassword);
-        }
-        // query params
         if ($request->cloneFromStorage !== null) {
             $queryParams['cloneFromStorage'] = ObjectSerializer::toQueryValue($request->cloneFromStorage);
-        }
-        // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
         // query params
         if ($request->folder !== null) {
@@ -16677,6 +16959,14 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->cloneFromPassword !== null) {
+            $headerParams['cloneFromPassword'] = ObjectSerializer::toHeaderValue($request->cloneFromPassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16833,10 +17123,6 @@ class SlidesApi extends ApiBase
             $queryParams['cloneFromPosition'] = ObjectSerializer::toQueryValue($request->cloneFromPosition);
         }
         // query params
-        if ($request->cloneFromPassword !== null) {
-            $queryParams['cloneFromPassword'] = ObjectSerializer::toQueryValue($request->cloneFromPassword);
-        }
-        // query params
         if ($request->cloneFromStorage !== null) {
             $queryParams['cloneFromStorage'] = ObjectSerializer::toQueryValue($request->cloneFromStorage);
         }
@@ -16845,16 +17131,20 @@ class SlidesApi extends ApiBase
             $queryParams['applyToAll'] = ObjectSerializer::toQueryValue($request->applyToAll);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->cloneFromPassword !== null) {
+            $headerParams['cloneFromPassword'] = ObjectSerializer::toHeaderValue($request->cloneFromPassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -16992,9 +17282,9 @@ class SlidesApi extends ApiBase
         $headerParams = [];
         $httpBody = '';
 
-        // query params
+        // header params
         if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
@@ -17144,9 +17434,9 @@ class SlidesApi extends ApiBase
         $headerParams = [];
         $httpBody = '';
 
-        // query params
+        // header params
         if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
@@ -17310,12 +17600,12 @@ class SlidesApi extends ApiBase
             $queryParams['height'] = ObjectSerializer::toQueryValue($request->height);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $request->slideIndex);
@@ -17480,10 +17770,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -17494,6 +17780,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -17664,10 +17954,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -17678,6 +17964,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -17840,10 +18130,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -17858,6 +18144,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->position !== null) {
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18023,10 +18313,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -18049,6 +18335,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18204,16 +18494,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18379,16 +18669,16 @@ class SlidesApi extends ApiBase
             $queryParams['slideIndex'] = ObjectSerializer::toQueryValue($request->slideIndex);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18538,16 +18828,16 @@ class SlidesApi extends ApiBase
             $queryParams['newPosition'] = ObjectSerializer::toQueryValue($request->newPosition);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18701,10 +18991,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -18727,6 +19013,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -18887,16 +19177,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -19055,16 +19345,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -19228,16 +19518,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -19406,10 +19696,6 @@ class SlidesApi extends ApiBase
             $queryParams['height'] = ObjectSerializer::toQueryValue($request->height);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -19420,6 +19706,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -19575,10 +19865,6 @@ class SlidesApi extends ApiBase
             $queryParams['position'] = ObjectSerializer::toQueryValue($request->position);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -19589,6 +19875,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->layoutAlias !== null) {
             $queryParams['layoutAlias'] = ObjectSerializer::toQueryValue($request->layoutAlias);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -19725,12 +20015,12 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $request->format);
@@ -19899,16 +20189,8 @@ class SlidesApi extends ApiBase
             $queryParams['source'] = ObjectSerializer::toQueryValue($request->source);
         }
         // query params
-        if ($request->sourcePassword !== null) {
-            $queryParams['sourcePassword'] = ObjectSerializer::toQueryValue($request->sourcePassword);
-        }
-        // query params
         if ($request->sourceStorage !== null) {
             $queryParams['sourceStorage'] = ObjectSerializer::toQueryValue($request->sourceStorage);
-        }
-        // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
         // query params
         if ($request->folder !== null) {
@@ -19917,6 +20199,14 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->sourcePassword !== null) {
+            $headerParams['sourcePassword'] = ObjectSerializer::toHeaderValue($request->sourcePassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -20054,20 +20344,20 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->inputPassword !== null) {
-            $queryParams['inputPassword'] = ObjectSerializer::toQueryValue($request->inputPassword);
-        }
-        // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->inputPassword !== null) {
+            $headerParams['inputPassword'] = ObjectSerializer::toHeaderValue($request->inputPassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -20124,6 +20414,10 @@ class SlidesApi extends ApiBase
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
                 case 201:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -20216,16 +20510,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -20237,6 +20531,168 @@ class SlidesApi extends ApiBase
             $headerParams,
             ['application/json'],
             ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function postSlidesDocumentFromPdf(Requests\PostSlidesDocumentFromPdfRequest $request)
+    {
+        try {
+            list($response) = $this->postSlidesDocumentFromPdfWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->postSlidesDocumentFromPdfWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function postSlidesDocumentFromPdfWithHttpInfo(Requests\PostSlidesDocumentFromPdfRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->postSlidesDocumentFromPdfRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 201:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function postSlidesDocumentFromPdfAsync(Requests\PostSlidesDocumentFromPdfRequest $request)
+    {
+        return $this->postSlidesDocumentFromPdfAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function postSlidesDocumentFromPdfAsyncWithHttpInfo(Requests\PostSlidesDocumentFromPdfRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->postSlidesDocumentFromPdfRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postSlidesDocumentFromPdf'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \SplFileObject $pdf PDF data. (optional)
+     * @param  string $password Document password. (optional)
+     * @param  string $storage Document storage. (optional)
+     * @param  string $folder Document folder. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postSlidesDocumentFromPdfRequest(Requests\PostSlidesDocumentFromPdfRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postSlidesDocumentFromPdf');
+        }
+
+        $resourcePath = '/slides/{name}/fromPdf';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->pdf)) {
+            $_tempBody = $request->pdf;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/octet-stream']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -20380,16 +20836,8 @@ class SlidesApi extends ApiBase
             $queryParams['sourcePath'] = ObjectSerializer::toQueryValue($request->sourcePath);
         }
         // query params
-        if ($request->sourcePassword !== null) {
-            $queryParams['sourcePassword'] = ObjectSerializer::toQueryValue($request->sourcePassword);
-        }
-        // query params
         if ($request->sourceStorage !== null) {
             $queryParams['sourceStorage'] = ObjectSerializer::toQueryValue($request->sourceStorage);
-        }
-        // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
         }
         // query params
         if ($request->storage !== null) {
@@ -20398,6 +20846,14 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->sourcePassword !== null) {
+            $headerParams['sourcePassword'] = ObjectSerializer::toHeaderValue($request->sourcePassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -20546,10 +21002,6 @@ class SlidesApi extends ApiBase
             $queryParams['templatePath'] = ObjectSerializer::toQueryValue($request->templatePath);
         }
         // query params
-        if ($request->templatePassword !== null) {
-            $queryParams['templatePassword'] = ObjectSerializer::toQueryValue($request->templatePassword);
-        }
-        // query params
         if ($request->templateStorage !== null) {
             $queryParams['templateStorage'] = ObjectSerializer::toQueryValue($request->templateStorage);
         }
@@ -20558,16 +21010,20 @@ class SlidesApi extends ApiBase
             $queryParams['isImageDataEmbedded'] = ObjectSerializer::toQueryValue($request->isImageDataEmbedded);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->templatePassword !== null) {
+            $headerParams['templatePassword'] = ObjectSerializer::toHeaderValue($request->templatePassword);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -20867,16 +21323,16 @@ class SlidesApi extends ApiBase
             $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($request->ignoreCase);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21026,16 +21482,16 @@ class SlidesApi extends ApiBase
             $queryParams['newPosition'] = ObjectSerializer::toQueryValue($request->newPosition);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21182,16 +21638,16 @@ class SlidesApi extends ApiBase
             $queryParams['newPositions'] = ObjectSerializer::toQueryValue($request->newPositions);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21331,10 +21787,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
@@ -21345,6 +21797,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21498,16 +21954,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21683,16 +22139,16 @@ class SlidesApi extends ApiBase
             $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($request->ignoreCase);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -21861,10 +22317,6 @@ class SlidesApi extends ApiBase
             $queryParams['destFolder'] = ObjectSerializer::toQueryValue($request->destFolder);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
@@ -21875,6 +22327,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22040,10 +22496,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -22066,6 +22518,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22237,16 +22693,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22422,16 +22878,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22603,16 +23059,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22773,16 +23229,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -22941,16 +23397,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23094,10 +23550,6 @@ class SlidesApi extends ApiBase
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($request->outPath);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -23120,6 +23572,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23275,16 +23731,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23446,16 +23902,16 @@ class SlidesApi extends ApiBase
             $queryParams['sectionName'] = ObjectSerializer::toQueryValue($request->sectionName);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23597,16 +24053,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23779,16 +24235,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -23960,16 +24416,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -24146,16 +24602,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -24329,16 +24785,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -24485,10 +24941,6 @@ class SlidesApi extends ApiBase
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($request->outPath);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -24511,6 +24963,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -24671,16 +25127,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -24844,16 +25300,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25023,16 +25479,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25193,16 +25649,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25348,10 +25804,6 @@ class SlidesApi extends ApiBase
             $queryParams['height'] = ObjectSerializer::toQueryValue($request->height);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -25362,6 +25814,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25526,16 +25982,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25701,16 +26157,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -25840,12 +26296,12 @@ class SlidesApi extends ApiBase
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($request->outPath);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $request->format);
@@ -25994,16 +26450,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26156,16 +26612,178 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
         // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSlidesProtectionProperties(Requests\PutSlidesProtectionPropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->putSlidesProtectionPropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSlidesProtectionPropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSlidesProtectionPropertiesWithHttpInfo(Requests\PutSlidesProtectionPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->putSlidesProtectionPropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSlidesProtectionPropertiesAsync(Requests\PutSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->putSlidesProtectionPropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSlidesProtectionPropertiesAsyncWithHttpInfo(Requests\PutSlidesProtectionPropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->putSlidesProtectionPropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlidesProtectionProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto The view properties data. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSlidesProtectionPropertiesRequest(Requests\PutSlidesProtectionPropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesProtectionProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesProtectionProperties');
+        }
+
+        $resourcePath = '/slides/{name}/protectionProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26295,10 +26913,6 @@ class SlidesApi extends ApiBase
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($request->outPath);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
@@ -26309,6 +26923,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26467,16 +27085,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26635,16 +27253,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26807,12 +27425,12 @@ class SlidesApi extends ApiBase
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26979,12 +27597,12 @@ class SlidesApi extends ApiBase
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -26994,6 +27612,168 @@ class SlidesApi extends ApiBase
             ['application/json'],
             ['application/json']);
 
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function putSlidesSlideProperties(Requests\PutSlidesSlidePropertiesRequest $request)
+    {
+        try {
+            list($response) = $this->putSlidesSlidePropertiesWithHttpInfo($request);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->putSlidesSlidePropertiesWithHttpInfo($request);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function putSlidesSlidePropertiesWithHttpInfo(Requests\PutSlidesSlidePropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties';
+        $httpRequest = $this->putSlidesSlidePropertiesRequest($request);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function putSlidesSlidePropertiesAsync(Requests\PutSlidesSlidePropertiesRequest $request)
+    {
+        return $this->putSlidesSlidePropertiesAsyncWithHttpInfo($request)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function putSlidesSlidePropertiesAsyncWithHttpInfo(Requests\PutSlidesSlidePropertiesRequest $request)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideProperties';
+        $httpRequest = $this->putSlidesSlidePropertiesRequest($request);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlidesSlideProperties'
+     *
+     * @param  string $name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideProperties $dto The view properties data. (required)
+     * @param  string $password Document password. (optional)
+     * @param  string $folder Document folder. (optional)
+     * @param  string $storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putSlidesSlidePropertiesRequest(Requests\PutSlidesSlidePropertiesRequest $request)
+    {
+        // verify the required parameter 'name' is set
+        if ($request->name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesSlideProperties');
+        }
+        // verify the required parameter 'dto' is set
+        if ($request->dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesSlideProperties');
+        }
+
+        $resourcePath = '/slides/{name}/slideProperties';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        // query params
+        if ($request->folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
+        }
+        // query params
+        if ($request->storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
+        $_tempBody = null;
+        if (isset($request->dto)) {
+            $_tempBody = $request->dto;
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        }
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -27125,10 +27905,6 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
         }
@@ -27151,6 +27927,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->scaleType !== null) {
             $queryParams['scaleType'] = ObjectSerializer::toQueryValue($request->scaleType);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -27291,16 +28071,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -27444,10 +28224,6 @@ class SlidesApi extends ApiBase
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($request->outPath);
         }
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
@@ -27470,6 +28246,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($request->fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($request->fontsFolder);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -27631,16 +28411,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -27804,16 +28584,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -27983,16 +28763,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);
@@ -28168,16 +28948,16 @@ class SlidesApi extends ApiBase
         $httpBody = '';
 
         // query params
-        if ($request->password !== null) {
-            $queryParams['password'] = ObjectSerializer::toQueryValue($request->password);
-        }
-        // query params
         if ($request->folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($request->folder);
         }
         // query params
         if ($request->storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($request->storage);
+        }
+        // header params
+        if ($request->password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($request->password);
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $request->name);

@@ -52,9 +52,13 @@ class TestUtils
         return realpath(__DIR__.'/../..').'/TestData/'.self::fileName;
     }
 
-    public static function getStreamValue()
+    public static function getStreamValue($functionName)
     {
-        return fopen(self::getFilePath(), 'r');
+        $filePath = self::getFilePath();
+        if (strcasecmp($functionName, "postSlidesDocumentFromPdf") == 0) {
+            $filePath = realpath(__DIR__.'/../..').'/TestData/test.pdf';
+        }
+        return fopen($filePath, 'r');
     }
 
     /**
