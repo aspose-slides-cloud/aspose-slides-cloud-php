@@ -19565,7 +19565,7 @@ class SlidesApiTest extends TestBase
     private function getPostSlidesPipelineRequest()
     {
         $testpipeline = TestUtils::getTestValue("postSlidesPipeline", "pipeline", self::$values);
-        $testfiles = null;
+        $testfiles = TestUtils::getTestValue("postSlidesPipeline", "files", self::$values);
         $request = new Requests\PostSlidesPipelineRequest($testpipeline, $testfiles);
         return $request;
     }
@@ -19609,6 +19609,24 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testPostSlidesPipelineInvalidfiles()
+    {
+        $request = $this->getPostSlidesPipelineRequest();
+        $request->files = TestUtils::invalidizeValue("files", "postSlidesPipeline", $request->files, self::$values);
+        list($expectedCode, $expectedMessage) = $this->initialize("postSlidesPipeline", "files", $request->files);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->postSlidesPipeline($request);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postSlidesPipeline", "files", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postSlidesPipeline", "files", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postSlidesPipeline", "files", self::$okToFailValues);
+        }
+    }
     private function getPostSlidesPresentationReplaceTextRequest()
     {
         $testname = TestUtils::getTestValue("postSlidesPresentationReplaceText", "name", self::$values);

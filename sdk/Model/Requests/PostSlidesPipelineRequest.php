@@ -39,7 +39,7 @@ class PostSlidesPipelineRequest
     public $pipeline;
 
     /*
-     * files to upload with the pipeline
+     * Files to upload with the pipeline
      */
     public $files;
 
@@ -47,7 +47,7 @@ class PostSlidesPipelineRequest
      * Initializes a new instance of the PostSlidesPipelineRequest class.
      *  
      * @param \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object.
-     * @param \SplFileObject[] $files files to upload with the pipeline
+     * @param \SplFileObject[] $files Files to upload with the pipeline
      */
     public function __construct($pipeline, $files = null)
     {
@@ -72,7 +72,7 @@ class PostSlidesPipelineRequest
         return $this;
     }
     /*
-     * files to upload with the pipeline
+     * Files to upload with the pipeline
      */
     public function get_files()
     {
@@ -80,7 +80,7 @@ class PostSlidesPipelineRequest
     }
 
     /*
-     * files to upload with the pipeline
+     * Files to upload with the pipeline
      */
     public function set_files($value)
     {

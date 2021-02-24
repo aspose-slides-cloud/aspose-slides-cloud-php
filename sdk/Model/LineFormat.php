@@ -64,6 +64,7 @@ class LineFormat implements ArrayAccess
         'dashStyle' => 'string',
         'joinStyle' => 'string',
         'style' => 'string',
+        'sketchType' => 'string',
         'beginArrowHead' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
         'endArrowHead' => '\Aspose\Slides\Cloud\Sdk\Model\ArrowHeadProperties',
         'customDashPattern' => '\Aspose\Slides\Cloud\Sdk\Model\CustomDashPattern',
@@ -83,6 +84,7 @@ class LineFormat implements ArrayAccess
         'dashStyle' => null,
         'joinStyle' => null,
         'style' => null,
+        'sketchType' => null,
         'beginArrowHead' => null,
         'endArrowHead' => null,
         'customDashPattern' => null,
@@ -123,6 +125,7 @@ class LineFormat implements ArrayAccess
         'dashStyle' => 'DashStyle',
         'joinStyle' => 'JoinStyle',
         'style' => 'Style',
+        'sketchType' => 'SketchType',
         'beginArrowHead' => 'BeginArrowHead',
         'endArrowHead' => 'EndArrowHead',
         'customDashPattern' => 'CustomDashPattern',
@@ -142,6 +145,7 @@ class LineFormat implements ArrayAccess
         'dashStyle' => 'setDashStyle',
         'joinStyle' => 'setJoinStyle',
         'style' => 'setStyle',
+        'sketchType' => 'setSketchType',
         'beginArrowHead' => 'setBeginArrowHead',
         'endArrowHead' => 'setEndArrowHead',
         'customDashPattern' => 'setCustomDashPattern',
@@ -161,6 +165,7 @@ class LineFormat implements ArrayAccess
         'dashStyle' => 'getDashStyle',
         'joinStyle' => 'getJoinStyle',
         'style' => 'getStyle',
+        'sketchType' => 'getSketchType',
         'beginArrowHead' => 'getBeginArrowHead',
         'endArrowHead' => 'getEndArrowHead',
         'customDashPattern' => 'getCustomDashPattern',
@@ -240,6 +245,11 @@ class LineFormat implements ArrayAccess
     const STYLE_THICK_THIN = 'ThickThin';
     const STYLE_THICK_BETWEEN_THIN = 'ThickBetweenThin';
     const STYLE_NOT_DEFINED = 'NotDefined';
+    const SKETCH_TYPE_NONE = 'None';
+    const SKETCH_TYPE_CURVED = 'Curved';
+    const SKETCH_TYPE_FREEHAND = 'Freehand';
+    const SKETCH_TYPE_SCRIBBLE = 'Scribble';
+    const SKETCH_TYPE_NOT_DEFINED = 'NotDefined';
     
 
     
@@ -328,6 +338,22 @@ class LineFormat implements ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSketchTypeAllowableValues()
+    {
+        return [
+            self::SKETCH_TYPE_NONE,
+            self::SKETCH_TYPE_CURVED,
+            self::SKETCH_TYPE_FREEHAND,
+            self::SKETCH_TYPE_SCRIBBLE,
+            self::SKETCH_TYPE_NOT_DEFINED,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -349,6 +375,7 @@ class LineFormat implements ArrayAccess
         $this->container['dashStyle'] = isset($data['dashStyle']) ? $data['dashStyle'] : null;
         $this->container['joinStyle'] = isset($data['joinStyle']) ? $data['joinStyle'] : null;
         $this->container['style'] = isset($data['style']) ? $data['style'] : null;
+        $this->container['sketchType'] = isset($data['sketchType']) ? $data['sketchType'] : null;
         $this->container['beginArrowHead'] = isset($data['beginArrowHead']) ? $data['beginArrowHead'] : null;
         $this->container['endArrowHead'] = isset($data['endArrowHead']) ? $data['endArrowHead'] : null;
         $this->container['customDashPattern'] = isset($data['customDashPattern']) ? $data['customDashPattern'] : null;
@@ -407,6 +434,14 @@ class LineFormat implements ArrayAccess
             );
         }
 
+        $allowedValues = $this->getSketchTypeAllowableValues();
+        if (!in_array($this->container['sketchType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sketchType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -437,6 +472,10 @@ class LineFormat implements ArrayAccess
         }
         $allowedValues = $this->getStyleAllowableValues();
         if (!in_array($this->container['style'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getSketchTypeAllowableValues();
+        if (!in_array($this->container['sketchType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -674,6 +713,53 @@ class LineFormat implements ArrayAccess
             }
         }
         $this->container['style'] = $style;
+
+        return $this;
+    }
+
+    /**
+     * Gets sketchType
+     *
+     * @return string
+     */
+    public function getSketchType()
+    {
+        return $this->container['sketchType'];
+    }
+
+    /**
+     * Sets sketchType
+     *
+     * @param string $sketchType Sketch type.
+     *
+     * @return $this
+     */
+    public function setSketchType($sketchType)
+    {
+        $allowedValues = $this->getSketchTypeAllowableValues();
+
+
+        if (is_numeric($sketchType)) {
+            if ($sketchType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'sketchType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $sketchType = $allowedValues[$sketchType];
+            }
+        } else {
+            if (!is_null($sketchType) && !in_array($sketchType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'sketchType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['sketchType'] = $sketchType;
 
         return $this;
     }

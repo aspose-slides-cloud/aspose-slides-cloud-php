@@ -17295,7 +17295,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['application/octet-stream', 'multipart/form-data']);
+            ['multipart/form-data']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -17447,7 +17447,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['application/octet-stream']);
+            ['application/json']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -17617,7 +17617,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
-            ['application/octet-stream', 'multipart/form-data']);
+            ['multipart/form-data']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -20031,7 +20031,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
-            ['application/octet-stream', 'multipart/form-data']);
+            ['multipart/form-data']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -20368,7 +20368,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['application/octet-stream', 'multipart/form-data']);
+            ['multipart/form-data']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -20692,7 +20692,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['application/octet-stream']);
+            ['application/json']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -21148,7 +21148,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'postSlidesPipeline'
      *
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object. (required)
-     * @param  \SplFileObject[] $files files to upload with the pipeline (optional)
+     * @param  \SplFileObject[] $files Files to upload with the pipeline (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -21171,8 +21171,12 @@ class SlidesApi extends ApiBase
             $_tempBody = $request->pipeline;
         }
         $this->headerSelector->selectHeadersForMultipart($headerParams, ['multipart/form-data']);
+        $httpBody = ObjectSerializer::toMultipart($_tempBody, $request->files);
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
 
-        $httpBody = ObjectSerializer::toMultipart($_tempBody, $request->get_files());
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
@@ -26312,7 +26316,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['application/octet-stream', 'multipart/form-data']);
+            ['multipart/form-data']);
 
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present

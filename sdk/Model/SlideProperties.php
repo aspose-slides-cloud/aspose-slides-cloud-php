@@ -385,7 +385,7 @@ class SlideProperties extends ResourceBase
     /**
      * Sets orientation
      *
-     * @param string $orientation Last used view mode.
+     * @param string $orientation Slide orientation.
      *
      * @return $this
      */

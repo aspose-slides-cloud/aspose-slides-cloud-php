@@ -326,6 +326,7 @@ class Series implements ArrayAccess
     const TYPE_BOX_AND_WHISKER = 'BoxAndWhisker';
     const TYPE_WATERFALL = 'Waterfall';
     const TYPE_FUNNEL = 'Funnel';
+    const TYPE_MAP = 'Map';
     const DATA_POINT_TYPE_ONE_VALUE = 'OneValue';
     const DATA_POINT_TYPE_SCATTER = 'Scatter';
     const DATA_POINT_TYPE_BUBBLE = 'Bubble';
@@ -421,6 +422,7 @@ class Series implements ArrayAccess
             self::TYPE_BOX_AND_WHISKER,
             self::TYPE_WATERFALL,
             self::TYPE_FUNNEL,
+            self::TYPE_MAP,
         ];
     }
     

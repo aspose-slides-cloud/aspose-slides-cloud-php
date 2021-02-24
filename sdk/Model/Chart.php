@@ -289,6 +289,7 @@ class Chart extends ShapeBase
     const CHART_TYPE_BOX_AND_WHISKER = 'BoxAndWhisker';
     const CHART_TYPE_WATERFALL = 'Waterfall';
     const CHART_TYPE_FUNNEL = 'Funnel';
+    const CHART_TYPE_MAP = 'Map';
     
 
     
@@ -381,6 +382,7 @@ class Chart extends ShapeBase
             self::CHART_TYPE_BOX_AND_WHISKER,
             self::CHART_TYPE_WATERFALL,
             self::CHART_TYPE_FUNNEL,
+            self::CHART_TYPE_MAP,
         ];
     }
     
