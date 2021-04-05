@@ -39,6 +39,11 @@ class PostSlidesAddRequest
     public $name;
 
     /*
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public $layoutAlias;
+
+    /*
      * The target position at which to create the slide. Add to the end by default.
      */
     public $position;
@@ -59,28 +64,23 @@ class PostSlidesAddRequest
     public $storage;
 
     /*
-     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
-     */
-    public $layoutAlias;
-
-    /*
      * Initializes a new instance of the PostSlidesAddRequest class.
      *  
      * @param string $name Document name.
+     * @param string $layoutAlias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      * @param int $position The target position at which to create the slide. Add to the end by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
-     * @param string $layoutAlias Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
      */
-    public function __construct($name, $position = null, $password = null, $folder = null, $storage = null, $layoutAlias = null)
+    public function __construct($name, $layoutAlias = null, $position = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
+        $this->layoutAlias = $layoutAlias;
         $this->position = $position;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
-        $this->layoutAlias = $layoutAlias;
     }
 
     /*
@@ -97,6 +97,22 @@ class PostSlidesAddRequest
     public function set_name($value)
     {
         $this->name = $value;
+        return $this;
+    }
+    /*
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public function get_layoutAlias()
+    {
+        return $this->layoutAlias;
+    }
+
+    /*
+     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
+     */
+    public function set_layoutAlias($value)
+    {
+        $this->layoutAlias = $value;
         return $this;
     }
     /*
@@ -161,22 +177,6 @@ class PostSlidesAddRequest
     public function set_storage($value)
     {
         $this->storage = $value;
-        return $this;
-    }
-    /*
-     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
-     */
-    public function get_layoutAlias()
-    {
-        return $this->layoutAlias;
-    }
-
-    /*
-     * Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
-     */
-    public function set_layoutAlias($value)
-    {
-        $this->layoutAlias = $value;
         return $this;
     }
 }

@@ -54,14 +54,14 @@ class PostSlidesSaveAsRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Custom fonts folder.
@@ -75,18 +75,18 @@ class PostSlidesSaveAsRequest
      * @param string $format Export format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param string $password Document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($name, $format, $options = null, $password = null, $storage = null, $folder = null, $fontsFolder = null)
+    public function __construct($name, $format, $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->format = $format;
         $this->options = $options;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -155,22 +155,6 @@ class PostSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -184,6 +168,22 @@ class PostSlidesSaveAsRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

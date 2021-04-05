@@ -54,6 +54,11 @@ class PutSlidesConvertRequest
     public $password;
 
     /*
+     * Document storage.
+     */
+    public $storage;
+
+    /*
      * Custom fonts folder.
      */
     public $fontsFolder;
@@ -65,14 +70,16 @@ class PutSlidesConvertRequest
      * @param string $format Export format.
      * @param string $outPath Path to save result.
      * @param string $password Document password.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($document, $format, $outPath, $password = null, $fontsFolder = null)
+    public function __construct($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
     {
         $this->document = $document;
         $this->format = $format;
         $this->outPath = $outPath;
         $this->password = $password;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -138,6 +145,22 @@ class PutSlidesConvertRequest
     public function set_password($value)
     {
         $this->password = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

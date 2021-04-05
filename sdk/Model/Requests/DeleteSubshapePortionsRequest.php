@@ -86,7 +86,7 @@ class DeleteSubshapePortionsRequest
      * @param string $path Shape path.
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
-     * @param int[] $portions The indices of the shapes to be deleted; delete all by default.
+     * @param array $portions The indices of the shapes to be deleted; delete all by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

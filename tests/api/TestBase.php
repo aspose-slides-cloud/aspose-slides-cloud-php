@@ -76,7 +76,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
     {
         if (!self::$isInitialized)
         {
-            $versionFile = $this->getApi()->DownloadFile(new DownloadFileRequest("TempTests/version.txt", null, null));
+            $versionFile = $this->getApi()->DownloadFile("TempTests/version.txt");
             $versionLength = $versionFile->getSize();
             $version = 0;
             if ($versionLength > 0)
@@ -91,9 +91,9 @@ class TestBase extends \PHPUnit_Framework_TestCase
                     if (is_file($path))
                     {
                         $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$value, 'r');
-                        $this->getApi()->UploadFile(new UploadFileRequest("TempTests/".$value, $stream));
+                        $this->getApi()->UploadFile("TempTests/".$value, $stream);
                     }
-                    $this->getApi()->UploadFile(new UploadFileRequest("TempTests/version.txt", self::$expectedTestDataVersion));
+                    $this->getApi()->UploadFile("TempTests/version.txt", self::$expectedTestDataVersion);
                 }
             }
             self::$isInitialized = true;
@@ -105,11 +105,11 @@ class TestBase extends \PHPUnit_Framework_TestCase
         {
             if ($rule["Action"] == "Put")
             {
-                $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".$rule["ActualName"], $path));
+                $this->getApi()->CopyFile("TempTests/".$rule["ActualName"], $path);
             }
             else if ($rule["Action"] == "Delete")
             {
-                $this->getApi()->DeleteFile(new DeleteFileRequest($path));
+                $this->getApi()->DeleteFile($path);
             }
         }
         return $expectedValues;

@@ -32,7 +32,6 @@ use \Exception;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlideSaveAsRequest;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
@@ -58,10 +57,8 @@ class TimeoutTest extends TestBase
 
         $slidesApi = new SlidesApi(null, $config);
 
-        $request = new PostSlideSaveAsRequest("test.ppt", 1, "svg", null, null, null, "password", "TempSlidesSDK", null, null);
-        $result = $slidesApi->postSlideSaveAs($request);
         try {
-//            $result = $this->getApi()->postSlideSaveAs($request);
+//            $result = $this->getApi()->postSlideSaveAs("test.ppt", 1, "svg", null, null, null, "password", "TempSlidesSDK");
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postSlideSaveAs");
         }*/

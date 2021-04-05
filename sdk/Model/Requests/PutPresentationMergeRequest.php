@@ -49,14 +49,14 @@ class PutPresentationMergeRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Initializes a new instance of the PutPresentationMergeRequest class.
@@ -64,16 +64,16 @@ class PutPresentationMergeRequest
      * @param string $name Document name.
      * @param \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request OrderedMergeRequest with a list of presentations and slide indices to merge.
      * @param string $password Document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
-    public function __construct($name, $request, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $request, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->request = $request;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
     }
 
     /*
@@ -125,22 +125,6 @@ class PutPresentationMergeRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -154,6 +138,22 @@ class PutPresentationMergeRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 }

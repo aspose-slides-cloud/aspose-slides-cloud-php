@@ -31,67 +31,128 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\PdfExportOptions;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\ObjectExistsRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesConvertRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesSaveAsRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlidesConvertRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlidesSaveAsRequest;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ConvertTest extends TestBase
 {
     public function testConvertPostFromRequest()
     {
-        $request = new PostSlidesConvertRequest(fopen("TestData/".self::fileName, 'r'), self::format, self::password);
-        $result = $this->getApi()->postSlidesConvert($request);
+        $result = $this->getApi()->convert(fopen("TestData/".self::fileName, 'r'), self::format, self::password);
         Assert::assertTrue($result->isFile());
     }
 
     public function testConvertPutFromRequest()
     {
-        $putRequest = new PutSlidesConvertRequest(fopen("TestData/".self::fileName, 'r'), self::format, self::outPath, self::password);
-        $this->getApi()->putSlidesConvert($putRequest);
-        $existsRequest = new ObjectExistsRequest(self::outPath);
-        $result = $this->getApi()->objectExists($existsRequest);
+        $this->getApi()->convertAndSave(fopen("TestData/".self::fileName, 'r'), self::format, self::outPath, self::password);
+        $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }
 
     public function testConvertPostFromStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new PostSlidesSaveAsRequest(self::fileName, self::format, null, self::password, null, self::folderName);
-        $result = $this->getApi()->postSlidesSaveAs($request);
+        $result = $this->getApi()->downloadPresentation(self::fileName, self::format, null, self::password, self::folderName);
         Assert::assertTrue($result->isFile());
     }
 
     public function testConvertPutFromStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $putRequest = new PutSlidesSaveAsRequest(self::fileName, self::outPath, self::format, null, self::password, null, self::folderName);
-        $this->getApi()->putSlidesSaveAs($putRequest);
-        $existsRequest = new ObjectExistsRequest(self::outPath);
-        $result = $this->getApi()->objectExists($existsRequest);
+        $this->getApi()->savePresentation(self::fileName, self::format, self::outPath, null, self::password, self::folderName);
+        $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }
-
 
     public function testConvertWithOptions()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new PostSlidesSaveAsRequest(self::fileName, self::format, null, self::password, null, self::folderName);
-        $result1 = $this->getApi()->postSlidesSaveAs($request);
+        $result1 = $this->getApi()->downloadPresentation(self::fileName, self::format, null, self::password, self::folderName);
         $options = new PdfExportOptions();
         $options->setDrawSlidesFrame(true);
-        $request = new PostSlidesSaveAsRequest(self::fileName, self::format, $options, self::password, null, self::folderName);
-        $result2 = $this->getApi()->postSlidesSaveAs($request);
+        $result2 = $this->getApi()->downloadPresentation(self::fileName, self::format, $options, self::password, self::folderName);
         Assert::assertNotEquals($result1->getSize(), $result2->getSize());
+    }
+
+    public function testConvertSlidePostFromRequest()
+    {
+        $result = $this->getApi()->downloadSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
+        Assert::assertTrue($result->isFile());
+    }
+
+    public function testConvertSlidePutFromRequest()
+    {
+        $this->getApi()->saveSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, self::outPath, null, null, self::password);
+        $result = $this->getApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testConvertSlidePostFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result = $this->getApi()->downloadSlide(self::fileName, self::slideIndex, self::format, null, null, null, self::password, self::folderName);
+        Assert::assertTrue($result->isFile());
+    }
+
+    public function testConvertSlidePutFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $this->getApi()->saveSlide(self::fileName, self::slideIndex, self::format, self::outPath, null, null, null, self::password, self::folderName);
+        $result = $this->getApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testConvertSlideWithOptions()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result1 = $this->getApi()->downloadSlide(self::fileName, self::slideIndex, self::format, null, null, null, self::password, self::folderName);
+        $options = new PdfExportOptions();
+        $options->setDrawSlidesFrame(true);
+        $result2 = $this->getApi()->downloadSlide(self::fileName, self::slideIndex, self::format, $options, null, null, self::password, self::folderName);
+        Assert::assertNotEquals($result1->getSize(), $result2->getSize());
+    }
+
+    public function testConvertShapePostFromRequest()
+    {
+        $result = $this->getApi()->downloadShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, self::password);
+        Assert::assertTrue($result->isFile());
+    }
+
+    public function testConvertShapePutFromRequest()
+    {
+        $this->getApi()->saveShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, self::outPath, self::password);
+        $result = $this->getApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testConvertShapePostFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result = $this->getApi()->downloadShape(self::fileName, self::slideIndex, self::shapeIndex, self::shapeFormat, null, null, null, null, self::password, self::folderName);
+        Assert::assertTrue($result->isFile());
+    }
+
+    public function testConvertShapePutFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $this->getApi()->saveShape(self::fileName, self::slideIndex, self::shapeIndex, self::shapeFormat, self::outPath, null, null, null, null, self::password, self::folderName);
+        $result = $this->getApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
     }
 
     public const folderName = "TempSlidesSDK";
@@ -99,4 +160,7 @@ class ConvertTest extends TestBase
     public const password = "password";
     public const outPath = self::folderName."/converted.pdf";
     public const format = 'pdf';
+    public const shapeFormat = 'png';
+    public const slideIndex = 1;
+    public const shapeIndex = 3;
 }

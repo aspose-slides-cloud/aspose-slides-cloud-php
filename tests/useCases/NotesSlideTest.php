@@ -29,13 +29,7 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetNotesSlideRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetNotesSlideExistsRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetNotesSlideWithFormatRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostGetNotesSlideRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostGetNotesSlideExistsRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostGetNotesSlideWithFormatRequest;
+use Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class NotesSlideTest extends TestBase
@@ -43,49 +37,43 @@ class NotesSlideTest extends TestBase
     public function testNotesSlideGetStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new GetNotesSlideRequest(self::fileName, self::slideIndex, self::password, self::folderName);
-        $this->getApi()->getNotesSlide($request);
+        $this->getApi()->getNotesSlide(self::fileName, self::slideIndex, self::password, self::folderName);
     }
 
     public function testNotesSlideExistsStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new GetNotesSlideExistsRequest(self::fileName, self::slideIndex, self::password, self::folderName);
-        $result = $this->getApi()->getNotesSlideExists($request);
+        $result = $this->getApi()->notesSlideExists(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertTrue($result->getExists());
     }
 
     public function testNotesSlideDownloadStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new GetNotesSlideWithFormatRequest(self::fileName, self::slideIndex, self::format, null, null, self::password, self::folderName);
-        $result = $this->getApi()->getNotesSlideWithFormat($request);
+        $result = $this->getApi()->downloadNotesSlide(self::fileName, self::slideIndex, self::format, null, null, self::password, self::folderName);
         Assert::assertTrue($result->isFile());
     }
 
     public function testNotesSlideGetRequest()
     {
-        $request = new PostGetNotesSlideRequest(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
-        $this->getApi()->postGetNotesSlide($request);
+        $this->getApi()->getNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
     }
 
     public function testNotesSlideExistsRequest()
     {
-        $request = new PostGetNotesSlideExistsRequest(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
-        $result = $this->getApi()->postGetNotesSlideExists($request);
+        $result = $this->getApi()->notesSlideExistsOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
         Assert::assertTrue($result->getExists());
     }
 
     public function testNotesSlideDownloadRequest()
     {
-        $request = new PostGetNotesSlideWithFormatRequest(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
-        $result = $this->getApi()->postGetNotesSlideWithFormat($request);
+        $result = $this->getApi()->downloadNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
         Assert::assertTrue($result->isFile());
     }
 
@@ -93,5 +81,5 @@ class NotesSlideTest extends TestBase
     public const fileName = "test.pptx";
     public const password = "password";
     public const slideIndex = 1;
-    public const format = "png";
+    public const format = NotesSlideExportFormat::PNG;
 }

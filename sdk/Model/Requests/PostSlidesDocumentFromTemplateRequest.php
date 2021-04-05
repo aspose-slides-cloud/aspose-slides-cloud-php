@@ -69,14 +69,14 @@ class PostSlidesDocumentFromTemplateRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Initializes a new instance of the PostSlidesDocumentFromTemplateRequest class.
@@ -88,10 +88,10 @@ class PostSlidesDocumentFromTemplateRequest
      * @param string $templateStorage Template storage name.
      * @param bool $isImageDataEmbedded True if image data is embedded.
      * @param string $password The document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
-    public function __construct($name, $templatePath, $data = null, $templatePassword = null, $templateStorage = null, $isImageDataEmbedded = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $templatePath, $data = null, $templatePassword = null, $templateStorage = null, $isImageDataEmbedded = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->templatePath = $templatePath;
@@ -100,8 +100,8 @@ class PostSlidesDocumentFromTemplateRequest
         $this->templateStorage = $templateStorage;
         $this->isImageDataEmbedded = $isImageDataEmbedded;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
     }
 
     /*
@@ -217,22 +217,6 @@ class PostSlidesDocumentFromTemplateRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -246,6 +230,22 @@ class PostSlidesDocumentFromTemplateRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 }

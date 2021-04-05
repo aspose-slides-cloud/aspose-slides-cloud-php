@@ -39,14 +39,14 @@ class PutSlidesSaveAsRequest
     public $name;
 
     /*
-     * Output path.
-     */
-    public $outPath;
-
-    /*
      * Export format.
      */
     public $format;
+
+    /*
+     * Output path.
+     */
+    public $outPath;
 
     /*
      * Export options.
@@ -59,14 +59,14 @@ class PutSlidesSaveAsRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Custom fonts folder.
@@ -77,23 +77,23 @@ class PutSlidesSaveAsRequest
      * Initializes a new instance of the PutSlidesSaveAsRequest class.
      *  
      * @param string $name Document name.
-     * @param string $outPath Output path.
      * @param string $format Export format.
+     * @param string $outPath Output path.
      * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Export options.
      * @param string $password Document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($name, $outPath, $format, $options = null, $password = null, $storage = null, $folder = null, $fontsFolder = null)
+    public function __construct($name, $format, $outPath, $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
-        $this->outPath = $outPath;
         $this->format = $format;
+        $this->outPath = $outPath;
         $this->options = $options;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -114,22 +114,6 @@ class PutSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Output path.
-     */
-    public function get_outPath()
-    {
-        return $this->outPath;
-    }
-
-    /*
-     * Output path.
-     */
-    public function set_outPath($value)
-    {
-        $this->outPath = $value;
-        return $this;
-    }
-    /*
      * Export format.
      */
     public function get_format()
@@ -143,6 +127,22 @@ class PutSlidesSaveAsRequest
     public function set_format($value)
     {
         $this->format = $value;
+        return $this;
+    }
+    /*
+     * Output path.
+     */
+    public function get_outPath()
+    {
+        return $this->outPath;
+    }
+
+    /*
+     * Output path.
+     */
+    public function set_outPath($value)
+    {
+        $this->outPath = $value;
         return $this;
     }
     /*
@@ -178,22 +178,6 @@ class PutSlidesSaveAsRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -207,6 +191,22 @@ class PutSlidesSaveAsRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

@@ -49,6 +49,11 @@ class PostSlidesConvertRequest
     public $password;
 
     /*
+     * Document storage.
+     */
+    public $storage;
+
+    /*
      * Custom fonts folder.
      */
     public $fontsFolder;
@@ -59,13 +64,15 @@ class PostSlidesConvertRequest
      * @param \SplFileObject $document Document data.
      * @param string $format Export format.
      * @param string $password Document password.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($document, $format, $password = null, $fontsFolder = null)
+    public function __construct($document, $format, $password = null, $storage = null, $fontsFolder = null)
     {
         $this->document = $document;
         $this->format = $format;
         $this->password = $password;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -115,6 +122,22 @@ class PostSlidesConvertRequest
     public function set_password($value)
     {
         $this->password = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

@@ -61,7 +61,8 @@ class PresentationToMerge implements ArrayAccess
     protected static $swaggerTypes = [
         'path' => 'string',
         'password' => 'string',
-        'slides' => 'int[]'
+        'slides' => 'int[]',
+        'source' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class PresentationToMerge implements ArrayAccess
     protected static $swaggerFormats = [
         'path' => null,
         'password' => null,
-        'slides' => 'int32'
+        'slides' => 'int32',
+        'source' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class PresentationToMerge implements ArrayAccess
     protected static $attributeMap = [
         'path' => 'Path',
         'password' => 'Password',
-        'slides' => 'Slides'
+        'slides' => 'Slides',
+        'source' => 'Source'
     ];
 
     /**
@@ -115,7 +118,8 @@ class PresentationToMerge implements ArrayAccess
     protected static $setters = [
         'path' => 'setPath',
         'password' => 'setPassword',
-        'slides' => 'setSlides'
+        'slides' => 'setSlides',
+        'source' => 'setSource'
     ];
 
     /**
@@ -126,7 +130,8 @@ class PresentationToMerge implements ArrayAccess
     protected static $getters = [
         'path' => 'getPath',
         'password' => 'getPassword',
-        'slides' => 'getSlides'
+        'slides' => 'getSlides',
+        'source' => 'getSource'
     ];
 
     /**
@@ -170,8 +175,23 @@ class PresentationToMerge implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SOURCE_STORAGE = 'Storage';
+    const SOURCE_REQUEST = 'Request';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSourceAllowableValues()
+    {
+        return [
+            self::SOURCE_STORAGE,
+            self::SOURCE_REQUEST,
+        ];
+    }
     
 
     /**
@@ -192,6 +212,7 @@ class PresentationToMerge implements ArrayAccess
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['slides'] = isset($data['slides']) ? $data['slides'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
         
     }
 
@@ -203,6 +224,14 @@ class PresentationToMerge implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($this->container['source'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'source', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -216,6 +245,10 @@ class PresentationToMerge implements ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getSourceAllowableValues();
+        if (!in_array($this->container['source'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -288,6 +321,53 @@ class PresentationToMerge implements ArrayAccess
     public function setSlides($slides)
     {
         $this->container['slides'] = $slides;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source Merge (request or storage).
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $allowedValues = $this->getSourceAllowableValues();
+
+
+        if (is_numeric($source)) {
+            if ($source >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'source', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $source = $allowedValues[$source];
+            }
+        } else {
+            if (!is_null($source) && !in_array($source, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'source', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['source'] = $source;
 
         return $this;
     }

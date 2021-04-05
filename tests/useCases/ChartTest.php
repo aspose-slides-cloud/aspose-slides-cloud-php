@@ -38,19 +38,6 @@ use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteChartCategoryRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteChartDataPointRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteChartSeriesRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlideShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostAddNewShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostChartCategoryRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostChartDataPointRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostChartSeriesRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutChartCategoryRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutChartDataPointRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutChartSeriesRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlideShapeInfoRequest;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ChartTest extends TestBase
@@ -58,10 +45,9 @@ class ChartTest extends TestBase
     public function testChartGet()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new GetSlideShapeRequest(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
-        $result = $this->getApi()->getSlideShape($request);
+        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(count($result->getSeries()) == self::seriesCount);
         Assert::assertTrue(count($result->getCategories()) == self::categoryCount);
     }
@@ -69,7 +55,7 @@ class ChartTest extends TestBase
     public function testChartCreate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -99,8 +85,7 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $request = new PostAddNewShapeRequest(self::fileName, 1, $dto, self::password, self::folderName);
-        $result = $this->getApi()->postAddNewShape($request);
+        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
@@ -108,7 +93,7 @@ class ChartTest extends TestBase
     public function testChartUpdate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -138,8 +123,7 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $request = new PutSlideShapeInfoRequest(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->putSlideShapeInfo($request);
+        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
@@ -147,7 +131,7 @@ class ChartTest extends TestBase
     public function testChartSeriesCreate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new OneValueSeries();
         $dto->setName("Series1");
@@ -160,8 +144,7 @@ class ChartTest extends TestBase
         $dataPoint4 = new OneValueChartDataPoint();
         $dataPoint4->setValue(70);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
-        $request = new PostChartSeriesRequest(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->postChartSeries($request);
+        $result = $this->getApi()->createChartSeries(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount + 1, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
@@ -169,7 +152,7 @@ class ChartTest extends TestBase
     public function testChartSeriesUpdate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new OneValueSeries();
         $dataPoint1 = new OneValueChartDataPoint();
@@ -181,8 +164,7 @@ class ChartTest extends TestBase
         $dataPoint4 = new OneValueChartDataPoint();
         $dataPoint4->setValue(70);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
-        $request = new PutChartSeriesRequest(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->putChartSeries($request);
+        $result = $this->getApi()->updateChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
@@ -190,10 +172,9 @@ class ChartTest extends TestBase
     public function testChartSeriesDelete()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new DeleteChartSeriesRequest(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::password, self::folderName);
-        $result = $this->getApi()->deleteChartSeries($request);
+        $result = $this->getApi()->deleteChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount - 1, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
@@ -201,7 +182,7 @@ class ChartTest extends TestBase
     public function testChartCategoryCreate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new ChartCategory();
         $dto->setValue("NewCategory");
@@ -212,17 +193,16 @@ class ChartTest extends TestBase
         $dataPoint3 = new OneValueChartDataPoint();
         $dataPoint3->setValue(14);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3 ]);
-        $request = new PostChartCategoryRequest(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->postChartCategory($request);
+        $result = $this->getApi()->createChartCategory(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount + 1, count($result->getCategories()));
-        Assert::assertEquals($request->get_category()->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryCount]->getValue());
+        Assert::assertEquals($dto->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryCount]->getValue());
     }
 
     public function testChartCategoryUpdate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new ChartCategory();
         $dto->setValue("NewCategory");
@@ -233,20 +213,18 @@ class ChartTest extends TestBase
         $dataPoint3 = new OneValueChartDataPoint();
         $dataPoint3->setValue(14);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3 ]);
-        $request = new PutChartCategoryRequest(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->putChartCategory($request);
+        $result = $this->getApi()->updateChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
-        Assert::assertEquals($request->get_category()->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryIndex - 1]->getValue());
+        Assert::assertEquals($dto->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryIndex - 1]->getValue());
     }
 
     public function testChartCategoryDelete()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new DeleteChartCategoryRequest(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, self::password, self::folderName);
-        $result = $this->getApi()->deleteChartCategory($request);
+        $result = $this->getApi()->deleteChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount - 1, count($result->getCategories()));
     }
@@ -254,13 +232,12 @@ class ChartTest extends TestBase
     public function testChartDataPointCreate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new OneValueChartDataPoint();
         $dto->setValue(40);
-        $request = new PostChartDataPointRequest(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
         try {
-            $this->getApi()->postChartDataPoint($request);
+            $this->getApi()->createChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
             Assert::fail("Must have failed");
         } catch (ApiException $ex) {
             //Must throw ApiException because adding data points only works with Scatter & Bubble charts.
@@ -270,25 +247,23 @@ class ChartTest extends TestBase
     public function testChartDataPointUpdate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new OneValueChartDataPoint();
         $dto->setValue(40);
-        $request = new PutChartDataPointRequest(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, $dto, self::password, self::folderName);
-        $result = $this->getApi()->putChartDataPoint($request);
+        $result = $this->getApi()->updateChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
         Assert::assertEquals(self::categoryCount, count($result->getSeries()[0]->getDataPoints()));
-        Assert::assertEquals($request->get_dataPoint()->getValue(), $result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::categoryIndex - 1]->getValue());
+        Assert::assertEquals($dto->getValue(), $result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::categoryIndex - 1]->getValue());
     }
 
     public function testChartDataPointDelete()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $request = new DeleteChartDataPointRequest(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, self::password, self::folderName);
-        $result = $this->getApi()->deleteChartDataPoint($request);
+        $result = $this->getApi()->deleteChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
         Assert::assertTrue($result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::categoryIndex - 1] == null);
@@ -297,7 +272,7 @@ class ChartTest extends TestBase
     public function testSunburstChart()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new Chart();
         $dto->setChartType('Sunburst');
@@ -331,8 +306,7 @@ class ChartTest extends TestBase
         $dataPoint4->setValue(80);
         $series1->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
         $dto->setSeries([ $series1 ]);
-        $request = new PostAddNewShapeRequest(self::fileName, 1, $dto, self::password, self::folderName);
-        $result = $this->getApi()->postAddNewShape($request);
+        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(1, count($result->getSeries()));
         Assert::assertEquals(4, count($result->getCategories()));
         Assert::assertEquals(3, $result->getCategories()[0]->getLevel());

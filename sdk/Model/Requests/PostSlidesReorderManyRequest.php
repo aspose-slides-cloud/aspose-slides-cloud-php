@@ -67,8 +67,8 @@ class PostSlidesReorderManyRequest
      * Initializes a new instance of the PostSlidesReorderManyRequest class.
      *  
      * @param string $name Document name.
-     * @param int[] $oldPositions A comma separated array of positions of slides to be reordered.
-     * @param int[] $newPositions A comma separated array of new slide positions.
+     * @param array $oldPositions A comma separated array of positions of slides to be reordered.
+     * @param array $newPositions A comma separated array of new slide positions.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

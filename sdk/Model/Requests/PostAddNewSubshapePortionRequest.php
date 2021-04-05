@@ -64,6 +64,11 @@ class PostAddNewSubshapePortionRequest
     public $dto;
 
     /*
+     * Position of the new portion in the list. Default is at the end of the list.
+     */
+    public $position;
+
+    /*
      * Document password.
      */
     public $password;
@@ -79,11 +84,6 @@ class PostAddNewSubshapePortionRequest
     public $storage;
 
     /*
-     * Position of the new portion in the list. Default is at the end of the list.
-     */
-    public $position;
-
-    /*
      * Initializes a new instance of the PostAddNewSubshapePortionRequest class.
      *  
      * @param string $name Document name.
@@ -92,12 +92,12 @@ class PostAddNewSubshapePortionRequest
      * @param int $shapeIndex Shape index.
      * @param int $paragraphIndex Paragraph index.
      * @param \Aspose\Slides\Cloud\Sdk\Model\Portion $dto Portion DTO.
+     * @param int $position Position of the new portion in the list. Default is at the end of the list.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
-     * @param int $position Position of the new portion in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $paragraphIndex, $dto, $password = null, $folder = null, $storage = null, $position = null)
+    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $paragraphIndex, $dto, $position = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
@@ -105,10 +105,10 @@ class PostAddNewSubshapePortionRequest
         $this->shapeIndex = $shapeIndex;
         $this->paragraphIndex = $paragraphIndex;
         $this->dto = $dto;
+        $this->position = $position;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
-        $this->position = $position;
     }
 
     /*
@@ -208,6 +208,22 @@ class PostAddNewSubshapePortionRequest
         return $this;
     }
     /*
+     * Position of the new portion in the list. Default is at the end of the list.
+     */
+    public function get_position()
+    {
+        return $this->position;
+    }
+
+    /*
+     * Position of the new portion in the list. Default is at the end of the list.
+     */
+    public function set_position($value)
+    {
+        $this->position = $value;
+        return $this;
+    }
+    /*
      * Document password.
      */
     public function get_password()
@@ -253,22 +269,6 @@ class PostAddNewSubshapePortionRequest
     public function set_storage($value)
     {
         $this->storage = $value;
-        return $this;
-    }
-    /*
-     * Position of the new portion in the list. Default is at the end of the list.
-     */
-    public function get_position()
-    {
-        return $this->position;
-    }
-
-    /*
-     * Position of the new portion in the list. Default is at the end of the list.
-     */
-    public function set_position($value)
-    {
-        $this->position = $value;
         return $this;
     }
 }

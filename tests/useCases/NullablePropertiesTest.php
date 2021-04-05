@@ -33,10 +33,6 @@ use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlideShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostAddNewShapeRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlideShapeInfoRequest;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartTitle;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
@@ -61,7 +57,7 @@ class NullablePropertiesTest extends TestBase
         $max1 = 104.3;
         $max2 = 87;
         list($expectedCode, $expectedMessage) = $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".$fileName, $folderName."/".$fileName));
+        $this->getApi()->CopyFile("TempTests/".$fileName, $folderName."/".$fileName);
 
         $testDto = new Chart();
         $testDto->setChartType('Line');
@@ -89,11 +85,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMaxValue($max1);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $postRequest = new PostAddNewShapeRequest($fileName, 1, $testDto, $password, $folderName, null, null, null);
-        $result = $this->getApi()->postAddNewShape($postRequest);
+        $result = $this->getApi()->createShape($fileName, 1, $testDto, null, null, $password, $folderName);
 
-        $getRequest = new GetSlideShapeRequest($fileName, 1, 4, $password, $folderName, null);
-        $result = $this->getApi()->getSlideShape($getRequest);
+        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min1);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -103,10 +97,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMinValue($min2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $postRequest = new PutSlideShapeInfoRequest($fileName, 1, 4, $testDto, $password, $folderName);
-        $result = $this->getApi()->putSlideShapeInfo($postRequest);
+        $result = $this->getApi()->updateShape($fileName, 1, 4, $testDto, $password, $folderName);
 
-        $result = $this->getApi()->getSlideShape($getRequest);
+        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -116,10 +109,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMaxValue($max2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $postRequest = new PutSlideShapeInfoRequest($fileName, 1, 4, $testDto, $password, $folderName);
-        $result = $this->getApi()->putSlideShapeInfo($postRequest);
+        $result = $this->getApi()->updateShape($fileName, 1, 4, $testDto, $password, $folderName);
 
-        $result = $this->getApi()->getSlideShape($getRequest);
+        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max2);
     }

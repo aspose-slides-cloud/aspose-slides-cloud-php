@@ -74,7 +74,7 @@ class DeleteParagraphsRequest
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
      * @param int $shapeIndex Shape index.
-     * @param int[] $paragraphs The indices of the shapes to be deleted; delete all by default.
+     * @param array $paragraphs The indices of the shapes to be deleted; delete all by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

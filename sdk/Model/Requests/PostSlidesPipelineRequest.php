@@ -47,7 +47,7 @@ class PostSlidesPipelineRequest
      * Initializes a new instance of the PostSlidesPipelineRequest class.
      *  
      * @param \Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline A Pipeline object.
-     * @param \SplFileObject[] $files Files to upload with the pipeline
+     * @param array $files Files to upload with the pipeline
      */
     public function __construct($pipeline, $files = null)
     {

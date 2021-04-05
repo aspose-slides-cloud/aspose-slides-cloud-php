@@ -67,7 +67,7 @@ class DeleteSectionsRequest
      * Initializes a new instance of the DeleteSectionsRequest class.
      *  
      * @param string $name Document name.
-     * @param int[] $sections The indices of the sections to be deleted; delete all by default.
+     * @param array $sections The indices of the sections to be deleted; delete all by default.
      * @param bool $withSlides True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
      * @param string $password Document password.
      * @param string $folder Document folder.

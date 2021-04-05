@@ -59,14 +59,14 @@ class PostSlidesDocumentFromSourceRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Initializes a new instance of the PostSlidesDocumentFromSourceRequest class.
@@ -76,18 +76,18 @@ class PostSlidesDocumentFromSourceRequest
      * @param string $sourcePassword Template file password.
      * @param string $sourceStorage Template storage name.
      * @param string $password The document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
-    public function __construct($name, $sourcePath = null, $sourcePassword = null, $sourceStorage = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $sourcePath = null, $sourcePassword = null, $sourceStorage = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->sourcePath = $sourcePath;
         $this->sourcePassword = $sourcePassword;
         $this->sourceStorage = $sourceStorage;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
     }
 
     /*
@@ -171,22 +171,6 @@ class PostSlidesDocumentFromSourceRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -200,6 +184,22 @@ class PostSlidesDocumentFromSourceRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 }

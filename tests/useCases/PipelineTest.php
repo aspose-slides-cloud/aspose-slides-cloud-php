@@ -38,7 +38,6 @@ use Aspose\Slides\Cloud\Sdk\Model\Pipeline;
 use Aspose\Slides\Cloud\Sdk\Model\RequestInputFile;
 use Aspose\Slides\Cloud\Sdk\Model\Save;
 use Aspose\Slides\Cloud\Sdk\Model\Task;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesPipelineRequest;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
@@ -73,8 +72,7 @@ class PipelineTest extends TestBase
 
         $files = [ fopen("TestData/TemplatingCVDataWithBase64.xml", 'r'), fopen("TestData/TemplateCV.pptx", 'r') ];
 
-        $request = new PostSlidesPipelineRequest($pipeline, $files);
-        $result = $this->getApi()->postSlidesPipeline($request);
+        $result = $this->getApi()->pipeline($pipeline, $files);
         Assert::assertTrue($result->isFile());
     }
 }

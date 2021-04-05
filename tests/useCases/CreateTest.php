@@ -30,14 +30,6 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\CopyFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteFileRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\GetSlidesSlidesListRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesDocumentRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesDocumentFromHtmlRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesDocumentFromPdfRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesDocumentFromSourceRequest;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesDocumentFromTemplateRequest;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class CreateTest extends TestBase
@@ -45,82 +37,70 @@ class CreateTest extends TestBase
     public function testCreateEmpty()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::fileName));
-
-        $request = new PostSlidesDocumentRequest(self::fileName, null, null, null, null, self::folderName);
-        $this->getApi()->postSlidesDocument($request);
+        $this->getApi()->DeleteFile(self::folderName."/".self::fileName);
+        $this->getApi()->createPresentation(self::fileName, null, null, null, self::folderName);
     }
 
     public function testCreateFromRequest()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::fileName));
-
-        $request = new PostSlidesDocumentRequest(self::fileName, fopen("TestData/".self::fileName, 'r'), self::password, null, null, self::folderName);
-        $this->getApi()->postSlidesDocument($request);
+        $this->getApi()->DeleteFile(self::folderName."/".self::fileName);
+        $this->getApi()->createPresentation(self::fileName, fopen("TestData/".self::fileName, 'r'), self::password, null, self::folderName);
     }
 
     public function testCreateFromStorage()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::newFileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->DeleteFile(self::folderName."/".self::newFileName);
 
-        $request = new PostSlidesDocumentFromSourceRequest(self::newFileName, self::folderName."/".self::fileName, self::password, null, null, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromSource($request);
+        $this->getApi()->createPresentationFromSource(self::newFileName, self::folderName."/".self::fileName, self::password, null, null, self::folderName);
     }
 
     public function testCreateFromTemplate()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::templateFileName, self::folderName."/".self::templateFileName));
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::templateFileName, self::folderName."/".self::templateFileName);
+        $this->getApi()->DeleteFile(self::folderName."/".self::fileName);
 
-        $request = new PostSlidesDocumentFromTemplateRequest(self::fileName, self::folderName."/".self::templateFileName, self::template, null, null, null, null, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromTemplate($request);
+        $this->getApi()->createPresentationFromTemplate(self::fileName, self::folderName."/".self::templateFileName, self::template, null, null, null, null, self::folderName);
     }
 
     public function testCreateFromHtml()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::fileName));
+        $this->getApi()->DeleteFile(self::folderName."/".self::fileName);
 
-        $request = new PostSlidesDocumentFromHtmlRequest(self::fileName, self::html, null, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromHtml($request);
+        $this->getApi()->importFromHtml(self::fileName, self::html, null, self::folderName);
     }
 
     public function testAppendFromHtml()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $getRequest = new GetSlidesSlidesListRequest(self::fileName, self::password, self::folderName);
-        $result1 = $this->getApi()->getSlidesSlidesList($getRequest);
-        $postRequest = new PostSlidesDocumentFromHtmlRequest(self::fileName, self::html, self::password, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromHtml($postRequest);
-        $result2 = $this->getApi()->getSlidesSlidesList($getRequest);
+        $result1 = $this->getApi()->getSlides(self::fileName, self::password, self::folderName);
+        $this->getApi()->importFromHtml(self::fileName, self::html, self::password, self::folderName);
+        $result2 = $this->getApi()->getSlides(self::fileName, self::password, self::folderName);
         Assert::assertTrue(count($result2->getSlideList()) > count($result1->getSlideList()));
     }
 
     public function testCreateFromPdf()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->DeleteFile(new DeleteFileRequest(self::folderName."/".self::fileName));
+        $this->getApi()->DeleteFile(self::folderName."/".self::fileName);
 
-        $request = new PostSlidesDocumentFromPdfRequest(self::fileName, fopen("TestData/".self::pdfFileName, 'r'), null, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromPdf($request);
+        $this->getApi()->importFromPdf(self::fileName, fopen("TestData/".self::pdfFileName, 'r'), null, self::folderName);
     }
 
     public function testAppendFromPdf()
     {
         $this->initialize(null, null, null);
-        $this->getApi()->CopyFile(new CopyFileRequest("TempTests/".self::fileName, self::folderName."/".self::fileName));
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
-        $getRequest = new GetSlidesSlidesListRequest(self::fileName, self::password, self::folderName);
-        $result1 = $this->getApi()->getSlidesSlidesList($getRequest);
-        $postRequest = new PostSlidesDocumentFromPdfRequest(self::fileName, fopen("TestData/".self::pdfFileName, 'r'), self::password, null, self::folderName);
-        $this->getApi()->postSlidesDocumentFromPdf($postRequest);
-        $result2 = $this->getApi()->getSlidesSlidesList($getRequest);
+        $result1 = $this->getApi()->getSlides(self::fileName, self::password, self::folderName);
+        $this->getApi()->importFromPdf(self::fileName, fopen("TestData/".self::pdfFileName, 'r'), self::password, self::folderName);
+        $result2 = $this->getApi()->getSlides(self::fileName, self::password, self::folderName);
         Assert::assertTrue(count($result2->getSlideList()) > count($result1->getSlideList()));
     }
 

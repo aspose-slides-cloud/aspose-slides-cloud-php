@@ -54,14 +54,14 @@ class PostSlidesDocumentRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Initializes a new instance of the PostSlidesDocumentRequest class.
@@ -70,17 +70,17 @@ class PostSlidesDocumentRequest
      * @param \SplFileObject $data Document input data.
      * @param string $inputPassword The password for input document.
      * @param string $password The document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      */
-    public function __construct($name, $data = null, $inputPassword = null, $password = null, $storage = null, $folder = null)
+    public function __construct($name, $data = null, $inputPassword = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->data = $data;
         $this->inputPassword = $inputPassword;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
     }
 
     /*
@@ -148,22 +148,6 @@ class PostSlidesDocumentRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -177,6 +161,22 @@ class PostSlidesDocumentRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
 }

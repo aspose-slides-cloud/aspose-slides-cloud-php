@@ -64,21 +64,6 @@ class PostSubshapeSaveAsRequest
     public $options;
 
     /*
-     * Document password.
-     */
-    public $password;
-
-    /*
-     * Presentation folder.
-     */
-    public $folder;
-
-    /*
-     * Presentation storage.
-     */
-    public $storage;
-
-    /*
      * X scale ratio.
      */
     public $scaleX;
@@ -94,6 +79,21 @@ class PostSubshapeSaveAsRequest
     public $bounds;
 
     /*
+     * Document password.
+     */
+    public $password;
+
+    /*
+     * Presentation folder.
+     */
+    public $folder;
+
+    /*
+     * Presentation storage.
+     */
+    public $storage;
+
+    /*
      * Fonts folder.
      */
     public $fontsFolder;
@@ -107,15 +107,15 @@ class PostSubshapeSaveAsRequest
      * @param int $shapeIndex Index of shape starting from 1
      * @param string $format Export picture format.
      * @param \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options export options
+     * @param float $scaleX X scale ratio.
+     * @param float $scaleY Y scale ratio.
+     * @param string $bounds Shape thumbnail bounds type.
      * @param string $password Document password.
      * @param string $folder Presentation folder.
      * @param string $storage Presentation storage.
-     * @param double $scaleX X scale ratio.
-     * @param double $scaleY Y scale ratio.
-     * @param string $bounds Shape thumbnail bounds type.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $format, $options = null, $password = null, $folder = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $format, $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
@@ -123,12 +123,12 @@ class PostSubshapeSaveAsRequest
         $this->shapeIndex = $shapeIndex;
         $this->format = $format;
         $this->options = $options;
-        $this->password = $password;
-        $this->folder = $folder;
-        $this->storage = $storage;
         $this->scaleX = $scaleX;
         $this->scaleY = $scaleY;
         $this->bounds = $bounds;
+        $this->password = $password;
+        $this->folder = $folder;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -229,54 +229,6 @@ class PostSubshapeSaveAsRequest
         return $this;
     }
     /*
-     * Document password.
-     */
-    public function get_password()
-    {
-        return $this->password;
-    }
-
-    /*
-     * Document password.
-     */
-    public function set_password($value)
-    {
-        $this->password = $value;
-        return $this;
-    }
-    /*
-     * Presentation folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Presentation folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
-     * Presentation storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Presentation storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * X scale ratio.
      */
     public function get_scaleX()
@@ -322,6 +274,54 @@ class PostSubshapeSaveAsRequest
     public function set_bounds($value)
     {
         $this->bounds = $value;
+        return $this;
+    }
+    /*
+     * Document password.
+     */
+    public function get_password()
+    {
+        return $this->password;
+    }
+
+    /*
+     * Document password.
+     */
+    public function set_password($value)
+    {
+        $this->password = $value;
+        return $this;
+    }
+    /*
+     * Presentation folder.
+     */
+    public function get_folder()
+    {
+        return $this->folder;
+    }
+
+    /*
+     * Presentation folder.
+     */
+    public function set_folder($value)
+    {
+        $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Presentation storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Presentation storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

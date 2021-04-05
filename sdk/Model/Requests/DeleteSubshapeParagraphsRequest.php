@@ -80,7 +80,7 @@ class DeleteSubshapeParagraphsRequest
      * @param int $slideIndex Slide index.
      * @param string $path Shape path.
      * @param int $shapeIndex Shape index.
-     * @param int[] $paragraphs The indices of the shapes to be deleted; delete all by default.
+     * @param array $paragraphs The indices of the shapes to be deleted; delete all by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

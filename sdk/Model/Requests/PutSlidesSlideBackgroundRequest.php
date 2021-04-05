@@ -49,14 +49,14 @@ class PutSlidesSlideBackgroundRequest
     public $background;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
      * Document password.
      */
     public $password;
+
+    /*
+     * Document folder.
+     */
+    public $folder;
 
     /*
      * Document storage.
@@ -69,17 +69,17 @@ class PutSlidesSlideBackgroundRequest
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
      * @param \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background Slide background update data.
-     * @param string $folder Document folder.
      * @param string $password Document password.
+     * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $background, $folder = null, $password = null, $storage = null)
+    public function __construct($name, $slideIndex, $background, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
         $this->background = $background;
-        $this->folder = $folder;
         $this->password = $password;
+        $this->folder = $folder;
         $this->storage = $storage;
     }
 
@@ -132,22 +132,6 @@ class PutSlidesSlideBackgroundRequest
         return $this;
     }
     /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
      * Document password.
      */
     public function get_password()
@@ -161,6 +145,22 @@ class PutSlidesSlideBackgroundRequest
     public function set_password($value)
     {
         $this->password = $value;
+        return $this;
+    }
+    /*
+     * Document folder.
+     */
+    public function get_folder()
+    {
+        return $this->folder;
+    }
+
+    /*
+     * Document folder.
+     */
+    public function set_folder($value)
+    {
+        $this->folder = $value;
         return $this;
     }
     /*

@@ -52,6 +52,11 @@ class TestUtils
         return realpath(__DIR__.'/../..').'/TestData/'.self::fileName;
     }
 
+    public static function getFilesValue()
+    {
+        return [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/test-unprotected.pptx", 'r') ];
+    }
+
     public static function getStreamValue($functionName)
     {
         $filePath = self::getFilePath();
@@ -63,17 +68,17 @@ class TestUtils
 
     /**
      */
-    public static function getTestValue($functionName, $name, $values)
+    public static function getTestValue($functionName, $name, $values, $type)
     {
         $value = "test".$name;
         foreach ($values as $rule)
         {
-            self::applyRule($rule, $value, $functionName, $name);
+            self::applyRule($rule, $value, $functionName, $name, $type);
         }
         return $value;
     }
 
-    private static function applyRule($rule, &$value, $functionName, $name)
+    private static function applyRule($rule, &$value, $functionName, $name, $type)
     {
         if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name))
         {
@@ -81,7 +86,11 @@ class TestUtils
             {
                 if (array_key_exists("Type", $rule))
                 {
-                    $value = ObjectSerializer::deserialize($rule["Value"], '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"], []);
+                    $ruleType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"];
+                    if ($ruleType == $type  || is_subclass_of($ruleType, $type))
+                    {
+                        $value = ObjectSerializer::deserialize($rule["Value"], $ruleType, []);
+                    }
                 }
                 else
                 {
@@ -91,23 +100,34 @@ class TestUtils
         }
     }
 
-    private static function applyInvalidValueRule($rule, &$value, $functionName, $name, $validValue)
+    private static function applyInvalidValueRule($rule, &$value, $functionName, $name, $validValue, $type)
     {
         if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name))
         {
             if (array_key_exists("InvalidValue", $rule))
             {
-                if (is_null($rule["InvalidValue"]))
-                {
-                    $value = null;
-                }
-                else if (is_bool($rule["InvalidValue"]))
+                if (is_bool($rule["InvalidValue"]))
                 {
                     $value = $rule["InvalidValue"];
                 }
                 else if (array_key_exists("Type", $rule))
                 {
-                    $value = ObjectSerializer::deserialize($rule["Value"], '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"], []);
+                    $ruleType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"];
+                    if ($ruleType == $type || is_subclass_of($ruleType, $type))
+                    {
+                        if (!is_null($rule["InvalidValue"]))
+                        {
+                            $value = $validValue;
+                        }
+                        else
+                        {
+                            $value = ObjectSerializer::deserialize($rule["Value"], $ruleType, []);
+                        }
+                    }
+                }
+                else if (is_null($rule["InvalidValue"]))
+                {
+                    $value = null;
                 }
                 else
                 {
@@ -129,12 +149,12 @@ class TestUtils
 
     /**
      */
-    public static function invalidizeValue($name, $functionName, $value, $values)
+    public static function invalidizeValue($name, $functionName, $value, $values, $type)
     {
         $invalidValue = $value;
         foreach ($values as $rule)
         {
-            self::applyInvalidValueRule($rule, $invalidValue, $functionName, $name, $value);
+            self::applyInvalidValueRule($rule, $invalidValue, $functionName, $name, $value, $type);
         }
         return $invalidValue;
     }

@@ -44,7 +44,7 @@ class GetSlidesSlideTextItemsRequest
     public $slideIndex;
 
     /*
-     * True to incude empty items.
+     * True to include empty items.
      */
     public $withEmpty;
 
@@ -68,7 +68,7 @@ class GetSlidesSlideTextItemsRequest
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
-     * @param bool $withEmpty True to incude empty items.
+     * @param bool $withEmpty True to include empty items.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
@@ -116,7 +116,7 @@ class GetSlidesSlideTextItemsRequest
         return $this;
     }
     /*
-     * True to incude empty items.
+     * True to include empty items.
      */
     public function get_withEmpty()
     {
@@ -124,7 +124,7 @@ class GetSlidesSlideTextItemsRequest
     }
 
     /*
-     * True to incude empty items.
+     * True to include empty items.
      */
     public function set_withEmpty($value)
     {

@@ -62,7 +62,7 @@ class DeleteSlidesCleanSlidesListRequest
      * Initializes a new instance of the DeleteSlidesCleanSlidesListRequest class.
      *  
      * @param string $name Document name.
-     * @param int[] $slides The indices of the slides to be deleted; delete all by default.
+     * @param array $slides The indices of the slides to be deleted; delete all by default.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.

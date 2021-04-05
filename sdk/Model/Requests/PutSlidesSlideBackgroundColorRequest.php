@@ -49,14 +49,14 @@ class PutSlidesSlideBackgroundColorRequest
     public $color;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
      * Document password.
      */
     public $password;
+
+    /*
+     * Document folder.
+     */
+    public $folder;
 
     /*
      * Document storage.
@@ -69,17 +69,17 @@ class PutSlidesSlideBackgroundColorRequest
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
      * @param string $color Slide background target color in RRGGBB format.
-     * @param string $folder Document folder.
      * @param string $password Document password.
+     * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $color, $folder = null, $password = null, $storage = null)
+    public function __construct($name, $slideIndex, $color, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
         $this->color = $color;
-        $this->folder = $folder;
         $this->password = $password;
+        $this->folder = $folder;
         $this->storage = $storage;
     }
 
@@ -132,22 +132,6 @@ class PutSlidesSlideBackgroundColorRequest
         return $this;
     }
     /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
      * Document password.
      */
     public function get_password()
@@ -161,6 +145,22 @@ class PutSlidesSlideBackgroundColorRequest
     public function set_password($value)
     {
         $this->password = $value;
+        return $this;
+    }
+    /*
+     * Document folder.
+     */
+    public function get_folder()
+    {
+        return $this->folder;
+    }
+
+    /*
+     * Document folder.
+     */
+    public function set_folder($value)
+    {
+        $this->folder = $value;
         return $this;
     }
     /*

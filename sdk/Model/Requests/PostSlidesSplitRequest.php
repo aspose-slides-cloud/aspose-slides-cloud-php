@@ -59,14 +59,14 @@ class PostSlidesSplitRequest
     public $height;
 
     /*
-     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
-     */
-    public $to;
-
-    /*
      * The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation.
      */
     public $from;
+
+    /*
+     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
+     */
+    public $to;
 
     /*
      * Folder on storage where images are going to be uploaded. If not specified then images are uploaded to same folder as presentation.
@@ -79,14 +79,14 @@ class PostSlidesSplitRequest
     public $password;
 
     /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * Document folder.
      */
     public $folder;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
 
     /*
      * Custom fonts folder.
@@ -101,27 +101,27 @@ class PostSlidesSplitRequest
      * @param string $format Export format. Default value is jpeg.
      * @param int $width The width of created images.
      * @param int $height The height of created images.
-     * @param int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
      * @param int $from The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation.
+     * @param int $to The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
      * @param string $destFolder Folder on storage where images are going to be uploaded. If not specified then images are uploaded to same folder as presentation.
      * @param string $password Document password.
-     * @param string $storage Document storage.
      * @param string $folder Document folder.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Custom fonts folder.
      */
-    public function __construct($name, $options = null, $format = null, $width = null, $height = null, $to = null, $from = null, $destFolder = null, $password = null, $storage = null, $folder = null, $fontsFolder = null)
+    public function __construct($name, $options = null, $format = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->options = $options;
         $this->format = $format;
         $this->width = $width;
         $this->height = $height;
-        $this->to = $to;
         $this->from = $from;
+        $this->to = $to;
         $this->destFolder = $destFolder;
         $this->password = $password;
-        $this->storage = $storage;
         $this->folder = $folder;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -206,22 +206,6 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
-     */
-    public function get_to()
-    {
-        return $this->to;
-    }
-
-    /*
-     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
-     */
-    public function set_to($value)
-    {
-        $this->to = $value;
-        return $this;
-    }
-    /*
      * The start slide number for splitting, if is not specified splitting starts from the first slide of the presentation.
      */
     public function get_from()
@@ -235,6 +219,22 @@ class PostSlidesSplitRequest
     public function set_from($value)
     {
         $this->from = $value;
+        return $this;
+    }
+    /*
+     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
+     */
+    public function get_to()
+    {
+        return $this->to;
+    }
+
+    /*
+     * The last slide number for splitting, if is not specified splitting ends at the last slide of the document.
+     */
+    public function set_to($value)
+    {
+        $this->to = $value;
         return $this;
     }
     /*
@@ -270,22 +270,6 @@ class PostSlidesSplitRequest
         return $this;
     }
     /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * Document folder.
      */
     public function get_folder()
@@ -299,6 +283,22 @@ class PostSlidesSplitRequest
     public function set_folder($value)
     {
         $this->folder = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

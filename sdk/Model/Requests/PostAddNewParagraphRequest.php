@@ -54,6 +54,11 @@ class PostAddNewParagraphRequest
     public $dto;
 
     /*
+     * Position of the new paragraph in the list. Default is at the end of the list.
+     */
+    public $position;
+
+    /*
      * Document password.
      */
     public $password;
@@ -69,32 +74,27 @@ class PostAddNewParagraphRequest
     public $storage;
 
     /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
-     */
-    public $position;
-
-    /*
      * Initializes a new instance of the PostAddNewParagraphRequest class.
      *  
      * @param string $name Document name.
      * @param int $slideIndex Slide index.
      * @param int $shapeIndex Shape index.
      * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto Paragraph DTO.
+     * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
-     * @param int $position Position of the new paragraph in the list. Default is at the end of the list.
      */
-    public function __construct($name, $slideIndex, $shapeIndex, $dto, $password = null, $folder = null, $storage = null, $position = null)
+    public function __construct($name, $slideIndex, $shapeIndex, $dto, $position = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;
         $this->shapeIndex = $shapeIndex;
         $this->dto = $dto;
+        $this->position = $position;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
-        $this->position = $position;
     }
 
     /*
@@ -162,6 +162,22 @@ class PostAddNewParagraphRequest
         return $this;
     }
     /*
+     * Position of the new paragraph in the list. Default is at the end of the list.
+     */
+    public function get_position()
+    {
+        return $this->position;
+    }
+
+    /*
+     * Position of the new paragraph in the list. Default is at the end of the list.
+     */
+    public function set_position($value)
+    {
+        $this->position = $value;
+        return $this;
+    }
+    /*
      * Document password.
      */
     public function get_password()
@@ -207,22 +223,6 @@ class PostAddNewParagraphRequest
     public function set_storage($value)
     {
         $this->storage = $value;
-        return $this;
-    }
-    /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
-     */
-    public function get_position()
-    {
-        return $this->position;
-    }
-
-    /*
-     * Position of the new paragraph in the list. Default is at the end of the list.
-     */
-    public function set_position($value)
-    {
-        $this->position = $value;
         return $this;
     }
 }

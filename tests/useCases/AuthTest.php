@@ -57,7 +57,7 @@ class AuthTest extends TestBase
         $config->setDebug($debug);
 
         $api = new SlidesApi(null, $config);
-        $api->getSlidesApiInfo();
+        $api->getApiInfo();
     }
 
     /**
@@ -80,7 +80,7 @@ class AuthTest extends TestBase
 
         $api = new SlidesApi(null, $config);
         try {
-            $api->getSlidesApiInfo();
+            $api->getApiInfo();
             Assert::fail("Must have failed");
         } catch (ApiException $ex) {
             Assert::assertEquals(401, $ex->getCode());
@@ -105,11 +105,11 @@ class AuthTest extends TestBase
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
         $api = new SlidesApi(null, $config);
-        $api->getSlidesApiInfo();
+        $api->getApiInfo();
         $clientId = "invalid";
         $config->setAppSid($clientId);
         $api = new SlidesApi(null, $config);
-        $api->getSlidesApiInfo();
+        $api->getApiInfo();
     }
 
     /**
@@ -130,10 +130,10 @@ class AuthTest extends TestBase
         $config->setAuthHost($authBaseUrl);
         $config->setDebug($debug);
         $api = new SlidesApi(null, $config);
-        $api->getSlidesApiInfo();
+        $api->getApiInfo();
         $authToken = "invalid";
         $config->setAccessToken($authToken);
         $api = new SlidesApi(null, $config);
-        $api->getSlidesApiInfo();
+        $api->getApiInfo();
     }
 }
