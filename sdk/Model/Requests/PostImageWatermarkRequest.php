@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlideSubshapeParagraph operation.
+ * Request model for postImageWatermark operation.
  */
-class GetSlideSubshapeParagraphRequest
+class PostImageWatermarkRequest
 {
     /*
      * Document name.
@@ -39,24 +39,14 @@ class GetSlideSubshapeParagraphRequest
     public $name;
 
     /*
-     * Slide index.
+     * Image data.
      */
-    public $slideIndex;
+    public $image;
 
     /*
-     * Shape path.
+     * PictureFrame DTO
      */
-    public $path;
-
-    /*
-     * Shape index.
-     */
-    public $shapeIndex;
-
-    /*
-     * Paragraph index.
-     */
-    public $paragraphIndex;
+    public $pictureFrame;
 
     /*
      * Document password.
@@ -74,24 +64,20 @@ class GetSlideSubshapeParagraphRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlideSubshapeParagraphRequest class.
+     * Initializes a new instance of the PostImageWatermarkRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
-     * @param int $shapeIndex Shape index.
-     * @param int $paragraphIndex Paragraph index.
+     * @param \SplFileObject $image Image data.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame PictureFrame DTO
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $image = null, $pictureFrame = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->path = $path;
-        $this->shapeIndex = $shapeIndex;
-        $this->paragraphIndex = $paragraphIndex;
+        $this->image = $image;
+        $this->pictureFrame = $pictureFrame;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -114,67 +100,35 @@ class GetSlideSubshapeParagraphRequest
         return $this;
     }
     /*
-     * Slide index.
+     * Image data.
      */
-    public function get_slideIndex()
+    public function get_image()
     {
-        return $this->slideIndex;
+        return $this->image;
     }
 
     /*
-     * Slide index.
+     * Image data.
      */
-    public function set_slideIndex($value)
+    public function set_image($value)
     {
-        $this->slideIndex = $value;
+        $this->image = $value;
         return $this;
     }
     /*
-     * Shape path.
+     * PictureFrame DTO
      */
-    public function get_path()
+    public function get_pictureFrame()
     {
-        return $this->path;
+        return $this->pictureFrame;
     }
 
     /*
-     * Shape path.
+     * PictureFrame DTO
      */
-    public function set_path($value)
+    public function set_pictureFrame($value)
     {
-        $this->path = $value;
-        return $this;
-    }
-    /*
-     * Shape index.
-     */
-    public function get_shapeIndex()
-    {
-        return $this->shapeIndex;
-    }
-
-    /*
-     * Shape index.
-     */
-    public function set_shapeIndex($value)
-    {
-        $this->shapeIndex = $value;
-        return $this;
-    }
-    /*
-     * Paragraph index.
-     */
-    public function get_paragraphIndex()
-    {
-        return $this->paragraphIndex;
-    }
-
-    /*
-     * Paragraph index.
-     */
-    public function set_paragraphIndex($value)
-    {
-        $this->paragraphIndex = $value;
+        $this->pictureFrame = $value;
         return $this;
     }
     /*

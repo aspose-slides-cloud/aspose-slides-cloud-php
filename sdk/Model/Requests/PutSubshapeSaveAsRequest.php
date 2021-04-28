@@ -121,7 +121,7 @@ class PutSubshapeSaveAsRequest
      * @param string $storage Presentation storage.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $format, $outPath, $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function __construct($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

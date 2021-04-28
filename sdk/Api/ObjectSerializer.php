@@ -175,9 +175,8 @@ class ObjectSerializer
      */
     public static function toString($value)
     {
-        if (date(\DATE_ATOM, preg_match("/^[1-9][0-9]*$/", $value)[0]) instanceof \DateTime) { // datetime in ISO8601 format
-            $datetime = preg_match("/^[1-9][0-9]*$/", $value)[0];
-            return date(\DATE_ATOM, $datetime);
+        if ($value instanceof \DateTime) {
+            return $value->format(\DATE_ATOM);
         } else {
             return $value;
         }
@@ -191,17 +190,22 @@ class ObjectSerializer
      *
      * @return multipart stream
      */
-    public static function toMultipart($data, $files)
+    public static function createBody($parts)
     {
-        $multipartContents = [];
-        if (isset($data)) {
-            $multipartContents[] = [ 'name' => 'data', 'contents' => $data ];
+        if (count($parts) == 0) {
+            return "";
         }
-        if (isset($files)) {
-            $i = 0;
-            foreach ($files as $file) {
-                $multipartContents[] = [ 'name' => 'file'.(++$i), 'contents' => $file ];
+        if (count($parts) == 1) {
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($parts[0] instanceof \stdClass) {
+                return \GuzzleHttp\json_encode($parts[0]);
             }
+            return $parts[0];
+        }
+        $multipartContents = [];
+        $i = 0;
+        foreach ($parts as $part) {
+            $multipartContents[] = [ 'name' => 'file'.(++$i), 'contents' => $part ];
         }
         return new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
     }

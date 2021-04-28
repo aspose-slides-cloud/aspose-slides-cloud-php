@@ -29,14 +29,24 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesDocument operation.
+ * Request model for postImageWatermarkOnline operation.
  */
-class GetSlidesDocumentRequest
+class PostImageWatermarkOnlineRequest
 {
     /*
-     * Document name.
+     * Document data.
      */
-    public $name;
+    public $document;
+
+    /*
+     * Image data.
+     */
+    public $image;
+
+    /*
+     * PictureFrame DTO.
+     */
+    public $pictureFrame;
 
     /*
      * Document password.
@@ -44,45 +54,67 @@ class GetSlidesDocumentRequest
     public $password;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
-     * Initializes a new instance of the GetSlidesDocumentRequest class.
+     * Initializes a new instance of the PostImageWatermarkOnlineRequest class.
      *  
-     * @param string $name Document name.
+     * @param \SplFileObject $document Document data.
+     * @param \SplFileObject $image Image data.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame PictureFrame DTO.
      * @param string $password Document password.
-     * @param string $folder Document folder.
-     * @param string $storage Document storage.
      */
-    public function __construct($name, $password = null, $folder = null, $storage = null)
+    public function __construct($document, $image = null, $pictureFrame = null, $password = null)
     {
-        $this->name = $name;
+        $this->document = $document;
+        $this->image = $image;
+        $this->pictureFrame = $pictureFrame;
         $this->password = $password;
-        $this->folder = $folder;
-        $this->storage = $storage;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function get_name()
+    public function get_document()
     {
-        return $this->name;
+        return $this->document;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function set_name($value)
+    public function set_document($value)
     {
-        $this->name = $value;
+        $this->document = $value;
+        return $this;
+    }
+    /*
+     * Image data.
+     */
+    public function get_image()
+    {
+        return $this->image;
+    }
+
+    /*
+     * Image data.
+     */
+    public function set_image($value)
+    {
+        $this->image = $value;
+        return $this;
+    }
+    /*
+     * PictureFrame DTO.
+     */
+    public function get_pictureFrame()
+    {
+        return $this->pictureFrame;
+    }
+
+    /*
+     * PictureFrame DTO.
+     */
+    public function set_pictureFrame($value)
+    {
+        $this->pictureFrame = $value;
         return $this;
     }
     /*
@@ -99,38 +131,6 @@ class GetSlidesDocumentRequest
     public function set_password($value)
     {
         $this->password = $value;
-        return $this;
-    }
-    /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
         return $this;
     }
 }

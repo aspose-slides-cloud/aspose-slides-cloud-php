@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlideSubshapeParagraph operation.
+ * Request model for deleteSlidesProtectionProperties operation.
  */
-class GetSlideSubshapeParagraphRequest
+class DeleteSlidesProtectionPropertiesRequest
 {
     /*
      * Document name.
@@ -39,27 +39,7 @@ class GetSlideSubshapeParagraphRequest
     public $name;
 
     /*
-     * Slide index.
-     */
-    public $slideIndex;
-
-    /*
-     * Shape path.
-     */
-    public $path;
-
-    /*
-     * Shape index.
-     */
-    public $shapeIndex;
-
-    /*
-     * Paragraph index.
-     */
-    public $paragraphIndex;
-
-    /*
-     * Document password.
+     * Presentation password.
      */
     public $password;
 
@@ -74,24 +54,16 @@ class GetSlideSubshapeParagraphRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlideSubshapeParagraphRequest class.
+     * Initializes a new instance of the DeleteSlidesProtectionPropertiesRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
-     * @param int $shapeIndex Shape index.
-     * @param int $paragraphIndex Paragraph index.
-     * @param string $password Document password.
+     * @param string $password Presentation password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->path = $path;
-        $this->shapeIndex = $shapeIndex;
-        $this->paragraphIndex = $paragraphIndex;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -114,71 +86,7 @@ class GetSlideSubshapeParagraphRequest
         return $this;
     }
     /*
-     * Slide index.
-     */
-    public function get_slideIndex()
-    {
-        return $this->slideIndex;
-    }
-
-    /*
-     * Slide index.
-     */
-    public function set_slideIndex($value)
-    {
-        $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path.
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path.
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
-        return $this;
-    }
-    /*
-     * Shape index.
-     */
-    public function get_shapeIndex()
-    {
-        return $this->shapeIndex;
-    }
-
-    /*
-     * Shape index.
-     */
-    public function set_shapeIndex($value)
-    {
-        $this->shapeIndex = $value;
-        return $this;
-    }
-    /*
-     * Paragraph index.
-     */
-    public function get_paragraphIndex()
-    {
-        return $this->paragraphIndex;
-    }
-
-    /*
-     * Paragraph index.
-     */
-    public function set_paragraphIndex($value)
-    {
-        $this->paragraphIndex = $value;
-        return $this;
-    }
-    /*
-     * Document password.
+     * Presentation password.
      */
     public function get_password()
     {
@@ -186,7 +94,7 @@ class GetSlideSubshapeParagraphRequest
     }
 
     /*
-     * Document password.
+     * Presentation password.
      */
     public function set_password($value)
     {

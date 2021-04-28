@@ -58,7 +58,11 @@ class ProtectionProperties extends ResourceBase
       */
     protected static $swaggerTypes = [
         'encryptDocumentProperties' => 'bool',
-        'readOnlyRecommended' => 'bool'
+        'readOnlyRecommended' => 'bool',
+        'readPassword' => 'string',
+        'writePassword' => 'string',
+        'isWriteProtected' => 'bool',
+        'isEncrypted' => 'bool'
     ];
 
     /**
@@ -68,7 +72,11 @@ class ProtectionProperties extends ResourceBase
       */
     protected static $swaggerFormats = [
         'encryptDocumentProperties' => null,
-        'readOnlyRecommended' => null
+        'readOnlyRecommended' => null,
+        'readPassword' => null,
+        'writePassword' => null,
+        'isWriteProtected' => null,
+        'isEncrypted' => null
     ];
 
     /**
@@ -99,7 +107,11 @@ class ProtectionProperties extends ResourceBase
      */
     protected static $attributeMap = [
         'encryptDocumentProperties' => 'EncryptDocumentProperties',
-        'readOnlyRecommended' => 'ReadOnlyRecommended'
+        'readOnlyRecommended' => 'ReadOnlyRecommended',
+        'readPassword' => 'ReadPassword',
+        'writePassword' => 'WritePassword',
+        'isWriteProtected' => 'IsWriteProtected',
+        'isEncrypted' => 'IsEncrypted'
     ];
 
     /**
@@ -109,7 +121,11 @@ class ProtectionProperties extends ResourceBase
      */
     protected static $setters = [
         'encryptDocumentProperties' => 'setEncryptDocumentProperties',
-        'readOnlyRecommended' => 'setReadOnlyRecommended'
+        'readOnlyRecommended' => 'setReadOnlyRecommended',
+        'readPassword' => 'setReadPassword',
+        'writePassword' => 'setWritePassword',
+        'isWriteProtected' => 'setIsWriteProtected',
+        'isEncrypted' => 'setIsEncrypted'
     ];
 
     /**
@@ -119,7 +135,11 @@ class ProtectionProperties extends ResourceBase
      */
     protected static $getters = [
         'encryptDocumentProperties' => 'getEncryptDocumentProperties',
-        'readOnlyRecommended' => 'getReadOnlyRecommended'
+        'readOnlyRecommended' => 'getReadOnlyRecommended',
+        'readPassword' => 'getReadPassword',
+        'writePassword' => 'getWritePassword',
+        'isWriteProtected' => 'getIsWriteProtected',
+        'isEncrypted' => 'getIsEncrypted'
     ];
 
     /**
@@ -180,6 +200,10 @@ class ProtectionProperties extends ResourceBase
 
         $this->container['encryptDocumentProperties'] = isset($data['encryptDocumentProperties']) ? $data['encryptDocumentProperties'] : null;
         $this->container['readOnlyRecommended'] = isset($data['readOnlyRecommended']) ? $data['readOnlyRecommended'] : null;
+        $this->container['readPassword'] = isset($data['readPassword']) ? $data['readPassword'] : null;
+        $this->container['writePassword'] = isset($data['writePassword']) ? $data['writePassword'] : null;
+        $this->container['isWriteProtected'] = isset($data['isWriteProtected']) ? $data['isWriteProtected'] : null;
+        $this->container['isEncrypted'] = isset($data['isEncrypted']) ? $data['isEncrypted'] : null;
         
     }
 
@@ -192,6 +216,12 @@ class ProtectionProperties extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['isWriteProtected'] === null) {
+            $invalidProperties[] = "'isWriteProtected' can't be null";
+        }
+        if ($this->container['isEncrypted'] === null) {
+            $invalidProperties[] = "'isEncrypted' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -207,6 +237,12 @@ class ProtectionProperties extends ResourceBase
             return false;
         }
 
+        if ($this->container['isWriteProtected'] === null) {
+            return false;
+        }
+        if ($this->container['isEncrypted'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -255,6 +291,102 @@ class ProtectionProperties extends ResourceBase
     public function setReadOnlyRecommended($readOnlyRecommended)
     {
         $this->container['readOnlyRecommended'] = $readOnlyRecommended;
+
+        return $this;
+    }
+
+    /**
+     * Gets readPassword
+     *
+     * @return string
+     */
+    public function getReadPassword()
+    {
+        return $this->container['readPassword'];
+    }
+
+    /**
+     * Sets readPassword
+     *
+     * @param string $readPassword Password for read protection.
+     *
+     * @return $this
+     */
+    public function setReadPassword($readPassword)
+    {
+        $this->container['readPassword'] = $readPassword;
+
+        return $this;
+    }
+
+    /**
+     * Gets writePassword
+     *
+     * @return string
+     */
+    public function getWritePassword()
+    {
+        return $this->container['writePassword'];
+    }
+
+    /**
+     * Sets writePassword
+     *
+     * @param string $writePassword Password for write protection.
+     *
+     * @return $this
+     */
+    public function setWritePassword($writePassword)
+    {
+        $this->container['writePassword'] = $writePassword;
+
+        return $this;
+    }
+
+    /**
+     * Gets isWriteProtected
+     *
+     * @return bool
+     */
+    public function getIsWriteProtected()
+    {
+        return $this->container['isWriteProtected'];
+    }
+
+    /**
+     * Sets isWriteProtected
+     *
+     * @param bool $isWriteProtected Returns true if the presentation protected for editing.
+     *
+     * @return $this
+     */
+    public function setIsWriteProtected($isWriteProtected)
+    {
+        $this->container['isWriteProtected'] = $isWriteProtected;
+
+        return $this;
+    }
+
+    /**
+     * Gets isEncrypted
+     *
+     * @return bool
+     */
+    public function getIsEncrypted()
+    {
+        return $this->container['isEncrypted'];
+    }
+
+    /**
+     * Sets isEncrypted
+     *
+     * @param bool $isEncrypted Returns true if the presentation protected for reading.
+     *
+     * @return $this
+     */
+    public function setIsEncrypted($isEncrypted)
+    {
+        $this->container['isEncrypted'] = $isEncrypted;
 
         return $this;
     }

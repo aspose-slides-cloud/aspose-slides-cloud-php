@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlideSubshapeParagraph operation.
+ * Request model for deleteWatermark operation.
  */
-class GetSlideSubshapeParagraphRequest
+class DeleteWatermarkRequest
 {
     /*
      * Document name.
@@ -39,24 +39,9 @@ class GetSlideSubshapeParagraphRequest
     public $name;
 
     /*
-     * Slide index.
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
      */
-    public $slideIndex;
-
-    /*
-     * Shape path.
-     */
-    public $path;
-
-    /*
-     * Shape index.
-     */
-    public $shapeIndex;
-
-    /*
-     * Paragraph index.
-     */
-    public $paragraphIndex;
+    public $shapeName;
 
     /*
      * Document password.
@@ -74,24 +59,18 @@ class GetSlideSubshapeParagraphRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the GetSlideSubshapeParagraphRequest class.
+     * Initializes a new instance of the DeleteWatermarkRequest class.
      *  
      * @param string $name Document name.
-     * @param int $slideIndex Slide index.
-     * @param string $path Shape path.
-     * @param int $shapeIndex Shape index.
-     * @param int $paragraphIndex Paragraph index.
+     * @param string $shapeName Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $shapeName = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->slideIndex = $slideIndex;
-        $this->path = $path;
-        $this->shapeIndex = $shapeIndex;
-        $this->paragraphIndex = $paragraphIndex;
+        $this->shapeName = $shapeName;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -114,67 +93,19 @@ class GetSlideSubshapeParagraphRequest
         return $this;
     }
     /*
-     * Slide index.
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
      */
-    public function get_slideIndex()
+    public function get_shapeName()
     {
-        return $this->slideIndex;
+        return $this->shapeName;
     }
 
     /*
-     * Slide index.
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
      */
-    public function set_slideIndex($value)
+    public function set_shapeName($value)
     {
-        $this->slideIndex = $value;
-        return $this;
-    }
-    /*
-     * Shape path.
-     */
-    public function get_path()
-    {
-        return $this->path;
-    }
-
-    /*
-     * Shape path.
-     */
-    public function set_path($value)
-    {
-        $this->path = $value;
-        return $this;
-    }
-    /*
-     * Shape index.
-     */
-    public function get_shapeIndex()
-    {
-        return $this->shapeIndex;
-    }
-
-    /*
-     * Shape index.
-     */
-    public function set_shapeIndex($value)
-    {
-        $this->shapeIndex = $value;
-        return $this;
-    }
-    /*
-     * Paragraph index.
-     */
-    public function get_paragraphIndex()
-    {
-        return $this->paragraphIndex;
-    }
-
-    /*
-     * Paragraph index.
-     */
-    public function set_paragraphIndex($value)
-    {
-        $this->paragraphIndex = $value;
+        $this->shapeName = $value;
         return $this;
     }
     /*

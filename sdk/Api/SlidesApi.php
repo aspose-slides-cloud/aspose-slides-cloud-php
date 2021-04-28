@@ -152,7 +152,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/file/copy/{srcPath}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($destPath !== null) {
@@ -172,11 +171,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $srcPath);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -278,7 +278,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/folder/copy/{srcPath}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($destPath !== null) {
@@ -294,11 +293,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $srcPath);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -371,7 +371,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'createFolder'
      *
-     * @param  string $$path Folder path to create e.g. &#39;folder_1/folder_2/&#39; (optional)
+     * @param  string $$path Folder path to create e.g. &#39;folder_1/folder_2/&#39; (required)
      * @param  string $$storageName Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -384,11 +384,14 @@ class SlidesApi extends ApiBase
             $path = $requestObject->path;
             $storageName = $requestObject->storageName;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling createFolder');
+        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -396,11 +399,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -550,7 +554,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -569,11 +572,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "categoryIndex", $categoryIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -729,7 +733,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -749,11 +752,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $seriesIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "pointIndex", $pointIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -903,7 +907,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -922,11 +925,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $seriesIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -999,7 +1003,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteFile'
      *
-     * @param  string $$path File path e.g. &#39;/folder/file.ext&#39; (optional)
+     * @param  string $$path File path e.g. &#39;/folder/file.ext&#39; (required)
      * @param  string $$storageName Storage name (optional)
      * @param  string $$versionId File version ID to delete (optional)
      *
@@ -1014,11 +1018,14 @@ class SlidesApi extends ApiBase
             $storageName = $requestObject->storageName;
             $versionId = $requestObject->versionId;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteFile');
+        }
 
         $resourcePath = '/slides/storage/file/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -1030,11 +1037,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1107,7 +1115,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'deleteFolder'
      *
-     * @param  string $$path Folder path e.g. &#39;/folder&#39; (optional)
+     * @param  string $$path Folder path e.g. &#39;/folder&#39; (required)
      * @param  string $$storageName Storage name (optional)
      * @param  bool $$recursive Enable to delete folders, subfolders and files (optional, default to false)
      *
@@ -1122,11 +1130,14 @@ class SlidesApi extends ApiBase
             $storageName = $requestObject->storageName;
             $recursive = $requestObject->recursive;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteFolder');
+        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -1138,11 +1149,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1280,7 +1292,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -1297,11 +1308,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1451,7 +1463,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -1470,11 +1481,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1620,7 +1632,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($paragraphs !== null) {
@@ -1642,11 +1653,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1802,7 +1814,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -1822,11 +1833,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -1978,7 +1990,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($portions !== null) {
@@ -2001,11 +2012,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -2149,7 +2161,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -2167,11 +2178,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -2311,7 +2323,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapes !== null) {
@@ -2332,11 +2343,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -2486,7 +2498,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -2505,11 +2516,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -2655,7 +2667,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($paragraphs !== null) {
@@ -2677,11 +2688,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -2837,7 +2849,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -2857,11 +2868,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -3013,7 +3025,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($portions !== null) {
@@ -3036,11 +3047,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -3180,7 +3192,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections/{sectionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($withSlides !== null) {
@@ -3201,11 +3212,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $sectionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -3341,7 +3353,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($sections !== null) {
@@ -3365,11 +3376,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -3499,7 +3511,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -3516,11 +3527,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -3687,7 +3699,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -3705,11 +3716,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $effectIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -3876,7 +3888,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -3894,11 +3905,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $sequenceIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4070,7 +4082,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -4089,11 +4100,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $sequenceIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $effectIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4255,7 +4267,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -4272,11 +4283,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4438,7 +4450,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -4455,11 +4466,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4621,7 +4633,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -4638,11 +4649,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4809,7 +4821,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -4827,11 +4838,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -4994,7 +5006,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapes !== null) {
@@ -5015,11 +5026,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5056,7 +5068,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSubshape(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshape(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->deleteSubshapeWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -5070,7 +5082,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -5100,7 +5112,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapeAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapeAsync(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->deleteSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -5110,7 +5122,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -5160,7 +5172,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
@@ -5169,7 +5181,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSubshapeRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function deleteSubshapeRequest(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -5179,6 +5191,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSlideSubshape');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSlideSubshape');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSlideSubshape');
@@ -5187,7 +5203,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -5206,11 +5221,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5247,7 +5263,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSubshapes(string $name, int $slideIndex, string $path = null, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapes(string $name, int $slideIndex, string $path, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->deleteSubshapesWithHttpInfo($name, $slideIndex, $path, $shapes, $password, $folder, $storage);
@@ -5261,7 +5277,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapesWithHttpInfo(string $name, int $slideIndex, string $path = null, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapesWithHttpInfo(string $name, int $slideIndex, string $path, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSubshapesRequest($name, $slideIndex, $path, $shapes, $password, $folder, $storage);
@@ -5291,7 +5307,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapesAsync(string $name, int $slideIndex, string $path = null, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapesAsync(string $name, int $slideIndex, string $path, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->deleteSubshapesAsyncWithHttpInfo($name, $slideIndex, $path, $shapes, $password, $folder, $storage)
             ->then(function ($response) {
@@ -5301,7 +5317,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSubshapesAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
+    public function deleteSubshapesAsyncWithHttpInfo(string $name, int $slideIndex, string $path, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSubshapesRequest($name, $slideIndex, $path, $shapes, $password, $folder, $storage);
@@ -5351,7 +5367,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  array $$shapes The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
@@ -5360,7 +5376,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSubshapesRequest(string $name, int $slideIndex, string $path = null, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
+    protected function deleteSubshapesRequest(string $name, int $slideIndex, string $path, array $shapes = null, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -5370,11 +5386,14 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSlideSubshapes');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSlideSubshapes');
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapes !== null) {
@@ -5396,11 +5415,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5558,7 +5578,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($slides !== null) {
@@ -5578,11 +5597,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5739,7 +5759,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -5755,11 +5774,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5921,7 +5941,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties/{propertyName}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -5938,11 +5957,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "propertyName", $propertyName);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -5976,6 +5996,353 @@ class SlidesApi extends ApiBase
     public function deleteSlidesDocumentPropertyAsyncWithHttpInfo(Requests\DeleteSlidesDocumentPropertyRequest $request)
     {
         return $this->deleteDocumentPropertyAsyncWithHttpInfo($request->name, $request->propertyName, $request->password, $request->folder, $request->storage);
+    }
+    /**
+     */
+    public function deleteProtection(string $name, string $password = null, string $folder = null, string $storage = null)
+    {
+        try {
+            list($response) = $this->deleteProtectionWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteProtectionWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteProtectionWithHttpInfo(string $name, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->deleteProtectionRequest($name, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteProtectionAsync(string $name, string $password = null, string $folder = null, string $storage = null)
+    {
+        return $this->deleteProtectionAsyncWithHttpInfo($name, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteProtectionAsyncWithHttpInfo(string $name, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
+        $httpRequest = $this->deleteProtectionRequest($name, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteSlidesProtectionProperties'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$password Presentation password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteProtectionRequest(string $name, string $password = null, string $folder = null, string $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteSlidesProtectionProperties');
+        }
+
+        $resourcePath = '/slides/{name}/protection';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionProperties(Requests\DeleteSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->deleteProtection($request->name, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesWithHttpInfo(Requests\DeleteSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->deleteProtectionWithHttpInfo($request->name, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesAsync(Requests\DeleteSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->deleteProtectionAsync($request->name, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesAsyncWithHttpInfo(Requests\DeleteSlidesProtectionPropertiesRequest $request)
+    {
+        return $this->deleteProtectionAsyncWithHttpInfo($request->name, $request->password, $request->folder, $request->storage);
+    }
+    /**
+     */
+    public function deleteProtectionOnline( $document, string $password)
+    {
+        try {
+            list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteProtectionOnlineWithHttpInfo( $document, string $password)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteProtectionOnlineRequest($document, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteProtectionOnlineAsync( $document, string $password)
+    {
+        return $this->deleteProtectionOnlineAsyncWithHttpInfo($document, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteProtectionOnlineAsyncWithHttpInfo( $document, string $password)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteProtectionOnlineRequest($document, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteSlidesProtectionPropertiesOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$password Presentation password. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteProtectionOnlineRequest( $document, string $password)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling deleteSlidesProtectionPropertiesOnline');
+        }
+        // verify the required parameter 'password' is set
+        if ($password === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $password when calling deleteSlidesProtectionPropertiesOnline');
+        }
+
+        $resourcePath = '/slides/protection/delete';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesOnline(Requests\DeleteSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->deleteProtectionOnline($request->document, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesOnlineWithHttpInfo(Requests\DeleteSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->deleteProtectionOnlineWithHttpInfo($request->document, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesOnlineAsync(Requests\DeleteSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->deleteProtectionOnlineAsync($request->document, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function deleteSlidesProtectionPropertiesOnlineAsyncWithHttpInfo(Requests\DeleteSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->deleteProtectionOnlineAsyncWithHttpInfo($request->document, $request->password);
     }
     /**
      */
@@ -6104,7 +6471,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/background';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -6121,11 +6487,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
 
@@ -6266,7 +6633,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  string $$password Document password. (optional)
@@ -6297,6 +6664,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSubshapeParagraph');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSubshapeParagraph');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSubshapeParagraph');
@@ -6309,7 +6680,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -6329,11 +6699,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -6442,7 +6813,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  array $$paragraphs The indices of the shapes to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
@@ -6473,6 +6844,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSubshapeParagraphs');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSubshapeParagraphs');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSubshapeParagraphs');
@@ -6481,7 +6856,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($paragraphs !== null) {
@@ -6504,11 +6878,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -6617,7 +6992,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  int $$portionIndex Portion index. (required)
@@ -6650,6 +7025,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSubshapePortion');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSubshapePortion');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSubshapePortion');
@@ -6666,7 +7045,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -6687,11 +7065,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -6800,7 +7179,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  array $$portions The indices of the shapes to be deleted; delete all by default. (optional)
@@ -6833,6 +7212,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteSubshapePortions');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSubshapePortions');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSubshapePortions');
@@ -6845,7 +7228,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($portions !== null) {
@@ -6869,11 +7251,136 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteWatermark($name = null, string $shapeName = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        try {
+            $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
+        }
+        catch(RepeatRequestException $ex) {
+            $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
+        } 
+    }
 
+    /**
+     */
+    public function deleteWatermarkWithHttpInfo($name = null, string $shapeName = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteWatermarkRequest($name, $shapeName, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteWatermarkAsync($name = null, string $shapeName = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        return $this->deleteWatermarkAsyncWithHttpInfo($name, $shapeName, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteWatermarkAsyncWithHttpInfo($name = null, string $shapeName = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteWatermarkRequest($name, $shapeName, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteWatermark'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$shapeName Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteWatermarkRequest($name = null, string $shapeName = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        if (is_a($name, '\Aspose\Slides\Cloud\Sdk\Model\Requests\DeleteWatermarkRequest')) {
+            $requestObject = $name;
+            $name = $requestObject->name;
+            $shapeName = $requestObject->shapeName;
+            $password = $requestObject->password;
+            $folder = $requestObject->folder;
+            $storage = $requestObject->storage;
+        }
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteWatermark');
+        }
+
+        $resourcePath = '/slides/{name}/watermark/delete';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($shapeName !== null) {
+            $queryParams['shapeName'] = ObjectSerializer::toQueryValue($shapeName);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
     /**
@@ -6977,7 +7484,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'downloadFile'
      *
-     * @param  string $$path File path e.g. &#39;/folder/file.ext&#39; (optional)
+     * @param  string $$path File path e.g. &#39;/folder/file.ext&#39; (required)
      * @param  string $$storageName Storage name (optional)
      * @param  string $$versionId File version ID to download (optional)
      *
@@ -6992,11 +7499,14 @@ class SlidesApi extends ApiBase
             $storageName = $requestObject->storageName;
             $versionId = $requestObject->versionId;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling downloadFile');
+        }
 
         $resourcePath = '/slides/storage/file/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -7008,11 +7518,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -7134,18 +7645,18 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/disc';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
             $queryParams['storageName'] = ObjectSerializer::toQueryValue($storageName);
         }
 
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -7252,7 +7763,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getFileVersions'
      *
-     * @param  string $$path File path e.g. &#39;/file.ext&#39; (optional)
+     * @param  string $$path File path e.g. &#39;/file.ext&#39; (required)
      * @param  string $$storageName Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -7265,11 +7776,14 @@ class SlidesApi extends ApiBase
             $path = $requestObject->path;
             $storageName = $requestObject->storageName;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getFileVersions');
+        }
 
         $resourcePath = '/slides/storage/version/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -7277,11 +7791,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -7388,7 +7903,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'getFilesList'
      *
-     * @param  string $$path Folder path e.g. &#39;/folder&#39; (optional)
+     * @param  string $$path Folder path e.g. &#39;/folder&#39; (required)
      * @param  string $$storageName Storage name (optional)
      *
      * @throws \InvalidArgumentException
@@ -7401,11 +7916,14 @@ class SlidesApi extends ApiBase
             $path = $requestObject->path;
             $storageName = $requestObject->storageName;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getFilesList');
+        }
 
         $resourcePath = '/slides/storage/folder/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -7413,11 +7931,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -7555,7 +8074,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/layoutSlides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -7572,11 +8090,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -7701,7 +8220,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/layoutSlides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -7717,11 +8235,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -7891,7 +8410,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/masterSlides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -7908,11 +8426,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -8037,7 +8556,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/masterSlides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8053,11 +8571,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -8227,7 +8746,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8244,11 +8762,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -8378,7 +8897,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/exist';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8395,11 +8913,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -8569,7 +9088,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8586,11 +9104,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -8734,7 +9253,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8752,11 +9270,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -8896,7 +9415,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -8915,11 +9433,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -9086,7 +9605,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -9104,11 +9622,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -9285,7 +9804,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -9305,11 +9823,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -9481,7 +10000,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -9500,11 +10018,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -9674,7 +10193,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -9691,11 +10209,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -9830,7 +10349,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($width !== null) {
@@ -9860,11 +10378,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -10041,7 +10560,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -10061,11 +10579,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -10237,7 +10756,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -10256,11 +10774,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -10424,7 +10943,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -10440,11 +10958,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -10575,7 +11094,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapeIndex !== null) {
@@ -10596,11 +11114,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -10770,7 +11289,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/headerFooter';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -10787,11 +11305,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -10926,7 +11445,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -10944,11 +11462,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11120,7 +11639,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -11139,11 +11657,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11310,7 +11829,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -11328,11 +11846,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11494,7 +12013,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -11511,11 +12029,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11552,7 +12071,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshape(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshape(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapeWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -11566,7 +12085,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->getSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -11596,7 +12115,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeAsync(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -11606,7 +12125,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->getSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -11656,7 +12175,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
@@ -11665,7 +12184,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapeRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapeRequest(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -11675,6 +12194,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideSubshape');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideSubshape');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getSlideSubshape');
@@ -11683,7 +12206,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -11702,11 +12224,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11743,7 +12266,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshapeParagraph(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraph(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapeParagraphWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -11757,7 +12280,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->getSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -11787,7 +12310,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapeParagraphAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -11797,7 +12320,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->getSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -11847,7 +12370,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  string $$password Document password. (optional)
@@ -11857,7 +12380,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapeParagraphRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapeParagraphRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -11866,6 +12389,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideSubshapeParagraph');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideSubshapeParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -11879,7 +12406,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -11899,11 +12425,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -11940,7 +12467,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshapeParagraphs(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphs(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapeParagraphsWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -11954,7 +12481,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphsWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphsWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->getSubshapeParagraphsRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -11984,7 +12511,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphsAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphsAsync(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapeParagraphsAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -11994,7 +12521,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapeParagraphsAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapeParagraphsAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->getSubshapeParagraphsRequest($name, $slideIndex, $path, $shapeIndex, $password, $folder, $storage);
@@ -12044,7 +12571,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
@@ -12053,7 +12580,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapeParagraphsRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapeParagraphsRequest(string $name, int $slideIndex, string $path, int $shapeIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -12063,6 +12590,10 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideSubshapeParagraphs');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideSubshapeParagraphs');
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getSlideSubshapeParagraphs');
@@ -12071,7 +12602,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -12090,11 +12620,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -12131,7 +12662,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshapes(string $name, int $slideIndex, string $path = null, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapes(string $name, int $slideIndex, string $path, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapesWithHttpInfo($name, $slideIndex, $path, $password, $folder, $storage);
@@ -12145,7 +12676,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapesWithHttpInfo(string $name, int $slideIndex, string $path = null, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapesWithHttpInfo(string $name, int $slideIndex, string $path, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->getSubshapesRequest($name, $slideIndex, $path, $password, $folder, $storage);
@@ -12175,7 +12706,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapesAsync(string $name, int $slideIndex, string $path = null, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapesAsync(string $name, int $slideIndex, string $path, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapesAsyncWithHttpInfo($name, $slideIndex, $path, $password, $folder, $storage)
             ->then(function ($response) {
@@ -12185,7 +12716,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapesAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapesAsyncWithHttpInfo(string $name, int $slideIndex, string $path, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->getSubshapesRequest($name, $slideIndex, $path, $password, $folder, $storage);
@@ -12235,7 +12766,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path (for smart art and group shapes). (optional)
+     * @param  string $$path Shape path (for smart art and group shapes). (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -12243,7 +12774,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapesRequest(string $name, int $slideIndex, string $path = null, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapesRequest(string $name, int $slideIndex, string $path, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -12253,11 +12784,14 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSlideSubshapes');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSlideSubshapes');
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -12275,11 +12809,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -12428,14 +12963,14 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/info';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
 
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -12577,7 +13112,7 @@ class SlidesApi extends ApiBase
      * @param  string $$name Document name. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
-     * @param  string $$storage Documentstorage. (optional)
+     * @param  string $$storage Document storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12592,7 +13127,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -12608,11 +13142,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -12769,7 +13304,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -12785,11 +13319,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -12951,7 +13486,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties/{propertyName}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -12968,11 +13502,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "propertyName", $propertyName);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -13131,7 +13666,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/images/{index}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -13148,11 +13682,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $index);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -13316,7 +13851,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/images/{index}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -13334,11 +13868,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $index);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -13495,7 +14030,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/images';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -13511,11 +14045,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -13682,7 +14217,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/placeholders/{placeholderIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -13700,11 +14234,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "placeholderIndex", $placeholderIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -13866,7 +14401,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/placeholders';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -13883,11 +14417,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14045,7 +14580,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/textItems';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($withEmpty !== null) {
@@ -14065,11 +14599,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14223,10 +14758,9 @@ class SlidesApi extends ApiBase
             throw new \InvalidArgumentException('Missing the required parameter $name when calling getSlidesProtectionProperties');
         }
 
-        $resourcePath = '/slides/{name}/protectionProperties';
+        $resourcePath = '/slides/{name}/protection';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -14242,11 +14776,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14408,7 +14943,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -14425,11 +14959,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14591,7 +15126,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/background';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -14608,11 +15142,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14774,7 +15309,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/comments';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -14791,11 +15325,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -14957,7 +15492,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/images';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -14974,11 +15508,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -15135,7 +15670,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slideProperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -15151,11 +15685,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -15318,7 +15853,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/textItems';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($withEmpty !== null) {
@@ -15339,11 +15873,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -15500,7 +16035,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -15516,11 +16050,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -15682,7 +16217,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/theme';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -15699,11 +16233,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -15865,7 +16400,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/theme/colorScheme';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -15882,11 +16416,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16048,7 +16583,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/theme/fontScheme';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -16065,11 +16599,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16231,7 +16766,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/theme/formatScheme';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -16248,11 +16782,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16409,7 +16944,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/viewProperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -16425,11 +16959,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16466,7 +17001,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshapePortion(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortion(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapePortionWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
@@ -16480,7 +17015,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->getSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
@@ -16510,7 +17045,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapePortionAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -16520,7 +17055,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->getSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
@@ -16570,7 +17105,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  int $$portionIndex Portion index. (required)
@@ -16581,7 +17116,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapePortionRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapePortionRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -16590,6 +17125,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSubshapeParagraphPortion');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSubshapeParagraphPortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -16607,7 +17146,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -16628,11 +17166,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16669,7 +17208,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSubshapePortions(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortions(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->getSubshapePortionsWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -16683,7 +17222,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionsWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionsWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->getSubshapePortionsRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -16713,7 +17252,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionsAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionsAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->getSubshapePortionsAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -16723,7 +17262,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSubshapePortionsAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    public function getSubshapePortionsAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->getSubshapePortionsRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
@@ -16773,7 +17312,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  string $$password Document password. (optional)
@@ -16783,7 +17322,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSubshapePortionsRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
+    protected function getSubshapePortionsRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -16792,6 +17331,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getSubshapeParagraphPortions');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling getSubshapeParagraphPortions');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -16805,7 +17348,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -16825,11 +17367,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
 
@@ -16965,7 +17508,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/file/move/{srcPath}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($destPath !== null) {
@@ -16985,11 +17527,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $srcPath);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -17091,7 +17634,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/folder/move/{srcPath}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($destPath !== null) {
@@ -17107,11 +17649,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "srcPath", $srcPath);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
@@ -17218,7 +17761,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'objectExists'
      *
-     * @param  string $$path File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; (optional)
+     * @param  string $$path File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; (required)
      * @param  string $$storageName Storage name (optional)
      * @param  string $$versionId File version ID (optional)
      *
@@ -17233,11 +17776,14 @@ class SlidesApi extends ApiBase
             $storageName = $requestObject->storageName;
             $versionId = $requestObject->versionId;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling objectExists');
+        }
 
         $resourcePath = '/slides/storage/exist/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -17249,11 +17795,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -17394,7 +17941,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -17416,23 +17962,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -17610,7 +18148,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -17633,23 +18170,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -17814,7 +18343,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapeToClone !== null) {
@@ -17839,23 +18367,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -17892,7 +18412,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createSubshape(string $name, int $slideIndex, string $path = null, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshape(string $name, int $slideIndex, string $path, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->createSubshapeWithHttpInfo($name, $slideIndex, $path, $dto, $shapeToClone, $position, $password, $folder, $storage);
@@ -17906,7 +18426,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->createSubshapeRequest($name, $slideIndex, $path, $dto, $shapeToClone, $position, $password, $folder, $storage);
@@ -17936,7 +18456,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeAsync(string $name, int $slideIndex, string $path = null, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeAsync(string $name, int $slideIndex, string $path, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->createSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $dto, $shapeToClone, $position, $password, $folder, $storage)
             ->then(function ($response) {
@@ -17946,7 +18466,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->createSubshapeRequest($name, $slideIndex, $path, $dto, $shapeToClone, $position, $password, $folder, $storage);
@@ -17996,7 +18516,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $$dto Shape DTO. (optional)
      * @param  int $$shapeToClone Optional index for clone shape instead of adding a new one. (optional)
      * @param  int $$position Position of the new shape in the list. Default is at the end of the list. (optional)
@@ -18007,7 +18527,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSubshapeRequest(string $name, int $slideIndex, string $path = null, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    protected function createSubshapeRequest(string $name, int $slideIndex, string $path, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, int $shapeToClone = null, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -18017,11 +18537,14 @@ class SlidesApi extends ApiBase
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewSubshape');
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewSubshape');
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapeToClone !== null) {
@@ -18047,23 +18570,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -18100,7 +18615,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createSubshapeParagraph(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeParagraph(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->createSubshapeParagraphWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $dto, $position, $password, $folder, $storage);
@@ -18114,7 +18629,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->createSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $dto, $position, $password, $folder, $storage);
@@ -18144,7 +18659,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeParagraphAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeParagraphAsync(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->createSubshapeParagraphAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $dto, $position, $password, $folder, $storage)
             ->then(function ($response) {
@@ -18154,7 +18669,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->createSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $dto, $position, $password, $folder, $storage);
@@ -18204,7 +18719,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $$dto Paragraph DTO. (required)
      * @param  int $$position Position of the new paragraph in the list. Default is at the end of the list. (optional)
@@ -18215,7 +18730,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSubshapeParagraphRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    protected function createSubshapeParagraphRequest(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -18224,6 +18739,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewSubshapeParagraph');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewSubshapeParagraph');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -18237,7 +18756,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -18260,23 +18778,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -18313,7 +18823,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createSubshapePortion(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapePortion(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->createSubshapePortionWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage);
@@ -18327,7 +18837,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->createSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage);
@@ -18357,7 +18867,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapePortionAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapePortionAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->createSubshapePortionAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage)
             ->then(function ($response) {
@@ -18367,7 +18877,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    public function createSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->createSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage);
@@ -18417,7 +18927,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $$dto Portion DTO. (required)
@@ -18429,7 +18939,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSubshapePortionRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
+    protected function createSubshapePortionRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, int $position = null, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -18438,6 +18948,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postAddNewSubshapePortion');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling postAddNewSubshapePortion');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -18455,7 +18969,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -18479,23 +18992,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -18662,7 +19167,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -18679,23 +19183,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -18864,7 +19360,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/align/{alignmentType}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($alignToSlide !== null) {
@@ -18890,11 +19385,12 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "alignmentType", $alignmentType);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -19066,7 +19562,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -19084,23 +19579,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($category)) {
-            $_tempBody = $category;
+            array_push($_tempBody, $category);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -19277,7 +19764,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -19296,23 +19782,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $seriesIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dataPoint)) {
-            $_tempBody = $dataPoint;
+            array_push($_tempBody, $dataPoint);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -19484,7 +19962,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -19502,23 +19979,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($series)) {
-            $_tempBody = $series;
+            array_push($_tempBody, $series);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -19687,7 +20156,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/layoutSlides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($cloneFrom !== null) {
@@ -19719,11 +20187,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -19893,7 +20362,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/masterSlides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($cloneFrom !== null) {
@@ -19929,11 +20397,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20090,7 +20559,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/images/{index}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
@@ -20098,23 +20566,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $index);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20276,7 +20736,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/images/{index}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
@@ -20285,23 +20744,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "index", $index);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20458,7 +20909,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/images/download/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
@@ -20466,23 +20916,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20636,7 +21078,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/images/download';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -20652,11 +21093,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20815,7 +21257,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/images/download/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -20832,11 +21273,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -20873,24 +21315,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadShapeOnline( $document, int $slideIndex, int $shapeIndex, string $format, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function downloadShapeOnline( $document, int $slideIndex, int $shapeIndex, string $format, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         try {
-            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
             return $response;
         } 
     }
 
     /**
      */
-    public function downloadShapeOnlineWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function downloadShapeOnlineWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+        $httpRequest = $this->downloadShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -20914,9 +21356,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadShapeOnlineAsync( $document, int $slideIndex, int $shapeIndex, string $format, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function downloadShapeOnlineAsync( $document, int $slideIndex, int $shapeIndex, string $format, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
-        return $this->downloadShapeOnlineAsyncWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder)
+        return $this->downloadShapeOnlineAsyncWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -20924,10 +21366,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadShapeOnlineAsyncWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function downloadShapeOnlineAsyncWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+        $httpRequest = $this->downloadShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -20976,17 +21418,17 @@ class SlidesApi extends ApiBase
      * @param  int $$slideIndex Slide index. (required)
      * @param  int $$shapeIndex Index of shape starting from 1 (required)
      * @param  string $$format Export picture format. (required)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$storage Document storage. (optional)
      * @param  float $$scaleX X scale ratio. (optional, default to 0.0)
      * @param  float $$scaleY Y scale ratio. (optional, default to 0.0)
      * @param  string $$bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadShapeOnlineRequest( $document, int $slideIndex, int $shapeIndex, string $format, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    protected function downloadShapeOnlineRequest( $document, int $slideIndex, int $shapeIndex, string $format, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -21008,12 +21450,7 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
-        }
         // query params
         if ($scaleX !== null) {
             $queryParams['scaleX'] = ObjectSerializer::toQueryValue($scaleX);
@@ -21027,6 +21464,10 @@ class SlidesApi extends ApiBase
             $queryParams['bounds'] = ObjectSerializer::toQueryValue($bounds);
         }
         // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
         }
@@ -21038,23 +21479,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -21063,7 +21496,7 @@ class SlidesApi extends ApiBase
      */
     public function postExportShape(Requests\PostExportShapeRequest $request)
     {
-        return $this->downloadShapeOnline($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->downloadShapeOnline($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -21071,7 +21504,7 @@ class SlidesApi extends ApiBase
      */
     public function postExportShapeWithHttpInfo(Requests\PostExportShapeRequest $request)
     {
-        return $this->downloadShapeOnlineWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->downloadShapeOnlineWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -21079,7 +21512,7 @@ class SlidesApi extends ApiBase
      */
     public function postExportShapeAsync(Requests\PostExportShapeRequest $request)
     {
-        return $this->downloadShapeOnlineAsync($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->downloadShapeOnlineAsync($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -21087,7 +21520,7 @@ class SlidesApi extends ApiBase
      */
     public function postExportShapeAsyncWithHttpInfo(Requests\PostExportShapeRequest $request)
     {
-        return $this->downloadShapeOnlineAsyncWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->downloadShapeOnlineAsyncWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
     /**
      */
@@ -21220,7 +21653,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($width !== null) {
@@ -21245,23 +21677,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -21421,7 +21845,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/notesSlide';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
@@ -21429,23 +21852,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -21605,7 +22020,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/notesSlide/exist';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
@@ -21613,23 +22027,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -21794,7 +22200,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/notesSlide/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($width !== null) {
@@ -21815,23 +22220,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -21865,6 +22262,331 @@ class SlidesApi extends ApiBase
     public function postGetNotesSlideWithFormatAsyncWithHttpInfo(Requests\PostGetNotesSlideWithFormatRequest $request)
     {
         return $this->downloadNotesSlideOnlineAsyncWithHttpInfo($request->document, $request->slideIndex, $request->format, $request->width, $request->height, $request->password, $request->fontsFolder);
+    }
+    /**
+     */
+    public function createImageWatermark(string $name,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        try {
+            $this->createImageWatermarkWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage);
+        }
+        catch(RepeatRequestException $ex) {
+            $this->createImageWatermarkWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage);
+        } 
+    }
+
+    /**
+     */
+    public function createImageWatermarkWithHttpInfo(string $name,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->createImageWatermarkRequest($name, $image, $pictureFrame, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createImageWatermarkAsync(string $name,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        return $this->createImageWatermarkAsyncWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createImageWatermarkAsyncWithHttpInfo(string $name,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->createImageWatermarkRequest($name, $image, $pictureFrame, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postImageWatermark'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $$pictureFrame PictureFrame DTO (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createImageWatermarkRequest(string $name,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postImageWatermark');
+        }
+
+        $resourcePath = '/slides/{name}/watermark/image';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        if (isset($pictureFrame)) {
+            array_push($_tempBody, $pictureFrame);
+        }
+        if (isset($image)) {
+            array_push($_tempBody, $image);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermark(Requests\PostImageWatermarkRequest $request)
+    {
+        $this->createImageWatermark($request->name, $request->image, $request->pictureFrame, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkWithHttpInfo(Requests\PostImageWatermarkRequest $request)
+    {
+        return $this->createImageWatermarkWithHttpInfo($request->name, $request->image, $request->pictureFrame, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkAsync(Requests\PostImageWatermarkRequest $request)
+    {
+        return $this->createImageWatermarkAsync($request->name, $request->image, $request->pictureFrame, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkAsyncWithHttpInfo(Requests\PostImageWatermarkRequest $request)
+    {
+        return $this->createImageWatermarkAsyncWithHttpInfo($request->name, $request->image, $request->pictureFrame, $request->password, $request->folder, $request->storage);
+    }
+    /**
+     */
+    public function createImageWatermarkOnline( $document,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null)
+    {
+        try {
+            list($response) = $this->createImageWatermarkOnlineWithHttpInfo($document, $image, $pictureFrame, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->createImageWatermarkOnlineWithHttpInfo($document, $image, $pictureFrame, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function createImageWatermarkOnlineWithHttpInfo( $document,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->createImageWatermarkOnlineRequest($document, $image, $pictureFrame, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createImageWatermarkOnlineAsync( $document,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null)
+    {
+        return $this->createImageWatermarkOnlineAsyncWithHttpInfo($document, $image, $pictureFrame, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createImageWatermarkOnlineAsyncWithHttpInfo( $document,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->createImageWatermarkOnlineRequest($document, $image, $pictureFrame, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postImageWatermarkOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $$pictureFrame PictureFrame DTO. (optional)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createImageWatermarkOnlineRequest( $document,  $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, string $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postImageWatermarkOnline');
+        }
+
+        $resourcePath = '/slides/watermark/image';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($pictureFrame)) {
+            array_push($_tempBody, $pictureFrame);
+        }
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        if (isset($image)) {
+            array_push($_tempBody, $image);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkOnline(Requests\PostImageWatermarkOnlineRequest $request)
+    {
+        return $this->createImageWatermarkOnline($request->document, $request->image, $request->pictureFrame, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkOnlineWithHttpInfo(Requests\PostImageWatermarkOnlineRequest $request)
+    {
+        return $this->createImageWatermarkOnlineWithHttpInfo($request->document, $request->image, $request->pictureFrame, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkOnlineAsync(Requests\PostImageWatermarkOnlineRequest $request)
+    {
+        return $this->createImageWatermarkOnlineAsync($request->document, $request->image, $request->pictureFrame, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postImageWatermarkOnlineAsyncWithHttpInfo(Requests\PostImageWatermarkOnlineRequest $request)
+    {
+        return $this->createImageWatermarkOnlineAsyncWithHttpInfo($request->document, $request->image, $request->pictureFrame, $request->password);
     }
     /**
      */
@@ -21983,30 +22705,21 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/images/download';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
         }
 
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -22179,7 +22892,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -22201,23 +22913,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -22395,7 +23099,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($position !== null) {
@@ -22418,23 +23121,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -22603,7 +23298,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($shapeToClone !== null) {
@@ -22628,23 +23322,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -22818,7 +23504,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($scaleX !== null) {
@@ -22853,23 +23538,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -23031,7 +23708,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/merge';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -23047,23 +23723,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($request)) {
-            $_tempBody = $request;
+            array_push($_tempBody, $request);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -23226,7 +23894,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/replaceText';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($oldValue !== null) {
@@ -23245,23 +23912,15 @@ class SlidesApi extends ApiBase
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
         }
 
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -23424,7 +24083,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/split/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($width !== null) {
@@ -23456,23 +24114,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -23639,7 +24289,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($sectionName !== null) {
@@ -23663,11 +24312,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -23834,7 +24484,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections/{sectionIndex}/move';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($newPosition !== null) {
@@ -23855,11 +24504,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $sectionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -24033,7 +24683,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($scaleX !== null) {
@@ -24068,23 +24717,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -24251,7 +24892,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -24268,23 +24908,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($effect)) {
-            $_tempBody = $effect;
+            array_push($_tempBody, $effect);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -24451,7 +25083,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -24468,23 +25099,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($sequence)) {
-            $_tempBody = $sequence;
+            array_push($_tempBody, $sequence);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -24656,7 +25279,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -24674,23 +25296,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $sequenceIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($effect)) {
-            $_tempBody = $effect;
+            array_push($_tempBody, $effect);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -24858,7 +25472,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/replaceText';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($oldValue !== null) {
@@ -24878,23 +25491,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -25062,7 +25667,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($width !== null) {
@@ -25092,23 +25696,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -25267,7 +25863,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($layoutAlias !== null) {
@@ -25291,11 +25886,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -25454,7 +26050,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/convert/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storage !== null) {
@@ -25470,23 +26065,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -25652,7 +26239,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/copy';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($slideToCopy !== null) {
@@ -25688,11 +26274,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -25851,7 +26438,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -25871,23 +26457,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($data)) {
-            $_tempBody = $data;
+            array_push($_tempBody, $data);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26049,7 +26627,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/fromHtml';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -26065,23 +26642,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($html)) {
-            $_tempBody = $html;
+            array_push($_tempBody, $html);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26243,7 +26812,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/fromPdf';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -26259,23 +26827,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($pdf)) {
-            $_tempBody = $pdf;
+            array_push($_tempBody, $pdf);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26435,7 +26995,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/fromSource';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($sourcePath !== null) {
@@ -26463,11 +27022,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26633,7 +27193,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/fromTemplate';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($templatePath !== null) {
@@ -26665,23 +27224,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($data)) {
-            $_tempBody = $data;
+            array_push($_tempBody, $data);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26830,24 +27381,25 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/merge';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
         }
 
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($request)) {
-            $_tempBody = $request;
+            array_push($_tempBody, $request);
+        }
+        if (isset($files)) {
+            $_tempBody = array_merge($_tempBody, $files);
         }
         $this->headerSelector->selectHeadersForMultipart($headerParams, ['multipart/form-data']);
-        $httpBody = ObjectSerializer::toMultipart($_tempBody, $files);
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -26999,20 +27551,21 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/pipeline';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
 
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($pipeline)) {
-            $_tempBody = $pipeline;
+            array_push($_tempBody, $pipeline);
+        }
+        if (isset($files)) {
+            $_tempBody = array_merge($_tempBody, $files);
         }
         $this->headerSelector->selectHeadersForMultipart($headerParams, ['multipart/form-data']);
-        $httpBody = ObjectSerializer::toMultipart($_tempBody, $files);
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -27180,7 +27733,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/replaceText';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($oldValue !== null) {
@@ -27208,11 +27760,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -27379,7 +27932,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/move';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($newPosition !== null) {
@@ -27400,11 +27952,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -27563,7 +28116,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/reorder';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($oldPositions !== null) {
@@ -27587,11 +28139,12 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -27752,7 +28305,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -27773,23 +28325,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -27951,7 +28495,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -27967,23 +28510,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($properties)) {
-            $_tempBody = $properties;
+            array_push($_tempBody, $properties);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -28156,7 +28691,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/replaceText';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($oldValue !== null) {
@@ -28185,11 +28719,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -28354,7 +28889,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/split';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($format !== null) {
@@ -28398,23 +28932,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -28451,7 +28977,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadSubshape(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function downloadSubshape(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         try {
             list($response) = $this->downloadSubshapeWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -28465,7 +28991,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function downloadSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->downloadSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -28492,7 +29018,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadSubshapeAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function downloadSubshapeAsync(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         return $this->downloadSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder)
             ->then(function ($response) {
@@ -28502,7 +29028,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function downloadSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->downloadSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -28552,7 +29078,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Presentation name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Index of shape starting from 1 (required)
      * @param  string $$format Export picture format. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $$options export options (optional)
@@ -28567,7 +29093,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadSubshapeRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    protected function downloadSubshapeRequest(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -28576,6 +29102,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling postSubshapeSaveAs');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling postSubshapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -28589,7 +29119,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($scaleX !== null) {
@@ -28625,23 +29154,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
 
@@ -28675,6 +29196,534 @@ class SlidesApi extends ApiBase
     public function postSubshapeSaveAsAsyncWithHttpInfo(Requests\PostSubshapeSaveAsRequest $request)
     {
         return $this->downloadSubshapeAsyncWithHttpInfo($request->name, $request->slideIndex, $request->path, $request->shapeIndex, $request->format, $request->options, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->folder, $request->storage, $request->fontsFolder);
+    }
+    /**
+     */
+    public function createWatermark(string $name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        try {
+            $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
+        }
+        catch(RepeatRequestException $ex) {
+            $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
+        } 
+    }
+
+    /**
+     */
+    public function createWatermarkWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->createWatermarkRequest($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createWatermarkAsync(string $name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        return $this->createWatermarkAsyncWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createWatermarkAsyncWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->createWatermarkRequest($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postWatermark'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Shape $$shape Shape DTO (optional)
+     * @param  float $$fontHeight Watermark font height. (optional)
+     * @param  string $$text Watermark text. (optional)
+     * @param  string $$fontName Watermark font name. (optional)
+     * @param  string $$fontColor Watermark font color. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createWatermarkRequest(string $name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null, string $folder = null, string $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling postWatermark');
+        }
+
+        $resourcePath = '/slides/{name}/watermark';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($fontHeight !== null) {
+            $queryParams['fontHeight'] = ObjectSerializer::toQueryValue($fontHeight);
+        }
+        // query params
+        if ($text !== null) {
+            $queryParams['text'] = ObjectSerializer::toQueryValue($text);
+        }
+        // query params
+        if ($fontName !== null) {
+            $queryParams['fontName'] = ObjectSerializer::toQueryValue($fontName);
+        }
+        // query params
+        if ($fontColor !== null) {
+            $queryParams['fontColor'] = ObjectSerializer::toQueryValue($fontColor);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        if (isset($shape)) {
+            array_push($_tempBody, $shape);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermark(Requests\PostWatermarkRequest $request)
+    {
+        $this->createWatermark($request->name, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkWithHttpInfo(Requests\PostWatermarkRequest $request)
+    {
+        return $this->createWatermarkWithHttpInfo($request->name, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkAsync(Requests\PostWatermarkRequest $request)
+    {
+        return $this->createWatermarkAsync($request->name, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password, $request->folder, $request->storage);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkAsyncWithHttpInfo(Requests\PostWatermarkRequest $request)
+    {
+        return $this->createWatermarkAsyncWithHttpInfo($request->name, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password, $request->folder, $request->storage);
+    }
+    /**
+     */
+    public function deleteWatermarkOnline( $document, string $shapeName = null, string $password = null)
+    {
+        try {
+            list($response) = $this->deleteWatermarkOnlineWithHttpInfo($document, $shapeName, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteWatermarkOnlineWithHttpInfo($document, $shapeName, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteWatermarkOnlineWithHttpInfo( $document, string $shapeName = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteWatermarkOnlineRequest($document, $shapeName, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteWatermarkOnlineAsync( $document, string $shapeName = null, string $password = null)
+    {
+        return $this->deleteWatermarkOnlineAsyncWithHttpInfo($document, $shapeName, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteWatermarkOnlineAsyncWithHttpInfo( $document, string $shapeName = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteWatermarkOnlineRequest($document, $shapeName, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postWatermarkDeleteOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$shapeName Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used. (optional)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteWatermarkOnlineRequest( $document, string $shapeName = null, string $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postWatermarkDeleteOnline');
+        }
+
+        $resourcePath = '/slides/watermark/delete';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($shapeName !== null) {
+            $queryParams['shapeName'] = ObjectSerializer::toQueryValue($shapeName);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkDeleteOnline(Requests\PostWatermarkDeleteOnlineRequest $request)
+    {
+        return $this->deleteWatermarkOnline($request->document, $request->shapeName, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkDeleteOnlineWithHttpInfo(Requests\PostWatermarkDeleteOnlineRequest $request)
+    {
+        return $this->deleteWatermarkOnlineWithHttpInfo($request->document, $request->shapeName, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkDeleteOnlineAsync(Requests\PostWatermarkDeleteOnlineRequest $request)
+    {
+        return $this->deleteWatermarkOnlineAsync($request->document, $request->shapeName, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkDeleteOnlineAsyncWithHttpInfo(Requests\PostWatermarkDeleteOnlineRequest $request)
+    {
+        return $this->deleteWatermarkOnlineAsyncWithHttpInfo($request->document, $request->shapeName, $request->password);
+    }
+    /**
+     */
+    public function createWatermarkOnline( $document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null)
+    {
+        try {
+            list($response) = $this->createWatermarkOnlineWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->createWatermarkOnlineWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function createWatermarkOnlineWithHttpInfo( $document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->createWatermarkOnlineRequest($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createWatermarkOnlineAsync( $document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null)
+    {
+        return $this->createWatermarkOnlineAsyncWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createWatermarkOnlineAsyncWithHttpInfo( $document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->createWatermarkOnlineRequest($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'postWatermarkOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Shape $$shape Shape DTO (optional)
+     * @param  float $$fontHeight Watermark font height. (optional)
+     * @param  string $$text Watermark text. (optional)
+     * @param  string $$fontName Watermark font name. (optional)
+     * @param  string $$fontColor Watermark font color. (optional)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createWatermarkOnlineRequest( $document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, float $fontHeight = null, string $text = null, string $fontName = null, string $fontColor = null, string $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling postWatermarkOnline');
+        }
+
+        $resourcePath = '/slides/watermark';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($fontHeight !== null) {
+            $queryParams['fontHeight'] = ObjectSerializer::toQueryValue($fontHeight);
+        }
+        // query params
+        if ($text !== null) {
+            $queryParams['text'] = ObjectSerializer::toQueryValue($text);
+        }
+        // query params
+        if ($fontName !== null) {
+            $queryParams['fontName'] = ObjectSerializer::toQueryValue($fontName);
+        }
+        // query params
+        if ($fontColor !== null) {
+            $queryParams['fontColor'] = ObjectSerializer::toQueryValue($fontColor);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($shape)) {
+            array_push($_tempBody, $shape);
+        }
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkOnline(Requests\PostWatermarkOnlineRequest $request)
+    {
+        return $this->createWatermarkOnline($request->document, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkOnlineWithHttpInfo(Requests\PostWatermarkOnlineRequest $request)
+    {
+        return $this->createWatermarkOnlineWithHttpInfo($request->document, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkOnlineAsync(Requests\PostWatermarkOnlineRequest $request)
+    {
+        return $this->createWatermarkOnlineAsync($request->document, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function postWatermarkOnlineAsyncWithHttpInfo(Requests\PostWatermarkOnlineRequest $request)
+    {
+        return $this->createWatermarkOnlineAsyncWithHttpInfo($request->document, $request->shape, $request->fontHeight, $request->text, $request->fontName, $request->fontColor, $request->password);
     }
     /**
      */
@@ -28818,7 +29867,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -28837,23 +29885,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "categoryIndex", $categoryIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($category)) {
-            $_tempBody = $category;
+            array_push($_tempBody, $category);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -29035,7 +30075,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -29055,23 +30094,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $seriesIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "pointIndex", $pointIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dataPoint)) {
-            $_tempBody = $dataPoint;
+            array_push($_tempBody, $dataPoint);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -29248,7 +30279,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -29267,23 +30297,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "seriesIndex", $seriesIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($series)) {
-            $_tempBody = $series;
+            array_push($_tempBody, $series);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -29320,22 +30342,22 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function saveShapeOnline( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function saveShapeOnline( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         try {
-            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
         }
         catch(RepeatRequestException $ex) {
-            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
         } 
     }
 
     /**
      */
-    public function saveShapeOnlineWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function saveShapeOnlineWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '';
-        $httpRequest = $this->saveShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $outPath, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+        $httpRequest = $this->saveShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
         try {
             $response = $this->httpCall($httpRequest);
             return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -29349,9 +30371,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function saveShapeOnlineAsync( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function saveShapeOnlineAsync( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
-        return $this->saveShapeOnlineAsyncWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder)
+        return $this->saveShapeOnlineAsyncWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -29359,10 +30381,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function saveShapeOnlineAsyncWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    public function saveShapeOnlineAsyncWithHttpInfo( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '';
-        $httpRequest = $this->saveShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $outPath, $password, $storage, $scaleX, $scaleY, $bounds, $fontsFolder);
+        $httpRequest = $this->saveShapeOnlineRequest($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -29393,17 +30415,17 @@ class SlidesApi extends ApiBase
      * @param  int $$shapeIndex Index of shape starting from 1 (required)
      * @param  string $$format Export picture format. (required)
      * @param  string $$outPath Path to save result. (required)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$storage Document storage. (optional)
      * @param  float $$scaleX X scale ratio. (optional, default to 0.0)
      * @param  float $$scaleY Y scale ratio. (optional, default to 0.0)
      * @param  string $$bounds Shape thumbnail bounds type. (optional, default to 1)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Fonts folder. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saveShapeOnlineRequest( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, string $password = null, string $storage = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $fontsFolder = null)
+    protected function saveShapeOnlineRequest( $document, int $slideIndex, int $shapeIndex, string $format, string $outPath, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $storage = null, string $fontsFolder = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -29429,15 +30451,10 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
             $queryParams['outPath'] = ObjectSerializer::toQueryValue($outPath);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
         }
         // query params
         if ($scaleX !== null) {
@@ -29452,6 +30469,10 @@ class SlidesApi extends ApiBase
             $queryParams['bounds'] = ObjectSerializer::toQueryValue($bounds);
         }
         // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
         }
@@ -29463,23 +30484,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -29488,7 +30501,7 @@ class SlidesApi extends ApiBase
      */
     public function putExportShape(Requests\PutExportShapeRequest $request)
     {
-        $this->saveShapeOnline($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        $this->saveShapeOnline($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -29496,7 +30509,7 @@ class SlidesApi extends ApiBase
      */
     public function putExportShapeWithHttpInfo(Requests\PutExportShapeRequest $request)
     {
-        return $this->saveShapeOnlineWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->saveShapeOnlineWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -29504,7 +30517,7 @@ class SlidesApi extends ApiBase
      */
     public function putExportShapeAsync(Requests\PutExportShapeRequest $request)
     {
-        return $this->saveShapeOnlineAsync($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->saveShapeOnlineAsync($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
 
     /**
@@ -29512,7 +30525,7 @@ class SlidesApi extends ApiBase
      */
     public function putExportShapeAsyncWithHttpInfo(Requests\PutExportShapeRequest $request)
     {
-        return $this->saveShapeOnlineAsyncWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->password, $request->storage, $request->scaleX, $request->scaleY, $request->bounds, $request->fontsFolder);
+        return $this->saveShapeOnlineAsyncWithHttpInfo($request->document, $request->slideIndex, $request->shapeIndex, $request->format, $request->outPath, $request->scaleX, $request->scaleY, $request->bounds, $request->password, $request->storage, $request->fontsFolder);
     }
     /**
      */
@@ -29619,7 +30632,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/slides/{slideIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -29648,23 +30660,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -29831,7 +30835,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/layoutSlides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -29848,23 +30851,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($slideDto)) {
-            $_tempBody = $slideDto;
+            array_push($_tempBody, $slideDto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -30031,7 +31026,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -30048,23 +31042,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -30212,7 +31198,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -30251,23 +31236,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -30429,7 +31406,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/merge';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -30445,23 +31421,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($request)) {
-            $_tempBody = $request;
+            array_push($_tempBody, $request);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -30628,7 +31596,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/split/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($destFolder !== null) {
@@ -30664,23 +31631,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -30847,7 +31806,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections/{sectionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($sectionName !== null) {
@@ -30868,11 +31826,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sectionIndex", $sectionIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -31034,7 +31993,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/sections';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -31050,23 +32008,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($sections)) {
-            $_tempBody = $sections;
+            array_push($_tempBody, $sections);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -31248,7 +32198,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -31268,23 +32217,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -31461,7 +32402,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -31480,23 +32420,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -31533,7 +32465,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function updateSubshapePortion(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapePortion(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->updateSubshapePortionWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
@@ -31547,7 +32479,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapePortionWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->updateSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
@@ -31577,7 +32509,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapePortionAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapePortionAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->updateSubshapePortionAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage)
             ->then(function ($response) {
@@ -31587,7 +32519,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapePortionAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
         $httpRequest = $this->updateSubshapePortionRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
@@ -31637,7 +32569,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  int $$portionIndex Portion index. (required)
@@ -31649,7 +32581,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSubshapePortionRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
+    protected function updateSubshapePortionRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, int $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -31658,6 +32590,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSetSubshapeParagraphPortionProperties');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSetSubshapeParagraphPortionProperties');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -31679,7 +32615,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -31700,23 +32635,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -31753,7 +32680,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function updateSubshapeParagraph(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeParagraph(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->updateSubshapeParagraphWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage);
@@ -31767,7 +32694,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeParagraphWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->updateSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage);
@@ -31797,7 +32724,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeParagraphAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeParagraphAsync(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->updateSubshapeParagraphAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage)
             ->then(function ($response) {
@@ -31807,7 +32734,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeParagraphAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
         $httpRequest = $this->updateSubshapeParagraphRequest($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage);
@@ -31857,7 +32784,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $$dto Paragraph DTO. (required)
@@ -31868,7 +32795,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSubshapeParagraphRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
+    protected function updateSubshapeParagraphRequest(string $name, int $slideIndex, string $path, int $shapeIndex, int $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -31877,6 +32804,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSetSubshapeParagraphProperties');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSetSubshapeParagraphProperties');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -31894,7 +32825,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -31914,23 +32844,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -32078,7 +33000,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -32117,23 +33038,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -32300,7 +33213,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -32317,23 +33229,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($animation)) {
-            $_tempBody = $animation;
+            array_push($_tempBody, $animation);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -32505,7 +33409,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -32523,23 +33426,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $effectIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($effect)) {
-            $_tempBody = $effect;
+            array_push($_tempBody, $effect);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -32716,7 +33611,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -32735,23 +33629,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "sequenceIndex", $sequenceIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "effectIndex", $effectIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($effect)) {
-            $_tempBody = $effect;
+            array_push($_tempBody, $effect);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -32918,7 +33804,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/headerFooter';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -32935,23 +33820,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -33093,7 +33970,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -33127,23 +34003,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -33315,7 +34183,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -33333,23 +34200,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -33386,7 +34245,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function updateSubshape(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshape(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
     {
         try {
             list($response) = $this->updateSubshapeWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $dto, $password, $folder, $storage);
@@ -33400,7 +34259,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->updateSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $dto, $password, $folder, $storage);
@@ -33430,7 +34289,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeAsync(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
     {
         return $this->updateSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $dto, $password, $folder, $storage)
             ->then(function ($response) {
@@ -33440,7 +34299,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
+    public function updateSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->updateSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $dto, $password, $folder, $storage);
@@ -33490,7 +34349,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path. (optional)
+     * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $$dto Shape DTO. (required)
      * @param  string $$password Document password. (optional)
@@ -33500,7 +34359,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSubshapeRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
+    protected function updateSubshapeRequest(string $name, int $slideIndex, string $path, int $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -33509,6 +34368,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSlideSubshapeInfo');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSlideSubshapeInfo');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -33522,7 +34385,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -33541,23 +34403,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -33690,7 +34544,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/convert/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -33710,23 +34563,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($document)) {
-            $_tempBody = $document;
+            array_push($_tempBody, $document);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -33760,172 +34605,6 @@ class SlidesApi extends ApiBase
     public function putSlidesConvertAsyncWithHttpInfo(Requests\PutSlidesConvertRequest $request)
     {
         return $this->convertAndSaveAsyncWithHttpInfo($request->document, $request->format, $request->outPath, $request->password, $request->storage, $request->fontsFolder);
-    }
-    /**
-     */
-    public function putSlidesDocumentFromHtml($name = null, string $html = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        try {
-            list($response) = $this->putSlidesDocumentFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->putSlidesDocumentFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
-            return $response;
-        } 
-    }
-
-    /**
-     */
-    public function putSlidesDocumentFromHtmlWithHttpInfo($name = null, string $html = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->putSlidesDocumentFromHtmlRequest($name, $html, $password, $folder, $storage);
-        try {
-            $response = $this->httpCall($httpRequest);
-            $responseBody = $response->getBody();
-            $content = $responseBody->getContents();
-            if ($returnType !== 'string') {
-                $content = json_decode($content);
-            }
-            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
-            if ($this->config->getDebug()) {
-                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
-            }
-            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default: $this->handleApiException($e);
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     */
-    public function putSlidesDocumentFromHtmlAsync($name = null, string $html = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        return $this->putSlidesDocumentFromHtmlAsyncWithHttpInfo($name, $html, $password, $folder, $storage)
-            ->then(function ($response) {
-                return $response[0];
-            });
-    }
-
-    /**
-     */
-    public function putSlidesDocumentFromHtmlAsyncWithHttpInfo($name = null, string $html = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->putSlidesDocumentFromHtmlRequest($name, $html, $password, $folder, $storage);
-
-        return $this->client
-            ->sendAsync($httpRequest, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    if ($this->config->getDebug()) {
-                        $this->writeResponseLog(
-                            $response->getStatusCode(),
-                            $response->getHeaders(),
-                            ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody());
-                });
-    }
-
-    /**
-     * Create request for operation 'putSlidesDocumentFromHtml'
-     *
-     * @param  string $$name Document name. (required)
-     * @param  string $$html HTML data. (optional)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$folder Document folder. (optional)
-     * @param  string $$storage Document storage. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putSlidesDocumentFromHtmlRequest($name = null, string $html = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        if (is_a($name, '\Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlidesDocumentFromHtmlRequest')) {
-            $requestObject = $name;
-            $name = $requestObject->name;
-            $html = $requestObject->html;
-            $password = $requestObject->password;
-            $folder = $requestObject->folder;
-            $storage = $requestObject->storage;
-        }
-        // verify the required parameter 'name' is set
-        if ($name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesDocumentFromHtml');
-        }
-
-        $resourcePath = '/slides/{name}/fromHtml';
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-
-        // query params
-        if ($folder !== null) {
-            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
-        }
-        // header params
-        if ($password !== null) {
-            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
-        }
-
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
-        if (isset($html)) {
-            $_tempBody = $html;
-        }
-        $this->headerSelector->selectHeaders(
-            $headerParams,
-            ['application/json'],
-            ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -34054,7 +34733,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/headerFooter';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -34070,23 +34748,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -34210,7 +34880,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/merge';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -34225,17 +34894,19 @@ class SlidesApi extends ApiBase
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
         }
 
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($request)) {
-            $_tempBody = $request;
+            array_push($_tempBody, $request);
+        }
+        if (isset($files)) {
+            $_tempBody = array_merge($_tempBody, $files);
         }
         $this->headerSelector->selectHeadersForMultipart($headerParams, ['application/json']);
-        $httpBody = ObjectSerializer::toMultipart($_tempBody, $files);
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -34272,24 +34943,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function setProtectionProperties(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
+    public function setProtection(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
     {
         try {
-            list($response) = $this->setProtectionPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
+            list($response) = $this->setProtectionWithHttpInfo($name, $dto, $password, $folder, $storage);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->setProtectionPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
+            list($response) = $this->setProtectionWithHttpInfo($name, $dto, $password, $folder, $storage);
             return $response;
         } 
     }
 
     /**
      */
-    public function setProtectionPropertiesWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
+    public function setProtectionWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
-        $httpRequest = $this->setProtectionPropertiesRequest($name, $dto, $password, $folder, $storage);
+        $httpRequest = $this->setProtectionRequest($name, $dto, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -34316,9 +34987,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function setProtectionPropertiesAsync(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
+    public function setProtectionAsync(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
     {
-        return $this->setProtectionPropertiesAsyncWithHttpInfo($name, $dto, $password, $folder, $storage)
+        return $this->setProtectionAsyncWithHttpInfo($name, $dto, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -34326,10 +34997,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function setProtectionPropertiesAsyncWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
+    public function setProtectionAsyncWithHttpInfo(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties';
-        $httpRequest = $this->setProtectionPropertiesRequest($name, $dto, $password, $folder, $storage);
+        $httpRequest = $this->setProtectionRequest($name, $dto, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -34375,7 +35046,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'putSlidesProtectionProperties'
      *
      * @param  string $$name Document name. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $$dto The view properties data. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $$dto Protection properties. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -34383,7 +35054,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function setProtectionPropertiesRequest(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
+    protected function setProtectionRequest(string $name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null, string $folder = null, string $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -34394,10 +35065,9 @@ class SlidesApi extends ApiBase
             throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesProtectionProperties');
         }
 
-        $resourcePath = '/slides/{name}/protectionProperties';
+        $resourcePath = '/slides/{name}/protection';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -34413,23 +35083,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -34438,7 +35100,7 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesProtectionProperties(Requests\PutSlidesProtectionPropertiesRequest $request)
     {
-        return $this->setProtectionProperties($request->name, $request->dto, $request->password, $request->folder, $request->storage);
+        return $this->setProtection($request->name, $request->dto, $request->password, $request->folder, $request->storage);
     }
 
     /**
@@ -34446,7 +35108,7 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesProtectionPropertiesWithHttpInfo(Requests\PutSlidesProtectionPropertiesRequest $request)
     {
-        return $this->setProtectionPropertiesWithHttpInfo($request->name, $request->dto, $request->password, $request->folder, $request->storage);
+        return $this->setProtectionWithHttpInfo($request->name, $request->dto, $request->password, $request->folder, $request->storage);
     }
 
     /**
@@ -34454,7 +35116,7 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesProtectionPropertiesAsync(Requests\PutSlidesProtectionPropertiesRequest $request)
     {
-        return $this->setProtectionPropertiesAsync($request->name, $request->dto, $request->password, $request->folder, $request->storage);
+        return $this->setProtectionAsync($request->name, $request->dto, $request->password, $request->folder, $request->storage);
     }
 
     /**
@@ -34462,7 +35124,181 @@ class SlidesApi extends ApiBase
      */
     public function putSlidesProtectionPropertiesAsyncWithHttpInfo(Requests\PutSlidesProtectionPropertiesRequest $request)
     {
-        return $this->setProtectionPropertiesAsyncWithHttpInfo($request->name, $request->dto, $request->password, $request->folder, $request->storage);
+        return $this->setProtectionAsyncWithHttpInfo($request->name, $request->dto, $request->password, $request->folder, $request->storage);
+    }
+    /**
+     */
+    public function setProtectionOnline( $document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null)
+    {
+        try {
+            list($response) = $this->setProtectionOnlineWithHttpInfo($document, $dto, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->setProtectionOnlineWithHttpInfo($document, $dto, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function setProtectionOnlineWithHttpInfo( $document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->setProtectionOnlineRequest($document, $dto, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function setProtectionOnlineAsync( $document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null)
+    {
+        return $this->setProtectionOnlineAsyncWithHttpInfo($document, $dto, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function setProtectionOnlineAsyncWithHttpInfo( $document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->setProtectionOnlineRequest($document, $dto, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'putSlidesProtectionPropertiesOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $$dto Protection properties. (required)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setProtectionOnlineRequest( $document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, string $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling putSlidesProtectionPropertiesOnline');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling putSlidesProtectionPropertiesOnline');
+        }
+
+        $resourcePath = '/slides/protection';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+
+    /**
+     * @deprecated
+     */
+    public function putSlidesProtectionPropertiesOnline(Requests\PutSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->setProtectionOnline($request->document, $request->dto, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function putSlidesProtectionPropertiesOnlineWithHttpInfo(Requests\PutSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->setProtectionOnlineWithHttpInfo($request->document, $request->dto, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function putSlidesProtectionPropertiesOnlineAsync(Requests\PutSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->setProtectionOnlineAsync($request->document, $request->dto, $request->password);
+    }
+
+    /**
+     * @deprecated
+     */
+    public function putSlidesProtectionPropertiesOnlineAsyncWithHttpInfo(Requests\PutSlidesProtectionPropertiesOnlineRequest $request)
+    {
+        return $this->setProtectionOnlineAsyncWithHttpInfo($request->document, $request->dto, $request->password);
     }
     /**
      */
@@ -34564,7 +35400,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -34589,23 +35424,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -34772,7 +35599,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/documentproperties/{propertyName}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -34789,23 +35615,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "propertyName", $propertyName);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($property)) {
-            $_tempBody = $property;
+            array_push($_tempBody, $property);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -34972,7 +35790,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -34989,23 +35806,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($slideDto)) {
-            $_tempBody = $slideDto;
+            array_push($_tempBody, $slideDto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -35172,7 +35981,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/background';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -35189,23 +35997,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($background)) {
-            $_tempBody = $background;
+            array_push($_tempBody, $background);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -35372,7 +36172,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/backgroundColor';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($color !== null) {
@@ -35393,11 +36192,12 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -35559,7 +36359,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slideProperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -35575,23 +36374,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -35625,182 +36416,6 @@ class SlidesApi extends ApiBase
     public function putSlidesSlidePropertiesAsyncWithHttpInfo(Requests\PutSlidesSlidePropertiesRequest $request)
     {
         return $this->setSlidePropertiesAsyncWithHttpInfo($request->name, $request->dto, $request->password, $request->folder, $request->storage);
-    }
-    /**
-     */
-    public function putSlidesSlideSize($name = null, int $width = null, int $height = null, string $sizeType = null, string $scaleType = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        try {
-            list($response) = $this->putSlidesSlideSizeWithHttpInfo($name, $width, $height, $sizeType, $scaleType, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->putSlidesSlideSizeWithHttpInfo($name, $width, $height, $sizeType, $scaleType, $password, $folder, $storage);
-            return $response;
-        } 
-    }
-
-    /**
-     */
-    public function putSlidesSlideSizeWithHttpInfo($name = null, int $width = null, int $height = null, string $sizeType = null, string $scaleType = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->putSlidesSlideSizeRequest($name, $width, $height, $sizeType, $scaleType, $password, $folder, $storage);
-        try {
-            $response = $this->httpCall($httpRequest);
-            $responseBody = $response->getBody();
-            $content = $responseBody->getContents();
-            if ($returnType !== 'string') {
-                $content = json_decode($content);
-            }
-            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
-            if ($this->config->getDebug()) {
-                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
-            }
-            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default: $this->handleApiException($e);
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     */
-    public function putSlidesSlideSizeAsync($name = null, int $width = null, int $height = null, string $sizeType = null, string $scaleType = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        return $this->putSlidesSlideSizeAsyncWithHttpInfo($name, $width, $height, $sizeType, $scaleType, $password, $folder, $storage)
-            ->then(function ($response) {
-                return $response[0];
-            });
-    }
-
-    /**
-     */
-    public function putSlidesSlideSizeAsyncWithHttpInfo($name = null, int $width = null, int $height = null, string $sizeType = null, string $scaleType = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->putSlidesSlideSizeRequest($name, $width, $height, $sizeType, $scaleType, $password, $folder, $storage);
-
-        return $this->client
-            ->sendAsync($httpRequest, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    if ($this->config->getDebug()) {
-                        $this->writeResponseLog(
-                            $response->getStatusCode(),
-                            $response->getHeaders(),
-                            ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody());
-                });
-    }
-
-    /**
-     * Create request for operation 'putSlidesSlideSize'
-     *
-     * @param  string $$name Document name. (required)
-     * @param  int $$width Slide width. (optional, default to 0)
-     * @param  int $$height Slide height. (optional, default to 0)
-     * @param  string $$sizeType Standard slide size type. (optional)
-     * @param  string $$scaleType Standard slide scale type. (optional, default to 0)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$folder Document folder. (optional)
-     * @param  string $$storage Document storage. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function putSlidesSlideSizeRequest($name = null, int $width = null, int $height = null, string $sizeType = null, string $scaleType = null, string $password = null, string $folder = null, string $storage = null)
-    {
-        if (is_a($name, '\Aspose\Slides\Cloud\Sdk\Model\Requests\PutSlidesSlideSizeRequest')) {
-            $requestObject = $name;
-            $name = $requestObject->name;
-            $width = $requestObject->width;
-            $height = $requestObject->height;
-            $sizeType = $requestObject->sizeType;
-            $scaleType = $requestObject->scaleType;
-            $password = $requestObject->password;
-            $folder = $requestObject->folder;
-            $storage = $requestObject->storage;
-        }
-        // verify the required parameter 'name' is set
-        if ($name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $name when calling putSlidesSlideSize');
-        }
-
-        $resourcePath = '/slides/{name}/slideSize';
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-
-        // query params
-        if ($width !== null) {
-            $queryParams['width'] = ObjectSerializer::toQueryValue($width);
-        }
-        // query params
-        if ($height !== null) {
-            $queryParams['height'] = ObjectSerializer::toQueryValue($height);
-        }
-        // query params
-        if ($sizeType !== null) {
-            $queryParams['sizeType'] = ObjectSerializer::toQueryValue($sizeType);
-        }
-        // query params
-        if ($scaleType !== null) {
-            $queryParams['scaleType'] = ObjectSerializer::toQueryValue($scaleType);
-        }
-        // query params
-        if ($folder !== null) {
-            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
-        }
-        // header params
-        if ($password !== null) {
-            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
-        }
-
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $this->headerSelector->selectHeaders(
-            $headerParams,
-            ['application/json'],
-            ['application/json']);
-
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
@@ -35929,7 +36544,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/viewProperties';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -35945,23 +36559,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -35998,7 +36604,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function saveSubshape(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function saveSubshape(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         try {
             $this->saveSubshapeWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -36010,7 +36616,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function saveSubshapeWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function saveSubshapeWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '';
         $httpRequest = $this->saveSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -36027,7 +36633,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function saveSubshapeAsync(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function saveSubshapeAsync(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         return $this->saveSubshapeAsyncWithHttpInfo($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder)
             ->then(function ($response) {
@@ -36037,7 +36643,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function saveSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    public function saveSubshapeAsyncWithHttpInfo(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         $returnType = '';
         $httpRequest = $this->saveSubshapeRequest($name, $slideIndex, $path, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder);
@@ -36068,7 +36674,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Presentation name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  string $$path Shape path (for smart art and group shapes). (optional)
+     * @param  string $$path Shape path (for smart art and group shapes). (required)
      * @param  int $$shapeIndex Index of shape starting from 1 (required)
      * @param  string $$format Export picture format. (required)
      * @param  string $$outPath Output path. (required)
@@ -36084,7 +36690,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saveSubshapeRequest(string $name, int $slideIndex, string $path = null, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
+    protected function saveSubshapeRequest(string $name, int $slideIndex, string $path, int $shapeIndex, string $format, string $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, float $scaleX = null, float $scaleY = null, string $bounds = null, string $password = null, string $folder = null, string $storage = null, string $fontsFolder = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -36093,6 +36699,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling putSubshapeSaveAs');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling putSubshapeSaveAs');
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -36110,7 +36720,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($outPath !== null) {
@@ -36150,23 +36759,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($options)) {
-            $_tempBody = $options;
+            array_push($_tempBody, $options);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -36333,7 +36934,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -36350,23 +36950,15 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -36538,7 +37130,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -36556,23 +37147,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -36749,7 +37332,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -36768,23 +37350,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -36966,7 +37540,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($folder !== null) {
@@ -36986,23 +37559,15 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($dto)) {
-            $_tempBody = $dto;
+            array_push($_tempBody, $dto);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 
@@ -37160,15 +37725,15 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/{storageName}/exist';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "storageName", $storageName);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['application/json']);
-
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
     }
     /**
@@ -37275,7 +37840,7 @@ class SlidesApi extends ApiBase
     /**
      * Create request for operation 'uploadFile'
      *
-     * @param  string $$path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. (optional)
+     * @param  string $$path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header. (required)
      * @param  \SplFileObject $$file File to upload (required)
      * @param  string $$storageName Storage name (optional)
      *
@@ -37290,6 +37855,10 @@ class SlidesApi extends ApiBase
             $file = $requestObject->file;
             $storageName = $requestObject->storageName;
         }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling uploadFile');
+        }
         // verify the required parameter 'file' is set
         if ($file === null) {
             throw new \InvalidArgumentException('Missing the required parameter $file when calling uploadFile');
@@ -37298,7 +37867,6 @@ class SlidesApi extends ApiBase
         $resourcePath = '/slides/storage/file/{path}';
         $queryParams = [];
         $headerParams = [];
-        $httpBody = '';
 
         // query params
         if ($storageName !== null) {
@@ -37306,23 +37874,15 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
-        $_tempBody = null;
+        $_tempBody = [];
         if (isset($file)) {
-            $_tempBody = $file;
+            array_push($_tempBody, $file);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
             ['multipart/form-data']);
-
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        }
+        $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 }

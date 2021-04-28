@@ -54,13 +54,19 @@ class ImageTest extends TestBase
         Assert::assertTrue($images->isFile());
         Assert::assertTrue($imagesPng->isFile());
         Assert::assertNotEquals($images->getSize(), $imagesPng->getSize());
-        /*$zip = new ZipArchive();
-        $zipPng = new ZipArchive();
-        $zip->open($images);
-        $zipPng->open($imagesPng);
-        Assert::assertEquals($zip->$numFiles, $zipPng->$numFiles);
-        $zipPng->close();
-        $zip->close();*/
+        $zip = zip_open($images->getPathname());
+        $zipCount = 0;
+        while ($zipFile = zip_read($zip)) {
+            $zipCount++;
+        }
+        $zipPng = zip_open($imagesPng->getPathname());
+        $zipPngCount = 0;
+        while ($zipPngFile = zip_read($zipPng)) {
+            $zipPngCount++;
+        }
+        Assert::assertEquals($zipCount, $zipPngCount);
+        zip_close($zipPng);
+        zip_close($zip);
     }
 
     public function testImagesDownloadRequest()
@@ -70,13 +76,19 @@ class ImageTest extends TestBase
         Assert::assertTrue($images->isFile());
         Assert::assertTrue($imagesPng->isFile());
         Assert::assertNotEquals($images->getSize(), $imagesPng->getSize());
-        /*$zip = new ZipArchive();
-        $zipPng = new ZipArchive();
-        $zip->open($images);
-        $zipPng->open($imagesPng);
-        Assert::assertEquals($zip->$numFiles, $zipPng->$numFiles);
-        $zipPng->close();
-        $zip->close();*/
+        $zip = zip_open($images->getPathname());
+        $zipCount = 0;
+        while ($zipFile = zip_read($zip)) {
+            $zipCount++;
+        }
+        $zipPng = zip_open($imagesPng->getPathname());
+        $zipPngCount = 0;
+        while ($zipPngFile = zip_read($zipPng)) {
+            $zipPngCount++;
+        }
+        Assert::assertEquals($zipCount, $zipPngCount);
+        zip_close($zipPng);
+        zip_close($zip);
     }
 
     public function testImageDownloadStorage()

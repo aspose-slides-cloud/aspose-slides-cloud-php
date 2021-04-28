@@ -27,40 +27,64 @@
  */
 
 
-namespace Aspose\Slides\Cloud\Sdk\Model;
-
-use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
-
-/**
- * ScaleType Class Doc Comment
- *
- * @category Class
- * @description Scale type of slide content.
- * @package  Aspose\Slides\Cloud\Sdk
- * @author   Swagger Codegen team
- * @link     https://github.com/swagger-api/swagger-codegen
+namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
+/*
+ * Request model for deleteSlidesProtectionPropertiesOnline operation.
  */
-class ScaleType
+class DeleteSlidesProtectionPropertiesOnlineRequest
 {
-    /**
-     * Possible values of this enum
+    /*
+     * Document data.
      */
-    const DO_NOT_SCALE = 'DoNotScale';
-    const ENSURE_FIT = 'EnsureFit';
-    const MAXIMIZE = 'Maximize';
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
+    public $document;
+
+    /*
+     * Presentation password.
      */
-    public static function getAllowableEnumValues()
+    public $password;
+
+    /*
+     * Initializes a new instance of the DeleteSlidesProtectionPropertiesOnlineRequest class.
+     *  
+     * @param \SplFileObject $document Document data.
+     * @param string $password Presentation password.
+     */
+    public function __construct($document, $password)
     {
-        return [
-            self::DO_NOT_SCALE,
-            self::ENSURE_FIT,
-            self::MAXIMIZE,
-        ];
+        $this->document = $document;
+        $this->password = $password;
+    }
+
+    /*
+     * Document data.
+     */
+    public function get_document()
+    {
+        return $this->document;
+    }
+
+    /*
+     * Document data.
+     */
+    public function set_document($value)
+    {
+        $this->document = $value;
+        return $this;
+    }
+    /*
+     * Presentation password.
+     */
+    public function get_password()
+    {
+        return $this->password;
+    }
+
+    /*
+     * Presentation password.
+     */
+    public function set_password($value)
+    {
+        $this->password = $value;
+        return $this;
     }
 }
-
-

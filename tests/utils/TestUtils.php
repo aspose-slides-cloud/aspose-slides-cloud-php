@@ -57,11 +57,14 @@ class TestUtils
         return [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/test-unprotected.pptx", 'r') ];
     }
 
-    public static function getStreamValue($functionName)
+    public static function getStreamValue($functionName, $name)
     {
         $filePath = self::getFilePath();
         if (strcasecmp($functionName, "postSlidesDocumentFromPdf") == 0) {
             $filePath = realpath(__DIR__.'/../..').'/TestData/test.pdf';
+        }
+        if (strcasecmp($name, "image") == 0) {
+            $filePath = realpath(__DIR__.'/../..').'/TestData/watermark.png';
         }
         return fopen($filePath, 'r');
     }

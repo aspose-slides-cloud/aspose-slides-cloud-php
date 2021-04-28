@@ -125,13 +125,13 @@ class ConvertTest extends TestBase
 
     public function testConvertShapePostFromRequest()
     {
-        $result = $this->getApi()->downloadShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, self::password);
+        $result = $this->getApi()->downloadShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, null, null, null, self::password);
         Assert::assertTrue($result->isFile());
     }
 
     public function testConvertShapePutFromRequest()
     {
-        $this->getApi()->saveShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, self::outPath, self::password);
+        $this->getApi()->saveShapeOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::shapeIndex, self::shapeFormat, self::outPath, null, null, null, self::password);
         $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }

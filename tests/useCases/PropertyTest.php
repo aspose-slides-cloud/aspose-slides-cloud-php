@@ -144,7 +144,7 @@ class PropertyTest extends TestBase
         Assert::assertEquals($dto->getHeight(), $result->getHeight());
     }
 
-    public function testProtectionProperties()
+    public function testProtection()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
@@ -152,9 +152,36 @@ class PropertyTest extends TestBase
         $getResult = $this->getApi()->getProtectionProperties(self::fileName, self::password, self::folderName);
         $dto = new ProtectionProperties();
         $dto->setReadOnlyRecommended(!$getResult->getReadOnlyRecommended());
-        $putResult = $this->getApi()->setProtectionProperties(self::fileName, $dto, self::password, self::folderName);
+        $putResult = $this->getApi()->setProtection(self::fileName, $dto, self::password, self::folderName);
         Assert::assertNotEquals($getResult->getReadOnlyRecommended(), $putResult->getReadOnlyRecommended());
         Assert::assertEquals($getResult->getEncryptDocumentProperties(), $putResult->getEncryptDocumentProperties());
+    }
+
+    public function testDeleteProtection()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result = $this->getApi()->deleteProtection(self::fileName, self::password, self::folderName);
+        Assert::assertFalse($result->getReadOnlyRecommended());
+        Assert::assertFalse($result->getIsEncrypted());
+        Assert::assertNull($result->getReadPassword());
+    }
+
+    public function testProtectOnline()
+    {
+        $file = fopen("TestData/".self::fileName, 'r');
+        $dto = new ProtectionProperties();
+        $dto->setReadPassword("newPassword");
+        $result = $this->getApi()->setProtectionOnline($file, $dto, self::password);
+        Assert::assertNotEquals(filesize("TestData/".self::fileName), $result->getSize());
+    }
+
+    public function testUnprotectOnline()
+    {
+        $file = fopen("TestData/".self::fileName, 'r');
+        $result = $this->getApi()->deleteProtectionOnline($file, self::password);
+        Assert::assertNotEquals(filesize("TestData/".self::fileName), $result->getSize());
     }
 
     public const folderName = "TempSlidesSDK";

@@ -97,7 +97,7 @@ class PostAddNewSubshapePortionRequest
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $slideIndex, $path = null, $shapeIndex, $paragraphIndex, $dto, $position = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $slideIndex, $path, $shapeIndex, $paragraphIndex, $dto, $position = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
         $this->slideIndex = $slideIndex;

@@ -55,7 +55,7 @@ class DeleteFolderRequest
      * @param string $storageName Storage name
      * @param bool $recursive Enable to delete folders, subfolders and files
      */
-    public function __construct($path = null, $storageName = null, $recursive = null)
+    public function __construct($path, $storageName = null, $recursive = null)
     {
         $this->path = $path;
         $this->storageName = $storageName;

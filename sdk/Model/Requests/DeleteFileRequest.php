@@ -55,7 +55,7 @@ class DeleteFileRequest
      * @param string $storageName Storage name
      * @param string $versionId File version ID to delete
      */
-    public function __construct($path = null, $storageName = null, $versionId = null)
+    public function __construct($path, $storageName = null, $versionId = null)
     {
         $this->path = $path;
         $this->storageName = $storageName;

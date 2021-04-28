@@ -29,19 +29,19 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlidesDocumentFromHtml operation.
+ * Request model for putSlidesProtectionPropertiesOnline operation.
  */
-class PutSlidesDocumentFromHtmlRequest
+class PutSlidesProtectionPropertiesOnlineRequest
 {
     /*
-     * Document name.
+     * Document data.
      */
-    public $name;
+    public $document;
 
     /*
-     * HTML data.
+     * Protection properties.
      */
-    public $html;
+    public $dto;
 
     /*
      * Document password.
@@ -49,63 +49,49 @@ class PutSlidesDocumentFromHtmlRequest
     public $password;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
-     * Initializes a new instance of the PutSlidesDocumentFromHtmlRequest class.
+     * Initializes a new instance of the PutSlidesProtectionPropertiesOnlineRequest class.
      *  
-     * @param string $name Document name.
-     * @param string $html HTML data.
+     * @param \SplFileObject $document Document data.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto Protection properties.
      * @param string $password Document password.
-     * @param string $folder Document folder.
-     * @param string $storage Document storage.
      */
-    public function __construct($name, $html = null, $password = null, $folder = null, $storage = null)
+    public function __construct($document, $dto, $password = null)
     {
-        $this->name = $name;
-        $this->html = $html;
+        $this->document = $document;
+        $this->dto = $dto;
         $this->password = $password;
-        $this->folder = $folder;
-        $this->storage = $storage;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function get_name()
+    public function get_document()
     {
-        return $this->name;
+        return $this->document;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function set_name($value)
+    public function set_document($value)
     {
-        $this->name = $value;
+        $this->document = $value;
         return $this;
     }
     /*
-     * HTML data.
+     * Protection properties.
      */
-    public function get_html()
+    public function get_dto()
     {
-        return $this->html;
+        return $this->dto;
     }
 
     /*
-     * HTML data.
+     * Protection properties.
      */
-    public function set_html($value)
+    public function set_dto($value)
     {
-        $this->html = $value;
+        $this->dto = $value;
         return $this;
     }
     /*
@@ -122,38 +108,6 @@ class PutSlidesDocumentFromHtmlRequest
     public function set_password($value)
     {
         $this->password = $value;
-        return $this;
-    }
-    /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
         return $this;
     }
 }

@@ -24,6 +24,10 @@ This repository contains Aspose.Slides Cloud SDK for PHP source code. This SDK a
 **Web:** HTML
 **Other:** SWF (export whole presentations)
 
+## Enhancements in Version 21.4
+* New **CreateWatermark**, **CreateWatermarkOnline**, **CreateImageWatermark**, **CreateImageWatermarkOnline**, **DeleteWatermark** and **DeleteWatermarkOnline** methods to add or delete and remove watermark in presentations.
+* New **SetProtection**, **DeleteProtection**, **SetProtectionOnline** and **DeleteProtectionOnline** methods to set or clear presentation protection properties like read/write password, readonly flag.
+
 ## Enhancements in Version 21.3
 * New **MergeOnline** and **MergeAndSaveOnline** methods to merge presentations from multipart request body.
 * New **SplitOnline** and **SplitAndSaveOnline** methods to split presentation from request body.
@@ -65,7 +69,6 @@ The example code below converts a PowerPoint document to PDF format using slides
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
-use Aspose\Slides\Cloud\Sdk\Model\Requests\PostSlidesConvertRequest;
 
 $config = new Configuration();
 $config->setAppSid("MyClientId");

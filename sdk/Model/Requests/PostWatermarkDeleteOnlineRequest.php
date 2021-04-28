@@ -29,14 +29,19 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for getSlidesDocument operation.
+ * Request model for postWatermarkDeleteOnline operation.
  */
-class GetSlidesDocumentRequest
+class PostWatermarkDeleteOnlineRequest
 {
     /*
-     * Document name.
+     * Document data.
      */
-    public $name;
+    public $document;
+
+    /*
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
+     */
+    public $shapeName;
 
     /*
      * Document password.
@@ -44,45 +49,49 @@ class GetSlidesDocumentRequest
     public $password;
 
     /*
-     * Document folder.
-     */
-    public $folder;
-
-    /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
-     * Initializes a new instance of the GetSlidesDocumentRequest class.
+     * Initializes a new instance of the PostWatermarkDeleteOnlineRequest class.
      *  
-     * @param string $name Document name.
+     * @param \SplFileObject $document Document data.
+     * @param string $shapeName Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
      * @param string $password Document password.
-     * @param string $folder Document folder.
-     * @param string $storage Document storage.
      */
-    public function __construct($name, $password = null, $folder = null, $storage = null)
+    public function __construct($document, $shapeName = null, $password = null)
     {
-        $this->name = $name;
+        $this->document = $document;
+        $this->shapeName = $shapeName;
         $this->password = $password;
-        $this->folder = $folder;
-        $this->storage = $storage;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function get_name()
+    public function get_document()
     {
-        return $this->name;
+        return $this->document;
     }
 
     /*
-     * Document name.
+     * Document data.
      */
-    public function set_name($value)
+    public function set_document($value)
     {
-        $this->name = $value;
+        $this->document = $value;
+        return $this;
+    }
+    /*
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
+     */
+    public function get_shapeName()
+    {
+        return $this->shapeName;
+    }
+
+    /*
+     * Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
+     */
+    public function set_shapeName($value)
+    {
+        $this->shapeName = $value;
         return $this;
     }
     /*
@@ -99,38 +108,6 @@ class GetSlidesDocumentRequest
     public function set_password($value)
     {
         $this->password = $value;
-        return $this;
-    }
-    /*
-     * Document folder.
-     */
-    public function get_folder()
-    {
-        return $this->folder;
-    }
-
-    /*
-     * Document folder.
-     */
-    public function set_folder($value)
-    {
-        $this->folder = $value;
-        return $this;
-    }
-    /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
         return $this;
     }
 }

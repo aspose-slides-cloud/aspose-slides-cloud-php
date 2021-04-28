@@ -29,9 +29,9 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model\Requests;
 /*
- * Request model for putSlidesSlideSize operation.
+ * Request model for postWatermark operation.
  */
-class PutSlidesSlideSizeRequest
+class PostWatermarkRequest
 {
     /*
      * Document name.
@@ -39,24 +39,29 @@ class PutSlidesSlideSizeRequest
     public $name;
 
     /*
-     * Slide width.
+     * Shape DTO
      */
-    public $width;
+    public $shape;
 
     /*
-     * Slide height.
+     * Watermark font height.
      */
-    public $height;
+    public $fontHeight;
 
     /*
-     * Standard slide size type.
+     * Watermark text.
      */
-    public $sizeType;
+    public $text;
 
     /*
-     * Standard slide scale type.
+     * Watermark font name.
      */
-    public $scaleType;
+    public $fontName;
+
+    /*
+     * Watermark font color.
+     */
+    public $fontColor;
 
     /*
      * Document password.
@@ -74,24 +79,26 @@ class PutSlidesSlideSizeRequest
     public $storage;
 
     /*
-     * Initializes a new instance of the PutSlidesSlideSizeRequest class.
+     * Initializes a new instance of the PostWatermarkRequest class.
      *  
      * @param string $name Document name.
-     * @param int $width Slide width.
-     * @param int $height Slide height.
-     * @param string $sizeType Standard slide size type.
-     * @param string $scaleType Standard slide scale type.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Shape $shape Shape DTO
+     * @param float $fontHeight Watermark font height.
+     * @param string $text Watermark text.
+     * @param string $fontName Watermark font name.
+     * @param string $fontColor Watermark font color.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
      */
-    public function __construct($name, $width = null, $height = null, $sizeType = null, $scaleType = null, $password = null, $folder = null, $storage = null)
+    public function __construct($name, $shape = null, $fontHeight = null, $text = null, $fontName = null, $fontColor = null, $password = null, $folder = null, $storage = null)
     {
         $this->name = $name;
-        $this->width = $width;
-        $this->height = $height;
-        $this->sizeType = $sizeType;
-        $this->scaleType = $scaleType;
+        $this->shape = $shape;
+        $this->fontHeight = $fontHeight;
+        $this->text = $text;
+        $this->fontName = $fontName;
+        $this->fontColor = $fontColor;
         $this->password = $password;
         $this->folder = $folder;
         $this->storage = $storage;
@@ -114,67 +121,83 @@ class PutSlidesSlideSizeRequest
         return $this;
     }
     /*
-     * Slide width.
+     * Shape DTO
      */
-    public function get_width()
+    public function get_shape()
     {
-        return $this->width;
+        return $this->shape;
     }
 
     /*
-     * Slide width.
+     * Shape DTO
      */
-    public function set_width($value)
+    public function set_shape($value)
     {
-        $this->width = $value;
+        $this->shape = $value;
         return $this;
     }
     /*
-     * Slide height.
+     * Watermark font height.
      */
-    public function get_height()
+    public function get_fontHeight()
     {
-        return $this->height;
+        return $this->fontHeight;
     }
 
     /*
-     * Slide height.
+     * Watermark font height.
      */
-    public function set_height($value)
+    public function set_fontHeight($value)
     {
-        $this->height = $value;
+        $this->fontHeight = $value;
         return $this;
     }
     /*
-     * Standard slide size type.
+     * Watermark text.
      */
-    public function get_sizeType()
+    public function get_text()
     {
-        return $this->sizeType;
+        return $this->text;
     }
 
     /*
-     * Standard slide size type.
+     * Watermark text.
      */
-    public function set_sizeType($value)
+    public function set_text($value)
     {
-        $this->sizeType = $value;
+        $this->text = $value;
         return $this;
     }
     /*
-     * Standard slide scale type.
+     * Watermark font name.
      */
-    public function get_scaleType()
+    public function get_fontName()
     {
-        return $this->scaleType;
+        return $this->fontName;
     }
 
     /*
-     * Standard slide scale type.
+     * Watermark font name.
      */
-    public function set_scaleType($value)
+    public function set_fontName($value)
     {
-        $this->scaleType = $value;
+        $this->fontName = $value;
+        return $this;
+    }
+    /*
+     * Watermark font color.
+     */
+    public function get_fontColor()
+    {
+        return $this->fontColor;
+    }
+
+    /*
+     * Watermark font color.
+     */
+    public function set_fontColor($value)
+    {
+        $this->fontColor = $value;
         return $this;
     }
     /*

@@ -5941,6 +5941,178 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for deleteSlidesProtectionProperties
+     * Resets all presentation protection settings.
+     */
+    public function testDeleteSlidesProtectionProperties()
+    {
+        $testname = TestUtils::getTestValue("deleteSlidesProtectionProperties", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionProperties", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSlidesProtectionProperties", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSlidesProtectionProperties", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionProperties", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtection($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSlidesProtectionProperties");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesInvalidname()
+    {
+        $testname = TestUtils::getTestValue("deleteSlidesProtectionProperties", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionProperties", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSlidesProtectionProperties", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSlidesProtectionProperties", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "deleteSlidesProtectionProperties", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionProperties", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtection($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionProperties", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionProperties", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionProperties", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("deleteSlidesProtectionProperties", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionProperties", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSlidesProtectionProperties", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSlidesProtectionProperties", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteSlidesProtectionProperties", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionProperties", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtection($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionProperties", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionProperties", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionProperties", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("deleteSlidesProtectionProperties", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionProperties", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSlidesProtectionProperties", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSlidesProtectionProperties", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "deleteSlidesProtectionProperties", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionProperties", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtection($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionProperties", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionProperties", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionProperties", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("deleteSlidesProtectionProperties", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionProperties", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSlidesProtectionProperties", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSlidesProtectionProperties", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "deleteSlidesProtectionProperties", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionProperties", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtection($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionProperties", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionProperties", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionProperties", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for deleteSlidesProtectionPropertiesOnline
+     * Resets all presentation protection settings.
+     */
+    public function testDeleteSlidesProtectionPropertiesOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteSlidesProtectionPropertiesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionPropertiesOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtectionOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSlidesProtectionPropertiesOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteSlidesProtectionPropertiesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionPropertiesOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtectionOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionPropertiesOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionPropertiesOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionPropertiesOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSlidesProtectionPropertiesOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteSlidesProtectionPropertiesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteSlidesProtectionPropertiesOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSlidesProtectionPropertiesOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteProtectionOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSlidesProtectionPropertiesOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSlidesProtectionPropertiesOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSlidesProtectionPropertiesOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for deleteSlidesSlideBackground
      * Remove background from a slide.
      */
@@ -7088,6 +7260,145 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSubshapePortions", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for deleteWatermark
+     * Removes shapes with name \"watermark\" from the presentation.
+     */
+    public function testDeleteWatermark()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteWatermark");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testDeleteWatermarkInvalidname()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "deleteWatermark", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteWatermark", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteWatermark", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteWatermark", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteWatermarkInvalidshapeName()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        $testshapeName = TestUtils::invalidizeValue("shapeName", "deleteWatermark", $testshapeName, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", "shapeName", $testshapeName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteWatermark", "shapeName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteWatermark", "shapeName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteWatermark", "shapeName", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteWatermarkInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteWatermark", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteWatermark", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteWatermark", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteWatermark", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteWatermarkInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "deleteWatermark", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteWatermark", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteWatermark", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteWatermark", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteWatermarkInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("deleteWatermark", "name", self::$values, 'string');
+        $testshapeName = TestUtils::getTestValue("deleteWatermark", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteWatermark", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "deleteWatermark", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteWatermark", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermark($testname, $testshapeName, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteWatermark", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteWatermark", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteWatermark", "storage", self::$okToFailValues);
         }
     }
 
@@ -18935,7 +19246,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostExportImageWithDefaultFormat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithDefaultFormat", "index", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postExportImageWithDefaultFormat", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportImageWithDefaultFormat", null, null);
@@ -18953,7 +19264,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithDefaultFormatInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithDefaultFormat", "index", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postExportImageWithDefaultFormat", "password", self::$values, 'string');
         $testdocument = null;
@@ -18974,7 +19285,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithDefaultFormatInvalidindex()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithDefaultFormat", "index", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postExportImageWithDefaultFormat", "password", self::$values, 'string');
         $testindex = TestUtils::invalidizeValue("index", "postExportImageWithDefaultFormat", $testindex, self::$values, 'int');
@@ -18995,7 +19306,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithDefaultFormatInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithDefaultFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithDefaultFormat", "index", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postExportImageWithDefaultFormat", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "postExportImageWithDefaultFormat", $testpassword, self::$values, 'string');
@@ -19020,7 +19331,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostExportImageWithFormat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithFormat", "index", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportImageWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImageWithFormat", "password", self::$values, 'string');
@@ -19039,7 +19350,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithFormatInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithFormat", "index", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportImageWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImageWithFormat", "password", self::$values, 'string');
@@ -19061,7 +19372,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithFormatInvalidindex()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithFormat", "index", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportImageWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImageWithFormat", "password", self::$values, 'string');
@@ -19083,7 +19394,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithFormatInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithFormat", "index", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportImageWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImageWithFormat", "password", self::$values, 'string');
@@ -19105,7 +19416,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImageWithFormatInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImageWithFormat", "document");
         $testindex = TestUtils::getTestValue("postExportImageWithFormat", "index", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportImageWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImageWithFormat", "password", self::$values, 'string');
@@ -19131,7 +19442,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostExportImagesFromRequestWithFormat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat", "document");
         $testformat = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportImagesFromRequestWithFormat", null, null);
@@ -19149,7 +19460,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImagesFromRequestWithFormatInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat", "document");
         $testformat = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "password", self::$values, 'string');
         $testdocument = null;
@@ -19170,7 +19481,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImagesFromRequestWithFormatInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat", "document");
         $testformat = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "password", self::$values, 'string');
         $testformat = TestUtils::invalidizeValue("format", "postExportImagesFromRequestWithFormat", $testformat, self::$values, 'string');
@@ -19191,7 +19502,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportImagesFromRequestWithFormatInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat");
+        $testdocument = TestUtils::getStreamValue("postExportImagesFromRequestWithFormat", "document");
         $testformat = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postExportImagesFromRequestWithFormat", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "postExportImagesFromRequestWithFormat", $testpassword, self::$values, 'string');
@@ -19466,20 +19777,20 @@ class SlidesApiTest extends TestBase
      */
     public function testPostExportShape()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "postExportShape");
@@ -19491,21 +19802,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "document", $testdocument);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "document", $expectedCode, $expectedMessage);
@@ -19519,21 +19830,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "postExportShape", $testslideIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -19547,21 +19858,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvalidshapeIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "postExportShape", $testshapeIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "shapeIndex", $testshapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -19575,21 +19886,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testformat = TestUtils::invalidizeValue("format", "postExportShape", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "format", $expectedCode, $expectedMessage);
@@ -19601,79 +19912,23 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPostExportShapeInvalidpassword()
-    {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
-        $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
-        $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
-        $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
-        $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
-        $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
-        $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
-        $testpassword = TestUtils::invalidizeValue("password", "postExportShape", $testpassword, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "password", $testpassword);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postExportShape", "password", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "postExportShape", "password", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postExportShape", "password", self::$okToFailValues);
-        }
-    }
-
-    public function testPostExportShapeInvalidstorage()
-    {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
-        $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
-        $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
-        $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
-        $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
-        $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
-        $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
-        $teststorage = TestUtils::invalidizeValue("storage", "postExportShape", $teststorage, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "storage", $teststorage);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "postExportShape", "storage", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "postExportShape", "storage", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("postExportShape", "storage", self::$okToFailValues);
-        }
-    }
-
     public function testPostExportShapeInvalidscaleX()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testscaleX = TestUtils::invalidizeValue("scaleX", "postExportShape", $testscaleX, self::$values, 'float');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "scaleX", $testscaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "scaleX", $expectedCode, $expectedMessage);
@@ -19687,21 +19942,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvalidscaleY()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testscaleY = TestUtils::invalidizeValue("scaleY", "postExportShape", $testscaleY, self::$values, 'float');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "scaleY", $testscaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "scaleY", $expectedCode, $expectedMessage);
@@ -19715,21 +19970,21 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportShapeInvalidbounds()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testbounds = TestUtils::invalidizeValue("bounds", "postExportShape", $testbounds, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "bounds", $testbounds);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "bounds", $expectedCode, $expectedMessage);
@@ -19741,23 +19996,79 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPostExportShapeInvalidfontsFolder()
+    public function testPostExportShapeInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postExportShape");
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postExportShape", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postExportShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postExportShape", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postExportShape", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testPostExportShapeInvalidstorage()
+    {
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
+        $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
+        $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
+        $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
+        $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
+        $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "postExportShape", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postExportShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postExportShape", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postExportShape", "storage", self::$okToFailValues);
+        }
+    }
+
+    public function testPostExportShapeInvalidfontsFolder()
+    {
+        $testdocument = TestUtils::getStreamValue("postExportShape", "document");
+        $testslideIndex = TestUtils::getTestValue("postExportShape", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("postExportShape", "shapeIndex", self::$values, 'int');
+        $testformat = TestUtils::getTestValue("postExportShape", "format", self::$values, 'string');
+        $testscaleX = TestUtils::getTestValue("postExportShape", "scaleX", self::$values, 'float');
+        $testscaleY = TestUtils::getTestValue("postExportShape", "scaleY", self::$values, 'float');
+        $testbounds = TestUtils::getTestValue("postExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("postExportShape", "fontsFolder", self::$values, 'string');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "postExportShape", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postExportShape", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->downloadShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "postExportShape", "fontsFolder", $expectedCode, $expectedMessage);
@@ -19775,7 +20086,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostExportSlide()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19798,7 +20109,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19824,7 +20135,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19850,7 +20161,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19876,7 +20187,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidwidth()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19902,7 +20213,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidheight()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19928,7 +20239,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19954,7 +20265,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -19980,7 +20291,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostExportSlideInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("postExportSlide");
+        $testdocument = TestUtils::getStreamValue("postExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postExportSlide", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postExportSlide", "width", self::$values, 'int');
@@ -20010,7 +20321,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostGetNotesSlide()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlide");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlide", null, null);
@@ -20028,7 +20339,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlide");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", self::$values, 'string');
         $testdocument = null;
@@ -20049,7 +20360,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlide");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlide", $testslideIndex, self::$values, 'int');
@@ -20070,7 +20381,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlide");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlide", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlide", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlide", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "postGetNotesSlide", $testpassword, self::$values, 'string');
@@ -20095,7 +20406,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostGetNotesSlideExists()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postGetNotesSlideExists", null, null);
@@ -20113,7 +20424,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideExistsInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", self::$values, 'string');
         $testdocument = null;
@@ -20134,7 +20445,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideExistsInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "postGetNotesSlideExists", $testslideIndex, self::$values, 'int');
@@ -20155,7 +20466,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideExistsInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideExists", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideExists", "slideIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("postGetNotesSlideExists", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "postGetNotesSlideExists", $testpassword, self::$values, 'string');
@@ -20180,7 +20491,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostGetNotesSlideWithFormat()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20202,7 +20513,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20227,7 +20538,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20252,7 +20563,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20277,7 +20588,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidwidth()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20302,7 +20613,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidheight()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20327,7 +20638,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20352,7 +20663,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostGetNotesSlideWithFormatInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat");
+        $testdocument = TestUtils::getStreamValue("postGetNotesSlideWithFormat", "document");
         $testslideIndex = TestUtils::getTestValue("postGetNotesSlideWithFormat", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("postGetNotesSlideWithFormat", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postGetNotesSlideWithFormat", "width", self::$values, 'int');
@@ -20376,12 +20687,292 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for postImageWatermark
+     * Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously.
+     */
+    public function testPostImageWatermark()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postImageWatermark");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidname()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "postImageWatermark", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidimage()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $testimage = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "image", $testimage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "image", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "image", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "image", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidpictureFrame()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $testpictureFrame = TestUtils::invalidizeValue("pictureFrame", "postImageWatermark", $testpictureFrame, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "pictureFrame", $testpictureFrame);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "pictureFrame", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "pictureFrame", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "pictureFrame", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postImageWatermark", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "postImageWatermark", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("postImageWatermark", "name", self::$values, 'string');
+        $testimage = TestUtils::getStreamValue("postImageWatermark", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermark", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postImageWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postImageWatermark", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "postImageWatermark", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermark", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermark($testname, $testimage, $testpictureFrame, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermark", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermark", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermark", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for postImageWatermarkOnline
+     * Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously.
+     */
+    public function testPostImageWatermarkOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("postImageWatermarkOnline", "document");
+        $testimage = TestUtils::getStreamValue("postImageWatermarkOnline", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermarkOnline", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermarkOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermarkOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermarkOnline($testdocument, $testimage, $testpictureFrame, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postImageWatermarkOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPostImageWatermarkOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("postImageWatermarkOnline", "document");
+        $testimage = TestUtils::getStreamValue("postImageWatermarkOnline", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermarkOnline", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermarkOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermarkOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermarkOnline($testdocument, $testimage, $testpictureFrame, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermarkOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermarkOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermarkOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkOnlineInvalidimage()
+    {
+        $testdocument = TestUtils::getStreamValue("postImageWatermarkOnline", "document");
+        $testimage = TestUtils::getStreamValue("postImageWatermarkOnline", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermarkOnline", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermarkOnline", "password", self::$values, 'string');
+        $testimage = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermarkOnline", "image", $testimage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermarkOnline($testdocument, $testimage, $testpictureFrame, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermarkOnline", "image", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermarkOnline", "image", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermarkOnline", "image", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkOnlineInvalidpictureFrame()
+    {
+        $testdocument = TestUtils::getStreamValue("postImageWatermarkOnline", "document");
+        $testimage = TestUtils::getStreamValue("postImageWatermarkOnline", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermarkOnline", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermarkOnline", "password", self::$values, 'string');
+        $testpictureFrame = TestUtils::invalidizeValue("pictureFrame", "postImageWatermarkOnline", $testpictureFrame, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermarkOnline", "pictureFrame", $testpictureFrame);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermarkOnline($testdocument, $testimage, $testpictureFrame, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermarkOnline", "pictureFrame", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermarkOnline", "pictureFrame", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermarkOnline", "pictureFrame", self::$okToFailValues);
+        }
+    }
+
+    public function testPostImageWatermarkOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("postImageWatermarkOnline", "document");
+        $testimage = TestUtils::getStreamValue("postImageWatermarkOnline", "image");
+        $testpictureFrame = TestUtils::getTestValue("postImageWatermarkOnline", "pictureFrame", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\PictureFrame');
+        $testpassword = TestUtils::getTestValue("postImageWatermarkOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postImageWatermarkOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postImageWatermarkOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createImageWatermarkOnline($testdocument, $testimage, $testpictureFrame, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postImageWatermarkOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postImageWatermarkOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postImageWatermarkOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for postImagesFromRequestWithDefaultFormat
      * Get all presentation images.
      */
     public function testPostImagesFromRequestWithDefaultFormat()
     {
-        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat", "document");
         $testpassword = TestUtils::getTestValue("postImagesFromRequestWithDefaultFormat", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postImagesFromRequestWithDefaultFormat", null, null);
         $needAssertResponse = false;
@@ -20398,7 +20989,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostImagesFromRequestWithDefaultFormatInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat", "document");
         $testpassword = TestUtils::getTestValue("postImagesFromRequestWithDefaultFormat", "password", self::$values, 'string');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("postImagesFromRequestWithDefaultFormat", "document", $testdocument);
@@ -20418,7 +21009,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostImagesFromRequestWithDefaultFormatInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat");
+        $testdocument = TestUtils::getStreamValue("postImagesFromRequestWithDefaultFormat", "document");
         $testpassword = TestUtils::getTestValue("postImagesFromRequestWithDefaultFormat", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "postImagesFromRequestWithDefaultFormat", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("postImagesFromRequestWithDefaultFormat", "password", $testpassword);
@@ -21713,7 +22304,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostPresentationReplaceText()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21733,7 +22324,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationReplaceTextInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21756,7 +22347,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationReplaceTextInvalidoldValue()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21779,7 +22370,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationReplaceTextInvalidnewValue()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21802,7 +22393,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationReplaceTextInvalidignoreCase()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21825,7 +22416,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationReplaceTextInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText");
+        $testdocument = TestUtils::getStreamValue("postPresentationReplaceText", "document");
         $testoldValue = TestUtils::getTestValue("postPresentationReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postPresentationReplaceText", "newValue", self::$values, 'string');
         $testignoreCase = TestUtils::getTestValue("postPresentationReplaceText", "ignoreCase", self::$values, 'bool');
@@ -21852,7 +22443,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostPresentationSplit()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -21876,7 +22467,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -21903,7 +22494,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -21930,7 +22521,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidwidth()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -21957,7 +22548,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidheight()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -21984,7 +22575,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidfrom()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -22011,7 +22602,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidto()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -22038,7 +22629,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -22065,7 +22656,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -22092,7 +22683,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostPresentationSplitInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("postPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("postPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("postPresentationSplit", "format", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("postPresentationSplit", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("postPresentationSplit", "height", self::$values, 'int');
@@ -23391,7 +23982,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostSlideReplaceText()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23412,7 +24003,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23436,7 +24027,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23460,7 +24051,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvalidoldValue()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23484,7 +24075,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvalidnewValue()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23508,7 +24099,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvalidignoreCase()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -23532,7 +24123,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlideReplaceTextInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postSlideReplaceText");
+        $testdocument = TestUtils::getStreamValue("postSlideReplaceText", "document");
         $testslideIndex = TestUtils::getTestValue("postSlideReplaceText", "slideIndex", self::$values, 'int');
         $testoldValue = TestUtils::getTestValue("postSlideReplaceText", "oldValue", self::$values, 'string');
         $testnewValue = TestUtils::getTestValue("postSlideReplaceText", "newValue", self::$values, 'string');
@@ -24038,7 +24629,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPostSlidesConvert()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24058,7 +24649,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlidesConvertInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24081,7 +24672,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlidesConvertInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24104,7 +24695,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlidesConvertInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24127,7 +24718,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlidesConvertInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24150,7 +24741,7 @@ class SlidesApiTest extends TestBase
 
     public function testPostSlidesConvertInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("postSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("postSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("postSlidesConvert", "format", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesConvert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesConvert", "storage", self::$values, 'string');
@@ -24449,7 +25040,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocument()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24470,7 +25061,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvalidname()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24494,7 +25085,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvaliddata()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24518,7 +25109,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvalidinputPassword()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24542,7 +25133,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvalidpassword()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24566,7 +25157,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvalidfolder()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24590,7 +25181,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentInvalidstorage()
     {
         $testname = TestUtils::getTestValue("postSlidesDocument", "name", self::$values, 'string');
-        $testdata = TestUtils::getStreamValue("postSlidesDocument");
+        $testdata = TestUtils::getStreamValue("postSlidesDocument", "data");
         $testinputPassword = TestUtils::getTestValue("postSlidesDocument", "inputPassword", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("postSlidesDocument", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocument", "folder", self::$values, 'string');
@@ -24757,7 +25348,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdf()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -24777,7 +25368,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdfInvalidname()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -24800,7 +25391,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdfInvalidpdf()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -24823,7 +25414,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdfInvalidpassword()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -24846,7 +25437,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdfInvalidfolder()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -24869,7 +25460,7 @@ class SlidesApiTest extends TestBase
     public function testPostSlidesDocumentFromPdfInvalidstorage()
     {
         $testname = TestUtils::getTestValue("postSlidesDocumentFromPdf", "name", self::$values, 'string');
-        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf");
+        $testpdf = TestUtils::getStreamValue("postSlidesDocumentFromPdf", "pdf");
         $testpassword = TestUtils::getTestValue("postSlidesDocumentFromPdf", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("postSlidesDocumentFromPdf", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("postSlidesDocumentFromPdf", "storage", self::$values, 'string');
@@ -27448,6 +28039,563 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for postWatermark
+     * Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously.
+     */
+    public function testPostWatermark()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postWatermark");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testPostWatermarkInvalidname()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "postWatermark", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidshape()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testshape = TestUtils::invalidizeValue("shape", "postWatermark", $testshape, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "shape", $testshape);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "shape", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "shape", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "shape", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidfontHeight()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testfontHeight = TestUtils::invalidizeValue("fontHeight", "postWatermark", $testfontHeight, self::$values, 'float');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "fontHeight", $testfontHeight);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "fontHeight", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "fontHeight", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "fontHeight", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidtext()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testtext = TestUtils::invalidizeValue("text", "postWatermark", $testtext, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "text", $testtext);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "text", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "text", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "text", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidfontName()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testfontName = TestUtils::invalidizeValue("fontName", "postWatermark", $testfontName, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "fontName", $testfontName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "fontName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "fontName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "fontName", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidfontColor()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testfontColor = TestUtils::invalidizeValue("fontColor", "postWatermark", $testfontColor, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "fontColor", $testfontColor);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "fontColor", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "fontColor", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "fontColor", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postWatermark", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "postWatermark", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("postWatermark", "name", self::$values, 'string');
+        $testshape = TestUtils::getTestValue("postWatermark", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermark", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermark", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermark", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermark", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermark", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("postWatermark", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("postWatermark", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "postWatermark", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermark", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermark($testname, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermark", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermark", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermark", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for postWatermarkDeleteOnline
+     * Removes shapes with name \"watermark\" from the presentation.
+     */
+    public function testPostWatermarkDeleteOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkDeleteOnline", "document");
+        $testshapeName = TestUtils::getTestValue("postWatermarkDeleteOnline", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkDeleteOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkDeleteOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermarkOnline($testdocument, $testshapeName, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postWatermarkDeleteOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPostWatermarkDeleteOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkDeleteOnline", "document");
+        $testshapeName = TestUtils::getTestValue("postWatermarkDeleteOnline", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkDeleteOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkDeleteOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermarkOnline($testdocument, $testshapeName, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkDeleteOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkDeleteOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkDeleteOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkDeleteOnlineInvalidshapeName()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkDeleteOnline", "document");
+        $testshapeName = TestUtils::getTestValue("postWatermarkDeleteOnline", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkDeleteOnline", "password", self::$values, 'string');
+        $testshapeName = TestUtils::invalidizeValue("shapeName", "postWatermarkDeleteOnline", $testshapeName, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkDeleteOnline", "shapeName", $testshapeName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermarkOnline($testdocument, $testshapeName, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkDeleteOnline", "shapeName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkDeleteOnline", "shapeName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkDeleteOnline", "shapeName", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkDeleteOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkDeleteOnline", "document");
+        $testshapeName = TestUtils::getTestValue("postWatermarkDeleteOnline", "shapeName", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkDeleteOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postWatermarkDeleteOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkDeleteOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteWatermarkOnline($testdocument, $testshapeName, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkDeleteOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkDeleteOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkDeleteOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for postWatermarkOnline
+     * Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously.
+     */
+    public function testPostWatermarkOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "postWatermarkOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPostWatermarkOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidshape()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testshape = TestUtils::invalidizeValue("shape", "postWatermarkOnline", $testshape, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "shape", $testshape);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "shape", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "shape", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "shape", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidfontHeight()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testfontHeight = TestUtils::invalidizeValue("fontHeight", "postWatermarkOnline", $testfontHeight, self::$values, 'float');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "fontHeight", $testfontHeight);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "fontHeight", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "fontHeight", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "fontHeight", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidtext()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testtext = TestUtils::invalidizeValue("text", "postWatermarkOnline", $testtext, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "text", $testtext);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "text", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "text", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "text", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidfontName()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testfontName = TestUtils::invalidizeValue("fontName", "postWatermarkOnline", $testfontName, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "fontName", $testfontName);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "fontName", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "fontName", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "fontName", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidfontColor()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testfontColor = TestUtils::invalidizeValue("fontColor", "postWatermarkOnline", $testfontColor, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "fontColor", $testfontColor);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "fontColor", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "fontColor", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "fontColor", self::$okToFailValues);
+        }
+    }
+
+    public function testPostWatermarkOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("postWatermarkOnline", "document");
+        $testshape = TestUtils::getTestValue("postWatermarkOnline", "shape", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Shape');
+        $testfontHeight = TestUtils::getTestValue("postWatermarkOnline", "fontHeight", self::$values, 'float');
+        $testtext = TestUtils::getTestValue("postWatermarkOnline", "text", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("postWatermarkOnline", "fontName", self::$values, 'string');
+        $testfontColor = TestUtils::getTestValue("postWatermarkOnline", "fontColor", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("postWatermarkOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "postWatermarkOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("postWatermarkOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createWatermarkOnline($testdocument, $testshape, $testfontHeight, $testtext, $testfontName, $testfontColor, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "postWatermarkOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "postWatermarkOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("postWatermarkOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for putChartCategory
      * Update a chart category.
      */
@@ -28194,21 +29342,21 @@ class SlidesApiTest extends TestBase
      */
     public function testPutExportShape()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putExportShape");
@@ -28220,22 +29368,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "document", $testdocument);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "document", $expectedCode, $expectedMessage);
@@ -28249,22 +29397,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "putExportShape", $testslideIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "slideIndex", $expectedCode, $expectedMessage);
@@ -28278,22 +29426,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidshapeIndex()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "putExportShape", $testshapeIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "shapeIndex", $testshapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "shapeIndex", $expectedCode, $expectedMessage);
@@ -28307,22 +29455,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testformat = TestUtils::invalidizeValue("format", "putExportShape", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "format", $expectedCode, $expectedMessage);
@@ -28336,22 +29484,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidoutPath()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testoutPath = TestUtils::invalidizeValue("outPath", "putExportShape", $testoutPath, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "outPath", $testoutPath);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "outPath", $expectedCode, $expectedMessage);
@@ -28363,82 +29511,24 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPutExportShapeInvalidpassword()
-    {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
-        $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
-        $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
-        $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
-        $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
-        $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
-        $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
-        $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
-        $testpassword = TestUtils::invalidizeValue("password", "putExportShape", $testpassword, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "password", $testpassword);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putExportShape", "password", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putExportShape", "password", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putExportShape", "password", self::$okToFailValues);
-        }
-    }
-
-    public function testPutExportShapeInvalidstorage()
-    {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
-        $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
-        $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
-        $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
-        $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
-        $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
-        $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
-        $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
-        $teststorage = TestUtils::invalidizeValue("storage", "putExportShape", $teststorage, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "storage", $teststorage);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putExportShape", "storage", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putExportShape", "storage", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putExportShape", "storage", self::$okToFailValues);
-        }
-    }
-
     public function testPutExportShapeInvalidscaleX()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testscaleX = TestUtils::invalidizeValue("scaleX", "putExportShape", $testscaleX, self::$values, 'float');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "scaleX", $testscaleX);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "scaleX", $expectedCode, $expectedMessage);
@@ -28452,22 +29542,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidscaleY()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testscaleY = TestUtils::invalidizeValue("scaleY", "putExportShape", $testscaleY, self::$values, 'float');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "scaleY", $testscaleY);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "scaleY", $expectedCode, $expectedMessage);
@@ -28481,22 +29571,22 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportShapeInvalidbounds()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testbounds = TestUtils::invalidizeValue("bounds", "putExportShape", $testbounds, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "bounds", $testbounds);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "bounds", $expectedCode, $expectedMessage);
@@ -28508,24 +29598,82 @@ class SlidesApiTest extends TestBase
         }
     }
 
-    public function testPutExportShapeInvalidfontsFolder()
+    public function testPutExportShapeInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("putExportShape");
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
         $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
         $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
         $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "putExportShape", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putExportShape", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putExportShape", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putExportShape", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testPutExportShapeInvalidstorage()
+    {
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
+        $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
+        $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
+        $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
+        $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
+        $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
+        $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "putExportShape", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putExportShape", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putExportShape", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putExportShape", "storage", self::$okToFailValues);
+        }
+    }
+
+    public function testPutExportShapeInvalidfontsFolder()
+    {
+        $testdocument = TestUtils::getStreamValue("putExportShape", "document");
+        $testslideIndex = TestUtils::getTestValue("putExportShape", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("putExportShape", "shapeIndex", self::$values, 'int');
+        $testformat = TestUtils::getTestValue("putExportShape", "format", self::$values, 'string');
+        $testoutPath = TestUtils::getTestValue("putExportShape", "outPath", self::$values, 'string');
+        $testscaleX = TestUtils::getTestValue("putExportShape", "scaleX", self::$values, 'float');
+        $testscaleY = TestUtils::getTestValue("putExportShape", "scaleY", self::$values, 'float');
+        $testbounds = TestUtils::getTestValue("putExportShape", "bounds", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("putExportShape", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("putExportShape", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("putExportShape", "fontsFolder", self::$values, 'string');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "putExportShape", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("putExportShape", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testpassword, $teststorage, $testscaleX, $testscaleY, $testbounds, $testfontsFolder);
+            $result = $this->getApi()->saveShapeOnline($testdocument, $testslideIndex, $testshapeIndex, $testformat, $testoutPath, $testscaleX, $testscaleY, $testbounds, $testpassword, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putExportShape", "fontsFolder", $expectedCode, $expectedMessage);
@@ -28543,7 +29691,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPutExportSlide()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28567,7 +29715,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28594,7 +29742,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidslideIndex()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28621,7 +29769,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28648,7 +29796,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidoutPath()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28675,7 +29823,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidwidth()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28702,7 +29850,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidheight()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28729,7 +29877,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28756,7 +29904,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -28783,7 +29931,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutExportSlideInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("putExportSlide");
+        $testdocument = TestUtils::getStreamValue("putExportSlide", "document");
         $testslideIndex = TestUtils::getTestValue("putExportSlide", "slideIndex", self::$values, 'int');
         $testformat = TestUtils::getTestValue("putExportSlide", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putExportSlide", "outPath", self::$values, 'string');
@@ -29726,7 +30874,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPutPresentationSplit()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29751,7 +30899,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29779,7 +30927,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29807,7 +30955,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvaliddestFolder()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29835,7 +30983,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidwidth()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29863,7 +31011,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidheight()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29891,7 +31039,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidfrom()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29919,7 +31067,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidto()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29947,7 +31095,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -29975,7 +31123,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -30003,7 +31151,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutPresentationSplitInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("putPresentationSplit");
+        $testdocument = TestUtils::getStreamValue("putPresentationSplit", "document");
         $testformat = TestUtils::getTestValue("putPresentationSplit", "format", self::$values, 'string');
         $testdestFolder = TestUtils::getTestValue("putPresentationSplit", "destFolder", self::$values, 'string');
         $testwidth = TestUtils::getTestValue("putPresentationSplit", "width", self::$values, 'int');
@@ -33423,7 +34571,7 @@ class SlidesApiTest extends TestBase
      */
     public function testPutSlidesConvert()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33444,7 +34592,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvaliddocument()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33468,7 +34616,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvalidformat()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33492,7 +34640,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvalidoutPath()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33516,7 +34664,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvalidpassword()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33540,7 +34688,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvalidstorage()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33564,7 +34712,7 @@ class SlidesApiTest extends TestBase
 
     public function testPutSlidesConvertInvalidfontsFolder()
     {
-        $testdocument = TestUtils::getStreamValue("putSlidesConvert");
+        $testdocument = TestUtils::getStreamValue("putSlidesConvert", "document");
         $testformat = TestUtils::getTestValue("putSlidesConvert", "format", self::$values, 'string');
         $testoutPath = TestUtils::getTestValue("putSlidesConvert", "outPath", self::$values, 'string');
         $testpassword = TestUtils::getTestValue("putSlidesConvert", "password", self::$values, 'string');
@@ -33583,145 +34731,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesConvert", "fontsFolder", self::$okToFailValues);
-        }
-    }
-
-    /**
-     * Test case for putSlidesDocumentFromHtml
-     * Update presentation document from html.
-     */
-    public function testPutSlidesDocumentFromHtml()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", null, null);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (Exception $ex) {
-            TestUtils::assertSuccessfulException($ex, "putSlidesDocumentFromHtml");
-        }
-        if ($needAssertResponse) {
-            Assert::assertNotNull($result);
-        }
-    }
-
-    public function testPutSlidesDocumentFromHtmlInvalidname()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        $testname = TestUtils::invalidizeValue("name", "putSlidesDocumentFromHtml", $testname, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "name", $testname);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "name", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "name", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesDocumentFromHtmlInvalidhtml()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        $testhtml = TestUtils::invalidizeValue("html", "putSlidesDocumentFromHtml", $testhtml, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "html", $testhtml);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "html", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "html", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesDocumentFromHtmlInvalidpassword()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        $testpassword = TestUtils::invalidizeValue("password", "putSlidesDocumentFromHtml", $testpassword, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "password", $testpassword);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "password", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "password", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesDocumentFromHtmlInvalidfolder()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        $testfolder = TestUtils::invalidizeValue("folder", "putSlidesDocumentFromHtml", $testfolder, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "folder", $testfolder);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "folder", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "folder", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesDocumentFromHtmlInvalidstorage()
-    {
-        $testname = TestUtils::getTestValue("putSlidesDocumentFromHtml", "name", self::$values, 'string');
-        $testhtml = TestUtils::getTestValue("putSlidesDocumentFromHtml", "html", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesDocumentFromHtml", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesDocumentFromHtml", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesDocumentFromHtml", "storage", self::$values, 'string');
-        $teststorage = TestUtils::invalidizeValue("storage", "putSlidesDocumentFromHtml", $teststorage, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesDocumentFromHtml", "storage", $teststorage);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesDocumentFromHtml($testname, $testhtml, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesDocumentFromHtml", "storage", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesDocumentFromHtml", "storage", self::$okToFailValues);
         }
     }
 
@@ -34005,7 +35014,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for putSlidesProtectionProperties
-     * Update presentation protection properties.
+     * Updates presentation protection properties.
      */
     public function testPutSlidesProtectionProperties()
     {
@@ -34017,7 +35026,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "putSlidesProtectionProperties");
@@ -34038,7 +35047,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesProtectionProperties", "name", $expectedCode, $expectedMessage);
@@ -34061,7 +35070,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", "dto", $testdto);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesProtectionProperties", "dto", $expectedCode, $expectedMessage);
@@ -34084,7 +35093,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesProtectionProperties", "password", $expectedCode, $expectedMessage);
@@ -34107,7 +35116,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesProtectionProperties", "folder", $expectedCode, $expectedMessage);
@@ -34130,7 +35139,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionProperties", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setProtectionProperties($testname, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setProtection($testname, $testdto, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "putSlidesProtectionProperties", "storage", $expectedCode, $expectedMessage);
@@ -34139,6 +35148,91 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesProtectionProperties", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for putSlidesProtectionPropertiesOnline
+     * Sets presentation protection options.
+     */
+    public function testPutSlidesProtectionPropertiesOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("putSlidesProtectionPropertiesOnline", "document");
+        $testdto = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties');
+        $testpassword = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionPropertiesOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setProtectionOnline($testdocument, $testdto, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "putSlidesProtectionPropertiesOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testPutSlidesProtectionPropertiesOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("putSlidesProtectionPropertiesOnline", "document");
+        $testdto = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties');
+        $testpassword = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionPropertiesOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setProtectionOnline($testdocument, $testdto, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesProtectionPropertiesOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesProtectionPropertiesOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesProtectionPropertiesOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testPutSlidesProtectionPropertiesOnlineInvaliddto()
+    {
+        $testdocument = TestUtils::getStreamValue("putSlidesProtectionPropertiesOnline", "document");
+        $testdto = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties');
+        $testpassword = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        $testdto = TestUtils::invalidizeValue("dto", "putSlidesProtectionPropertiesOnline", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties');
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionPropertiesOnline", "dto", $testdto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setProtectionOnline($testdocument, $testdto, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesProtectionPropertiesOnline", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesProtectionPropertiesOnline", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesProtectionPropertiesOnline", "dto", self::$okToFailValues);
+        }
+    }
+
+    public function testPutSlidesProtectionPropertiesOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("putSlidesProtectionPropertiesOnline", "document");
+        $testdto = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties');
+        $testpassword = TestUtils::getTestValue("putSlidesProtectionPropertiesOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "putSlidesProtectionPropertiesOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesProtectionPropertiesOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setProtectionOnline($testdocument, $testdto, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "putSlidesProtectionPropertiesOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "putSlidesProtectionPropertiesOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("putSlidesProtectionPropertiesOnline", "password", self::$okToFailValues);
         }
     }
 
@@ -35189,241 +36283,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("putSlidesSlideProperties", "storage", self::$okToFailValues);
-        }
-    }
-
-    /**
-     * Test case for putSlidesSlideSize
-     * Set slide size for a presentation.
-     */
-    public function testPutSlidesSlideSize()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", null, null);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (Exception $ex) {
-            TestUtils::assertSuccessfulException($ex, "putSlidesSlideSize");
-        }
-        if ($needAssertResponse) {
-            Assert::assertNotNull($result);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidname()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testname = TestUtils::invalidizeValue("name", "putSlidesSlideSize", $testname, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "name", $testname);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "name", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "name", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidwidth()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testwidth = TestUtils::invalidizeValue("width", "putSlidesSlideSize", $testwidth, self::$values, 'int');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "width", $testwidth);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "width", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "width", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidheight()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testheight = TestUtils::invalidizeValue("height", "putSlidesSlideSize", $testheight, self::$values, 'int');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "height", $testheight);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "height", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "height", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidsizeType()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testsizeType = TestUtils::invalidizeValue("sizeType", "putSlidesSlideSize", $testsizeType, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "sizeType", $testsizeType);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "sizeType", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "sizeType", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidscaleType()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testscaleType = TestUtils::invalidizeValue("scaleType", "putSlidesSlideSize", $testscaleType, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "scaleType", $testscaleType);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "scaleType", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "scaleType", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidpassword()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testpassword = TestUtils::invalidizeValue("password", "putSlidesSlideSize", $testpassword, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "password", $testpassword);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "password", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "password", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidfolder()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $testfolder = TestUtils::invalidizeValue("folder", "putSlidesSlideSize", $testfolder, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "folder", $testfolder);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "folder", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "folder", self::$okToFailValues);
-        }
-    }
-
-    public function testPutSlidesSlideSizeInvalidstorage()
-    {
-        $testname = TestUtils::getTestValue("putSlidesSlideSize", "name", self::$values, 'string');
-        $testwidth = TestUtils::getTestValue("putSlidesSlideSize", "width", self::$values, 'int');
-        $testheight = TestUtils::getTestValue("putSlidesSlideSize", "height", self::$values, 'int');
-        $testsizeType = TestUtils::getTestValue("putSlidesSlideSize", "sizeType", self::$values, 'string');
-        $testscaleType = TestUtils::getTestValue("putSlidesSlideSize", "scaleType", self::$values, 'string');
-        $testpassword = TestUtils::getTestValue("putSlidesSlideSize", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("putSlidesSlideSize", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("putSlidesSlideSize", "storage", self::$values, 'string');
-        $teststorage = TestUtils::invalidizeValue("storage", "putSlidesSlideSize", $teststorage, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("putSlidesSlideSize", "storage", $teststorage);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->putSlidesSlideSize($testname, $testwidth, $testheight, $testsizeType, $testscaleType, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "putSlidesSlideSize", "storage", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("putSlidesSlideSize", "storage", self::$okToFailValues);
         }
     }
 
@@ -36969,7 +37828,7 @@ class SlidesApiTest extends TestBase
     public function testUploadFile()
     {
         $testpath = TestUtils::getTestValue("uploadFile", "path", self::$values, 'string');
-        $testfile = TestUtils::getStreamValue("uploadFile");
+        $testfile = TestUtils::getStreamValue("uploadFile", "file");
         $teststorageName = TestUtils::getTestValue("uploadFile", "storageName", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", null, null);
         $needAssertResponse = false;
@@ -36987,7 +37846,7 @@ class SlidesApiTest extends TestBase
     public function testUploadFileInvalidpath()
     {
         $testpath = TestUtils::getTestValue("uploadFile", "path", self::$values, 'string');
-        $testfile = TestUtils::getStreamValue("uploadFile");
+        $testfile = TestUtils::getStreamValue("uploadFile", "file");
         $teststorageName = TestUtils::getTestValue("uploadFile", "storageName", self::$values, 'string');
         $testpath = TestUtils::invalidizeValue("path", "uploadFile", $testpath, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "path", $testpath);
@@ -37008,7 +37867,7 @@ class SlidesApiTest extends TestBase
     public function testUploadFileInvalidfile()
     {
         $testpath = TestUtils::getTestValue("uploadFile", "path", self::$values, 'string');
-        $testfile = TestUtils::getStreamValue("uploadFile");
+        $testfile = TestUtils::getStreamValue("uploadFile", "file");
         $teststorageName = TestUtils::getTestValue("uploadFile", "storageName", self::$values, 'string');
         $testfile = null;
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "file", $testfile);
@@ -37029,7 +37888,7 @@ class SlidesApiTest extends TestBase
     public function testUploadFileInvalidstorageName()
     {
         $testpath = TestUtils::getTestValue("uploadFile", "path", self::$values, 'string');
-        $testfile = TestUtils::getStreamValue("uploadFile");
+        $testfile = TestUtils::getStreamValue("uploadFile", "file");
         $teststorageName = TestUtils::getTestValue("uploadFile", "storageName", self::$values, 'string');
         $teststorageName = TestUtils::invalidizeValue("storageName", "uploadFile", $teststorageName, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("uploadFile", "storageName", $teststorageName);

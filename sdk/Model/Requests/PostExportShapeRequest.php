@@ -54,16 +54,6 @@ class PostExportShapeRequest
     public $format;
 
     /*
-     * Document password.
-     */
-    public $password;
-
-    /*
-     * Document storage.
-     */
-    public $storage;
-
-    /*
      * X scale ratio.
      */
     public $scaleX;
@@ -79,6 +69,16 @@ class PostExportShapeRequest
     public $bounds;
 
     /*
+     * Document password.
+     */
+    public $password;
+
+    /*
+     * Document storage.
+     */
+    public $storage;
+
+    /*
      * Fonts folder.
      */
     public $fontsFolder;
@@ -90,24 +90,24 @@ class PostExportShapeRequest
      * @param int $slideIndex Slide index.
      * @param int $shapeIndex Index of shape starting from 1
      * @param string $format Export picture format.
-     * @param string $password Document password.
-     * @param string $storage Document storage.
      * @param float $scaleX X scale ratio.
      * @param float $scaleY Y scale ratio.
      * @param string $bounds Shape thumbnail bounds type.
+     * @param string $password Document password.
+     * @param string $storage Document storage.
      * @param string $fontsFolder Fonts folder.
      */
-    public function __construct($document, $slideIndex, $shapeIndex, $format, $password = null, $storage = null, $scaleX = null, $scaleY = null, $bounds = null, $fontsFolder = null)
+    public function __construct($document, $slideIndex, $shapeIndex, $format, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $storage = null, $fontsFolder = null)
     {
         $this->document = $document;
         $this->slideIndex = $slideIndex;
         $this->shapeIndex = $shapeIndex;
         $this->format = $format;
-        $this->password = $password;
-        $this->storage = $storage;
         $this->scaleX = $scaleX;
         $this->scaleY = $scaleY;
         $this->bounds = $bounds;
+        $this->password = $password;
+        $this->storage = $storage;
         $this->fontsFolder = $fontsFolder;
     }
 
@@ -176,38 +176,6 @@ class PostExportShapeRequest
         return $this;
     }
     /*
-     * Document password.
-     */
-    public function get_password()
-    {
-        return $this->password;
-    }
-
-    /*
-     * Document password.
-     */
-    public function set_password($value)
-    {
-        $this->password = $value;
-        return $this;
-    }
-    /*
-     * Document storage.
-     */
-    public function get_storage()
-    {
-        return $this->storage;
-    }
-
-    /*
-     * Document storage.
-     */
-    public function set_storage($value)
-    {
-        $this->storage = $value;
-        return $this;
-    }
-    /*
      * X scale ratio.
      */
     public function get_scaleX()
@@ -253,6 +221,38 @@ class PostExportShapeRequest
     public function set_bounds($value)
     {
         $this->bounds = $value;
+        return $this;
+    }
+    /*
+     * Document password.
+     */
+    public function get_password()
+    {
+        return $this->password;
+    }
+
+    /*
+     * Document password.
+     */
+    public function set_password($value)
+    {
+        $this->password = $value;
+        return $this;
+    }
+    /*
+     * Document storage.
+     */
+    public function get_storage()
+    {
+        return $this->storage;
+    }
+
+    /*
+     * Document storage.
+     */
+    public function set_storage($value)
+    {
+        $this->storage = $value;
         return $this;
     }
     /*

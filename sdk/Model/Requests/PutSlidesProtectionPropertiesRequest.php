@@ -39,7 +39,7 @@ class PutSlidesProtectionPropertiesRequest
     public $name;
 
     /*
-     * The view properties data.
+     * Protection properties.
      */
     public $dto;
 
@@ -62,7 +62,7 @@ class PutSlidesProtectionPropertiesRequest
      * Initializes a new instance of the PutSlidesProtectionPropertiesRequest class.
      *  
      * @param string $name Document name.
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto The view properties data.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto Protection properties.
      * @param string $password Document password.
      * @param string $folder Document folder.
      * @param string $storage Document storage.
@@ -93,7 +93,7 @@ class PutSlidesProtectionPropertiesRequest
         return $this;
     }
     /*
-     * The view properties data.
+     * Protection properties.
      */
     public function get_dto()
     {
@@ -101,7 +101,7 @@ class PutSlidesProtectionPropertiesRequest
     }
 
     /*
-     * The view properties data.
+     * Protection properties.
      */
     public function set_dto($value)
     {

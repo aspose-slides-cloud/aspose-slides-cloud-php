@@ -57,14 +57,20 @@ class SplitTest extends TestBase
         Assert::assertTrue($result->isFile());
         Assert::assertTrue($resultFromTo->isFile());
         Assert::assertNotEquals($result->getSize(), $resultFromTo->getSize());
-        /* $zip = new ZipArchive();
-        $zipFromTo = new ZipArchive();
-        $zip->open($result);
-        $zipFromTo->open($resultFromTo);
-        Assert::assertEquals(2, $zipFromTo->$numFiles);
-        Assert::assertTrue($zip->$numFiles > $zipFromTo->$numFiles);
-        $zipPng->close();
-        $zip->close();*/
+        $zip = zip_open($result->getPathname());
+        $zipCount = 0;
+        while ($zipFile = zip_read($zip)) {
+            $zipCount++;
+        }
+        $zipFromTo = zip_open($resultFromTo->getPathname());
+        $zipFromToCount = 0;
+        while ($zipFromToFile = zip_read($zipFromTo)) {
+            $zipFromToCount++;
+        }
+        Assert::assertEquals(2, $zipFromToCount);
+        Assert::assertTrue($zipCount > $zipFromToCount);
+        zip_close($zipFromTo);
+        zip_close($zip);
     }
 
     public function testSplitAndSaveRequest()
