@@ -136,7 +136,7 @@ class Configuration
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '21.4.0';
+    protected $clientVersion = '21.4.1';
 
     /*
      * Constructor

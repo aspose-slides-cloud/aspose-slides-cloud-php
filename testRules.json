@@ -506,6 +506,8 @@
 		{ "Code": 409, "Message": " is not empty.", "Parameter": "Recursive" },
 		{ "Message": "Sequence contains no elements", "Code": 500, "Parameter": "Files" },
 		{ "Message": "Sequence contains no elements", "Code": 500, "Parameter": "Image", "Method": "PostImageWatermarkOnline", "Language": "PHP" },
+		{ "Message": "Sequence contains no elements", "Code": 500, "Parameter": "Image", "Method": "PostImageWatermarkOnline", "Language": "Ruby" },
+		{ "Message": "Sequence contains no elements", "Code": 500, "Parameter": "Image", "Method": "PostImageWatermarkOnline", "Language": "CPP" },
 		{ "Message": "An error has occurred.", "Code": 500, "Parameter": "Options" }
 	]
 }

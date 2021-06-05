@@ -76,9 +76,13 @@ class TestBase extends \PHPUnit_Framework_TestCase
     {
         if (!self::$isInitialized)
         {
-            $versionFile = $this->getApi()->DownloadFile("TempTests/version.txt");
-            $versionLength = $versionFile->getSize();
             $version = 0;
+            $versionLength = 0;
+            try {
+                $versionFile = $this->getApi()->DownloadFile("TempTests/version.txt");
+                $versionLength = $versionFile->getSize();
+            } catch (\Exception $ex) {
+            }
             if ($versionLength > 0)
             {
                 $version = $versionFile->fread($versionFile->getSize());
