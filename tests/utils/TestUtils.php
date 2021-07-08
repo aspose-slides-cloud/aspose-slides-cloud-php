@@ -60,7 +60,7 @@ class TestUtils
     public static function getStreamValue($functionName, $name)
     {
         $filePath = self::getFilePath();
-        if (strcasecmp($functionName, "postSlidesDocumentFromPdf") == 0) {
+        if (strcasecmp($functionName, "importFromPdf") == 0) {
             $filePath = realpath(__DIR__.'/../..').'/TestData/test.pdf';
         }
         if (strcasecmp($name, "image") == 0) {

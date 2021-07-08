@@ -47,10 +47,10 @@ class NullablePropertiesTest extends TestBase
     /**
      * Test case for postSlidesPipeline with two files
      */
-    public function testNullableProperies()
+    public function testNullableProperties()
     {
         $folderName = "TempSlidesSDK";
-        $fileName = "placeholders.pptx";
+        $fileName = "test.pptx";
         $password = "password";
         $min1  = 44.3;
         $min2 = 12;
@@ -87,7 +87,7 @@ class NullablePropertiesTest extends TestBase
         $testDto->setAxes($testAxes);
         $result = $this->getApi()->createShape($fileName, 1, $testDto, null, null, $password, $folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
+        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min1);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -97,9 +97,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMinValue($min2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape($fileName, 1, 4, $testDto, $password, $folderName);
+        $result = $this->getApi()->updateShape($fileName, 1, 5, $testDto, $password, $folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
+        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -109,9 +109,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMaxValue($max2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape($fileName, 1, 4, $testDto, $password, $folderName);
+        $result = $this->getApi()->updateShape($fileName, 1, 5, $testDto, $password, $folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 4, $password, $folderName);
+        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max2);
     }

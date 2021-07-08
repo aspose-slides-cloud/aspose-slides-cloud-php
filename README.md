@@ -24,6 +24,9 @@ This repository contains Aspose.Slides Cloud SDK for PHP source code. This SDK a
 **Web:** HTML
 **Other:** SWF (export whole presentations)
 
+## Enhancements in Version 21.6
+* New **CreateComment**, **CreateCommentOnline**, **DeleteComments**, **DeleteCommentsOnline**, **DeleteSlideComments** and **DeleteSlideCommentsOnline** methods to add or delete comments in presentations.
+
 ## Fixes in Version 21.4.1
 * Fixed error with PHP 5.5.
 

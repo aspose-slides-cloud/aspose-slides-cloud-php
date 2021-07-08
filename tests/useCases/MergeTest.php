@@ -64,15 +64,15 @@ class MergeTest extends TestBase
 
     public function testMergeRequest()
     {
-        $files = [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/".self::fileName2, 'r') ];
-        $result = $this->getApi()->mergeOnline($files, null, self::password);
+        $files = [ fopen("TestData/TemplateCV.pptx", 'r'), fopen("TestData/".self::fileName2, 'r') ];
+        $result = $this->getApi()->mergeOnline($files);
         Assert::assertTrue($result->isFile());
     }
 
     public function testMergeAndSaveRequest()
     {
-        $files = [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/".self::fileName2, 'r') ];
-        $this->getApi()->mergeAndSaveOnline(self::outPath, $files, null, self::password);
+        $files = [ fopen("TestData/TemplateCV.pptx", 'r'), fopen("TestData/".self::fileName2, 'r') ];
+        $this->getApi()->mergeAndSaveOnline(self::outPath, $files);
         $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }
@@ -81,11 +81,14 @@ class MergeTest extends TestBase
     {
         $files = [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/".self::fileName2, 'r') ];
         $request = new OrderedMergeRequest();
-        $presentation = new PresentationToMerge();
-        $presentation->setPath(self::fileName2);
-        $presentation->setSlides([ 1, 2 ]);
-        $request->setPresentations([ $presentation ]);
-        $result = $this->getApi()->mergeOnline($files, $request, self::password);
+        $presentation1 = new PresentationToMerge();
+        $presentation1->setPath(self::fileName);
+        $presentation1->setPassword(self::password);
+        $presentation2 = new PresentationToMerge();
+        $presentation2->setPath(self::fileName2);
+        $presentation2->setSlides([ 1, 2 ]);
+        $request->setPresentations([ $presentation1, $presentation2 ]);
+        $result = $this->getApi()->mergeOnline($files, $request);
         Assert::assertTrue($result->isFile());
     }
 
@@ -96,12 +99,15 @@ class MergeTest extends TestBase
 
         $files = [ fopen("TestData/".self::fileName, 'r') ];
         $request = new OrderedMergeRequest();
-        $presentation = new PresentationToMerge();
-        $presentation->setSlides([ 1, 2 ]);
-        $presentation->setSource("Storage");
-        $presentation->setPath(self::folderName."/".self::fileName2);
-        $request->setPresentations([ $presentation ]);
-        $result = $this->getApi()->mergeOnline($files, $request, self::password);
+        $presentation1 = new PresentationToMerge();
+        $presentation1->setPath(self::fileName);
+        $presentation1->setPassword(self::password);
+        $presentation2 = new PresentationToMerge();
+        $presentation2->setSlides([ 1, 2 ]);
+        $presentation2->setSource("Storage");
+        $presentation2->setPath(self::folderName."/".self::fileName2);
+        $request->setPresentations([ $presentation1, $presentation2 ]);
+        $result = $this->getApi()->mergeOnline($files, $request);
         Assert::assertTrue($result->isFile());
     }
 
