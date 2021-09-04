@@ -6,6 +6,6 @@
         </testsuite>
     </testsuites>
     <logging>
-        <log type="junit" target="testResults.xml" logIncompleteSkipped="false"/>
+        <log type="junit" target="testResults/testResults.xml" logIncompleteSkipped="false"/>
     </logging>
 </phpunit>

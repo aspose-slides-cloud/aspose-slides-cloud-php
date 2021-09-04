@@ -219,24 +219,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null)
+    public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         try {
-            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder);
+            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder);
+            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides);
             return $response;
         } 
     }
 
     /**
      */
-    public function convertWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null)
+    public function convertWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder);
+        $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder, $slides);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -260,9 +260,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAsync($document, $format, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAsync($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
-        return $this->convertAsyncWithHttpInfo($document, $format, $password, $storage, $fontsFolder)
+        return $this->convertAsyncWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -270,10 +270,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAsyncWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAsyncWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder);
+        $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder, $slides);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -323,11 +323,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  array $$slides The indices of the slides to be converted. If not specified, all slides are converted by default. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function convertRequest($document, $format, $password = null, $storage = null, $fontsFolder = null)
+    protected function convertRequest($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -350,6 +351,10 @@ class SlidesApi extends ApiBase
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
         }
+        // query params
+        if ($slides !== null) {
+            $queryParams['slides'] = ObjectSerializer::toQueryValue($slides);
+        }
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
@@ -369,22 +374,22 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function convertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         try {
-            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder);
+            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides);
         }
         catch(RepeatRequestException $ex) {
-            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder);
+            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides);
         } 
     }
 
     /**
      */
-    public function convertAndSaveWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAndSaveWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '';
-        $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder);
+        $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder, $slides);
         try {
             $response = $this->httpCall($httpRequest);
             return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -398,9 +403,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAndSaveAsync($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAndSaveAsync($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
-        return $this->convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder)
+        return $this->convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -408,10 +413,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
+    public function convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '';
-        $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder);
+        $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder, $slides);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -443,11 +448,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  array $$slides The indices of the slides to be converted. If not specified, all slides are converted by default. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function convertAndSaveRequest($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null)
+    protected function convertAndSaveRequest($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -477,6 +483,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // query params
+        if ($slides !== null) {
+            $queryParams['slides'] = ObjectSerializer::toQueryValue($slides);
         }
         // header params
         if ($password !== null) {
@@ -14427,24 +14437,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         try {
-            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder);
+            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder);
+            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
             return $response;
         } 
     }
 
     /**
      */
-    public function downloadPresentationWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function downloadPresentationWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder);
+        $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -14468,9 +14478,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadPresentationAsync($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function downloadPresentationAsync($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
-        return $this->downloadPresentationAsyncWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder)
+        return $this->downloadPresentationAsyncWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -14478,10 +14488,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadPresentationAsyncWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function downloadPresentationAsyncWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder);
+        $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -14533,11 +14543,12 @@ class SlidesApi extends ApiBase
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  array $$slides The indices of the slides to be saved. If not specified, all slides are saved by default. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadPresentationRequest($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    protected function downloadPresentationRequest($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -14563,6 +14574,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // query params
+        if ($slides !== null) {
+            $queryParams['slides'] = ObjectSerializer::toQueryValue($slides);
         }
         // header params
         if ($password !== null) {
@@ -26352,22 +26367,22 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         try {
-            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder);
+            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
         }
         catch(RepeatRequestException $ex) {
-            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder);
+            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
         } 
     }
 
     /**
      */
-    public function savePresentationWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function savePresentationWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '';
-        $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder);
+        $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
         try {
             $response = $this->httpCall($httpRequest);
             return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -26381,9 +26396,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function savePresentationAsync($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function savePresentationAsync($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
-        return $this->savePresentationAsyncWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder)
+        return $this->savePresentationAsyncWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -26391,10 +26406,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function savePresentationAsyncWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    public function savePresentationAsyncWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         $returnType = '';
-        $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder);
+        $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -26428,11 +26443,12 @@ class SlidesApi extends ApiBase
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  array $$slides The indices of the slides to be saved. If not specified, all slides are saved by default. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function savePresentationRequest($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    protected function savePresentationRequest($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -26466,6 +26482,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($fontsFolder !== null) {
             $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // query params
+        if ($slides !== null) {
+            $queryParams['slides'] = ObjectSerializer::toQueryValue($slides);
         }
         // header params
         if ($password !== null) {

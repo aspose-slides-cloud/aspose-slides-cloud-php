@@ -83,7 +83,7 @@ class TestUtils
 
     private static function applyRule($rule, &$value, $functionName, $name, $type)
     {
-        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name))
+        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule))
         {
             if (array_key_exists("Value", $rule))
             {
@@ -105,7 +105,7 @@ class TestUtils
 
     private static function applyInvalidValueRule($rule, &$value, $functionName, $name, $validValue, $type)
     {
-        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name))
+        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule))
         {
             if (array_key_exists("InvalidValue", $rule))
             {
@@ -148,6 +148,11 @@ class TestUtils
     private static function checkParameter($rule, $name)
     {
         return !array_key_exists("Parameter", $rule) || strcasecmp($name, $rule["Parameter"]) == 0;
+    }
+
+    private static function checkLanguage($rule)
+    {
+        return !array_key_exists("Language", $rule) || strcasecmp("PHP", $rule["Language"]) == 0;
     }
 
     /**

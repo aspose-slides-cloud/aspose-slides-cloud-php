@@ -82,7 +82,7 @@ class ApiBase
         } catch (RequestException $e) {
             $errorResponse = $e->getResponse();
             $code = $e->getCode();
-            if ($this->isAuthError($code, $errorResponse)) {
+            if ($code == 401) {
                 $this->requestToken();
                 throw new RepeatRequestException("Request must be retried");
             }
@@ -172,6 +172,10 @@ class ApiBase
                     }
                     $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
                     $e->setResponseObject($error);
+                } else {
+                    $error = new \Aspose\Slides\Cloud\Sdk\Api\ErrorMessage();
+                    $error->setMessage($e->getMessage());
+                    $e->setResponseObject($error);
                 }
             } catch (Exception $ex) {
                 //leave as is if could not parse the error
@@ -229,19 +233,5 @@ class ApiBase
             $logInfo .= $name.': '.(is_array($value) ? implode(",", $value) : $value)."\n";
         }
         return $logInfo .= "Body: ".$body."\n";
-    }
-
-    private function isAuthError($code, $response)
-    {
-        if ($code == 401) {
-            return true;
-        }
-        if ($code == 500) {
-            $c = $response->getBody()->getContents();
-            if (!$c) {
-                return true;
-            }
-        }
-        return false;
     }
 }

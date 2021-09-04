@@ -203,9 +203,14 @@ class ObjectSerializer
             return $parts[0];
         }
         $multipartContents = [];
-        $i = 0;
+        $f = 0;
+        $d = 0;
         foreach ($parts as $part) {
-            $multipartContents[] = [ 'name' => 'file'.(++$i), 'contents' => $part ];
+            if (is_resource($part)) {
+                $multipartContents[] = [ 'name' => 'file'.(++$f), 'contents' => $part ];
+            } else {
+                $multipartContents[] = [ 'name' => 'data'.(++$d), 'filename' => null, 'contents' => $part ];
+            }
         }
         return new \GuzzleHttp\Psr7\MultipartStream($multipartContents);
     }

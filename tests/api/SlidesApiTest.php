@@ -284,10 +284,11 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         list($expectedCode, $expectedMessage) = $this->initialize("convert", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "convert");
@@ -304,11 +305,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("convert", "document", $testdocument);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convert", "document", $expectedCode, $expectedMessage);
@@ -327,11 +329,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         $testformat = TestUtils::invalidizeValue("format", "convert", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convert", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convert", "format", $expectedCode, $expectedMessage);
@@ -350,11 +353,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         $testpassword = TestUtils::invalidizeValue("password", "convert", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convert", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convert", "password", $expectedCode, $expectedMessage);
@@ -373,11 +377,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         $teststorage = TestUtils::invalidizeValue("storage", "convert", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convert", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convert", "storage", $expectedCode, $expectedMessage);
@@ -396,11 +401,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "convert", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convert", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convert", "fontsFolder", $expectedCode, $expectedMessage);
@@ -409,6 +415,30 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("convert", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    public function testConvertInvalidslides()
+    {
+        $testdocument = TestUtils::getStreamValue("convert", "document");
+        $testformat = TestUtils::getTestValue("convert", "format", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("convert", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("convert", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("convert", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convert", "slides", self::$values, 'array');
+        $testslides = TestUtils::invalidizeValue("slides", "convert", $testslides, self::$values, 'array');
+        list($expectedCode, $expectedMessage) = $this->initialize("convert", "slides", $testslides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->convert($testdocument, $testformat, $testpassword, $teststorage, $testfontsFolder, $testslides);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "convert", "slides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "convert", "slides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("convert", "slides", self::$okToFailValues);
         }
     }
 
@@ -424,10 +454,11 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "convertAndSave");
@@ -445,11 +476,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "document", $testdocument);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "document", $expectedCode, $expectedMessage);
@@ -469,11 +501,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $testformat = TestUtils::invalidizeValue("format", "convertAndSave", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "format", $expectedCode, $expectedMessage);
@@ -493,11 +526,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $testoutPath = TestUtils::invalidizeValue("outPath", "convertAndSave", $testoutPath, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "outPath", $testoutPath);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "outPath", $expectedCode, $expectedMessage);
@@ -517,11 +551,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $testpassword = TestUtils::invalidizeValue("password", "convertAndSave", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "password", $expectedCode, $expectedMessage);
@@ -541,11 +576,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $teststorage = TestUtils::invalidizeValue("storage", "convertAndSave", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "storage", $expectedCode, $expectedMessage);
@@ -565,11 +601,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "convertAndSave", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "convertAndSave", "fontsFolder", $expectedCode, $expectedMessage);
@@ -578,6 +615,31 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("convertAndSave", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    public function testConvertAndSaveInvalidslides()
+    {
+        $testdocument = TestUtils::getStreamValue("convertAndSave", "document");
+        $testformat = TestUtils::getTestValue("convertAndSave", "format", self::$values, 'string');
+        $testoutPath = TestUtils::getTestValue("convertAndSave", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("convertAndSave", "password", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("convertAndSave", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("convertAndSave", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("convertAndSave", "slides", self::$values, 'array');
+        $testslides = TestUtils::invalidizeValue("slides", "convertAndSave", $testslides, self::$values, 'array');
+        list($expectedCode, $expectedMessage) = $this->initialize("convertAndSave", "slides", $testslides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->convertAndSave($testdocument, $testformat, $testoutPath, $testpassword, $teststorage, $testfontsFolder, $testslides);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "convertAndSave", "slides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "convertAndSave", "slides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("convertAndSave", "slides", self::$okToFailValues);
         }
     }
 
@@ -16860,10 +16922,11 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "downloadPresentation");
@@ -16882,11 +16945,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testname = TestUtils::invalidizeValue("name", "downloadPresentation", $testname, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "name", $expectedCode, $expectedMessage);
@@ -16907,11 +16971,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testformat = TestUtils::invalidizeValue("format", "downloadPresentation", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "format", $expectedCode, $expectedMessage);
@@ -16932,11 +16997,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testoptions = TestUtils::invalidizeValue("options", "downloadPresentation", $testoptions, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "options", $testoptions);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "options", $expectedCode, $expectedMessage);
@@ -16957,11 +17023,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testpassword = TestUtils::invalidizeValue("password", "downloadPresentation", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "password", $expectedCode, $expectedMessage);
@@ -16982,11 +17049,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testfolder = TestUtils::invalidizeValue("folder", "downloadPresentation", $testfolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "folder", $expectedCode, $expectedMessage);
@@ -17007,11 +17075,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $teststorage = TestUtils::invalidizeValue("storage", "downloadPresentation", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "storage", $expectedCode, $expectedMessage);
@@ -17032,11 +17101,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "downloadPresentation", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "downloadPresentation", "fontsFolder", $expectedCode, $expectedMessage);
@@ -17045,6 +17115,32 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("downloadPresentation", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPresentationInvalidslides()
+    {
+        $testname = TestUtils::getTestValue("downloadPresentation", "name", self::$values, 'string');
+        $testformat = TestUtils::getTestValue("downloadPresentation", "format", self::$values, 'string');
+        $testoptions = TestUtils::getTestValue("downloadPresentation", "options", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions');
+        $testpassword = TestUtils::getTestValue("downloadPresentation", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPresentation", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPresentation", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("downloadPresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("downloadPresentation", "slides", self::$values, 'array');
+        $testslides = TestUtils::invalidizeValue("slides", "downloadPresentation", $testslides, self::$values, 'array');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPresentation", "slides", $testslides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPresentation($testname, $testformat, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPresentation", "slides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPresentation", "slides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPresentation", "slides", self::$okToFailValues);
         }
     }
 
@@ -29445,10 +29541,11 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "savePresentation");
@@ -29468,11 +29565,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testname = TestUtils::invalidizeValue("name", "savePresentation", $testname, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "name", $expectedCode, $expectedMessage);
@@ -29494,11 +29592,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testformat = TestUtils::invalidizeValue("format", "savePresentation", $testformat, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "format", $testformat);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "format", $expectedCode, $expectedMessage);
@@ -29520,11 +29619,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testoutPath = TestUtils::invalidizeValue("outPath", "savePresentation", $testoutPath, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "outPath", $testoutPath);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "outPath", $expectedCode, $expectedMessage);
@@ -29546,11 +29646,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testoptions = TestUtils::invalidizeValue("options", "savePresentation", $testoptions, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "options", $testoptions);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "options", $expectedCode, $expectedMessage);
@@ -29572,11 +29673,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testpassword = TestUtils::invalidizeValue("password", "savePresentation", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "password", $expectedCode, $expectedMessage);
@@ -29598,11 +29700,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testfolder = TestUtils::invalidizeValue("folder", "savePresentation", $testfolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "folder", $expectedCode, $expectedMessage);
@@ -29624,11 +29727,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $teststorage = TestUtils::invalidizeValue("storage", "savePresentation", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "storage", $expectedCode, $expectedMessage);
@@ -29650,11 +29754,12 @@ class SlidesApiTest extends TestBase
         $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
         $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
         $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "savePresentation", $testfontsFolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "fontsFolder", $testfontsFolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "savePresentation", "fontsFolder", $expectedCode, $expectedMessage);
@@ -29663,6 +29768,33 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("savePresentation", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePresentationInvalidslides()
+    {
+        $testname = TestUtils::getTestValue("savePresentation", "name", self::$values, 'string');
+        $testformat = TestUtils::getTestValue("savePresentation", "format", self::$values, 'string');
+        $testoutPath = TestUtils::getTestValue("savePresentation", "outPath", self::$values, 'string');
+        $testoptions = TestUtils::getTestValue("savePresentation", "options", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions');
+        $testpassword = TestUtils::getTestValue("savePresentation", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePresentation", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePresentation", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("savePresentation", "fontsFolder", self::$values, 'string');
+        $testslides = TestUtils::getTestValue("savePresentation", "slides", self::$values, 'array');
+        $testslides = TestUtils::invalidizeValue("slides", "savePresentation", $testslides, self::$values, 'array');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePresentation", "slides", $testslides);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePresentation($testname, $testformat, $testoutPath, $testoptions, $testpassword, $testfolder, $teststorage, $testfontsFolder, $testslides);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePresentation", "slides", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePresentation", "slides", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePresentation", "slides", self::$okToFailValues);
         }
     }
 

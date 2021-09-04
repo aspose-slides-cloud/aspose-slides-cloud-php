@@ -39,6 +39,9 @@ class ConvertTest extends TestBase
     {
         $result = $this->getApi()->convert(fopen("TestData/".self::fileName, 'r'), self::format, self::password);
         Assert::assertTrue($result->isFile());
+        $resultSlides = $this->getApi()->convert(fopen("TestData/".self::fileName, 'r'), self::format, self::password, null, null, [ 2, 4 ]);
+        Assert::assertTrue($result->isFile());
+        Assert::assertTrue($result->getSize() > $resultSlides->getSize());
     }
 
     public function testConvertPutFromRequest()
