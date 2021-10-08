@@ -227,7 +227,7 @@ class ExportOptions implements ArrayAccess
     /**
      * Sets defaultRegularFont
      *
-     * @param string $defaultRegularFont Setting user password to protect the PDF document.
+     * @param string $defaultRegularFont Default regular font for rendering the presentation.
      *
      * @return $this
      */

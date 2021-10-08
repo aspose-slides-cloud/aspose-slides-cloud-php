@@ -245,6 +245,7 @@ class ClassHierarchy
             'SlideExportFormat' => [],
             'SmartArtNode' => [],
             'SoftEdgeEffect' => [],
+            'SpecialSlideType' => [],
             'StorageExist' => [],
             'StorageFile' => [],
             'TableCell' => [],

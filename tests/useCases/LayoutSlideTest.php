@@ -29,65 +29,45 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
+use Aspose\Slides\Cloud\Sdk\Model\SlideAnimation;
+use Aspose\Slides\Cloud\Sdk\Model\Effect;
 use Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
-class NotesSlideTest extends TestBase
+class LayoutSlideTest extends TestBase
 {
-    public function testNotesSlideGetStorage()
+    public function testLayoutSlides()
     {
+        $sourceFile = "TemplateCV.pptx";
+        $sourcePath = self::folderName."/".$sourceFile;
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile("TempTests/".$sourceFile, $sourcePath);
 
-        $this->getApi()->getNotesSlide(self::fileName, self::slideIndex, self::password, self::folderName);
+        $layoutSlides = $this->getApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
+        Assert::assertEquals(11, count($layoutSlides->getSlideList()));
+
+        $layoutSlide = $this->getApi()->GetLayoutSlide(self::fileName, 1, self::password, self::folderName);
+        Assert::assertEquals("Title Slide", $layoutSlide->getName());
+
+        $layoutSlide = $this->getApi()->CopyLayoutSlide(
+            self::fileName, $sourcePath, 2, null, null, self::password, self::folderName);
+        Assert::assertEquals("Title and Content", $layoutSlide->getName());
+
+        $layoutSlides = $this->getApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
+        Assert::assertEquals(12, count($layoutSlides->getSlideList()));
     }
 
-    public function testNotesSlideExistsStorage()
-    {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $result = $this->getApi()->notesSlideExists(self::fileName, self::slideIndex, self::password, self::folderName);
-        Assert::assertTrue($result->getExists());
-    }
-
-    public function testNotesSlideDownloadStorage()
-    {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $result = $this->getApi()->downloadNotesSlide(self::fileName, self::slideIndex, self::format, null, null, self::password, self::folderName);
-        Assert::assertTrue($result->isFile());
-    }
-
-    public function testNotesSlideGetRequest()
-    {
-        $this->getApi()->getNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
-    }
-
-    public function testNotesSlideExistsRequest()
-    {
-        $result = $this->getApi()->notesSlideExistsOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
-        Assert::assertTrue($result->getExists());
-    }
-
-    public function testNotesSlideDownloadRequest()
-    {
-        $result = $this->getApi()->downloadNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
-        Assert::assertTrue($result->isFile());
-    }
-
-    public function testNotesSlideShapes()
+    public function testLayoutSlideShapes()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $shapes = $this->getApi()->GetSpecialSlideShapes(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount, count($shapes->getShapesLinks()));
 
         $dto = new Shape();
@@ -99,34 +79,34 @@ class NotesSlideTest extends TestBase
         $dto->setText("New shape");
 
         $shape = $this->getApi()->CreateSpecialSlideShape(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, $dto, null, null, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals($dto->getText(), $shape->getText());
         $shapes = $this->getApi()->GetSpecialSlideShapes(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount + 1, count($shapes->getShapesLinks()));
         Assert::assertEquals($dto->getText(), $shape->getText());
 
         $dto->setText("Updated shape");
         $shape = $this->getApi()->UpdateSpecialSlideShape(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeCount + 1, $dto, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeCount + 1, $dto, self::password, self::folderName);
         $shapes = $this->getApi()->GetSpecialSlideShapes(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount + 1, count($shapes->getShapesLinks()));
 
         $shape = $this->getApi()->DeleteSpecialSlideShape(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeCount + 1, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeCount + 1, self::password, self::folderName);
         $shapes = $this->getApi()->GetSpecialSlideShapes(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount, count($shapes->getShapesLinks()));
     }
 
-    public function testNotesSlideParagraphs()
+    public function testLayoutSlideParagraphs()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeIndex, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount, count($paragraphs->getParagraphLinks()));
 
         $dto = new Paragraph();
@@ -137,7 +117,7 @@ class NotesSlideTest extends TestBase
         $paragraph = $this->getApi()->CreateSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             $dto,
             null,
@@ -145,7 +125,7 @@ class NotesSlideTest extends TestBase
             self::folderName);
         Assert::assertEquals($dto->getAlignment(), $paragraph->getAlignment());
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeIndex, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount + 1, count($paragraphs->getParagraphLinks()));
 
         $dto = new Paragraph();
@@ -153,7 +133,7 @@ class NotesSlideTest extends TestBase
         $paragraph = $this->getApi()->UpdateSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphCount + 1,
             $dto,
@@ -161,23 +141,23 @@ class NotesSlideTest extends TestBase
             self::folderName);
         Assert::assertEquals($dto->getAlignment(), $paragraph->getAlignment());
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeIndex, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount + 1, count($paragraphs->getParagraphLinks()));
 
         $this->getApi()->DeleteSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphCount + 1,
             self::password,
             self::folderName);
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
-            self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeIndex, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount, count($paragraphs->getParagraphLinks()));
     }
 
-    public function testNotesSlidePortions()
+    public function testLayoutSlidePortions()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
@@ -185,7 +165,7 @@ class NotesSlideTest extends TestBase
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::password,
@@ -198,7 +178,7 @@ class NotesSlideTest extends TestBase
         $portion = $this->getApi()->CreateSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             $dto,
@@ -210,7 +190,7 @@ class NotesSlideTest extends TestBase
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::password,
@@ -223,7 +203,7 @@ class NotesSlideTest extends TestBase
         $portion = $this->getApi()->UpdateSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::portionCount + 1,
@@ -236,7 +216,7 @@ class NotesSlideTest extends TestBase
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::password,
@@ -246,7 +226,7 @@ class NotesSlideTest extends TestBase
         $this->getApi()->DeleteSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::portionCount + 1,
@@ -255,7 +235,7 @@ class NotesSlideTest extends TestBase
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
-            SpecialSlideType::NOTES_SLIDE,
+            SpecialSlideType::LAYOUT_SLIDE,
             self::shapeIndex,
             self::paragraphIndex,
             self::password,
@@ -263,14 +243,49 @@ class NotesSlideTest extends TestBase
         Assert::assertEquals(self::portionCount, count($portions->getItems()));
     }
 
+    public function testLayoutSlideAnimation()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $animation = $this->getApi()->GetSpecialSlideAnimation(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, null, self::password, self::folderName);
+        Assert::assertEquals(0, count($animation->getMainSequence()));
+
+        $dto = new SlideAnimation();
+        $effect1 = new Effect();
+        $effect1->setType("Blink");
+        $effect1->setShapeIndex(2);
+        $effect2 = new Effect();
+        $effect2->setType("Appear");
+        $effect2->setShapeIndex(3);
+        $dto->setMainSequence([ $effect1, $effect2 ]);
+        $animation = $this->getApi()->SetSpecialSlideAnimation(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, $dto, self::password, self::folderName);
+        Assert::assertEquals(count($dto->getMainSequence()), count($animation->getMainSequence()));
+        $animation = $this->getApi()->GetSpecialSlideAnimation(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 3, self::password, self::folderName);
+        Assert::assertEquals(1, count($animation->getMainSequence()));
+
+        $animation = $this->getApi()->DeleteSpecialSlideAnimationEffect(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 2, self::password, self::folderName);
+        Assert::assertEquals(count($dto->getMainSequence()) - 1, count($animation->getMainSequence()));
+        $animation = $this->getApi()->GetSpecialSlideAnimation(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 3, self::password, self::folderName);
+        Assert::assertEquals(0, count($animation->getMainSequence()));
+
+        $animation = $this->getApi()->DeleteSpecialSlideAnimation(
+            self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
+        Assert::assertEquals(0, count($animation->getMainSequence()));
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 2;
-    public const shapeCount = 3;
+    public const shapeCount = 5;
     public const paragraphIndex = 1;
     public const paragraphCount = 1;
     public const portionCount = 1;
-    public const format = NotesSlideExportFormat::PNG;
 }

@@ -70,7 +70,17 @@ class ConvertTest extends TestBase
         Assert::assertTrue($result->getExists());
     }
 
-    public function testConvertWithOptions()
+    public function testConvertWithOptionsFromRequest()
+    {
+        $result1 = $this->getApi()->convert(fopen("TestData/".self::fileName, 'r'), self::format, self::password);
+        $options = new PdfExportOptions();
+        $options->setDrawSlidesFrame(true);
+        $result2 = $this->getApi()->convert(
+            fopen("TestData/".self::fileName, 'r'), self::format, self::password, null, null, null, $options);
+        Assert::assertNotEquals($result1->getSize(), $result2->getSize());
+    }
+
+    public function testConvertWithOptionsFromStorage()
     {
         $this->initialize(null, null, null);
         $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
@@ -114,7 +124,18 @@ class ConvertTest extends TestBase
         Assert::assertTrue($result->getExists());
     }
 
-    public function testConvertSlideWithOptions()
+    public function testConvertSlideWithOptionsFromRequest()
+    {
+        $result1 = $this->getApi()->downloadSlideOnline(
+            fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
+        $options = new PdfExportOptions();
+        $options->setDrawSlidesFrame(true);
+        $result2 = $this->getApi()->downloadSlideOnline(
+            fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password, null, null, $options);
+        Assert::assertNotEquals($result1->getSize(), $result2->getSize());
+    }
+
+    public function testConvertSlideWithOptionsFromStorage()
     {
         $this->initialize(null, null, null);
         $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
