@@ -183,6 +183,7 @@ class Save extends Task
     const FORMAT_POTX = 'Potx';
     const FORMAT_POTM = 'Potm';
     const FORMAT_HTML = 'Html';
+    const FORMAT_HTML5 = 'Html5';
     const FORMAT_SWF = 'Swf';
     const FORMAT_SVG = 'Svg';
     const FORMAT_JPEG = 'Jpeg';
@@ -216,6 +217,7 @@ class Save extends Task
             self::FORMAT_POTX,
             self::FORMAT_POTM,
             self::FORMAT_HTML,
+            self::FORMAT_HTML5,
             self::FORMAT_SWF,
             self::FORMAT_SVG,
             self::FORMAT_JPEG,

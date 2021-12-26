@@ -199,15 +199,6 @@ class XpsExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['showHiddenSlides'] === null) {
-            $invalidProperties[] = "'showHiddenSlides' can't be null";
-        }
-        if ($this->container['saveMetafilesAsPng'] === null) {
-            $invalidProperties[] = "'saveMetafilesAsPng' can't be null";
-        }
-        if ($this->container['drawSlidesFrame'] === null) {
-            $invalidProperties[] = "'drawSlidesFrame' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,15 +214,6 @@ class XpsExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['showHiddenSlides'] === null) {
-            return false;
-        }
-        if ($this->container['saveMetafilesAsPng'] === null) {
-            return false;
-        }
-        if ($this->container['drawSlidesFrame'] === null) {
-            return false;
-        }
         return true;
     }
 

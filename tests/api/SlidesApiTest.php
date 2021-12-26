@@ -24462,13 +24462,14 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getAnimation");
@@ -24483,6 +24484,7 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24490,7 +24492,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "name", $expectedCode, $expectedMessage);
@@ -24507,6 +24509,7 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24514,7 +24517,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "slideIndex", $expectedCode, $expectedMessage);
@@ -24531,6 +24534,7 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24538,7 +24542,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "shapeIndex", $testshapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "shapeIndex", $expectedCode, $expectedMessage);
@@ -24550,11 +24554,37 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testGetAnimationInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getAnimation", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getAnimation", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getAnimation", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getAnimation", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
     public function testGetAnimationInvalidpassword()
     {
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24562,7 +24592,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "password", $expectedCode, $expectedMessage);
@@ -24579,6 +24609,7 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24586,7 +24617,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "folder", $expectedCode, $expectedMessage);
@@ -24603,6 +24634,7 @@ class SlidesApiTest extends TestBase
         $testname = TestUtils::getTestValue("getAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getAnimation", "slideIndex", self::$values, 'int');
         $testshapeIndex = TestUtils::getTestValue("getAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getAnimation", "storage", self::$values, 'string');
@@ -24610,7 +24642,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getAnimation", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getAnimation($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getAnimation", "storage", $expectedCode, $expectedMessage);
@@ -29433,13 +29465,14 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getSpecialSlideAnimation");
@@ -29455,6 +29488,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29462,7 +29496,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "name", $expectedCode, $expectedMessage);
@@ -29480,6 +29514,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29487,7 +29522,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "slideIndex", $expectedCode, $expectedMessage);
@@ -29505,6 +29540,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29512,7 +29548,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "slideType", $testslideType);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "slideType", $expectedCode, $expectedMessage);
@@ -29530,6 +29566,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29537,7 +29574,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "shapeIndex", $testshapeIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "shapeIndex", $expectedCode, $expectedMessage);
@@ -29549,12 +29586,39 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testGetSpecialSlideAnimationInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("getSpecialSlideAnimation", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
+        $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
+        $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getSpecialSlideAnimation", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getSpecialSlideAnimation", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getSpecialSlideAnimation", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getSpecialSlideAnimation", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
     public function testGetSpecialSlideAnimationInvalidpassword()
     {
         $testname = TestUtils::getTestValue("getSpecialSlideAnimation", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29562,7 +29626,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "password", $expectedCode, $expectedMessage);
@@ -29580,6 +29644,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29587,7 +29652,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "folder", $expectedCode, $expectedMessage);
@@ -29605,6 +29670,7 @@ class SlidesApiTest extends TestBase
         $testslideIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "slideIndex", self::$values, 'int');
         $testslideType = TestUtils::getTestValue("getSpecialSlideAnimation", "slideType", self::$values, 'string');
         $testshapeIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getSpecialSlideAnimation", "paragraphIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("getSpecialSlideAnimation", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getSpecialSlideAnimation", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getSpecialSlideAnimation", "storage", self::$values, 'string');
@@ -29612,7 +29678,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("getSpecialSlideAnimation", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getSpecialSlideAnimation($testname, $testslideIndex, $testslideType, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getSpecialSlideAnimation", "storage", $expectedCode, $expectedMessage);

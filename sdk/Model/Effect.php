@@ -63,6 +63,7 @@ class Effect implements ArrayAccess
         'subtype' => 'string',
         'presetClassType' => 'string',
         'shapeIndex' => 'int',
+        'paragraphIndex' => 'int',
         'triggerType' => 'string',
         'accelerate' => 'double',
         'autoReverse' => 'bool',
@@ -85,6 +86,7 @@ class Effect implements ArrayAccess
         'subtype' => null,
         'presetClassType' => null,
         'shapeIndex' => 'int32',
+        'paragraphIndex' => 'int32',
         'triggerType' => null,
         'accelerate' => 'double',
         'autoReverse' => null,
@@ -128,6 +130,7 @@ class Effect implements ArrayAccess
         'subtype' => 'Subtype',
         'presetClassType' => 'PresetClassType',
         'shapeIndex' => 'ShapeIndex',
+        'paragraphIndex' => 'ParagraphIndex',
         'triggerType' => 'TriggerType',
         'accelerate' => 'Accelerate',
         'autoReverse' => 'AutoReverse',
@@ -150,6 +153,7 @@ class Effect implements ArrayAccess
         'subtype' => 'setSubtype',
         'presetClassType' => 'setPresetClassType',
         'shapeIndex' => 'setShapeIndex',
+        'paragraphIndex' => 'setParagraphIndex',
         'triggerType' => 'setTriggerType',
         'accelerate' => 'setAccelerate',
         'autoReverse' => 'setAutoReverse',
@@ -172,6 +176,7 @@ class Effect implements ArrayAccess
         'subtype' => 'getSubtype',
         'presetClassType' => 'getPresetClassType',
         'shapeIndex' => 'getShapeIndex',
+        'paragraphIndex' => 'getParagraphIndex',
         'triggerType' => 'getTriggerType',
         'accelerate' => 'getAccelerate',
         'autoReverse' => 'getAutoReverse',
@@ -739,6 +744,7 @@ class Effect implements ArrayAccess
         $this->container['subtype'] = isset($data['subtype']) ? $data['subtype'] : null;
         $this->container['presetClassType'] = isset($data['presetClassType']) ? $data['presetClassType'] : null;
         $this->container['shapeIndex'] = isset($data['shapeIndex']) ? $data['shapeIndex'] : null;
+        $this->container['paragraphIndex'] = isset($data['paragraphIndex']) ? $data['paragraphIndex'] : null;
         $this->container['triggerType'] = isset($data['triggerType']) ? $data['triggerType'] : null;
         $this->container['accelerate'] = isset($data['accelerate']) ? $data['accelerate'] : null;
         $this->container['autoReverse'] = isset($data['autoReverse']) ? $data['autoReverse'] : null;
@@ -1004,6 +1010,30 @@ class Effect implements ArrayAccess
     public function setShapeIndex($shapeIndex)
     {
         $this->container['shapeIndex'] = $shapeIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets paragraphIndex
+     *
+     * @return int
+     */
+    public function getParagraphIndex()
+    {
+        return $this->container['paragraphIndex'];
+    }
+
+    /**
+     * Sets paragraphIndex
+     *
+     * @param int $paragraphIndex Paragraph index.
+     *
+     * @return $this
+     */
+    public function setParagraphIndex($paragraphIndex)
+    {
+        $this->container['paragraphIndex'] = $paragraphIndex;
 
         return $this;
     }

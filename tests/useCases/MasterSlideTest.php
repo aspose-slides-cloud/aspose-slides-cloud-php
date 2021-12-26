@@ -249,7 +249,7 @@ class MasterSlideTest extends TestBase
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $animation = $this->getApi()->GetSpecialSlideAnimation(
-            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, null, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, null, null, self::password, self::folderName);
         Assert::assertEquals(1, count($animation->getMainSequence()));
 
         $dto = new SlideAnimation();
@@ -264,14 +264,14 @@ class MasterSlideTest extends TestBase
             self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, $dto, self::password, self::folderName);
         Assert::assertEquals(count($dto->getMainSequence()), count($animation->getMainSequence()));
         $animation = $this->getApi()->GetSpecialSlideAnimation(
-            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, 3, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, 3, null, self::password, self::folderName);
         Assert::assertEquals(1, count($animation->getMainSequence()));
 
         $animation = $this->getApi()->DeleteSpecialSlideAnimationEffect(
             self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, 2, self::password, self::folderName);
         Assert::assertEquals(count($dto->getMainSequence()) - 1, count($animation->getMainSequence()));
         $animation = $this->getApi()->GetSpecialSlideAnimation(
-            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, 3, self::password, self::folderName);
+            self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, 3, null, self::password, self::folderName);
         Assert::assertEquals(0, count($animation->getMainSequence()));
 
         $animation = $this->getApi()->DeleteSpecialSlideAnimation(

@@ -392,9 +392,6 @@ class PdfExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['textCompression'] === null) {
-            $invalidProperties[] = "'textCompression' can't be null";
-        }
         $allowedValues = $this->getTextCompressionAllowableValues();
         if (!in_array($this->container['textCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -403,12 +400,6 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['embedFullFonts'] === null) {
-            $invalidProperties[] = "'embedFullFonts' can't be null";
-        }
-        if ($this->container['compliance'] === null) {
-            $invalidProperties[] = "'compliance' can't be null";
-        }
         $allowedValues = $this->getComplianceAllowableValues();
         if (!in_array($this->container['compliance'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -417,27 +408,6 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['sufficientResolution'] === null) {
-            $invalidProperties[] = "'sufficientResolution' can't be null";
-        }
-        if ($this->container['jpegQuality'] === null) {
-            $invalidProperties[] = "'jpegQuality' can't be null";
-        }
-        if ($this->container['drawSlidesFrame'] === null) {
-            $invalidProperties[] = "'drawSlidesFrame' can't be null";
-        }
-        if ($this->container['showHiddenSlides'] === null) {
-            $invalidProperties[] = "'showHiddenSlides' can't be null";
-        }
-        if ($this->container['saveMetafilesAsPng'] === null) {
-            $invalidProperties[] = "'saveMetafilesAsPng' can't be null";
-        }
-        if ($this->container['embedTrueTypeFontsForAscii'] === null) {
-            $invalidProperties[] = "'embedTrueTypeFontsForAscii' can't be null";
-        }
-        if ($this->container['notesPosition'] === null) {
-            $invalidProperties[] = "'notesPosition' can't be null";
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -446,9 +416,6 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsPosition'] === null) {
-            $invalidProperties[] = "'commentsPosition' can't be null";
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -457,18 +424,6 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsAreaWidth'] === null) {
-            $invalidProperties[] = "'commentsAreaWidth' can't be null";
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
-            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
-        }
-        if ($this->container['applyImageTransparent'] === null) {
-            $invalidProperties[] = "'applyImageTransparent' can't be null";
-        }
-        if ($this->container['accessPermissions'] === null) {
-            $invalidProperties[] = "'accessPermissions' can't be null";
-        }
         $allowedValues = $this->getAccessPermissionsAllowableValues();
         if (!in_array($this->container['accessPermissions'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -492,65 +447,20 @@ class PdfExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['textCompression'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTextCompressionAllowableValues();
         if (!in_array($this->container['textCompression'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['embedFullFonts'] === null) {
-            return false;
-        }
-        if ($this->container['compliance'] === null) {
             return false;
         }
         $allowedValues = $this->getComplianceAllowableValues();
         if (!in_array($this->container['compliance'], $allowedValues)) {
             return false;
         }
-        if ($this->container['sufficientResolution'] === null) {
-            return false;
-        }
-        if ($this->container['jpegQuality'] === null) {
-            return false;
-        }
-        if ($this->container['drawSlidesFrame'] === null) {
-            return false;
-        }
-        if ($this->container['showHiddenSlides'] === null) {
-            return false;
-        }
-        if ($this->container['saveMetafilesAsPng'] === null) {
-            return false;
-        }
-        if ($this->container['embedTrueTypeFontsForAscii'] === null) {
-            return false;
-        }
-        if ($this->container['notesPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['commentsPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['commentsAreaWidth'] === null) {
-            return false;
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
-            return false;
-        }
-        if ($this->container['applyImageTransparent'] === null) {
-            return false;
-        }
-        if ($this->container['accessPermissions'] === null) {
             return false;
         }
         $allowedValues = $this->getAccessPermissionsAllowableValues();
@@ -594,7 +504,7 @@ class PdfExportOptions extends ExportOptions
                 $textCompression = $allowedValues[$textCompression];
             }
         } else {
-            if (!in_array($textCompression, $allowedValues)) {
+            if (!is_null($textCompression) && !in_array($textCompression, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'textCompression', must be one of '%s'",
@@ -665,7 +575,7 @@ class PdfExportOptions extends ExportOptions
                 $compliance = $allowedValues[$compliance];
             }
         } else {
-            if (!in_array($compliance, $allowedValues)) {
+            if (!is_null($compliance) && !in_array($compliance, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'compliance', must be one of '%s'",
@@ -904,7 +814,7 @@ class PdfExportOptions extends ExportOptions
                 $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($notesPosition, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'notesPosition', must be one of '%s'",
@@ -951,7 +861,7 @@ class PdfExportOptions extends ExportOptions
                 $commentsPosition = $allowedValues[$commentsPosition];
             }
         } else {
-            if (!in_array($commentsPosition, $allowedValues)) {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'commentsPosition', must be one of '%s'",
@@ -1118,7 +1028,7 @@ class PdfExportOptions extends ExportOptions
                 $accessPermissions = $allowedValues[$accessPermissions];
             }
         } else {
-            if (!in_array($accessPermissions, $allowedValues)) {
+            if (!is_null($accessPermissions) && !in_array($accessPermissions, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'accessPermissions', must be one of '%s'",

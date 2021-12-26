@@ -239,9 +239,6 @@ class ImageExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['notesPosition'] === null) {
-            $invalidProperties[] = "'notesPosition' can't be null";
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -250,9 +247,6 @@ class ImageExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsPosition'] === null) {
-            $invalidProperties[] = "'commentsPosition' can't be null";
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -261,9 +255,6 @@ class ImageExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsAreaWidth'] === null) {
-            $invalidProperties[] = "'commentsAreaWidth' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -279,21 +270,12 @@ class ImageExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['notesPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['commentsPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['commentsAreaWidth'] === null) {
             return false;
         }
         return true;
@@ -333,7 +315,7 @@ class ImageExportOptions extends ExportOptions
                 $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($notesPosition, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'notesPosition', must be one of '%s'",
@@ -380,7 +362,7 @@ class ImageExportOptions extends ExportOptions
                 $commentsPosition = $allowedValues[$commentsPosition];
             }
         } else {
-            if (!in_array($commentsPosition, $allowedValues)) {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'commentsPosition', must be one of '%s'",

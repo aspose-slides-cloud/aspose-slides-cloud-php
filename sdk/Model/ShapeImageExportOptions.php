@@ -227,15 +227,6 @@ class ShapeImageExportOptions implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['scaleX'] === null) {
-            $invalidProperties[] = "'scaleX' can't be null";
-        }
-        if ($this->container['scaleY'] === null) {
-            $invalidProperties[] = "'scaleY' can't be null";
-        }
-        if ($this->container['thumbnailBounds'] === null) {
-            $invalidProperties[] = "'thumbnailBounds' can't be null";
-        }
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
         if (!in_array($this->container['thumbnailBounds'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -256,15 +247,6 @@ class ShapeImageExportOptions implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['scaleX'] === null) {
-            return false;
-        }
-        if ($this->container['scaleY'] === null) {
-            return false;
-        }
-        if ($this->container['thumbnailBounds'] === null) {
-            return false;
-        }
         $allowedValues = $this->getThumbnailBoundsAllowableValues();
         if (!in_array($this->container['thumbnailBounds'], $allowedValues)) {
             return false;
@@ -354,7 +336,7 @@ class ShapeImageExportOptions implements ArrayAccess
                 $thumbnailBounds = $allowedValues[$thumbnailBounds];
             }
         } else {
-            if (!in_array($thumbnailBounds, $allowedValues)) {
+            if (!is_null($thumbnailBounds) && !in_array($thumbnailBounds, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'thumbnailBounds', must be one of '%s'",

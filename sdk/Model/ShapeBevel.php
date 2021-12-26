@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * PptxExportOptions Class Doc Comment
+ * ShapeBevel Class Doc Comment
  *
  * @category Class
- * @description Provides options that control how a presentation is saved in PPTX format.
+ * @description ShapeBevel
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PptxExportOptions extends ExportOptions 
+class ShapeBevel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class PptxExportOptions extends ExportOptions
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PptxExportOptions';
+    protected static $swaggerModelName = 'ShapeBevel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +59,9 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conformance' => 'string'
+        'bevelType' => 'string',
+        'width' => 'double',
+        'height' => 'double'
     ];
 
     /**
@@ -66,7 +70,9 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conformance' => null
+        'bevelType' => null,
+        'width' => 'double',
+        'height' => 'double'
     ];
 
     /**
@@ -76,7 +82,7 @@ class PptxExportOptions extends ExportOptions
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +92,7 @@ class PptxExportOptions extends ExportOptions
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,7 +102,9 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'conformance' => 'Conformance'
+        'bevelType' => 'BevelType',
+        'width' => 'Width',
+        'height' => 'Height'
     ];
 
     /**
@@ -105,7 +113,9 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'conformance' => 'setConformance'
+        'bevelType' => 'setBevelType',
+        'width' => 'setWidth',
+        'height' => 'setHeight'
     ];
 
     /**
@@ -114,7 +124,9 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'conformance' => 'getConformance'
+        'bevelType' => 'getBevelType',
+        'width' => 'getWidth',
+        'height' => 'getHeight'
     ];
 
     /**
@@ -125,7 +137,7 @@ class PptxExportOptions extends ExportOptions
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -135,7 +147,7 @@ class PptxExportOptions extends ExportOptions
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -145,7 +157,7 @@ class PptxExportOptions extends ExportOptions
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -158,9 +170,19 @@ class PptxExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
-    const CONFORMANCE_ECMA376_2006 = 'Ecma376_2006';
-    const CONFORMANCE_ISO29500_2008_TRANSITIONAL = 'Iso29500_2008_Transitional';
-    const CONFORMANCE_ISO29500_2008_STRICT = 'Iso29500_2008_Strict';
+    const BEVEL_TYPE_ANGLE = 'Angle';
+    const BEVEL_TYPE_ART_DECO = 'ArtDeco';
+    const BEVEL_TYPE_CIRCLE = 'Circle';
+    const BEVEL_TYPE_CONVEX = 'Convex';
+    const BEVEL_TYPE_COOL_SLANT = 'CoolSlant';
+    const BEVEL_TYPE_CROSS = 'Cross';
+    const BEVEL_TYPE_DIVOT = 'Divot';
+    const BEVEL_TYPE_HARD_EDGE = 'HardEdge';
+    const BEVEL_TYPE_RELAXED_INSET = 'RelaxedInset';
+    const BEVEL_TYPE_RIBLET = 'Riblet';
+    const BEVEL_TYPE_SLOPE = 'Slope';
+    const BEVEL_TYPE_SOFT_ROUND = 'SoftRound';
+    const BEVEL_TYPE_NOT_DEFINED = 'NotDefined';
     
 
     
@@ -169,16 +191,32 @@ class PptxExportOptions extends ExportOptions
      *
      * @return string[]
      */
-    public function getConformanceAllowableValues()
+    public function getBevelTypeAllowableValues()
     {
         return [
-            self::CONFORMANCE_ECMA376_2006,
-            self::CONFORMANCE_ISO29500_2008_TRANSITIONAL,
-            self::CONFORMANCE_ISO29500_2008_STRICT,
+            self::BEVEL_TYPE_ANGLE,
+            self::BEVEL_TYPE_ART_DECO,
+            self::BEVEL_TYPE_CIRCLE,
+            self::BEVEL_TYPE_CONVEX,
+            self::BEVEL_TYPE_COOL_SLANT,
+            self::BEVEL_TYPE_CROSS,
+            self::BEVEL_TYPE_DIVOT,
+            self::BEVEL_TYPE_HARD_EDGE,
+            self::BEVEL_TYPE_RELAXED_INSET,
+            self::BEVEL_TYPE_RIBLET,
+            self::BEVEL_TYPE_SLOPE,
+            self::BEVEL_TYPE_SOFT_ROUND,
+            self::BEVEL_TYPE_NOT_DEFINED,
         ];
     }
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -188,10 +226,9 @@ class PptxExportOptions extends ExportOptions
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
-        $this->container['format'] = 'pptx';
+        $this->container['bevelType'] = isset($data['bevelType']) ? $data['bevelType'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         
     }
 
@@ -202,12 +239,12 @@ class PptxExportOptions extends ExportOptions
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        $allowedValues = $this->getConformanceAllowableValues();
-        if (!in_array($this->container['conformance'], $allowedValues)) {
+        $allowedValues = $this->getBevelTypeAllowableValues();
+        if (!in_array($this->container['bevelType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'conformance', must be one of '%s'",
+                "invalid value for 'bevelType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -223,12 +260,9 @@ class PptxExportOptions extends ExportOptions
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        $allowedValues = $this->getConformanceAllowableValues();
-        if (!in_array($this->container['conformance'], $allowedValues)) {
+        $allowedValues = $this->getBevelTypeAllowableValues();
+        if (!in_array($this->container['bevelType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -236,48 +270,96 @@ class PptxExportOptions extends ExportOptions
 
 
     /**
-     * Gets conformance
+     * Gets bevelType
      *
      * @return string
      */
-    public function getConformance()
+    public function getBevelType()
     {
-        return $this->container['conformance'];
+        return $this->container['bevelType'];
     }
 
     /**
-     * Sets conformance
+     * Sets bevelType
      *
-     * @param string $conformance The conformance class to which the PresentationML document conforms. Read/write Conformance.
+     * @param string $bevelType Bevel type
      *
      * @return $this
      */
-    public function setConformance($conformance)
+    public function setBevelType($bevelType)
     {
-        $allowedValues = $this->getConformanceAllowableValues();
+        $allowedValues = $this->getBevelTypeAllowableValues();
 
 
-        if (is_numeric($conformance)) {
-            if ($conformance >= sizeof($allowedValues)) {
+        if (is_numeric($bevelType)) {
+            if ($bevelType >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'conformance', must be one of '%s'",
+                        "Invalid value for 'bevelType', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $conformance = $allowedValues[$conformance];
+                $bevelType = $allowedValues[$bevelType];
             }
         } else {
-            if (!is_null($conformance) && !in_array($conformance, $allowedValues)) {
+            if (!is_null($bevelType) && !in_array($bevelType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'conformance', must be one of '%s'",
+                        "Invalid value for 'bevelType', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['conformance'] = $conformance;
+        $this->container['bevelType'] = $bevelType;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return double
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param double $width Bevel width
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return double
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param double $height Bevel height
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
 
         return $this;
     }

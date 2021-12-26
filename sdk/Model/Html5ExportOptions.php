@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * PptxExportOptions Class Doc Comment
+ * Html5ExportOptions Class Doc Comment
  *
  * @category Class
- * @description Provides options that control how a presentation is saved in PPTX format.
+ * @description Provides options that control how a presentation is saved in Html5 format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PptxExportOptions extends ExportOptions 
+class Html5ExportOptions extends ExportOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PptxExportOptions extends ExportOptions
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PptxExportOptions';
+    protected static $swaggerModelName = 'Html5ExportOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conformance' => 'string'
+        'animateTransitions' => 'bool',
+        'animateShapes' => 'bool'
     ];
 
     /**
@@ -66,7 +67,8 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conformance' => null
+        'animateTransitions' => null,
+        'animateShapes' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'conformance' => 'Conformance'
+        'animateTransitions' => 'AnimateTransitions',
+        'animateShapes' => 'AnimateShapes'
     ];
 
     /**
@@ -105,7 +108,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'conformance' => 'setConformance'
+        'animateTransitions' => 'setAnimateTransitions',
+        'animateShapes' => 'setAnimateShapes'
     ];
 
     /**
@@ -114,7 +118,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'conformance' => 'getConformance'
+        'animateTransitions' => 'getAnimateTransitions',
+        'animateShapes' => 'getAnimateShapes'
     ];
 
     /**
@@ -158,25 +163,8 @@ class PptxExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
-    const CONFORMANCE_ECMA376_2006 = 'Ecma376_2006';
-    const CONFORMANCE_ISO29500_2008_TRANSITIONAL = 'Iso29500_2008_Transitional';
-    const CONFORMANCE_ISO29500_2008_STRICT = 'Iso29500_2008_Strict';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getConformanceAllowableValues()
-    {
-        return [
-            self::CONFORMANCE_ECMA376_2006,
-            self::CONFORMANCE_ISO29500_2008_TRANSITIONAL,
-            self::CONFORMANCE_ISO29500_2008_STRICT,
-        ];
-    }
     
 
 
@@ -190,8 +178,9 @@ class PptxExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
-        $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
-        $this->container['format'] = 'pptx';
+        $this->container['animateTransitions'] = isset($data['animateTransitions']) ? $data['animateTransitions'] : null;
+        $this->container['animateShapes'] = isset($data['animateShapes']) ? $data['animateShapes'] : null;
+        $this->container['format'] = 'html5';
         
     }
 
@@ -203,14 +192,6 @@ class PptxExportOptions extends ExportOptions
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        $allowedValues = $this->getConformanceAllowableValues();
-        if (!in_array($this->container['conformance'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'conformance', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -227,57 +208,54 @@ class PptxExportOptions extends ExportOptions
             return false;
         }
 
-        $allowedValues = $this->getConformanceAllowableValues();
-        if (!in_array($this->container['conformance'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets conformance
+     * Gets animateTransitions
      *
-     * @return string
+     * @return bool
      */
-    public function getConformance()
+    public function getAnimateTransitions()
     {
-        return $this->container['conformance'];
+        return $this->container['animateTransitions'];
     }
 
     /**
-     * Sets conformance
+     * Sets animateTransitions
      *
-     * @param string $conformance The conformance class to which the PresentationML document conforms. Read/write Conformance.
+     * @param bool $animateTransitions Gets or sets transitions animation option.
      *
      * @return $this
      */
-    public function setConformance($conformance)
+    public function setAnimateTransitions($animateTransitions)
     {
-        $allowedValues = $this->getConformanceAllowableValues();
+        $this->container['animateTransitions'] = $animateTransitions;
 
+        return $this;
+    }
 
-        if (is_numeric($conformance)) {
-            if ($conformance >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'conformance', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $conformance = $allowedValues[$conformance];
-            }
-        } else {
-            if (!is_null($conformance) && !in_array($conformance, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'conformance', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['conformance'] = $conformance;
+    /**
+     * Gets animateShapes
+     *
+     * @return bool
+     */
+    public function getAnimateShapes()
+    {
+        return $this->container['animateShapes'];
+    }
+
+    /**
+     * Sets animateShapes
+     *
+     * @param bool $animateShapes Gets or sets shapes animation option.
+     *
+     * @return $this
+     */
+    public function setAnimateShapes($animateShapes)
+    {
+        $this->container['animateShapes'] = $animateShapes;
 
         return $this;
     }

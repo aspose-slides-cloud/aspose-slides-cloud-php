@@ -60,6 +60,7 @@ class ExportFormat
     const POTX = 'Potx';
     const POTM = 'Potm';
     const HTML = 'Html';
+    const HTML5 = 'Html5';
     const SWF = 'Swf';
     const SVG = 'Svg';
     const JPEG = 'Jpeg';
@@ -90,6 +91,7 @@ class ExportFormat
             self::POTX,
             self::POTM,
             self::HTML,
+            self::HTML5,
             self::SWF,
             self::SVG,
             self::JPEG,

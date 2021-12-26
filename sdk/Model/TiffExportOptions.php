@@ -58,8 +58,6 @@ class TiffExportOptions extends ExportOptions
       */
     protected static $swaggerTypes = [
         'compression' => 'string',
-        'width' => 'int',
-        'height' => 'int',
         'dpiX' => 'int',
         'dpiY' => 'int',
         'showHiddenSlides' => 'bool',
@@ -78,8 +76,6 @@ class TiffExportOptions extends ExportOptions
       */
     protected static $swaggerFormats = [
         'compression' => null,
-        'width' => 'int32',
-        'height' => 'int32',
         'dpiX' => 'int32',
         'dpiY' => 'int32',
         'showHiddenSlides' => null,
@@ -119,8 +115,6 @@ class TiffExportOptions extends ExportOptions
      */
     protected static $attributeMap = [
         'compression' => 'Compression',
-        'width' => 'Width',
-        'height' => 'Height',
         'dpiX' => 'DpiX',
         'dpiY' => 'DpiY',
         'showHiddenSlides' => 'ShowHiddenSlides',
@@ -139,8 +133,6 @@ class TiffExportOptions extends ExportOptions
      */
     protected static $setters = [
         'compression' => 'setCompression',
-        'width' => 'setWidth',
-        'height' => 'setHeight',
         'dpiX' => 'setDpiX',
         'dpiY' => 'setDpiY',
         'showHiddenSlides' => 'setShowHiddenSlides',
@@ -159,8 +151,6 @@ class TiffExportOptions extends ExportOptions
      */
     protected static $getters = [
         'compression' => 'getCompression',
-        'width' => 'getWidth',
-        'height' => 'getHeight',
         'dpiX' => 'getDpiX',
         'dpiY' => 'getDpiY',
         'showHiddenSlides' => 'getShowHiddenSlides',
@@ -307,8 +297,6 @@ class TiffExportOptions extends ExportOptions
         parent::__construct($data);
 
         $this->container['compression'] = isset($data['compression']) ? $data['compression'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['dpiX'] = isset($data['dpiX']) ? $data['dpiX'] : null;
         $this->container['dpiY'] = isset($data['dpiY']) ? $data['dpiY'] : null;
         $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
@@ -331,9 +319,6 @@ class TiffExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['compression'] === null) {
-            $invalidProperties[] = "'compression' can't be null";
-        }
         $allowedValues = $this->getCompressionAllowableValues();
         if (!in_array($this->container['compression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -342,12 +327,6 @@ class TiffExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['showHiddenSlides'] === null) {
-            $invalidProperties[] = "'showHiddenSlides' can't be null";
-        }
-        if ($this->container['pixelFormat'] === null) {
-            $invalidProperties[] = "'pixelFormat' can't be null";
-        }
         $allowedValues = $this->getPixelFormatAllowableValues();
         if (!in_array($this->container['pixelFormat'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -356,9 +335,6 @@ class TiffExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['notesPosition'] === null) {
-            $invalidProperties[] = "'notesPosition' can't be null";
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -367,9 +343,6 @@ class TiffExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsPosition'] === null) {
-            $invalidProperties[] = "'commentsPosition' can't be null";
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -378,12 +351,6 @@ class TiffExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsAreaWidth'] === null) {
-            $invalidProperties[] = "'commentsAreaWidth' can't be null";
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
-            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -399,41 +366,20 @@ class TiffExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['compression'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCompressionAllowableValues();
         if (!in_array($this->container['compression'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['showHiddenSlides'] === null) {
-            return false;
-        }
-        if ($this->container['pixelFormat'] === null) {
             return false;
         }
         $allowedValues = $this->getPixelFormatAllowableValues();
         if (!in_array($this->container['pixelFormat'], $allowedValues)) {
             return false;
         }
-        if ($this->container['notesPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['commentsPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['commentsAreaWidth'] === null) {
-            return false;
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -473,7 +419,7 @@ class TiffExportOptions extends ExportOptions
                 $compression = $allowedValues[$compression];
             }
         } else {
-            if (!in_array($compression, $allowedValues)) {
+            if (!is_null($compression) && !in_array($compression, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'compression', must be one of '%s'",
@@ -483,54 +429,6 @@ class TiffExportOptions extends ExportOptions
             }
         }
         $this->container['compression'] = $compression;
-
-        return $this;
-    }
-
-    /**
-     * Gets width
-     *
-     * @return int
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     *
-     * @param int $width Width.
-     *
-     * @return $this
-     */
-    public function setWidth($width)
-    {
-        $this->container['width'] = $width;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return int
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param int $height Height.
-     *
-     * @return $this
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
 
         return $this;
     }
@@ -640,7 +538,7 @@ class TiffExportOptions extends ExportOptions
                 $pixelFormat = $allowedValues[$pixelFormat];
             }
         } else {
-            if (!in_array($pixelFormat, $allowedValues)) {
+            if (!is_null($pixelFormat) && !in_array($pixelFormat, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'pixelFormat', must be one of '%s'",
@@ -687,7 +585,7 @@ class TiffExportOptions extends ExportOptions
                 $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($notesPosition, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'notesPosition', must be one of '%s'",
@@ -734,7 +632,7 @@ class TiffExportOptions extends ExportOptions
                 $commentsPosition = $allowedValues[$commentsPosition];
             }
         } else {
-            if (!in_array($commentsPosition, $allowedValues)) {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'commentsPosition', must be one of '%s'",

@@ -310,18 +310,6 @@ class HtmlExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['saveAsZip'] === null) {
-            $invalidProperties[] = "'saveAsZip' can't be null";
-        }
-        if ($this->container['showHiddenSlides'] === null) {
-            $invalidProperties[] = "'showHiddenSlides' can't be null";
-        }
-        if ($this->container['svgResponsiveLayout'] === null) {
-            $invalidProperties[] = "'svgResponsiveLayout' can't be null";
-        }
-        if ($this->container['jpegQuality'] === null) {
-            $invalidProperties[] = "'jpegQuality' can't be null";
-        }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
         if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -330,12 +318,6 @@ class HtmlExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['deletePicturesCroppedAreas'] === null) {
-            $invalidProperties[] = "'deletePicturesCroppedAreas' can't be null";
-        }
-        if ($this->container['notesPosition'] === null) {
-            $invalidProperties[] = "'notesPosition' can't be null";
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -344,9 +326,6 @@ class HtmlExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsPosition'] === null) {
-            $invalidProperties[] = "'commentsPosition' can't be null";
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -355,12 +334,6 @@ class HtmlExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsAreaWidth'] === null) {
-            $invalidProperties[] = "'commentsAreaWidth' can't be null";
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
-            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -376,43 +349,16 @@ class HtmlExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['saveAsZip'] === null) {
-            return false;
-        }
-        if ($this->container['showHiddenSlides'] === null) {
-            return false;
-        }
-        if ($this->container['svgResponsiveLayout'] === null) {
-            return false;
-        }
-        if ($this->container['jpegQuality'] === null) {
-            return false;
-        }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
         if (!in_array($this->container['picturesCompression'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['deletePicturesCroppedAreas'] === null) {
-            return false;
-        }
-        if ($this->container['notesPosition'] === null) {
             return false;
         }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['commentsPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['commentsAreaWidth'] === null) {
-            return false;
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -643,7 +589,7 @@ class HtmlExportOptions extends ExportOptions
                 $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($notesPosition, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'notesPosition', must be one of '%s'",
@@ -690,7 +636,7 @@ class HtmlExportOptions extends ExportOptions
                 $commentsPosition = $allowedValues[$commentsPosition];
             }
         } else {
-            if (!in_array($commentsPosition, $allowedValues)) {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'commentsPosition', must be one of '%s'",

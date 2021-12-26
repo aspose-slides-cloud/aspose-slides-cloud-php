@@ -180,6 +180,10 @@ class SlidesApi extends ApiBase
         if ($alignmentType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $alignmentType when calling alignShapes');
         }
+        // verify the value of enum parameter 'alignmentType' is valid
+        if (!in_array(strtolower($alignmentType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $alignmentType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/align/{alignmentType}';
         $queryParams = [];
@@ -348,9 +352,17 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling alignSpecialSlideShapes');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'alignment_type' is set
         if ($alignmentType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $alignmentType when calling alignSpecialSlideShapes');
+        }
+        // verify the value of enum parameter 'alignmentType' is valid
+        if (!in_array(strtolower($alignmentType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $alignmentType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes/align/{alignmentType}';
@@ -512,6 +524,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling convert');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/convert/{format}';
         $queryParams = [];
@@ -640,6 +656,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling convertAndSave');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()));
         }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
@@ -3709,8 +3729,8 @@ class SlidesApi extends ApiBase
      * Create request for operation 'createPresentation'
      *
      * @param  string $$name Document name. (required)
-     * @param  \SplFileObject $$data Document input data. (optional)
-     * @param  string $$inputPassword The password for input document. (optional)
+     * @param  \SplFileObject $$data Source presentation binary data. (optional)
+     * @param  string $$inputPassword The password for source presentation. (optional)
      * @param  string $$password The document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -3863,9 +3883,9 @@ class SlidesApi extends ApiBase
      * Create request for operation 'createPresentationFromSource'
      *
      * @param  string $$name Document name. (required)
-     * @param  string $$sourcePath Template file path. (optional)
-     * @param  string $$sourcePassword Template file password. (optional)
-     * @param  string $$sourceStorage Template storage name. (optional)
+     * @param  string $$sourcePath Source file path. (optional)
+     * @param  string $$sourcePassword Source file password. (optional)
+     * @param  string $$sourceStorage Source storage name. (optional)
      * @param  string $$password The document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -4703,6 +4723,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideAnimationEffect');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'effect' is set
         if ($effect === null) {
             throw new \InvalidArgumentException('Missing the required parameter $effect when calling createSpecialSlideAnimationEffect');
@@ -4867,6 +4891,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideAnimationInteractiveSequence');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'sequence' is set
         if ($sequence === null) {
@@ -5033,6 +5061,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideAnimationInteractiveSequenceEffect');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'sequence_index' is set
         if ($sequenceIndex === null) {
@@ -5205,6 +5237,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -5382,6 +5418,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlidePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -5564,6 +5604,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes';
         $queryParams = [];
@@ -5735,6 +5779,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -5912,6 +5960,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideSubshapeParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -6095,6 +6147,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling createSpecialSlideSubshapePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -11762,6 +11818,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimation');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/animation';
         $queryParams = [];
@@ -11919,6 +11979,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimationEffect');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'effect_index' is set
         if ($effectIndex === null) {
@@ -12083,6 +12147,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimationInteractiveSequence');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'sequence_index' is set
         if ($sequenceIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $sequenceIndex when calling deleteSpecialSlideAnimationInteractiveSequence');
@@ -12246,6 +12314,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimationInteractiveSequenceEffect');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'sequence_index' is set
         if ($sequenceIndex === null) {
@@ -12414,6 +12486,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimationInteractiveSequences');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/animation/interactiveSequences';
         $queryParams = [];
@@ -12570,6 +12646,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideAnimationMainSequence');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/animation/mainSequence';
@@ -12729,6 +12809,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -12899,6 +12983,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideParagraphs');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSpecialSlideParagraphs');
@@ -13067,6 +13155,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlidePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -13243,6 +13335,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlidePortions');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSpecialSlidePortions');
@@ -13415,6 +13511,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteSpecialSlideShape');
@@ -13578,6 +13678,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideShapes');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes';
         $queryParams = [];
@@ -13740,6 +13844,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -13910,6 +14018,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshapeParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -14086,6 +14198,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshapeParagraphs');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSpecialSlideSubshapeParagraphs');
@@ -14260,6 +14376,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshapePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -14442,6 +14562,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshapePortions');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling deleteSpecialSlideSubshapePortions');
@@ -14619,6 +14743,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling deleteSpecialSlideSubshapes');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -16186,6 +16314,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadImage');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/images/{index}/{format}';
         $queryParams = [];
@@ -16626,6 +16758,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadImageOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/images/{index}/{format}';
         $queryParams = [];
@@ -16768,6 +16904,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadImages');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/images/download/{format}';
@@ -17191,6 +17331,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadImagesOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ImageExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/images/download/{format}';
         $queryParams = [];
@@ -17340,6 +17484,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadNotesSlide');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/notesSlide/{format}';
@@ -17508,6 +17656,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadNotesSlideOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/slides/{slideIndex}/notesSlide/{format}';
         $queryParams = [];
@@ -17665,6 +17817,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadPresentation');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/{format}';
@@ -17839,6 +17995,14 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadShape');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
@@ -18023,6 +18187,14 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadShapeOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
         $queryParams = [];
@@ -18199,6 +18371,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadSlide');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{format}';
         $queryParams = [];
@@ -18370,6 +18546,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadSlideOnline');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/slides/{slideIndex}/{format}';
@@ -18545,6 +18725,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling downloadSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling downloadSpecialSlideShape');
@@ -18552,6 +18736,14 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadSpecialSlideShape');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/{format}';
@@ -18736,6 +18928,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling downloadSpecialSlideSubshape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling downloadSpecialSlideSubshape');
@@ -18747,6 +18943,14 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{path}/{shapeIndex}/{format}';
@@ -18939,6 +19143,14 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadSubshape');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}';
         $queryParams = [];
@@ -18991,24 +19203,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getAnimation($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getAnimation($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         try {
-            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
             return $response;
         } 
     }
 
     /**
      */
-    public function getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideAnimation';
-        $httpRequest = $this->getAnimationRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        $httpRequest = $this->getAnimationRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -19035,9 +19247,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getAnimationAsync($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getAnimationAsync($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
-        return $this->getAnimationAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
+        return $this->getAnimationAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -19045,10 +19257,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getAnimationAsyncWithHttpInfo($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getAnimationAsyncWithHttpInfo($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideAnimation';
-        $httpRequest = $this->getAnimationRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        $httpRequest = $this->getAnimationRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -19096,6 +19308,7 @@ class SlidesApi extends ApiBase
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
      * @param  int $$shapeIndex Shape index. If specified, only effects related to that shape are returned. (optional)
+     * @param  int $$paragraphIndex Paragraph index. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -19103,7 +19316,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAnimationRequest($name, $slideIndex, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    protected function getAnimationRequest($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -19121,6 +19334,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($shapeIndex !== null) {
             $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($shapeIndex);
+        }
+        // query params
+        if ($paragraphIndex !== null) {
+            $queryParams['paragraphIndex'] = ObjectSerializer::toQueryValue($paragraphIndex);
         }
         // query params
         if ($folder !== null) {
@@ -24655,24 +24872,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getSpecialSlideAnimation($name, $slideIndex, $slideType, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getSpecialSlideAnimation($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         try {
-            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage);
+            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage);
+            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
             return $response;
         } 
     }
 
     /**
      */
-    public function getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideAnimation';
-        $httpRequest = $this->getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage);
+        $httpRequest = $this->getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -24699,9 +24916,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSpecialSlideAnimationAsync($name, $slideIndex, $slideType, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getSpecialSlideAnimationAsync($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
-        return $this->getSpecialSlideAnimationAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage)
+        return $this->getSpecialSlideAnimationAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -24709,10 +24926,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getSpecialSlideAnimationAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    public function getSpecialSlideAnimationAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideAnimation';
-        $httpRequest = $this->getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage);
+        $httpRequest = $this->getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -24761,6 +24978,7 @@ class SlidesApi extends ApiBase
      * @param  int $$slideIndex Parent slide index. (required)
      * @param  string $$slideType Slide type (master, layout or notes). (required)
      * @param  int $$shapeIndex Shape index. If specified, only effects related to that shape are returned. (optional)
+     * @param  int $$paragraphIndex Paragraph index. If specified, only effects related to that paragraph are returned. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -24768,7 +24986,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex = null, $password = null, $folder = null, $storage = null)
+    protected function getSpecialSlideAnimationRequest($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -24782,6 +25000,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideAnimation');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/animation';
         $queryParams = [];
@@ -24790,6 +25012,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($shapeIndex !== null) {
             $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($shapeIndex);
+        }
+        // query params
+        if ($paragraphIndex !== null) {
+            $queryParams['paragraphIndex'] = ObjectSerializer::toQueryValue($paragraphIndex);
         }
         // query params
         if ($folder !== null) {
@@ -24944,6 +25170,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -25113,6 +25343,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideParagraphs');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getSpecialSlideParagraphs');
@@ -25277,6 +25511,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlidePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -25452,6 +25690,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlidePortions');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getSpecialSlidePortions');
@@ -25620,6 +25862,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getSpecialSlideShape');
@@ -25782,6 +26028,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideShapes');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes';
         $queryParams = [];
@@ -25940,6 +26190,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -26110,6 +26364,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshapeParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -26285,6 +26543,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshapeParagraphs');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling getSpecialSlideSubshapeParagraphs');
@@ -26455,6 +26717,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshapePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -26636,6 +26902,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshapePortions');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling getSpecialSlideSubshapePortions');
@@ -26808,6 +27078,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling getSpecialSlideSubshapes');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -31028,6 +31302,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling savePresentation');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling savePresentation');
@@ -31180,9 +31458,17 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveShape');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveShape');
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
@@ -31341,9 +31627,17 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveShapeOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveShapeOnline');
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}';
@@ -31495,6 +31789,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveSlide');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveSlide');
@@ -31644,6 +31942,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveSlideOnline');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
         }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
@@ -31797,6 +32099,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling saveSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling saveSpecialSlideShape');
@@ -31805,9 +32111,17 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveSpecialSlideShape');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveSpecialSlideShape');
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/{format}';
@@ -31966,6 +32280,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling saveSpecialSlideSubshape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'path' is set
         if ($path === null) {
             throw new \InvalidArgumentException('Missing the required parameter $path when calling saveSpecialSlideSubshape');
@@ -31978,9 +32296,17 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveSpecialSlideSubshape');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{path}/{shapeIndex}/{format}';
@@ -32147,9 +32473,17 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling saveSubshape');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
         // verify the required parameter 'out_path' is set
         if ($outPath === null) {
             throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveSubshape');
+        }
+        // verify the value of enum parameter 'bounds' is valid
+        if ($bounds != null && !in_array(strtolower($bounds), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $bounds . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeThumbnailBounds::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}';
@@ -34196,6 +34530,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling setSpecialSlideAnimation');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'animation' is set
         if ($animation === null) {
             throw new \InvalidArgumentException('Missing the required parameter $animation when calling setSpecialSlideAnimation');
@@ -34511,6 +34849,10 @@ class SlidesApi extends ApiBase
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling split');
         }
+        // verify the value of enum parameter 'format' is valid
+        if ($format != null && !in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/{name}/split';
         $queryParams = [];
@@ -34697,6 +35039,10 @@ class SlidesApi extends ApiBase
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling splitAndSaveOnline');
         }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
 
         $resourcePath = '/slides/split/{format}';
         $queryParams = [];
@@ -34870,6 +35216,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'format' is set
         if ($format === null) {
             throw new \InvalidArgumentException('Missing the required parameter $format when calling splitOnline');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/split/{format}';
@@ -37182,6 +37532,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideAnimationEffect');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'effect_index' is set
         if ($effectIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $effectIndex when calling updateSpecialSlideAnimationEffect');
@@ -37353,6 +37707,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideAnimationInteractiveSequenceEffect');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'sequence_index' is set
         if ($sequenceIndex === null) {
@@ -37531,6 +37889,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideParagraph');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateSpecialSlideParagraph');
@@ -37708,6 +38070,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlidePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
@@ -37890,6 +38256,10 @@ class SlidesApi extends ApiBase
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideShape');
         }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateSpecialSlideShape');
@@ -38061,6 +38431,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideSubshape');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -38239,6 +38613,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideSubshapeParagraph');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {
@@ -38423,6 +38801,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_type' is set
         if ($slideType === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideType when calling updateSpecialSlideSubshapePortion');
+        }
+        // verify the value of enum parameter 'slideType' is valid
+        if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
         }
         // verify the required parameter 'path' is set
         if ($path === null) {

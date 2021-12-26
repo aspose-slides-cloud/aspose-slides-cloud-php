@@ -69,6 +69,7 @@ class ShapeBase extends ResourceBase
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
         'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'type' => 'string'
     ];
@@ -91,6 +92,7 @@ class ShapeBase extends ResourceBase
         'shapes' => null,
         'fillFormat' => null,
         'effectFormat' => null,
+        'threeDFormat' => null,
         'lineFormat' => null,
         'type' => null
     ];
@@ -134,6 +136,7 @@ class ShapeBase extends ResourceBase
         'shapes' => 'Shapes',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
+        'threeDFormat' => 'ThreeDFormat',
         'lineFormat' => 'LineFormat',
         'type' => 'Type'
     ];
@@ -156,6 +159,7 @@ class ShapeBase extends ResourceBase
         'shapes' => 'setShapes',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
+        'threeDFormat' => 'setThreeDFormat',
         'lineFormat' => 'setLineFormat',
         'type' => 'setType'
     ];
@@ -178,6 +182,7 @@ class ShapeBase extends ResourceBase
         'shapes' => 'getShapes',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
+        'threeDFormat' => 'getThreeDFormat',
         'lineFormat' => 'getLineFormat',
         'type' => 'getType'
     ];
@@ -285,6 +290,7 @@ class ShapeBase extends ResourceBase
         $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
@@ -620,6 +626,30 @@ class ShapeBase extends ResourceBase
     public function setEffectFormat($effectFormat)
     {
         $this->container['effectFormat'] = $effectFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets threeDFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat
+     */
+    public function getThreeDFormat()
+    {
+        return $this->container['threeDFormat'];
+    }
+
+    /**
+     * Sets threeDFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat $threeDFormat Gets or sets the 3D format
+     *
+     * @return $this
+     */
+    public function setThreeDFormat($threeDFormat)
+    {
+        $this->container['threeDFormat'] = $threeDFormat;
 
         return $this;
     }

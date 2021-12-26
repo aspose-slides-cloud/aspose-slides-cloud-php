@@ -335,48 +335,6 @@ class SwfExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['showHiddenSlides'] === null) {
-            $invalidProperties[] = "'showHiddenSlides' can't be null";
-        }
-        if ($this->container['compressed'] === null) {
-            $invalidProperties[] = "'compressed' can't be null";
-        }
-        if ($this->container['viewerIncluded'] === null) {
-            $invalidProperties[] = "'viewerIncluded' can't be null";
-        }
-        if ($this->container['showPageBorder'] === null) {
-            $invalidProperties[] = "'showPageBorder' can't be null";
-        }
-        if ($this->container['showFullScreen'] === null) {
-            $invalidProperties[] = "'showFullScreen' can't be null";
-        }
-        if ($this->container['showPageStepper'] === null) {
-            $invalidProperties[] = "'showPageStepper' can't be null";
-        }
-        if ($this->container['showSearch'] === null) {
-            $invalidProperties[] = "'showSearch' can't be null";
-        }
-        if ($this->container['showTopPane'] === null) {
-            $invalidProperties[] = "'showTopPane' can't be null";
-        }
-        if ($this->container['showBottomPane'] === null) {
-            $invalidProperties[] = "'showBottomPane' can't be null";
-        }
-        if ($this->container['showLeftPane'] === null) {
-            $invalidProperties[] = "'showLeftPane' can't be null";
-        }
-        if ($this->container['startOpenLeftPane'] === null) {
-            $invalidProperties[] = "'startOpenLeftPane' can't be null";
-        }
-        if ($this->container['enableContextMenu'] === null) {
-            $invalidProperties[] = "'enableContextMenu' can't be null";
-        }
-        if ($this->container['jpegQuality'] === null) {
-            $invalidProperties[] = "'jpegQuality' can't be null";
-        }
-        if ($this->container['notesPosition'] === null) {
-            $invalidProperties[] = "'notesPosition' can't be null";
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -385,9 +343,6 @@ class SwfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsPosition'] === null) {
-            $invalidProperties[] = "'commentsPosition' can't be null";
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -396,12 +351,6 @@ class SwfExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['commentsAreaWidth'] === null) {
-            $invalidProperties[] = "'commentsAreaWidth' can't be null";
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
-            $invalidProperties[] = "'showCommentsByNoAuthor' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -417,63 +366,12 @@ class SwfExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['showHiddenSlides'] === null) {
-            return false;
-        }
-        if ($this->container['compressed'] === null) {
-            return false;
-        }
-        if ($this->container['viewerIncluded'] === null) {
-            return false;
-        }
-        if ($this->container['showPageBorder'] === null) {
-            return false;
-        }
-        if ($this->container['showFullScreen'] === null) {
-            return false;
-        }
-        if ($this->container['showPageStepper'] === null) {
-            return false;
-        }
-        if ($this->container['showSearch'] === null) {
-            return false;
-        }
-        if ($this->container['showTopPane'] === null) {
-            return false;
-        }
-        if ($this->container['showBottomPane'] === null) {
-            return false;
-        }
-        if ($this->container['showLeftPane'] === null) {
-            return false;
-        }
-        if ($this->container['startOpenLeftPane'] === null) {
-            return false;
-        }
-        if ($this->container['enableContextMenu'] === null) {
-            return false;
-        }
-        if ($this->container['jpegQuality'] === null) {
-            return false;
-        }
-        if ($this->container['notesPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getNotesPositionAllowableValues();
         if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        if ($this->container['commentsPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['commentsAreaWidth'] === null) {
-            return false;
-        }
-        if ($this->container['showCommentsByNoAuthor'] === null) {
             return false;
         }
         return true;
@@ -873,7 +771,7 @@ class SwfExportOptions extends ExportOptions
                 $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($notesPosition, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'notesPosition', must be one of '%s'",
@@ -920,7 +818,7 @@ class SwfExportOptions extends ExportOptions
                 $commentsPosition = $allowedValues[$commentsPosition];
             }
         } else {
-            if (!in_array($commentsPosition, $allowedValues)) {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'commentsPosition', must be one of '%s'",

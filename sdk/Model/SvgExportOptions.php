@@ -275,27 +275,6 @@ class SvgExportOptions extends ExportOptions
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['vectorizeText'] === null) {
-            $invalidProperties[] = "'vectorizeText' can't be null";
-        }
-        if ($this->container['metafileRasterizationDpi'] === null) {
-            $invalidProperties[] = "'metafileRasterizationDpi' can't be null";
-        }
-        if ($this->container['disable3DText'] === null) {
-            $invalidProperties[] = "'disable3DText' can't be null";
-        }
-        if ($this->container['disableGradientSplit'] === null) {
-            $invalidProperties[] = "'disableGradientSplit' can't be null";
-        }
-        if ($this->container['disableLineEndCropping'] === null) {
-            $invalidProperties[] = "'disableLineEndCropping' can't be null";
-        }
-        if ($this->container['jpegQuality'] === null) {
-            $invalidProperties[] = "'jpegQuality' can't be null";
-        }
-        if ($this->container['picturesCompression'] === null) {
-            $invalidProperties[] = "'picturesCompression' can't be null";
-        }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
         if (!in_array($this->container['picturesCompression'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -304,12 +283,6 @@ class SvgExportOptions extends ExportOptions
             );
         }
 
-        if ($this->container['deletePicturesCroppedAreas'] === null) {
-            $invalidProperties[] = "'deletePicturesCroppedAreas' can't be null";
-        }
-        if ($this->container['externalFontsHandling'] === null) {
-            $invalidProperties[] = "'externalFontsHandling' can't be null";
-        }
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
         if (!in_array($this->container['externalFontsHandling'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -333,35 +306,8 @@ class SvgExportOptions extends ExportOptions
             return false;
         }
 
-        if ($this->container['vectorizeText'] === null) {
-            return false;
-        }
-        if ($this->container['metafileRasterizationDpi'] === null) {
-            return false;
-        }
-        if ($this->container['disable3DText'] === null) {
-            return false;
-        }
-        if ($this->container['disableGradientSplit'] === null) {
-            return false;
-        }
-        if ($this->container['disableLineEndCropping'] === null) {
-            return false;
-        }
-        if ($this->container['jpegQuality'] === null) {
-            return false;
-        }
-        if ($this->container['picturesCompression'] === null) {
-            return false;
-        }
         $allowedValues = $this->getPicturesCompressionAllowableValues();
         if (!in_array($this->container['picturesCompression'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['deletePicturesCroppedAreas'] === null) {
-            return false;
-        }
-        if ($this->container['externalFontsHandling'] === null) {
             return false;
         }
         $allowedValues = $this->getExternalFontsHandlingAllowableValues();
@@ -549,7 +495,7 @@ class SvgExportOptions extends ExportOptions
                 $picturesCompression = $allowedValues[$picturesCompression];
             }
         } else {
-            if (!in_array($picturesCompression, $allowedValues)) {
+            if (!is_null($picturesCompression) && !in_array($picturesCompression, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'picturesCompression', must be one of '%s'",
@@ -620,7 +566,7 @@ class SvgExportOptions extends ExportOptions
                 $externalFontsHandling = $allowedValues[$externalFontsHandling];
             }
         } else {
-            if (!in_array($externalFontsHandling, $allowedValues)) {
+            if (!is_null($externalFontsHandling) && !in_array($externalFontsHandling, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'externalFontsHandling', must be one of '%s'",

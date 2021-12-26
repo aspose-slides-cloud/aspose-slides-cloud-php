@@ -60,6 +60,8 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'defaultRegularFont' => 'string',
+        'height' => 'int',
+        'width' => 'int',
         'format' => 'string'
     ];
 
@@ -70,6 +72,8 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'defaultRegularFont' => null,
+        'height' => 'int32',
+        'width' => 'int32',
         'format' => null
     ];
 
@@ -101,6 +105,8 @@ class ExportOptions implements ArrayAccess
      */
     protected static $attributeMap = [
         'defaultRegularFont' => 'DefaultRegularFont',
+        'height' => 'Height',
+        'width' => 'Width',
         'format' => 'Format'
     ];
 
@@ -111,6 +117,8 @@ class ExportOptions implements ArrayAccess
      */
     protected static $setters = [
         'defaultRegularFont' => 'setDefaultRegularFont',
+        'height' => 'setHeight',
+        'width' => 'setWidth',
         'format' => 'setFormat'
     ];
 
@@ -121,6 +129,8 @@ class ExportOptions implements ArrayAccess
      */
     protected static $getters = [
         'defaultRegularFont' => 'getDefaultRegularFont',
+        'height' => 'getHeight',
+        'width' => 'getWidth',
         'format' => 'getFormat'
     ];
 
@@ -185,6 +195,8 @@ class ExportOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
     }
@@ -234,6 +246,54 @@ class ExportOptions implements ArrayAccess
     public function setDefaultRegularFont($defaultRegularFont)
     {
         $this->container['defaultRegularFont'] = $defaultRegularFont;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int $height Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int $width Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }
