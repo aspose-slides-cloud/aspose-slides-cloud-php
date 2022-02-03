@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * MathParagraph Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Mathematical paragraph that is a container for mathematical blocks
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class MathParagraph implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'MathParagraph';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +59,8 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'mathBlockList' => '\Aspose\Slides\Cloud\Sdk\Model\BlockElement[]',
+        'justification' => 'string'
     ];
 
     /**
@@ -68,9 +69,8 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'mathBlockList' => null,
+        'justification' => null
     ];
 
     /**
@@ -80,7 +80,7 @@ class Save extends Task
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -90,7 +90,7 @@ class Save extends Task
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -100,9 +100,8 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'mathBlockList' => 'MathBlockList',
+        'justification' => 'Justification'
     ];
 
     /**
@@ -111,9 +110,8 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'mathBlockList' => 'setMathBlockList',
+        'justification' => 'setJustification'
     ];
 
     /**
@@ -122,9 +120,8 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'mathBlockList' => 'getMathBlockList',
+        'justification' => 'getJustification'
     ];
 
     /**
@@ -135,7 +132,7 @@ class Save extends Task
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -145,7 +142,7 @@ class Save extends Task
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -155,7 +152,7 @@ class Save extends Task
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -168,30 +165,10 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
+    const JUSTIFICATION_LEFT_JUSTIFIED = 'LeftJustified';
+    const JUSTIFICATION_RIGHT_JUSTIFIED = 'RightJustified';
+    const JUSTIFICATION_CENTERED = 'Centered';
+    const JUSTIFICATION_CENTERED_AS_GROUP = 'CenteredAsGroup';
     
 
     
@@ -200,37 +177,23 @@ class Save extends Task
      *
      * @return string[]
      */
-    public function getFormatAllowableValues()
+    public function getJustificationAllowableValues()
     {
         return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
+            self::JUSTIFICATION_LEFT_JUSTIFIED,
+            self::JUSTIFICATION_RIGHT_JUSTIFIED,
+            self::JUSTIFICATION_CENTERED,
+            self::JUSTIFICATION_CENTERED_AS_GROUP,
         ];
     }
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -240,12 +203,8 @@ class Save extends Task
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['mathBlockList'] = isset($data['mathBlockList']) ? $data['mathBlockList'] : null;
+        $this->container['justification'] = isset($data['justification']) ? $data['justification'] : null;
         
     }
 
@@ -256,15 +215,12 @@ class Save extends Task
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getJustificationAllowableValues();
+        if (!in_array($this->container['justification'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
+                "invalid value for 'justification', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -280,15 +236,9 @@ class Save extends Task
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getJustificationAllowableValues();
+        if (!in_array($this->container['justification'], $allowedValues)) {
             return false;
         }
         return true;
@@ -296,96 +246,72 @@ class Save extends Task
 
 
     /**
-     * Gets format
+     * Gets mathBlockList
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\BlockElement[]
      */
-    public function getFormat()
+    public function getMathBlockList()
     {
-        return $this->container['format'];
+        return $this->container['mathBlockList'];
     }
 
     /**
-     * Sets format
+     * Sets mathBlockList
      *
-     * @param string $format Format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\BlockElement[] $mathBlockList List of math blocks
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setMathBlockList($mathBlockList)
     {
-        $allowedValues = $this->getFormatAllowableValues();
+        $this->container['mathBlockList'] = $mathBlockList;
+
+        return $this;
+    }
+
+    /**
+     * Gets justification
+     *
+     * @return string
+     */
+    public function getJustification()
+    {
+        return $this->container['justification'];
+    }
+
+    /**
+     * Sets justification
+     *
+     * @param string $justification Justification of the math paragraph
+     *
+     * @return $this
+     */
+    public function setJustification($justification)
+    {
+        $allowedValues = $this->getJustificationAllowableValues();
 
 
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
+        if (is_numeric($justification)) {
+            if ($justification >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'justification', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $format = $allowedValues[$format];
+                $justification = $allowedValues[$justification];
             }
         } else {
-            if (!in_array($format, $allowedValues)) {
+            if (!is_null($justification) && !in_array($justification, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'justification', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['format'] = $format;
-
-        return $this;
-    }
-
-    /**
-     * Gets output
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
-     */
-    public function getOutput()
-    {
-        return $this->container['output'];
-    }
-
-    /**
-     * Sets output
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
-     *
-     * @return $this
-     */
-    public function setOutput($output)
-    {
-        $this->container['output'] = $output;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
-     *
-     * @return $this
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
+        $this->container['justification'] = $justification;
 
         return $this;
     }

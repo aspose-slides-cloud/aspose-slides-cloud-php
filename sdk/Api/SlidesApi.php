@@ -404,6 +404,183 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function alignSubshapes($name, $slideIndex, $path, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->alignSubshapesWithHttpInfo($name, $slideIndex, $path, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->alignSubshapesWithHttpInfo($name, $slideIndex, $path, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function alignSubshapesWithHttpInfo($name, $slideIndex, $path, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
+        $httpRequest = $this->alignSubshapesRequest($name, $slideIndex, $path, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Shapes', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function alignSubshapesAsync($name, $slideIndex, $path, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->alignSubshapesAsyncWithHttpInfo($name, $slideIndex, $path, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function alignSubshapesAsyncWithHttpInfo($name, $slideIndex, $path, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
+        $httpRequest = $this->alignSubshapesRequest($name, $slideIndex, $path, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'alignSubshapes'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  string $$path Shape path (for smart art and group shapes). (required)
+     * @param  string $$alignmentType Alignment type that will be applied to the shapes. (required)
+     * @param  bool $$alignToSlide If true, shapes will be aligned relative to the slide edges. (optional, default to false)
+     * @param  array $$shapes Shapes indexes. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function alignSubshapesRequest($name, $slideIndex, $path, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling alignSubshapes');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling alignSubshapes');
+        }
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling alignSubshapes');
+        }
+        // verify the required parameter 'alignment_type' is set
+        if ($alignmentType === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alignmentType when calling alignSubshapes');
+        }
+        // verify the value of enum parameter 'alignmentType' is valid
+        if (!in_array(strtolower($alignmentType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $alignmentType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapesAlignmentType::getAllowableEnumValues()));
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{path}/align/{alignmentType}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($alignToSlide !== null) {
+            $queryParams['alignToSlide'] = ObjectSerializer::toQueryValue($alignToSlide);
+        }
+        // query params
+        if ($shapes !== null) {
+            $queryParams['shapes'] = ObjectSerializer::toQueryValue($shapes);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "alignmentType", $alignmentType);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         try {
@@ -9789,7 +9966,7 @@ class SlidesApi extends ApiBase
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
      * @param  int $$shapeIndex Shape index. (required)
-     * @param  array $$paragraphs The indices of the shapes to be deleted; delete all by default. (optional)
+     * @param  array $$paragraphs The indices of the paragraphs to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -10121,7 +10298,7 @@ class SlidesApi extends ApiBase
      * @param  int $$slideIndex Slide index. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
-     * @param  array $$portions The indices of the shapes to be deleted; delete all by default. (optional)
+     * @param  array $$portions The indices of the portions to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -15226,7 +15403,7 @@ class SlidesApi extends ApiBase
      * @param  int $$slideIndex Slide index. (required)
      * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
-     * @param  array $$paragraphs The indices of the shapes to be deleted; delete all by default. (optional)
+     * @param  array $$paragraphs The indices of the paragraphs to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -15570,7 +15747,7 @@ class SlidesApi extends ApiBase
      * @param  string $$path Shape path. (required)
      * @param  int $$shapeIndex Shape index. (required)
      * @param  int $$paragraphIndex Paragraph index. (required)
-     * @param  array $$portions The indices of the shapes to be deleted; delete all by default. (optional)
+     * @param  array $$portions The indices of the portions to be deleted; delete all by default. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -17692,6 +17869,172 @@ class SlidesApi extends ApiBase
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function downloadPortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function downloadPortionAsMathMlAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->downloadPortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function downloadPortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'downloadPortionAsMathMl'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling downloadPortionAsMathMl');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling downloadPortionAsMathMl');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling downloadPortionAsMathMl');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling downloadPortionAsMathMl');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling downloadPortionAsMathMl');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
@@ -23642,6 +23985,163 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getShapeGeometryPath($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths';
+        $httpRequest = $this->getShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getShapeGeometryPathAsync($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getShapeGeometryPathAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getShapeGeometryPathAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths';
+        $httpRequest = $this->getShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getShapeGeometryPath'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getShapeGeometryPath');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getShapeGeometryPath');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getShapeGeometryPath');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/geometryPath';
         $queryParams = [];
         $headerParams = [];
 
@@ -31211,6 +31711,150 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function savePortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
+        }
+        catch(RepeatRequestException $ex) {
+            $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
+        } 
+    }
+
+    /**
+     */
+    public function savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function savePortionAsMathMlAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        return $this->savePortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function savePortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'savePortionAsMathMl'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$outPath Path to save result. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Presentation folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling savePortionAsMathMl');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling savePortionAsMathMl');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling savePortionAsMathMl');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling savePortionAsMathMl');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling savePortionAsMathMl');
+        }
+        // verify the required parameter 'out_path' is set
+        if ($outPath === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $outPath when calling savePortionAsMathMl');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($outPath !== null) {
+            $queryParams['outPath'] = ObjectSerializer::toQueryValue($outPath);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
     public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
     {
         try {
@@ -34088,6 +34732,171 @@ class SlidesApi extends ApiBase
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function setShapeGeometryPath($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
+        $httpRequest = $this->setShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function setShapeGeometryPathAsync($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->setShapeGeometryPathAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function setShapeGeometryPathAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
+        $httpRequest = $this->setShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'setShapeGeometryPath'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $$dto Geometry paths DTO. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setShapeGeometryPathRequest($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling setShapeGeometryPath');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling setShapeGeometryPath');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling setShapeGeometryPath');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling setShapeGeometryPath');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/geometryPath';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */

@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * FractionElement Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Specifies the fraction object, consisting of a numerator and denominator separated by a fraction bar.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class FractionElement extends MathElement 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'FractionElement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'fractionType' => 'string',
+        'numerator' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'denominator' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement'
     ];
 
     /**
@@ -68,9 +68,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'fractionType' => null,
+        'numerator' => null,
+        'denominator' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'fractionType' => 'FractionType',
+        'numerator' => 'Numerator',
+        'denominator' => 'Denominator'
     ];
 
     /**
@@ -111,9 +111,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'fractionType' => 'setFractionType',
+        'numerator' => 'setNumerator',
+        'denominator' => 'setDenominator'
     ];
 
     /**
@@ -122,9 +122,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'fractionType' => 'getFractionType',
+        'numerator' => 'getNumerator',
+        'denominator' => 'getDenominator'
     ];
 
     /**
@@ -168,30 +168,10 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
+    const FRACTION_TYPE_BAR = 'Bar';
+    const FRACTION_TYPE_SKEWED = 'Skewed';
+    const FRACTION_TYPE_LINEAR = 'Linear';
+    const FRACTION_TYPE_NO_BAR = 'NoBar';
     
 
     
@@ -200,33 +180,13 @@ class Save extends Task
      *
      * @return string[]
      */
-    public function getFormatAllowableValues()
+    public function getFractionTypeAllowableValues()
     {
         return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
+            self::FRACTION_TYPE_BAR,
+            self::FRACTION_TYPE_SKEWED,
+            self::FRACTION_TYPE_LINEAR,
+            self::FRACTION_TYPE_NO_BAR,
         ];
     }
     
@@ -242,10 +202,10 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['fractionType'] = isset($data['fractionType']) ? $data['fractionType'] : null;
+        $this->container['numerator'] = isset($data['numerator']) ? $data['numerator'] : null;
+        $this->container['denominator'] = isset($data['denominator']) ? $data['denominator'] : null;
+        $this->container['type'] = 'Fraction';
         
     }
 
@@ -258,13 +218,10 @@ class Save extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getFractionTypeAllowableValues();
+        if (!in_array($this->container['fractionType'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
+                "invalid value for 'fractionType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -284,11 +241,8 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getFractionTypeAllowableValues();
+        if (!in_array($this->container['fractionType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -296,96 +250,96 @@ class Save extends Task
 
 
     /**
-     * Gets format
+     * Gets fractionType
      *
      * @return string
      */
-    public function getFormat()
+    public function getFractionType()
     {
-        return $this->container['format'];
+        return $this->container['fractionType'];
     }
 
     /**
-     * Sets format
+     * Sets fractionType
      *
-     * @param string $format Format.
+     * @param string $fractionType Fraction type
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setFractionType($fractionType)
     {
-        $allowedValues = $this->getFormatAllowableValues();
+        $allowedValues = $this->getFractionTypeAllowableValues();
 
 
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
+        if (is_numeric($fractionType)) {
+            if ($fractionType >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'fractionType', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $format = $allowedValues[$format];
+                $fractionType = $allowedValues[$fractionType];
             }
         } else {
-            if (!in_array($format, $allowedValues)) {
+            if (!is_null($fractionType) && !in_array($fractionType, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'fractionType', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['format'] = $format;
+        $this->container['fractionType'] = $fractionType;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets numerator
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
      */
-    public function getOutput()
+    public function getNumerator()
     {
-        return $this->container['output'];
+        return $this->container['numerator'];
     }
 
     /**
-     * Sets output
+     * Sets numerator
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $numerator Numerator
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setNumerator($numerator)
     {
-        $this->container['output'] = $output;
+        $this->container['numerator'] = $numerator;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets denominator
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
      */
-    public function getOptions()
+    public function getDenominator()
     {
-        return $this->container['options'];
+        return $this->container['denominator'];
     }
 
     /**
-     * Sets options
+     * Sets denominator
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $denominator Denominator
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setDenominator($denominator)
     {
-        $this->container['options'] = $options;
+        $this->container['denominator'] = $denominator;
 
         return $this;
     }

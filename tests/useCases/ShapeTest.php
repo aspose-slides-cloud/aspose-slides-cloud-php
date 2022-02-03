@@ -47,6 +47,11 @@ use Aspose\Slides\Cloud\Sdk\Model\TableCell;
 use Aspose\Slides\Cloud\Sdk\Model\TableColumn;
 use Aspose\Slides\Cloud\Sdk\Model\TableRow;
 use Aspose\Slides\Cloud\Sdk\Model\VideoFrame;
+use Aspose\Slides\Cloud\Sdk\Model\GeometryPaths;
+use Aspose\Slides\Cloud\Sdk\Model\GeometryPath;
+use Aspose\Slides\Cloud\Sdk\Model\MoveToPathSegment;
+use Aspose\Slides\Cloud\Sdk\Model\LineToPathSegment;
+use Aspose\Slides\Cloud\Sdk\Model\ClosePathSegment;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ShapeTest extends TestBase
@@ -323,12 +328,8 @@ class ShapeTest extends TestBase
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new GroupShape();
-        try {
-            $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
-            Assert::fail("Must have failed");
-        } catch (ApiException $ex) {
-            //Cannot create a group shape
-        }
+        $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
+        Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\GroupShape"));
     }
 
     public function testConnectorAdd()
@@ -380,6 +381,69 @@ class ShapeTest extends TestBase
         Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) < 1);
         Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) < 1);
         Assert::assertTrue(abs($shape1->getX()) < 1);
+    }
+
+    public function testShapesAlignGroup()
+    {
+        $path = "4/shapes";
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
+        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+        Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) > 1);
+        Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) > 1);
+
+        $this->getApi()->alignSubshapes(
+            self::fileName, 1, $path, 'AlignTop', null, null, self::password, self::folderName);
+        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
+        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+        Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) > 1);
+        Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) < 1);
+
+        $this->getApi()->alignSubshapes(
+            self::fileName, 1, $path, 'AlignLeft', true, [ 1, 2 ], self::password, self::folderName);
+        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
+        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+        Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) < 1);
+        Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) < 1);
+        Assert::assertTrue(abs($shape1->getX()) < 1);
+    }
+
+    public function testShapeGeometryGet()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $paths = $this->getApi()->getShapeGeometryPath(self::fileName, 4, 2, self::password, self::folderName);
+        Assert::assertTrue($paths->getPaths() != null);
+        Assert::assertEquals(1, count($paths->getPaths()));
+    }
+
+    public function testShapeGeometrySet()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $dto = new GeometryPaths();
+        $path = new GeometryPath();
+        $start = new MoveToPathSegment();
+        $start->setX(0);
+        $start->setY(0);
+        $line1 = new LineToPathSegment();
+        $line1->setX(0);
+        $line1->setY(200);
+        $line2 = new LineToPathSegment();
+        $line2->setX(200);
+        $line2->setY(300);
+        $line3 = new LineToPathSegment();
+        $line3->setX(400);
+        $line3->setY(200);
+        $line4 = new LineToPathSegment();
+        $line4->setX(400);
+        $line4->setY(0);
+        $end = new ClosePathSegment();
+        $path->setPathData([ $start, $line1, $line1, $line3, $line4, $end ]);
+        $dto->setPaths([ $path ]);
+        $shape = $this->getApi()->setShapeGeometryPath(self::fileName, 4, 1, $dto, self::password, self::folderName);
+        Assert::assertTrue($shape != null);
     }
 
     public const folderName = "TempSlidesSDK";

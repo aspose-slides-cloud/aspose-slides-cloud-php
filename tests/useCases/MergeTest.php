@@ -42,9 +42,10 @@ class MergeTest extends TestBase
         $this->initialize(null, null, null);
         $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
         $this->getApi()->copyFile("TempTests/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getApi()->copyFile("TempTests/".self::fileNamePdf, self::folderName."/".self::fileNamePdf);
 
         $request = new PresentationsMergeRequest();
-        $request->setPresentationPaths([ self::folderName."/".self::fileName2 ]);
+        $request->setPresentationPaths([ self::folderName."/".self::fileName2, self::folderName."/".self::fileNamePdf ]);
         $result = $this->getApi()->merge(self::fileName, $request, self::password, self::folderName);
     }
 
@@ -114,6 +115,7 @@ class MergeTest extends TestBase
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const fileName2 = "test-unprotected.pptx";
+    public const fileNamePdf = "test.pdf";
     public const password = "password";
     public const outPath = self::folderName."/merged.pptx";
 }

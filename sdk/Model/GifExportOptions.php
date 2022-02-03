@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * GifExportOptions Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Provides options that control how a presentation is saved in Gif format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class GifExportOptions extends ExportOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'GifExportOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'exportHiddenSlides' => 'bool',
+        'transitionFps' => 'int',
+        'defaultDelay' => 'int'
     ];
 
     /**
@@ -68,9 +68,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'exportHiddenSlides' => null,
+        'transitionFps' => 'int32',
+        'defaultDelay' => 'int32'
     ];
 
     /**
@@ -100,9 +100,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'exportHiddenSlides' => 'ExportHiddenSlides',
+        'transitionFps' => 'TransitionFps',
+        'defaultDelay' => 'DefaultDelay'
     ];
 
     /**
@@ -111,9 +111,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'exportHiddenSlides' => 'setExportHiddenSlides',
+        'transitionFps' => 'setTransitionFps',
+        'defaultDelay' => 'setDefaultDelay'
     ];
 
     /**
@@ -122,9 +122,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'exportHiddenSlides' => 'getExportHiddenSlides',
+        'transitionFps' => 'getTransitionFps',
+        'defaultDelay' => 'getDefaultDelay'
     ];
 
     /**
@@ -168,67 +168,8 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-        ];
-    }
     
 
 
@@ -242,10 +183,10 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['exportHiddenSlides'] = isset($data['exportHiddenSlides']) ? $data['exportHiddenSlides'] : null;
+        $this->container['transitionFps'] = isset($data['transitionFps']) ? $data['transitionFps'] : null;
+        $this->container['defaultDelay'] = isset($data['defaultDelay']) ? $data['defaultDelay'] : null;
+        $this->container['format'] = 'gif';
         
     }
 
@@ -257,17 +198,6 @@ class Save extends Task
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -284,108 +214,78 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets format
+     * Gets exportHiddenSlides
      *
-     * @return string
+     * @return bool
      */
-    public function getFormat()
+    public function getExportHiddenSlides()
     {
-        return $this->container['format'];
+        return $this->container['exportHiddenSlides'];
     }
 
     /**
-     * Sets format
+     * Sets exportHiddenSlides
      *
-     * @param string $format Format.
+     * @param bool $exportHiddenSlides Determines whether hidden slides will be exported.
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setExportHiddenSlides($exportHiddenSlides)
     {
-        $allowedValues = $this->getFormatAllowableValues();
-
-
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $format = $allowedValues[$format];
-            }
-        } else {
-            if (!in_array($format, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['format'] = $format;
+        $this->container['exportHiddenSlides'] = $exportHiddenSlides;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets transitionFps
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return int
      */
-    public function getOutput()
+    public function getTransitionFps()
     {
-        return $this->container['output'];
+        return $this->container['transitionFps'];
     }
 
     /**
-     * Sets output
+     * Sets transitionFps
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param int $transitionFps Gets or sets transition FPS [frames/sec]
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setTransitionFps($transitionFps)
     {
-        $this->container['output'] = $output;
+        $this->container['transitionFps'] = $transitionFps;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets defaultDelay
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return int
      */
-    public function getOptions()
+    public function getDefaultDelay()
     {
-        return $this->container['options'];
+        return $this->container['defaultDelay'];
     }
 
     /**
-     * Sets options
+     * Sets defaultDelay
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param int $defaultDelay Gets or sets default delay time [ms].
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setDefaultDelay($defaultDelay)
     {
-        $this->container['options'] = $options;
+        $this->container['defaultDelay'] = $defaultDelay;
 
         return $this;
     }

@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * BoxElement Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Box element.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class BoxElement extends MathElement 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'BoxElement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,12 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'base' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'operatorEmulator' => 'bool',
+        'noBreak' => 'bool',
+        'differential' => 'bool',
+        'alignmentPoint' => 'bool',
+        'explicitBreak' => 'int'
     ];
 
     /**
@@ -68,9 +71,12 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'base' => null,
+        'operatorEmulator' => null,
+        'noBreak' => null,
+        'differential' => null,
+        'alignmentPoint' => null,
+        'explicitBreak' => 'int32'
     ];
 
     /**
@@ -100,9 +106,12 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'base' => 'Base',
+        'operatorEmulator' => 'OperatorEmulator',
+        'noBreak' => 'NoBreak',
+        'differential' => 'Differential',
+        'alignmentPoint' => 'AlignmentPoint',
+        'explicitBreak' => 'ExplicitBreak'
     ];
 
     /**
@@ -111,9 +120,12 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'base' => 'setBase',
+        'operatorEmulator' => 'setOperatorEmulator',
+        'noBreak' => 'setNoBreak',
+        'differential' => 'setDifferential',
+        'alignmentPoint' => 'setAlignmentPoint',
+        'explicitBreak' => 'setExplicitBreak'
     ];
 
     /**
@@ -122,9 +134,12 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'base' => 'getBase',
+        'operatorEmulator' => 'getOperatorEmulator',
+        'noBreak' => 'getNoBreak',
+        'differential' => 'getDifferential',
+        'alignmentPoint' => 'getAlignmentPoint',
+        'explicitBreak' => 'getExplicitBreak'
     ];
 
     /**
@@ -168,67 +183,8 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-        ];
-    }
     
 
 
@@ -242,10 +198,13 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
+        $this->container['operatorEmulator'] = isset($data['operatorEmulator']) ? $data['operatorEmulator'] : null;
+        $this->container['noBreak'] = isset($data['noBreak']) ? $data['noBreak'] : null;
+        $this->container['differential'] = isset($data['differential']) ? $data['differential'] : null;
+        $this->container['alignmentPoint'] = isset($data['alignmentPoint']) ? $data['alignmentPoint'] : null;
+        $this->container['explicitBreak'] = isset($data['explicitBreak']) ? $data['explicitBreak'] : null;
+        $this->container['type'] = 'Box';
         
     }
 
@@ -257,17 +216,6 @@ class Save extends Task
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -284,108 +232,150 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets format
+     * Gets base
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
      */
-    public function getFormat()
+    public function getBase()
     {
-        return $this->container['format'];
+        return $this->container['base'];
     }
 
     /**
-     * Sets format
+     * Sets base
      *
-     * @param string $format Format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $base Base
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setBase($base)
     {
-        $allowedValues = $this->getFormatAllowableValues();
-
-
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $format = $allowedValues[$format];
-            }
-        } else {
-            if (!in_array($format, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['format'] = $format;
+        $this->container['base'] = $base;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets operatorEmulator
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return bool
      */
-    public function getOutput()
+    public function getOperatorEmulator()
     {
-        return $this->container['output'];
+        return $this->container['operatorEmulator'];
     }
 
     /**
-     * Sets output
+     * Sets operatorEmulator
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param bool $operatorEmulator Operator emulator
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setOperatorEmulator($operatorEmulator)
     {
-        $this->container['output'] = $output;
+        $this->container['operatorEmulator'] = $operatorEmulator;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets noBreak
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return bool
      */
-    public function getOptions()
+    public function getNoBreak()
     {
-        return $this->container['options'];
+        return $this->container['noBreak'];
     }
 
     /**
-     * Sets options
+     * Sets noBreak
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param bool $noBreak No break
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setNoBreak($noBreak)
     {
-        $this->container['options'] = $options;
+        $this->container['noBreak'] = $noBreak;
+
+        return $this;
+    }
+
+    /**
+     * Gets differential
+     *
+     * @return bool
+     */
+    public function getDifferential()
+    {
+        return $this->container['differential'];
+    }
+
+    /**
+     * Sets differential
+     *
+     * @param bool $differential Differential
+     *
+     * @return $this
+     */
+    public function setDifferential($differential)
+    {
+        $this->container['differential'] = $differential;
+
+        return $this;
+    }
+
+    /**
+     * Gets alignmentPoint
+     *
+     * @return bool
+     */
+    public function getAlignmentPoint()
+    {
+        return $this->container['alignmentPoint'];
+    }
+
+    /**
+     * Sets alignmentPoint
+     *
+     * @param bool $alignmentPoint Alignment point
+     *
+     * @return $this
+     */
+    public function setAlignmentPoint($alignmentPoint)
+    {
+        $this->container['alignmentPoint'] = $alignmentPoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets explicitBreak
+     *
+     * @return int
+     */
+    public function getExplicitBreak()
+    {
+        return $this->container['explicitBreak'];
+    }
+
+    /**
+     * Sets explicitBreak
+     *
+     * @param int $explicitBreak Explicit break
+     *
+     * @return $this
+     */
+    public function setExplicitBreak($explicitBreak)
+    {
+        $this->container['explicitBreak'] = $explicitBreak;
 
         return $this;
     }

@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * VideoFrame Class Doc Comment
+ * ArrayElement Class Doc Comment
  *
  * @category Class
- * @description Represents VideoFrame resource.
+ * @description An array of elements.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VideoFrame extends GeometryShape 
+class ArrayElement extends MathElement 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class VideoFrame extends GeometryShape
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VideoFrame';
+    protected static $swaggerModelName = 'ArrayElement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,12 @@ class VideoFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fullScreenMode' => 'bool',
-        'hideAtShowing' => 'bool',
-        'playLoopMode' => 'bool',
-        'playMode' => 'string',
-        'rewindVideo' => 'bool',
-        'volume' => 'string',
-        'base64Data' => 'string'
+        'arguments' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement[]',
+        'baseJustification' => 'string',
+        'maximumDistribution' => 'bool',
+        'objectDistribution' => 'bool',
+        'rowSpacingRule' => 'string',
+        'rowSpacing' => 'int'
     ];
 
     /**
@@ -72,13 +71,12 @@ class VideoFrame extends GeometryShape
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fullScreenMode' => null,
-        'hideAtShowing' => null,
-        'playLoopMode' => null,
-        'playMode' => null,
-        'rewindVideo' => null,
-        'volume' => null,
-        'base64Data' => null
+        'arguments' => null,
+        'baseJustification' => null,
+        'maximumDistribution' => null,
+        'objectDistribution' => null,
+        'rowSpacingRule' => null,
+        'rowSpacing' => 'int32'
     ];
 
     /**
@@ -108,13 +106,12 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $attributeMap = [
-        'fullScreenMode' => 'FullScreenMode',
-        'hideAtShowing' => 'HideAtShowing',
-        'playLoopMode' => 'PlayLoopMode',
-        'playMode' => 'PlayMode',
-        'rewindVideo' => 'RewindVideo',
-        'volume' => 'Volume',
-        'base64Data' => 'Base64Data'
+        'arguments' => 'Arguments',
+        'baseJustification' => 'BaseJustification',
+        'maximumDistribution' => 'MaximumDistribution',
+        'objectDistribution' => 'ObjectDistribution',
+        'rowSpacingRule' => 'RowSpacingRule',
+        'rowSpacing' => 'RowSpacing'
     ];
 
     /**
@@ -123,13 +120,12 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $setters = [
-        'fullScreenMode' => 'setFullScreenMode',
-        'hideAtShowing' => 'setHideAtShowing',
-        'playLoopMode' => 'setPlayLoopMode',
-        'playMode' => 'setPlayMode',
-        'rewindVideo' => 'setRewindVideo',
-        'volume' => 'setVolume',
-        'base64Data' => 'setBase64Data'
+        'arguments' => 'setArguments',
+        'baseJustification' => 'setBaseJustification',
+        'maximumDistribution' => 'setMaximumDistribution',
+        'objectDistribution' => 'setObjectDistribution',
+        'rowSpacingRule' => 'setRowSpacingRule',
+        'rowSpacing' => 'setRowSpacing'
     ];
 
     /**
@@ -138,13 +134,12 @@ class VideoFrame extends GeometryShape
      * @var string[]
      */
     protected static $getters = [
-        'fullScreenMode' => 'getFullScreenMode',
-        'hideAtShowing' => 'getHideAtShowing',
-        'playLoopMode' => 'getPlayLoopMode',
-        'playMode' => 'getPlayMode',
-        'rewindVideo' => 'getRewindVideo',
-        'volume' => 'getVolume',
-        'base64Data' => 'getBase64Data'
+        'arguments' => 'getArguments',
+        'baseJustification' => 'getBaseJustification',
+        'maximumDistribution' => 'getMaximumDistribution',
+        'objectDistribution' => 'getObjectDistribution',
+        'rowSpacingRule' => 'getRowSpacingRule',
+        'rowSpacing' => 'getRowSpacing'
     ];
 
     /**
@@ -188,16 +183,15 @@ class VideoFrame extends GeometryShape
         return self::$swaggerModelName;
     }
 
-    const PLAY_MODE_AUTO = 'Auto';
-    const PLAY_MODE_ON_CLICK = 'OnClick';
-    const PLAY_MODE_ALL_SLIDES = 'AllSlides';
-    const PLAY_MODE_IN_CLICK_SEQUENCE = 'InClickSequence';
-    const PLAY_MODE_MIXED = 'Mixed';
-    const VOLUME_MUTE = 'Mute';
-    const VOLUME_LOW = 'Low';
-    const VOLUME_MEDIUM = 'Medium';
-    const VOLUME_LOUD = 'Loud';
-    const VOLUME_MIXED = 'Mixed';
+    const BASE_JUSTIFICATION_NOT_DEFINED = 'NotDefined';
+    const BASE_JUSTIFICATION_TOP = 'Top';
+    const BASE_JUSTIFICATION_CENTER = 'Center';
+    const BASE_JUSTIFICATION_BOTTOM = 'Bottom';
+    const ROW_SPACING_RULE_SINGLE_LINE_GAP = 'SingleLineGap';
+    const ROW_SPACING_RULE_ONE_AND_A_HALF_LINE_GAP = 'OneAndAHalfLineGap';
+    const ROW_SPACING_RULE_TWO_LINE_GAP = 'TwoLineGap';
+    const ROW_SPACING_RULE_EXACTLY = 'Exactly';
+    const ROW_SPACING_RULE_MULTIPLE = 'Multiple';
     
 
     
@@ -206,14 +200,13 @@ class VideoFrame extends GeometryShape
      *
      * @return string[]
      */
-    public function getPlayModeAllowableValues()
+    public function getBaseJustificationAllowableValues()
     {
         return [
-            self::PLAY_MODE_AUTO,
-            self::PLAY_MODE_ON_CLICK,
-            self::PLAY_MODE_ALL_SLIDES,
-            self::PLAY_MODE_IN_CLICK_SEQUENCE,
-            self::PLAY_MODE_MIXED,
+            self::BASE_JUSTIFICATION_NOT_DEFINED,
+            self::BASE_JUSTIFICATION_TOP,
+            self::BASE_JUSTIFICATION_CENTER,
+            self::BASE_JUSTIFICATION_BOTTOM,
         ];
     }
     
@@ -222,14 +215,14 @@ class VideoFrame extends GeometryShape
      *
      * @return string[]
      */
-    public function getVolumeAllowableValues()
+    public function getRowSpacingRuleAllowableValues()
     {
         return [
-            self::VOLUME_MUTE,
-            self::VOLUME_LOW,
-            self::VOLUME_MEDIUM,
-            self::VOLUME_LOUD,
-            self::VOLUME_MIXED,
+            self::ROW_SPACING_RULE_SINGLE_LINE_GAP,
+            self::ROW_SPACING_RULE_ONE_AND_A_HALF_LINE_GAP,
+            self::ROW_SPACING_RULE_TWO_LINE_GAP,
+            self::ROW_SPACING_RULE_EXACTLY,
+            self::ROW_SPACING_RULE_MULTIPLE,
         ];
     }
     
@@ -245,14 +238,13 @@ class VideoFrame extends GeometryShape
     {
         parent::__construct($data);
 
-        $this->container['fullScreenMode'] = isset($data['fullScreenMode']) ? $data['fullScreenMode'] : null;
-        $this->container['hideAtShowing'] = isset($data['hideAtShowing']) ? $data['hideAtShowing'] : null;
-        $this->container['playLoopMode'] = isset($data['playLoopMode']) ? $data['playLoopMode'] : null;
-        $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
-        $this->container['rewindVideo'] = isset($data['rewindVideo']) ? $data['rewindVideo'] : null;
-        $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
-        $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
-        $this->container['type'] = 'VideoFrame';
+        $this->container['arguments'] = isset($data['arguments']) ? $data['arguments'] : null;
+        $this->container['baseJustification'] = isset($data['baseJustification']) ? $data['baseJustification'] : null;
+        $this->container['maximumDistribution'] = isset($data['maximumDistribution']) ? $data['maximumDistribution'] : null;
+        $this->container['objectDistribution'] = isset($data['objectDistribution']) ? $data['objectDistribution'] : null;
+        $this->container['rowSpacingRule'] = isset($data['rowSpacingRule']) ? $data['rowSpacingRule'] : null;
+        $this->container['rowSpacing'] = isset($data['rowSpacing']) ? $data['rowSpacing'] : null;
+        $this->container['type'] = 'Array';
         
     }
 
@@ -265,18 +257,18 @@ class VideoFrame extends GeometryShape
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['playMode'], $allowedValues)) {
+        $allowedValues = $this->getBaseJustificationAllowableValues();
+        if (!in_array($this->container['baseJustification'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'playMode', must be one of '%s'",
+                "invalid value for 'baseJustification', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        $allowedValues = $this->getVolumeAllowableValues();
-        if (!in_array($this->container['volume'], $allowedValues)) {
+        $allowedValues = $this->getRowSpacingRuleAllowableValues();
+        if (!in_array($this->container['rowSpacingRule'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'volume', must be one of '%s'",
+                "invalid value for 'rowSpacingRule', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -296,12 +288,12 @@ class VideoFrame extends GeometryShape
             return false;
         }
 
-        $allowedValues = $this->getPlayModeAllowableValues();
-        if (!in_array($this->container['playMode'], $allowedValues)) {
+        $allowedValues = $this->getBaseJustificationAllowableValues();
+        if (!in_array($this->container['baseJustification'], $allowedValues)) {
             return false;
         }
-        $allowedValues = $this->getVolumeAllowableValues();
-        if (!in_array($this->container['volume'], $allowedValues)) {
+        $allowedValues = $this->getRowSpacingRuleAllowableValues();
+        if (!in_array($this->container['rowSpacingRule'], $allowedValues)) {
             return false;
         }
         return true;
@@ -309,215 +301,191 @@ class VideoFrame extends GeometryShape
 
 
     /**
-     * Gets fullScreenMode
+     * Gets arguments
      *
-     * @return bool
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement[]
      */
-    public function getFullScreenMode()
+    public function getArguments()
     {
-        return $this->container['fullScreenMode'];
+        return $this->container['arguments'];
     }
 
     /**
-     * Sets fullScreenMode
+     * Sets arguments
      *
-     * @param bool $fullScreenMode Determines whether a video is shown in full screen mode.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement[] $arguments Arguments
      *
      * @return $this
      */
-    public function setFullScreenMode($fullScreenMode)
+    public function setArguments($arguments)
     {
-        $this->container['fullScreenMode'] = $fullScreenMode;
+        $this->container['arguments'] = $arguments;
 
         return $this;
     }
 
     /**
-     * Gets hideAtShowing
-     *
-     * @return bool
-     */
-    public function getHideAtShowing()
-    {
-        return $this->container['hideAtShowing'];
-    }
-
-    /**
-     * Sets hideAtShowing
-     *
-     * @param bool $hideAtShowing Determines whether a VideoFrame is hidden.
-     *
-     * @return $this
-     */
-    public function setHideAtShowing($hideAtShowing)
-    {
-        $this->container['hideAtShowing'] = $hideAtShowing;
-
-        return $this;
-    }
-
-    /**
-     * Gets playLoopMode
-     *
-     * @return bool
-     */
-    public function getPlayLoopMode()
-    {
-        return $this->container['playLoopMode'];
-    }
-
-    /**
-     * Sets playLoopMode
-     *
-     * @param bool $playLoopMode Determines whether a video is looped.
-     *
-     * @return $this
-     */
-    public function setPlayLoopMode($playLoopMode)
-    {
-        $this->container['playLoopMode'] = $playLoopMode;
-
-        return $this;
-    }
-
-    /**
-     * Gets playMode
+     * Gets baseJustification
      *
      * @return string
      */
-    public function getPlayMode()
+    public function getBaseJustification()
     {
-        return $this->container['playMode'];
+        return $this->container['baseJustification'];
     }
 
     /**
-     * Sets playMode
+     * Sets baseJustification
      *
-     * @param string $playMode Returns or sets the video play mode.
+     * @param string $baseJustification Specifies alignment of the array relative to surrounding text
      *
      * @return $this
      */
-    public function setPlayMode($playMode)
+    public function setBaseJustification($baseJustification)
     {
-        $allowedValues = $this->getPlayModeAllowableValues();
+        $allowedValues = $this->getBaseJustificationAllowableValues();
 
 
-        if (is_numeric($playMode)) {
-            if ($playMode >= sizeof($allowedValues)) {
+        if (is_numeric($baseJustification)) {
+            if ($baseJustification >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'playMode', must be one of '%s'",
+                        "Invalid value for 'baseJustification', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $playMode = $allowedValues[$playMode];
+                $baseJustification = $allowedValues[$baseJustification];
             }
         } else {
-            if (!is_null($playMode) && !in_array($playMode, $allowedValues)) {
+            if (!is_null($baseJustification) && !in_array($baseJustification, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'playMode', must be one of '%s'",
+                        "Invalid value for 'baseJustification', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['playMode'] = $playMode;
+        $this->container['baseJustification'] = $baseJustification;
 
         return $this;
     }
 
     /**
-     * Gets rewindVideo
+     * Gets maximumDistribution
      *
      * @return bool
      */
-    public function getRewindVideo()
+    public function getMaximumDistribution()
     {
-        return $this->container['rewindVideo'];
+        return $this->container['maximumDistribution'];
     }
 
     /**
-     * Sets rewindVideo
+     * Sets maximumDistribution
      *
-     * @param bool $rewindVideo Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
+     * @param bool $maximumDistribution Maximum Distribution
      *
      * @return $this
      */
-    public function setRewindVideo($rewindVideo)
+    public function setMaximumDistribution($maximumDistribution)
     {
-        $this->container['rewindVideo'] = $rewindVideo;
+        $this->container['maximumDistribution'] = $maximumDistribution;
 
         return $this;
     }
 
     /**
-     * Gets volume
+     * Gets objectDistribution
      *
-     * @return string
+     * @return bool
      */
-    public function getVolume()
+    public function getObjectDistribution()
     {
-        return $this->container['volume'];
+        return $this->container['objectDistribution'];
     }
 
     /**
-     * Sets volume
+     * Sets objectDistribution
      *
-     * @param string $volume Returns or sets the audio volume.
+     * @param bool $objectDistribution Object Distribution
      *
      * @return $this
      */
-    public function setVolume($volume)
+    public function setObjectDistribution($objectDistribution)
     {
-        $allowedValues = $this->getVolumeAllowableValues();
+        $this->container['objectDistribution'] = $objectDistribution;
+
+        return $this;
+    }
+
+    /**
+     * Gets rowSpacingRule
+     *
+     * @return string
+     */
+    public function getRowSpacingRule()
+    {
+        return $this->container['rowSpacingRule'];
+    }
+
+    /**
+     * Sets rowSpacingRule
+     *
+     * @param string $rowSpacingRule The type of vertical spacing between array elements
+     *
+     * @return $this
+     */
+    public function setRowSpacingRule($rowSpacingRule)
+    {
+        $allowedValues = $this->getRowSpacingRuleAllowableValues();
 
 
-        if (is_numeric($volume)) {
-            if ($volume >= sizeof($allowedValues)) {
+        if (is_numeric($rowSpacingRule)) {
+            if ($rowSpacingRule >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'volume', must be one of '%s'",
+                        "Invalid value for 'rowSpacingRule', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $volume = $allowedValues[$volume];
+                $rowSpacingRule = $allowedValues[$rowSpacingRule];
             }
         } else {
-            if (!is_null($volume) && !in_array($volume, $allowedValues)) {
+            if (!is_null($rowSpacingRule) && !in_array($rowSpacingRule, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'volume', must be one of '%s'",
+                        "Invalid value for 'rowSpacingRule', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['volume'] = $volume;
+        $this->container['rowSpacingRule'] = $rowSpacingRule;
 
         return $this;
     }
 
     /**
-     * Gets base64Data
+     * Gets rowSpacing
      *
-     * @return string
+     * @return int
      */
-    public function getBase64Data()
+    public function getRowSpacing()
     {
-        return $this->container['base64Data'];
+        return $this->container['rowSpacing'];
     }
 
     /**
-     * Sets base64Data
+     * Sets rowSpacing
      *
-     * @param string $base64Data Video data encoded in base64.
+     * @param int $rowSpacing Spacing between rows of an array
      *
      * @return $this
      */
-    public function setBase64Data($base64Data)
+    public function setRowSpacing($rowSpacing)
     {
-        $this->container['base64Data'] = $base64Data;
+        $this->container['rowSpacing'] = $rowSpacing;
 
         return $this;
     }

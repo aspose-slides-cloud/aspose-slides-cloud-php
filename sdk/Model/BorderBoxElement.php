@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SaveSlide Class Doc Comment
+ * BorderBoxElement Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Rectangular or some other border around the MathElement.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaveSlide extends Task 
+class BorderBoxElement extends MathElement 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SaveSlide extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaveSlide';
+    protected static $swaggerModelName = 'BorderBoxElement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,15 @@ class SaveSlide extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'format' => 'string',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions',
-        'width' => 'int',
-        'height' => 'int',
-        'position' => 'int'
+        'base' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'hideTop' => 'bool',
+        'hideBottom' => 'bool',
+        'hideLeft' => 'bool',
+        'hideRight' => 'bool',
+        'strikethroughHorizontal' => 'bool',
+        'strikethroughVertical' => 'bool',
+        'strikethroughBottomLeftToTopRight' => 'bool',
+        'strikethroughTopLeftToBottomRight' => 'bool'
     ];
 
     /**
@@ -71,12 +74,15 @@ class SaveSlide extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'output' => null,
-        'format' => null,
-        'options' => null,
-        'width' => 'int32',
-        'height' => 'int32',
-        'position' => 'int32'
+        'base' => null,
+        'hideTop' => null,
+        'hideBottom' => null,
+        'hideLeft' => null,
+        'hideRight' => null,
+        'strikethroughHorizontal' => null,
+        'strikethroughVertical' => null,
+        'strikethroughBottomLeftToTopRight' => null,
+        'strikethroughTopLeftToBottomRight' => null
     ];
 
     /**
@@ -106,12 +112,15 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'output' => 'Output',
-        'format' => 'Format',
-        'options' => 'Options',
-        'width' => 'Width',
-        'height' => 'Height',
-        'position' => 'Position'
+        'base' => 'Base',
+        'hideTop' => 'HideTop',
+        'hideBottom' => 'HideBottom',
+        'hideLeft' => 'HideLeft',
+        'hideRight' => 'HideRight',
+        'strikethroughHorizontal' => 'StrikethroughHorizontal',
+        'strikethroughVertical' => 'StrikethroughVertical',
+        'strikethroughBottomLeftToTopRight' => 'StrikethroughBottomLeftToTopRight',
+        'strikethroughTopLeftToBottomRight' => 'StrikethroughTopLeftToBottomRight'
     ];
 
     /**
@@ -120,12 +129,15 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $setters = [
-        'output' => 'setOutput',
-        'format' => 'setFormat',
-        'options' => 'setOptions',
-        'width' => 'setWidth',
-        'height' => 'setHeight',
-        'position' => 'setPosition'
+        'base' => 'setBase',
+        'hideTop' => 'setHideTop',
+        'hideBottom' => 'setHideBottom',
+        'hideLeft' => 'setHideLeft',
+        'hideRight' => 'setHideRight',
+        'strikethroughHorizontal' => 'setStrikethroughHorizontal',
+        'strikethroughVertical' => 'setStrikethroughVertical',
+        'strikethroughBottomLeftToTopRight' => 'setStrikethroughBottomLeftToTopRight',
+        'strikethroughTopLeftToBottomRight' => 'setStrikethroughTopLeftToBottomRight'
     ];
 
     /**
@@ -134,12 +146,15 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $getters = [
-        'output' => 'getOutput',
-        'format' => 'getFormat',
-        'options' => 'getOptions',
-        'width' => 'getWidth',
-        'height' => 'getHeight',
-        'position' => 'getPosition'
+        'base' => 'getBase',
+        'hideTop' => 'getHideTop',
+        'hideBottom' => 'getHideBottom',
+        'hideLeft' => 'getHideLeft',
+        'hideRight' => 'getHideRight',
+        'strikethroughHorizontal' => 'getStrikethroughHorizontal',
+        'strikethroughVertical' => 'getStrikethroughVertical',
+        'strikethroughBottomLeftToTopRight' => 'getStrikethroughBottomLeftToTopRight',
+        'strikethroughTopLeftToBottomRight' => 'getStrikethroughTopLeftToBottomRight'
     ];
 
     /**
@@ -183,63 +198,8 @@ class SaveSlide extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_TIFF,
-            self::FORMAT_HTML,
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POTX,
-            self::FORMAT_POT,
-            self::FORMAT_POTM,
-            self::FORMAT_SVG,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-        ];
-    }
     
 
 
@@ -253,13 +213,16 @@ class SaveSlide extends Task
     {
         parent::__construct($data);
 
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
-        $this->container['type'] = 'SaveSlide';
+        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
+        $this->container['hideTop'] = isset($data['hideTop']) ? $data['hideTop'] : null;
+        $this->container['hideBottom'] = isset($data['hideBottom']) ? $data['hideBottom'] : null;
+        $this->container['hideLeft'] = isset($data['hideLeft']) ? $data['hideLeft'] : null;
+        $this->container['hideRight'] = isset($data['hideRight']) ? $data['hideRight'] : null;
+        $this->container['strikethroughHorizontal'] = isset($data['strikethroughHorizontal']) ? $data['strikethroughHorizontal'] : null;
+        $this->container['strikethroughVertical'] = isset($data['strikethroughVertical']) ? $data['strikethroughVertical'] : null;
+        $this->container['strikethroughBottomLeftToTopRight'] = isset($data['strikethroughBottomLeftToTopRight']) ? $data['strikethroughBottomLeftToTopRight'] : null;
+        $this->container['strikethroughTopLeftToBottomRight'] = isset($data['strikethroughTopLeftToBottomRight']) ? $data['strikethroughTopLeftToBottomRight'] : null;
+        $this->container['type'] = 'BorderBox';
         
     }
 
@@ -272,20 +235,6 @@ class SaveSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -301,183 +250,222 @@ class SaveSlide extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['position'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets output
+     * Gets base
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
      */
-    public function getOutput()
+    public function getBase()
     {
-        return $this->container['output'];
+        return $this->container['base'];
     }
 
     /**
-     * Sets output
+     * Sets base
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output to save the slide to.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $base Base
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setBase($base)
     {
-        $this->container['output'] = $output;
+        $this->container['base'] = $base;
 
         return $this;
     }
 
     /**
-     * Gets format
+     * Gets hideTop
      *
-     * @return string
+     * @return bool
      */
-    public function getFormat()
+    public function getHideTop()
     {
-        return $this->container['format'];
+        return $this->container['hideTop'];
     }
 
     /**
-     * Sets format
+     * Sets hideTop
      *
-     * @param string $format Save format.
+     * @param bool $hideTop Hide Top Edge
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setHideTop($hideTop)
     {
-        $allowedValues = $this->getFormatAllowableValues();
-
-
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $format = $allowedValues[$format];
-            }
-        } else {
-            if (!in_array($format, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['format'] = $format;
+        $this->container['hideTop'] = $hideTop;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets hideBottom
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return bool
      */
-    public function getOptions()
+    public function getHideBottom()
     {
-        return $this->container['options'];
+        return $this->container['hideBottom'];
     }
 
     /**
-     * Sets options
+     * Sets hideBottom
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param bool $hideBottom Hide Bottom Edge
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setHideBottom($hideBottom)
     {
-        $this->container['options'] = $options;
+        $this->container['hideBottom'] = $hideBottom;
 
         return $this;
     }
 
     /**
-     * Gets width
+     * Gets hideLeft
      *
-     * @return int
+     * @return bool
      */
-    public function getWidth()
+    public function getHideLeft()
     {
-        return $this->container['width'];
+        return $this->container['hideLeft'];
     }
 
     /**
-     * Sets width
+     * Sets hideLeft
      *
-     * @param int $width Result width for saving to an image format.
+     * @param bool $hideLeft Hide Left Edge
      *
      * @return $this
      */
-    public function setWidth($width)
+    public function setHideLeft($hideLeft)
     {
-        $this->container['width'] = $width;
+        $this->container['hideLeft'] = $hideLeft;
 
         return $this;
     }
 
     /**
-     * Gets height
+     * Gets hideRight
      *
-     * @return int
+     * @return bool
      */
-    public function getHeight()
+    public function getHideRight()
     {
-        return $this->container['height'];
+        return $this->container['hideRight'];
     }
 
     /**
-     * Sets height
+     * Sets hideRight
      *
-     * @param int $height Result height for saving to an image format.
+     * @param bool $hideRight Hide Right Edge
      *
      * @return $this
      */
-    public function setHeight($height)
+    public function setHideRight($hideRight)
     {
-        $this->container['height'] = $height;
+        $this->container['hideRight'] = $hideRight;
 
         return $this;
     }
 
     /**
-     * Gets position
+     * Gets strikethroughHorizontal
      *
-     * @return int
+     * @return bool
      */
-    public function getPosition()
+    public function getStrikethroughHorizontal()
     {
-        return $this->container['position'];
+        return $this->container['strikethroughHorizontal'];
     }
 
     /**
-     * Sets position
+     * Sets strikethroughHorizontal
      *
-     * @param int $position Slide index.
+     * @param bool $strikethroughHorizontal Strikethrough Horizontal
      *
      * @return $this
      */
-    public function setPosition($position)
+    public function setStrikethroughHorizontal($strikethroughHorizontal)
     {
-        $this->container['position'] = $position;
+        $this->container['strikethroughHorizontal'] = $strikethroughHorizontal;
+
+        return $this;
+    }
+
+    /**
+     * Gets strikethroughVertical
+     *
+     * @return bool
+     */
+    public function getStrikethroughVertical()
+    {
+        return $this->container['strikethroughVertical'];
+    }
+
+    /**
+     * Sets strikethroughVertical
+     *
+     * @param bool $strikethroughVertical Strikethrough Vertical
+     *
+     * @return $this
+     */
+    public function setStrikethroughVertical($strikethroughVertical)
+    {
+        $this->container['strikethroughVertical'] = $strikethroughVertical;
+
+        return $this;
+    }
+
+    /**
+     * Gets strikethroughBottomLeftToTopRight
+     *
+     * @return bool
+     */
+    public function getStrikethroughBottomLeftToTopRight()
+    {
+        return $this->container['strikethroughBottomLeftToTopRight'];
+    }
+
+    /**
+     * Sets strikethroughBottomLeftToTopRight
+     *
+     * @param bool $strikethroughBottomLeftToTopRight Strikethrough Bottom-Left to Top-Right
+     *
+     * @return $this
+     */
+    public function setStrikethroughBottomLeftToTopRight($strikethroughBottomLeftToTopRight)
+    {
+        $this->container['strikethroughBottomLeftToTopRight'] = $strikethroughBottomLeftToTopRight;
+
+        return $this;
+    }
+
+    /**
+     * Gets strikethroughTopLeftToBottomRight
+     *
+     * @return bool
+     */
+    public function getStrikethroughTopLeftToBottomRight()
+    {
+        return $this->container['strikethroughTopLeftToBottomRight'];
+    }
+
+    /**
+     * Sets strikethroughTopLeftToBottomRight
+     *
+     * @param bool $strikethroughTopLeftToBottomRight Strikethrough Top-Left to Bottom-Right.
+     *
+     * @return $this
+     */
+    public function setStrikethroughTopLeftToBottomRight($strikethroughTopLeftToBottomRight)
+    {
+        $this->container['strikethroughTopLeftToBottomRight'] = $strikethroughTopLeftToBottomRight;
 
         return $this;
     }

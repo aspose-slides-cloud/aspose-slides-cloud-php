@@ -250,7 +250,7 @@ class LayoutSlideTest extends TestBase
 
         $animation = $this->getApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, null, null, self::password, self::folderName);
-        Assert::assertEquals(0, count($animation->getMainSequence()));
+        Assert::assertEquals(1, count($animation->getMainSequence()));
 
         $dto = new SlideAnimation();
         $effect1 = new Effect();
@@ -284,7 +284,7 @@ class LayoutSlideTest extends TestBase
     public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 2;
-    public const shapeCount = 5;
+    public const shapeCount = 6;
     public const paragraphIndex = 1;
     public const paragraphCount = 1;
     public const portionCount = 1;

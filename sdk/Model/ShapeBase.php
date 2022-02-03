@@ -71,6 +71,8 @@ class ShapeBase extends ResourceBase
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
         'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'hyperlinkClick' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink',
+        'hyperlinkMouseOver' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink',
         'type' => 'string'
     ];
 
@@ -94,6 +96,8 @@ class ShapeBase extends ResourceBase
         'effectFormat' => null,
         'threeDFormat' => null,
         'lineFormat' => null,
+        'hyperlinkClick' => null,
+        'hyperlinkMouseOver' => null,
         'type' => null
     ];
 
@@ -138,6 +142,8 @@ class ShapeBase extends ResourceBase
         'effectFormat' => 'EffectFormat',
         'threeDFormat' => 'ThreeDFormat',
         'lineFormat' => 'LineFormat',
+        'hyperlinkClick' => 'HyperlinkClick',
+        'hyperlinkMouseOver' => 'HyperlinkMouseOver',
         'type' => 'Type'
     ];
 
@@ -161,6 +167,8 @@ class ShapeBase extends ResourceBase
         'effectFormat' => 'setEffectFormat',
         'threeDFormat' => 'setThreeDFormat',
         'lineFormat' => 'setLineFormat',
+        'hyperlinkClick' => 'setHyperlinkClick',
+        'hyperlinkMouseOver' => 'setHyperlinkMouseOver',
         'type' => 'setType'
     ];
 
@@ -184,6 +192,8 @@ class ShapeBase extends ResourceBase
         'effectFormat' => 'getEffectFormat',
         'threeDFormat' => 'getThreeDFormat',
         'lineFormat' => 'getLineFormat',
+        'hyperlinkClick' => 'getHyperlinkClick',
+        'hyperlinkMouseOver' => 'getHyperlinkMouseOver',
         'type' => 'getType'
     ];
 
@@ -292,6 +302,8 @@ class ShapeBase extends ResourceBase
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['hyperlinkClick'] = isset($data['hyperlinkClick']) ? $data['hyperlinkClick'] : null;
+        $this->container['hyperlinkMouseOver'] = isset($data['hyperlinkMouseOver']) ? $data['hyperlinkMouseOver'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
@@ -674,6 +686,54 @@ class ShapeBase extends ResourceBase
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets hyperlinkClick
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Hyperlink
+     */
+    public function getHyperlinkClick()
+    {
+        return $this->container['hyperlinkClick'];
+    }
+
+    /**
+     * Sets hyperlinkClick
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Hyperlink $hyperlinkClick Hyperlink defined for mouse click.
+     *
+     * @return $this
+     */
+    public function setHyperlinkClick($hyperlinkClick)
+    {
+        $this->container['hyperlinkClick'] = $hyperlinkClick;
+
+        return $this;
+    }
+
+    /**
+     * Gets hyperlinkMouseOver
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Hyperlink
+     */
+    public function getHyperlinkMouseOver()
+    {
+        return $this->container['hyperlinkMouseOver'];
+    }
+
+    /**
+     * Sets hyperlinkMouseOver
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Hyperlink $hyperlinkMouseOver Hyperlink defined for mouse over.
+     *
+     * @return $this
+     */
+    public function setHyperlinkMouseOver($hyperlinkMouseOver)
+    {
+        $this->container['hyperlinkMouseOver'] = $hyperlinkMouseOver;
 
         return $this;
     }

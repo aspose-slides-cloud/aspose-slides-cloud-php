@@ -68,6 +68,7 @@ class ExportFormat
     const GIF = 'Gif';
     const BMP = 'Bmp';
     const FODP = 'Fodp';
+    const XAML = 'Xaml';
     
     /**
      * Gets allowable values of the enum
@@ -99,6 +100,7 @@ class ExportFormat
             self::GIF,
             self::BMP,
             self::FODP,
+            self::XAML,
         ];
     }
 }

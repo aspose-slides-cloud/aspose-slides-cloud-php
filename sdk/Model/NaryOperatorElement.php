@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * NaryOperatorElement Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Specifies an N-ary mathematical object, such as Summation and Integral.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class NaryOperatorElement extends MathElement 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'NaryOperatorElement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,14 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'base' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'subscript' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'superscript' => '\Aspose\Slides\Cloud\Sdk\Model\MathElement',
+        'operator' => 'string',
+        'limitLocation' => 'string',
+        'growToMatchOperandHeight' => 'bool',
+        'hideSubscript' => 'bool',
+        'hideSuperscript' => 'bool'
     ];
 
     /**
@@ -68,9 +73,14 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'base' => null,
+        'subscript' => null,
+        'superscript' => null,
+        'operator' => null,
+        'limitLocation' => null,
+        'growToMatchOperandHeight' => null,
+        'hideSubscript' => null,
+        'hideSuperscript' => null
     ];
 
     /**
@@ -100,9 +110,14 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'base' => 'Base',
+        'subscript' => 'Subscript',
+        'superscript' => 'Superscript',
+        'operator' => 'Operator',
+        'limitLocation' => 'LimitLocation',
+        'growToMatchOperandHeight' => 'GrowToMatchOperandHeight',
+        'hideSubscript' => 'HideSubscript',
+        'hideSuperscript' => 'HideSuperscript'
     ];
 
     /**
@@ -111,9 +126,14 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'base' => 'setBase',
+        'subscript' => 'setSubscript',
+        'superscript' => 'setSuperscript',
+        'operator' => 'setOperator',
+        'limitLocation' => 'setLimitLocation',
+        'growToMatchOperandHeight' => 'setGrowToMatchOperandHeight',
+        'hideSubscript' => 'setHideSubscript',
+        'hideSuperscript' => 'setHideSuperscript'
     ];
 
     /**
@@ -122,9 +142,14 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'base' => 'getBase',
+        'subscript' => 'getSubscript',
+        'superscript' => 'getSuperscript',
+        'operator' => 'getOperator',
+        'limitLocation' => 'getLimitLocation',
+        'growToMatchOperandHeight' => 'getGrowToMatchOperandHeight',
+        'hideSubscript' => 'getHideSubscript',
+        'hideSuperscript' => 'getHideSuperscript'
     ];
 
     /**
@@ -168,30 +193,9 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
+    const LIMIT_LOCATION_NOT_DEFINED = 'NotDefined';
+    const LIMIT_LOCATION_UNDER_OVER = 'UnderOver';
+    const LIMIT_LOCATION_SUBSCRIPT_SUPERSCRIPT = 'SubscriptSuperscript';
     
 
     
@@ -200,33 +204,12 @@ class Save extends Task
      *
      * @return string[]
      */
-    public function getFormatAllowableValues()
+    public function getLimitLocationAllowableValues()
     {
         return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
+            self::LIMIT_LOCATION_NOT_DEFINED,
+            self::LIMIT_LOCATION_UNDER_OVER,
+            self::LIMIT_LOCATION_SUBSCRIPT_SUPERSCRIPT,
         ];
     }
     
@@ -242,10 +225,15 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
+        $this->container['subscript'] = isset($data['subscript']) ? $data['subscript'] : null;
+        $this->container['superscript'] = isset($data['superscript']) ? $data['superscript'] : null;
+        $this->container['operator'] = isset($data['operator']) ? $data['operator'] : null;
+        $this->container['limitLocation'] = isset($data['limitLocation']) ? $data['limitLocation'] : null;
+        $this->container['growToMatchOperandHeight'] = isset($data['growToMatchOperandHeight']) ? $data['growToMatchOperandHeight'] : null;
+        $this->container['hideSubscript'] = isset($data['hideSubscript']) ? $data['hideSubscript'] : null;
+        $this->container['hideSuperscript'] = isset($data['hideSuperscript']) ? $data['hideSuperscript'] : null;
+        $this->container['type'] = 'NaryOperator';
         
     }
 
@@ -258,13 +246,10 @@ class Save extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getLimitLocationAllowableValues();
+        if (!in_array($this->container['limitLocation'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
+                "invalid value for 'limitLocation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -284,11 +269,8 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getLimitLocationAllowableValues();
+        if (!in_array($this->container['limitLocation'], $allowedValues)) {
             return false;
         }
         return true;
@@ -296,96 +278,216 @@ class Save extends Task
 
 
     /**
-     * Gets format
+     * Gets base
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
      */
-    public function getFormat()
+    public function getBase()
     {
-        return $this->container['format'];
+        return $this->container['base'];
     }
 
     /**
-     * Sets format
+     * Sets base
      *
-     * @param string $format Format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $base Base argument
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setBase($base)
     {
-        $allowedValues = $this->getFormatAllowableValues();
+        $this->container['base'] = $base;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscript
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
+     */
+    public function getSubscript()
+    {
+        return $this->container['subscript'];
+    }
+
+    /**
+     * Sets subscript
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $subscript Subscript argument
+     *
+     * @return $this
+     */
+    public function setSubscript($subscript)
+    {
+        $this->container['subscript'] = $subscript;
+
+        return $this;
+    }
+
+    /**
+     * Gets superscript
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathElement
+     */
+    public function getSuperscript()
+    {
+        return $this->container['superscript'];
+    }
+
+    /**
+     * Sets superscript
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathElement $superscript Superscript argument
+     *
+     * @return $this
+     */
+    public function setSuperscript($superscript)
+    {
+        $this->container['superscript'] = $superscript;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string $operator Nary Operator Character
+     *
+     * @return $this
+     */
+    public function setOperator($operator)
+    {
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets limitLocation
+     *
+     * @return string
+     */
+    public function getLimitLocation()
+    {
+        return $this->container['limitLocation'];
+    }
+
+    /**
+     * Sets limitLocation
+     *
+     * @param string $limitLocation The location of limits (subscript and superscript)
+     *
+     * @return $this
+     */
+    public function setLimitLocation($limitLocation)
+    {
+        $allowedValues = $this->getLimitLocationAllowableValues();
 
 
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
+        if (is_numeric($limitLocation)) {
+            if ($limitLocation >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'limitLocation', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $format = $allowedValues[$format];
+                $limitLocation = $allowedValues[$limitLocation];
             }
         } else {
-            if (!in_array($format, $allowedValues)) {
+            if (!is_null($limitLocation) && !in_array($limitLocation, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'limitLocation', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['format'] = $format;
+        $this->container['limitLocation'] = $limitLocation;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets growToMatchOperandHeight
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return bool
      */
-    public function getOutput()
+    public function getGrowToMatchOperandHeight()
     {
-        return $this->container['output'];
+        return $this->container['growToMatchOperandHeight'];
     }
 
     /**
-     * Sets output
+     * Sets growToMatchOperandHeight
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param bool $growToMatchOperandHeight Operator Character grows vertically to match its operand height
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setGrowToMatchOperandHeight($growToMatchOperandHeight)
     {
-        $this->container['output'] = $output;
+        $this->container['growToMatchOperandHeight'] = $growToMatchOperandHeight;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets hideSubscript
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return bool
      */
-    public function getOptions()
+    public function getHideSubscript()
     {
-        return $this->container['options'];
+        return $this->container['hideSubscript'];
     }
 
     /**
-     * Sets options
+     * Sets hideSubscript
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param bool $hideSubscript Hide Subscript
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setHideSubscript($hideSubscript)
     {
-        $this->container['options'] = $options;
+        $this->container['hideSubscript'] = $hideSubscript;
+
+        return $this;
+    }
+
+    /**
+     * Gets hideSuperscript
+     *
+     * @return bool
+     */
+    public function getHideSuperscript()
+    {
+        return $this->container['hideSuperscript'];
+    }
+
+    /**
+     * Sets hideSuperscript
+     *
+     * @param bool $hideSuperscript Hide Superscript
+     *
+     * @return $this
+     */
+    public function setHideSuperscript($hideSuperscript)
+    {
+        $this->container['hideSuperscript'] = $hideSuperscript;
 
         return $this;
     }

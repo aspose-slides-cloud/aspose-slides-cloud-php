@@ -35,7 +35,7 @@ use Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence;
 use Aspose\Slides\Cloud\Sdk\Model\Effect;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
-class AnimtionTest extends TestBase
+class AnimationTest extends TestBase
 {
     public function testAnimationGet()
     {

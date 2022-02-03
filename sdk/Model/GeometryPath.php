@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * GeometryPath Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Represents GeometryPath of the shape
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class GeometryPath implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'GeometryPath';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +59,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'fillMode' => 'string',
+        'stroke' => 'bool',
+        'pathData' => '\Aspose\Slides\Cloud\Sdk\Model\PathSegment[]'
     ];
 
     /**
@@ -68,9 +70,9 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'fillMode' => null,
+        'stroke' => null,
+        'pathData' => null
     ];
 
     /**
@@ -80,7 +82,7 @@ class Save extends Task
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -90,7 +92,7 @@ class Save extends Task
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -100,9 +102,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'fillMode' => 'FillMode',
+        'stroke' => 'Stroke',
+        'pathData' => 'PathData'
     ];
 
     /**
@@ -111,9 +113,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'fillMode' => 'setFillMode',
+        'stroke' => 'setStroke',
+        'pathData' => 'setPathData'
     ];
 
     /**
@@ -122,9 +124,9 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'fillMode' => 'getFillMode',
+        'stroke' => 'getStroke',
+        'pathData' => 'getPathData'
     ];
 
     /**
@@ -135,7 +137,7 @@ class Save extends Task
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -145,7 +147,7 @@ class Save extends Task
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -155,7 +157,7 @@ class Save extends Task
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -168,30 +170,12 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
+    const FILL_MODE_NONE = 'None';
+    const FILL_MODE_NORMAL = 'Normal';
+    const FILL_MODE_LIGHTEN = 'Lighten';
+    const FILL_MODE_LIGHTEN_LESS = 'LightenLess';
+    const FILL_MODE_DARKEN = 'Darken';
+    const FILL_MODE_DARKEN_LESS = 'DarkenLess';
     
 
     
@@ -200,37 +184,25 @@ class Save extends Task
      *
      * @return string[]
      */
-    public function getFormatAllowableValues()
+    public function getFillModeAllowableValues()
     {
         return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
+            self::FILL_MODE_NONE,
+            self::FILL_MODE_NORMAL,
+            self::FILL_MODE_LIGHTEN,
+            self::FILL_MODE_LIGHTEN_LESS,
+            self::FILL_MODE_DARKEN,
+            self::FILL_MODE_DARKEN_LESS,
         ];
     }
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -240,12 +212,9 @@ class Save extends Task
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['fillMode'] = isset($data['fillMode']) ? $data['fillMode'] : null;
+        $this->container['stroke'] = isset($data['stroke']) ? $data['stroke'] : null;
+        $this->container['pathData'] = isset($data['pathData']) ? $data['pathData'] : null;
         
     }
 
@@ -256,15 +225,12 @@ class Save extends Task
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getFillModeAllowableValues();
+        if (!in_array($this->container['fillMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
+                "invalid value for 'fillMode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -280,15 +246,9 @@ class Save extends Task
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getFillModeAllowableValues();
+        if (!in_array($this->container['fillMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -296,96 +256,96 @@ class Save extends Task
 
 
     /**
-     * Gets format
+     * Gets fillMode
      *
      * @return string
      */
-    public function getFormat()
+    public function getFillMode()
     {
-        return $this->container['format'];
+        return $this->container['fillMode'];
     }
 
     /**
-     * Sets format
+     * Sets fillMode
      *
-     * @param string $format Format.
+     * @param string $fillMode Path fill mode
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setFillMode($fillMode)
     {
-        $allowedValues = $this->getFormatAllowableValues();
+        $allowedValues = $this->getFillModeAllowableValues();
 
 
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
+        if (is_numeric($fillMode)) {
+            if ($fillMode >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'fillMode', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $format = $allowedValues[$format];
+                $fillMode = $allowedValues[$fillMode];
             }
         } else {
-            if (!in_array($format, $allowedValues)) {
+            if (!is_null($fillMode) && !in_array($fillMode, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'fillMode', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['format'] = $format;
+        $this->container['fillMode'] = $fillMode;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets stroke
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return bool
      */
-    public function getOutput()
+    public function getStroke()
     {
-        return $this->container['output'];
+        return $this->container['stroke'];
     }
 
     /**
-     * Sets output
+     * Sets stroke
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param bool $stroke Stroke
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setStroke($stroke)
     {
-        $this->container['output'] = $output;
+        $this->container['stroke'] = $stroke;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets pathData
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return \Aspose\Slides\Cloud\Sdk\Model\PathSegment[]
      */
-    public function getOptions()
+    public function getPathData()
     {
-        return $this->container['options'];
+        return $this->container['pathData'];
     }
 
     /**
-     * Sets options
+     * Sets pathData
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PathSegment[] $pathData List of PathSegmen objects
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setPathData($pathData)
     {
-        $this->container['options'] = $options;
+        $this->container['pathData'] = $pathData;
 
         return $this;
     }

@@ -58,6 +58,7 @@ class Portion extends ResourceBase
       */
     protected static $swaggerTypes = [
         'text' => 'string',
+        'mathParagraph' => '\Aspose\Slides\Cloud\Sdk\Model\MathParagraph',
         'fontBold' => 'string',
         'fontItalic' => 'string',
         'fontUnderline' => 'string',
@@ -81,7 +82,9 @@ class Portion extends ResourceBase
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'underlineFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'underlineLineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'underlineLineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'hyperlinkClick' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink',
+        'hyperlinkMouseOver' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink'
     ];
 
     /**
@@ -91,6 +94,7 @@ class Portion extends ResourceBase
       */
     protected static $swaggerFormats = [
         'text' => null,
+        'mathParagraph' => null,
         'fontBold' => null,
         'fontItalic' => null,
         'fontUnderline' => null,
@@ -114,7 +118,9 @@ class Portion extends ResourceBase
         'effectFormat' => null,
         'lineFormat' => null,
         'underlineFillFormat' => null,
-        'underlineLineFormat' => null
+        'underlineLineFormat' => null,
+        'hyperlinkClick' => null,
+        'hyperlinkMouseOver' => null
     ];
 
     /**
@@ -145,6 +151,7 @@ class Portion extends ResourceBase
      */
     protected static $attributeMap = [
         'text' => 'Text',
+        'mathParagraph' => 'MathParagraph',
         'fontBold' => 'FontBold',
         'fontItalic' => 'FontItalic',
         'fontUnderline' => 'FontUnderline',
@@ -168,7 +175,9 @@ class Portion extends ResourceBase
         'effectFormat' => 'EffectFormat',
         'lineFormat' => 'LineFormat',
         'underlineFillFormat' => 'UnderlineFillFormat',
-        'underlineLineFormat' => 'UnderlineLineFormat'
+        'underlineLineFormat' => 'UnderlineLineFormat',
+        'hyperlinkClick' => 'HyperlinkClick',
+        'hyperlinkMouseOver' => 'HyperlinkMouseOver'
     ];
 
     /**
@@ -178,6 +187,7 @@ class Portion extends ResourceBase
      */
     protected static $setters = [
         'text' => 'setText',
+        'mathParagraph' => 'setMathParagraph',
         'fontBold' => 'setFontBold',
         'fontItalic' => 'setFontItalic',
         'fontUnderline' => 'setFontUnderline',
@@ -201,7 +211,9 @@ class Portion extends ResourceBase
         'effectFormat' => 'setEffectFormat',
         'lineFormat' => 'setLineFormat',
         'underlineFillFormat' => 'setUnderlineFillFormat',
-        'underlineLineFormat' => 'setUnderlineLineFormat'
+        'underlineLineFormat' => 'setUnderlineLineFormat',
+        'hyperlinkClick' => 'setHyperlinkClick',
+        'hyperlinkMouseOver' => 'setHyperlinkMouseOver'
     ];
 
     /**
@@ -211,6 +223,7 @@ class Portion extends ResourceBase
      */
     protected static $getters = [
         'text' => 'getText',
+        'mathParagraph' => 'getMathParagraph',
         'fontBold' => 'getFontBold',
         'fontItalic' => 'getFontItalic',
         'fontUnderline' => 'getFontUnderline',
@@ -234,7 +247,9 @@ class Portion extends ResourceBase
         'effectFormat' => 'getEffectFormat',
         'lineFormat' => 'getLineFormat',
         'underlineFillFormat' => 'getUnderlineFillFormat',
-        'underlineLineFormat' => 'getUnderlineLineFormat'
+        'underlineLineFormat' => 'getUnderlineLineFormat',
+        'hyperlinkClick' => 'getHyperlinkClick',
+        'hyperlinkMouseOver' => 'getHyperlinkMouseOver'
     ];
 
     /**
@@ -500,6 +515,7 @@ class Portion extends ResourceBase
         parent::__construct($data);
 
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['mathParagraph'] = isset($data['mathParagraph']) ? $data['mathParagraph'] : null;
         $this->container['fontBold'] = isset($data['fontBold']) ? $data['fontBold'] : null;
         $this->container['fontItalic'] = isset($data['fontItalic']) ? $data['fontItalic'] : null;
         $this->container['fontUnderline'] = isset($data['fontUnderline']) ? $data['fontUnderline'] : null;
@@ -524,6 +540,8 @@ class Portion extends ResourceBase
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         $this->container['underlineFillFormat'] = isset($data['underlineFillFormat']) ? $data['underlineFillFormat'] : null;
         $this->container['underlineLineFormat'] = isset($data['underlineLineFormat']) ? $data['underlineLineFormat'] : null;
+        $this->container['hyperlinkClick'] = isset($data['hyperlinkClick']) ? $data['hyperlinkClick'] : null;
+        $this->container['hyperlinkMouseOver'] = isset($data['hyperlinkMouseOver']) ? $data['hyperlinkMouseOver'] : null;
         
     }
 
@@ -695,6 +713,30 @@ class Portion extends ResourceBase
     public function setText($text)
     {
         $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets mathParagraph
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\MathParagraph
+     */
+    public function getMathParagraph()
+    {
+        return $this->container['mathParagraph'];
+    }
+
+    /**
+     * Sets mathParagraph
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\MathParagraph $mathParagraph Math paragraph.
+     *
+     * @return $this
+     */
+    public function setMathParagraph($mathParagraph)
+    {
+        $this->container['mathParagraph'] = $mathParagraph;
 
         return $this;
     }
@@ -1501,6 +1543,54 @@ class Portion extends ResourceBase
     public function setUnderlineLineFormat($underlineLineFormat)
     {
         $this->container['underlineLineFormat'] = $underlineLineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets hyperlinkClick
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Hyperlink
+     */
+    public function getHyperlinkClick()
+    {
+        return $this->container['hyperlinkClick'];
+    }
+
+    /**
+     * Sets hyperlinkClick
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Hyperlink $hyperlinkClick Hyperlink defined for mouse click.
+     *
+     * @return $this
+     */
+    public function setHyperlinkClick($hyperlinkClick)
+    {
+        $this->container['hyperlinkClick'] = $hyperlinkClick;
+
+        return $this;
+    }
+
+    /**
+     * Gets hyperlinkMouseOver
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Hyperlink
+     */
+    public function getHyperlinkMouseOver()
+    {
+        return $this->container['hyperlinkMouseOver'];
+    }
+
+    /**
+     * Sets hyperlinkMouseOver
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Hyperlink $hyperlinkMouseOver Hyperlink defined for mouse over.
+     *
+     * @return $this
+     */
+    public function setHyperlinkMouseOver($hyperlinkMouseOver)
+    {
+        $this->container['hyperlinkMouseOver'] = $hyperlinkMouseOver;
 
         return $this;
     }

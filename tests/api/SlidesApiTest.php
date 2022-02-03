@@ -545,6 +545,277 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for alignSubshapes
+     * Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+     */
+    public function testAlignSubshapes()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "alignSubshapes");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testAlignSubshapesInvalidname()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "alignSubshapes", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "alignSubshapes", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidpath()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testpath = TestUtils::invalidizeValue("path", "alignSubshapes", $testpath, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "path", $testpath);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "path", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "path", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "path", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidalignmentType()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testalignmentType = TestUtils::invalidizeValue("alignmentType", "alignSubshapes", $testalignmentType, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "alignmentType", $testalignmentType);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "alignmentType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "alignmentType", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "alignmentType", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidalignToSlide()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testalignToSlide = TestUtils::invalidizeValue("alignToSlide", "alignSubshapes", $testalignToSlide, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "alignToSlide", $testalignToSlide);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "alignToSlide", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "alignToSlide", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "alignToSlide", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidshapes()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testshapes = TestUtils::invalidizeValue("shapes", "alignSubshapes", $testshapes, self::$values, 'array');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "shapes", $testshapes);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "shapes", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "shapes", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "shapes", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "alignSubshapes", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "alignSubshapes", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testAlignSubshapesInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("alignSubshapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("alignSubshapes", "slideIndex", self::$values, 'int');
+        $testpath = TestUtils::getTestValue("alignSubshapes", "path", self::$values, 'string');
+        $testalignmentType = TestUtils::getTestValue("alignSubshapes", "alignmentType", self::$values, 'string');
+        $testalignToSlide = TestUtils::getTestValue("alignSubshapes", "alignToSlide", self::$values, 'bool');
+        $testshapes = TestUtils::getTestValue("alignSubshapes", "shapes", self::$values, 'array');
+        $testpassword = TestUtils::getTestValue("alignSubshapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("alignSubshapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("alignSubshapes", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "alignSubshapes", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("alignSubshapes", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->alignSubshapes($testname, $testslideIndex, $testpath, $testalignmentType, $testalignToSlide, $testshapes, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "alignSubshapes", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "alignSubshapes", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("alignSubshapes", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for convert
      * Convert presentation from request content to format specified.
      */
@@ -21548,6 +21819,241 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for downloadPortionAsMathMl
+     * Convert Mathematical Text to MathML Format
+     */
+    public function testDownloadPortionAsMathMl()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "downloadPortionAsMathMl");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidname()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "downloadPortionAsMathMl", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "downloadPortionAsMathMl", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "downloadPortionAsMathMl", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "downloadPortionAsMathMl", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidportionIndex()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testportionIndex = TestUtils::invalidizeValue("portionIndex", "downloadPortionAsMathMl", $testportionIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "portionIndex", $testportionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "portionIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "downloadPortionAsMathMl", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "downloadPortionAsMathMl", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDownloadPortionAsMathMlInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("downloadPortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("downloadPortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("downloadPortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("downloadPortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("downloadPortionAsMathMl", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "downloadPortionAsMathMl", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("downloadPortionAsMathMl", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->downloadPortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "downloadPortionAsMathMl", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "downloadPortionAsMathMl", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("downloadPortionAsMathMl", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for downloadPresentation
      * Save a presentation to a specified format.
      */
@@ -28366,6 +28872,175 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getShape", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for getShapeGeometryPath
+     * Returns geometry path of the shape
+     */
+    public function testGetShapeGeometryPath()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getShapeGeometryPath");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidname()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "getShapeGeometryPath", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "getShapeGeometryPath", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "getShapeGeometryPath", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "getShapeGeometryPath", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "getShapeGeometryPath", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapeGeometryPathInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("getShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapeGeometryPath", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "getShapeGeometryPath", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapeGeometryPath", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapeGeometryPath", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapeGeometryPath", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapeGeometryPath", "storage", self::$okToFailValues);
         }
     }
 
@@ -36710,6 +37385,277 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for savePortionAsMathMl
+     * Convert Mathematical Text to MathML Format and saves result to the storage
+     */
+    public function testSavePortionAsMathMl()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "savePortionAsMathMl");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidname()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "savePortionAsMathMl", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "savePortionAsMathMl", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "savePortionAsMathMl", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "savePortionAsMathMl", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidportionIndex()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testportionIndex = TestUtils::invalidizeValue("portionIndex", "savePortionAsMathMl", $testportionIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "portionIndex", $testportionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "portionIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidoutPath()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testoutPath = TestUtils::invalidizeValue("outPath", "savePortionAsMathMl", $testoutPath, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "outPath", $testoutPath);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "outPath", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "outPath", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "outPath", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "savePortionAsMathMl", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "savePortionAsMathMl", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSavePortionAsMathMlInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("savePortionAsMathMl", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("savePortionAsMathMl", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("savePortionAsMathMl", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("savePortionAsMathMl", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("savePortionAsMathMl", "portionIndex", self::$values, 'int');
+        $testoutPath = TestUtils::getTestValue("savePortionAsMathMl", "outPath", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("savePortionAsMathMl", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("savePortionAsMathMl", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("savePortionAsMathMl", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "savePortionAsMathMl", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("savePortionAsMathMl", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->savePortionAsMathMl($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testoutPath, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "savePortionAsMathMl", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "savePortionAsMathMl", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("savePortionAsMathMl", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for savePresentation
      * Save a presentation to a specified format.
      */
@@ -41438,6 +42384,207 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("setSections", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setShapeGeometryPath
+     * Sets geometry path to the shape
+     */
+    public function testSetShapeGeometryPath()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setShapeGeometryPath");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidname()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setShapeGeometryPath", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "setShapeGeometryPath", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "setShapeGeometryPath", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvaliddto()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testdto = TestUtils::invalidizeValue("dto", "setShapeGeometryPath", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "dto", $testdto);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "dto", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "dto", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "dto", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setShapeGeometryPath", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setShapeGeometryPath", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetShapeGeometryPathInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("setShapeGeometryPath", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setShapeGeometryPath", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setShapeGeometryPath", "shapeIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("setShapeGeometryPath", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\GeometryPaths');
+        $testpassword = TestUtils::getTestValue("setShapeGeometryPath", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setShapeGeometryPath", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setShapeGeometryPath", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setShapeGeometryPath", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setShapeGeometryPath", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setShapeGeometryPath($testname, $testslideIndex, $testshapeIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setShapeGeometryPath", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setShapeGeometryPath", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setShapeGeometryPath", "storage", self::$okToFailValues);
         }
     }
 

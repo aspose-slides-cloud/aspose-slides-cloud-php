@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * QuadraticBezierToPathSegment Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Quadratic Bezier curve segment of the geometry path
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class QuadraticBezierToPathSegment extends PathSegment 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Save extends Task
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'QuadraticBezierToPathSegment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,10 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'x1' => 'double',
+        'y1' => 'double',
+        'x2' => 'double',
+        'y2' => 'double'
     ];
 
     /**
@@ -68,9 +69,10 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'x1' => 'double',
+        'y1' => 'double',
+        'x2' => 'double',
+        'y2' => 'double'
     ];
 
     /**
@@ -100,9 +102,10 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'x1' => 'X1',
+        'y1' => 'Y1',
+        'x2' => 'X2',
+        'y2' => 'Y2'
     ];
 
     /**
@@ -111,9 +114,10 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'x1' => 'setX1',
+        'y1' => 'setY1',
+        'x2' => 'setX2',
+        'y2' => 'setY2'
     ];
 
     /**
@@ -122,9 +126,10 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'x1' => 'getX1',
+        'y1' => 'getY1',
+        'x2' => 'getX2',
+        'y2' => 'getY2'
     ];
 
     /**
@@ -168,67 +173,8 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-        ];
-    }
     
 
 
@@ -242,10 +188,11 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['x1'] = isset($data['x1']) ? $data['x1'] : null;
+        $this->container['y1'] = isset($data['y1']) ? $data['y1'] : null;
+        $this->container['x2'] = isset($data['x2']) ? $data['x2'] : null;
+        $this->container['y2'] = isset($data['y2']) ? $data['y2'] : null;
+        $this->container['type'] = 'QuadBezierTo';
         
     }
 
@@ -258,17 +205,18 @@ class Save extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
+        if ($this->container['x1'] === null) {
+            $invalidProperties[] = "'x1' can't be null";
         }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['y1'] === null) {
+            $invalidProperties[] = "'y1' can't be null";
         }
-
+        if ($this->container['x2'] === null) {
+            $invalidProperties[] = "'x2' can't be null";
+        }
+        if ($this->container['y2'] === null) {
+            $invalidProperties[] = "'y2' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -284,11 +232,16 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
+        if ($this->container['x1'] === null) {
             return false;
         }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        if ($this->container['y1'] === null) {
+            return false;
+        }
+        if ($this->container['x2'] === null) {
+            return false;
+        }
+        if ($this->container['y2'] === null) {
             return false;
         }
         return true;
@@ -296,96 +249,97 @@ class Save extends Task
 
 
     /**
-     * Gets format
+     * Gets x1
      *
-     * @return string
+     * @return double
      */
-    public function getFormat()
+    public function getX1()
     {
-        return $this->container['format'];
+        return $this->container['x1'];
     }
 
     /**
-     * Sets format
+     * Sets x1
      *
-     * @param string $format Format.
+     * @param double $x1 X coordinate of direction point
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setX1($x1)
     {
-        $allowedValues = $this->getFormatAllowableValues();
-
-
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $format = $allowedValues[$format];
-            }
-        } else {
-            if (!in_array($format, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['format'] = $format;
+        $this->container['x1'] = $x1;
 
         return $this;
     }
 
     /**
-     * Gets output
+     * Gets y1
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
+     * @return double
      */
-    public function getOutput()
+    public function getY1()
     {
-        return $this->container['output'];
+        return $this->container['y1'];
     }
 
     /**
-     * Sets output
+     * Sets y1
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
+     * @param double $y1 Y coordinate of direction point
      *
      * @return $this
      */
-    public function setOutput($output)
+    public function setY1($y1)
     {
-        $this->container['output'] = $output;
+        $this->container['y1'] = $y1;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets x2
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return double
      */
-    public function getOptions()
+    public function getX2()
     {
-        return $this->container['options'];
+        return $this->container['x2'];
     }
 
     /**
-     * Sets options
+     * Sets x2
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param double $x2 X coordinate of end point
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setX2($x2)
     {
-        $this->container['options'] = $options;
+        $this->container['x2'] = $x2;
+
+        return $this;
+    }
+
+    /**
+     * Gets y2
+     *
+     * @return double
+     */
+    public function getY2()
+    {
+        return $this->container['y2'];
+    }
+
+    /**
+     * Sets y2
+     *
+     * @param double $y2 Y coordinate of end point
+     *
+     * @return $this
+     */
+    public function setY2($y2)
+    {
+        $this->container['y2'] = $y2;
 
         return $this;
     }

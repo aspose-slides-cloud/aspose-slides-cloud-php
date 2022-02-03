@@ -66,7 +66,9 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'bool',
         'playMode' => 'string',
         'volume' => 'string',
-        'base64Data' => 'string'
+        'base64Data' => 'string',
+        'playAcrossSlides' => 'bool',
+        'rewindAudio' => 'bool'
     ];
 
     /**
@@ -84,7 +86,9 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => null,
         'playMode' => null,
         'volume' => null,
-        'base64Data' => null
+        'base64Data' => null,
+        'playAcrossSlides' => null,
+        'rewindAudio' => null
     ];
 
     /**
@@ -123,7 +127,9 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'PlayLoopMode',
         'playMode' => 'PlayMode',
         'volume' => 'Volume',
-        'base64Data' => 'Base64Data'
+        'base64Data' => 'Base64Data',
+        'playAcrossSlides' => 'PlayAcrossSlides',
+        'rewindAudio' => 'RewindAudio'
     ];
 
     /**
@@ -141,7 +147,9 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'setPlayLoopMode',
         'playMode' => 'setPlayMode',
         'volume' => 'setVolume',
-        'base64Data' => 'setBase64Data'
+        'base64Data' => 'setBase64Data',
+        'playAcrossSlides' => 'setPlayAcrossSlides',
+        'rewindAudio' => 'setRewindAudio'
     ];
 
     /**
@@ -159,7 +167,9 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'getPlayLoopMode',
         'playMode' => 'getPlayMode',
         'volume' => 'getVolume',
-        'base64Data' => 'getBase64Data'
+        'base64Data' => 'getBase64Data',
+        'playAcrossSlides' => 'getPlayAcrossSlides',
+        'rewindAudio' => 'getRewindAudio'
     ];
 
     /**
@@ -206,6 +216,7 @@ class AudioFrame extends GeometryShape
     const PLAY_MODE_AUTO = 'Auto';
     const PLAY_MODE_ON_CLICK = 'OnClick';
     const PLAY_MODE_ALL_SLIDES = 'AllSlides';
+    const PLAY_MODE_IN_CLICK_SEQUENCE = 'InClickSequence';
     const PLAY_MODE_MIXED = 'Mixed';
     const VOLUME_MUTE = 'Mute';
     const VOLUME_LOW = 'Low';
@@ -226,6 +237,7 @@ class AudioFrame extends GeometryShape
             self::PLAY_MODE_AUTO,
             self::PLAY_MODE_ON_CLICK,
             self::PLAY_MODE_ALL_SLIDES,
+            self::PLAY_MODE_IN_CLICK_SEQUENCE,
             self::PLAY_MODE_MIXED,
         ];
     }
@@ -268,6 +280,8 @@ class AudioFrame extends GeometryShape
         $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
+        $this->container['playAcrossSlides'] = isset($data['playAcrossSlides']) ? $data['playAcrossSlides'] : null;
+        $this->container['rewindAudio'] = isset($data['rewindAudio']) ? $data['rewindAudio'] : null;
         $this->container['type'] = 'AudioFrame';
         
     }
@@ -606,6 +620,54 @@ class AudioFrame extends GeometryShape
     public function setBase64Data($base64Data)
     {
         $this->container['base64Data'] = $base64Data;
+
+        return $this;
+    }
+
+    /**
+     * Gets playAcrossSlides
+     *
+     * @return bool
+     */
+    public function getPlayAcrossSlides()
+    {
+        return $this->container['playAcrossSlides'];
+    }
+
+    /**
+     * Sets playAcrossSlides
+     *
+     * @param bool $playAcrossSlides Determines whether an audio is playing across the slides.
+     *
+     * @return $this
+     */
+    public function setPlayAcrossSlides($playAcrossSlides)
+    {
+        $this->container['playAcrossSlides'] = $playAcrossSlides;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewindAudio
+     *
+     * @return bool
+     */
+    public function getRewindAudio()
+    {
+        return $this->container['rewindAudio'];
+    }
+
+    /**
+     * Sets rewindAudio
+     *
+     * @param bool $rewindAudio Determines whether audio is automatically rewound to start after playing.
+     *
+     * @return $this
+     */
+    public function setRewindAudio($rewindAudio)
+    {
+        $this->container['rewindAudio'] = $rewindAudio;
 
         return $this;
     }
