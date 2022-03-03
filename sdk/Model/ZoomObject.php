@@ -32,15 +32,14 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BubbleSeries Class Doc Comment
+ * ZoomObject Class Doc Comment
  *
  * @category Class
- * @description A bubble series.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BubbleSeries extends XYSeries 
+class ZoomObject extends ShapeBase 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class BubbleSeries extends XYSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BubbleSeries';
+    protected static $swaggerModelName = 'ZoomObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +56,11 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'imageType' => 'string',
+        'returnToParent' => 'bool',
+        'showBackground' => 'bool',
+        'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'transitionDuration' => 'double'
     ];
 
     /**
@@ -67,8 +69,11 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'imageType' => null,
+        'returnToParent' => null,
+        'showBackground' => null,
+        'image' => null,
+        'transitionDuration' => 'double'
     ];
 
     /**
@@ -98,8 +103,11 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'imageType' => 'ImageType',
+        'returnToParent' => 'ReturnToParent',
+        'showBackground' => 'ShowBackground',
+        'image' => 'Image',
+        'transitionDuration' => 'TransitionDuration'
     ];
 
     /**
@@ -108,8 +116,11 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'imageType' => 'setImageType',
+        'returnToParent' => 'setReturnToParent',
+        'showBackground' => 'setShowBackground',
+        'image' => 'setImage',
+        'transitionDuration' => 'setTransitionDuration'
     ];
 
     /**
@@ -118,8 +129,11 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'imageType' => 'getImageType',
+        'returnToParent' => 'getReturnToParent',
+        'showBackground' => 'getShowBackground',
+        'image' => 'getImage',
+        'transitionDuration' => 'getTransitionDuration'
     ];
 
     /**
@@ -163,8 +177,23 @@ class BubbleSeries extends XYSeries
         return self::$swaggerModelName;
     }
 
+    const IMAGE_TYPE_PREVIEW = 'Preview';
+    const IMAGE_TYPE_COVER = 'Cover';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getImageTypeAllowableValues()
+    {
+        return [
+            self::IMAGE_TYPE_PREVIEW,
+            self::IMAGE_TYPE_COVER,
+        ];
+    }
     
 
 
@@ -178,9 +207,11 @@ class BubbleSeries extends XYSeries
     {
         parent::__construct($data);
 
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
-        $this->container['dataPointType'] = 'Bubble';
+        $this->container['imageType'] = isset($data['imageType']) ? $data['imageType'] : null;
+        $this->container['returnToParent'] = isset($data['returnToParent']) ? $data['returnToParent'] : null;
+        $this->container['showBackground'] = isset($data['showBackground']) ? $data['showBackground'] : null;
+        $this->container['image'] = isset($data['image']) ? $data['image'] : null;
+        $this->container['transitionDuration'] = isset($data['transitionDuration']) ? $data['transitionDuration'] : null;
         
     }
 
@@ -192,6 +223,14 @@ class BubbleSeries extends XYSeries
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getImageTypeAllowableValues();
+        if (!in_array($this->container['imageType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'imageType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -208,54 +247,153 @@ class BubbleSeries extends XYSeries
             return false;
         }
 
+        $allowedValues = $this->getImageTypeAllowableValues();
+        if (!in_array($this->container['imageType'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets dataPoints
+     * Gets imageType
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
+     * @return string
      */
-    public function getDataPoints()
+    public function getImageType()
     {
-        return $this->container['dataPoints'];
+        return $this->container['imageType'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets imageType
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
+     * @param string $imageType Image type of a zoom object.
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setImageType($imageType)
     {
-        $this->container['dataPoints'] = $dataPoints;
+        $allowedValues = $this->getImageTypeAllowableValues();
+
+
+        if (is_numeric($imageType)) {
+            if ($imageType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'imageType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $imageType = $allowedValues[$imageType];
+            }
+        } else {
+            if (!is_null($imageType) && !in_array($imageType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'imageType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['imageType'] = $imageType;
 
         return $this;
     }
 
     /**
-     * Gets numberFormatOfBubbleSizes
+     * Gets returnToParent
      *
-     * @return string
+     * @return bool
      */
-    public function getNumberFormatOfBubbleSizes()
+    public function getReturnToParent()
     {
-        return $this->container['numberFormatOfBubbleSizes'];
+        return $this->container['returnToParent'];
     }
 
     /**
-     * Sets numberFormatOfBubbleSizes
+     * Sets returnToParent
      *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
+     * @param bool $returnToParent Navigation behavior in slideshow.
      *
      * @return $this
      */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
+    public function setReturnToParent($returnToParent)
     {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+        $this->container['returnToParent'] = $returnToParent;
+
+        return $this;
+    }
+
+    /**
+     * Gets showBackground
+     *
+     * @return bool
+     */
+    public function getShowBackground()
+    {
+        return $this->container['showBackground'];
+    }
+
+    /**
+     * Sets showBackground
+     *
+     * @param bool $showBackground Specifies whether the Zoom will use the background of the destination slide.
+     *
+     * @return $this
+     */
+    public function setShowBackground($showBackground)
+    {
+        $this->container['showBackground'] = $showBackground;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $image Internal image link for zoom object
+     *
+     * @return $this
+     */
+    public function setImage($image)
+    {
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets transitionDuration
+     *
+     * @return double
+     */
+    public function getTransitionDuration()
+    {
+        return $this->container['transitionDuration'];
+    }
+
+    /**
+     * Sets transitionDuration
+     *
+     * @param double $transitionDuration Duration of the transition between Zoom and slide.
+     *
+     * @return $this
+     */
+    public function setTransitionDuration($transitionDuration)
+    {
+        $this->container['transitionDuration'] = $transitionDuration;
 
         return $this;
     }

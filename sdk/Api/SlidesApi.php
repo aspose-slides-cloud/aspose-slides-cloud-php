@@ -15976,6 +15976,285 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deleteUnusedLayoutSlides($name, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->deleteUnusedLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteUnusedLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesWithHttpInfo($name, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\LayoutSlides';
+        $httpRequest = $this->deleteUnusedLayoutSlidesRequest($name, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\LayoutSlides', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesAsync($name, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteUnusedLayoutSlidesAsyncWithHttpInfo($name, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesAsyncWithHttpInfo($name, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\LayoutSlides';
+        $httpRequest = $this->deleteUnusedLayoutSlidesRequest($name, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteUnusedLayoutSlides'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteUnusedLayoutSlidesRequest($name, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteUnusedLayoutSlides');
+        }
+
+        $resourcePath = '/slides/{name}/layoutSlides';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteUnusedLayoutSlidesOnline($document, $password = null)
+    {
+        try {
+            list($response) = $this->deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteUnusedLayoutSlidesOnlineRequest($document, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesOnlineAsync($document, $password = null)
+    {
+        return $this->deleteUnusedLayoutSlidesOnlineAsyncWithHttpInfo($document, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteUnusedLayoutSlidesOnlineAsyncWithHttpInfo($document, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteUnusedLayoutSlidesOnlineRequest($document, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteUnusedLayoutSlidesOnline'
+     *
+     * @param  \SplFileObject $$document Document data (required)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteUnusedLayoutSlidesOnlineRequest($document, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling deleteUnusedLayoutSlidesOnline');
+        }
+
+        $resourcePath = '/slides/layoutSlides/delete';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function deleteWatermark($name, $shapeName = null, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -28908,6 +29187,376 @@ class SlidesApi extends ApiBase
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function highlightShapeRegex($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shape';
+        $httpRequest = $this->highlightShapeRegexRequest($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Shape', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function highlightShapeRegexAsync($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->highlightShapeRegexAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function highlightShapeRegexAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shape';
+        $httpRequest = $this->highlightShapeRegexRequest($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'highlightShapeRegex'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  string $$regex Regular expression. (required)
+     * @param  string $$color Highlighting color. (required)
+     * @param  bool $$wholeWordsOnly Match only whole words. (optional, default to false)
+     * @param  bool $$ignoreCase True to search ignoring char case. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function highlightShapeRegexRequest($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling highlightShapeRegex');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling highlightShapeRegex');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling highlightShapeRegex');
+        }
+        // verify the required parameter 'regex' is set
+        if ($regex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $regex when calling highlightShapeRegex');
+        }
+        // verify the required parameter 'color' is set
+        if ($color === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $color when calling highlightShapeRegex');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/highlightRegex';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($regex !== null) {
+            $queryParams['regex'] = ObjectSerializer::toQueryValue($regex);
+        }
+        // query params
+        if ($color !== null) {
+            $queryParams['color'] = ObjectSerializer::toQueryValue($color);
+        }
+        // query params
+        if ($wholeWordsOnly !== null) {
+            $queryParams['wholeWordsOnly'] = ObjectSerializer::toQueryValue($wholeWordsOnly);
+        }
+        // query params
+        if ($ignoreCase !== null) {
+            $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($ignoreCase);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function highlightShapeText($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shape';
+        $httpRequest = $this->highlightShapeTextRequest($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Shape', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function highlightShapeTextAsync($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->highlightShapeTextAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function highlightShapeTextAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shape';
+        $httpRequest = $this->highlightShapeTextRequest($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'highlightShapeText'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  string $$text Text sample to highlight. (required)
+     * @param  string $$color Highlighting color. (required)
+     * @param  bool $$wholeWordsOnly Match only whole words. (optional, default to false)
+     * @param  bool $$ignoreCase True to search ignoring char case. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function highlightShapeTextRequest($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling highlightShapeText');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling highlightShapeText');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling highlightShapeText');
+        }
+        // verify the required parameter 'text' is set
+        if ($text === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $text when calling highlightShapeText');
+        }
+        // verify the required parameter 'color' is set
+        if ($color === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $color when calling highlightShapeText');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/highlightText';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($text !== null) {
+            $queryParams['text'] = ObjectSerializer::toQueryValue($text);
+        }
+        // query params
+        if ($color !== null) {
+            $queryParams['color'] = ObjectSerializer::toQueryValue($color);
+        }
+        // query params
+        if ($wholeWordsOnly !== null) {
+            $queryParams['wholeWordsOnly'] = ObjectSerializer::toQueryValue($wholeWordsOnly);
+        }
+        // query params
+        if ($ignoreCase !== null) {
+            $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($ignoreCase);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */

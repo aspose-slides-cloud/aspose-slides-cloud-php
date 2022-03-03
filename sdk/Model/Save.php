@@ -192,6 +192,7 @@ class Save extends Task
     const FORMAT_BMP = 'Bmp';
     const FORMAT_FODP = 'Fodp';
     const FORMAT_XAML = 'Xaml';
+    const FORMAT_MPEG4 = 'Mpeg4';
     
 
     
@@ -227,6 +228,7 @@ class Save extends Task
             self::FORMAT_BMP,
             self::FORMAT_FODP,
             self::FORMAT_XAML,
+            self::FORMAT_MPEG4,
         ];
     }
     

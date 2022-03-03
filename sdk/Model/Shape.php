@@ -58,7 +58,8 @@ class Shape extends GeometryShape
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
+        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'textFrameFormat' => '\Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat'
     ];
 
     /**
@@ -68,7 +69,8 @@ class Shape extends GeometryShape
       */
     protected static $swaggerFormats = [
         'text' => null,
-        'paragraphs' => null
+        'paragraphs' => null,
+        'textFrameFormat' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class Shape extends GeometryShape
      */
     protected static $attributeMap = [
         'text' => 'Text',
-        'paragraphs' => 'Paragraphs'
+        'paragraphs' => 'Paragraphs',
+        'textFrameFormat' => 'TextFrameFormat'
     ];
 
     /**
@@ -109,7 +112,8 @@ class Shape extends GeometryShape
      */
     protected static $setters = [
         'text' => 'setText',
-        'paragraphs' => 'setParagraphs'
+        'paragraphs' => 'setParagraphs',
+        'textFrameFormat' => 'setTextFrameFormat'
     ];
 
     /**
@@ -119,7 +123,8 @@ class Shape extends GeometryShape
      */
     protected static $getters = [
         'text' => 'getText',
-        'paragraphs' => 'getParagraphs'
+        'paragraphs' => 'getParagraphs',
+        'textFrameFormat' => 'getTextFrameFormat'
     ];
 
     /**
@@ -180,6 +185,7 @@ class Shape extends GeometryShape
 
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['paragraphs'] = isset($data['paragraphs']) ? $data['paragraphs'] : null;
+        $this->container['textFrameFormat'] = isset($data['textFrameFormat']) ? $data['textFrameFormat'] : null;
         $this->container['type'] = 'Shape';
         
     }
@@ -256,6 +262,30 @@ class Shape extends GeometryShape
     public function setParagraphs($paragraphs)
     {
         $this->container['paragraphs'] = $paragraphs;
+
+        return $this;
+    }
+
+    /**
+     * Gets textFrameFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat
+     */
+    public function getTextFrameFormat()
+    {
+        return $this->container['textFrameFormat'];
+    }
+
+    /**
+     * Sets textFrameFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat $textFrameFormat Returns TextFrame's formatting properties.
+     *
+     * @return $this
+     */
+    public function setTextFrameFormat($textFrameFormat)
+    {
+        $this->container['textFrameFormat'] = $textFrameFormat;
 
         return $this;
     }

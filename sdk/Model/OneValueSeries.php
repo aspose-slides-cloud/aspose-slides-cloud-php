@@ -57,7 +57,8 @@ class OneValueSeries extends Series
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]'
+        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]',
+        'numberFormatOfValues' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class OneValueSeries extends Series
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null
+        'dataPoints' => null,
+        'numberFormatOfValues' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class OneValueSeries extends Series
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints'
+        'dataPoints' => 'DataPoints',
+        'numberFormatOfValues' => 'NumberFormatOfValues'
     ];
 
     /**
@@ -105,7 +108,8 @@ class OneValueSeries extends Series
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints'
+        'dataPoints' => 'setDataPoints',
+        'numberFormatOfValues' => 'setNumberFormatOfValues'
     ];
 
     /**
@@ -114,7 +118,8 @@ class OneValueSeries extends Series
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints'
+        'dataPoints' => 'getDataPoints',
+        'numberFormatOfValues' => 'getNumberFormatOfValues'
     ];
 
     /**
@@ -174,6 +179,7 @@ class OneValueSeries extends Series
         parent::__construct($data);
 
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
+        $this->container['numberFormatOfValues'] = isset($data['numberFormatOfValues']) ? $data['numberFormatOfValues'] : null;
         $this->container['dataPointType'] = 'OneValue';
         
     }
@@ -226,6 +232,30 @@ class OneValueSeries extends Series
     public function setDataPoints($dataPoints)
     {
         $this->container['dataPoints'] = $dataPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets numberFormatOfValues
+     *
+     * @return string
+     */
+    public function getNumberFormatOfValues()
+    {
+        return $this->container['numberFormatOfValues'];
+    }
+
+    /**
+     * Sets numberFormatOfValues
+     *
+     * @param string $numberFormatOfValues The number format for the series values.
+     *
+     * @return $this
+     */
+    public function setNumberFormatOfValues($numberFormatOfValues)
+    {
+        $this->container['numberFormatOfValues'] = $numberFormatOfValues;
 
         return $this;
     }

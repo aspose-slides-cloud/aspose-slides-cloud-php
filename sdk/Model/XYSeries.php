@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BubbleSeries Class Doc Comment
+ * XYSeries Class Doc Comment
  *
  * @category Class
- * @description A bubble series.
+ * @description Common properties for Bubble and Scatter series.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BubbleSeries extends XYSeries 
+class XYSeries extends Series 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BubbleSeries extends XYSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BubbleSeries';
+    protected static $swaggerModelName = 'XYSeries';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'numberFormatOfYValues' => 'string',
+        'numberFormatOfXValues' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'numberFormatOfYValues' => null,
+        'numberFormatOfXValues' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'numberFormatOfYValues' => 'NumberFormatOfYValues',
+        'numberFormatOfXValues' => 'NumberFormatOfXValues'
     ];
 
     /**
@@ -108,8 +108,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'numberFormatOfYValues' => 'setNumberFormatOfYValues',
+        'numberFormatOfXValues' => 'setNumberFormatOfXValues'
     ];
 
     /**
@@ -118,8 +118,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'numberFormatOfYValues' => 'getNumberFormatOfYValues',
+        'numberFormatOfXValues' => 'getNumberFormatOfXValues'
     ];
 
     /**
@@ -178,9 +178,8 @@ class BubbleSeries extends XYSeries
     {
         parent::__construct($data);
 
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
-        $this->container['dataPointType'] = 'Bubble';
+        $this->container['numberFormatOfYValues'] = isset($data['numberFormatOfYValues']) ? $data['numberFormatOfYValues'] : null;
+        $this->container['numberFormatOfXValues'] = isset($data['numberFormatOfXValues']) ? $data['numberFormatOfXValues'] : null;
         
     }
 
@@ -213,49 +212,49 @@ class BubbleSeries extends XYSeries
 
 
     /**
-     * Gets dataPoints
+     * Gets numberFormatOfYValues
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
+     * @return string
      */
-    public function getDataPoints()
+    public function getNumberFormatOfYValues()
     {
-        return $this->container['dataPoints'];
+        return $this->container['numberFormatOfYValues'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets numberFormatOfYValues
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
+     * @param string $numberFormatOfYValues The number format for the series y values.
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setNumberFormatOfYValues($numberFormatOfYValues)
     {
-        $this->container['dataPoints'] = $dataPoints;
+        $this->container['numberFormatOfYValues'] = $numberFormatOfYValues;
 
         return $this;
     }
 
     /**
-     * Gets numberFormatOfBubbleSizes
+     * Gets numberFormatOfXValues
      *
      * @return string
      */
-    public function getNumberFormatOfBubbleSizes()
+    public function getNumberFormatOfXValues()
     {
-        return $this->container['numberFormatOfBubbleSizes'];
+        return $this->container['numberFormatOfXValues'];
     }
 
     /**
-     * Sets numberFormatOfBubbleSizes
+     * Sets numberFormatOfXValues
      *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
+     * @param string $numberFormatOfXValues The number format for the series x values.
      *
      * @return $this
      */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
+    public function setNumberFormatOfXValues($numberFormatOfXValues)
     {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+        $this->container['numberFormatOfXValues'] = $numberFormatOfXValues;
 
         return $this;
     }

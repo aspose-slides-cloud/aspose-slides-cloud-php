@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BubbleSeries Class Doc Comment
+ * SectionZoomFrame Class Doc Comment
  *
  * @category Class
- * @description A bubble series.
+ * @description Section zoom frame.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BubbleSeries extends XYSeries 
+class SectionZoomFrame extends ZoomObject 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BubbleSeries extends XYSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BubbleSeries';
+    protected static $swaggerModelName = 'SectionZoomFrame';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'targetSectionIndex' => 'int'
     ];
 
     /**
@@ -67,8 +66,7 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'targetSectionIndex' => 'int32'
     ];
 
     /**
@@ -98,8 +96,7 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'targetSectionIndex' => 'TargetSectionIndex'
     ];
 
     /**
@@ -108,8 +105,7 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'targetSectionIndex' => 'setTargetSectionIndex'
     ];
 
     /**
@@ -118,8 +114,7 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'targetSectionIndex' => 'getTargetSectionIndex'
     ];
 
     /**
@@ -178,9 +173,8 @@ class BubbleSeries extends XYSeries
     {
         parent::__construct($data);
 
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
-        $this->container['dataPointType'] = 'Bubble';
+        $this->container['targetSectionIndex'] = isset($data['targetSectionIndex']) ? $data['targetSectionIndex'] : null;
+        $this->container['type'] = 'SectionZoomFrame';
         
     }
 
@@ -213,49 +207,25 @@ class BubbleSeries extends XYSeries
 
 
     /**
-     * Gets dataPoints
+     * Gets targetSectionIndex
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
+     * @return int
      */
-    public function getDataPoints()
+    public function getTargetSectionIndex()
     {
-        return $this->container['dataPoints'];
+        return $this->container['targetSectionIndex'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets targetSectionIndex
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
+     * @param int $targetSectionIndex Index of the target section
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setTargetSectionIndex($targetSectionIndex)
     {
-        $this->container['dataPoints'] = $dataPoints;
-
-        return $this;
-    }
-
-    /**
-     * Gets numberFormatOfBubbleSizes
-     *
-     * @return string
-     */
-    public function getNumberFormatOfBubbleSizes()
-    {
-        return $this->container['numberFormatOfBubbleSizes'];
-    }
-
-    /**
-     * Sets numberFormatOfBubbleSizes
-     *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
-     *
-     * @return $this
-     */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
-    {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+        $this->container['targetSectionIndex'] = $targetSectionIndex;
 
         return $this;
     }

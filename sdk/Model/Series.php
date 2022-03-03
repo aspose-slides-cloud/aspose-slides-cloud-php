@@ -66,10 +66,6 @@ class Series implements ArrayAccess
         'smooth' => 'bool',
         'plotOnSecondAxis' => 'bool',
         'order' => 'int',
-        'numberFormatOfYValues' => 'string',
-        'numberFormatOfXValues' => 'string',
-        'numberFormatOfValues' => 'string',
-        'numberFormatOfBubbleSizes' => 'string',
         'invertIfNegative' => 'bool',
         'explosion' => 'int',
         'marker' => '\Aspose\Slides\Cloud\Sdk\Model\SeriesMarker',
@@ -92,10 +88,6 @@ class Series implements ArrayAccess
         'smooth' => null,
         'plotOnSecondAxis' => null,
         'order' => 'int32',
-        'numberFormatOfYValues' => null,
-        'numberFormatOfXValues' => null,
-        'numberFormatOfValues' => null,
-        'numberFormatOfBubbleSizes' => null,
         'invertIfNegative' => null,
         'explosion' => 'int32',
         'marker' => null,
@@ -139,10 +131,6 @@ class Series implements ArrayAccess
         'smooth' => 'Smooth',
         'plotOnSecondAxis' => 'PlotOnSecondAxis',
         'order' => 'Order',
-        'numberFormatOfYValues' => 'NumberFormatOfYValues',
-        'numberFormatOfXValues' => 'NumberFormatOfXValues',
-        'numberFormatOfValues' => 'NumberFormatOfValues',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes',
         'invertIfNegative' => 'InvertIfNegative',
         'explosion' => 'Explosion',
         'marker' => 'Marker',
@@ -165,10 +153,6 @@ class Series implements ArrayAccess
         'smooth' => 'setSmooth',
         'plotOnSecondAxis' => 'setPlotOnSecondAxis',
         'order' => 'setOrder',
-        'numberFormatOfYValues' => 'setNumberFormatOfYValues',
-        'numberFormatOfXValues' => 'setNumberFormatOfXValues',
-        'numberFormatOfValues' => 'setNumberFormatOfValues',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes',
         'invertIfNegative' => 'setInvertIfNegative',
         'explosion' => 'setExplosion',
         'marker' => 'setMarker',
@@ -191,10 +175,6 @@ class Series implements ArrayAccess
         'smooth' => 'getSmooth',
         'plotOnSecondAxis' => 'getPlotOnSecondAxis',
         'order' => 'getOrder',
-        'numberFormatOfYValues' => 'getNumberFormatOfYValues',
-        'numberFormatOfXValues' => 'getNumberFormatOfXValues',
-        'numberFormatOfValues' => 'getNumberFormatOfValues',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes',
         'invertIfNegative' => 'getInvertIfNegative',
         'explosion' => 'getExplosion',
         'marker' => 'getMarker',
@@ -463,10 +443,6 @@ class Series implements ArrayAccess
         $this->container['smooth'] = isset($data['smooth']) ? $data['smooth'] : null;
         $this->container['plotOnSecondAxis'] = isset($data['plotOnSecondAxis']) ? $data['plotOnSecondAxis'] : null;
         $this->container['order'] = isset($data['order']) ? $data['order'] : null;
-        $this->container['numberFormatOfYValues'] = isset($data['numberFormatOfYValues']) ? $data['numberFormatOfYValues'] : null;
-        $this->container['numberFormatOfXValues'] = isset($data['numberFormatOfXValues']) ? $data['numberFormatOfXValues'] : null;
-        $this->container['numberFormatOfValues'] = isset($data['numberFormatOfValues']) ? $data['numberFormatOfValues'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
         $this->container['invertIfNegative'] = isset($data['invertIfNegative']) ? $data['invertIfNegative'] : null;
         $this->container['explosion'] = isset($data['explosion']) ? $data['explosion'] : null;
         $this->container['marker'] = isset($data['marker']) ? $data['marker'] : null;
@@ -713,102 +689,6 @@ class Series implements ArrayAccess
     public function setOrder($order)
     {
         $this->container['order'] = $order;
-
-        return $this;
-    }
-
-    /**
-     * Gets numberFormatOfYValues
-     *
-     * @return string
-     */
-    public function getNumberFormatOfYValues()
-    {
-        return $this->container['numberFormatOfYValues'];
-    }
-
-    /**
-     * Sets numberFormatOfYValues
-     *
-     * @param string $numberFormatOfYValues The number format for the series y values.
-     *
-     * @return $this
-     */
-    public function setNumberFormatOfYValues($numberFormatOfYValues)
-    {
-        $this->container['numberFormatOfYValues'] = $numberFormatOfYValues;
-
-        return $this;
-    }
-
-    /**
-     * Gets numberFormatOfXValues
-     *
-     * @return string
-     */
-    public function getNumberFormatOfXValues()
-    {
-        return $this->container['numberFormatOfXValues'];
-    }
-
-    /**
-     * Sets numberFormatOfXValues
-     *
-     * @param string $numberFormatOfXValues The number format for the series x values.
-     *
-     * @return $this
-     */
-    public function setNumberFormatOfXValues($numberFormatOfXValues)
-    {
-        $this->container['numberFormatOfXValues'] = $numberFormatOfXValues;
-
-        return $this;
-    }
-
-    /**
-     * Gets numberFormatOfValues
-     *
-     * @return string
-     */
-    public function getNumberFormatOfValues()
-    {
-        return $this->container['numberFormatOfValues'];
-    }
-
-    /**
-     * Sets numberFormatOfValues
-     *
-     * @param string $numberFormatOfValues The number format for the series values.
-     *
-     * @return $this
-     */
-    public function setNumberFormatOfValues($numberFormatOfValues)
-    {
-        $this->container['numberFormatOfValues'] = $numberFormatOfValues;
-
-        return $this;
-    }
-
-    /**
-     * Gets numberFormatOfBubbleSizes
-     *
-     * @return string
-     */
-    public function getNumberFormatOfBubbleSizes()
-    {
-        return $this->container['numberFormatOfBubbleSizes'];
-    }
-
-    /**
-     * Sets numberFormatOfBubbleSizes
-     *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
-     *
-     * @return $this
-     */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
-    {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
 
         return $this;
     }

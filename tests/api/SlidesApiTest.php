@@ -20138,6 +20138,178 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for deleteUnusedLayoutSlides
+     * Removes unused layout slides.
+     */
+    public function testDeleteUnusedLayoutSlides()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedLayoutSlides", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedLayoutSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedLayoutSlides", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlides", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlides($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteUnusedLayoutSlides");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesInvalidname()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedLayoutSlides", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedLayoutSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedLayoutSlides", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "deleteUnusedLayoutSlides", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlides", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlides($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlides", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlides", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlides", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedLayoutSlides", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedLayoutSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedLayoutSlides", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteUnusedLayoutSlides", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlides", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlides($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlides", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlides", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlides", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedLayoutSlides", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedLayoutSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedLayoutSlides", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "deleteUnusedLayoutSlides", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlides", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlides($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlides", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlides", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlides", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedLayoutSlides", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedLayoutSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedLayoutSlides", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "deleteUnusedLayoutSlides", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlides", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlides($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlides", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlides", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlides", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for deleteUnusedLayoutSlidesOnline
+     * Removes unused layout slides.
+     */
+    public function testDeleteUnusedLayoutSlidesOnline()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteUnusedLayoutSlidesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlidesOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlidesOnline", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteUnusedLayoutSlidesOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteUnusedLayoutSlidesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlidesOnline", "password", self::$values, 'string');
+        $testdocument = null;
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlidesOnline", "document", $testdocument);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlidesOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlidesOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlidesOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedLayoutSlidesOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getStreamValue("deleteUnusedLayoutSlidesOnline", "document");
+        $testpassword = TestUtils::getTestValue("deleteUnusedLayoutSlidesOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteUnusedLayoutSlidesOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedLayoutSlidesOnline", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedLayoutSlidesOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedLayoutSlidesOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedLayoutSlidesOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for deleteWatermark
      * Removes shapes with name \"watermark\" from the presentation.
      */
@@ -34758,6 +34930,624 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getViewProperties", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for highlightShapeRegex
+     * Highlight all matches of sample in text frame text using specified color.
+     */
+    public function testHighlightShapeRegex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "highlightShapeRegex");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidname()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "highlightShapeRegex", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "highlightShapeRegex", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "highlightShapeRegex", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidregex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testregex = TestUtils::invalidizeValue("regex", "highlightShapeRegex", $testregex, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "regex", $testregex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "regex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "regex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "regex", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidcolor()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testcolor = TestUtils::invalidizeValue("color", "highlightShapeRegex", $testcolor, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "color", $testcolor);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "color", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "color", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "color", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidwholeWordsOnly()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::invalidizeValue("wholeWordsOnly", "highlightShapeRegex", $testwholeWordsOnly, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "wholeWordsOnly", $testwholeWordsOnly);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "wholeWordsOnly", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "wholeWordsOnly", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "wholeWordsOnly", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidignoreCase()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testignoreCase = TestUtils::invalidizeValue("ignoreCase", "highlightShapeRegex", $testignoreCase, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "ignoreCase", $testignoreCase);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "ignoreCase", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "ignoreCase", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "ignoreCase", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "highlightShapeRegex", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "highlightShapeRegex", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeRegexInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeRegex", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeRegex", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeRegex", "shapeIndex", self::$values, 'int');
+        $testregex = TestUtils::getTestValue("highlightShapeRegex", "regex", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeRegex", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeRegex", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeRegex", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeRegex", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeRegex", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeRegex", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "highlightShapeRegex", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeRegex", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeRegex($testname, $testslideIndex, $testshapeIndex, $testregex, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeRegex", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeRegex", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeRegex", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for highlightShapeText
+     * Highlight all matches of sample in text frame text using specified color.
+     */
+    public function testHighlightShapeText()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "highlightShapeText");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidname()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "highlightShapeText", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "highlightShapeText", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "highlightShapeText", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidtext()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testtext = TestUtils::invalidizeValue("text", "highlightShapeText", $testtext, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "text", $testtext);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "text", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "text", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "text", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidcolor()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testcolor = TestUtils::invalidizeValue("color", "highlightShapeText", $testcolor, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "color", $testcolor);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "color", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "color", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "color", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidwholeWordsOnly()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::invalidizeValue("wholeWordsOnly", "highlightShapeText", $testwholeWordsOnly, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "wholeWordsOnly", $testwholeWordsOnly);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "wholeWordsOnly", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "wholeWordsOnly", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "wholeWordsOnly", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidignoreCase()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testignoreCase = TestUtils::invalidizeValue("ignoreCase", "highlightShapeText", $testignoreCase, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "ignoreCase", $testignoreCase);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "ignoreCase", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "ignoreCase", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "ignoreCase", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "highlightShapeText", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "highlightShapeText", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testHighlightShapeTextInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("highlightShapeText", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("highlightShapeText", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("highlightShapeText", "shapeIndex", self::$values, 'int');
+        $testtext = TestUtils::getTestValue("highlightShapeText", "text", self::$values, 'string');
+        $testcolor = TestUtils::getTestValue("highlightShapeText", "color", self::$values, 'string');
+        $testwholeWordsOnly = TestUtils::getTestValue("highlightShapeText", "wholeWordsOnly", self::$values, 'bool');
+        $testignoreCase = TestUtils::getTestValue("highlightShapeText", "ignoreCase", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("highlightShapeText", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("highlightShapeText", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("highlightShapeText", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "highlightShapeText", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("highlightShapeText", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->highlightShapeText($testname, $testslideIndex, $testshapeIndex, $testtext, $testcolor, $testwholeWordsOnly, $testignoreCase, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "highlightShapeText", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "highlightShapeText", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("highlightShapeText", "storage", self::$okToFailValues);
         }
     }
 

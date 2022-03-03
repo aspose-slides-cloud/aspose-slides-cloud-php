@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BubbleSeries Class Doc Comment
+ * VideoExportOptions Class Doc Comment
  *
  * @category Class
- * @description A bubble series.
+ * @description Provides options that control how a presentation is saved in an video format.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BubbleSeries extends XYSeries 
+class VideoExportOptions extends ExportOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BubbleSeries extends XYSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BubbleSeries';
+    protected static $swaggerModelName = 'VideoExportOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'transitionDuration' => 'int',
+        'videoResolutionType' => 'string'
     ];
 
     /**
@@ -67,8 +67,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'transitionDuration' => 'int32',
+        'videoResolutionType' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'transitionDuration' => 'TransitionDuration',
+        'videoResolutionType' => 'VideoResolutionType'
     ];
 
     /**
@@ -108,8 +108,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'transitionDuration' => 'setTransitionDuration',
+        'videoResolutionType' => 'setVideoResolutionType'
     ];
 
     /**
@@ -118,8 +118,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'transitionDuration' => 'getTransitionDuration',
+        'videoResolutionType' => 'getVideoResolutionType'
     ];
 
     /**
@@ -163,8 +163,27 @@ class BubbleSeries extends XYSeries
         return self::$swaggerModelName;
     }
 
+    const VIDEO_RESOLUTION_TYPE_FULL_HD = 'FullHD';
+    const VIDEO_RESOLUTION_TYPE_SD = 'SD';
+    const VIDEO_RESOLUTION_TYPE_HD = 'HD';
+    const VIDEO_RESOLUTION_TYPE_QHD = 'QHD';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVideoResolutionTypeAllowableValues()
+    {
+        return [
+            self::VIDEO_RESOLUTION_TYPE_FULL_HD,
+            self::VIDEO_RESOLUTION_TYPE_SD,
+            self::VIDEO_RESOLUTION_TYPE_HD,
+            self::VIDEO_RESOLUTION_TYPE_QHD,
+        ];
+    }
     
 
 
@@ -178,9 +197,9 @@ class BubbleSeries extends XYSeries
     {
         parent::__construct($data);
 
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
-        $this->container['dataPointType'] = 'Bubble';
+        $this->container['transitionDuration'] = isset($data['transitionDuration']) ? $data['transitionDuration'] : null;
+        $this->container['videoResolutionType'] = isset($data['videoResolutionType']) ? $data['videoResolutionType'] : null;
+        $this->container['format'] = 'mpeg4';
         
     }
 
@@ -192,6 +211,14 @@ class BubbleSeries extends XYSeries
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getVideoResolutionTypeAllowableValues();
+        if (!in_array($this->container['videoResolutionType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'videoResolutionType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -208,54 +235,81 @@ class BubbleSeries extends XYSeries
             return false;
         }
 
+        $allowedValues = $this->getVideoResolutionTypeAllowableValues();
+        if (!in_array($this->container['videoResolutionType'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets dataPoints
+     * Gets transitionDuration
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
+     * @return int
      */
-    public function getDataPoints()
+    public function getTransitionDuration()
     {
-        return $this->container['dataPoints'];
+        return $this->container['transitionDuration'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets transitionDuration
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
+     * @param int $transitionDuration Transition duration.
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setTransitionDuration($transitionDuration)
     {
-        $this->container['dataPoints'] = $dataPoints;
+        $this->container['transitionDuration'] = $transitionDuration;
 
         return $this;
     }
 
     /**
-     * Gets numberFormatOfBubbleSizes
+     * Gets videoResolutionType
      *
      * @return string
      */
-    public function getNumberFormatOfBubbleSizes()
+    public function getVideoResolutionType()
     {
-        return $this->container['numberFormatOfBubbleSizes'];
+        return $this->container['videoResolutionType'];
     }
 
     /**
-     * Sets numberFormatOfBubbleSizes
+     * Sets videoResolutionType
      *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
+     * @param string $videoResolutionType Video resolution type
      *
      * @return $this
      */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
+    public function setVideoResolutionType($videoResolutionType)
     {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+        $allowedValues = $this->getVideoResolutionTypeAllowableValues();
+
+
+        if (is_numeric($videoResolutionType)) {
+            if ($videoResolutionType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'videoResolutionType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $videoResolutionType = $allowedValues[$videoResolutionType];
+            }
+        } else {
+            if (!is_null($videoResolutionType) && !in_array($videoResolutionType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'videoResolutionType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['videoResolutionType'] = $videoResolutionType;
 
         return $this;
     }

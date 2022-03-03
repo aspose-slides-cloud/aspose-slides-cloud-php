@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BubbleSeries Class Doc Comment
+ * SummaryZoomFrame Class Doc Comment
  *
  * @category Class
- * @description A bubble series.
+ * @description Summary zoom frame.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BubbleSeries extends XYSeries 
+class SummaryZoomFrame extends ShapeBase 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BubbleSeries extends XYSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BubbleSeries';
+    protected static $swaggerModelName = 'SummaryZoomFrame';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'zoomLayout' => 'string',
+        'sections' => '\Aspose\Slides\Cloud\Sdk\Model\SummaryZoomSection[]'
     ];
 
     /**
@@ -67,8 +67,8 @@ class BubbleSeries extends XYSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'zoomLayout' => null,
+        'sections' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'zoomLayout' => 'ZoomLayout',
+        'sections' => 'Sections'
     ];
 
     /**
@@ -108,8 +108,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $setters = [
-        'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'zoomLayout' => 'setZoomLayout',
+        'sections' => 'setSections'
     ];
 
     /**
@@ -118,8 +118,8 @@ class BubbleSeries extends XYSeries
      * @var string[]
      */
     protected static $getters = [
-        'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'zoomLayout' => 'getZoomLayout',
+        'sections' => 'getSections'
     ];
 
     /**
@@ -163,8 +163,23 @@ class BubbleSeries extends XYSeries
         return self::$swaggerModelName;
     }
 
+    const ZOOM_LAYOUT_GRID_LAYOUT = 'GridLayout';
+    const ZOOM_LAYOUT_FIXED_LAYOUT = 'FixedLayout';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getZoomLayoutAllowableValues()
+    {
+        return [
+            self::ZOOM_LAYOUT_GRID_LAYOUT,
+            self::ZOOM_LAYOUT_FIXED_LAYOUT,
+        ];
+    }
     
 
 
@@ -178,9 +193,9 @@ class BubbleSeries extends XYSeries
     {
         parent::__construct($data);
 
-        $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
-        $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
-        $this->container['dataPointType'] = 'Bubble';
+        $this->container['zoomLayout'] = isset($data['zoomLayout']) ? $data['zoomLayout'] : null;
+        $this->container['sections'] = isset($data['sections']) ? $data['sections'] : null;
+        $this->container['type'] = 'SummaryZoomFrame';
         
     }
 
@@ -192,6 +207,14 @@ class BubbleSeries extends XYSeries
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getZoomLayoutAllowableValues();
+        if (!in_array($this->container['zoomLayout'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'zoomLayout', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -208,54 +231,81 @@ class BubbleSeries extends XYSeries
             return false;
         }
 
+        $allowedValues = $this->getZoomLayoutAllowableValues();
+        if (!in_array($this->container['zoomLayout'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets dataPoints
+     * Gets zoomLayout
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]
+     * @return string
      */
-    public function getDataPoints()
+    public function getZoomLayout()
     {
-        return $this->container['dataPoints'];
+        return $this->container['zoomLayout'];
     }
 
     /**
-     * Sets dataPoints
+     * Sets zoomLayout
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[] $dataPoints Gets or sets the values.
+     * @param string $zoomLayout Zoom layout type
      *
      * @return $this
      */
-    public function setDataPoints($dataPoints)
+    public function setZoomLayout($zoomLayout)
     {
-        $this->container['dataPoints'] = $dataPoints;
+        $allowedValues = $this->getZoomLayoutAllowableValues();
+
+
+        if (is_numeric($zoomLayout)) {
+            if ($zoomLayout >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'zoomLayout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $zoomLayout = $allowedValues[$zoomLayout];
+            }
+        } else {
+            if (!is_null($zoomLayout) && !in_array($zoomLayout, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'zoomLayout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['zoomLayout'] = $zoomLayout;
 
         return $this;
     }
 
     /**
-     * Gets numberFormatOfBubbleSizes
+     * Gets sections
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SummaryZoomSection[]
      */
-    public function getNumberFormatOfBubbleSizes()
+    public function getSections()
     {
-        return $this->container['numberFormatOfBubbleSizes'];
+        return $this->container['sections'];
     }
 
     /**
-     * Sets numberFormatOfBubbleSizes
+     * Sets sections
      *
-     * @param string $numberFormatOfBubbleSizes The number format for the series bubble sizes.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SummaryZoomSection[] $sections Zoom frame sections
      *
      * @return $this
      */
-    public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
+    public function setSections($sections)
     {
-        $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+        $this->container['sections'] = $sections;
 
         return $this;
     }

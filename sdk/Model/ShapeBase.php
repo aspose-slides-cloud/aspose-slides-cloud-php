@@ -250,6 +250,10 @@ class ShapeBase extends ResourceBase
     const TYPE_GRAPHICAL_OBJECT = 'GraphicalObject';
     const TYPE_CONNECTOR = 'Connector';
     const TYPE_SMART_ART_SHAPE = 'SmartArtShape';
+    const TYPE_ZOOM_FRAME = 'ZoomFrame';
+    const TYPE_SECTION_ZOOM_FRAME = 'SectionZoomFrame';
+    const TYPE_SUMMARY_ZOOM_FRAME = 'SummaryZoomFrame';
+    const TYPE_SUMMARY_ZOOM_SECTION = 'SummaryZoomSection';
     
 
     
@@ -273,6 +277,10 @@ class ShapeBase extends ResourceBase
             self::TYPE_GRAPHICAL_OBJECT,
             self::TYPE_CONNECTOR,
             self::TYPE_SMART_ART_SHAPE,
+            self::TYPE_ZOOM_FRAME,
+            self::TYPE_SECTION_ZOOM_FRAME,
+            self::TYPE_SUMMARY_ZOOM_FRAME,
+            self::TYPE_SUMMARY_ZOOM_SECTION,
         ];
     }
     

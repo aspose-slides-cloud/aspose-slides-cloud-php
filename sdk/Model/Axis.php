@@ -350,9 +350,11 @@ class Axis implements ArrayAccess
     const DISPLAY_UNIT_BILLIONS = 'Billions';
     const DISPLAY_UNIT_TRILLIONS = 'Trillions';
     const DISPLAY_UNIT_CUSTOM_VALUE = 'CustomValue';
+    const BASE_UNIT_SCALE_NONE = 'None';
     const BASE_UNIT_SCALE_DAYS = 'Days';
     const BASE_UNIT_SCALE_MONTHS = 'Months';
     const BASE_UNIT_SCALE_YEARS = 'Years';
+    const MAJOR_UNIT_SCALE_NONE = 'None';
     const MAJOR_UNIT_SCALE_DAYS = 'Days';
     const MAJOR_UNIT_SCALE_MONTHS = 'Months';
     const MAJOR_UNIT_SCALE_YEARS = 'Years';
@@ -360,6 +362,7 @@ class Axis implements ArrayAccess
     const MAJOR_TICK_MARK_INSIDE = 'Inside';
     const MAJOR_TICK_MARK_NONE = 'None';
     const MAJOR_TICK_MARK_OUTSIDE = 'Outside';
+    const MINOR_UNIT_SCALE_NONE = 'None';
     const MINOR_UNIT_SCALE_DAYS = 'Days';
     const MINOR_UNIT_SCALE_MONTHS = 'Months';
     const MINOR_UNIT_SCALE_YEARS = 'Years';
@@ -424,6 +427,7 @@ class Axis implements ArrayAccess
     public function getBaseUnitScaleAllowableValues()
     {
         return [
+            self::BASE_UNIT_SCALE_NONE,
             self::BASE_UNIT_SCALE_DAYS,
             self::BASE_UNIT_SCALE_MONTHS,
             self::BASE_UNIT_SCALE_YEARS,
@@ -438,6 +442,7 @@ class Axis implements ArrayAccess
     public function getMajorUnitScaleAllowableValues()
     {
         return [
+            self::MAJOR_UNIT_SCALE_NONE,
             self::MAJOR_UNIT_SCALE_DAYS,
             self::MAJOR_UNIT_SCALE_MONTHS,
             self::MAJOR_UNIT_SCALE_YEARS,
@@ -467,6 +472,7 @@ class Axis implements ArrayAccess
     public function getMinorUnitScaleAllowableValues()
     {
         return [
+            self::MINOR_UNIT_SCALE_NONE,
             self::MINOR_UNIT_SCALE_DAYS,
             self::MINOR_UNIT_SCALE_MONTHS,
             self::MINOR_UNIT_SCALE_YEARS,

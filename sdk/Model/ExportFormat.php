@@ -69,6 +69,7 @@ class ExportFormat
     const BMP = 'Bmp';
     const FODP = 'Fodp';
     const XAML = 'Xaml';
+    const MPEG4 = 'Mpeg4';
     
     /**
      * Gets allowable values of the enum
@@ -101,6 +102,7 @@ class ExportFormat
             self::BMP,
             self::FODP,
             self::XAML,
+            self::MPEG4,
         ];
     }
 }

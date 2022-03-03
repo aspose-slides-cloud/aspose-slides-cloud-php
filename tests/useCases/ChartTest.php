@@ -280,19 +280,15 @@ class ChartTest extends TestBase
         $dto->setHeight(300);
         $category1 = new ChartCategory();
         $category1->setValue("Leaf1");
-        $category1->setLevel(3);
         $category1->setParentCategories([ "Branch1", "Stem1" ]);
         $category2 = new ChartCategory();
         $category2->setValue("Leaf2");
-        $category2->setLevel(3);
         $category2->setParentCategories([ "Branch1", "Stem1" ]);
         $category3 = new ChartCategory();
         $category3->setValue("Branch2");
-        $category3->setLevel(2);
         $category3->setParentCategories([ "Stem1" ]);
         $category4 = new ChartCategory();
         $category4->setValue("Stem2");
-        $category4->setLevel(1);
         $dto->setCategories([ $category1, $category2, $category3, $category4 ]);
         $series1 = new OneValueSeries();
         $series1->setName("Series1");
@@ -309,7 +305,6 @@ class ChartTest extends TestBase
         $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(1, count($result->getSeries()));
         Assert::assertEquals(4, count($result->getCategories()));
-        Assert::assertEquals(3, $result->getCategories()[0]->getLevel());
     }
 
     public const folderName = "TempSlidesSDK";
