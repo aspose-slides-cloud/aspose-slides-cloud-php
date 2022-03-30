@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SlideComment Class Doc Comment
+ * TextBounds Class Doc Comment
  *
  * @category Class
- * @description Represents comment of slide
+ * @description Represents text bounds within a paragraph or portion.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SlideComment extends SlideCommentBase 
+class TextBounds implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class SlideComment extends SlideCommentBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SlideComment';
+    protected static $swaggerModelName = 'TextBounds';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +59,10 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'x' => 'double',
+        'y' => 'double',
+        'width' => 'double',
+        'height' => 'double'
     ];
 
     /**
@@ -66,7 +71,10 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'x' => 'double',
+        'y' => 'double',
+        'width' => 'double',
+        'height' => 'double'
     ];
 
     /**
@@ -76,7 +84,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +94,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,7 +104,10 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'x' => 'X',
+        'y' => 'Y',
+        'width' => 'Width',
+        'height' => 'Height'
     ];
 
     /**
@@ -105,7 +116,10 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'x' => 'setX',
+        'y' => 'setY',
+        'width' => 'setWidth',
+        'height' => 'setHeight'
     ];
 
     /**
@@ -114,7 +128,10 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'x' => 'getX',
+        'y' => 'getY',
+        'width' => 'getWidth',
+        'height' => 'getHeight'
     ];
 
     /**
@@ -125,7 +142,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -135,7 +152,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -145,7 +162,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -162,6 +179,12 @@ class SlideComment extends SlideCommentBase
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -171,9 +194,10 @@ class SlideComment extends SlideCommentBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = 'Regular';
+        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
+        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         
     }
 
@@ -184,8 +208,20 @@ class SlideComment extends SlideCommentBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,13 +233,118 @@ class SlideComment extends SlideCommentBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        if ($this->container['x'] === null) {
             return false;
         }
-
+        if ($this->container['y'] === null) {
+            return false;
+        }
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets x
+     *
+     * @return double
+     */
+    public function getX()
+    {
+        return $this->container['x'];
+    }
+
+    /**
+     * Sets x
+     *
+     * @param double $x X coordinate of the text bounds.
+     *
+     * @return $this
+     */
+    public function setX($x)
+    {
+        $this->container['x'] = $x;
+
+        return $this;
+    }
+
+    /**
+     * Gets y
+     *
+     * @return double
+     */
+    public function getY()
+    {
+        return $this->container['y'];
+    }
+
+    /**
+     * Sets y
+     *
+     * @param double $y X coordinate of the text bounds.
+     *
+     * @return $this
+     */
+    public function setY($y)
+    {
+        $this->container['y'] = $y;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return double
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param double $width Width of the text bounds.
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return double
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param double $height Height of the text bounds.
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

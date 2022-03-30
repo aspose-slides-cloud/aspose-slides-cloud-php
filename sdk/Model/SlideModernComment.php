@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SlideComment Class Doc Comment
+ * SlideModernComment Class Doc Comment
  *
  * @category Class
- * @description Represents comment of slide
+ * @description Represents modern comment of slide
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SlideComment extends SlideCommentBase 
+class SlideModernComment extends SlideCommentBase 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class SlideComment extends SlideCommentBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SlideComment';
+    protected static $swaggerModelName = 'SlideModernComment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,9 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'textSelectionStart' => 'int',
+        'textSelectionLength' => 'int',
+        'status' => 'string'
     ];
 
     /**
@@ -66,7 +68,9 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'textSelectionStart' => 'int32',
+        'textSelectionLength' => 'int32',
+        'status' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'textSelectionStart' => 'TextSelectionStart',
+        'textSelectionLength' => 'TextSelectionLength',
+        'status' => 'Status'
     ];
 
     /**
@@ -105,7 +111,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'textSelectionStart' => 'setTextSelectionStart',
+        'textSelectionLength' => 'setTextSelectionLength',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -114,7 +122,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'textSelectionStart' => 'getTextSelectionStart',
+        'textSelectionLength' => 'getTextSelectionLength',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -158,8 +168,27 @@ class SlideComment extends SlideCommentBase
         return self::$swaggerModelName;
     }
 
+    const STATUS_NOT_DEFINED = 'NotDefined';
+    const STATUS_ACTIVE = 'Active';
+    const STATUS_RESOLVED = 'Resolved';
+    const STATUS_CLOSED = 'Closed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_NOT_DEFINED,
+            self::STATUS_ACTIVE,
+            self::STATUS_RESOLVED,
+            self::STATUS_CLOSED,
+        ];
+    }
     
 
 
@@ -173,7 +202,10 @@ class SlideComment extends SlideCommentBase
     {
         parent::__construct($data);
 
-        $this->container['type'] = 'Regular';
+        $this->container['textSelectionStart'] = isset($data['textSelectionStart']) ? $data['textSelectionStart'] : null;
+        $this->container['textSelectionLength'] = isset($data['textSelectionLength']) ? $data['textSelectionLength'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['type'] = 'Modern';
         
     }
 
@@ -185,6 +217,14 @@ class SlideComment extends SlideCommentBase
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -201,9 +241,108 @@ class SlideComment extends SlideCommentBase
             return false;
         }
 
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets textSelectionStart
+     *
+     * @return int
+     */
+    public function getTextSelectionStart()
+    {
+        return $this->container['textSelectionStart'];
+    }
+
+    /**
+     * Sets textSelectionStart
+     *
+     * @param int $textSelectionStart Returns or sets starting position of text selection in text frame if the comment associated with AutoShape. Read/write Int32.
+     *
+     * @return $this
+     */
+    public function setTextSelectionStart($textSelectionStart)
+    {
+        $this->container['textSelectionStart'] = $textSelectionStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets textSelectionLength
+     *
+     * @return int
+     */
+    public function getTextSelectionLength()
+    {
+        return $this->container['textSelectionLength'];
+    }
+
+    /**
+     * Sets textSelectionLength
+     *
+     * @param int $textSelectionLength Returns or sets text selection length in text frame if the comment associated with AutoShape. Read/write Int32.
+     *
+     * @return $this
+     */
+    public function setTextSelectionLength($textSelectionLength)
+    {
+        $this->container['textSelectionLength'] = $textSelectionLength;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Returns or sets the status of the comment. Read/write ModernCommentStatus.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+
+
+        if (is_numeric($status)) {
+            if ($status >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'status', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $status = $allowedValues[$status];
+            }
+        } else {
+            if (!is_null($status) && !in_array($status, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'status', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

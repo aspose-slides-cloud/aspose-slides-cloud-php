@@ -3462,14 +3462,15 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "createComment");
@@ -3483,7 +3484,8 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
@@ -3491,7 +3493,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "name", $expectedCode, $expectedMessage);
@@ -3507,7 +3509,8 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
@@ -3515,7 +3518,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "slideIndex", $expectedCode, $expectedMessage);
@@ -3531,15 +3534,16 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
-        $testdto = TestUtils::invalidizeValue("dto", "createComment", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::invalidizeValue("dto", "createComment", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "dto", $testdto);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "dto", $expectedCode, $expectedMessage);
@@ -3551,11 +3555,37 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testCreateCommentInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "createComment", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("createComment", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createComment", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createComment", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createComment", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
     public function testCreateCommentInvalidpassword()
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
@@ -3563,7 +3593,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "password", $expectedCode, $expectedMessage);
@@ -3579,7 +3609,8 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
@@ -3587,7 +3618,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "folder", $expectedCode, $expectedMessage);
@@ -3603,7 +3634,8 @@ class SlidesApiTest extends TestBase
     {
         $testname = TestUtils::getTestValue("createComment", "name", self::$values, 'string');
         $testslideIndex = TestUtils::getTestValue("createComment", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createComment", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createComment", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createComment", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("createComment", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("createComment", "storage", self::$values, 'string');
@@ -3611,7 +3643,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("createComment", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->createComment($testname, $testslideIndex, $testdto, $testshapeIndex, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createComment", "storage", $expectedCode, $expectedMessage);
@@ -3631,12 +3663,13 @@ class SlidesApiTest extends TestBase
     {
         $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
         $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testpassword);
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "createCommentOnline");
@@ -3650,13 +3683,14 @@ class SlidesApiTest extends TestBase
     {
         $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
         $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
         $testdocument = null;
         list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", "document", $testdocument);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testpassword);
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createCommentOnline", "document", $expectedCode, $expectedMessage);
@@ -3672,13 +3706,14 @@ class SlidesApiTest extends TestBase
     {
         $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
         $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "createCommentOnline", $testslideIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testpassword);
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createCommentOnline", "slideIndex", $expectedCode, $expectedMessage);
@@ -3694,13 +3729,14 @@ class SlidesApiTest extends TestBase
     {
         $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
         $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
-        $testdto = TestUtils::invalidizeValue("dto", "createCommentOnline", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::invalidizeValue("dto", "createCommentOnline", $testdto, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
         list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", "dto", $testdto);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testpassword);
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createCommentOnline", "dto", $expectedCode, $expectedMessage);
@@ -3712,17 +3748,41 @@ class SlidesApiTest extends TestBase
         }
     }
 
+    public function testCreateCommentOnlineInvalidshapeIndex()
+    {
+        $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
+        $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "createCommentOnline", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createCommentOnline", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createCommentOnline", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createCommentOnline", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
     public function testCreateCommentOnlineInvalidpassword()
     {
         $testdocument = TestUtils::getStreamValue("createCommentOnline", "document");
         $testslideIndex = TestUtils::getTestValue("createCommentOnline", "slideIndex", self::$values, 'int');
-        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideComment');
+        $testdto = TestUtils::getTestValue("createCommentOnline", "dto", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase');
+        $testshapeIndex = TestUtils::getTestValue("createCommentOnline", "shapeIndex", self::$values, 'int');
         $testpassword = TestUtils::getTestValue("createCommentOnline", "password", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "createCommentOnline", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("createCommentOnline", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testpassword);
+            $result = $this->getApi()->createCommentOnline($testdocument, $testslideIndex, $testdto, $testshapeIndex, $testpassword);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "createCommentOnline", "password", $expectedCode, $expectedMessage);
@@ -27383,6 +27443,207 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for getParagraphRectangle
+     * Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+     */
+    public function testGetParagraphRectangle()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getParagraphRectangle");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidname()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "getParagraphRectangle", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "getParagraphRectangle", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "getParagraphRectangle", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getParagraphRectangle", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "getParagraphRectangle", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "getParagraphRectangle", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testGetParagraphRectangleInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("getParagraphRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getParagraphRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getParagraphRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getParagraphRectangle", "paragraphIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getParagraphRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getParagraphRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getParagraphRectangle", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "getParagraphRectangle", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getParagraphRectangle", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getParagraphRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getParagraphRectangle", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getParagraphRectangle", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getParagraphRectangle", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for getParagraphs
      * Read shape paragraphs info.
      */
@@ -28091,6 +28352,241 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getPortion", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for getPortionRectangle
+     * Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+     */
+    public function testGetPortionRectangle()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "getPortionRectangle");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidname()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "getPortionRectangle", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "name", $testname);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "getPortionRectangle", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "slideIndex", $testslideIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "getPortionRectangle", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "shapeIndex", $testshapeIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidparagraphIndex()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testparagraphIndex = TestUtils::invalidizeValue("paragraphIndex", "getPortionRectangle", $testparagraphIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "paragraphIndex", $testparagraphIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "paragraphIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "paragraphIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "paragraphIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidportionIndex()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testportionIndex = TestUtils::invalidizeValue("portionIndex", "getPortionRectangle", $testportionIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "portionIndex", $testportionIndex);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "portionIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "portionIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "portionIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "getPortionRectangle", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "password", $testpassword);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "getPortionRectangle", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "folder", $testfolder);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testGetPortionRectangleInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("getPortionRectangle", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getPortionRectangle", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("getPortionRectangle", "shapeIndex", self::$values, 'int');
+        $testparagraphIndex = TestUtils::getTestValue("getPortionRectangle", "paragraphIndex", self::$values, 'int');
+        $testportionIndex = TestUtils::getTestValue("getPortionRectangle", "portionIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getPortionRectangle", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getPortionRectangle", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getPortionRectangle", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "getPortionRectangle", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getPortionRectangle", "storage", $teststorage);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getPortionRectangle($testname, $testslideIndex, $testshapeIndex, $testparagraphIndex, $testportionIndex, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getPortionRectangle", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getPortionRectangle", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getPortionRectangle", "storage", self::$okToFailValues);
         }
     }
 
@@ -29227,10 +29723,11 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "getShapes");
@@ -29247,11 +29744,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         $testname = TestUtils::invalidizeValue("name", "getShapes", $testname, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "name", $testname);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getShapes", "name", $expectedCode, $expectedMessage);
@@ -29270,11 +29768,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         $testslideIndex = TestUtils::invalidizeValue("slideIndex", "getShapes", $testslideIndex, self::$values, 'int');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "slideIndex", $testslideIndex);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getShapes", "slideIndex", $expectedCode, $expectedMessage);
@@ -29293,11 +29792,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "getShapes", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "password", $testpassword);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getShapes", "password", $expectedCode, $expectedMessage);
@@ -29316,11 +29816,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         $testfolder = TestUtils::invalidizeValue("folder", "getShapes", $testfolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "folder", $testfolder);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getShapes", "folder", $expectedCode, $expectedMessage);
@@ -29339,11 +29840,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
         $teststorage = TestUtils::invalidizeValue("storage", "getShapes", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "storage", $teststorage);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "getShapes", "storage", $expectedCode, $expectedMessage);
@@ -29352,6 +29854,30 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("getShapes", "storage", self::$okToFailValues);
+        }
+    }
+
+    public function testGetShapesInvalidshapeType()
+    {
+        $testname = TestUtils::getTestValue("getShapes", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("getShapes", "slideIndex", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("getShapes", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("getShapes", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("getShapes", "storage", self::$values, 'string');
+        $testshapeType = TestUtils::getTestValue("getShapes", "shapeType", self::$values, 'string');
+        $testshapeType = TestUtils::invalidizeValue("shapeType", "getShapes", $testshapeType, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("getShapes", "shapeType", $testshapeType);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->getShapes($testname, $testslideIndex, $testpassword, $testfolder, $teststorage, $testshapeType);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "getShapes", "shapeType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "getShapes", "shapeType", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("getShapes", "shapeType", self::$okToFailValues);
         }
     }
 

@@ -67,7 +67,8 @@ class Legend implements ArrayAccess
         'overlay' => 'bool',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'hasLegend' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Legend implements ArrayAccess
         'overlay' => null,
         'fillFormat' => null,
         'effectFormat' => null,
-        'lineFormat' => null
+        'lineFormat' => null,
+        'hasLegend' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class Legend implements ArrayAccess
         'overlay' => 'Overlay',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat'
+        'lineFormat' => 'LineFormat',
+        'hasLegend' => 'HasLegend'
     ];
 
     /**
@@ -139,7 +142,8 @@ class Legend implements ArrayAccess
         'overlay' => 'setOverlay',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat'
+        'lineFormat' => 'setLineFormat',
+        'hasLegend' => 'setHasLegend'
     ];
 
     /**
@@ -156,7 +160,8 @@ class Legend implements ArrayAccess
         'overlay' => 'getOverlay',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat'
+        'lineFormat' => 'getLineFormat',
+        'hasLegend' => 'getHasLegend'
     ];
 
     /**
@@ -249,6 +254,7 @@ class Legend implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['hasLegend'] = isset($data['hasLegend']) ? $data['hasLegend'] : null;
         
     }
 
@@ -524,6 +530,30 @@ class Legend implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets hasLegend
+     *
+     * @return bool
+     */
+    public function getHasLegend()
+    {
+        return $this->container['hasLegend'];
+    }
+
+    /**
+     * Sets hasLegend
+     *
+     * @param bool $hasLegend Get or sets value determines the visibility of legend
+     *
+     * @return $this
+     */
+    public function setHasLegend($hasLegend)
+    {
+        $this->container['hasLegend'] = $hasLegend;
 
         return $this;
     }

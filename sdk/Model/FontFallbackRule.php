@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SlideComment Class Doc Comment
+ * FontFallbackRule Class Doc Comment
  *
  * @category Class
- * @description Represents comment of slide
+ * @description Represents font fallback rule.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SlideComment extends SlideCommentBase 
+class FontFallbackRule implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class SlideComment extends SlideCommentBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SlideComment';
+    protected static $swaggerModelName = 'FontFallbackRule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +59,9 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'rangeStartIndex' => 'int',
+        'rangeEndIndex' => 'int',
+        'fallbackFontList' => 'string[]'
     ];
 
     /**
@@ -66,7 +70,9 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'rangeStartIndex' => 'int32',
+        'rangeEndIndex' => 'int32',
+        'fallbackFontList' => null
     ];
 
     /**
@@ -76,7 +82,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +92,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,7 +102,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'rangeStartIndex' => 'RangeStartIndex',
+        'rangeEndIndex' => 'RangeEndIndex',
+        'fallbackFontList' => 'FallbackFontList'
     ];
 
     /**
@@ -105,7 +113,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'rangeStartIndex' => 'setRangeStartIndex',
+        'rangeEndIndex' => 'setRangeEndIndex',
+        'fallbackFontList' => 'setFallbackFontList'
     ];
 
     /**
@@ -114,7 +124,9 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'rangeStartIndex' => 'getRangeStartIndex',
+        'rangeEndIndex' => 'getRangeEndIndex',
+        'fallbackFontList' => 'getFallbackFontList'
     ];
 
     /**
@@ -125,7 +137,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -135,7 +147,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -145,7 +157,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -162,6 +174,12 @@ class SlideComment extends SlideCommentBase
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -171,9 +189,9 @@ class SlideComment extends SlideCommentBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = 'Regular';
+        $this->container['rangeStartIndex'] = isset($data['rangeStartIndex']) ? $data['rangeStartIndex'] : null;
+        $this->container['rangeEndIndex'] = isset($data['rangeEndIndex']) ? $data['rangeEndIndex'] : null;
+        $this->container['fallbackFontList'] = isset($data['fallbackFontList']) ? $data['fallbackFontList'] : null;
         
     }
 
@@ -184,8 +202,14 @@ class SlideComment extends SlideCommentBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['rangeStartIndex'] === null) {
+            $invalidProperties[] = "'rangeStartIndex' can't be null";
+        }
+        if ($this->container['rangeEndIndex'] === null) {
+            $invalidProperties[] = "'rangeEndIndex' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,13 +221,88 @@ class SlideComment extends SlideCommentBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        if ($this->container['rangeStartIndex'] === null) {
             return false;
         }
-
+        if ($this->container['rangeEndIndex'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets rangeStartIndex
+     *
+     * @return int
+     */
+    public function getRangeStartIndex()
+    {
+        return $this->container['rangeStartIndex'];
+    }
+
+    /**
+     * Sets rangeStartIndex
+     *
+     * @param int $rangeStartIndex First index of continuous unicode range.
+     *
+     * @return $this
+     */
+    public function setRangeStartIndex($rangeStartIndex)
+    {
+        $this->container['rangeStartIndex'] = $rangeStartIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets rangeEndIndex
+     *
+     * @return int
+     */
+    public function getRangeEndIndex()
+    {
+        return $this->container['rangeEndIndex'];
+    }
+
+    /**
+     * Sets rangeEndIndex
+     *
+     * @param int $rangeEndIndex Last index of continuous unicode range.
+     *
+     * @return $this
+     */
+    public function setRangeEndIndex($rangeEndIndex)
+    {
+        $this->container['rangeEndIndex'] = $rangeEndIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallbackFontList
+     *
+     * @return string[]
+     */
+    public function getFallbackFontList()
+    {
+        return $this->container['fallbackFontList'];
+    }
+
+    /**
+     * Sets fallbackFontList
+     *
+     * @param string[] $fallbackFontList List of fallback font links.
+     *
+     * @return $this
+     */
+    public function setFallbackFontList($fallbackFontList)
+    {
+        $this->container['fallbackFontList'] = $fallbackFontList;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

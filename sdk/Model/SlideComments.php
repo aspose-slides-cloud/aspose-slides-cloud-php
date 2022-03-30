@@ -57,7 +57,7 @@ class SlideComments extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'list' => '\Aspose\Slides\Cloud\Sdk\Model\SlideComment[]'
+        'list' => '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class SlideComments extends ResourceBase
     /**
      * Gets list
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\SlideComment[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[]
      */
     public function getList()
     {
@@ -218,7 +218,7 @@ class SlideComments extends ResourceBase
     /**
      * Sets list
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideComment[] $list Slide comment list.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[] $list Slide comment list.
      *
      * @return $this
      */

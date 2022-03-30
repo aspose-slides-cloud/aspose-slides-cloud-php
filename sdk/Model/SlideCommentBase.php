@@ -29,27 +29,29 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SlideComment Class Doc Comment
+ * SlideCommentBase Class Doc Comment
  *
  * @category Class
- * @description Represents comment of slide
+ * @description Represents slide comment
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SlideComment extends SlideCommentBase 
+class SlideCommentBase implements ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'Type';
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SlideComment';
+    protected static $swaggerModelName = 'SlideCommentBase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +59,11 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'author' => 'string',
+        'text' => 'string',
+        'createdTime' => 'string',
+        'childComments' => '\Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[]',
+        'type' => 'string'
     ];
 
     /**
@@ -66,7 +72,11 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'author' => null,
+        'text' => null,
+        'createdTime' => null,
+        'childComments' => null,
+        'type' => null
     ];
 
     /**
@@ -76,7 +86,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +96,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,7 +106,11 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'author' => 'Author',
+        'text' => 'Text',
+        'createdTime' => 'CreatedTime',
+        'childComments' => 'ChildComments',
+        'type' => 'Type'
     ];
 
     /**
@@ -105,7 +119,11 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'author' => 'setAuthor',
+        'text' => 'setText',
+        'createdTime' => 'setCreatedTime',
+        'childComments' => 'setChildComments',
+        'type' => 'setType'
     ];
 
     /**
@@ -114,7 +132,11 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'author' => 'getAuthor',
+        'text' => 'getText',
+        'createdTime' => 'getCreatedTime',
+        'childComments' => 'getChildComments',
+        'type' => 'getType'
     ];
 
     /**
@@ -125,7 +147,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -135,7 +157,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -145,7 +167,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -158,10 +180,31 @@ class SlideComment extends SlideCommentBase
         return self::$swaggerModelName;
     }
 
+    const TYPE_REGULAR = 'Regular';
+    const TYPE_MODERN = 'Modern';
     
 
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_REGULAR,
+            self::TYPE_MODERN,
+        ];
+    }
+    
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -171,9 +214,11 @@ class SlideComment extends SlideCommentBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = 'Regular';
+        $this->container['author'] = isset($data['author']) ? $data['author'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
+        $this->container['childComments'] = isset($data['childComments']) ? $data['childComments'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
 
@@ -184,7 +229,15 @@ class SlideComment extends SlideCommentBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -197,13 +250,157 @@ class SlideComment extends SlideCommentBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
-
         return true;
     }
 
+
+    /**
+     * Gets author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->container['author'];
+    }
+
+    /**
+     * Sets author
+     *
+     * @param string $author Author.
+     *
+     * @return $this
+     */
+    public function setAuthor($author)
+    {
+        $this->container['author'] = $author;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text Text.
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdTime
+     *
+     * @return string
+     */
+    public function getCreatedTime()
+    {
+        return $this->container['createdTime'];
+    }
+
+    /**
+     * Sets createdTime
+     *
+     * @param string $createdTime Creation time.
+     *
+     * @return $this
+     */
+    public function setCreatedTime($createdTime)
+    {
+        $this->container['createdTime'] = $createdTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets childComments
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[]
+     */
+    public function getChildComments()
+    {
+        return $this->container['childComments'];
+    }
+
+    /**
+     * Sets childComments
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase[] $childComments Child comments.
+     *
+     * @return $this
+     */
+    public function setChildComments($childComments)
+    {
+        $this->container['childComments'] = $childComments;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

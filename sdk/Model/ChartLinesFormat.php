@@ -29,18 +29,20 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SlideComment Class Doc Comment
+ * ChartLinesFormat Class Doc Comment
  *
  * @category Class
- * @description Represents comment of slide
+ * @description Represents the lines format of chart elements.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SlideComment extends SlideCommentBase 
+class ChartLinesFormat implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +51,7 @@ class SlideComment extends SlideCommentBase
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SlideComment';
+    protected static $swaggerModelName = 'ChartLinesFormat';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +59,8 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
     ];
 
     /**
@@ -66,7 +69,8 @@ class SlideComment extends SlideCommentBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'effectFormat' => null,
+        'lineFormat' => null
     ];
 
     /**
@@ -76,7 +80,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +90,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,7 +100,8 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'effectFormat' => 'EffectFormat',
+        'lineFormat' => 'LineFormat'
     ];
 
     /**
@@ -105,7 +110,8 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'effectFormat' => 'setEffectFormat',
+        'lineFormat' => 'setLineFormat'
     ];
 
     /**
@@ -114,7 +120,8 @@ class SlideComment extends SlideCommentBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'effectFormat' => 'getEffectFormat',
+        'lineFormat' => 'getLineFormat'
     ];
 
     /**
@@ -125,7 +132,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -135,7 +142,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -145,7 +152,7 @@ class SlideComment extends SlideCommentBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -162,6 +169,12 @@ class SlideComment extends SlideCommentBase
 
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -171,9 +184,8 @@ class SlideComment extends SlideCommentBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['type'] = 'Regular';
+        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
+        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
         
     }
 
@@ -184,7 +196,7 @@ class SlideComment extends SlideCommentBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -197,13 +209,58 @@ class SlideComment extends SlideCommentBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         return true;
     }
 
+
+    /**
+     * Gets effectFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
+     */
+    public function getEffectFormat()
+    {
+        return $this->container['effectFormat'];
+    }
+
+    /**
+     * Sets effectFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
+     *
+     * @return $this
+     */
+    public function setEffectFormat($effectFormat)
+    {
+        $this->container['effectFormat'] = $effectFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets lineFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
+     */
+    public function getLineFormat()
+    {
+        return $this->container['lineFormat'];
+    }
+
+    /**
+     * Sets lineFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
+     *
+     * @return $this
+     */
+    public function setLineFormat($lineFormat)
+    {
+        $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

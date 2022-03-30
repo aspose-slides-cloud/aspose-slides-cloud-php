@@ -62,6 +62,7 @@ class ExportOptions implements ArrayAccess
         'defaultRegularFont' => 'string',
         'height' => 'int',
         'width' => 'int',
+        'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
         'format' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class ExportOptions implements ArrayAccess
         'defaultRegularFont' => null,
         'height' => 'int32',
         'width' => 'int32',
+        'fontFallbackRules' => null,
         'format' => null
     ];
 
@@ -107,6 +109,7 @@ class ExportOptions implements ArrayAccess
         'defaultRegularFont' => 'DefaultRegularFont',
         'height' => 'Height',
         'width' => 'Width',
+        'fontFallbackRules' => 'FontFallbackRules',
         'format' => 'Format'
     ];
 
@@ -119,6 +122,7 @@ class ExportOptions implements ArrayAccess
         'defaultRegularFont' => 'setDefaultRegularFont',
         'height' => 'setHeight',
         'width' => 'setWidth',
+        'fontFallbackRules' => 'setFontFallbackRules',
         'format' => 'setFormat'
     ];
 
@@ -131,6 +135,7 @@ class ExportOptions implements ArrayAccess
         'defaultRegularFont' => 'getDefaultRegularFont',
         'height' => 'getHeight',
         'width' => 'getWidth',
+        'fontFallbackRules' => 'getFontFallbackRules',
         'format' => 'getFormat'
     ];
 
@@ -197,6 +202,7 @@ class ExportOptions implements ArrayAccess
         $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
     }
@@ -294,6 +300,30 @@ class ExportOptions implements ArrayAccess
     public function setWidth($width)
     {
         $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets fontFallbackRules
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]
+     */
+    public function getFontFallbackRules()
+    {
+        return $this->container['fontFallbackRules'];
+    }
+
+    /**
+     * Sets fontFallbackRules
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[] $fontFallbackRules Gets of sets list of font fallback rules.
+     *
+     * @return $this
+     */
+    public function setFontFallbackRules($fontFallbackRules)
+    {
+        $this->container['fontFallbackRules'] = $fontFallbackRules;
 
         return $this;
     }

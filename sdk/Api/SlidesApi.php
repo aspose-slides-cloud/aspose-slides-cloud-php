@@ -2629,24 +2629,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createComment($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null, $folder = null, $storage = null)
+    public function createComment($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
         try {
-            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
             return $response;
         } 
     }
 
     /**
      */
-    public function createCommentWithHttpInfo($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null, $folder = null, $storage = null)
+    public function createCommentWithHttpInfo($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideComments';
-        $httpRequest = $this->createCommentRequest($name, $slideIndex, $dto, $password, $folder, $storage);
+        $httpRequest = $this->createCommentRequest($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -2673,9 +2673,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createCommentAsync($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null, $folder = null, $storage = null)
+    public function createCommentAsync($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
-        return $this->createCommentAsyncWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage)
+        return $this->createCommentAsyncWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -2683,10 +2683,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createCommentAsyncWithHttpInfo($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null, $folder = null, $storage = null)
+    public function createCommentAsyncWithHttpInfo($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SlideComments';
-        $httpRequest = $this->createCommentRequest($name, $slideIndex, $dto, $password, $folder, $storage);
+        $httpRequest = $this->createCommentRequest($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -2733,7 +2733,8 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideComment $$dto Comment DTO. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $$dto Comment DTO. (required)
+     * @param  int $$shapeIndex Shape index. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -2741,7 +2742,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCommentRequest($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null, $folder = null, $storage = null)
+    protected function createCommentRequest($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -2760,6 +2761,10 @@ class SlidesApi extends ApiBase
         $queryParams = [];
         $headerParams = [];
 
+        // query params
+        if ($shapeIndex !== null) {
+            $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($shapeIndex);
+        }
         // query params
         if ($folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
@@ -2788,24 +2793,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createCommentOnline($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null)
+    public function createCommentOnline($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
         try {
-            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $password);
+            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $password);
+            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password);
             return $response;
         } 
     }
 
     /**
      */
-    public function createCommentOnlineWithHttpInfo($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null)
+    public function createCommentOnlineWithHttpInfo($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->createCommentOnlineRequest($document, $slideIndex, $dto, $password);
+        $httpRequest = $this->createCommentOnlineRequest($document, $slideIndex, $dto, $shapeIndex, $password);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -2829,9 +2834,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createCommentOnlineAsync($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null)
+    public function createCommentOnlineAsync($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
-        return $this->createCommentOnlineAsyncWithHttpInfo($document, $slideIndex, $dto, $password)
+        return $this->createCommentOnlineAsyncWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -2839,10 +2844,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createCommentOnlineAsyncWithHttpInfo($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null)
+    public function createCommentOnlineAsyncWithHttpInfo($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->createCommentOnlineRequest($document, $slideIndex, $dto, $password);
+        $httpRequest = $this->createCommentOnlineRequest($document, $slideIndex, $dto, $shapeIndex, $password);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -2889,13 +2894,14 @@ class SlidesApi extends ApiBase
      *
      * @param  \SplFileObject $$document Document data. (required)
      * @param  int $$slideIndex Slide index. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideComment $$dto Comment DTO. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $$dto Comment DTO. (required)
+     * @param  int $$shapeIndex Shape index. (optional)
      * @param  string $$password Document password. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCommentOnlineRequest($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideComment $dto, $password = null)
+    protected function createCommentOnlineRequest($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -2914,6 +2920,10 @@ class SlidesApi extends ApiBase
         $queryParams = [];
         $headerParams = [];
 
+        // query params
+        if ($shapeIndex !== null) {
+            $queryParams['shapeIndex'] = ObjectSerializer::toQueryValue($shapeIndex);
+        }
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
@@ -22609,6 +22619,169 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getParagraphRectangle($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TextBounds';
+        $httpRequest = $this->getParagraphRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\TextBounds', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getParagraphRectangleAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getParagraphRectangleAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getParagraphRectangleAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TextBounds';
+        $httpRequest = $this->getParagraphRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getParagraphRectangle'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getParagraphRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getParagraphRectangle');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getParagraphRectangle');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getParagraphRectangle');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling getParagraphRectangle');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/bounds';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getParagraphs($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -23212,6 +23385,175 @@ class SlidesApi extends ApiBase
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getPortionRectangle($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TextBounds';
+        $httpRequest = $this->getPortionRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\TextBounds', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getPortionRectangleAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getPortionRectangleAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getPortionRectangleAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TextBounds';
+        $httpRequest = $this->getPortionRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getPortionRectangle'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getPortionRectangleRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getPortionRectangle');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getPortionRectangle');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getPortionRectangle');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling getPortionRectangle');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling getPortionRectangle');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/bounds';
         $queryParams = [];
         $headerParams = [];
 
@@ -24450,24 +24792,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function getShapes($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function getShapes($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null)
     {
         try {
-            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType);
             return $response;
         } 
     }
 
     /**
      */
-    public function getShapesWithHttpInfo($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function getShapesWithHttpInfo($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
-        $httpRequest = $this->getShapesRequest($name, $slideIndex, $password, $folder, $storage);
+        $httpRequest = $this->getShapesRequest($name, $slideIndex, $password, $folder, $storage, $shapeType);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -24494,9 +24836,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getShapesAsync($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function getShapesAsync($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null)
     {
-        return $this->getShapesAsyncWithHttpInfo($name, $slideIndex, $password, $folder, $storage)
+        return $this->getShapesAsyncWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -24504,10 +24846,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function getShapesAsyncWithHttpInfo($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    public function getShapesAsyncWithHttpInfo($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
-        $httpRequest = $this->getShapesRequest($name, $slideIndex, $password, $folder, $storage);
+        $httpRequest = $this->getShapesRequest($name, $slideIndex, $password, $folder, $storage, $shapeType);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -24557,11 +24899,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
+     * @param  string $$shapeType Shape type. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getShapesRequest($name, $slideIndex, $password = null, $folder = null, $storage = null)
+    protected function getShapesRequest($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -24570,6 +24913,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'slide_index' is set
         if ($slideIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getShapes');
+        }
+        // verify the value of enum parameter 'shapeType' is valid
+        if ($shapeType != null && !in_array(strtolower($shapeType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $shapeType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeType::getAllowableEnumValues()));
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes';
@@ -24583,6 +24930,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($shapeType !== null) {
+            $queryParams['shapeType'] = ObjectSerializer::toQueryValue($shapeType);
         }
         // header params
         if ($password !== null) {
@@ -29371,7 +29722,7 @@ class SlidesApi extends ApiBase
             ['application/json'],
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -29556,7 +29907,7 @@ class SlidesApi extends ApiBase
             ['application/json'],
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
@@ -29713,7 +30064,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function importFromPdf($name, $pdf = null, $password = null, $folder = null, $storage = null)
+    public function importFromPdf($name, $pdf, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $password, $folder, $storage);
@@ -29727,7 +30078,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromPdfWithHttpInfo($name, $pdf = null, $password = null, $folder = null, $storage = null)
+    public function importFromPdfWithHttpInfo($name, $pdf, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
         $httpRequest = $this->importFromPdfRequest($name, $pdf, $password, $folder, $storage);
@@ -29761,7 +30112,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromPdfAsync($name, $pdf = null, $password = null, $folder = null, $storage = null)
+    public function importFromPdfAsync($name, $pdf, $password = null, $folder = null, $storage = null)
     {
         return $this->importFromPdfAsyncWithHttpInfo($name, $pdf, $password, $folder, $storage)
             ->then(function ($response) {
@@ -29771,7 +30122,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromPdfAsyncWithHttpInfo($name, $pdf = null, $password = null, $folder = null, $storage = null)
+    public function importFromPdfAsyncWithHttpInfo($name, $pdf, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
         $httpRequest = $this->importFromPdfRequest($name, $pdf, $password, $folder, $storage);
@@ -29820,7 +30171,7 @@ class SlidesApi extends ApiBase
      * Create request for operation 'importFromPdf'
      *
      * @param  string $$name Document name. (required)
-     * @param  \SplFileObject $$pdf PDF data. (optional)
+     * @param  \SplFileObject $$pdf PDF data. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -29828,11 +30179,15 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importFromPdfRequest($name, $pdf = null, $password = null, $folder = null, $storage = null)
+    protected function importFromPdfRequest($name, $pdf, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling importFromPdf');
+        }
+        // verify the required parameter 'pdf' is set
+        if ($pdf === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $pdf when calling importFromPdf');
         }
 
         $resourcePath = '/slides/{name}/fromPdf';

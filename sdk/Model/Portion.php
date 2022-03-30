@@ -84,7 +84,10 @@ class Portion extends ResourceBase
         'underlineFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'underlineLineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'hyperlinkClick' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink',
-        'hyperlinkMouseOver' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink'
+        'hyperlinkMouseOver' => '\Aspose\Slides\Cloud\Sdk\Model\Hyperlink',
+        'latinFont' => 'string',
+        'eastAsianFont' => 'string',
+        'complexScriptFont' => 'string'
     ];
 
     /**
@@ -120,7 +123,10 @@ class Portion extends ResourceBase
         'underlineFillFormat' => null,
         'underlineLineFormat' => null,
         'hyperlinkClick' => null,
-        'hyperlinkMouseOver' => null
+        'hyperlinkMouseOver' => null,
+        'latinFont' => null,
+        'eastAsianFont' => null,
+        'complexScriptFont' => null
     ];
 
     /**
@@ -177,7 +183,10 @@ class Portion extends ResourceBase
         'underlineFillFormat' => 'UnderlineFillFormat',
         'underlineLineFormat' => 'UnderlineLineFormat',
         'hyperlinkClick' => 'HyperlinkClick',
-        'hyperlinkMouseOver' => 'HyperlinkMouseOver'
+        'hyperlinkMouseOver' => 'HyperlinkMouseOver',
+        'latinFont' => 'LatinFont',
+        'eastAsianFont' => 'EastAsianFont',
+        'complexScriptFont' => 'ComplexScriptFont'
     ];
 
     /**
@@ -213,7 +222,10 @@ class Portion extends ResourceBase
         'underlineFillFormat' => 'setUnderlineFillFormat',
         'underlineLineFormat' => 'setUnderlineLineFormat',
         'hyperlinkClick' => 'setHyperlinkClick',
-        'hyperlinkMouseOver' => 'setHyperlinkMouseOver'
+        'hyperlinkMouseOver' => 'setHyperlinkMouseOver',
+        'latinFont' => 'setLatinFont',
+        'eastAsianFont' => 'setEastAsianFont',
+        'complexScriptFont' => 'setComplexScriptFont'
     ];
 
     /**
@@ -249,7 +261,10 @@ class Portion extends ResourceBase
         'underlineFillFormat' => 'getUnderlineFillFormat',
         'underlineLineFormat' => 'getUnderlineLineFormat',
         'hyperlinkClick' => 'getHyperlinkClick',
-        'hyperlinkMouseOver' => 'getHyperlinkMouseOver'
+        'hyperlinkMouseOver' => 'getHyperlinkMouseOver',
+        'latinFont' => 'getLatinFont',
+        'eastAsianFont' => 'getEastAsianFont',
+        'complexScriptFont' => 'getComplexScriptFont'
     ];
 
     /**
@@ -542,6 +557,9 @@ class Portion extends ResourceBase
         $this->container['underlineLineFormat'] = isset($data['underlineLineFormat']) ? $data['underlineLineFormat'] : null;
         $this->container['hyperlinkClick'] = isset($data['hyperlinkClick']) ? $data['hyperlinkClick'] : null;
         $this->container['hyperlinkMouseOver'] = isset($data['hyperlinkMouseOver']) ? $data['hyperlinkMouseOver'] : null;
+        $this->container['latinFont'] = isset($data['latinFont']) ? $data['latinFont'] : null;
+        $this->container['eastAsianFont'] = isset($data['eastAsianFont']) ? $data['eastAsianFont'] : null;
+        $this->container['complexScriptFont'] = isset($data['complexScriptFont']) ? $data['complexScriptFont'] : null;
         
     }
 
@@ -1591,6 +1609,78 @@ class Portion extends ResourceBase
     public function setHyperlinkMouseOver($hyperlinkMouseOver)
     {
         $this->container['hyperlinkMouseOver'] = $hyperlinkMouseOver;
+
+        return $this;
+    }
+
+    /**
+     * Gets latinFont
+     *
+     * @return string
+     */
+    public function getLatinFont()
+    {
+        return $this->container['latinFont'];
+    }
+
+    /**
+     * Sets latinFont
+     *
+     * @param string $latinFont Returns or sets the Latin font info.
+     *
+     * @return $this
+     */
+    public function setLatinFont($latinFont)
+    {
+        $this->container['latinFont'] = $latinFont;
+
+        return $this;
+    }
+
+    /**
+     * Gets eastAsianFont
+     *
+     * @return string
+     */
+    public function getEastAsianFont()
+    {
+        return $this->container['eastAsianFont'];
+    }
+
+    /**
+     * Sets eastAsianFont
+     *
+     * @param string $eastAsianFont Returns or sets the East Asian font info.
+     *
+     * @return $this
+     */
+    public function setEastAsianFont($eastAsianFont)
+    {
+        $this->container['eastAsianFont'] = $eastAsianFont;
+
+        return $this;
+    }
+
+    /**
+     * Gets complexScriptFont
+     *
+     * @return string
+     */
+    public function getComplexScriptFont()
+    {
+        return $this->container['complexScriptFont'];
+    }
+
+    /**
+     * Sets complexScriptFont
+     *
+     * @param string $complexScriptFont Returns or sets the complex script font info.
+     *
+     * @return $this
+     */
+    public function setComplexScriptFont($complexScriptFont)
+    {
+        $this->container['complexScriptFont'] = $complexScriptFont;
 
         return $this;
     }

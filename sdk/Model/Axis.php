@@ -94,7 +94,9 @@ class Axis implements ArrayAccess
         'tickLabelRotationAngle' => 'double',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'majorGridLinesFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat',
+        'minorGridLinesFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat'
     ];
 
     /**
@@ -138,7 +140,9 @@ class Axis implements ArrayAccess
         'tickLabelRotationAngle' => 'double',
         'fillFormat' => null,
         'effectFormat' => null,
-        'lineFormat' => null
+        'lineFormat' => null,
+        'majorGridLinesFormat' => null,
+        'minorGridLinesFormat' => null
     ];
 
     /**
@@ -203,7 +207,9 @@ class Axis implements ArrayAccess
         'tickLabelRotationAngle' => 'TickLabelRotationAngle',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat'
+        'lineFormat' => 'LineFormat',
+        'majorGridLinesFormat' => 'MajorGridLinesFormat',
+        'minorGridLinesFormat' => 'MinorGridLinesFormat'
     ];
 
     /**
@@ -247,7 +253,9 @@ class Axis implements ArrayAccess
         'tickLabelRotationAngle' => 'setTickLabelRotationAngle',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat'
+        'lineFormat' => 'setLineFormat',
+        'majorGridLinesFormat' => 'setMajorGridLinesFormat',
+        'minorGridLinesFormat' => 'setMinorGridLinesFormat'
     ];
 
     /**
@@ -291,7 +299,9 @@ class Axis implements ArrayAccess
         'tickLabelRotationAngle' => 'getTickLabelRotationAngle',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat'
+        'lineFormat' => 'getLineFormat',
+        'majorGridLinesFormat' => 'getMajorGridLinesFormat',
+        'minorGridLinesFormat' => 'getMinorGridLinesFormat'
     ];
 
     /**
@@ -588,6 +598,8 @@ class Axis implements ArrayAccess
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['majorGridLinesFormat'] = isset($data['majorGridLinesFormat']) ? $data['majorGridLinesFormat'] : null;
+        $this->container['minorGridLinesFormat'] = isset($data['minorGridLinesFormat']) ? $data['minorGridLinesFormat'] : null;
         
     }
 
@@ -1826,6 +1838,54 @@ class Axis implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets majorGridLinesFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat
+     */
+    public function getMajorGridLinesFormat()
+    {
+        return $this->container['majorGridLinesFormat'];
+    }
+
+    /**
+     * Sets majorGridLinesFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat $majorGridLinesFormat Get or sets the format of major grid lines.
+     *
+     * @return $this
+     */
+    public function setMajorGridLinesFormat($majorGridLinesFormat)
+    {
+        $this->container['majorGridLinesFormat'] = $majorGridLinesFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets minorGridLinesFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat
+     */
+    public function getMinorGridLinesFormat()
+    {
+        return $this->container['minorGridLinesFormat'];
+    }
+
+    /**
+     * Sets minorGridLinesFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat $minorGridLinesFormat Get or sets the format of major grid lines.
+     *
+     * @return $this
+     */
+    public function setMinorGridLinesFormat($minorGridLinesFormat)
+    {
+        $this->container['minorGridLinesFormat'] = $minorGridLinesFormat;
 
         return $this;
     }
