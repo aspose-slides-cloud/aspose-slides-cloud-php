@@ -40,7 +40,7 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ImageExportOptions extends ExportOptions 
+class ImageExportOptions extends ImageExportOptionsBase 
 {
     const DISCRIMINATOR = null;
 

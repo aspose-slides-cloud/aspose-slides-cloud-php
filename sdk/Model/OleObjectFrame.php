@@ -58,7 +58,14 @@ class OleObjectFrame extends ShapeBase
       */
     protected static $swaggerTypes = [
         'isObjectIcon' => 'bool',
-        'substitutePictureTitle' => 'string'
+        'substitutePictureTitle' => 'string',
+        'substitutePictureFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill',
+        'objectName' => 'string',
+        'embeddedFileBase64Data' => 'string',
+        'embeddedFileExtension' => 'string',
+        'objectProgId' => 'string',
+        'linkPath' => 'string',
+        'updateAutomatic' => 'bool'
     ];
 
     /**
@@ -68,7 +75,14 @@ class OleObjectFrame extends ShapeBase
       */
     protected static $swaggerFormats = [
         'isObjectIcon' => null,
-        'substitutePictureTitle' => null
+        'substitutePictureTitle' => null,
+        'substitutePictureFormat' => null,
+        'objectName' => null,
+        'embeddedFileBase64Data' => null,
+        'embeddedFileExtension' => null,
+        'objectProgId' => null,
+        'linkPath' => null,
+        'updateAutomatic' => null
     ];
 
     /**
@@ -99,7 +113,14 @@ class OleObjectFrame extends ShapeBase
      */
     protected static $attributeMap = [
         'isObjectIcon' => 'IsObjectIcon',
-        'substitutePictureTitle' => 'SubstitutePictureTitle'
+        'substitutePictureTitle' => 'SubstitutePictureTitle',
+        'substitutePictureFormat' => 'SubstitutePictureFormat',
+        'objectName' => 'ObjectName',
+        'embeddedFileBase64Data' => 'EmbeddedFileBase64Data',
+        'embeddedFileExtension' => 'EmbeddedFileExtension',
+        'objectProgId' => 'ObjectProgId',
+        'linkPath' => 'LinkPath',
+        'updateAutomatic' => 'UpdateAutomatic'
     ];
 
     /**
@@ -109,7 +130,14 @@ class OleObjectFrame extends ShapeBase
      */
     protected static $setters = [
         'isObjectIcon' => 'setIsObjectIcon',
-        'substitutePictureTitle' => 'setSubstitutePictureTitle'
+        'substitutePictureTitle' => 'setSubstitutePictureTitle',
+        'substitutePictureFormat' => 'setSubstitutePictureFormat',
+        'objectName' => 'setObjectName',
+        'embeddedFileBase64Data' => 'setEmbeddedFileBase64Data',
+        'embeddedFileExtension' => 'setEmbeddedFileExtension',
+        'objectProgId' => 'setObjectProgId',
+        'linkPath' => 'setLinkPath',
+        'updateAutomatic' => 'setUpdateAutomatic'
     ];
 
     /**
@@ -119,7 +147,14 @@ class OleObjectFrame extends ShapeBase
      */
     protected static $getters = [
         'isObjectIcon' => 'getIsObjectIcon',
-        'substitutePictureTitle' => 'getSubstitutePictureTitle'
+        'substitutePictureTitle' => 'getSubstitutePictureTitle',
+        'substitutePictureFormat' => 'getSubstitutePictureFormat',
+        'objectName' => 'getObjectName',
+        'embeddedFileBase64Data' => 'getEmbeddedFileBase64Data',
+        'embeddedFileExtension' => 'getEmbeddedFileExtension',
+        'objectProgId' => 'getObjectProgId',
+        'linkPath' => 'getLinkPath',
+        'updateAutomatic' => 'getUpdateAutomatic'
     ];
 
     /**
@@ -180,6 +215,13 @@ class OleObjectFrame extends ShapeBase
 
         $this->container['isObjectIcon'] = isset($data['isObjectIcon']) ? $data['isObjectIcon'] : null;
         $this->container['substitutePictureTitle'] = isset($data['substitutePictureTitle']) ? $data['substitutePictureTitle'] : null;
+        $this->container['substitutePictureFormat'] = isset($data['substitutePictureFormat']) ? $data['substitutePictureFormat'] : null;
+        $this->container['objectName'] = isset($data['objectName']) ? $data['objectName'] : null;
+        $this->container['embeddedFileBase64Data'] = isset($data['embeddedFileBase64Data']) ? $data['embeddedFileBase64Data'] : null;
+        $this->container['embeddedFileExtension'] = isset($data['embeddedFileExtension']) ? $data['embeddedFileExtension'] : null;
+        $this->container['objectProgId'] = isset($data['objectProgId']) ? $data['objectProgId'] : null;
+        $this->container['linkPath'] = isset($data['linkPath']) ? $data['linkPath'] : null;
+        $this->container['updateAutomatic'] = isset($data['updateAutomatic']) ? $data['updateAutomatic'] : null;
         $this->container['type'] = 'OleObjectFrame';
         
     }
@@ -262,6 +304,174 @@ class OleObjectFrame extends ShapeBase
     public function setSubstitutePictureTitle($substitutePictureTitle)
     {
         $this->container['substitutePictureTitle'] = $substitutePictureTitle;
+
+        return $this;
+    }
+
+    /**
+     * Gets substitutePictureFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\PictureFill
+     */
+    public function getSubstitutePictureFormat()
+    {
+        return $this->container['substitutePictureFormat'];
+    }
+
+    /**
+     * Sets substitutePictureFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $substitutePictureFormat OleObject image fill properties.
+     *
+     * @return $this
+     */
+    public function setSubstitutePictureFormat($substitutePictureFormat)
+    {
+        $this->container['substitutePictureFormat'] = $substitutePictureFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets objectName
+     *
+     * @return string
+     */
+    public function getObjectName()
+    {
+        return $this->container['objectName'];
+    }
+
+    /**
+     * Sets objectName
+     *
+     * @param string $objectName Returns or sets the name of an object.
+     *
+     * @return $this
+     */
+    public function setObjectName($objectName)
+    {
+        $this->container['objectName'] = $objectName;
+
+        return $this;
+    }
+
+    /**
+     * Gets embeddedFileBase64Data
+     *
+     * @return string
+     */
+    public function getEmbeddedFileBase64Data()
+    {
+        return $this->container['embeddedFileBase64Data'];
+    }
+
+    /**
+     * Sets embeddedFileBase64Data
+     *
+     * @param string $embeddedFileBase64Data File data of embedded OLE object.
+     *
+     * @return $this
+     */
+    public function setEmbeddedFileBase64Data($embeddedFileBase64Data)
+    {
+        $this->container['embeddedFileBase64Data'] = $embeddedFileBase64Data;
+
+        return $this;
+    }
+
+    /**
+     * Gets embeddedFileExtension
+     *
+     * @return string
+     */
+    public function getEmbeddedFileExtension()
+    {
+        return $this->container['embeddedFileExtension'];
+    }
+
+    /**
+     * Sets embeddedFileExtension
+     *
+     * @param string $embeddedFileExtension File extension for the current embedded OLE object
+     *
+     * @return $this
+     */
+    public function setEmbeddedFileExtension($embeddedFileExtension)
+    {
+        $this->container['embeddedFileExtension'] = $embeddedFileExtension;
+
+        return $this;
+    }
+
+    /**
+     * Gets objectProgId
+     *
+     * @return string
+     */
+    public function getObjectProgId()
+    {
+        return $this->container['objectProgId'];
+    }
+
+    /**
+     * Sets objectProgId
+     *
+     * @param string $objectProgId ProgID of an object.
+     *
+     * @return $this
+     */
+    public function setObjectProgId($objectProgId)
+    {
+        $this->container['objectProgId'] = $objectProgId;
+
+        return $this;
+    }
+
+    /**
+     * Gets linkPath
+     *
+     * @return string
+     */
+    public function getLinkPath()
+    {
+        return $this->container['linkPath'];
+    }
+
+    /**
+     * Sets linkPath
+     *
+     * @param string $linkPath Full path to a linked file.
+     *
+     * @return $this
+     */
+    public function setLinkPath($linkPath)
+    {
+        $this->container['linkPath'] = $linkPath;
+
+        return $this;
+    }
+
+    /**
+     * Gets updateAutomatic
+     *
+     * @return bool
+     */
+    public function getUpdateAutomatic()
+    {
+        return $this->container['updateAutomatic'];
+    }
+
+    /**
+     * Sets updateAutomatic
+     *
+     * @param bool $updateAutomatic Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
+     *
+     * @return $this
+     */
+    public function setUpdateAutomatic($updateAutomatic)
+    {
+        $this->container['updateAutomatic'] = $updateAutomatic;
 
         return $this;
     }

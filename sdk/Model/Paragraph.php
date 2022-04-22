@@ -76,7 +76,8 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => 'string',
         'latinLineBreak' => 'string',
         'rightToLeft' => 'string',
-        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\Portion[]'
+        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\Portion[]',
+        'defaultPortionFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PortionFormat'
     ];
 
     /**
@@ -104,7 +105,8 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => null,
         'latinLineBreak' => null,
         'rightToLeft' => null,
-        'portionList' => null
+        'portionList' => null,
+        'defaultPortionFormat' => null
     ];
 
     /**
@@ -153,7 +155,8 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => 'EastAsianLineBreak',
         'latinLineBreak' => 'LatinLineBreak',
         'rightToLeft' => 'RightToLeft',
-        'portionList' => 'PortionList'
+        'portionList' => 'PortionList',
+        'defaultPortionFormat' => 'DefaultPortionFormat'
     ];
 
     /**
@@ -181,7 +184,8 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => 'setEastAsianLineBreak',
         'latinLineBreak' => 'setLatinLineBreak',
         'rightToLeft' => 'setRightToLeft',
-        'portionList' => 'setPortionList'
+        'portionList' => 'setPortionList',
+        'defaultPortionFormat' => 'setDefaultPortionFormat'
     ];
 
     /**
@@ -209,7 +213,8 @@ class Paragraph extends ResourceBase
         'eastAsianLineBreak' => 'getEastAsianLineBreak',
         'latinLineBreak' => 'getLatinLineBreak',
         'rightToLeft' => 'getRightToLeft',
-        'portionList' => 'getPortionList'
+        'portionList' => 'getPortionList',
+        'defaultPortionFormat' => 'getDefaultPortionFormat'
     ];
 
     /**
@@ -520,6 +525,7 @@ class Paragraph extends ResourceBase
         $this->container['latinLineBreak'] = isset($data['latinLineBreak']) ? $data['latinLineBreak'] : null;
         $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['portionList'] = isset($data['portionList']) ? $data['portionList'] : null;
+        $this->container['defaultPortionFormat'] = isset($data['defaultPortionFormat']) ? $data['defaultPortionFormat'] : null;
         
     }
 
@@ -1307,6 +1313,30 @@ class Paragraph extends ResourceBase
     public function setPortionList($portionList)
     {
         $this->container['portionList'] = $portionList;
+
+        return $this;
+    }
+
+    /**
+     * Gets defaultPortionFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\PortionFormat
+     */
+    public function getDefaultPortionFormat()
+    {
+        return $this->container['defaultPortionFormat'];
+    }
+
+    /**
+     * Sets defaultPortionFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $defaultPortionFormat Default portion format.
+     *
+     * @return $this
+     */
+    public function setDefaultPortionFormat($defaultPortionFormat)
+    {
+        $this->container['defaultPortionFormat'] = $defaultPortionFormat;
 
         return $this;
     }

@@ -66,7 +66,6 @@ class ShapeBase extends ResourceBase
         'x' => 'double',
         'y' => 'double',
         'zOrderPosition' => 'int',
-        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
@@ -91,7 +90,6 @@ class ShapeBase extends ResourceBase
         'x' => 'double',
         'y' => 'double',
         'zOrderPosition' => 'int32',
-        'shapes' => null,
         'fillFormat' => null,
         'effectFormat' => null,
         'threeDFormat' => null,
@@ -137,7 +135,6 @@ class ShapeBase extends ResourceBase
         'x' => 'X',
         'y' => 'Y',
         'zOrderPosition' => 'ZOrderPosition',
-        'shapes' => 'Shapes',
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
         'threeDFormat' => 'ThreeDFormat',
@@ -162,7 +159,6 @@ class ShapeBase extends ResourceBase
         'x' => 'setX',
         'y' => 'setY',
         'zOrderPosition' => 'setZOrderPosition',
-        'shapes' => 'setShapes',
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
         'threeDFormat' => 'setThreeDFormat',
@@ -187,7 +183,6 @@ class ShapeBase extends ResourceBase
         'x' => 'getX',
         'y' => 'getY',
         'zOrderPosition' => 'getZOrderPosition',
-        'shapes' => 'getShapes',
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
         'threeDFormat' => 'getThreeDFormat',
@@ -305,7 +300,6 @@ class ShapeBase extends ResourceBase
         $this->container['x'] = isset($data['x']) ? $data['x'] : null;
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
         $this->container['zOrderPosition'] = isset($data['zOrderPosition']) ? $data['zOrderPosition'] : null;
-        $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
@@ -574,30 +568,6 @@ class ShapeBase extends ResourceBase
     public function setZOrderPosition($zOrderPosition)
     {
         $this->container['zOrderPosition'] = $zOrderPosition;
-
-        return $this;
-    }
-
-    /**
-     * Gets shapes
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
-     */
-    public function getShapes()
-    {
-        return $this->container['shapes'];
-    }
-
-    /**
-     * Sets shapes
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Gets or sets the link to shapes.
-     *
-     * @return $this
-     */
-    public function setShapes($shapes)
-    {
-        $this->container['shapes'] = $shapes;
 
         return $this;
     }

@@ -57,6 +57,8 @@ class VideoExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'slidesTransitionDuration' => 'int',
+        'transitionType' => 'string',
         'transitionDuration' => 'int',
         'videoResolutionType' => 'string'
     ];
@@ -67,6 +69,8 @@ class VideoExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'slidesTransitionDuration' => 'int32',
+        'transitionType' => null,
         'transitionDuration' => 'int32',
         'videoResolutionType' => null
     ];
@@ -98,6 +102,8 @@ class VideoExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
+        'slidesTransitionDuration' => 'SlidesTransitionDuration',
+        'transitionType' => 'TransitionType',
         'transitionDuration' => 'TransitionDuration',
         'videoResolutionType' => 'VideoResolutionType'
     ];
@@ -108,6 +114,8 @@ class VideoExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
+        'slidesTransitionDuration' => 'setSlidesTransitionDuration',
+        'transitionType' => 'setTransitionType',
         'transitionDuration' => 'setTransitionDuration',
         'videoResolutionType' => 'setVideoResolutionType'
     ];
@@ -118,6 +126,8 @@ class VideoExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
+        'slidesTransitionDuration' => 'getSlidesTransitionDuration',
+        'transitionType' => 'getTransitionType',
         'transitionDuration' => 'getTransitionDuration',
         'videoResolutionType' => 'getVideoResolutionType'
     ];
@@ -163,12 +173,83 @@ class VideoExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
+    const TRANSITION_TYPE_NONE = 'None';
+    const TRANSITION_TYPE_FADE = 'Fade';
+    const TRANSITION_TYPE_DISTANCE = 'Distance';
+    const TRANSITION_TYPE_SLIDEDOWN = 'Slidedown';
+    const TRANSITION_TYPE_SLIDERIGHT = 'Slideright';
+    const TRANSITION_TYPE_SLIDELEFT = 'Slideleft';
+    const TRANSITION_TYPE_SLIDEUP = 'Slideup';
+    const TRANSITION_TYPE_SMOOTHLEFT = 'Smoothleft';
+    const TRANSITION_TYPE_SMOOTHRIGHT = 'Smoothright';
+    const TRANSITION_TYPE_SMOOTHUP = 'Smoothup';
+    const TRANSITION_TYPE_SMOOTHDOWN = 'Smoothdown';
+    const TRANSITION_TYPE_RECTCROP = 'Rectcrop';
+    const TRANSITION_TYPE_CIRCLECROP = 'Circlecrop';
+    const TRANSITION_TYPE_CIRCLECLOSE = 'Circleclose';
+    const TRANSITION_TYPE_CIRCLEOPEN = 'Circleopen';
+    const TRANSITION_TYPE_HORZCLOSE = 'Horzclose';
+    const TRANSITION_TYPE_HORZOPEN = 'Horzopen';
+    const TRANSITION_TYPE_VERTCLOSE = 'Vertclose';
+    const TRANSITION_TYPE_VERTOPEN = 'Vertopen';
+    const TRANSITION_TYPE_DIAGBL = 'Diagbl';
+    const TRANSITION_TYPE_DIAGBR = 'Diagbr';
+    const TRANSITION_TYPE_DIAGTL = 'Diagtl';
+    const TRANSITION_TYPE_DIAGTR = 'Diagtr';
+    const TRANSITION_TYPE_HLSLICE = 'Hlslice';
+    const TRANSITION_TYPE_HRSLICE = 'Hrslice';
+    const TRANSITION_TYPE_VUSLICE = 'Vuslice';
+    const TRANSITION_TYPE_VDSLICE = 'Vdslice';
+    const TRANSITION_TYPE_DISSOLVE = 'Dissolve';
+    const TRANSITION_TYPE_PIXELIZE = 'Pixelize';
+    const TRANSITION_TYPE_RADIAL = 'Radial';
     const VIDEO_RESOLUTION_TYPE_FULL_HD = 'FullHD';
     const VIDEO_RESOLUTION_TYPE_SD = 'SD';
     const VIDEO_RESOLUTION_TYPE_HD = 'HD';
     const VIDEO_RESOLUTION_TYPE_QHD = 'QHD';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTransitionTypeAllowableValues()
+    {
+        return [
+            self::TRANSITION_TYPE_NONE,
+            self::TRANSITION_TYPE_FADE,
+            self::TRANSITION_TYPE_DISTANCE,
+            self::TRANSITION_TYPE_SLIDEDOWN,
+            self::TRANSITION_TYPE_SLIDERIGHT,
+            self::TRANSITION_TYPE_SLIDELEFT,
+            self::TRANSITION_TYPE_SLIDEUP,
+            self::TRANSITION_TYPE_SMOOTHLEFT,
+            self::TRANSITION_TYPE_SMOOTHRIGHT,
+            self::TRANSITION_TYPE_SMOOTHUP,
+            self::TRANSITION_TYPE_SMOOTHDOWN,
+            self::TRANSITION_TYPE_RECTCROP,
+            self::TRANSITION_TYPE_CIRCLECROP,
+            self::TRANSITION_TYPE_CIRCLECLOSE,
+            self::TRANSITION_TYPE_CIRCLEOPEN,
+            self::TRANSITION_TYPE_HORZCLOSE,
+            self::TRANSITION_TYPE_HORZOPEN,
+            self::TRANSITION_TYPE_VERTCLOSE,
+            self::TRANSITION_TYPE_VERTOPEN,
+            self::TRANSITION_TYPE_DIAGBL,
+            self::TRANSITION_TYPE_DIAGBR,
+            self::TRANSITION_TYPE_DIAGTL,
+            self::TRANSITION_TYPE_DIAGTR,
+            self::TRANSITION_TYPE_HLSLICE,
+            self::TRANSITION_TYPE_HRSLICE,
+            self::TRANSITION_TYPE_VUSLICE,
+            self::TRANSITION_TYPE_VDSLICE,
+            self::TRANSITION_TYPE_DISSOLVE,
+            self::TRANSITION_TYPE_PIXELIZE,
+            self::TRANSITION_TYPE_RADIAL,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -197,6 +278,8 @@ class VideoExportOptions extends ExportOptions
     {
         parent::__construct($data);
 
+        $this->container['slidesTransitionDuration'] = isset($data['slidesTransitionDuration']) ? $data['slidesTransitionDuration'] : null;
+        $this->container['transitionType'] = isset($data['transitionType']) ? $data['transitionType'] : null;
         $this->container['transitionDuration'] = isset($data['transitionDuration']) ? $data['transitionDuration'] : null;
         $this->container['videoResolutionType'] = isset($data['videoResolutionType']) ? $data['videoResolutionType'] : null;
         $this->container['format'] = 'mpeg4';
@@ -211,6 +294,14 @@ class VideoExportOptions extends ExportOptions
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getTransitionTypeAllowableValues();
+        if (!in_array($this->container['transitionType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'transitionType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getVideoResolutionTypeAllowableValues();
         if (!in_array($this->container['videoResolutionType'], $allowedValues)) {
@@ -235,6 +326,10 @@ class VideoExportOptions extends ExportOptions
             return false;
         }
 
+        $allowedValues = $this->getTransitionTypeAllowableValues();
+        if (!in_array($this->container['transitionType'], $allowedValues)) {
+            return false;
+        }
         $allowedValues = $this->getVideoResolutionTypeAllowableValues();
         if (!in_array($this->container['videoResolutionType'], $allowedValues)) {
             return false;
@@ -242,6 +337,77 @@ class VideoExportOptions extends ExportOptions
         return true;
     }
 
+
+    /**
+     * Gets slidesTransitionDuration
+     *
+     * @return int
+     */
+    public function getSlidesTransitionDuration()
+    {
+        return $this->container['slidesTransitionDuration'];
+    }
+
+    /**
+     * Sets slidesTransitionDuration
+     *
+     * @param int $slidesTransitionDuration Slides transition duration.
+     *
+     * @return $this
+     */
+    public function setSlidesTransitionDuration($slidesTransitionDuration)
+    {
+        $this->container['slidesTransitionDuration'] = $slidesTransitionDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets transitionType
+     *
+     * @return string
+     */
+    public function getTransitionType()
+    {
+        return $this->container['transitionType'];
+    }
+
+    /**
+     * Sets transitionType
+     *
+     * @param string $transitionType Video transition type
+     *
+     * @return $this
+     */
+    public function setTransitionType($transitionType)
+    {
+        $allowedValues = $this->getTransitionTypeAllowableValues();
+
+
+        if (is_numeric($transitionType)) {
+            if ($transitionType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'transitionType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $transitionType = $allowedValues[$transitionType];
+            }
+        } else {
+            if (!is_null($transitionType) && !in_array($transitionType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'transitionType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['transitionType'] = $transitionType;
+
+        return $this;
+    }
 
     /**
      * Gets transitionDuration
@@ -256,7 +422,7 @@ class VideoExportOptions extends ExportOptions
     /**
      * Sets transitionDuration
      *
-     * @param int $transitionDuration Transition duration.
+     * @param int $transitionDuration Duration of transition defined in TransitionType property.
      *
      * @return $this
      */

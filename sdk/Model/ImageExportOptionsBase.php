@@ -29,29 +29,27 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ExportOptions Class Doc Comment
+ * ImageExportOptionsBase Class Doc Comment
  *
  * @category Class
- * @description Represents export options for whole presentation.
+ * @description The class provides shared options for image formats.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ExportOptions implements ArrayAccess
+class ImageExportOptionsBase extends ExportOptions 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExportOptions';
+    protected static $swaggerModelName = 'ImageExportOptionsBase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +57,8 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'defaultRegularFont' => 'string',
-        'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
-        'format' => 'string'
+        'height' => 'int',
+        'width' => 'int'
     ];
 
     /**
@@ -70,9 +67,8 @@ class ExportOptions implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'defaultRegularFont' => null,
-        'fontFallbackRules' => null,
-        'format' => null
+        'height' => 'int32',
+        'width' => 'int32'
     ];
 
     /**
@@ -82,7 +78,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -92,7 +88,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -102,9 +98,8 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'defaultRegularFont' => 'DefaultRegularFont',
-        'fontFallbackRules' => 'FontFallbackRules',
-        'format' => 'Format'
+        'height' => 'Height',
+        'width' => 'Width'
     ];
 
     /**
@@ -113,9 +108,8 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'defaultRegularFont' => 'setDefaultRegularFont',
-        'fontFallbackRules' => 'setFontFallbackRules',
-        'format' => 'setFormat'
+        'height' => 'setHeight',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -124,9 +118,8 @@ class ExportOptions implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'defaultRegularFont' => 'getDefaultRegularFont',
-        'fontFallbackRules' => 'getFontFallbackRules',
-        'format' => 'getFormat'
+        'height' => 'getHeight',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -137,7 +130,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -147,7 +140,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -157,7 +150,7 @@ class ExportOptions implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -174,12 +167,6 @@ class ExportOptions implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -189,9 +176,10 @@ class ExportOptions implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
-        $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
+        parent::__construct($data);
+
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         
     }
 
@@ -202,7 +190,7 @@ class ExportOptions implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -215,79 +203,58 @@ class ExportOptions implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /**
-     * Gets defaultRegularFont
+     * Gets height
      *
-     * @return string
+     * @return int
      */
-    public function getDefaultRegularFont()
+    public function getHeight()
     {
-        return $this->container['defaultRegularFont'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets defaultRegularFont
+     * Sets height
      *
-     * @param string $defaultRegularFont Default regular font for rendering the presentation.
+     * @param int $height Gets or sets the height of slides in the output image format.
      *
      * @return $this
      */
-    public function setDefaultRegularFont($defaultRegularFont)
+    public function setHeight($height)
     {
-        $this->container['defaultRegularFont'] = $defaultRegularFont;
+        $this->container['height'] = $height;
 
         return $this;
     }
 
     /**
-     * Gets fontFallbackRules
+     * Gets width
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]
+     * @return int
      */
-    public function getFontFallbackRules()
+    public function getWidth()
     {
-        return $this->container['fontFallbackRules'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets fontFallbackRules
+     * Sets width
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[] $fontFallbackRules Gets of sets list of font fallback rules.
+     * @param int $width Gets or sets the height of slides in the output the output image format.
      *
      * @return $this
      */
-    public function setFontFallbackRules($fontFallbackRules)
+    public function setWidth($width)
     {
-        $this->container['fontFallbackRules'] = $fontFallbackRules;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string $format format
-     *
-     * @return $this
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
+        $this->container['width'] = $width;
 
         return $this;
     }

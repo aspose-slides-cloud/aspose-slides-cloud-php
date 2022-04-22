@@ -75,7 +75,7 @@ class PdfExportOptions extends ExportOptions
         'showCommentsByNoAuthor' => 'bool',
         'imageTransparentColor' => 'string',
         'applyImageTransparent' => 'bool',
-        'accessPermissions' => 'string'
+        'accessPermissions' => '\Aspose\Slides\Cloud\Sdk\Model\AccessPermissions'
     ];
 
     /**
@@ -260,15 +260,6 @@ class PdfExportOptions extends ExportOptions
     const COMMENTS_POSITION_NONE = 'None';
     const COMMENTS_POSITION_BOTTOM = 'Bottom';
     const COMMENTS_POSITION_RIGHT = 'Right';
-    const ACCESS_PERMISSIONS_NONE = 'None';
-    const ACCESS_PERMISSIONS_PRINT_DOCUMENT = 'PrintDocument';
-    const ACCESS_PERMISSIONS_MODIFY_CONTENT = 'ModifyContent';
-    const ACCESS_PERMISSIONS_COPY_TEXT_AND_GRAPHICS = 'CopyTextAndGraphics';
-    const ACCESS_PERMISSIONS_ADD_OR_MODIFY_FIELDS = 'AddOrModifyFields';
-    const ACCESS_PERMISSIONS_FILL_EXISTING_FIELDS = 'FillExistingFields';
-    const ACCESS_PERMISSIONS_EXTRACT_TEXT_AND_GRAPHICS = 'ExtractTextAndGraphics';
-    const ACCESS_PERMISSIONS_ASSEMBLE_DOCUMENT = 'AssembleDocument';
-    const ACCESS_PERMISSIONS_HIGH_QUALITY_PRINT = 'HighQualityPrint';
     
 
     
@@ -325,26 +316,6 @@ class PdfExportOptions extends ExportOptions
             self::COMMENTS_POSITION_NONE,
             self::COMMENTS_POSITION_BOTTOM,
             self::COMMENTS_POSITION_RIGHT,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAccessPermissionsAllowableValues()
-    {
-        return [
-            self::ACCESS_PERMISSIONS_NONE,
-            self::ACCESS_PERMISSIONS_PRINT_DOCUMENT,
-            self::ACCESS_PERMISSIONS_MODIFY_CONTENT,
-            self::ACCESS_PERMISSIONS_COPY_TEXT_AND_GRAPHICS,
-            self::ACCESS_PERMISSIONS_ADD_OR_MODIFY_FIELDS,
-            self::ACCESS_PERMISSIONS_FILL_EXISTING_FIELDS,
-            self::ACCESS_PERMISSIONS_EXTRACT_TEXT_AND_GRAPHICS,
-            self::ACCESS_PERMISSIONS_ASSEMBLE_DOCUMENT,
-            self::ACCESS_PERMISSIONS_HIGH_QUALITY_PRINT,
         ];
     }
     
@@ -424,14 +395,6 @@ class PdfExportOptions extends ExportOptions
             );
         }
 
-        $allowedValues = $this->getAccessPermissionsAllowableValues();
-        if (!in_array($this->container['accessPermissions'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'accessPermissions', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -461,10 +424,6 @@ class PdfExportOptions extends ExportOptions
         }
         $allowedValues = $this->getCommentsPositionAllowableValues();
         if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            return false;
-        }
-        $allowedValues = $this->getAccessPermissionsAllowableValues();
-        if (!in_array($this->container['accessPermissions'], $allowedValues)) {
             return false;
         }
         return true;
@@ -998,7 +957,7 @@ class PdfExportOptions extends ExportOptions
     /**
      * Gets accessPermissions
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\AccessPermissions
      */
     public function getAccessPermissions()
     {
@@ -1008,35 +967,12 @@ class PdfExportOptions extends ExportOptions
     /**
      * Sets accessPermissions
      *
-     * @param string $accessPermissions Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\AccessPermissions $accessPermissions Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.
      *
      * @return $this
      */
     public function setAccessPermissions($accessPermissions)
     {
-        $allowedValues = $this->getAccessPermissionsAllowableValues();
-
-
-        if (is_numeric($accessPermissions)) {
-            if ($accessPermissions >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'accessPermissions', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $accessPermissions = $allowedValues[$accessPermissions];
-            }
-        } else {
-            if (!is_null($accessPermissions) && !in_array($accessPermissions, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'accessPermissions', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
         $this->container['accessPermissions'] = $accessPermissions;
 
         return $this;

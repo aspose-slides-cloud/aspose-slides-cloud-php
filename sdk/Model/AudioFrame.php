@@ -68,7 +68,8 @@ class AudioFrame extends GeometryShape
         'volume' => 'string',
         'base64Data' => 'string',
         'playAcrossSlides' => 'bool',
-        'rewindAudio' => 'bool'
+        'rewindAudio' => 'bool',
+        'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
     ];
 
     /**
@@ -88,7 +89,8 @@ class AudioFrame extends GeometryShape
         'volume' => null,
         'base64Data' => null,
         'playAcrossSlides' => null,
-        'rewindAudio' => null
+        'rewindAudio' => null,
+        'pictureFillFormat' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class AudioFrame extends GeometryShape
         'volume' => 'Volume',
         'base64Data' => 'Base64Data',
         'playAcrossSlides' => 'PlayAcrossSlides',
-        'rewindAudio' => 'RewindAudio'
+        'rewindAudio' => 'RewindAudio',
+        'pictureFillFormat' => 'PictureFillFormat'
     ];
 
     /**
@@ -149,7 +152,8 @@ class AudioFrame extends GeometryShape
         'volume' => 'setVolume',
         'base64Data' => 'setBase64Data',
         'playAcrossSlides' => 'setPlayAcrossSlides',
-        'rewindAudio' => 'setRewindAudio'
+        'rewindAudio' => 'setRewindAudio',
+        'pictureFillFormat' => 'setPictureFillFormat'
     ];
 
     /**
@@ -169,7 +173,8 @@ class AudioFrame extends GeometryShape
         'volume' => 'getVolume',
         'base64Data' => 'getBase64Data',
         'playAcrossSlides' => 'getPlayAcrossSlides',
-        'rewindAudio' => 'getRewindAudio'
+        'rewindAudio' => 'getRewindAudio',
+        'pictureFillFormat' => 'getPictureFillFormat'
     ];
 
     /**
@@ -282,6 +287,7 @@ class AudioFrame extends GeometryShape
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['playAcrossSlides'] = isset($data['playAcrossSlides']) ? $data['playAcrossSlides'] : null;
         $this->container['rewindAudio'] = isset($data['rewindAudio']) ? $data['rewindAudio'] : null;
+        $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
         $this->container['type'] = 'AudioFrame';
         
     }
@@ -668,6 +674,30 @@ class AudioFrame extends GeometryShape
     public function setRewindAudio($rewindAudio)
     {
         $this->container['rewindAudio'] = $rewindAudio;
+
+        return $this;
+    }
+
+    /**
+     * Gets pictureFillFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\PictureFill
+     */
+    public function getPictureFillFormat()
+    {
+        return $this->container['pictureFillFormat'];
+    }
+
+    /**
+     * Sets pictureFillFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $pictureFillFormat Picture fill format.
+     *
+     * @return $this
+     */
+    public function setPictureFillFormat($pictureFillFormat)
+    {
+        $this->container['pictureFillFormat'] = $pictureFillFormat;
 
         return $this;
     }

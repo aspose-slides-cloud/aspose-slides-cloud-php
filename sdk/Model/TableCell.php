@@ -74,7 +74,9 @@ class TableCell implements ArrayAccess
         'borderLeft' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'borderBottom' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'borderDiagonalUp' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
-        'borderDiagonalDown' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'borderDiagonalDown' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'columnIndex' => 'int',
+        'rowIndex' => 'int'
     ];
 
     /**
@@ -98,7 +100,9 @@ class TableCell implements ArrayAccess
         'borderLeft' => null,
         'borderBottom' => null,
         'borderDiagonalUp' => null,
-        'borderDiagonalDown' => null
+        'borderDiagonalDown' => null,
+        'columnIndex' => 'int32',
+        'rowIndex' => 'int32'
     ];
 
     /**
@@ -143,7 +147,9 @@ class TableCell implements ArrayAccess
         'borderLeft' => 'BorderLeft',
         'borderBottom' => 'BorderBottom',
         'borderDiagonalUp' => 'BorderDiagonalUp',
-        'borderDiagonalDown' => 'BorderDiagonalDown'
+        'borderDiagonalDown' => 'BorderDiagonalDown',
+        'columnIndex' => 'ColumnIndex',
+        'rowIndex' => 'RowIndex'
     ];
 
     /**
@@ -167,7 +173,9 @@ class TableCell implements ArrayAccess
         'borderLeft' => 'setBorderLeft',
         'borderBottom' => 'setBorderBottom',
         'borderDiagonalUp' => 'setBorderDiagonalUp',
-        'borderDiagonalDown' => 'setBorderDiagonalDown'
+        'borderDiagonalDown' => 'setBorderDiagonalDown',
+        'columnIndex' => 'setColumnIndex',
+        'rowIndex' => 'setRowIndex'
     ];
 
     /**
@@ -191,7 +199,9 @@ class TableCell implements ArrayAccess
         'borderLeft' => 'getBorderLeft',
         'borderBottom' => 'getBorderBottom',
         'borderDiagonalUp' => 'getBorderDiagonalUp',
-        'borderDiagonalDown' => 'getBorderDiagonalDown'
+        'borderDiagonalDown' => 'getBorderDiagonalDown',
+        'columnIndex' => 'getColumnIndex',
+        'rowIndex' => 'getRowIndex'
     ];
 
     /**
@@ -320,6 +330,8 @@ class TableCell implements ArrayAccess
         $this->container['borderBottom'] = isset($data['borderBottom']) ? $data['borderBottom'] : null;
         $this->container['borderDiagonalUp'] = isset($data['borderDiagonalUp']) ? $data['borderDiagonalUp'] : null;
         $this->container['borderDiagonalDown'] = isset($data['borderDiagonalDown']) ? $data['borderDiagonalDown'] : null;
+        $this->container['columnIndex'] = isset($data['columnIndex']) ? $data['columnIndex'] : null;
+        $this->container['rowIndex'] = isset($data['rowIndex']) ? $data['rowIndex'] : null;
         
     }
 
@@ -798,6 +810,54 @@ class TableCell implements ArrayAccess
     public function setBorderDiagonalDown($borderDiagonalDown)
     {
         $this->container['borderDiagonalDown'] = $borderDiagonalDown;
+
+        return $this;
+    }
+
+    /**
+     * Gets columnIndex
+     *
+     * @return int
+     */
+    public function getColumnIndex()
+    {
+        return $this->container['columnIndex'];
+    }
+
+    /**
+     * Sets columnIndex
+     *
+     * @param int $columnIndex Cell column index
+     *
+     * @return $this
+     */
+    public function setColumnIndex($columnIndex)
+    {
+        $this->container['columnIndex'] = $columnIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets rowIndex
+     *
+     * @return int
+     */
+    public function getRowIndex()
+    {
+        return $this->container['rowIndex'];
+    }
+
+    /**
+     * Sets rowIndex
+     *
+     * @param int $rowIndex Cell row index
+     *
+     * @return $this
+     */
+    public function setRowIndex($rowIndex)
+    {
+        $this->container['rowIndex'] = $rowIndex;
 
         return $this;
     }

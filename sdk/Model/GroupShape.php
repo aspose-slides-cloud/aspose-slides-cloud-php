@@ -57,7 +57,7 @@ class GroupShape extends ShapeBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -66,7 +66,7 @@ class GroupShape extends ShapeBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'shapes' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class GroupShape extends ShapeBase
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'shapes' => 'Shapes'
     ];
 
     /**
@@ -105,7 +105,7 @@ class GroupShape extends ShapeBase
      * @var string[]
      */
     protected static $setters = [
-        
+        'shapes' => 'setShapes'
     ];
 
     /**
@@ -114,7 +114,7 @@ class GroupShape extends ShapeBase
      * @var string[]
      */
     protected static $getters = [
-        
+        'shapes' => 'getShapes'
     ];
 
     /**
@@ -173,6 +173,7 @@ class GroupShape extends ShapeBase
     {
         parent::__construct($data);
 
+        $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
         $this->container['type'] = 'GroupShape';
         
     }
@@ -204,6 +205,30 @@ class GroupShape extends ShapeBase
         return true;
     }
 
+
+    /**
+     * Gets shapes
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     */
+    public function getShapes()
+    {
+        return $this->container['shapes'];
+    }
+
+    /**
+     * Sets shapes
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Gets or sets the link to shapes.
+     *
+     * @return $this
+     */
+    public function setShapes($shapes)
+    {
+        $this->container['shapes'] = $shapes;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
