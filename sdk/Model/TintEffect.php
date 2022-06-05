@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * TintEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents a Tint effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class TintEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'TintEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'hue' => 'double',
+        'amount' => 'double'
     ];
 
     /**
@@ -67,8 +67,8 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'hue' => 'double',
+        'amount' => 'double'
     ];
 
     /**
@@ -98,8 +98,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'hue' => 'Hue',
+        'amount' => 'Amount'
     ];
 
     /**
@@ -108,8 +108,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'hue' => 'setHue',
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -118,8 +118,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'hue' => 'getHue',
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -178,8 +178,9 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['hue'] = isset($data['hue']) ? $data['hue'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['type'] = 'Tint';
         
     }
 
@@ -192,8 +193,11 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['hue'] === null) {
+            $invalidProperties[] = "'hue' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +214,10 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
+        if ($this->container['hue'] === null) {
+            return false;
+        }
+        if ($this->container['amount'] === null) {
             return false;
         }
         return true;
@@ -218,49 +225,49 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets hue
      *
      * @return double
      */
-    public function getValue()
+    public function getHue()
     {
-        return $this->container['value'];
+        return $this->container['hue'];
     }
 
     /**
-     * Sets value
+     * Sets hue
      *
-     * @param double $value Value.
+     * @param double $hue Hue
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setHue($hue)
     {
-        $this->container['value'] = $value;
+        $this->container['hue'] = $hue;
 
         return $this;
     }
 
     /**
-     * Gets setAsTotal
+     * Gets amount
      *
-     * @return bool
+     * @return double
      */
-    public function getSetAsTotal()
+    public function getAmount()
     {
-        return $this->container['setAsTotal'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets setAsTotal
+     * Sets amount
      *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
+     * @param double $amount Amount
      *
      * @return $this
      */
-    public function setSetAsTotal($setAsTotal)
+    public function setAmount($amount)
     {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

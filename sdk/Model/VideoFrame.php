@@ -63,7 +63,8 @@ class VideoFrame extends GeometryShape
         'playMode' => 'string',
         'rewindVideo' => 'bool',
         'volume' => 'string',
-        'base64Data' => 'string'
+        'base64Data' => 'string',
+        'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
     ];
 
     /**
@@ -78,7 +79,8 @@ class VideoFrame extends GeometryShape
         'playMode' => null,
         'rewindVideo' => null,
         'volume' => null,
-        'base64Data' => null
+        'base64Data' => null,
+        'pictureFillFormat' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class VideoFrame extends GeometryShape
         'playMode' => 'PlayMode',
         'rewindVideo' => 'RewindVideo',
         'volume' => 'Volume',
-        'base64Data' => 'Base64Data'
+        'base64Data' => 'Base64Data',
+        'pictureFillFormat' => 'PictureFillFormat'
     ];
 
     /**
@@ -129,7 +132,8 @@ class VideoFrame extends GeometryShape
         'playMode' => 'setPlayMode',
         'rewindVideo' => 'setRewindVideo',
         'volume' => 'setVolume',
-        'base64Data' => 'setBase64Data'
+        'base64Data' => 'setBase64Data',
+        'pictureFillFormat' => 'setPictureFillFormat'
     ];
 
     /**
@@ -144,7 +148,8 @@ class VideoFrame extends GeometryShape
         'playMode' => 'getPlayMode',
         'rewindVideo' => 'getRewindVideo',
         'volume' => 'getVolume',
-        'base64Data' => 'getBase64Data'
+        'base64Data' => 'getBase64Data',
+        'pictureFillFormat' => 'getPictureFillFormat'
     ];
 
     /**
@@ -252,6 +257,7 @@ class VideoFrame extends GeometryShape
         $this->container['rewindVideo'] = isset($data['rewindVideo']) ? $data['rewindVideo'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
+        $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
         $this->container['type'] = 'VideoFrame';
         
     }
@@ -518,6 +524,30 @@ class VideoFrame extends GeometryShape
     public function setBase64Data($base64Data)
     {
         $this->container['base64Data'] = $base64Data;
+
+        return $this;
+    }
+
+    /**
+     * Gets pictureFillFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\PictureFill
+     */
+    public function getPictureFillFormat()
+    {
+        return $this->container['pictureFillFormat'];
+    }
+
+    /**
+     * Sets pictureFillFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\PictureFill $pictureFillFormat Picture fill format.
+     *
+     * @return $this
+     */
+    public function setPictureFillFormat($pictureFillFormat)
+    {
+        $this->container['pictureFillFormat'] = $pictureFillFormat;
 
         return $this;
     }

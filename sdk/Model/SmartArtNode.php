@@ -63,7 +63,8 @@ class SmartArtNode implements ArrayAccess
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'isAssistant' => 'bool',
         'text' => 'string',
-        'orgChartLayout' => 'string'
+        'orgChartLayout' => 'string',
+        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -76,7 +77,8 @@ class SmartArtNode implements ArrayAccess
         'shapes' => null,
         'isAssistant' => null,
         'text' => null,
-        'orgChartLayout' => null
+        'orgChartLayout' => null,
+        'paragraphs' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class SmartArtNode implements ArrayAccess
         'shapes' => 'Shapes',
         'isAssistant' => 'IsAssistant',
         'text' => 'Text',
-        'orgChartLayout' => 'OrgChartLayout'
+        'orgChartLayout' => 'OrgChartLayout',
+        'paragraphs' => 'Paragraphs'
     ];
 
     /**
@@ -123,7 +126,8 @@ class SmartArtNode implements ArrayAccess
         'shapes' => 'setShapes',
         'isAssistant' => 'setIsAssistant',
         'text' => 'setText',
-        'orgChartLayout' => 'setOrgChartLayout'
+        'orgChartLayout' => 'setOrgChartLayout',
+        'paragraphs' => 'setParagraphs'
     ];
 
     /**
@@ -136,7 +140,8 @@ class SmartArtNode implements ArrayAccess
         'shapes' => 'getShapes',
         'isAssistant' => 'getIsAssistant',
         'text' => 'getText',
-        'orgChartLayout' => 'getOrgChartLayout'
+        'orgChartLayout' => 'getOrgChartLayout',
+        'paragraphs' => 'getParagraphs'
     ];
 
     /**
@@ -225,6 +230,7 @@ class SmartArtNode implements ArrayAccess
         $this->container['isAssistant'] = isset($data['isAssistant']) ? $data['isAssistant'] : null;
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['orgChartLayout'] = isset($data['orgChartLayout']) ? $data['orgChartLayout'] : null;
+        $this->container['paragraphs'] = isset($data['paragraphs']) ? $data['paragraphs'] : null;
         
     }
 
@@ -416,6 +422,30 @@ class SmartArtNode implements ArrayAccess
             }
         }
         $this->container['orgChartLayout'] = $orgChartLayout;
+
+        return $this;
+    }
+
+    /**
+     * Gets paragraphs
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     */
+    public function getParagraphs()
+    {
+        return $this->container['paragraphs'];
+    }
+
+    /**
+     * Sets paragraphs
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $paragraphs Get or sets list to paragraphs list
+     *
+     * @return $this
+     */
+    public function setParagraphs($paragraphs)
+    {
+        $this->container['paragraphs'] = $paragraphs;
 
         return $this;
     }

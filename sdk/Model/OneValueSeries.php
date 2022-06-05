@@ -58,7 +58,13 @@ class OneValueSeries extends Series
       */
     protected static $swaggerTypes = [
         'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]',
-        'numberFormatOfValues' => 'string'
+        'numberFormatOfValues' => 'string',
+        'showConnectorLines' => 'bool',
+        'quartileMethod' => 'string',
+        'showInnerPoints' => 'bool',
+        'showMeanLine' => 'bool',
+        'showMeanMarkers' => 'bool',
+        'showOutlierPoints' => 'bool'
     ];
 
     /**
@@ -68,7 +74,13 @@ class OneValueSeries extends Series
       */
     protected static $swaggerFormats = [
         'dataPoints' => null,
-        'numberFormatOfValues' => null
+        'numberFormatOfValues' => null,
+        'showConnectorLines' => null,
+        'quartileMethod' => null,
+        'showInnerPoints' => null,
+        'showMeanLine' => null,
+        'showMeanMarkers' => null,
+        'showOutlierPoints' => null
     ];
 
     /**
@@ -99,7 +111,13 @@ class OneValueSeries extends Series
      */
     protected static $attributeMap = [
         'dataPoints' => 'DataPoints',
-        'numberFormatOfValues' => 'NumberFormatOfValues'
+        'numberFormatOfValues' => 'NumberFormatOfValues',
+        'showConnectorLines' => 'ShowConnectorLines',
+        'quartileMethod' => 'QuartileMethod',
+        'showInnerPoints' => 'ShowInnerPoints',
+        'showMeanLine' => 'ShowMeanLine',
+        'showMeanMarkers' => 'ShowMeanMarkers',
+        'showOutlierPoints' => 'ShowOutlierPoints'
     ];
 
     /**
@@ -109,7 +127,13 @@ class OneValueSeries extends Series
      */
     protected static $setters = [
         'dataPoints' => 'setDataPoints',
-        'numberFormatOfValues' => 'setNumberFormatOfValues'
+        'numberFormatOfValues' => 'setNumberFormatOfValues',
+        'showConnectorLines' => 'setShowConnectorLines',
+        'quartileMethod' => 'setQuartileMethod',
+        'showInnerPoints' => 'setShowInnerPoints',
+        'showMeanLine' => 'setShowMeanLine',
+        'showMeanMarkers' => 'setShowMeanMarkers',
+        'showOutlierPoints' => 'setShowOutlierPoints'
     ];
 
     /**
@@ -119,7 +143,13 @@ class OneValueSeries extends Series
      */
     protected static $getters = [
         'dataPoints' => 'getDataPoints',
-        'numberFormatOfValues' => 'getNumberFormatOfValues'
+        'numberFormatOfValues' => 'getNumberFormatOfValues',
+        'showConnectorLines' => 'getShowConnectorLines',
+        'quartileMethod' => 'getQuartileMethod',
+        'showInnerPoints' => 'getShowInnerPoints',
+        'showMeanLine' => 'getShowMeanLine',
+        'showMeanMarkers' => 'getShowMeanMarkers',
+        'showOutlierPoints' => 'getShowOutlierPoints'
     ];
 
     /**
@@ -163,8 +193,23 @@ class OneValueSeries extends Series
         return self::$swaggerModelName;
     }
 
+    const QUARTILE_METHOD_EXCLUSIVE = 'Exclusive';
+    const QUARTILE_METHOD_INCLUSIVE = 'Inclusive';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getQuartileMethodAllowableValues()
+    {
+        return [
+            self::QUARTILE_METHOD_EXCLUSIVE,
+            self::QUARTILE_METHOD_INCLUSIVE,
+        ];
+    }
     
 
 
@@ -180,6 +225,12 @@ class OneValueSeries extends Series
 
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
         $this->container['numberFormatOfValues'] = isset($data['numberFormatOfValues']) ? $data['numberFormatOfValues'] : null;
+        $this->container['showConnectorLines'] = isset($data['showConnectorLines']) ? $data['showConnectorLines'] : null;
+        $this->container['quartileMethod'] = isset($data['quartileMethod']) ? $data['quartileMethod'] : null;
+        $this->container['showInnerPoints'] = isset($data['showInnerPoints']) ? $data['showInnerPoints'] : null;
+        $this->container['showMeanLine'] = isset($data['showMeanLine']) ? $data['showMeanLine'] : null;
+        $this->container['showMeanMarkers'] = isset($data['showMeanMarkers']) ? $data['showMeanMarkers'] : null;
+        $this->container['showOutlierPoints'] = isset($data['showOutlierPoints']) ? $data['showOutlierPoints'] : null;
         $this->container['dataPointType'] = 'OneValue';
         
     }
@@ -192,6 +243,14 @@ class OneValueSeries extends Series
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'quartileMethod', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -208,6 +267,10 @@ class OneValueSeries extends Series
             return false;
         }
 
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -256,6 +319,173 @@ class OneValueSeries extends Series
     public function setNumberFormatOfValues($numberFormatOfValues)
     {
         $this->container['numberFormatOfValues'] = $numberFormatOfValues;
+
+        return $this;
+    }
+
+    /**
+     * Gets showConnectorLines
+     *
+     * @return bool
+     */
+    public function getShowConnectorLines()
+    {
+        return $this->container['showConnectorLines'];
+    }
+
+    /**
+     * Sets showConnectorLines
+     *
+     * @param bool $showConnectorLines True if inner points are shown. Applied to Waterfall series only.
+     *
+     * @return $this
+     */
+    public function setShowConnectorLines($showConnectorLines)
+    {
+        $this->container['showConnectorLines'] = $showConnectorLines;
+
+        return $this;
+    }
+
+    /**
+     * Gets quartileMethod
+     *
+     * @return string
+     */
+    public function getQuartileMethod()
+    {
+        return $this->container['quartileMethod'];
+    }
+
+    /**
+     * Sets quartileMethod
+     *
+     * @param string $quartileMethod Quartile method. Applied to BoxAndWhisker series only.
+     *
+     * @return $this
+     */
+    public function setQuartileMethod($quartileMethod)
+    {
+        $allowedValues = $this->getQuartileMethodAllowableValues();
+
+
+        if (is_numeric($quartileMethod)) {
+            if ($quartileMethod >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $quartileMethod = $allowedValues[$quartileMethod];
+            }
+        } else {
+            if (!is_null($quartileMethod) && !in_array($quartileMethod, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['quartileMethod'] = $quartileMethod;
+
+        return $this;
+    }
+
+    /**
+     * Gets showInnerPoints
+     *
+     * @return bool
+     */
+    public function getShowInnerPoints()
+    {
+        return $this->container['showInnerPoints'];
+    }
+
+    /**
+     * Sets showInnerPoints
+     *
+     * @param bool $showInnerPoints True if inner points are shown. Applied to BoxAndWhisker series only.
+     *
+     * @return $this
+     */
+    public function setShowInnerPoints($showInnerPoints)
+    {
+        $this->container['showInnerPoints'] = $showInnerPoints;
+
+        return $this;
+    }
+
+    /**
+     * Gets showMeanLine
+     *
+     * @return bool
+     */
+    public function getShowMeanLine()
+    {
+        return $this->container['showMeanLine'];
+    }
+
+    /**
+     * Sets showMeanLine
+     *
+     * @param bool $showMeanLine True if mean line is shown. Applied to BoxAndWhisker series only.
+     *
+     * @return $this
+     */
+    public function setShowMeanLine($showMeanLine)
+    {
+        $this->container['showMeanLine'] = $showMeanLine;
+
+        return $this;
+    }
+
+    /**
+     * Gets showMeanMarkers
+     *
+     * @return bool
+     */
+    public function getShowMeanMarkers()
+    {
+        return $this->container['showMeanMarkers'];
+    }
+
+    /**
+     * Sets showMeanMarkers
+     *
+     * @param bool $showMeanMarkers True if mean markers are shown. Applied to BoxAndWhisker series only.
+     *
+     * @return $this
+     */
+    public function setShowMeanMarkers($showMeanMarkers)
+    {
+        $this->container['showMeanMarkers'] = $showMeanMarkers;
+
+        return $this;
+    }
+
+    /**
+     * Gets showOutlierPoints
+     *
+     * @return bool
+     */
+    public function getShowOutlierPoints()
+    {
+        return $this->container['showOutlierPoints'];
+    }
+
+    /**
+     * Sets showOutlierPoints
+     *
+     * @param bool $showOutlierPoints True if outlier points are shown. Applied to BoxAndWhisker series only.
+     *
+     * @return $this
+     */
+    public function setShowOutlierPoints($showOutlierPoints)
+    {
+        $this->container['showOutlierPoints'] = $showOutlierPoints;
 
         return $this;
     }

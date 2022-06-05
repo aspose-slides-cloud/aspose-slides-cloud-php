@@ -31,6 +31,7 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+use Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule;
 use Aspose\Slides\Cloud\Sdk\Model\PdfExportOptions;
 use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
@@ -173,6 +174,16 @@ class ConvertTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
+    public function testConvertSubshapePostFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result = $this->getApi()->downloadSubshape(self::fileName, self::slideIndex, "4/shapes", 1, self::shapeFormat, null, null, null, null, self::password, self::folderName);
+        Assert::assertTrue($result->isFile());
+        Assert::assertTrue($result->getSize() > 0);
+    }
+
     public function testConvertShapePutFromStorage()
     {
         $this->initialize(null, null, null);
@@ -183,6 +194,39 @@ class ConvertTest extends TestBase
         Assert::assertTrue($result->getExists());
     }
 
+    public function testConvertSubshapePutFromStorage()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $this->getApi()->saveSubshape(self::fileName, self::slideIndex, "4/shapes", 1, self::shapeFormat, self::outPath, null, null, null, null, self::password, self::folderName);
+        $result = $this->getApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testConvertWithFontFallBackRules()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $fontFallbackRule1 = new FontFallbackRule();
+        $fontFallbackRule1->setRangeStartIndex(self::startUnicodeIndex);
+        $fontFallbackRule1->setRangeEndIndex(self::endUnicodeIndex);
+        $fontFallbackRule1->setFallbackFontList(["Vijaya"]);
+
+        $fontFallbackRule2 = new FontFallbackRule();
+        $fontFallbackRule2->setRangeStartIndex(self::startUnicodeIndex);
+        $fontFallbackRule2->setRangeEndIndex(self::endUnicodeIndex);
+        $fontFallbackRule2->setFallbackFontList(["Segoe UI Emoji", "Segoe UI Symbol", "Arial"]);
+        
+        $exportOptions = new ImageExportOptions();
+        $exportOptions->setFontFallbackRules([$fontFallbackRule1, $fontFallbackRule2]);
+
+        $response = $this->getApi()->downloadPresentation(self::fileName, "png", $exportOptions, self::password, self::folderName);
+        Assert::assertTrue($response->isFile());
+        Assert::assertTrue($response->getSize() > 0);
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
@@ -191,4 +235,6 @@ class ConvertTest extends TestBase
     public const shapeFormat = 'png';
     public const slideIndex = 1;
     public const shapeIndex = 3;
+    public const startUnicodeIndex = 0x0B80;
+    public const endUnicodeIndex = 0x0BFF;
 }

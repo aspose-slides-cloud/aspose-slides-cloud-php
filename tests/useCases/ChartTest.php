@@ -34,10 +34,18 @@ use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
+use Aspose\Slides\Cloud\Sdk\Model\Axes;
+use Aspose\Slides\Cloud\Sdk\Model\Axis;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
+use Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat;
+use Aspose\Slides\Cloud\Sdk\Model\GradientFill;
+use Aspose\Slides\Cloud\Sdk\Model\GradientFillStop;
+use Aspose\Slides\Cloud\Sdk\Model\LineFormat;
+use Aspose\Slides\Cloud\Sdk\Model\NoFill;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ChartTest extends TestBase
@@ -306,6 +314,142 @@ class ChartTest extends TestBase
         Assert::assertEquals(1, count($result->getSeries()));
         Assert::assertEquals(4, count($result->getCategories()));
     }
+
+    public function testMultiLevelCategoryAxis()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new Chart();
+        $dto->setX(100);
+        $dto->setY(100);
+        $dto->setWidth(500);
+        $dto->setHeight(400);
+        $dto->setChartType('ClusteredColumn');
+
+        $dataPoint1 = new OneValueChartDataPoint();
+        $dataPoint1->setValue(1);
+        $dataPoint2 = new OneValueChartDataPoint();
+        $dataPoint2->setValue(2);
+        $dataPoint3 = new OneValueChartDataPoint();
+        $dataPoint3->setValue(3);
+        $dataPoint4 = new OneValueChartDataPoint();
+        $dataPoint4->setValue(4);
+        $dataPoint5 = new OneValueChartDataPoint();
+        $dataPoint5->setValue(5);
+        $dataPoint6 = new OneValueChartDataPoint();
+        $dataPoint6->setValue(6);
+        $dataPoint7 = new OneValueChartDataPoint();
+        $dataPoint7->setValue(7);
+        $dataPoint8 = new OneValueChartDataPoint();
+        $dataPoint8->setValue(8);
+
+        $series = new OneValueSeries();
+        $series->setDataPoints([$dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4, $dataPoint5, $dataPoint6, $dataPoint7, $dataPoint8]);
+        $dto->setSeries([ $series ]);
+
+        $category1 = new ChartCategory();
+        $category1->setValue("Category1");
+        $category1->setParentCategories(["Sub-category 1", "Root 1"]);
+
+        $category2 = new ChartCategory();
+        $category2->setValue("Category2");
+
+        $category3 = new ChartCategory();
+        $category3->setValue("Category3");
+        $category3->setParentCategories(["Sub-category 2"]);
+
+        $category4 = new ChartCategory();
+        $category4->setValue("Category4");
+
+        $category5 = new ChartCategory();
+        $category5->setValue("Category5");
+        $category5->setParentCategories(["Sub-category 3", "Root 2"]);
+       
+        $category6 = new ChartCategory();
+        $category6->setValue("Category6");
+
+        $category7 = new ChartCategory();
+        $category7->setValue("Category7");
+        $category7->setParentCategories(["Sub-category 4"]);
+
+        $category8 = new ChartCategory();
+        $category8->setValue("Category8");
+
+        $dto->setCategories([$category1, $category2, $category3, $category4, $category5, $category6, $category7, $category8]);
+
+        $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
+
+        Assert::assertEquals(1, count($result->getSeries()));
+        Assert::assertEquals(8, count($result->getCategories()));
+
+        Assert::assertEquals(2, count($result->getCategories()[0]->getParentCategories()));
+    }
+
+    public function testHideChartLegend()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $chart = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $chart->getLegend()->setHasLegend(false);
+        $chart = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
+    
+        Assert::isFalse($chart->getLegend()->getHasLegend());
+    }
+
+    public function testChartGridLineFormat()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $chart = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        
+        $axes = new Axes();
+
+        $horizontalAxis = new Axis();
+        $horizontalAxis->setMajorGridLinesFormat(new ChartLinesFormat);
+        $horizontalAxis->getMajorGridLinesFormat()->setLineFormat(new LineFormat());
+        $horizontalAxis->getMajorGridLinesFormat()->getLineFormat()->setFillFormat(new NoFill());
+        $horizontalAxis->setMinorGridLinesFormat(new ChartLinesFormat);
+        $horizontalAxis->getMinorGridLinesFormat()->setLineFormat(new LineFormat());
+        $solidFill = new SolidFill();
+        $solidFill->setColor("Black");
+        $horizontalAxis->getMinorGridLinesFormat()->getLineFormat()->setFillFormat($solidFill);
+        $axes->setHorizontalAxis($horizontalAxis);
+
+        $verticalAxis = new Axis();
+        $verticalAxis->setMajorGridLinesFormat(new ChartLinesFormat);
+        $verticalAxis->getMajorGridLinesFormat()->setLineFormat(new LineFormat());
+        
+        $gradientFill = new GradientFill();
+        $gradientFill->setDirection("FromCorner1");
+        $gradientFillStop1 = new GradientFillStop();
+        $gradientFillStop1->setColor('White');
+        $gradientFillStop1->setPosition(0);
+        $gradientFillStop2 = new GradientFillStop();
+        $gradientFillStop2->setColor('Black');
+        $gradientFillStop2->setPosition(1);
+        $gradientFill->setStops([$gradientFillStop1, $gradientFillStop2]);
+        $verticalAxis->getMajorGridLinesFormat()->getLineFormat()->setFillFormat($gradientFill);
+        
+        $verticalAxis->setMinorGridLinesFormat(new ChartLinesFormat);
+        $verticalAxis->getMinorGridLinesFormat()->setLineFormat(new LineFormat());
+        $verticalAxis->getMinorGridLinesFormat()->getLineFormat()->setFillFormat(new NoFill());
+        $axes->setVerticalAxis($verticalAxis);
+        
+        $chart->setAxes($axes);
+
+        $chart = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
+        
+        $fillType = $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLineFormat()->getFillFormat()->getType();
+        Assert::assertEquals($fillType, "NoFill");
+        $fillType = $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLineFormat()->getFillFormat()->getType();
+        Assert::assertEquals($fillType, "Solid");
+        $fillType = $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLineFormat()->getFillFormat()->getType();
+        Assert::assertEquals($fillType, "Gradient");
+        $fillType = $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLineFormat()->getFillFormat()->getType();
+        Assert::assertEquals($fillType, "NoFill");
+    }   
 
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";

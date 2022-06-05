@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * BoxAndWhiskerSeries Class Doc Comment
+ * FillOverlayImageEffect Class Doc Comment
  *
  * @category Class
- * @description One value series.
+ * @description Represents a Fill Overlay effect. A fill overlay may be used to specify an additional fill for an object and blend the two fills together.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BoxAndWhiskerSeries extends OneValueSeries 
+class FillOverlayImageEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BoxAndWhiskerSeries extends OneValueSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BoxAndWhiskerSeries';
+    protected static $swaggerModelName = 'FillOverlayImageEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class BoxAndWhiskerSeries extends OneValueSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'quartileMethod' => 'string',
-        'showInnerPoints' => 'bool',
-        'showMeanLine' => 'bool',
-        'showMeanMarkers' => 'bool',
-        'showOutlierPoints' => 'bool'
+        'blend' => 'string',
+        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat'
     ];
 
     /**
@@ -70,11 +67,8 @@ class BoxAndWhiskerSeries extends OneValueSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'quartileMethod' => null,
-        'showInnerPoints' => null,
-        'showMeanLine' => null,
-        'showMeanMarkers' => null,
-        'showOutlierPoints' => null
+        'blend' => null,
+        'fillFormat' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class BoxAndWhiskerSeries extends OneValueSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'quartileMethod' => 'QuartileMethod',
-        'showInnerPoints' => 'ShowInnerPoints',
-        'showMeanLine' => 'ShowMeanLine',
-        'showMeanMarkers' => 'ShowMeanMarkers',
-        'showOutlierPoints' => 'ShowOutlierPoints'
+        'blend' => 'Blend',
+        'fillFormat' => 'FillFormat'
     ];
 
     /**
@@ -117,11 +108,8 @@ class BoxAndWhiskerSeries extends OneValueSeries
      * @var string[]
      */
     protected static $setters = [
-        'quartileMethod' => 'setQuartileMethod',
-        'showInnerPoints' => 'setShowInnerPoints',
-        'showMeanLine' => 'setShowMeanLine',
-        'showMeanMarkers' => 'setShowMeanMarkers',
-        'showOutlierPoints' => 'setShowOutlierPoints'
+        'blend' => 'setBlend',
+        'fillFormat' => 'setFillFormat'
     ];
 
     /**
@@ -130,11 +118,8 @@ class BoxAndWhiskerSeries extends OneValueSeries
      * @var string[]
      */
     protected static $getters = [
-        'quartileMethod' => 'getQuartileMethod',
-        'showInnerPoints' => 'getShowInnerPoints',
-        'showMeanLine' => 'getShowMeanLine',
-        'showMeanMarkers' => 'getShowMeanMarkers',
-        'showOutlierPoints' => 'getShowOutlierPoints'
+        'blend' => 'getBlend',
+        'fillFormat' => 'getFillFormat'
     ];
 
     /**
@@ -178,8 +163,11 @@ class BoxAndWhiskerSeries extends OneValueSeries
         return self::$swaggerModelName;
     }
 
-    const QUARTILE_METHOD_EXCLUSIVE = 'Exclusive';
-    const QUARTILE_METHOD_INCLUSIVE = 'Inclusive';
+    const BLEND_DARKEN = 'Darken';
+    const BLEND_LIGHTEN = 'Lighten';
+    const BLEND_MULTIPLY = 'Multiply';
+    const BLEND_OVERLAY = 'Overlay';
+    const BLEND_SCREEN = 'Screen';
     
 
     
@@ -188,11 +176,14 @@ class BoxAndWhiskerSeries extends OneValueSeries
      *
      * @return string[]
      */
-    public function getQuartileMethodAllowableValues()
+    public function getBlendAllowableValues()
     {
         return [
-            self::QUARTILE_METHOD_EXCLUSIVE,
-            self::QUARTILE_METHOD_INCLUSIVE,
+            self::BLEND_DARKEN,
+            self::BLEND_LIGHTEN,
+            self::BLEND_MULTIPLY,
+            self::BLEND_OVERLAY,
+            self::BLEND_SCREEN,
         ];
     }
     
@@ -208,12 +199,9 @@ class BoxAndWhiskerSeries extends OneValueSeries
     {
         parent::__construct($data);
 
-        $this->container['quartileMethod'] = isset($data['quartileMethod']) ? $data['quartileMethod'] : null;
-        $this->container['showInnerPoints'] = isset($data['showInnerPoints']) ? $data['showInnerPoints'] : null;
-        $this->container['showMeanLine'] = isset($data['showMeanLine']) ? $data['showMeanLine'] : null;
-        $this->container['showMeanMarkers'] = isset($data['showMeanMarkers']) ? $data['showMeanMarkers'] : null;
-        $this->container['showOutlierPoints'] = isset($data['showOutlierPoints']) ? $data['showOutlierPoints'] : null;
-        $this->container['dataPointType'] = 'OneValue';
+        $this->container['blend'] = isset($data['blend']) ? $data['blend'] : null;
+        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
+        $this->container['type'] = 'FillOverlay';
         
     }
 
@@ -226,10 +214,13 @@ class BoxAndWhiskerSeries extends OneValueSeries
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        $allowedValues = $this->getQuartileMethodAllowableValues();
-        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+        if ($this->container['blend'] === null) {
+            $invalidProperties[] = "'blend' can't be null";
+        }
+        $allowedValues = $this->getBlendAllowableValues();
+        if (!in_array($this->container['blend'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'quartileMethod', must be one of '%s'",
+                "invalid value for 'blend', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -249,8 +240,11 @@ class BoxAndWhiskerSeries extends OneValueSeries
             return false;
         }
 
-        $allowedValues = $this->getQuartileMethodAllowableValues();
-        if (!in_array($this->container['quartileMethod'], $allowedValues)) {
+        if ($this->container['blend'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getBlendAllowableValues();
+        if (!in_array($this->container['blend'], $allowedValues)) {
             return false;
         }
         return true;
@@ -258,144 +252,72 @@ class BoxAndWhiskerSeries extends OneValueSeries
 
 
     /**
-     * Gets quartileMethod
+     * Gets blend
      *
      * @return string
      */
-    public function getQuartileMethod()
+    public function getBlend()
     {
-        return $this->container['quartileMethod'];
+        return $this->container['blend'];
     }
 
     /**
-     * Sets quartileMethod
+     * Sets blend
      *
-     * @param string $quartileMethod Quartile method.
+     * @param string $blend FillBlendMode.
      *
      * @return $this
      */
-    public function setQuartileMethod($quartileMethod)
+    public function setBlend($blend)
     {
-        $allowedValues = $this->getQuartileMethodAllowableValues();
+        $allowedValues = $this->getBlendAllowableValues();
 
 
-        if (is_numeric($quartileMethod)) {
-            if ($quartileMethod >= sizeof($allowedValues)) {
+        if (is_numeric($blend)) {
+            if ($blend >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        "Invalid value for 'blend', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $quartileMethod = $allowedValues[$quartileMethod];
+                $blend = $allowedValues[$blend];
             }
         } else {
-            if (!is_null($quartileMethod) && !in_array($quartileMethod, $allowedValues)) {
+            if (!in_array($blend, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'quartileMethod', must be one of '%s'",
+                        "Invalid value for 'blend', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['quartileMethod'] = $quartileMethod;
+        $this->container['blend'] = $blend;
 
         return $this;
     }
 
     /**
-     * Gets showInnerPoints
+     * Gets fillFormat
      *
-     * @return bool
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
      */
-    public function getShowInnerPoints()
+    public function getFillFormat()
     {
-        return $this->container['showInnerPoints'];
+        return $this->container['fillFormat'];
     }
 
     /**
-     * Sets showInnerPoints
+     * Sets fillFormat
      *
-     * @param bool $showInnerPoints True if inner points are shown.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Fill format.
      *
      * @return $this
      */
-    public function setShowInnerPoints($showInnerPoints)
+    public function setFillFormat($fillFormat)
     {
-        $this->container['showInnerPoints'] = $showInnerPoints;
-
-        return $this;
-    }
-
-    /**
-     * Gets showMeanLine
-     *
-     * @return bool
-     */
-    public function getShowMeanLine()
-    {
-        return $this->container['showMeanLine'];
-    }
-
-    /**
-     * Sets showMeanLine
-     *
-     * @param bool $showMeanLine True if mean line is shown.
-     *
-     * @return $this
-     */
-    public function setShowMeanLine($showMeanLine)
-    {
-        $this->container['showMeanLine'] = $showMeanLine;
-
-        return $this;
-    }
-
-    /**
-     * Gets showMeanMarkers
-     *
-     * @return bool
-     */
-    public function getShowMeanMarkers()
-    {
-        return $this->container['showMeanMarkers'];
-    }
-
-    /**
-     * Sets showMeanMarkers
-     *
-     * @param bool $showMeanMarkers True if mean markers are shown.
-     *
-     * @return $this
-     */
-    public function setShowMeanMarkers($showMeanMarkers)
-    {
-        $this->container['showMeanMarkers'] = $showMeanMarkers;
-
-        return $this;
-    }
-
-    /**
-     * Gets showOutlierPoints
-     *
-     * @return bool
-     */
-    public function getShowOutlierPoints()
-    {
-        return $this->container['showOutlierPoints'];
-    }
-
-    /**
-     * Sets showOutlierPoints
-     *
-     * @param bool $showOutlierPoints True if outlier points are shown.
-     *
-     * @return $this
-     */
-    public function setShowOutlierPoints($showOutlierPoints)
-    {
-        $this->container['showOutlierPoints'] = $showOutlierPoints;
+        $this->container['fillFormat'] = $fillFormat;
 
         return $this;
     }

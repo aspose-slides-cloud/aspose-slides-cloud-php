@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * WaterfallSeries Class Doc Comment
+ * AlphaBiLevelEffect Class Doc Comment
  *
  * @category Class
- * @description One value series.
+ * @description Represents an Alpha Bi-Level effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WaterfallSeries extends OneValueSeries 
+class AlphaBiLevelEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WaterfallSeries extends OneValueSeries
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WaterfallSeries';
+    protected static $swaggerModelName = 'AlphaBiLevelEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class WaterfallSeries extends OneValueSeries
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'showConnectorLines' => 'bool'
+        'threshold' => 'double'
     ];
 
     /**
@@ -66,7 +66,7 @@ class WaterfallSeries extends OneValueSeries
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'showConnectorLines' => null
+        'threshold' => 'double'
     ];
 
     /**
@@ -96,7 +96,7 @@ class WaterfallSeries extends OneValueSeries
      * @var string[]
      */
     protected static $attributeMap = [
-        'showConnectorLines' => 'ShowConnectorLines'
+        'threshold' => 'Threshold'
     ];
 
     /**
@@ -105,7 +105,7 @@ class WaterfallSeries extends OneValueSeries
      * @var string[]
      */
     protected static $setters = [
-        'showConnectorLines' => 'setShowConnectorLines'
+        'threshold' => 'setThreshold'
     ];
 
     /**
@@ -114,7 +114,7 @@ class WaterfallSeries extends OneValueSeries
      * @var string[]
      */
     protected static $getters = [
-        'showConnectorLines' => 'getShowConnectorLines'
+        'threshold' => 'getThreshold'
     ];
 
     /**
@@ -173,8 +173,8 @@ class WaterfallSeries extends OneValueSeries
     {
         parent::__construct($data);
 
-        $this->container['showConnectorLines'] = isset($data['showConnectorLines']) ? $data['showConnectorLines'] : null;
-        $this->container['dataPointType'] = 'OneValue';
+        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['type'] = 'AlphaBiLevel';
         
     }
 
@@ -187,6 +187,9 @@ class WaterfallSeries extends OneValueSeries
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['threshold'] === null) {
+            $invalidProperties[] = "'threshold' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -202,30 +205,33 @@ class WaterfallSeries extends OneValueSeries
             return false;
         }
 
+        if ($this->container['threshold'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets showConnectorLines
+     * Gets threshold
      *
-     * @return bool
+     * @return double
      */
-    public function getShowConnectorLines()
+    public function getThreshold()
     {
-        return $this->container['showConnectorLines'];
+        return $this->container['threshold'];
     }
 
     /**
-     * Sets showConnectorLines
+     * Sets threshold
      *
-     * @param bool $showConnectorLines True if inner points are shown.
+     * @param double $threshold Returns effect threshold.
      *
      * @return $this
      */
-    public function setShowConnectorLines($showConnectorLines)
+    public function setThreshold($threshold)
     {
-        $this->container['showConnectorLines'] = $showConnectorLines;
+        $this->container['threshold'] = $threshold;
 
         return $this;
     }

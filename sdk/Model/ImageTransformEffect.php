@@ -29,27 +29,29 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * ImageTransformEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Image transform effect
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class ImageTransformEffect implements ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'Type';
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'ImageTransformEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +59,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'type' => 'string'
     ];
 
     /**
@@ -67,8 +68,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'type' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -88,7 +88,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -98,8 +98,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'type' => 'Type'
     ];
 
     /**
@@ -108,8 +107,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'type' => 'setType'
     ];
 
     /**
@@ -118,8 +116,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'type' => 'getType'
     ];
 
     /**
@@ -130,7 +127,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -140,7 +137,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -150,7 +147,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -163,10 +160,61 @@ class OneValueChartDataPoint extends DataPoint
         return self::$swaggerModelName;
     }
 
+    const TYPE_ALPHA_BI_LEVEL = 'AlphaBiLevel';
+    const TYPE_ALPHA_CEILING = 'AlphaCeiling';
+    const TYPE_ALPHA_FLOOR = 'AlphaFloor';
+    const TYPE_ALPHA_INVERSE = 'AlphaInverse';
+    const TYPE_ALPHA_MODULATE = 'AlphaModulate';
+    const TYPE_ALPHA_MODULATE_FIXED = 'AlphaModulateFixed';
+    const TYPE_ALPHA_REPLACE = 'AlphaReplace';
+    const TYPE_BI_LEVEL = 'BiLevel';
+    const TYPE_BLUR = 'Blur';
+    const TYPE_COLOR_CHANGE = 'ColorChange';
+    const TYPE_COLOR_REPLACE = 'ColorReplace';
+    const TYPE_DUOTONE = 'Duotone';
+    const TYPE_FILL_OVERLAY = 'FillOverlay';
+    const TYPE_GRAY_SCALE = 'GrayScale';
+    const TYPE_HSL = 'Hsl';
+    const TYPE_LUMINANCE = 'Luminance';
+    const TYPE_TINT = 'Tint';
     
 
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ALPHA_BI_LEVEL,
+            self::TYPE_ALPHA_CEILING,
+            self::TYPE_ALPHA_FLOOR,
+            self::TYPE_ALPHA_INVERSE,
+            self::TYPE_ALPHA_MODULATE,
+            self::TYPE_ALPHA_MODULATE_FIXED,
+            self::TYPE_ALPHA_REPLACE,
+            self::TYPE_BI_LEVEL,
+            self::TYPE_BLUR,
+            self::TYPE_COLOR_CHANGE,
+            self::TYPE_COLOR_REPLACE,
+            self::TYPE_DUOTONE,
+            self::TYPE_FILL_OVERLAY,
+            self::TYPE_GRAY_SCALE,
+            self::TYPE_HSL,
+            self::TYPE_LUMINANCE,
+            self::TYPE_TINT,
+        ];
+    }
+    
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -176,10 +224,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
 
@@ -190,11 +235,16 @@ class OneValueChartDataPoint extends DataPoint
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -206,11 +256,9 @@ class OneValueChartDataPoint extends DataPoint
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
-        if ($this->container['value'] === null) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -218,49 +266,48 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets type
      *
-     * @return double
+     * @return string
      */
-    public function getValue()
+    public function getType()
     {
-        return $this->container['value'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets value
+     * Sets type
      *
-     * @param double $value Value.
+     * @param string $type type
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setType($type)
     {
-        $this->container['value'] = $value;
+        $allowedValues = $this->getTypeAllowableValues();
 
-        return $this;
-    }
 
-    /**
-     * Gets setAsTotal
-     *
-     * @return bool
-     */
-    public function getSetAsTotal()
-    {
-        return $this->container['setAsTotal'];
-    }
-
-    /**
-     * Sets setAsTotal
-     *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
-     *
-     * @return $this
-     */
-    public function setSetAsTotal($setAsTotal)
-    {
-        $this->container['setAsTotal'] = $setAsTotal;
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

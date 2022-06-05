@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * WaterfallChartDataPoint Class Doc Comment
+ * LuminanceEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents a Luminance effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WaterfallChartDataPoint extends OneValueChartDataPoint 
+class LuminanceEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WaterfallChartDataPoint';
+    protected static $swaggerModelName = 'LuminanceEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'setAsTotal' => 'bool'
+        'brightness' => 'double',
+        'contrast' => 'double'
     ];
 
     /**
@@ -66,7 +67,8 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'setAsTotal' => null
+        'brightness' => 'double',
+        'contrast' => 'double'
     ];
 
     /**
@@ -96,7 +98,8 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'setAsTotal' => 'SetAsTotal'
+        'brightness' => 'Brightness',
+        'contrast' => 'Contrast'
     ];
 
     /**
@@ -105,7 +108,8 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
      * @var string[]
      */
     protected static $setters = [
-        'setAsTotal' => 'setSetAsTotal'
+        'brightness' => 'setBrightness',
+        'contrast' => 'setContrast'
     ];
 
     /**
@@ -114,7 +118,8 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
      * @var string[]
      */
     protected static $getters = [
-        'setAsTotal' => 'getSetAsTotal'
+        'brightness' => 'getBrightness',
+        'contrast' => 'getContrast'
     ];
 
     /**
@@ -173,7 +178,9 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
     {
         parent::__construct($data);
 
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['brightness'] = isset($data['brightness']) ? $data['brightness'] : null;
+        $this->container['contrast'] = isset($data['contrast']) ? $data['contrast'] : null;
+        $this->container['type'] = 'Luminance';
         
     }
 
@@ -186,6 +193,12 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['brightness'] === null) {
+            $invalidProperties[] = "'brightness' can't be null";
+        }
+        if ($this->container['contrast'] === null) {
+            $invalidProperties[] = "'contrast' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -201,30 +214,60 @@ class WaterfallChartDataPoint extends OneValueChartDataPoint
             return false;
         }
 
+        if ($this->container['brightness'] === null) {
+            return false;
+        }
+        if ($this->container['contrast'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets setAsTotal
+     * Gets brightness
      *
-     * @return bool
+     * @return double
      */
-    public function getSetAsTotal()
+    public function getBrightness()
     {
-        return $this->container['setAsTotal'];
+        return $this->container['brightness'];
     }
 
     /**
-     * Sets setAsTotal
+     * Sets brightness
      *
-     * @param bool $setAsTotal Value.
+     * @param double $brightness Brightness
      *
      * @return $this
      */
-    public function setSetAsTotal($setAsTotal)
+    public function setBrightness($brightness)
     {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['brightness'] = $brightness;
+
+        return $this;
+    }
+
+    /**
+     * Gets contrast
+     *
+     * @return double
+     */
+    public function getContrast()
+    {
+        return $this->container['contrast'];
+    }
+
+    /**
+     * Sets contrast
+     *
+     * @param double $contrast Contrast
+     *
+     * @return $this
+     */
+    public function setContrast($contrast)
+    {
+        $this->container['contrast'] = $contrast;
 
         return $this;
     }

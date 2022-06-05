@@ -52,10 +52,98 @@ use Aspose\Slides\Cloud\Sdk\Model\GeometryPath;
 use Aspose\Slides\Cloud\Sdk\Model\MoveToPathSegment;
 use Aspose\Slides\Cloud\Sdk\Model\LineToPathSegment;
 use Aspose\Slides\Cloud\Sdk\Model\ClosePathSegment;
+use Aspose\Slides\Cloud\Sdk\Model\FillFormat;
+use Aspose\Slides\Cloud\Sdk\Model\GradientFill;
+use Aspose\Slides\Cloud\Sdk\Model\GradientFillStop;
+use Aspose\Slides\Cloud\Sdk\Model\Portion;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
+use Aspose\Slides\Cloud\Sdk\Model\ZoomFrame;
+use Aspose\Slides\Cloud\Sdk\Model\SectionZoomFrame;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ShapeTest extends TestBase
 {
+    public function testGetShapes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->getShapes(
+          self::fileName,
+          self::slideIndex,
+          self::password,
+          self::folderName
+        );
+
+        Assert::assertEquals(2, count($shapes->getShapesLinks()));
+    }
+
+    public function testGetShapesByType()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->getShapes(
+          self::fileName,
+          self::slideIndex,
+          self::password,
+          self::folderName,
+          null,
+          'Chart'
+        );
+
+        Assert::assertEquals(2, count($shapes->getShapesLinks()));
+    }
+
+    public function testGetSubshapes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->getSubshapes(
+          self::fileName,
+          1,
+          "4/shapes",
+          self::password,
+          self::folderName
+        );
+
+        Assert::assertEquals(2, count($shapes->getShapesLinks()));
+    }
+
+    public function testGetShape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shape = $this->getApi()->getShape(
+          self::fileName,
+          self::slideIndex,
+          1,
+          self::password,
+          self::folderName
+        );
+        
+        Assert::assertEquals('Chart', $shape->getType());
+    }
+
+    public function testGetSubshape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shape = $this->getApi()->getSubshape(
+          self::fileName,
+          1,
+          "4/shapes",
+          1,
+          self::password,
+          self::folderName
+        );
+        
+        Assert::assertEquals('Shape', $shape->getType());
+    }
+
     public function testShapeAdd()
     {
         $this->initialize(null, null, null);
@@ -214,6 +302,32 @@ class ShapeTest extends TestBase
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\SmartArt"));
     }
 
+    public function testSmartArtTextFormatting()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $portion = new Portion();
+        $portion->setText("New text");
+        $portion->setFontHeight(24);
+        $portion->setFontBold("True");
+        $portion->setSpacing(3);
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor("#FFFFFF00");
+        $portion->setFillFormat($fillFormat);
+
+        $targetNodePath = "1/nodes/1/nodes";
+        $slideIndex = 7;
+        $response = $this->getApi()->updateSubshapePortion(self::fileName, $slideIndex, $targetNodePath,
+            2, 1, 1, $portion, self::password, self::folderName);
+        Assert::assertNotNull($response);
+        Assert::assertEquals($response->getText(), $portion->getText());
+        Assert::assertEquals($response->getFontBold(), $portion->getFontBold());
+        Assert::assertEquals($response->getSpacing(), $portion->getSpacing());
+        Assert::assertEquals($response->getSpacing(), $portion->getSpacing());
+        Assert::assertEquals('Solid', $response->getFillFormat()->getType());
+    }
+
     public function testSmartArtEmpty()
     {
         $this->initialize(null, null, null);
@@ -358,6 +472,195 @@ class ShapeTest extends TestBase
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Connector"));
     }
 
+    public function testCreateSubshape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Shape();
+        $dto->setShapeType('Rectangle');
+        $dto->setX(200);
+        $dto->setX(200);
+        $dto->setWidth(50);
+        $dto->setHeight(50);
+
+        $response = $this->getApi()->createSubshape(
+            self::fileName,
+            1,
+            self::shapePath,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        assert::assertEquals('Shape', $response->getType());
+    }
+
+    public function testUpdateShape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Shape();
+        $dto->setWidth(200);
+        $dto->setHeight(200);
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor(self::color);
+
+        $response = $this->getApi()->updateShape(
+            self::fileName,
+            1,
+            3,
+            $dto,
+            self::password,
+            self::folderName
+        );
+
+        assert::assertEquals('Shape', $response->getType());
+        assert::assertEquals($dto->getWidth(), $response->getWidth());
+        assert::assertEquals($dto->getHeight(), $response->getHeight());
+        assert::assertEquals('Solid', $response->getFillFormat()->getType());
+    }
+
+    public function testUpdateSubshape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Shape();
+        $dto->setWidth(200);
+        $dto->setHeight(200);
+        $fillFormat = new GradientFill();
+        $fillFormat->setShape('Linear');
+        $fillFormat->setDirection('FromCorner1');
+        $stop1 = new GradientFillStop();
+        $stop1->setColor(self::color);
+        $stop1->setPosition(0);
+        $stop2 = new GradientFillStop();
+        $stop2->setColor(self::color);
+        $stop2->setPosition(1);
+        $fillFormat->setStops([$stop1, $stop2]);
+        $dto->setFillFormat($fillFormat);
+
+        $response = $this->getApi()->updateSubshape(
+            self::fileName,
+            1,
+            self::shapePath,
+            1,
+            $dto,
+            self::password,
+            self::folderName
+        );
+
+        echo $response->getFillFormat()->getType();
+        assert::assertEquals('Shape', $response->getType());
+        assert::assertEquals($dto->getWidth(), $response->getWidth());
+        assert::assertEquals($dto->getHeight(), $response->getHeight());
+        assert::assertEquals('Gradient', $response->getFillFormat()->getType());
+   
+    }
+
+    public function testDeleteShapes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->deleteShapes(
+            self::fileName,
+            self::slideIndex,
+            null,
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(0, count($shapes->getShapesLinks()));
+    }
+
+    public function testDeleteShapesIndexes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->deleteShapes(
+            self::fileName,
+            self::slideIndex,
+            [2],
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(1, count($shapes->getShapesLinks()));
+    }
+
+    public function testDeleteSubshapes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->deleteSubshapes(
+            self::fileName,
+            1,
+            self::shapePath,
+            null,
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(0, count($shapes->getShapesLinks()));
+    }
+
+    public function testDeleteSubshapesIndexes()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->deleteSubshapes(
+            self::fileName,
+            1,
+            self::shapePath,
+            [2],
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(1, count($shapes->getShapesLinks()));
+    }
+
+    public function testDeleteShape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes = $this->getApi()->deleteShape(
+            self::fileName,
+            1,
+            4,
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(3, count($shapes->getShapesLinks()));
+    }
+
+    public function testDeleteSubshape()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $response = $this->getApi()->deleteSubshape(
+            self::fileName,
+            1,
+            self::shapePath,
+            1,
+            self::password,
+            self::folderName
+        );
+        
+        Assert::assertEquals(1, count($response->getShapesLinks()));
+    }
+
     public function testShapesAlign()
     {
         $this->initialize(null, null, null);
@@ -446,8 +749,214 @@ class ShapeTest extends TestBase
         Assert::assertTrue($shape != null);
     }
 
+    public function testZoomFrameAdd()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new ZoomFrame();
+        $dto->setX(20);
+        $dto->setY(20);
+        $dto->setWidth(200);
+        $dto->setHeight(100);
+        $dto->setTargetSlideIndex(2);
+
+        $shape = $this->getApi()->createShape(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('ZoomFrame', $shape->getType());
+        Assert::assertEquals(2, $shape->getTargetSlideIndex());
+    }
+
+    public function testSectionZoomFrameAdd()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new SectionZoomFrame();
+        $dto->setX(20);
+        $dto->setY(20);
+        $dto->setWidth(200);
+        $dto->setHeight(100);
+        $dto->setTargetSectionIndex(2);
+
+        $shape = $this->getApi()->createShape(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('SectionZoomFrame', $shape->getType());
+        Assert::assertEquals(2, $shape->getTargetSectionIndex());
+    }
+
+    public function testOleObjectFrameAddByLink()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new OleObjectFrame();
+        $dto->setX(20);
+        $dto->setY(20);
+        $dto->setWidth(200);
+        $dto->setHeight(200);
+        $dto->setLinkPath(self::oleObjectFileName);
+        $dto->setObjectProgId("Excel.Sheet.8");
+
+        $shape = $this->getApi()->createShape(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('OleObjectFrame', $shape->getType());
+        Assert::assertEquals($dto->getLinkPath(), $shape->getLinkPath());
+    }
+
+    public function testOleObjectFrameEmbedded()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new OleObjectFrame();
+        $dto->setX(20);
+        $dto->setY(20);
+        $dto->setWidth(200);
+        $dto->setHeight(200);
+        $dto->setEmbeddedFileBase64Data(base64_encode(file_get_contents("TestData/oleObject.xlsx")));
+        $dto->setEmbeddedFileExtension('xlsx');
+
+        $shape = $this->getApi()->createShape(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('OleObjectFrame', $shape->getType());
+        Assert::assertEquals($dto->getEmbeddedFileBase64Data(), $shape->getEmbeddedFileBase64Data());
+    }
+
+    public function testGroupShapeAdd()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $shapes=$this->getApi()->getShapes(
+            self::fileName,
+            5,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals(0, count($shapes->getShapesLinks()));
+
+        $dto = new GroupShape();
+        $this->getApi()->createShape(
+            self::fileName,
+            5,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        $shape1 = new Shape();
+        $shape1->setShapeType('Rectangle');
+        $shape1->setX(50);
+        $shape1->setY(400);
+        $shape1->setWidth(50);
+        $shape1->setHeight(50);
+
+        $this->getApi()->createSubshape(
+            self::fileName,
+            5,
+            "1/shapes",
+            $shape1,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        $shape2 = new Shape();
+        $shape2->setShapeType('Ellipse');
+        $shape2->setX(150);
+        $shape2->setY(400);
+        $shape2->setWidth(50);
+        $shape2->setHeight(50);
+
+        $this->getApi()->createSubshape(
+            self::fileName,
+            5,
+            "1/shapes",
+            $shape2,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        $shape3 = new Shape();
+        $shape3->setShapeType('Triangle');
+        $shape3->setX(250);
+        $shape3->setY(400);
+        $shape3->setWidth(50);
+        $shape3->setHeight(50);
+
+        $this->getApi()->createSubshape(
+            self::fileName,
+            5,
+            "1/shapes",
+            $shape3,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        $shapes=$this->getApi()->getShapes(
+            self::fileName,
+            5,
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals(1, count($shapes->getShapesLinks()));
+
+        $shapes=$this->getApi()->getSubshapes(
+            self::fileName,
+            5,
+            "1/shapes",
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals(3, count($shapes->getShapesLinks()));
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
     public const slideIndex = 3;
+    public const oleObjectFileName = "oleObject.xlsx";
+    public const color = "#FFF5FF8A";
+    public const shapePath = "4/shapes";
 }

@@ -30,10 +30,12 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
+use Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties;
 use Aspose\Slides\Cloud\Sdk\Model\DocumentProperties;
 use Aspose\Slides\Cloud\Sdk\Model\DocumentProperty;
 use Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties;
 use Aspose\Slides\Cloud\Sdk\Model\SlideProperties;
+use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class PropertyTest extends TestBase
@@ -182,6 +184,40 @@ class PropertyTest extends TestBase
         $file = fopen("TestData/".self::fileName, 'r');
         $result = $this->getApi()->deleteProtectionOnline($file, self::password);
         Assert::assertNotEquals(filesize("TestData/".self::fileName), $result->getSize());
+    }
+
+    public function testGetViewProperties()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $response = $this->getApi()->getViewProperties(
+            self::fileName,
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals('True', $response->getShowComments());
+    }
+
+    public function testSetViewProperties()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new ViewProperties();
+        $dto->setShowComments('False');
+        $slideViewProperties = new CommonSlideViewProperties();
+        $slideViewProperties->setScale(50);
+        $dto->setSlideViewProperties($slideViewProperties);
+
+        $response = $this->getApi()->setViewProperties(
+            self::fileName,
+            $dto,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('False', $response->getShowComments());
+        Assert::assertEquals(50, $response->getSlideViewProperties()->getScale());
     }
 
     public const folderName = "TempSlidesSDK";

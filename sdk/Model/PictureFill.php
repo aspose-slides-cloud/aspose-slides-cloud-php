@@ -65,7 +65,8 @@ class PictureFill extends FillFormat
         'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'base64Data' => 'string',
         'svgData' => 'string',
-        'pictureFillMode' => 'string'
+        'pictureFillMode' => 'string',
+        'imageTransformList' => '\Aspose\Slides\Cloud\Sdk\Model\ImageTransformEffect[]'
     ];
 
     /**
@@ -82,7 +83,8 @@ class PictureFill extends FillFormat
         'image' => null,
         'base64Data' => null,
         'svgData' => null,
-        'pictureFillMode' => null
+        'pictureFillMode' => null,
+        'imageTransformList' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class PictureFill extends FillFormat
         'image' => 'Image',
         'base64Data' => 'Base64Data',
         'svgData' => 'SvgData',
-        'pictureFillMode' => 'PictureFillMode'
+        'pictureFillMode' => 'PictureFillMode',
+        'imageTransformList' => 'ImageTransformList'
     ];
 
     /**
@@ -137,7 +140,8 @@ class PictureFill extends FillFormat
         'image' => 'setImage',
         'base64Data' => 'setBase64Data',
         'svgData' => 'setSvgData',
-        'pictureFillMode' => 'setPictureFillMode'
+        'pictureFillMode' => 'setPictureFillMode',
+        'imageTransformList' => 'setImageTransformList'
     ];
 
     /**
@@ -154,7 +158,8 @@ class PictureFill extends FillFormat
         'image' => 'getImage',
         'base64Data' => 'getBase64Data',
         'svgData' => 'getSvgData',
-        'pictureFillMode' => 'getPictureFillMode'
+        'pictureFillMode' => 'getPictureFillMode',
+        'imageTransformList' => 'getImageTransformList'
     ];
 
     /**
@@ -237,6 +242,7 @@ class PictureFill extends FillFormat
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['svgData'] = isset($data['svgData']) ? $data['svgData'] : null;
         $this->container['pictureFillMode'] = isset($data['pictureFillMode']) ? $data['pictureFillMode'] : null;
+        $this->container['imageTransformList'] = isset($data['imageTransformList']) ? $data['imageTransformList'] : null;
         $this->container['type'] = 'Picture';
         
     }
@@ -552,6 +558,30 @@ class PictureFill extends FillFormat
             }
         }
         $this->container['pictureFillMode'] = $pictureFillMode;
+
+        return $this;
+    }
+
+    /**
+     * Gets imageTransformList
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ImageTransformEffect[]
+     */
+    public function getImageTransformList()
+    {
+        return $this->container['imageTransformList'];
+    }
+
+    /**
+     * Sets imageTransformList
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ImageTransformEffect[] $imageTransformList Image transform effects.
+     *
+     * @return $this
+     */
+    public function setImageTransformList($imageTransformList)
+    {
+        $this->container['imageTransformList'] = $imageTransformList;
 
         return $this;
     }

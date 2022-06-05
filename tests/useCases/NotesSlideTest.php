@@ -27,7 +27,8 @@
  */
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
- 
+
+use Aspose\Slides\Cloud\Sdk\Model\NotesSlide;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\NotesSlideExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
@@ -263,6 +264,37 @@ class NotesSlideTest extends TestBase
         Assert::assertEquals(self::portionCount, count($portions->getItems()));
     }
 
+    public function testCreateNotesSlide()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new NotesSlide();
+        $dto->setText(self::notesSlideText);
+        $response = $this->getApi()->createNotesSlide(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        Assert::assertEquals(self::notesSlideText, $response->getText());
+    }
+
+    public function testUpdateNotesSlide()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new NotesSlide();
+        $dto->setText(self::notesSlideText);
+        $response = $this->getApi()->updateNotesSlide(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        Assert::assertEquals(self::notesSlideText, $response->getText());
+    }
+
+    public function testDeleteNotesSlide()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $response = $this->getApi()->deleteNotesSlide(self::fileName, self::slideIndex, self::password, self::folderName);
+        Assert::assertEquals(null, $response->getNotesSlide());
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
@@ -273,4 +305,5 @@ class NotesSlideTest extends TestBase
     public const paragraphCount = 1;
     public const portionCount = 1;
     public const format = NotesSlideExportFormat::PNG;
+    public const notesSlideText = "Notes slide text";
 }

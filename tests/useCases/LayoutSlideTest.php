@@ -279,6 +279,24 @@ class LayoutSlideTest extends TestBase
         Assert::assertEquals(0, count($animation->getMainSequence()));
     }
 
+    public function testLayoutSlideDeleteUnused()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $layoutSlidesBefore = $this->getApi()->getLayoutSlides(self::fileName, self::password, self::folderName);
+        Assert::assertEquals(count($layoutSlidesBefore->getSlideList()), self::layoutSlidesCount);
+        $layoutSlidesAfter = $this->getApi()->deleteUnusedLayoutSLides(self::fileName, self::password, self::folderName);
+        Assert::assertEquals(count($layoutSlidesAfter->getSlideList()), 2);
+     }
+
+     public function testLayoutSlideDeleteUnusedOnline()
+     {
+        $this->initialize(null, null, null);
+        $file = fopen("TestData/".self::fileName, 'r');
+        $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($file, self::password);
+        Assert::assertTrue($result->getSize() > 0);
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
@@ -288,4 +306,5 @@ class LayoutSlideTest extends TestBase
     public const paragraphIndex = 1;
     public const paragraphCount = 1;
     public const portionCount = 1;
+    public const layoutSlidesCount = 11;
 }

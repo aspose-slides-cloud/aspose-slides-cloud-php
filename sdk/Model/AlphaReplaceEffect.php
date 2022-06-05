@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * AlphaReplaceEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents an Alpha Replace Effect effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class AlphaReplaceEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'AlphaReplaceEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'alpha' => 'double'
     ];
 
     /**
@@ -67,8 +66,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'alpha' => 'double'
     ];
 
     /**
@@ -98,8 +96,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'alpha' => 'Alpha'
     ];
 
     /**
@@ -108,8 +105,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'alpha' => 'setAlpha'
     ];
 
     /**
@@ -118,8 +114,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'alpha' => 'getAlpha'
     ];
 
     /**
@@ -178,8 +173,8 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['alpha'] = isset($data['alpha']) ? $data['alpha'] : null;
+        $this->container['type'] = 'AlphaReplace';
         
     }
 
@@ -192,8 +187,8 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['alpha'] === null) {
+            $invalidProperties[] = "'alpha' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +205,7 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
+        if ($this->container['alpha'] === null) {
             return false;
         }
         return true;
@@ -218,49 +213,25 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets alpha
      *
      * @return double
      */
-    public function getValue()
+    public function getAlpha()
     {
-        return $this->container['value'];
+        return $this->container['alpha'];
     }
 
     /**
-     * Sets value
+     * Sets alpha
      *
-     * @param double $value Value.
+     * @param double $alpha The new opacity value.
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setAlpha($alpha)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets setAsTotal
-     *
-     * @return bool
-     */
-    public function getSetAsTotal()
-    {
-        return $this->container['setAsTotal'];
-    }
-
-    /**
-     * Sets setAsTotal
-     *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
-     *
-     * @return $this
-     */
-    public function setSetAsTotal($setAsTotal)
-    {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['alpha'] = $alpha;
 
         return $this;
     }

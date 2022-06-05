@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * AlphaModulateEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents an Alpha Modulate effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class AlphaModulateEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'AlphaModulateEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        
     ];
 
     /**
@@ -67,8 +66,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        
     ];
 
     /**
@@ -98,8 +96,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        
     ];
 
     /**
@@ -108,8 +105,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        
     ];
 
     /**
@@ -118,8 +114,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        
     ];
 
     /**
@@ -178,8 +173,7 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['type'] = 'AlphaModulate';
         
     }
 
@@ -192,9 +186,6 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,60 +201,9 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
-            return false;
-        }
         return true;
     }
 
-
-    /**
-     * Gets value
-     *
-     * @return double
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param double $value Value.
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets setAsTotal
-     *
-     * @return bool
-     */
-    public function getSetAsTotal()
-    {
-        return $this->container['setAsTotal'];
-    }
-
-    /**
-     * Sets setAsTotal
-     *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
-     *
-     * @return $this
-     */
-    public function setSetAsTotal($setAsTotal)
-    {
-        $this->container['setAsTotal'] = $setAsTotal;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

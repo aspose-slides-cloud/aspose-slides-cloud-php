@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * BiLevelEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents an BiLevel effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class BiLevelEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'BiLevelEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'threshold' => 'double'
     ];
 
     /**
@@ -67,8 +66,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'threshold' => 'double'
     ];
 
     /**
@@ -98,8 +96,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'threshold' => 'Threshold'
     ];
 
     /**
@@ -108,8 +105,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'threshold' => 'setThreshold'
     ];
 
     /**
@@ -118,8 +114,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'threshold' => 'getThreshold'
     ];
 
     /**
@@ -178,8 +173,8 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['threshold'] = isset($data['threshold']) ? $data['threshold'] : null;
+        $this->container['type'] = 'BiLevel';
         
     }
 
@@ -192,8 +187,8 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['threshold'] === null) {
+            $invalidProperties[] = "'threshold' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +205,7 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
+        if ($this->container['threshold'] === null) {
             return false;
         }
         return true;
@@ -218,49 +213,25 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets threshold
      *
      * @return double
      */
-    public function getValue()
+    public function getThreshold()
     {
-        return $this->container['value'];
+        return $this->container['threshold'];
     }
 
     /**
-     * Sets value
+     * Sets threshold
      *
-     * @param double $value Value.
+     * @param double $threshold Returns effect threshold.
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setThreshold($threshold)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets setAsTotal
-     *
-     * @return bool
-     */
-    public function getSetAsTotal()
-    {
-        return $this->container['setAsTotal'];
-    }
-
-    /**
-     * Sets setAsTotal
-     *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
-     *
-     * @return $this
-     */
-    public function setSetAsTotal($setAsTotal)
-    {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['threshold'] = $threshold;
 
         return $this;
     }

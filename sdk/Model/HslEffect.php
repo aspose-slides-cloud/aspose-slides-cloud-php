@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * HslEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents a Hue/Saturation/Luminance effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class HslEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'HslEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'hue' => 'double',
+        'saturation' => 'double',
+        'luminance' => 'double'
     ];
 
     /**
@@ -67,8 +68,9 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'hue' => 'double',
+        'saturation' => 'double',
+        'luminance' => 'double'
     ];
 
     /**
@@ -98,8 +100,9 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'hue' => 'Hue',
+        'saturation' => 'Saturation',
+        'luminance' => 'Luminance'
     ];
 
     /**
@@ -108,8 +111,9 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'hue' => 'setHue',
+        'saturation' => 'setSaturation',
+        'luminance' => 'setLuminance'
     ];
 
     /**
@@ -118,8 +122,9 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'hue' => 'getHue',
+        'saturation' => 'getSaturation',
+        'luminance' => 'getLuminance'
     ];
 
     /**
@@ -178,8 +183,10 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['hue'] = isset($data['hue']) ? $data['hue'] : null;
+        $this->container['saturation'] = isset($data['saturation']) ? $data['saturation'] : null;
+        $this->container['luminance'] = isset($data['luminance']) ? $data['luminance'] : null;
+        $this->container['type'] = 'Hsl';
         
     }
 
@@ -192,8 +199,14 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['hue'] === null) {
+            $invalidProperties[] = "'hue' can't be null";
+        }
+        if ($this->container['saturation'] === null) {
+            $invalidProperties[] = "'saturation' can't be null";
+        }
+        if ($this->container['luminance'] === null) {
+            $invalidProperties[] = "'luminance' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +223,13 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
+        if ($this->container['hue'] === null) {
+            return false;
+        }
+        if ($this->container['saturation'] === null) {
+            return false;
+        }
+        if ($this->container['luminance'] === null) {
             return false;
         }
         return true;
@@ -218,49 +237,73 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets hue
      *
      * @return double
      */
-    public function getValue()
+    public function getHue()
     {
-        return $this->container['value'];
+        return $this->container['hue'];
     }
 
     /**
-     * Sets value
+     * Sets hue
      *
-     * @param double $value Value.
+     * @param double $hue Hue
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setHue($hue)
     {
-        $this->container['value'] = $value;
+        $this->container['hue'] = $hue;
 
         return $this;
     }
 
     /**
-     * Gets setAsTotal
+     * Gets saturation
      *
-     * @return bool
+     * @return double
      */
-    public function getSetAsTotal()
+    public function getSaturation()
     {
-        return $this->container['setAsTotal'];
+        return $this->container['saturation'];
     }
 
     /**
-     * Sets setAsTotal
+     * Sets saturation
      *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
+     * @param double $saturation Saturation
      *
      * @return $this
      */
-    public function setSetAsTotal($setAsTotal)
+    public function setSaturation($saturation)
     {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['saturation'] = $saturation;
+
+        return $this;
+    }
+
+    /**
+     * Gets luminance
+     *
+     * @return double
+     */
+    public function getLuminance()
+    {
+        return $this->container['luminance'];
+    }
+
+    /**
+     * Sets luminance
+     *
+     * @param double $luminance Luminance
+     *
+     * @return $this
+     */
+    public function setLuminance($luminance)
+    {
+        $this->container['luminance'] = $luminance;
 
         return $this;
     }

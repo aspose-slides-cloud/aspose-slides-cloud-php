@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * ColorReplaceEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents a Color Replacement effect.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class ColorReplaceEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'ColorReplaceEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'color' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'color' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'color' => 'Color'
     ];
 
     /**
@@ -108,8 +105,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'color' => 'setColor'
     ];
 
     /**
@@ -118,8 +114,7 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'color' => 'getColor'
     ];
 
     /**
@@ -178,8 +173,8 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['color'] = isset($data['color']) ? $data['color'] : null;
+        $this->container['type'] = 'ColorReplace';
         
     }
 
@@ -192,9 +187,6 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,57 +202,30 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets value
+     * Gets color
      *
-     * @return double
+     * @return string
      */
-    public function getValue()
+    public function getColor()
     {
-        return $this->container['value'];
+        return $this->container['color'];
     }
 
     /**
-     * Sets value
+     * Sets color
      *
-     * @param double $value Value.
+     * @param string $color Returns color format which will replace color of every pixel.
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setColor($color)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets setAsTotal
-     *
-     * @return bool
-     */
-    public function getSetAsTotal()
-    {
-        return $this->container['setAsTotal'];
-    }
-
-    /**
-     * Sets setAsTotal
-     *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
-     *
-     * @return $this
-     */
-    public function setSetAsTotal($setAsTotal)
-    {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['color'] = $color;
 
         return $this;
     }

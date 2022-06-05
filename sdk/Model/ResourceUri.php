@@ -62,7 +62,9 @@ class ResourceUri implements ArrayAccess
         'href' => 'string',
         'relation' => 'string',
         'linkType' => 'string',
-        'title' => 'string'
+        'title' => 'string',
+        'slideIndex' => 'int',
+        'shapeIndex' => 'int'
     ];
 
     /**
@@ -74,7 +76,9 @@ class ResourceUri implements ArrayAccess
         'href' => null,
         'relation' => null,
         'linkType' => null,
-        'title' => null
+        'title' => null,
+        'slideIndex' => 'int32',
+        'shapeIndex' => 'int32'
     ];
 
     /**
@@ -107,7 +111,9 @@ class ResourceUri implements ArrayAccess
         'href' => 'Href',
         'relation' => 'Relation',
         'linkType' => 'LinkType',
-        'title' => 'Title'
+        'title' => 'Title',
+        'slideIndex' => 'SlideIndex',
+        'shapeIndex' => 'ShapeIndex'
     ];
 
     /**
@@ -119,7 +125,9 @@ class ResourceUri implements ArrayAccess
         'href' => 'setHref',
         'relation' => 'setRelation',
         'linkType' => 'setLinkType',
-        'title' => 'setTitle'
+        'title' => 'setTitle',
+        'slideIndex' => 'setSlideIndex',
+        'shapeIndex' => 'setShapeIndex'
     ];
 
     /**
@@ -131,7 +139,9 @@ class ResourceUri implements ArrayAccess
         'href' => 'getHref',
         'relation' => 'getRelation',
         'linkType' => 'getLinkType',
-        'title' => 'getTitle'
+        'title' => 'getTitle',
+        'slideIndex' => 'getSlideIndex',
+        'shapeIndex' => 'getShapeIndex'
     ];
 
     /**
@@ -198,6 +208,8 @@ class ResourceUri implements ArrayAccess
         $this->container['relation'] = isset($data['relation']) ? $data['relation'] : null;
         $this->container['linkType'] = isset($data['linkType']) ? $data['linkType'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['slideIndex'] = isset($data['slideIndex']) ? $data['slideIndex'] : null;
+        $this->container['shapeIndex'] = isset($data['shapeIndex']) ? $data['shapeIndex'] : null;
         
     }
 
@@ -318,6 +330,54 @@ class ResourceUri implements ArrayAccess
     public function setTitle($title)
     {
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets slideIndex
+     *
+     * @return int
+     */
+    public function getSlideIndex()
+    {
+        return $this->container['slideIndex'];
+    }
+
+    /**
+     * Sets slideIndex
+     *
+     * @param int $slideIndex Resource slide index.
+     *
+     * @return $this
+     */
+    public function setSlideIndex($slideIndex)
+    {
+        $this->container['slideIndex'] = $slideIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets shapeIndex
+     *
+     * @return int
+     */
+    public function getShapeIndex()
+    {
+        return $this->container['shapeIndex'];
+    }
+
+    /**
+     * Sets shapeIndex
+     *
+     * @param int $shapeIndex Resource shape index.
+     *
+     * @return $this
+     */
+    public function setShapeIndex($shapeIndex)
+    {
+        $this->container['shapeIndex'] = $shapeIndex;
 
         return $this;
     }

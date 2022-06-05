@@ -32,15 +32,15 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * OneValueChartDataPoint Class Doc Comment
+ * BlurImageEffect Class Doc Comment
  *
  * @category Class
- * @description One value chart data point.
+ * @description Represents a Blur effect that is applied to the entire shape, including its fill. All color channels, including alpha, are affected.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OneValueChartDataPoint extends DataPoint 
+class BlurImageEffect extends ImageTransformEffect 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OneValueChartDataPoint extends DataPoint
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OneValueChartDataPoint';
+    protected static $swaggerModelName = 'BlurImageEffect';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'value' => 'double',
-        'setAsTotal' => 'bool'
+        'radius' => 'double',
+        'grow' => 'bool'
     ];
 
     /**
@@ -67,8 +67,8 @@ class OneValueChartDataPoint extends DataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'value' => 'double',
-        'setAsTotal' => null
+        'radius' => 'double',
+        'grow' => null
     ];
 
     /**
@@ -98,8 +98,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'radius' => 'Radius',
+        'grow' => 'Grow'
     ];
 
     /**
@@ -108,8 +108,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'radius' => 'setRadius',
+        'grow' => 'setGrow'
     ];
 
     /**
@@ -118,8 +118,8 @@ class OneValueChartDataPoint extends DataPoint
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'radius' => 'getRadius',
+        'grow' => 'getGrow'
     ];
 
     /**
@@ -178,8 +178,9 @@ class OneValueChartDataPoint extends DataPoint
     {
         parent::__construct($data);
 
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['radius'] = isset($data['radius']) ? $data['radius'] : null;
+        $this->container['grow'] = isset($data['grow']) ? $data['grow'] : null;
+        $this->container['type'] = 'Blur';
         
     }
 
@@ -192,8 +193,11 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['radius'] === null) {
+            $invalidProperties[] = "'radius' can't be null";
+        }
+        if ($this->container['grow'] === null) {
+            $invalidProperties[] = "'grow' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +214,10 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
+        if ($this->container['radius'] === null) {
+            return false;
+        }
+        if ($this->container['grow'] === null) {
             return false;
         }
         return true;
@@ -218,49 +225,49 @@ class OneValueChartDataPoint extends DataPoint
 
 
     /**
-     * Gets value
+     * Gets radius
      *
      * @return double
      */
-    public function getValue()
+    public function getRadius()
     {
-        return $this->container['value'];
+        return $this->container['radius'];
     }
 
     /**
-     * Sets value
+     * Sets radius
      *
-     * @param double $value Value.
+     * @param double $radius Returns or sets blur radius.
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setRadius($radius)
     {
-        $this->container['value'] = $value;
+        $this->container['radius'] = $radius;
 
         return $this;
     }
 
     /**
-     * Gets setAsTotal
+     * Gets grow
      *
      * @return bool
      */
-    public function getSetAsTotal()
+    public function getGrow()
     {
-        return $this->container['setAsTotal'];
+        return $this->container['grow'];
     }
 
     /**
-     * Sets setAsTotal
+     * Sets grow
      *
-     * @param bool $setAsTotal SetAsTotal. Applied to Waterfall data points only.
+     * @param bool $grow Determines whether the bounds of the object should be grown as a result of the blurring. True indicates the bounds are grown while false indicates that they are not.
      *
      * @return $this
      */
-    public function setSetAsTotal($setAsTotal)
+    public function setGrow($grow)
     {
-        $this->container['setAsTotal'] = $setAsTotal;
+        $this->container['grow'] = $grow;
 
         return $this;
     }

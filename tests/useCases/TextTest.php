@@ -81,10 +81,83 @@ class TextTest extends TestBase
         Assert::assertTrue($slideResultIgnoreCase->isFile());
     }
 
+    public function testHighlightShapeText()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $shapeIndex = 1;
+        $slideIndex = 6;
+        $paragraphIndex = 1;
+
+        $this->getApi()->highlightShapeText(
+            self::fileName,
+            $slideIndex,
+            $shapeIndex,
+            self::textToHighlight,
+            self::highlightColor,
+            null,
+            false,
+            self::password,
+            self::folderName
+        );
+
+        $para = $this->getApi()->getParagraph(
+            self::fileName,
+            $slideIndex,
+            $shapeIndex,
+            $paragraphIndex,
+            self::password,
+            self::folderName
+        );
+        Assert::assertNotEquals($para->getPortionList()[0]->getText(), self::textToHighlight);
+        Assert::assertNotEquals($para->getPortionList()[0]->getHighlightColor(), self::highlightColor);
+        Assert::assertEquals($para->getPortionList()[1]->getText(), self::textToHighlight);
+        Assert::assertEquals($para->getPortionList()[1]->getHighlightColor(), self::highlightColor);
+    }
+
+    public function testHighlightShapeRegex()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $shapeIndex = 1;
+        $slideIndex = 6;
+        $paragraphIndex = 1;
+
+        $this->getApi()->highlightShapeRegex(
+            self::fileName,
+            $slideIndex,
+            $shapeIndex,
+            self::highlightRegex,
+            self::highlightColor,
+            null,
+            false,
+            self::password,
+            self::folderName
+        );
+
+        $para = $this->getApi()->getParagraph(
+            self::fileName,
+            $slideIndex,
+            $shapeIndex,
+            $paragraphIndex,
+            self::password,
+            self::folderName
+        );
+        Assert::assertNotEquals($para->getPortionList()[0]->getText(), self::textToHighlight);
+        Assert::assertNotEquals($para->getPortionList()[0]->getHighlightColor(), self::highlightColor);
+        Assert::assertEquals($para->getPortionList()[1]->getText(), self::textToHighlight);
+        Assert::assertEquals($para->getPortionList()[1]->getHighlightColor(), self::highlightColor);
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
     public const oldValue = "text";
     public const newValue = "new_text";
     public const slideIndex = 1;
+    public const textToHighlight = "highlight";
+    public const highlightColor = "#FFF5FF8A";
+    public const highlightRegex = "h.ghl[abci]ght";
 }
