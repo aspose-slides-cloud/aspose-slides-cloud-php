@@ -158,9 +158,9 @@ class PptxExportOptions extends ExportOptions
         return self::$swaggerModelName;
     }
 
-    const CONFORMANCE_ECMA376_2006 = 'Ecma376_2006';
-    const CONFORMANCE_ISO29500_2008_TRANSITIONAL = 'Iso29500_2008_Transitional';
-    const CONFORMANCE_ISO29500_2008_STRICT = 'Iso29500_2008_Strict';
+    const CONFORMANCE_ECMA376 = 'Ecma376';
+    const CONFORMANCE_ISO29500_TRANSITIONAL = 'Iso29500Transitional';
+    const CONFORMANCE_ISO29500_STRICT = 'Iso29500Strict';
     
 
     
@@ -172,9 +172,9 @@ class PptxExportOptions extends ExportOptions
     public function getConformanceAllowableValues()
     {
         return [
-            self::CONFORMANCE_ECMA376_2006,
-            self::CONFORMANCE_ISO29500_2008_TRANSITIONAL,
-            self::CONFORMANCE_ISO29500_2008_STRICT,
+            self::CONFORMANCE_ECMA376,
+            self::CONFORMANCE_ISO29500_TRANSITIONAL,
+            self::CONFORMANCE_ISO29500_STRICT,
         ];
     }
     

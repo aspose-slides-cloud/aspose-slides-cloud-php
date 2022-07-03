@@ -380,6 +380,32 @@ class ParagraphTest extends TestBase
         );
     }
 
+    public function testGetParagraphEffective()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $response = $this->getApi()->getParagraphEffective(
+            self::fileName,
+            self::slideIndex,
+            self::shapeIndex,
+            1,
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals(72, $response->getDefaultTabSize());
+    }
+
+    public function testGetSubshapeParagraphEffective()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $response = $this->getApi()->
+        getSubshapeParagraphEffective(self::fileName, self::slideIndex, self::shapePath, 1, 1, self::password, self::folderName);
+        Assert::assertEquals(72, $response->getDefaultTabSize());
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";

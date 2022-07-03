@@ -67,7 +67,9 @@ class Chart extends ShapeBase
         'floor' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'legend' => '\Aspose\Slides\Cloud\Sdk\Model\Legend',
         'axes' => '\Aspose\Slides\Cloud\Sdk\Model\Axes',
-        'plotArea' => '\Aspose\Slides\Cloud\Sdk\Model\PlotArea'
+        'plotArea' => '\Aspose\Slides\Cloud\Sdk\Model\PlotArea',
+        'hasRoundedCorners' => 'bool',
+        'seriesGroups' => '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup[]'
     ];
 
     /**
@@ -86,7 +88,9 @@ class Chart extends ShapeBase
         'floor' => null,
         'legend' => null,
         'axes' => null,
-        'plotArea' => null
+        'plotArea' => null,
+        'hasRoundedCorners' => null,
+        'seriesGroups' => null
     ];
 
     /**
@@ -126,7 +130,9 @@ class Chart extends ShapeBase
         'floor' => 'Floor',
         'legend' => 'Legend',
         'axes' => 'Axes',
-        'plotArea' => 'PlotArea'
+        'plotArea' => 'PlotArea',
+        'hasRoundedCorners' => 'HasRoundedCorners',
+        'seriesGroups' => 'SeriesGroups'
     ];
 
     /**
@@ -145,7 +151,9 @@ class Chart extends ShapeBase
         'floor' => 'setFloor',
         'legend' => 'setLegend',
         'axes' => 'setAxes',
-        'plotArea' => 'setPlotArea'
+        'plotArea' => 'setPlotArea',
+        'hasRoundedCorners' => 'setHasRoundedCorners',
+        'seriesGroups' => 'setSeriesGroups'
     ];
 
     /**
@@ -164,7 +172,9 @@ class Chart extends ShapeBase
         'floor' => 'getFloor',
         'legend' => 'getLegend',
         'axes' => 'getAxes',
-        'plotArea' => 'getPlotArea'
+        'plotArea' => 'getPlotArea',
+        'hasRoundedCorners' => 'getHasRoundedCorners',
+        'seriesGroups' => 'getSeriesGroups'
     ];
 
     /**
@@ -409,6 +419,8 @@ class Chart extends ShapeBase
         $this->container['legend'] = isset($data['legend']) ? $data['legend'] : null;
         $this->container['axes'] = isset($data['axes']) ? $data['axes'] : null;
         $this->container['plotArea'] = isset($data['plotArea']) ? $data['plotArea'] : null;
+        $this->container['hasRoundedCorners'] = isset($data['hasRoundedCorners']) ? $data['hasRoundedCorners'] : null;
+        $this->container['seriesGroups'] = isset($data['seriesGroups']) ? $data['seriesGroups'] : null;
         $this->container['type'] = 'Chart';
         
     }
@@ -742,6 +754,54 @@ class Chart extends ShapeBase
     public function setPlotArea($plotArea)
     {
         $this->container['plotArea'] = $plotArea;
+
+        return $this;
+    }
+
+    /**
+     * Gets hasRoundedCorners
+     *
+     * @return bool
+     */
+    public function getHasRoundedCorners()
+    {
+        return $this->container['hasRoundedCorners'];
+    }
+
+    /**
+     * Sets hasRoundedCorners
+     *
+     * @param bool $hasRoundedCorners Specifies the chart area shall have rounded corners.
+     *
+     * @return $this
+     */
+    public function setHasRoundedCorners($hasRoundedCorners)
+    {
+        $this->container['hasRoundedCorners'] = $hasRoundedCorners;
+
+        return $this;
+    }
+
+    /**
+     * Gets seriesGroups
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup[]
+     */
+    public function getSeriesGroups()
+    {
+        return $this->container['seriesGroups'];
+    }
+
+    /**
+     * Sets seriesGroups
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup[] $seriesGroups Gets groups of series.
+     *
+     * @return $this
+     */
+    public function setSeriesGroups($seriesGroups)
+    {
+        $this->container['seriesGroups'] = $seriesGroups;
 
         return $this;
     }

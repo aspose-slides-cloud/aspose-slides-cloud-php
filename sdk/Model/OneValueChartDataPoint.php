@@ -58,7 +58,8 @@ class OneValueChartDataPoint extends DataPoint
       */
     protected static $swaggerTypes = [
         'value' => 'double',
-        'setAsTotal' => 'bool'
+        'setAsTotal' => 'bool',
+        'invertIfNegative' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class OneValueChartDataPoint extends DataPoint
       */
     protected static $swaggerFormats = [
         'value' => 'double',
-        'setAsTotal' => null
+        'setAsTotal' => null,
+        'invertIfNegative' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $attributeMap = [
         'value' => 'Value',
-        'setAsTotal' => 'SetAsTotal'
+        'setAsTotal' => 'SetAsTotal',
+        'invertIfNegative' => 'InvertIfNegative'
     ];
 
     /**
@@ -109,7 +112,8 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $setters = [
         'value' => 'setValue',
-        'setAsTotal' => 'setSetAsTotal'
+        'setAsTotal' => 'setSetAsTotal',
+        'invertIfNegative' => 'setInvertIfNegative'
     ];
 
     /**
@@ -119,7 +123,8 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $getters = [
         'value' => 'getValue',
-        'setAsTotal' => 'getSetAsTotal'
+        'setAsTotal' => 'getSetAsTotal',
+        'invertIfNegative' => 'getInvertIfNegative'
     ];
 
     /**
@@ -180,6 +185,7 @@ class OneValueChartDataPoint extends DataPoint
 
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
+        $this->container['invertIfNegative'] = isset($data['invertIfNegative']) ? $data['invertIfNegative'] : null;
         
     }
 
@@ -261,6 +267,30 @@ class OneValueChartDataPoint extends DataPoint
     public function setSetAsTotal($setAsTotal)
     {
         $this->container['setAsTotal'] = $setAsTotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets invertIfNegative
+     *
+     * @return bool
+     */
+    public function getInvertIfNegative()
+    {
+        return $this->container['invertIfNegative'];
+    }
+
+    /**
+     * Sets invertIfNegative
+     *
+     * @param bool $invertIfNegative True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
+     *
+     * @return $this
+     */
+    public function setInvertIfNegative($invertIfNegative)
+    {
+        $this->container['invertIfNegative'] = $invertIfNegative;
 
         return $this;
     }

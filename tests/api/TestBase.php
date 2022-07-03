@@ -72,7 +72,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
         return self::$api;
     }
     
-    protected function initialize($functionName, $invalidFieldName, $invalidFieldValue)
+    protected function initialize($functionName = null, $invalidFieldName = null, $invalidFieldValue = null, $invalidFieldType = null)
     {
         if (!self::$isInitialized)
         {
@@ -85,6 +85,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
             }
             if ($versionLength > 0)
             {
+                $versionFile->fseek(0);
                 $version = $versionFile->fread($versionFile->getSize());
             }
             if ($versionLength <= 0 || $version != self::$expectedTestDataVersion)
@@ -97,12 +98,12 @@ class TestBase extends \PHPUnit_Framework_TestCase
                         $stream = fopen(realpath(__DIR__.'/../..').'/TestData/'.$value, 'r');
                         $this->getApi()->UploadFile("TempTests/".$value, $stream);
                     }
-                    $this->getApi()->UploadFile("TempTests/version.txt", self::$expectedTestDataVersion);
                 }
+                $this->getApi()->UploadFile("TempTests/version.txt", self::$expectedTestDataVersion);
             }
             self::$isInitialized = true;
         }
-        $expectedValues = $this->applyRules($functionName, $invalidFieldName, $invalidFieldValue);
+        $expectedValues = $this->applyRules($functionName, $invalidFieldName, $invalidFieldValue, $invalidFieldType);
         $fileRulesToApply = $this->applyFileRules($functionName, $invalidFieldName, $invalidFieldValue);
         if ($functionName != 'deleteFolder' &&  $invalidFieldName != 'recursive')
         foreach ($fileRulesToApply as $path => $rule)
@@ -119,13 +120,13 @@ class TestBase extends \PHPUnit_Framework_TestCase
         return $expectedValues;
     }
 
-    private function applyRules($functionName, $invalidFieldName, $invalidFieldValue)
+    private function applyRules($functionName, $invalidFieldName, $invalidFieldValue, $invalidFieldType)
     {
         $expectedCode = 0;
         $expectedMessage = "An error occured.";
         foreach (self::$rules as $rule)
         {
-            $this->applyRule($rule, $expectedCode, $expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue);
+            $this->applyRule($rule, $expectedCode, $expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue, $invalidFieldType);
         }
         return [ $expectedCode, $expectedMessage ];
     }
@@ -140,11 +141,12 @@ class TestBase extends \PHPUnit_Framework_TestCase
         return $rulesToApply;
     }
 
-    private function applyRule($rule, &$expectedCode, &$expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue)
+    private function applyRule($rule, &$expectedCode, &$expectedMessage, $functionName, $invalidFieldName, $invalidFieldValue, $invalidFieldType)
     {
         if ($this->checkMethod($rule, $functionName)
             && $this->checkInvalid($rule, $invalidFieldName)
             && $this->checkParameter($rule, $invalidFieldName)
+            && $this->checkType($rule, $invalidFieldType)
             && $this->checkLanguage($rule))
         {
             if (array_key_exists("Code", $rule))
@@ -177,24 +179,82 @@ class TestBase extends \PHPUnit_Framework_TestCase
         }
     }
 
-    private function checkMethod($rule, $functionName)
-    {
-        return !array_key_exists("Method", $rule) || strcasecmp($functionName, $rule["Method"]) == 0;
-    }
-
     private function checkInvalid($rule, $invalidFieldName)
     {
         return !array_key_exists("Invalid", $rule) || $rule["Invalid"] != is_null($invalidFieldName);
     }
 
-    private function checkParameter($rule, $invalidFieldName)
+
+    private static function checkMethod($rule, $functionName)
     {
-        return !array_key_exists("Parameter", $rule) || strcasecmp($invalidFieldName, $rule["Parameter"]) == 0;
+        return self::checkArrayKey($rule, "Method", $functionName);
     }
 
-    private function checkLanguage($rule)
+    private static function checkParameter($rule, $name)
+    {
+        return self::checkArrayKey($rule, "Parameter", $name);
+    }
+
+    private static function checkType($rule, $type)
+    {
+        if (!array_key_exists("Type", $rule))
+        {
+            return true;
+        }
+        $ruleValue = $rule["Type"];
+        if ($ruleValue == "number")
+        {
+            return $type == "int";
+        }
+        if ($ruleValue == "int")
+        {
+            return $type == "int";
+        }
+        if ($ruleValue == "int[]")
+        {
+            return $type == "array";
+        }
+        if ($ruleValue == "bool")
+        {
+            return $type == "bool";
+        }
+        if ($ruleValue == "stream")
+        {
+            return $type == "\\SplFileObject";
+        }
+        if ($ruleValue == "stream[]")
+        {
+            return $type == "array<\\SplFileObject>";
+        }
+        if ($ruleValue == "model")
+        {
+            return substr($type, 0, strlen('\Aspose\Slides\Cloud\Sdk\Model\\')) == '\Aspose\Slides\Cloud\Sdk\Model\\';
+        }
+        $modelType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$ruleValue;
+        if ($modelType == $type  || is_subclass_of($modelType, $type))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private static function checkLanguage($rule)
     {
         return !array_key_exists("Language", $rule) || strcasecmp("PHP", $rule["Language"]) == 0;
+    }
+
+    private static function checkArrayKey($rule, $key, $value)
+    {
+        if (!array_key_exists($key, $rule))
+        {
+            return true;
+        }
+        $ruleValue = $rule[$key];
+        if (substr($ruleValue, 0, 1) == "/" && substr($ruleValue, -1) == "/")
+        {
+            return preg_match($ruleValue . "i", $value) > 0;
+        }
+        return strcasecmp($value, $ruleValue) == 0;
     }
 
     protected static $values;

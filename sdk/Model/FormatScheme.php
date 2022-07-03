@@ -57,10 +57,10 @@ class FormatScheme extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'backgroundStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'effectStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'fillStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]',
-        'lineStyles' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]'
+        'backgroundStyles' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat[]',
+        'effectStyles' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat[]',
+        'fillStyles' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat[]',
+        'lineStyles' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat[]'
     ];
 
     /**
@@ -226,7 +226,7 @@ class FormatScheme extends ResourceBase
     /**
      * Gets backgroundStyles
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat[]
      */
     public function getBackgroundStyles()
     {
@@ -236,7 +236,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets backgroundStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $backgroundStyles Background style links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat[] $backgroundStyles Background styles.
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class FormatScheme extends ResourceBase
     /**
      * Gets effectStyles
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat[]
      */
     public function getEffectStyles()
     {
@@ -260,7 +260,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets effectStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $effectStyles Effect style links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat[] $effectStyles Effect styles.
      *
      * @return $this
      */
@@ -274,7 +274,7 @@ class FormatScheme extends ResourceBase
     /**
      * Gets fillStyles
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat[]
      */
     public function getFillStyles()
     {
@@ -284,7 +284,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets fillStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $fillStyles Fill style links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat[] $fillStyles Fill styles.
      *
      * @return $this
      */
@@ -298,7 +298,7 @@ class FormatScheme extends ResourceBase
     /**
      * Gets lineStyles
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[]
+     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat[]
      */
     public function getLineStyles()
     {
@@ -308,7 +308,7 @@ class FormatScheme extends ResourceBase
     /**
      * Sets lineStyles
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri[] $lineStyles Line style links.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat[] $lineStyles Line style.
      *
      * @return $this
      */

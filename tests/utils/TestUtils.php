@@ -52,28 +52,11 @@ class TestUtils
         return realpath(__DIR__.'/../..').'/TestData/'.self::fileName;
     }
 
-    public static function getFilesValue()
-    {
-        return [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/test-unprotected.pptx", 'r') ];
-    }
-
-    public static function getStreamValue($functionName, $name)
-    {
-        $filePath = self::getFilePath();
-        if (strcasecmp($functionName, "importFromPdf") == 0) {
-            $filePath = realpath(__DIR__.'/../..').'/TestData/test.pdf';
-        }
-        if (strcasecmp($name, "image") == 0) {
-            $filePath = realpath(__DIR__.'/../..').'/TestData/watermark.png';
-        }
-        return fopen($filePath, 'r');
-    }
-
     /**
      */
     public static function getTestValue($functionName, $name, $values, $type)
     {
-        $value = "test".$name;
+        $value = null;
         foreach ($values as $rule)
         {
             self::applyRule($rule, $value, $functionName, $name, $type);
@@ -83,21 +66,46 @@ class TestUtils
 
     private static function applyRule($rule, &$value, $functionName, $name, $type)
     {
-        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule))
+        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule) && self::checkType($rule, $type))
         {
             if (array_key_exists("Value", $rule))
             {
-                if (array_key_exists("Type", $rule))
+                if (is_bool($rule["Value"]))
                 {
-                    $ruleType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"];
-                    if ($ruleType == $type  || is_subclass_of($ruleType, $type))
+                    $value = $rule["Value"];
+                }
+                else if (is_null($rule["Value"]))
+                {
+                    $value = null;
+                }
+                else if (is_string($rule["Value"]) && substr($rule["Value"], 0, 1) == "@")
+                {
+                    if (substr($rule["Value"], 1, 1) == "(")
                     {
-                        $value = ObjectSerializer::deserialize($rule["Value"], $ruleType, []);
+                        $value = [];
+                        $filePaths = explode(",", substr($rule["Value"], 2, strlen($rule["Value"]) - 3));
+                        foreach ($filePaths as $filePath)
+                        {
+                            array_push($value, fopen(realpath(__DIR__.'/../..').'/TestData/'.$filePath, 'r'));
+                        }
                     }
+                    else
+                    {
+                        $filePath = realpath(__DIR__.'/../..').'/TestData/'.substr($rule["Value"], 1);
+                        $value = fopen($filePath, 'r');
+                    }
+                }
+                else if ($type && substr($type, 0, strlen('\Aspose\Slides\Cloud\Sdk\Model\\')) == '\Aspose\Slides\Cloud\Sdk\Model\\')
+                {
+                    if (array_key_exists("Type", $rule) && $rule["Type"] != 'model')
+                    {
+                        $type = '\Aspose\Slides\Cloud\Sdk\Model\\' . $rule["Type"];
+                    }
+                    $value = ObjectSerializer::deserialize($rule["Value"], $type, []);
                 }
                 else
                 {
-                    $value = $rule["Value"];
+                    $value = $rule["Value"] ? str_replace("%n", $name, $rule["Value"]) : $rule["Value"];
                 }
             }
         }
@@ -105,7 +113,7 @@ class TestUtils
 
     private static function applyInvalidValueRule($rule, &$value, $functionName, $name, $validValue, $type)
     {
-        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule))
+        if (self::checkMethod($rule, $functionName) && self::checkParameter($rule, $name) && self::checkLanguage($rule) && self::checkType($rule, $type))
         {
             if (array_key_exists("InvalidValue", $rule))
             {
@@ -113,24 +121,16 @@ class TestUtils
                 {
                     $value = $rule["InvalidValue"];
                 }
-                else if (array_key_exists("Type", $rule))
-                {
-                    $ruleType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$rule["Type"];
-                    if ($ruleType == $type || is_subclass_of($ruleType, $type))
-                    {
-                        if (!is_null($rule["InvalidValue"]))
-                        {
-                            $value = $validValue;
-                        }
-                        else
-                        {
-                            $value = ObjectSerializer::deserialize($rule["Value"], $ruleType, []);
-                        }
-                    }
-                }
                 else if (is_null($rule["InvalidValue"]))
                 {
-                    $value = null;
+                    if ($type && substr($type, 0, strlen('\Aspose\Slides\Cloud\Sdk\Model\\')) == '\Aspose\Slides\Cloud\Sdk\Model\\')
+                    {
+                        $value = $validValue;
+                    }
+                    else
+                    {
+                        $value = null;
+                    }
                 }
                 else
                 {
@@ -142,17 +142,74 @@ class TestUtils
 
     private static function checkMethod($rule, $functionName)
     {
-        return !array_key_exists("Method", $rule) || strcasecmp($functionName, $rule["Method"]) == 0;
+        return self::checkArrayKey($rule, "Method", $functionName);
     }
 
     private static function checkParameter($rule, $name)
     {
-        return !array_key_exists("Parameter", $rule) || strcasecmp($name, $rule["Parameter"]) == 0;
+        return self::checkArrayKey($rule, "Parameter", $name);
+    }
+
+    private static function checkType($rule, $type)
+    {
+        if (!array_key_exists("Type", $rule))
+        {
+            return true;
+        }
+        $ruleValue = $rule["Type"];
+        if ($ruleValue == "number")
+        {
+            return $type == "int";
+        }
+        if ($ruleValue == "int")
+        {
+            return $type == "int";
+        }
+        if ($ruleValue == "int[]")
+        {
+            return $type == "array";
+        }
+        if ($ruleValue == "bool")
+        {
+            return $type == "bool";
+        }
+        if ($ruleValue == "stream")
+        {
+            return $type == "\\SplFileObject";
+        }
+        if ($ruleValue == "stream[]")
+        {
+            return $type == "array<\\SplFileObject>";
+        }
+        if ($ruleValue == "model")
+        {
+            return substr($type, 0, strlen('\Aspose\Slides\Cloud\Sdk\Model\\')) == '\Aspose\Slides\Cloud\Sdk\Model\\';
+        }
+        $modelType = '\Aspose\Slides\Cloud\Sdk\Model\\'.$ruleValue;
+        if ($modelType == $type  || is_subclass_of($modelType, $type))
+        {
+            return true;
+        }
+        return false;
     }
 
     private static function checkLanguage($rule)
     {
         return !array_key_exists("Language", $rule) || strcasecmp("PHP", $rule["Language"]) == 0;
+    }
+
+    private static function checkArrayKey($rule, $key, $value)
+    {
+        if (!array_key_exists($key, $rule))
+        {
+            return true;
+        }
+        $ruleValue = $rule[$key];
+        if (substr($ruleValue, 0, 1) == "/" && substr($ruleValue, -1) == "/")
+        {
+            return preg_match($ruleValue . "i", $value) > 0;
+        }
+        return strcasecmp($value, $ruleValue) == 0;
     }
 
     /**

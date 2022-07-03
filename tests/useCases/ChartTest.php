@@ -451,6 +451,19 @@ class ChartTest extends TestBase
         Assert::assertEquals($fillType, "NoFill");
     }   
 
+    public function testChartSeriesGroups()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        Assert::assertEquals(count($result->getSeriesGroups()), 1);
+        $result->getSeriesGroups()[0]->setOverlap(10);
+        $result = $this->getApi()->updateChartSeriesGroup(self::fileName, self::slideIndex, self::shapeIndex,
+            self::seriesGroupIndex, $result->getSeriesGroups()[0], self::password, self::folderName);
+        Assert::assertEquals($result->getSeriesGroups()[0]->getOverlap(), 10);
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
@@ -460,4 +473,5 @@ class ChartTest extends TestBase
     public const categoryIndex = 2;
     public const seriesCount = 3;
     public const categoryCount = 4;
+    public const seriesGroupIndex = 1;
 }

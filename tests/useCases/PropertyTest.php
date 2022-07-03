@@ -220,6 +220,21 @@ class PropertyTest extends TestBase
         Assert::assertEquals(50, $response->getSlideViewProperties()->getScale());
     }
 
+    public function testProtectionCheck()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $getResult = $this->getApi()->getProtectionProperties(self::fileName, null, self::folderName);
+        Assert::assertTrue($getResult->getIsEncrypted());
+        Assert::assertNull($getResult->getReadPassword());
+
+        $getResult = $this->getApi()->getProtectionProperties(self::fileName, self::password, self::folderName);
+        Assert::assertTrue($getResult->getIsEncrypted());
+        Assert::assertNotNull($getResult->getReadPassword());
+    }
+
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";

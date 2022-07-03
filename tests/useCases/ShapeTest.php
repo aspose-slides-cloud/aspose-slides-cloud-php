@@ -554,7 +554,6 @@ class ShapeTest extends TestBase
             self::folderName
         );
 
-        echo $response->getFillFormat()->getType();
         assert::assertEquals('Shape', $response->getType());
         assert::assertEquals($dto->getWidth(), $response->getWidth());
         assert::assertEquals($dto->getHeight(), $response->getHeight());

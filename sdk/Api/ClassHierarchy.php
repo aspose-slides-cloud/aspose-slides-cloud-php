@@ -246,6 +246,7 @@ class ClassHierarchy
             'Camera' => [],
             'ChartCategory' => [],
             'ChartLinesFormat' => [],
+            'ChartSeriesGroup' => [],
             'ChartTitle' => [],
             'ChartWall' => [],
             'CommonSlideViewProperties' => [],

@@ -367,6 +367,42 @@ class PortionTest extends TestBase
         Assert::assertGreaterThan(0, $response->getHeight());
     }
 
+    public function testGetPortionEffective()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $response = $this->getApi()->getPortionEffective(
+            self::fileName,
+            self::slideIndex,
+            self::shapeIndex,
+            self::paragraphIndex,
+            self::portionIndex,
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals(18, $response->getFontHeight());
+    }
+
+    public function testGetSubshapePortionEffective()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $response = $this->getApi()->getSubshapePortionEffective(
+            self::fileName,
+            self::slideIndex,
+            self::shapePath,
+            1,
+            self::paragraphIndex,
+            self::portionIndex,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals(18, $response->getFontHeight());
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
