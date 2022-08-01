@@ -279,6 +279,22 @@ class MasterSlideTest extends TestBase
         Assert::assertEquals(0, count($animation->getMainSequence()));
     }
 
+    public function testMasterSlideDeleteUnused()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $result = $this->getApi()->deleteUnusedMasterSlides(self::fileName, false, self::password, self::folderName);
+        Assert::assertEquals(count($result->getSlideList()), 1);
+     }
+
+     public function testMasterSlideDeleteUnusedOnline()
+     {
+        $this->initialize(null, null, null);
+        $file = fopen("TestData/".self::fileName, 'r');
+        $result = $this->getApi()->deleteUnusedMasterSlidesOnline($file, true, self::password);
+        Assert::assertTrue($result->getSize() > 0);
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";

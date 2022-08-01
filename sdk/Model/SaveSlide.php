@@ -205,6 +205,7 @@ class SaveSlide extends Task
     const FORMAT_SVG = 'Svg';
     const FORMAT_FODP = 'Fodp';
     const FORMAT_XAML = 'Xaml';
+    const FORMAT_HTML5 = 'Html5';
     
 
     
@@ -238,6 +239,7 @@ class SaveSlide extends Task
             self::FORMAT_SVG,
             self::FORMAT_FODP,
             self::FORMAT_XAML,
+            self::FORMAT_HTML5,
         ];
     }
     

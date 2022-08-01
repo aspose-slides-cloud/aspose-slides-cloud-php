@@ -20370,6 +20370,230 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for deleteUnusedMasterSlides
+     * Removes unused master slides.
+     */
+    public function testDeleteUnusedMasterSlides()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteUnusedMasterSlides");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesInvalidname()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "deleteUnusedMasterSlides", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlides", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlides", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlides", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesInvalidignorePreserveField()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        $testignorePreserveField = TestUtils::invalidizeValue("ignorePreserveField", "deleteUnusedMasterSlides", $testignorePreserveField, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", "ignorePreserveField", $testignorePreserveField, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlides", "ignorePreserveField", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlides", "ignorePreserveField", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlides", "ignorePreserveField", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteUnusedMasterSlides", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlides", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlides", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlides", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "deleteUnusedMasterSlides", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlides", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlides", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlides", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("deleteUnusedMasterSlides", "name", self::$values, 'string');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlides", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlides", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteUnusedMasterSlides", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteUnusedMasterSlides", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "deleteUnusedMasterSlides", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlides", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlides($testname, $testignorePreserveField, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlides", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlides", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlides", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for deleteUnusedMasterSlidesOnline
+     * Removes unused master slides.
+     */
+    public function testDeleteUnusedMasterSlidesOnline()
+    {
+        $testdocument = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "document", self::$values, '\SplFileObject');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlidesOnline", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlidesOnline($testdocument, $testignorePreserveField, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteUnusedMasterSlidesOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "document", self::$values, '\SplFileObject');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "password", self::$values, 'string');
+        $testdocument = TestUtils::invalidizeValue("document", "deleteUnusedMasterSlidesOnline", $testdocument, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlidesOnline", "document", $testdocument, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlidesOnline($testdocument, $testignorePreserveField, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlidesOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlidesOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlidesOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesOnlineInvalidignorePreserveField()
+    {
+        $testdocument = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "document", self::$values, '\SplFileObject');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "password", self::$values, 'string');
+        $testignorePreserveField = TestUtils::invalidizeValue("ignorePreserveField", "deleteUnusedMasterSlidesOnline", $testignorePreserveField, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlidesOnline", "ignorePreserveField", $testignorePreserveField, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlidesOnline($testdocument, $testignorePreserveField, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlidesOnline", "ignorePreserveField", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlidesOnline", "ignorePreserveField", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlidesOnline", "ignorePreserveField", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteUnusedMasterSlidesOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "document", self::$values, '\SplFileObject');
+        $testignorePreserveField = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "ignorePreserveField", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("deleteUnusedMasterSlidesOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteUnusedMasterSlidesOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteUnusedMasterSlidesOnline", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteUnusedMasterSlidesOnline($testdocument, $testignorePreserveField, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteUnusedMasterSlidesOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteUnusedMasterSlidesOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteUnusedMasterSlidesOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for deleteWatermark
      * Removes shapes with name \"watermark\" from the presentation.
      */
@@ -43667,6 +43891,912 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for setChartAxis
+     * Set chart axis.
+     */
+    public function testSetChartAxis()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setChartAxis");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetChartAxisInvalidname()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setChartAxis", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "setChartAxis", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "setChartAxis", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "shapeIndex", $testshapeIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidaxisType()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testaxisType = TestUtils::invalidizeValue("axisType", "setChartAxis", $testaxisType, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "axisType", $testaxisType, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "axisType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "axisType", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "axisType", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidaxis()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testaxis = TestUtils::invalidizeValue("axis", "setChartAxis", $testaxis, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "axis", $testaxis, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "axis", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "axis", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "axis", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setChartAxis", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setChartAxis", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartAxisInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("setChartAxis", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartAxis", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartAxis", "shapeIndex", self::$values, 'int');
+        $testaxisType = TestUtils::getTestValue("setChartAxis", "axisType", self::$values, 'string');
+        $testaxis = TestUtils::getTestValue("setChartAxis", "axis", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Axis');
+        $testpassword = TestUtils::getTestValue("setChartAxis", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartAxis", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartAxis", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setChartAxis", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartAxis", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartAxis($testname, $testslideIndex, $testshapeIndex, $testaxisType, $testaxis, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartAxis", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartAxis", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartAxis", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setChartLegend
+     * Set chart axis.
+     */
+    public function testSetChartLegend()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setChartLegend");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetChartLegendInvalidname()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setChartLegend", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "setChartLegend", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "setChartLegend", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "shapeIndex", $testshapeIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidlegend()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testlegend = TestUtils::invalidizeValue("legend", "setChartLegend", $testlegend, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "legend", $testlegend, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "legend", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "legend", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "legend", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setChartLegend", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setChartLegend", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartLegendInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("setChartLegend", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartLegend", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartLegend", "shapeIndex", self::$values, 'int');
+        $testlegend = TestUtils::getTestValue("setChartLegend", "legend", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\Legend');
+        $testpassword = TestUtils::getTestValue("setChartLegend", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartLegend", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartLegend", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setChartLegend", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartLegend", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartLegend($testname, $testslideIndex, $testshapeIndex, $testlegend, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartLegend", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartLegend", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartLegend", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setChartSeriesGroup
+     * Set a series group in a chart.
+     */
+    public function testSetChartSeriesGroup()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setChartSeriesGroup");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidname()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setChartSeriesGroup", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "setChartSeriesGroup", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "setChartSeriesGroup", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "shapeIndex", $testshapeIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidseriesGroupIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testseriesGroupIndex = TestUtils::invalidizeValue("seriesGroupIndex", "setChartSeriesGroup", $testseriesGroupIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "seriesGroupIndex", $testseriesGroupIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "seriesGroupIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "seriesGroupIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "seriesGroupIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidseriesGroup()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testseriesGroup = TestUtils::invalidizeValue("seriesGroup", "setChartSeriesGroup", $testseriesGroup, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "seriesGroup", $testseriesGroup, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "seriesGroup", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "seriesGroup", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "seriesGroup", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setChartSeriesGroup", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setChartSeriesGroup", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartSeriesGroupInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("setChartSeriesGroup", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartSeriesGroup", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartSeriesGroup", "shapeIndex", self::$values, 'int');
+        $testseriesGroupIndex = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
+        $testseriesGroup = TestUtils::getTestValue("setChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
+        $testpassword = TestUtils::getTestValue("setChartSeriesGroup", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartSeriesGroup", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartSeriesGroup", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setChartSeriesGroup", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartSeriesGroup", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartSeriesGroup", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartSeriesGroup", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartSeriesGroup", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setChartWall
+     * Set 3D chart wall.
+     */
+    public function testSetChartWall()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setChartWall");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetChartWallInvalidname()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setChartWall", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "setChartWall", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidshapeIndex()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "setChartWall", $testshapeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "shapeIndex", $testshapeIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "shapeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "shapeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "shapeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidchartWallType()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testchartWallType = TestUtils::invalidizeValue("chartWallType", "setChartWall", $testchartWallType, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "chartWallType", $testchartWallType, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "chartWallType", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "chartWallType", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "chartWallType", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidchartWall()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testchartWall = TestUtils::invalidizeValue("chartWall", "setChartWall", $testchartWall, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "chartWall", $testchartWall, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "chartWall", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "chartWall", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "chartWall", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setChartWall", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setChartWall", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetChartWallInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("setChartWall", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("setChartWall", "slideIndex", self::$values, 'int');
+        $testshapeIndex = TestUtils::getTestValue("setChartWall", "shapeIndex", self::$values, 'int');
+        $testchartWallType = TestUtils::getTestValue("setChartWall", "chartWallType", self::$values, 'string');
+        $testchartWall = TestUtils::getTestValue("setChartWall", "chartWall", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartWall');
+        $testpassword = TestUtils::getTestValue("setChartWall", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setChartWall", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setChartWall", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setChartWall", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setChartWall", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setChartWall($testname, $testslideIndex, $testshapeIndex, $testchartWallType, $testchartWall, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setChartWall", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setChartWall", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setChartWall", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for setDocumentProperties
      * Set document properties.
      */
@@ -47678,241 +48808,6 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("updateChartSeries", "storage", self::$okToFailValues);
-        }
-    }
-
-    /**
-     * Test case for updateChartSeriesGroup
-     * Update a series group in a chart.
-     */
-    public function testUpdateChartSeriesGroup()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", null, null, null);
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (Exception $ex) {
-            TestUtils::assertSuccessfulException($ex, "updateChartSeriesGroup");
-        }
-        if ($needAssertResponse) {
-            Assert::assertNotNull($result);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidname()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testname = TestUtils::invalidizeValue("name", "updateChartSeriesGroup", $testname, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "name", $testname, 'string');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "name", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "name", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "name", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidslideIndex()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "updateChartSeriesGroup", $testslideIndex, self::$values, 'int');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "slideIndex", $testslideIndex, 'int');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "slideIndex", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "slideIndex", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "slideIndex", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidshapeIndex()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testshapeIndex = TestUtils::invalidizeValue("shapeIndex", "updateChartSeriesGroup", $testshapeIndex, self::$values, 'int');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "shapeIndex", $testshapeIndex, 'int');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "shapeIndex", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "shapeIndex", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "shapeIndex", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidseriesGroupIndex()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testseriesGroupIndex = TestUtils::invalidizeValue("seriesGroupIndex", "updateChartSeriesGroup", $testseriesGroupIndex, self::$values, 'int');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "seriesGroupIndex", $testseriesGroupIndex, 'int');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "seriesGroupIndex", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "seriesGroupIndex", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "seriesGroupIndex", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidseriesGroup()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testseriesGroup = TestUtils::invalidizeValue("seriesGroup", "updateChartSeriesGroup", $testseriesGroup, self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "seriesGroup", $testseriesGroup, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "seriesGroup", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "seriesGroup", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "seriesGroup", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidpassword()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testpassword = TestUtils::invalidizeValue("password", "updateChartSeriesGroup", $testpassword, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "password", $testpassword, 'string');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "password", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "password", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "password", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidfolder()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $testfolder = TestUtils::invalidizeValue("folder", "updateChartSeriesGroup", $testfolder, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "folder", $testfolder, 'string');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "folder", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "folder", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "folder", self::$okToFailValues);
-        }
-    }
-
-    public function testUpdateChartSeriesGroupInvalidstorage()
-    {
-        $testname = TestUtils::getTestValue("updateChartSeriesGroup", "name", self::$values, 'string');
-        $testslideIndex = TestUtils::getTestValue("updateChartSeriesGroup", "slideIndex", self::$values, 'int');
-        $testshapeIndex = TestUtils::getTestValue("updateChartSeriesGroup", "shapeIndex", self::$values, 'int');
-        $testseriesGroupIndex = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroupIndex", self::$values, 'int');
-        $testseriesGroup = TestUtils::getTestValue("updateChartSeriesGroup", "seriesGroup", self::$values, '\Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup');
-        $testpassword = TestUtils::getTestValue("updateChartSeriesGroup", "password", self::$values, 'string');
-        $testfolder = TestUtils::getTestValue("updateChartSeriesGroup", "folder", self::$values, 'string');
-        $teststorage = TestUtils::getTestValue("updateChartSeriesGroup", "storage", self::$values, 'string');
-        $teststorage = TestUtils::invalidizeValue("storage", "updateChartSeriesGroup", $teststorage, self::$values, 'string');
-        list($expectedCode, $expectedMessage) = $this->initialize("updateChartSeriesGroup", "storage", $teststorage, 'string');
-        $needAssertResponse = false;
-        try {
-            $result = $this->getApi()->updateChartSeriesGroup($testname, $testslideIndex, $testshapeIndex, $testseriesGroupIndex, $testseriesGroup, $testpassword, $testfolder, $teststorage);
-            $needAssertResponse = true;
-        } catch (ApiException $ex) {
-            TestUtils::assertException($ex, "updateChartSeriesGroup", "storage", $expectedCode, $expectedMessage);
-        } catch (\InvalidArgumentException $ex) {
-            TestUtils::assertInvalidArgumentException($ex, "updateChartSeriesGroup", "storage", $expectedCode, $expectedMessage);
-        }
-        if ($needAssertResponse) {
-            TestUtils::assertResponse("updateChartSeriesGroup", "storage", self::$okToFailValues);
         }
     }
 

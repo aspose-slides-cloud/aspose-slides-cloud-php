@@ -32,42 +32,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * NotesSlideExportFormat Class Doc Comment
+ * ChartWallType Class Doc Comment
  *
  * @category Class
- * @description Represents a format for notes slide export.
+ * @description 3D chart wall type
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class NotesSlideExportFormat
+class ChartWallType
 {
     /**
      * Possible values of this enum
      */
-    const JPEG = 'Jpeg';
-    const PNG = 'Png';
-    const GIF = 'Gif';
-    const BMP = 'Bmp';
-    const TIFF = 'Tiff';
-    const HTML = 'Html';
-    const PDF = 'Pdf';
-    const XPS = 'Xps';
-    const PPTX = 'Pptx';
-    const ODP = 'Odp';
-    const OTP = 'Otp';
-    const PPT = 'Ppt';
-    const PPS = 'Pps';
-    const PPSX = 'Ppsx';
-    const PPTM = 'Pptm';
-    const PPSM = 'Ppsm';
-    const POTX = 'Potx';
-    const POT = 'Pot';
-    const POTM = 'Potm';
-    const SVG = 'Svg';
-    const FODP = 'Fodp';
-    const XAML = 'Xaml';
-    const HTML5 = 'Html5';
+    const FLOOR = 'Floor';
+    const SIDE_WALL = 'SideWall';
+    const BACK_WALL = 'BackWall';
     
     /**
      * Gets allowable values of the enum
@@ -76,29 +56,9 @@ class NotesSlideExportFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::JPEG,
-            self::PNG,
-            self::GIF,
-            self::BMP,
-            self::TIFF,
-            self::HTML,
-            self::PDF,
-            self::XPS,
-            self::PPTX,
-            self::ODP,
-            self::OTP,
-            self::PPT,
-            self::PPS,
-            self::PPSX,
-            self::PPTM,
-            self::PPSM,
-            self::POTX,
-            self::POT,
-            self::POTM,
-            self::SVG,
-            self::FODP,
-            self::XAML,
-            self::HTML5,
+            self::FLOOR,
+            self::SIDE_WALL,
+            self::BACK_WALL,
         ];
     }
 }

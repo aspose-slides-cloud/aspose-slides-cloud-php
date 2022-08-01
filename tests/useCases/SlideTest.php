@@ -301,7 +301,7 @@ class SlideTest extends TestBase
     public const sourceFileName = "TemplateCV.pptx";
     public const password = "password";
     public const slideIndex = 1;
-    public const slideCount = 7;
+    public const slideCount = 8;
     public const layoutSlidePath = "layoutSlides/3";
     public const color = "#FFF5FF8A";
 }

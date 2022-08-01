@@ -177,6 +177,7 @@ class PresentationToMerge implements ArrayAccess
 
     const SOURCE_STORAGE = 'Storage';
     const SOURCE_REQUEST = 'Request';
+    const SOURCE_URL = 'Url';
     
 
     
@@ -190,6 +191,7 @@ class PresentationToMerge implements ArrayAccess
         return [
             self::SOURCE_STORAGE,
             self::SOURCE_REQUEST,
+            self::SOURCE_URL,
         ];
     }
     

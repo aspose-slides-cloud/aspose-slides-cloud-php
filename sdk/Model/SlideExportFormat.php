@@ -67,6 +67,7 @@ class SlideExportFormat
     const SVG = 'Svg';
     const FODP = 'Fodp';
     const XAML = 'Xaml';
+    const HTML5 = 'Html5';
     
     /**
      * Gets allowable values of the enum
@@ -97,6 +98,7 @@ class SlideExportFormat
             self::SVG,
             self::FODP,
             self::XAML,
+            self::HTML5,
         ];
     }
 }

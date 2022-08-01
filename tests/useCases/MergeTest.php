@@ -112,6 +112,28 @@ class MergeTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
+    public function testMergeOrderedUrl()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $request = new OrderedMergeRequest();
+        $presentation1 = new PresentationToMerge();
+        $presentation1->setPath(self::folderName."/".self::fileName);
+        $presentation1->setPassword(self::password);
+        $presentation1->setSource("Storage");
+        $presentation1->setSlides([ 1, 2 ]);
+        $presentation2 = new PresentationToMerge();
+        $presentation2->setPath(self::url);
+        $presentation2->setSource("Url");
+        $presentation2->setSlides([ 1 ]);
+        $request->setPresentations([ $presentation1, $presentation2 ]);
+
+        $result = $this->getApi()->mergeOnline(null, $request);
+        Assert::assertTrue($result->isFile());
+    }
+
+    public const url = "https://drive.google.com/uc?export=download&id=1ycMzd7e--Ro9H8eH2GL5fPP7-2HjX4My";
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const fileName2 = "test-unprotected.pptx";

@@ -39,8 +39,10 @@ use Aspose\Slides\Cloud\Sdk\Model\Axis;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
 use Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat;
+use Aspose\Slides\Cloud\Sdk\Model\ChartWall;
 use Aspose\Slides\Cloud\Sdk\Model\GradientFill;
 use Aspose\Slides\Cloud\Sdk\Model\GradientFillStop;
+use Aspose\Slides\Cloud\Sdk\Model\Legend;
 use Aspose\Slides\Cloud\Sdk\Model\LineFormat;
 use Aspose\Slides\Cloud\Sdk\Model\NoFill;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
@@ -459,11 +461,66 @@ class ChartTest extends TestBase
         $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(count($result->getSeriesGroups()), 1);
         $result->getSeriesGroups()[0]->setOverlap(10);
-        $result = $this->getApi()->updateChartSeriesGroup(self::fileName, self::slideIndex, self::shapeIndex,
+        $result = $this->getApi()->setChartSeriesGroup(self::fileName, self::slideIndex, self::shapeIndex,
             self::seriesGroupIndex, $result->getSeriesGroups()[0], self::password, self::folderName);
         Assert::assertEquals($result->getSeriesGroups()[0]->getOverlap(), 10);
     }
 
+    public function testSetChartLegend()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $legend = new Legend();
+        $legend->setOverlay(true);
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor(self::color); 
+        $legend->setFillFormat($fillFormat);
+
+        $result = $this->getApi()->setChartLegend(self::fileName, self::slideIndex, self::shapeIndex,
+            $legend, self::password, self::folderName);
+        
+        Assert::assertTrue($result->getOverlay());
+        Assert::assertEquals($result->getFillFormat()->getType(), "Solid");
+    }
+
+    public function testSetChartAxis()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $axis = new Axis();
+        $axis->setHasTitle(true);
+        $axis->setIsAutomaticMaxValue(false);
+        $axis->setMaxValue(10);
+
+        $result = $this->getApi()->setChartAxis(self::fileName, self::slideIndex, self::shapeIndex,
+            "VerticalAxis", $axis, self::password, self::folderName);
+        
+        Assert::assertTrue($result->getHasTitle());
+        Assert::assertFalse($result->getIsAutomaticMaxValue());
+        Assert::assertEquals(10, $result->getMaxValue());
+    }
+
+    public function testSetChartWall()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $slideIdx = 8;
+        $shapeIdx = 2;
+        $wall = new ChartWall();
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor(self::color); 
+        $wall->setFillFormat($fillFormat);
+
+        $result = $this->getApi()->setChartWall(self::fileName, $slideIdx, $shapeIdx,
+            "BackWall", $wall, self::password, self::folderName);
+        
+        Assert::assertEquals($result->getFillFormat()->getType(), "Solid");
+    }
+
+    public const color = "#77CEF9";
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const password = "password";
