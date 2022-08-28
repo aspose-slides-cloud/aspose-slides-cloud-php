@@ -951,8 +951,19 @@ class ShapeTest extends TestBase
         Assert::assertEquals(3, count($shapes->getShapesLinks()));
     }
 
+    public function testImportShapesFromSvg()
+    {
+        $this->initialize(null, null, null);
+        $file = fopen("TestData/".self::svgFileName, 'r');
+        $slideIndex = 5;
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $result = $this->getApi()->importShapesFromSvg(self::fileName, $slideIndex, $file, 50, 50, 300, 300, [1,2,3], self::password, self::folderName);
+        Assert::assertEquals(3, count($result->getShapesLinks()));
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
+    public const svgFileName = "shapes.svg";
     public const password = "password";
     public const slideIndex = 3;
     public const oleObjectFileName = "oleObject.xlsx";

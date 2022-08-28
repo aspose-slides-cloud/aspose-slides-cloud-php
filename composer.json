@@ -7,7 +7,7 @@
     "homepage": "https://github.com/aspose-slides-cloud/aspose-slides-cloud-php",
     "config": {
         "platform": {
-            "php": "5.6.32"
+            "php": "7.2.5"
         }
     },
     "require": {
@@ -15,7 +15,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/guzzle": "^7.4",
         "monolog/monolog": "*"
     },
     "require-dev": {

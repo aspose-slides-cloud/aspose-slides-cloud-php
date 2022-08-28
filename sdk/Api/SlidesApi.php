@@ -9345,6 +9345,297 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deleteEmbeddedFont($name, $fontName, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->deleteEmbeddedFontWithHttpInfo($name, $fontName, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteEmbeddedFontWithHttpInfo($name, $fontName, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontWithHttpInfo($name, $fontName, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->deleteEmbeddedFontRequest($name, $fontName, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FontsData', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontAsync($name, $fontName, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteEmbeddedFontAsyncWithHttpInfo($name, $fontName, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontAsyncWithHttpInfo($name, $fontName, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->deleteEmbeddedFontRequest($name, $fontName, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteEmbeddedFont'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$fontName Font name. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteEmbeddedFontRequest($name, $fontName, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteEmbeddedFont');
+        }
+        // verify the required parameter 'font_name' is set
+        if ($fontName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fontName when calling deleteEmbeddedFont');
+        }
+
+        $resourcePath = '/slides/{name}/fonts/embedded/{fontName}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "fontName", $fontName);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteEmbeddedFontOnline($document, $fontName, $password = null)
+    {
+        try {
+            list($response) = $this->deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteEmbeddedFontOnlineRequest($document, $fontName, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontOnlineAsync($document, $fontName, $password = null)
+    {
+        return $this->deleteEmbeddedFontOnlineAsyncWithHttpInfo($document, $fontName, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteEmbeddedFontOnlineAsyncWithHttpInfo($document, $fontName, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->deleteEmbeddedFontOnlineRequest($document, $fontName, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteEmbeddedFontOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$fontName Document name. (required)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteEmbeddedFontOnlineRequest($document, $fontName, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling deleteEmbeddedFontOnline');
+        }
+        // verify the required parameter 'font_name' is set
+        if ($fontName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fontName when calling deleteEmbeddedFontOnline');
+        }
+
+        $resourcePath = '/slides/fonts/embedded/{fontName}/delete';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "fontName", $fontName);
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function deleteFile($path, $storageName = null, $versionId = null)
     {
         try {
@@ -21557,6 +21848,288 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getFonts($name, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getFontsWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getFontsWithHttpInfo($name, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getFontsWithHttpInfo($name, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getFontsRequest($name, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FontsData', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getFontsAsync($name, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getFontsAsyncWithHttpInfo($name, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getFontsAsyncWithHttpInfo($name, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getFontsRequest($name, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getFonts'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getFontsRequest($name, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getFonts');
+        }
+
+        $resourcePath = '/slides/{name}/fonts';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getFontsOnline($document, $password = null)
+    {
+        try {
+            list($response) = $this->getFontsOnlineWithHttpInfo($document, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getFontsOnlineWithHttpInfo($document, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getFontsOnlineWithHttpInfo($document, $password = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getFontsOnlineRequest($document, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FontsData', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getFontsOnlineAsync($document, $password = null)
+    {
+        return $this->getFontsOnlineAsyncWithHttpInfo($document, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getFontsOnlineAsyncWithHttpInfo($document, $password = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getFontsOnlineRequest($document, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getFontsOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getFontsOnlineRequest($document, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling getFontsOnline');
+        }
+
+        $resourcePath = '/slides/fonts';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function getFormatScheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -31186,6 +31759,186 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function importShapesFromSvg($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function importShapesFromSvgWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
+        $httpRequest = $this->importShapesFromSvgRequest($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Shapes', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function importShapesFromSvgAsync($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->importShapesFromSvgAsyncWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function importShapesFromSvgAsyncWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
+        $httpRequest = $this->importShapesFromSvgRequest($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'importShapesFromSvg'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  \SplFileObject $$image SVG image data. (optional)
+     * @param  int $$x The X coordinate of the imported group of shapes (0 is default if not specified). (optional)
+     * @param  int $$y The Y coordinate of the imported group of shapes (0 is default if not specified). (optional)
+     * @param  int $$width The width of the imported group of shapes (default is SVG image width). (optional)
+     * @param  int $$height The height of the imported group of shapes (default is SVG image width). (optional)
+     * @param  array $$shapes Indexes of shapes to import. All shapes are imported if not specified. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Presentation folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function importShapesFromSvgRequest($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling importShapesFromSvg');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling importShapesFromSvg');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/fromSvg';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($x !== null) {
+            $queryParams['x'] = ObjectSerializer::toQueryValue($x);
+        }
+        // query params
+        if ($y !== null) {
+            $queryParams['y'] = ObjectSerializer::toQueryValue($y);
+        }
+        // query params
+        if ($width !== null) {
+            $queryParams['width'] = ObjectSerializer::toQueryValue($width);
+        }
+        // query params
+        if ($height !== null) {
+            $queryParams['height'] = ObjectSerializer::toQueryValue($height);
+        }
+        // query params
+        if ($shapes !== null) {
+            $queryParams['shapes'] = ObjectSerializer::toQueryValue($shapes);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $_tempBody = [];
+        if (isset($image)) {
+            array_push($_tempBody, $image);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function merge($name, \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -36627,6 +37380,307 @@ class SlidesApi extends ApiBase
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function setEmbeddedFont($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->setEmbeddedFontRequest($name, $fontName, $onlyUsed, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FontsData', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function setEmbeddedFontAsync($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->setEmbeddedFontAsyncWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function setEmbeddedFontAsyncWithHttpInfo($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->setEmbeddedFontRequest($name, $fontName, $onlyUsed, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'setEmbeddedFont'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$fontName Document name. (required)
+     * @param  bool $$onlyUsed Only used characters will be embedded. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setEmbeddedFontRequest($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling setEmbeddedFont');
+        }
+        // verify the required parameter 'font_name' is set
+        if ($fontName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fontName when calling setEmbeddedFont');
+        }
+
+        $resourcePath = '/slides/{name}/fonts/embedded/{fontName}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($onlyUsed !== null) {
+            $queryParams['onlyUsed'] = ObjectSerializer::toQueryValue($onlyUsed);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "fontName", $fontName);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function setEmbeddedFontOnline($document, $fontName, $onlyUsed = null, $password = null)
+    {
+        try {
+            list($response) = $this->setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->setEmbeddedFontOnlineRequest($document, $fontName, $onlyUsed, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function setEmbeddedFontOnlineAsync($document, $fontName, $onlyUsed = null, $password = null)
+    {
+        return $this->setEmbeddedFontOnlineAsyncWithHttpInfo($document, $fontName, $onlyUsed, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function setEmbeddedFontOnlineAsyncWithHttpInfo($document, $fontName, $onlyUsed = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->setEmbeddedFontOnlineRequest($document, $fontName, $onlyUsed, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'setEmbeddedFontOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$fontName Font name. (required)
+     * @param  bool $$onlyUsed Only used characters will be embedded. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function setEmbeddedFontOnlineRequest($document, $fontName, $onlyUsed = null, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling setEmbeddedFontOnline');
+        }
+        // verify the required parameter 'font_name' is set
+        if ($fontName === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fontName when calling setEmbeddedFontOnline');
+        }
+
+        $resourcePath = '/slides/fonts/embedded/{fontName}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($onlyUsed !== null) {
+            $queryParams['onlyUsed'] = ObjectSerializer::toQueryValue($onlyUsed);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "fontName", $fontName);
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
     /**
      */
