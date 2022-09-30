@@ -61,6 +61,7 @@ class ExportOptions implements ArrayAccess
     protected static $swaggerTypes = [
         'defaultRegularFont' => 'string',
         'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
+        'fontSubstRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[]',
         'format' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class ExportOptions implements ArrayAccess
     protected static $swaggerFormats = [
         'defaultRegularFont' => null,
         'fontFallbackRules' => null,
+        'fontSubstRules' => null,
         'format' => null
     ];
 
@@ -104,6 +106,7 @@ class ExportOptions implements ArrayAccess
     protected static $attributeMap = [
         'defaultRegularFont' => 'DefaultRegularFont',
         'fontFallbackRules' => 'FontFallbackRules',
+        'fontSubstRules' => 'FontSubstRules',
         'format' => 'Format'
     ];
 
@@ -115,6 +118,7 @@ class ExportOptions implements ArrayAccess
     protected static $setters = [
         'defaultRegularFont' => 'setDefaultRegularFont',
         'fontFallbackRules' => 'setFontFallbackRules',
+        'fontSubstRules' => 'setFontSubstRules',
         'format' => 'setFormat'
     ];
 
@@ -126,6 +130,7 @@ class ExportOptions implements ArrayAccess
     protected static $getters = [
         'defaultRegularFont' => 'getDefaultRegularFont',
         'fontFallbackRules' => 'getFontFallbackRules',
+        'fontSubstRules' => 'getFontSubstRules',
         'format' => 'getFormat'
     ];
 
@@ -191,6 +196,7 @@ class ExportOptions implements ArrayAccess
     {
         $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
         $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
+        $this->container['fontSubstRules'] = isset($data['fontSubstRules']) ? $data['fontSubstRules'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
     }
@@ -264,6 +270,30 @@ class ExportOptions implements ArrayAccess
     public function setFontFallbackRules($fontFallbackRules)
     {
         $this->container['fontFallbackRules'] = $fontFallbackRules;
+
+        return $this;
+    }
+
+    /**
+     * Gets fontSubstRules
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[]
+     */
+    public function getFontSubstRules()
+    {
+        return $this->container['fontSubstRules'];
+    }
+
+    /**
+     * Sets fontSubstRules
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[] $fontSubstRules Gets of sets list of font substitution rules.
+     *
+     * @return $this
+     */
+    public function setFontSubstRules($fontSubstRules)
+    {
+        $this->container['fontSubstRules'] = $fontSubstRules;
 
         return $this;
     }

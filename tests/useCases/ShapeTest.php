@@ -956,9 +956,84 @@ class ShapeTest extends TestBase
         $this->initialize(null, null, null);
         $file = fopen("TestData/".self::svgFileName, 'r');
         $slideIndex = 5;
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $result = $this->getApi()->importShapesFromSvg(self::fileName, $slideIndex, $file, 50, 50, 300, 300, [1,2,3], self::password, self::folderName);
+        $this->getApi()->CopyFile("TempTests/" . self::fileName, self::folderName . "/" . self::fileName);
+        $result = $this->getApi()->importShapesFromSvg(
+            self::fileName,
+            $slideIndex,
+            $file,
+            50,
+            50,
+            300,
+            300,
+            [1, 2, 3],
+            false,
+            self::password,
+            self::folderName
+        );
         Assert::assertEquals(3, count($result->getShapesLinks()));
+    }
+
+    public function testCreateSmartArtNode()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIndex = 7;
+        $newNodeText = "New root node";
+        $response = $this->getApi()->createSmartArtNode(self::fileName, $slideIndex, self::smartArtIndex, null, $newNodeText,
+            null, self::password, self::folderName);
+        Assert::assertEquals(2, count($response->getNodes()));
+        Assert::assertEquals($newNodeText, $response->getNodes()[1]->getText());
+    }
+
+    public function testCreateSmartArtSubNode()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIndex = 7;
+        $subNodePath = "1";
+        $newSubNodeText = "New sub-node";
+        $position = 1;
+        $response = $this->getApi()->createSmartArtNode(self::fileName, $slideIndex, self::smartArtIndex, $subNodePath, $newSubNodeText,
+        $position, self::password, self::folderName);
+        Assert::assertEquals(5, count($response->getNodes()[0]->getNodes()));
+        Assert::assertEquals($newSubNodeText, $response->getNodes()[0]->getNodes()[0]->getText());
+    }
+
+    public function testCreateSmartArtSubSubNode()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIndex = 7;
+        $subSubNodePath = "1/nodes/1";
+        $newSubNodeText = "New sub-sub-node";
+        $response = $this->getApi()->createSmartArtNode(self::fileName, $slideIndex, self::smartArtIndex, $subSubNodePath, $newSubNodeText,
+        null, self::password, self::folderName);
+        Assert::assertEquals(1, count($response->getNodes()[0]->getNodes()[0]->getNodes()));
+        Assert::assertEquals($newSubNodeText, $response->getNodes()[0]->getNodes()[0]->getNodes()[0]->getText());
+    }
+
+    public function testDeleteSmartArtNode()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIndex = 7;
+        $smartArtIndex = 2;
+        $nodeIndex = 1;
+        $response = $this->getApi()->deleteSmartArtNode(self::fileName, $slideIndex, $smartArtIndex, $nodeIndex, null, 
+            self::password, self::folderName);
+        Assert::assertEquals(2, count($response->getNodes()));
+    }
+
+    public function testDeleteSmartArtSubNode()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIndex = 7;
+        $nodeIndex = 1;
+        $subNodePath = "2";
+        $response = $this->getApi()->deleteSmartArtNode(self::fileName, $slideIndex, self::smartArtIndex, $nodeIndex, $subNodePath, 
+            self::password, self::folderName);
+        Assert::assertEquals(3, count($response->getNodes()[0]->getNodes()));
     }
 
     public const folderName = "TempSlidesSDK";
@@ -969,4 +1044,5 @@ class ShapeTest extends TestBase
     public const oleObjectFileName = "oleObject.xlsx";
     public const color = "#FFF5FF8A";
     public const shapePath = "4/shapes";
+    public const smartArtIndex = 1;
 }

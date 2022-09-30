@@ -195,7 +195,13 @@ class ObjectSerializer
         if (count($parts) == 0) {
             return "";
         }
-        if (count($parts) == 1) {
+        $resourceCount = 0;
+        foreach ($parts as $part) {
+            if (is_resource($part)) {
+                $resourceCount++;
+            }
+        }
+        if (count($parts) == 1 && $resourceCount == 0) {
             // \stdClass has no __toString(), so we should encode it manually
             if ($parts[0] instanceof \stdClass) {
                 return \GuzzleHttp\json_encode($parts[0]);

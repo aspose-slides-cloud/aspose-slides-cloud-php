@@ -29,17 +29,16 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
-use \Exception;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\Axes;
 use Aspose\Slides\Cloud\Sdk\Model\Axis;
+use Aspose\Slides\Cloud\Sdk\Model\BlurEffect;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
 use Aspose\Slides\Cloud\Sdk\Model\ChartLinesFormat;
 use Aspose\Slides\Cloud\Sdk\Model\ChartWall;
+use Aspose\Slides\Cloud\Sdk\Model\EffectFormat;
 use Aspose\Slides\Cloud\Sdk\Model\GradientFill;
 use Aspose\Slides\Cloud\Sdk\Model\GradientFillStop;
 use Aspose\Slides\Cloud\Sdk\Model\Legend;
@@ -520,6 +519,38 @@ class ChartTest extends TestBase
         Assert::assertEquals($result->getFillFormat()->getType(), "Solid");
     }
 
+    public function testUpdateDataPointFormat()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $slideIdx = 8;
+        $shapeIdx = 2;
+        
+        $dto = new OneValueChartDataPoint();
+        $dto->setValue(40);
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor(self::color);
+        $dto->setFillFormat($fillFormat);
+        $lineFormat = new LineFormat();
+        $lineFillFormat = new SolidFill();
+        $lineFillFormat->setColor(self::color);
+        $lineFormat->setFillFormat($lineFillFormat);
+        $dto->setLineFormat($lineFormat);
+        $effectFormat = new EffectFormat();
+        $blur = new BlurEffect();
+        $blur->setGrow(true);
+        $blur->setRadius(5);
+        $effectFormat->setBlur($blur);
+        $dto->setEffectFormat($effectFormat);
+
+        $result = $this->getApi()->updateChartDataPoint(self::fileName, $slideIdx, $shapeIdx, self::seriesIndex,
+            self::dataPointIndex, $dto, self::password, self::folderName);
+        $dataPoint = $result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::dataPointIndex - 1];
+        Assert::assertEquals($dataPoint->getFillFormat()->getType(), "Solid");
+        Assert::assertEquals($dataPoint->getLineFormat()->getFillFormat()->getType(), "Solid");
+        Assert::assertNotEquals($dataPoint->getEffectFormat()->getBlur(), null);
+    }
+
     public const color = "#77CEF9";
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
@@ -528,6 +559,7 @@ class ChartTest extends TestBase
     public const shapeIndex = 1;
     public const seriesIndex = 2;
     public const categoryIndex = 2;
+    public const dataPointIndex = 2;
     public const seriesCount = 3;
     public const categoryCount = 4;
     public const seriesGroupIndex = 1;

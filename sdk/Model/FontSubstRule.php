@@ -34,24 +34,24 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * DataPoint Class Doc Comment
+ * FontSubstRule Class Doc Comment
  *
  * @category Class
- * @description Data point.
+ * @description Represents font substitution rule.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DataPoint implements ArrayAccess
+class FontSubstRule implements ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DataPoint';
+    protected static $swaggerModelName = 'FontSubstRule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +59,9 @@ class DataPoint implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'sourceFont' => 'string',
+        'targetFont' => 'string',
+        'notFoundOnly' => 'bool'
     ];
 
     /**
@@ -71,10 +70,9 @@ class DataPoint implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fillFormat' => null,
-        'effectFormat' => null,
-        'threeDFormat' => null,
-        'lineFormat' => null
+        'sourceFont' => null,
+        'targetFont' => null,
+        'notFoundOnly' => null
     ];
 
     /**
@@ -104,10 +102,9 @@ class DataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fillFormat' => 'FillFormat',
-        'effectFormat' => 'EffectFormat',
-        'threeDFormat' => 'ThreeDFormat',
-        'lineFormat' => 'LineFormat'
+        'sourceFont' => 'SourceFont',
+        'targetFont' => 'TargetFont',
+        'notFoundOnly' => 'NotFoundOnly'
     ];
 
     /**
@@ -116,10 +113,9 @@ class DataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fillFormat' => 'setFillFormat',
-        'effectFormat' => 'setEffectFormat',
-        'threeDFormat' => 'setThreeDFormat',
-        'lineFormat' => 'setLineFormat'
+        'sourceFont' => 'setSourceFont',
+        'targetFont' => 'setTargetFont',
+        'notFoundOnly' => 'setNotFoundOnly'
     ];
 
     /**
@@ -128,10 +124,9 @@ class DataPoint implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fillFormat' => 'getFillFormat',
-        'effectFormat' => 'getEffectFormat',
-        'threeDFormat' => 'getThreeDFormat',
-        'lineFormat' => 'getLineFormat'
+        'sourceFont' => 'getSourceFont',
+        'targetFont' => 'getTargetFont',
+        'notFoundOnly' => 'getNotFoundOnly'
     ];
 
     /**
@@ -194,10 +189,9 @@ class DataPoint implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
-        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
-        $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
-        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['sourceFont'] = isset($data['sourceFont']) ? $data['sourceFont'] : null;
+        $this->container['targetFont'] = isset($data['targetFont']) ? $data['targetFont'] : null;
+        $this->container['notFoundOnly'] = isset($data['notFoundOnly']) ? $data['notFoundOnly'] : null;
         
     }
 
@@ -227,97 +221,73 @@ class DataPoint implements ArrayAccess
 
 
     /**
-     * Gets fillFormat
+     * Gets sourceFont
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
+     * @return string
      */
-    public function getFillFormat()
+    public function getSourceFont()
     {
-        return $this->container['fillFormat'];
+        return $this->container['sourceFont'];
     }
 
     /**
-     * Sets fillFormat
+     * Sets sourceFont
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Gets or sets the fill format.
+     * @param string $sourceFont Font to substitute.
      *
      * @return $this
      */
-    public function setFillFormat($fillFormat)
+    public function setSourceFont($sourceFont)
     {
-        $this->container['fillFormat'] = $fillFormat;
+        $this->container['sourceFont'] = $sourceFont;
 
         return $this;
     }
 
     /**
-     * Gets effectFormat
+     * Gets targetFont
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
+     * @return string
      */
-    public function getEffectFormat()
+    public function getTargetFont()
     {
-        return $this->container['effectFormat'];
+        return $this->container['targetFont'];
     }
 
     /**
-     * Sets effectFormat
+     * Sets targetFont
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Gets or sets the effect format.
+     * @param string $targetFont Substitution font.
      *
      * @return $this
      */
-    public function setEffectFormat($effectFormat)
+    public function setTargetFont($targetFont)
     {
-        $this->container['effectFormat'] = $effectFormat;
+        $this->container['targetFont'] = $targetFont;
 
         return $this;
     }
 
     /**
-     * Gets threeDFormat
+     * Gets notFoundOnly
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat
+     * @return bool
      */
-    public function getThreeDFormat()
+    public function getNotFoundOnly()
     {
-        return $this->container['threeDFormat'];
+        return $this->container['notFoundOnly'];
     }
 
     /**
-     * Sets threeDFormat
+     * Sets notFoundOnly
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat $threeDFormat Gets or sets the 3D format
+     * @param bool $notFoundOnly Substitute when font is not found. Default: true.
      *
      * @return $this
      */
-    public function setThreeDFormat($threeDFormat)
+    public function setNotFoundOnly($notFoundOnly)
     {
-        $this->container['threeDFormat'] = $threeDFormat;
-
-        return $this;
-    }
-
-    /**
-     * Gets lineFormat
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
-     */
-    public function getLineFormat()
-    {
-        return $this->container['lineFormat'];
-    }
-
-    /**
-     * Sets lineFormat
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Gets or sets the line format.
-     *
-     * @return $this
-     */
-    public function setLineFormat($lineFormat)
-    {
-        $this->container['lineFormat'] = $lineFormat;
+        $this->container['notFoundOnly'] = $notFoundOnly;
 
         return $this;
     }

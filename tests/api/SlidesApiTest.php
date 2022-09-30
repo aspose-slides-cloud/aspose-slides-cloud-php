@@ -6025,6 +6025,277 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for createSmartArtNode
+     * Add SmartArt node
+     */
+    public function testCreateSmartArtNode()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "createSmartArtNode");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidname()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "createSmartArtNode", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "createSmartArtNode", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidsmartArtIndex()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testsmartArtIndex = TestUtils::invalidizeValue("smartArtIndex", "createSmartArtNode", $testsmartArtIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "smartArtIndex", $testsmartArtIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "smartArtIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "smartArtIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "smartArtIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidsubNode()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testsubNode = TestUtils::invalidizeValue("subNode", "createSmartArtNode", $testsubNode, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "subNode", $testsubNode, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "subNode", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "subNode", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "subNode", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidtext()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testtext = TestUtils::invalidizeValue("text", "createSmartArtNode", $testtext, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "text", $testtext, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "text", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "text", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "text", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidposition()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testposition = TestUtils::invalidizeValue("position", "createSmartArtNode", $testposition, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "position", $testposition, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "position", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "position", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "position", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "createSmartArtNode", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "createSmartArtNode", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testCreateSmartArtNodeInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("createSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("createSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("createSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("createSmartArtNode", "subNode", self::$values, 'string');
+        $testtext = TestUtils::getTestValue("createSmartArtNode", "text", self::$values, 'string');
+        $testposition = TestUtils::getTestValue("createSmartArtNode", "position", self::$values, 'int');
+        $testpassword = TestUtils::getTestValue("createSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("createSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("createSmartArtNode", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "createSmartArtNode", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("createSmartArtNode", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->createSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testsubNode, $testtext, $testposition, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "createSmartArtNode", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "createSmartArtNode", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("createSmartArtNode", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for createSpecialSlideAnimationEffect
      * Add an effect to special slide (master, layout, notes) animation.
      */
@@ -14816,6 +15087,241 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("deleteSlides", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for deleteSmartArtNode
+     * Delete SmartArt node
+     */
+    public function testDeleteSmartArtNode()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "deleteSmartArtNode");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidname()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "deleteSmartArtNode", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidslideIndex()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testslideIndex = TestUtils::invalidizeValue("slideIndex", "deleteSmartArtNode", $testslideIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "slideIndex", $testslideIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "slideIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "slideIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "slideIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidsmartArtIndex()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testsmartArtIndex = TestUtils::invalidizeValue("smartArtIndex", "deleteSmartArtNode", $testsmartArtIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "smartArtIndex", $testsmartArtIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "smartArtIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "smartArtIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "smartArtIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidnodeIndex()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testnodeIndex = TestUtils::invalidizeValue("nodeIndex", "deleteSmartArtNode", $testnodeIndex, self::$values, 'int');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "nodeIndex", $testnodeIndex, 'int');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "nodeIndex", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "nodeIndex", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "nodeIndex", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidsubNode()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testsubNode = TestUtils::invalidizeValue("subNode", "deleteSmartArtNode", $testsubNode, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "subNode", $testsubNode, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "subNode", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "subNode", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "subNode", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "deleteSmartArtNode", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "deleteSmartArtNode", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testDeleteSmartArtNodeInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("deleteSmartArtNode", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("deleteSmartArtNode", "slideIndex", self::$values, 'int');
+        $testsmartArtIndex = TestUtils::getTestValue("deleteSmartArtNode", "smartArtIndex", self::$values, 'int');
+        $testnodeIndex = TestUtils::getTestValue("deleteSmartArtNode", "nodeIndex", self::$values, 'int');
+        $testsubNode = TestUtils::getTestValue("deleteSmartArtNode", "subNode", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("deleteSmartArtNode", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("deleteSmartArtNode", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("deleteSmartArtNode", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "deleteSmartArtNode", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("deleteSmartArtNode", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->deleteSmartArtNode($testname, $testslideIndex, $testsmartArtIndex, $testnodeIndex, $testsubNode, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "deleteSmartArtNode", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "deleteSmartArtNode", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("deleteSmartArtNode", "storage", self::$okToFailValues);
         }
     }
 
@@ -37931,13 +38437,14 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", null, null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "importShapesFromSvg");
@@ -37957,6 +38464,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -37964,7 +38472,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "name", $testname, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "name", $expectedCode, $expectedMessage);
@@ -37986,6 +38494,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -37993,7 +38502,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "slideIndex", $testslideIndex, 'int');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "slideIndex", $expectedCode, $expectedMessage);
@@ -38015,6 +38524,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38022,7 +38532,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "image", $testimage, '\SplFileObject');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "image", $expectedCode, $expectedMessage);
@@ -38044,6 +38554,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38051,7 +38562,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "x", $testx, 'int');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "x", $expectedCode, $expectedMessage);
@@ -38073,6 +38584,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38080,7 +38592,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "y", $testy, 'int');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "y", $expectedCode, $expectedMessage);
@@ -38102,6 +38614,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38109,7 +38622,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "width", $testwidth, 'int');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "width", $expectedCode, $expectedMessage);
@@ -38131,6 +38644,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38138,7 +38652,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "height", $testheight, 'int');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "height", $expectedCode, $expectedMessage);
@@ -38160,6 +38674,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38167,7 +38682,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "shapes", $testshapes, 'array');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "shapes", $expectedCode, $expectedMessage);
@@ -38176,6 +38691,36 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("importShapesFromSvg", "shapes", self::$okToFailValues);
+        }
+    }
+
+    public function testImportShapesFromSvgInvalidgroup()
+    {
+        $testname = TestUtils::getTestValue("importShapesFromSvg", "name", self::$values, 'string');
+        $testslideIndex = TestUtils::getTestValue("importShapesFromSvg", "slideIndex", self::$values, 'int');
+        $testimage = TestUtils::getTestValue("importShapesFromSvg", "image", self::$values, '\SplFileObject');
+        $testx = TestUtils::getTestValue("importShapesFromSvg", "x", self::$values, 'int');
+        $testy = TestUtils::getTestValue("importShapesFromSvg", "y", self::$values, 'int');
+        $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
+        $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
+        $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
+        $testgroup = TestUtils::invalidizeValue("group", "importShapesFromSvg", $testgroup, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "group", $testgroup, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "importShapesFromSvg", "group", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "importShapesFromSvg", "group", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("importShapesFromSvg", "group", self::$okToFailValues);
         }
     }
 
@@ -38189,6 +38734,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38196,7 +38742,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "password", $testpassword, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "password", $expectedCode, $expectedMessage);
@@ -38218,6 +38764,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38225,7 +38772,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "folder", $testfolder, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "folder", $expectedCode, $expectedMessage);
@@ -38247,6 +38794,7 @@ class SlidesApiTest extends TestBase
         $testwidth = TestUtils::getTestValue("importShapesFromSvg", "width", self::$values, 'int');
         $testheight = TestUtils::getTestValue("importShapesFromSvg", "height", self::$values, 'int');
         $testshapes = TestUtils::getTestValue("importShapesFromSvg", "shapes", self::$values, 'array');
+        $testgroup = TestUtils::getTestValue("importShapesFromSvg", "group", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("importShapesFromSvg", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("importShapesFromSvg", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("importShapesFromSvg", "storage", self::$values, 'string');
@@ -38254,7 +38802,7 @@ class SlidesApiTest extends TestBase
         list($expectedCode, $expectedMessage) = $this->initialize("importShapesFromSvg", "storage", $teststorage, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->importShapesFromSvg($testname, $testslideIndex, $testimage, $testx, $testy, $testwidth, $testheight, $testshapes, $testgroup, $testpassword, $testfolder, $teststorage);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "importShapesFromSvg", "storage", $expectedCode, $expectedMessage);
@@ -39864,6 +40412,410 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("reorderSlides", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for replaceFont
+     * Replaces specified font and returns presentation fonts info.
+     */
+    public function testReplaceFont()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "replaceFont");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testReplaceFontInvalidname()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "replaceFont", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidsourceFont()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testsourceFont = TestUtils::invalidizeValue("sourceFont", "replaceFont", $testsourceFont, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "sourceFont", $testsourceFont, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "sourceFont", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "sourceFont", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "sourceFont", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidtargetFont()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testtargetFont = TestUtils::invalidizeValue("targetFont", "replaceFont", $testtargetFont, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "targetFont", $testtargetFont, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "targetFont", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "targetFont", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "targetFont", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidembed()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testembed = TestUtils::invalidizeValue("embed", "replaceFont", $testembed, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "embed", $testembed, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "embed", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "embed", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "embed", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "replaceFont", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "replaceFont", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "replaceFont", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "storage", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontInvalidfontsFolder()
+    {
+        $testname = TestUtils::getTestValue("replaceFont", "name", self::$values, 'string');
+        $testsourceFont = TestUtils::getTestValue("replaceFont", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFont", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFont", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("replaceFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("replaceFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFont", "fontsFolder", self::$values, 'string');
+        $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "replaceFont", $testfontsFolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFont", "fontsFolder", $testfontsFolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFont($testname, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFont", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFont", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFont", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for replaceFontOnline
+     * Replaces specified font and returns presentation.
+     */
+    public function testReplaceFontOnline()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "replaceFontOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testReplaceFontOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testdocument = TestUtils::invalidizeValue("document", "replaceFontOnline", $testdocument, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "document", $testdocument, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontOnlineInvalidsourceFont()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testsourceFont = TestUtils::invalidizeValue("sourceFont", "replaceFontOnline", $testsourceFont, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "sourceFont", $testsourceFont, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "sourceFont", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "sourceFont", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "sourceFont", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontOnlineInvalidtargetFont()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testtargetFont = TestUtils::invalidizeValue("targetFont", "replaceFontOnline", $testtargetFont, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "targetFont", $testtargetFont, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "targetFont", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "targetFont", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "targetFont", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontOnlineInvalidembed()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testembed = TestUtils::invalidizeValue("embed", "replaceFontOnline", $testembed, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "embed", $testembed, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "embed", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "embed", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "embed", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "replaceFontOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testReplaceFontOnlineInvalidfontsFolder()
+    {
+        $testdocument = TestUtils::getTestValue("replaceFontOnline", "document", self::$values, '\SplFileObject');
+        $testsourceFont = TestUtils::getTestValue("replaceFontOnline", "sourceFont", self::$values, 'string');
+        $testtargetFont = TestUtils::getTestValue("replaceFontOnline", "targetFont", self::$values, 'string');
+        $testembed = TestUtils::getTestValue("replaceFontOnline", "embed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("replaceFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("replaceFontOnline", "fontsFolder", self::$values, 'string');
+        $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "replaceFontOnline", $testfontsFolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("replaceFontOnline", "fontsFolder", $testfontsFolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->replaceFontOnline($testdocument, $testsourceFont, $testtargetFont, $testembed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "replaceFontOnline", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "replaceFontOnline", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("replaceFontOnline", "fontsFolder", self::$okToFailValues);
         }
     }
 
@@ -45861,10 +46813,11 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", null, null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "setEmbeddedFont");
@@ -45882,11 +46835,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $testname = TestUtils::invalidizeValue("name", "setEmbeddedFont", $testname, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "name", $testname, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "name", $expectedCode, $expectedMessage);
@@ -45906,11 +46860,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $testfontName = TestUtils::invalidizeValue("fontName", "setEmbeddedFont", $testfontName, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "fontName", $testfontName, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "fontName", $expectedCode, $expectedMessage);
@@ -45930,11 +46885,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $testonlyUsed = TestUtils::invalidizeValue("onlyUsed", "setEmbeddedFont", $testonlyUsed, self::$values, 'bool');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "onlyUsed", $testonlyUsed, 'bool');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "onlyUsed", $expectedCode, $expectedMessage);
@@ -45954,11 +46910,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "setEmbeddedFont", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "password", $testpassword, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "password", $expectedCode, $expectedMessage);
@@ -45978,11 +46935,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $testfolder = TestUtils::invalidizeValue("folder", "setEmbeddedFont", $testfolder, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "folder", $testfolder, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "folder", $expectedCode, $expectedMessage);
@@ -46002,11 +46960,12 @@ class SlidesApiTest extends TestBase
         $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
         $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
         $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
         $teststorage = TestUtils::invalidizeValue("storage", "setEmbeddedFont", $teststorage, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "storage", $teststorage, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFont", "storage", $expectedCode, $expectedMessage);
@@ -46015,6 +46974,311 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("setEmbeddedFont", "storage", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontInvalidfontsFolder()
+    {
+        $testname = TestUtils::getTestValue("setEmbeddedFont", "name", self::$values, 'string');
+        $testfontName = TestUtils::getTestValue("setEmbeddedFont", "fontName", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFont", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFont", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFont", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFont", "storage", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFont", "fontsFolder", self::$values, 'string');
+        $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "setEmbeddedFont", $testfontsFolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFont", "fontsFolder", $testfontsFolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFont($testname, $testfontName, $testonlyUsed, $testpassword, $testfolder, $teststorage, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFont", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFont", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFont", "fontsFolder", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setEmbeddedFontFromRequest
+     * Embeds font from request and returns presentation fonts info.
+     */
+    public function testSetEmbeddedFontFromRequest()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setEmbeddedFontFromRequest");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNotNull($result);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidfont()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $testfont = TestUtils::invalidizeValue("font", "setEmbeddedFontFromRequest", $testfont, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "font", $testfont, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "font", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "font", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "font", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidname()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "setEmbeddedFontFromRequest", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidonlyUsed()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $testonlyUsed = TestUtils::invalidizeValue("onlyUsed", "setEmbeddedFontFromRequest", $testonlyUsed, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "onlyUsed", $testonlyUsed, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "onlyUsed", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "onlyUsed", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "onlyUsed", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidpassword()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setEmbeddedFontFromRequest", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidfolder()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "setEmbeddedFontFromRequest", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestInvalidstorage()
+    {
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequest", "font", self::$values, '\SplFileObject');
+        $testname = TestUtils::getTestValue("setEmbeddedFontFromRequest", "name", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequest", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequest", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("setEmbeddedFontFromRequest", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("setEmbeddedFontFromRequest", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "setEmbeddedFontFromRequest", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequest", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequest($testfont, $testname, $testonlyUsed, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequest", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequest", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequest", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for setEmbeddedFontFromRequestOnline
+     * Embeds font from request and returns presentation.
+     */
+    public function testSetEmbeddedFontFromRequestOnline()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "document", self::$values, '\SplFileObject');
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "font", self::$values, '\SplFileObject');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequestOnline", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequestOnline($testdocument, $testfont, $testonlyUsed, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "setEmbeddedFontFromRequestOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "document", self::$values, '\SplFileObject');
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "font", self::$values, '\SplFileObject');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "password", self::$values, 'string');
+        $testdocument = TestUtils::invalidizeValue("document", "setEmbeddedFontFromRequestOnline", $testdocument, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequestOnline", "document", $testdocument, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequestOnline($testdocument, $testfont, $testonlyUsed, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequestOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequestOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequestOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestOnlineInvalidfont()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "document", self::$values, '\SplFileObject');
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "font", self::$values, '\SplFileObject');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "password", self::$values, 'string');
+        $testfont = TestUtils::invalidizeValue("font", "setEmbeddedFontFromRequestOnline", $testfont, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequestOnline", "font", $testfont, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequestOnline($testdocument, $testfont, $testonlyUsed, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequestOnline", "font", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequestOnline", "font", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequestOnline", "font", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestOnlineInvalidonlyUsed()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "document", self::$values, '\SplFileObject');
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "font", self::$values, '\SplFileObject');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "password", self::$values, 'string');
+        $testonlyUsed = TestUtils::invalidizeValue("onlyUsed", "setEmbeddedFontFromRequestOnline", $testonlyUsed, self::$values, 'bool');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequestOnline", "onlyUsed", $testonlyUsed, 'bool');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequestOnline($testdocument, $testfont, $testonlyUsed, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequestOnline", "onlyUsed", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequestOnline", "onlyUsed", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontFromRequestOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "document", self::$values, '\SplFileObject');
+        $testfont = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "font", self::$values, '\SplFileObject');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontFromRequestOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "setEmbeddedFontFromRequestOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontFromRequestOnline", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontFromRequestOnline($testdocument, $testfont, $testonlyUsed, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontFromRequestOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontFromRequestOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontFromRequestOnline", "password", self::$okToFailValues);
         }
     }
 
@@ -46028,10 +47292,11 @@ class SlidesApiTest extends TestBase
         $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
         $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", null, null, null);
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword);
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
             $needAssertResponse = true;
         } catch (Exception $ex) {
             TestUtils::assertSuccessfulException($ex, "setEmbeddedFontOnline");
@@ -46047,11 +47312,12 @@ class SlidesApiTest extends TestBase
         $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
         $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
         $testdocument = TestUtils::invalidizeValue("document", "setEmbeddedFontOnline", $testdocument, self::$values, '\SplFileObject');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", "document", $testdocument, '\SplFileObject');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword);
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFontOnline", "document", $expectedCode, $expectedMessage);
@@ -46069,11 +47335,12 @@ class SlidesApiTest extends TestBase
         $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
         $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
         $testfontName = TestUtils::invalidizeValue("fontName", "setEmbeddedFontOnline", $testfontName, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", "fontName", $testfontName, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword);
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFontOnline", "fontName", $expectedCode, $expectedMessage);
@@ -46091,11 +47358,12 @@ class SlidesApiTest extends TestBase
         $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
         $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
         $testonlyUsed = TestUtils::invalidizeValue("onlyUsed", "setEmbeddedFontOnline", $testonlyUsed, self::$values, 'bool');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", "onlyUsed", $testonlyUsed, 'bool');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword);
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFontOnline", "onlyUsed", $expectedCode, $expectedMessage);
@@ -46113,11 +47381,12 @@ class SlidesApiTest extends TestBase
         $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
         $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
         $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
         $testpassword = TestUtils::invalidizeValue("password", "setEmbeddedFontOnline", $testpassword, self::$values, 'string');
         list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", "password", $testpassword, 'string');
         $needAssertResponse = false;
         try {
-            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword);
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
             $needAssertResponse = true;
         } catch (ApiException $ex) {
             TestUtils::assertException($ex, "setEmbeddedFontOnline", "password", $expectedCode, $expectedMessage);
@@ -46126,6 +47395,29 @@ class SlidesApiTest extends TestBase
         }
         if ($needAssertResponse) {
             TestUtils::assertResponse("setEmbeddedFontOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testSetEmbeddedFontOnlineInvalidfontsFolder()
+    {
+        $testdocument = TestUtils::getTestValue("setEmbeddedFontOnline", "document", self::$values, '\SplFileObject');
+        $testfontName = TestUtils::getTestValue("setEmbeddedFontOnline", "fontName", self::$values, 'string');
+        $testonlyUsed = TestUtils::getTestValue("setEmbeddedFontOnline", "onlyUsed", self::$values, 'bool');
+        $testpassword = TestUtils::getTestValue("setEmbeddedFontOnline", "password", self::$values, 'string');
+        $testfontsFolder = TestUtils::getTestValue("setEmbeddedFontOnline", "fontsFolder", self::$values, 'string');
+        $testfontsFolder = TestUtils::invalidizeValue("fontsFolder", "setEmbeddedFontOnline", $testfontsFolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("setEmbeddedFontOnline", "fontsFolder", $testfontsFolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->setEmbeddedFontOnline($testdocument, $testfontName, $testonlyUsed, $testpassword, $testfontsFolder);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "setEmbeddedFontOnline", "fontsFolder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "setEmbeddedFontOnline", "fontsFolder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("setEmbeddedFontOnline", "fontsFolder", self::$okToFailValues);
         }
     }
 

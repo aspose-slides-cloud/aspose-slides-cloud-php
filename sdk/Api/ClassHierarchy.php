@@ -270,6 +270,7 @@ class ClassHierarchy
             'FontData' => [],
             'FontFallbackRule' => [],
             'FontSet' => [],
+            'FontSubstRule' => [],
             'FontsData' => [],
             'GeometryPath' => [],
             'GeometryPaths' => [],
