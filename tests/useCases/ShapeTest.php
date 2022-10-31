@@ -99,13 +99,15 @@ class ShapeTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $shapes = $this->getApi()->getSubshapes(
+        $subShape = "4";
+        $shapes = $this->getApi()->getShapes(
           self::fileName,
           1,
-          "4/shapes",
           self::password,
-          self::folderName
+          self::folderName,
+          null,
+          null,
+          $subShape
         );
 
         Assert::assertEquals(2, count($shapes->getShapesLinks()));
@@ -131,14 +133,16 @@ class ShapeTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $shape = $this->getApi()->getSubshape(
+        $shapeIndex = 4;
+        $subShape = "1";
+        $shape = $this->getApi()->getShape(
           self::fileName,
           1,
-          "4/shapes",
-          1,
+          $shapeIndex,
           self::password,
-          self::folderName
+          self::folderName,
+          null,
+          $subShape
         );
         
         Assert::assertEquals('Shape', $shape->getType());
@@ -315,11 +319,11 @@ class ShapeTest extends TestBase
         $fillFormat = new SolidFill();
         $fillFormat->setColor("#FFFFFF00");
         $portion->setFillFormat($fillFormat);
-
-        $targetNodePath = "1/nodes/1/nodes";
+        $shapeIndex = 1;
+        $targetNodePath = "1/nodes/2";
         $slideIndex = 7;
-        $response = $this->getApi()->updateSubshapePortion(self::fileName, $slideIndex, $targetNodePath,
-            2, 1, 1, $portion, self::password, self::folderName);
+        $response = $this->getApi()->updatePortion(self::fileName, $slideIndex, $shapeIndex,
+            1, 1, $portion, self::password, self::folderName, null, $targetNodePath);
         Assert::assertNotNull($response);
         Assert::assertEquals($response->getText(), $portion->getText());
         Assert::assertEquals($response->getFontBold(), $portion->getFontBold());
@@ -484,15 +488,18 @@ class ShapeTest extends TestBase
         $dto->setWidth(50);
         $dto->setHeight(50);
 
-        $response = $this->getApi()->createSubshape(
+        $subShape = "4";
+
+        $response = $this->getApi()->createShape(
             self::fileName,
             1,
-            self::shapePath,
             $dto,
             null,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         assert::assertEquals('Shape', $response->getType());
@@ -544,14 +551,18 @@ class ShapeTest extends TestBase
         $fillFormat->setStops([$stop1, $stop2]);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->updateSubshape(
+        $shapeIndex = 4;
+        $subShape = "1";
+
+        $response = $this->getApi()->updateShape(
             self::fileName,
             1,
-            self::shapePath,
-            1,
+            $shapeIndex,
             $dto,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         assert::assertEquals('Shape', $response->getType());
@@ -597,14 +608,15 @@ class ShapeTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $shapes = $this->getApi()->deleteSubshapes(
+        $subShape = "4";
+        $shapes = $this->getApi()->deleteShapes(
             self::fileName,
             1,
-            self::shapePath,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         
         Assert::assertEquals(0, count($shapes->getShapesLinks()));
@@ -614,14 +626,15 @@ class ShapeTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $shapes = $this->getApi()->deleteSubshapes(
+        $subShape = "4";
+        $shapes = $this->getApi()->deleteShapes(
             self::fileName,
             1,
-            self::shapePath,
             [2],
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         
         Assert::assertEquals(1, count($shapes->getShapesLinks()));
@@ -647,14 +660,16 @@ class ShapeTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $response = $this->getApi()->deleteSubshape(
+        $shapeIndex = 4;
+        $subShape = "1";
+        $response = $this->getApi()->deleteShape(
             self::fileName,
             1,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         
         Assert::assertEquals(1, count($response->getShapesLinks()));
@@ -690,22 +705,27 @@ class ShapeTest extends TestBase
         $path = "4/shapes";
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
-        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+
+        $shapeIndex = 4;
+        $subShape1 = "1";
+        $subShape2 = "2";
+
+        $shape1 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape1);
+        $shape2 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape2);
         Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) > 1);
         Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) > 1);
 
-        $this->getApi()->alignSubshapes(
-            self::fileName, 1, $path, 'AlignTop', null, null, self::password, self::folderName);
-        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
-        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+        $this->getApi()->alignShapes(
+            self::fileName, 1, 'AlignTop', null, null, self::password, self::folderName, null, "4");
+        $shape1 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape1);
+        $shape2 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape2);
         Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) > 1);
         Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) < 1);
 
-        $this->getApi()->alignSubshapes(
-            self::fileName, 1, $path, 'AlignLeft', true, [ 1, 2 ], self::password, self::folderName);
-        $shape1 = $this->getApi()->getSubshape(self::fileName, 1, $path, 1, self::password, self::folderName);
-        $shape2 = $this->getApi()->getSubshape(self::fileName, 1, $path, 2, self::password, self::folderName);
+        $this->getApi()->alignShapes(
+            self::fileName, 1, 'AlignLeft', true, [ 1, 2 ], self::password, self::folderName, null, "4");
+        $shape1 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape1);
+        $shape2 = $this->getApi()->getShape(self::fileName, 1, $shapeIndex, self::password, self::folderName, null, $subShape2);
         Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) < 1);
         Assert::assertTrue(abs($shape1->getY() - $shape2->getY()) < 1);
         Assert::assertTrue(abs($shape1->getX()) < 1);
@@ -859,6 +879,7 @@ class ShapeTest extends TestBase
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
+        $subShape = "1";
         $shapes=$this->getApi()->getShapes(
             self::fileName,
             5,
@@ -886,15 +907,16 @@ class ShapeTest extends TestBase
         $shape1->setWidth(50);
         $shape1->setHeight(50);
 
-        $this->getApi()->createSubshape(
+        $this->getApi()->createShape(
             self::fileName,
             5,
-            "1/shapes",
             $shape1,
             null,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape 
         );
 
         $shape2 = new Shape();
@@ -904,15 +926,16 @@ class ShapeTest extends TestBase
         $shape2->setWidth(50);
         $shape2->setHeight(50);
 
-        $this->getApi()->createSubshape(
+        $this->getApi()->createShape(
             self::fileName,
             5,
-            "1/shapes",
             $shape2,
             null,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape 
         );
 
         $shape3 = new Shape();
@@ -922,15 +945,16 @@ class ShapeTest extends TestBase
         $shape3->setWidth(50);
         $shape3->setHeight(50);
 
-        $this->getApi()->createSubshape(
+        $this->getApi()->createShape(
             self::fileName,
             5,
-            "1/shapes",
             $shape3,
             null,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape 
         );
 
         $shapes=$this->getApi()->getShapes(
@@ -941,12 +965,14 @@ class ShapeTest extends TestBase
         );
         Assert::assertEquals(1, count($shapes->getShapesLinks()));
 
-        $shapes=$this->getApi()->getSubshapes(
+        $shapes=$this->getApi()->getShapes(
             self::fileName,
             5,
-            "1/shapes",
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            null,
+            $subShape 
         );
         Assert::assertEquals(3, count($shapes->getShapesLinks()));
     }

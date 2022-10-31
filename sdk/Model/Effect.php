@@ -73,7 +73,9 @@ class Effect implements ArrayAccess
         'repeatDuration' => 'double',
         'restart' => 'string',
         'speed' => 'double',
-        'triggerDelayTime' => 'double'
+        'triggerDelayTime' => 'double',
+        'repeatUntilEndSlide' => 'bool',
+        'repeatUntilNextClick' => 'bool'
     ];
 
     /**
@@ -96,7 +98,9 @@ class Effect implements ArrayAccess
         'repeatDuration' => 'double',
         'restart' => null,
         'speed' => 'double',
-        'triggerDelayTime' => 'double'
+        'triggerDelayTime' => 'double',
+        'repeatUntilEndSlide' => null,
+        'repeatUntilNextClick' => null
     ];
 
     /**
@@ -140,7 +144,9 @@ class Effect implements ArrayAccess
         'repeatDuration' => 'RepeatDuration',
         'restart' => 'Restart',
         'speed' => 'Speed',
-        'triggerDelayTime' => 'TriggerDelayTime'
+        'triggerDelayTime' => 'TriggerDelayTime',
+        'repeatUntilEndSlide' => 'RepeatUntilEndSlide',
+        'repeatUntilNextClick' => 'RepeatUntilNextClick'
     ];
 
     /**
@@ -163,7 +169,9 @@ class Effect implements ArrayAccess
         'repeatDuration' => 'setRepeatDuration',
         'restart' => 'setRestart',
         'speed' => 'setSpeed',
-        'triggerDelayTime' => 'setTriggerDelayTime'
+        'triggerDelayTime' => 'setTriggerDelayTime',
+        'repeatUntilEndSlide' => 'setRepeatUntilEndSlide',
+        'repeatUntilNextClick' => 'setRepeatUntilNextClick'
     ];
 
     /**
@@ -186,7 +194,9 @@ class Effect implements ArrayAccess
         'repeatDuration' => 'getRepeatDuration',
         'restart' => 'getRestart',
         'speed' => 'getSpeed',
-        'triggerDelayTime' => 'getTriggerDelayTime'
+        'triggerDelayTime' => 'getTriggerDelayTime',
+        'repeatUntilEndSlide' => 'getRepeatUntilEndSlide',
+        'repeatUntilNextClick' => 'getRepeatUntilNextClick'
     ];
 
     /**
@@ -755,6 +765,8 @@ class Effect implements ArrayAccess
         $this->container['restart'] = isset($data['restart']) ? $data['restart'] : null;
         $this->container['speed'] = isset($data['speed']) ? $data['speed'] : null;
         $this->container['triggerDelayTime'] = isset($data['triggerDelayTime']) ? $data['triggerDelayTime'] : null;
+        $this->container['repeatUntilEndSlide'] = isset($data['repeatUntilEndSlide']) ? $data['repeatUntilEndSlide'] : null;
+        $this->container['repeatUntilNextClick'] = isset($data['repeatUntilNextClick']) ? $data['repeatUntilNextClick'] : null;
         
     }
 
@@ -1320,6 +1332,54 @@ class Effect implements ArrayAccess
     public function setTriggerDelayTime($triggerDelayTime)
     {
         $this->container['triggerDelayTime'] = $triggerDelayTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeatUntilEndSlide
+     *
+     * @return bool
+     */
+    public function getRepeatUntilEndSlide()
+    {
+        return $this->container['repeatUntilEndSlide'];
+    }
+
+    /**
+     * Sets repeatUntilEndSlide
+     *
+     * @param bool $repeatUntilEndSlide Specifies if the effect will repeat until the end of slide.
+     *
+     * @return $this
+     */
+    public function setRepeatUntilEndSlide($repeatUntilEndSlide)
+    {
+        $this->container['repeatUntilEndSlide'] = $repeatUntilEndSlide;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeatUntilNextClick
+     *
+     * @return bool
+     */
+    public function getRepeatUntilNextClick()
+    {
+        return $this->container['repeatUntilNextClick'];
+    }
+
+    /**
+     * Sets repeatUntilNextClick
+     *
+     * @param bool $repeatUntilNextClick Specifies if the effect will repeat until the next click.
+     *
+     * @return $this
+     */
+    public function setRepeatUntilNextClick($repeatUntilNextClick)
+    {
+        $this->container['repeatUntilNextClick'] = $repeatUntilNextClick;
 
         return $this;
     }

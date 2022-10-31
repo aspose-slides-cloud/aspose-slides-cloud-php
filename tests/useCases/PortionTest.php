@@ -55,15 +55,18 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response=$this->getApi()->getSubshapePortions(
+        $response=$this->getApi()->getPortions(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         Assert::assertEquals(2, count($response->getItems()));
     }
@@ -89,16 +92,19 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        
-        $response = $this->getApi()->getSubshapePortion(
+        $shapeIndex = 3;
+        $subShape = "1";
+
+        $response = $this->getApi()->getPortion(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             self::portionIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertTrue(strpos($response->getText(), self::portionText) > 0);
@@ -141,6 +147,9 @@ class PortionTest extends TestBase
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
         
+        $shapeIndex = 3;
+        $subShape = "2";
+
         $dto = new Portion();
         $dto->setText(self::newPortionText);
         $dto->setFontBold('True');
@@ -150,16 +159,17 @@ class PortionTest extends TestBase
         $fillFormat->setColor(self::fontColor);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->createSubshapePortion(
+        $response = $this->getApi()->createPortion(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            self::shapeIndex,
+            $shapeIndex,
             1,
             $dto,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals($dto->getText(), $response->getText());
@@ -215,16 +225,20 @@ class PortionTest extends TestBase
         $fillFormat->setColor(self::fontColor);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->updateSubshapePortion(
+        $shapeIndex = 3;
+        $subShape = "2";
+
+        $response = $this->getApi()->updatePortion(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            self::shapeIndex,
+            $shapeIndex,
             1,
             1,
             $dto,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals($dto->getText(), $response->getText());
@@ -274,16 +288,18 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        
-        $response = $this->getApi()->deleteSubshapePortions(
+        $shapeIndex = 3;
+        $subShape = "1";
+        $response = $this->getApi()->deletePortions(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals(0, count($response->getItems()));
@@ -293,16 +309,19 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        
-        $response = $this->getApi()->deleteSubshapePortions(
+        $shapeIndex = 3;
+        $subShape = "1";
+
+        $response = $this->getApi()->deletePortions(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             [1],
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals(1, count($response->getItems()));
@@ -330,16 +349,19 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        
-        $response = $this->getApi()->deleteSubshapePortion(
+        $shapeIndex = 3;
+        $subShape = "1";
+
+        $response = $this->getApi()->deletePortion(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             self::portionIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals(1, count($response->getItems()));
@@ -388,16 +410,19 @@ class PortionTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        
-        $response = $this->getApi()->getSubshapePortionEffective(
+        $shapeIndex = 3;
+        $subShape = "1";
+
+        $response = $this->getApi()->getPortionEffective(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::paragraphIndex,
             self::portionIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals(18, $response->getFontHeight());

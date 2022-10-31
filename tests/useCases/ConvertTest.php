@@ -178,8 +178,10 @@ class ConvertTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $result = $this->getApi()->downloadSubshape(self::fileName, self::slideIndex, "4/shapes", 1, self::shapeFormat, null, null, null, null, self::password, self::folderName);
+        $shapeIndex = 4;
+        $subShape = "1";
+        $result = $this->getApi()->downloadShape(self::fileName, self::slideIndex, $shapeIndex, self::shapeFormat, 
+            null, null, null, null, self::password, self::folderName, null, $subShape);
         Assert::assertTrue($result->isFile());
         Assert::assertTrue($result->getSize() > 0);
     }
@@ -198,8 +200,10 @@ class ConvertTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $this->getApi()->saveSubshape(self::fileName, self::slideIndex, "4/shapes", 1, self::shapeFormat, self::outPath, null, null, null, null, self::password, self::folderName);
+        $shapeIndex = 4;
+        $subShape = "1";
+        $this->getApi()->saveShape(self::fileName, self::slideIndex, $shapeIndex, self::shapeFormat,
+             self::outPath, null, null, null, null, self::password, self::folderName, null, $subShape);
         $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }

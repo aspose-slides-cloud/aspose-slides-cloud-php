@@ -71,8 +71,10 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $response = $this->getApi()->getSubshapeParagraph(self::fileName, self::slideIndex, self::shapePath, 1, 1, self::password, self::folderName);
+        $shapeIndex = 3;
+        $subShape = "1";
+        $response = $this->getApi()->getParagraph(self::fileName, self::slideIndex, $shapeIndex, 1, 
+            self::password, self::folderName, null, $subShape);
         Assert::assertEquals(2, count($response->getPortionList()));
     }
 
@@ -80,14 +82,16 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
-        $response = $this->getApi()->getSubshapeParagraphs(
+        $shapeIndex = 3;
+        $subShape = "1";
+        $response = $this->getApi()->getParagraphs(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         Assert::assertEquals(2, count($response->getParagraphLinks())); 
     }
@@ -152,16 +156,19 @@ class ParagraphTest extends TestBase
         $dto->setMarginLeft(2);
         $dto->setMarginRight(2);
         $dto->setAlignment("Center");
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response = $this->getApi()->createSubshapeParagraph(
+        $response = $this->getApi()->createParagraph(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             $dto,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
 
         Assert::assertEquals($dto->getMarginLeft(), $response->getMarginLeft());
@@ -203,16 +210,19 @@ class ParagraphTest extends TestBase
         $dto->setMarginLeft(2);
         $dto->setMarginRight(2);
         $dto->setAlignment("Center");
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response = $this->getApi()->updateSubshapeParagraph(
+        $response = $this->getApi()->updateParagraph(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             1,
             $dto,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         
         Assert::assertEquals($dto->getMarginLeft(), $response->getMarginLeft());
@@ -256,15 +266,18 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response = $this->getApi()->deleteSubshapeParagraphs(
+        $response = $this->getApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             null,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         Assert::assertEquals(0, count($response->getParagraphLinks()));
     }
@@ -273,15 +286,18 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response = $this->getApi()->deleteSubshapeParagraphs(
+        $response = $this->getApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             [1],
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         Assert::assertEquals(1, count($response->getParagraphLinks()));
     }
@@ -306,15 +322,19 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $shapeIndex = 3;
+        $subShape = "1";
 
-        $response = $this->getApi()->deleteSubshapeParagraph(
+        $response = $this->getApi()->deleteParagraph(
             self::fileName,
             self::slideIndex,
-            self::shapePath,
-            1,
+            $shapeIndex,
             1,
             self::password,
-            self::folderName
+            self::folderName,
+            null,
+            $subShape
         );
         Assert::assertEquals(1, count($response->getParagraphLinks()));
     }
@@ -400,9 +420,11 @@ class ParagraphTest extends TestBase
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $shapeIndex = 3;
+        $subShape = "1";
         $response = $this->getApi()->
-        getSubshapeParagraphEffective(self::fileName, self::slideIndex, self::shapePath, 1, 1, self::password, self::folderName);
+        getParagraphEffective(self::fileName, self::slideIndex, $shapeIndex, 1, self::password, 
+            self::folderName, null, $subShape);
         Assert::assertEquals(72, $response->getDefaultTabSize());
     }
 

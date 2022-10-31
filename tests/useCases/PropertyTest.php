@@ -36,6 +36,7 @@ use Aspose\Slides\Cloud\Sdk\Model\DocumentProperty;
 use Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties;
 use Aspose\Slides\Cloud\Sdk\Model\SlideProperties;
 use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
+use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class PropertyTest extends TestBase
@@ -195,6 +196,7 @@ class PropertyTest extends TestBase
             self::password,
             self::folderName
         );
+
         Assert::assertEquals('True', $response->getShowComments());
     }
 
@@ -232,6 +234,41 @@ class PropertyTest extends TestBase
         $getResult = $this->getApi()->getProtectionProperties(self::fileName, self::password, self::folderName);
         Assert::assertTrue($getResult->getIsEncrypted());
         Assert::assertNotNull($getResult->getReadPassword());
+    }
+
+    public function testGetSlideShowProperties()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $response = $this->getApi()->getSlideShowProperties(
+            self::fileName,
+            self::password,
+            self::folderName
+        );
+        Assert::assertTrue($response->getShowAnimation());
+        Assert::assertTrue($response->getShowNarration());
+    }
+
+    public function testSetSlideShowProperties()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new SlideShowProperties();
+        $dto->setLoop(true);
+        $dto->setUseTimings(true);
+        $dto->setSlideShowType('PresentedBySpeaker');
+
+        $response = $this->getApi()->setSlideShowProperties(
+            self::fileName,
+            $dto,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals($dto->getLoop(), $response->getLoop());
+        Assert::assertEquals($dto->getUseTimings(), $response->getUseTimings());
+        Assert::assertEquals($dto->getSlideShowType(), $response->getSlideShowType());
     }
 
 
