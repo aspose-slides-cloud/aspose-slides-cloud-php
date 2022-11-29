@@ -29,27 +29,25 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Input Class Doc Comment
+ * Literals Class Doc Comment
  *
  * @category Class
- * @description Represents input document for pipeline.
+ * @description Represents string or double literals data source.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Input implements ArrayAccess
+class Literals extends DataSource 
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Input';
+    protected static $swaggerModelName = 'Literals';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +55,7 @@ class Input implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'template' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'htmlData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'templateData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile'
+        
     ];
 
     /**
@@ -68,9 +64,7 @@ class Input implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'template' => null,
-        'htmlData' => null,
-        'templateData' => null
+        
     ];
 
     /**
@@ -80,7 +74,7 @@ class Input implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -90,7 +84,7 @@ class Input implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -100,9 +94,7 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'template' => 'Template',
-        'htmlData' => 'HtmlData',
-        'templateData' => 'TemplateData'
+        
     ];
 
     /**
@@ -111,9 +103,7 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'template' => 'setTemplate',
-        'htmlData' => 'setHtmlData',
-        'templateData' => 'setTemplateData'
+        
     ];
 
     /**
@@ -122,9 +112,7 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'template' => 'getTemplate',
-        'htmlData' => 'getHtmlData',
-        'templateData' => 'getTemplateData'
+        
     ];
 
     /**
@@ -135,7 +123,7 @@ class Input implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -145,7 +133,7 @@ class Input implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -155,7 +143,7 @@ class Input implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -172,12 +160,6 @@ class Input implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -187,9 +169,9 @@ class Input implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['htmlData'] = isset($data['htmlData']) ? $data['htmlData'] : null;
-        $this->container['templateData'] = isset($data['templateData']) ? $data['templateData'] : null;
+        parent::__construct($data);
+
+        $this->container['type'] = 'Literals';
         
     }
 
@@ -200,7 +182,7 @@ class Input implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -213,82 +195,13 @@ class Input implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
-
-    /**
-     * Gets template
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
-     */
-    public function getTemplate()
-    {
-        return $this->container['template'];
-    }
-
-    /**
-     * Sets template
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $template Get or sets template document. If property is null new empty presentation will be created.
-     *
-     * @return $this
-     */
-    public function setTemplate($template)
-    {
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
-     * Gets htmlData
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
-     */
-    public function getHtmlData()
-    {
-        return $this->container['htmlData'];
-    }
-
-    /**
-     * Sets htmlData
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $htmlData Get or sets html data for generate new presentation.
-     *
-     * @return $this
-     */
-    public function setHtmlData($htmlData)
-    {
-        $this->container['htmlData'] = $htmlData;
-
-        return $this;
-    }
-
-    /**
-     * Gets templateData
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
-     */
-    public function getTemplateData()
-    {
-        return $this->container['templateData'];
-    }
-
-    /**
-     * Sets templateData
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $templateData Get or sets data for template engine.
-     *
-     * @return $this
-     */
-    public function setTemplateData($templateData)
-    {
-        $this->container['templateData'] = $templateData;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

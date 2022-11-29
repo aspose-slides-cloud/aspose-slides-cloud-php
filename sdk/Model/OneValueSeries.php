@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class OneValueSeries extends Series 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -59,6 +57,7 @@ class OneValueSeries extends Series
     protected static $swaggerTypes = [
         'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint[]',
         'numberFormatOfValues' => 'string',
+        'dataSourceForValues' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource',
         'showConnectorLines' => 'bool',
         'quartileMethod' => 'string',
         'showInnerPoints' => 'bool',
@@ -75,6 +74,7 @@ class OneValueSeries extends Series
     protected static $swaggerFormats = [
         'dataPoints' => null,
         'numberFormatOfValues' => null,
+        'dataSourceForValues' => null,
         'showConnectorLines' => null,
         'quartileMethod' => null,
         'showInnerPoints' => null,
@@ -112,6 +112,7 @@ class OneValueSeries extends Series
     protected static $attributeMap = [
         'dataPoints' => 'DataPoints',
         'numberFormatOfValues' => 'NumberFormatOfValues',
+        'dataSourceForValues' => 'DataSourceForValues',
         'showConnectorLines' => 'ShowConnectorLines',
         'quartileMethod' => 'QuartileMethod',
         'showInnerPoints' => 'ShowInnerPoints',
@@ -128,6 +129,7 @@ class OneValueSeries extends Series
     protected static $setters = [
         'dataPoints' => 'setDataPoints',
         'numberFormatOfValues' => 'setNumberFormatOfValues',
+        'dataSourceForValues' => 'setDataSourceForValues',
         'showConnectorLines' => 'setShowConnectorLines',
         'quartileMethod' => 'setQuartileMethod',
         'showInnerPoints' => 'setShowInnerPoints',
@@ -144,6 +146,7 @@ class OneValueSeries extends Series
     protected static $getters = [
         'dataPoints' => 'getDataPoints',
         'numberFormatOfValues' => 'getNumberFormatOfValues',
+        'dataSourceForValues' => 'getDataSourceForValues',
         'showConnectorLines' => 'getShowConnectorLines',
         'quartileMethod' => 'getQuartileMethod',
         'showInnerPoints' => 'getShowInnerPoints',
@@ -225,6 +228,7 @@ class OneValueSeries extends Series
 
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
         $this->container['numberFormatOfValues'] = isset($data['numberFormatOfValues']) ? $data['numberFormatOfValues'] : null;
+        $this->container['dataSourceForValues'] = isset($data['dataSourceForValues']) ? $data['dataSourceForValues'] : null;
         $this->container['showConnectorLines'] = isset($data['showConnectorLines']) ? $data['showConnectorLines'] : null;
         $this->container['quartileMethod'] = isset($data['quartileMethod']) ? $data['quartileMethod'] : null;
         $this->container['showInnerPoints'] = isset($data['showInnerPoints']) ? $data['showInnerPoints'] : null;
@@ -319,6 +323,30 @@ class OneValueSeries extends Series
     public function setNumberFormatOfValues($numberFormatOfValues)
     {
         $this->container['numberFormatOfValues'] = $numberFormatOfValues;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForValues
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForValues()
+    {
+        return $this->container['dataSourceForValues'];
+    }
+
+    /**
+     * Sets dataSourceForValues
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForValues Data source type for values.
+     *
+     * @return $this
+     */
+    public function setDataSourceForValues($dataSourceForValues)
+    {
+        $this->container['dataSourceForValues'] = $dataSourceForValues;
 
         return $this;
     }

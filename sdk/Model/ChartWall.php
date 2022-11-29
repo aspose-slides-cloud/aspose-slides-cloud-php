@@ -44,8 +44,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class ChartWall implements ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

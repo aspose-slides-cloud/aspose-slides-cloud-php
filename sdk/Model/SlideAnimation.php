@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class SlideAnimation extends ResourceBase 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

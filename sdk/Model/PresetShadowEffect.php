@@ -44,8 +44,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class PresetShadowEffect implements ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

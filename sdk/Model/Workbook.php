@@ -29,27 +29,25 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
-
-use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Input Class Doc Comment
+ * Workbook Class Doc Comment
  *
  * @category Class
- * @description Represents input document for pipeline.
+ * @description Represents Excel spreadsheet data source.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Input implements ArrayAccess
+class Workbook extends DataSource 
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Input';
+    protected static $swaggerModelName = 'Workbook';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +55,9 @@ class Input implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'template' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'htmlData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile',
-        'templateData' => '\Aspose\Slides\Cloud\Sdk\Model\InputFile'
+        'worksheetIndex' => 'int',
+        'columnIndex' => 'int',
+        'rowIndex' => 'int'
     ];
 
     /**
@@ -68,9 +66,9 @@ class Input implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'template' => null,
-        'htmlData' => null,
-        'templateData' => null
+        'worksheetIndex' => 'int32',
+        'columnIndex' => 'int32',
+        'rowIndex' => 'int32'
     ];
 
     /**
@@ -80,7 +78,7 @@ class Input implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -90,7 +88,7 @@ class Input implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -100,9 +98,9 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'template' => 'Template',
-        'htmlData' => 'HtmlData',
-        'templateData' => 'TemplateData'
+        'worksheetIndex' => 'WorksheetIndex',
+        'columnIndex' => 'ColumnIndex',
+        'rowIndex' => 'RowIndex'
     ];
 
     /**
@@ -111,9 +109,9 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'template' => 'setTemplate',
-        'htmlData' => 'setHtmlData',
-        'templateData' => 'setTemplateData'
+        'worksheetIndex' => 'setWorksheetIndex',
+        'columnIndex' => 'setColumnIndex',
+        'rowIndex' => 'setRowIndex'
     ];
 
     /**
@@ -122,9 +120,9 @@ class Input implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'template' => 'getTemplate',
-        'htmlData' => 'getHtmlData',
-        'templateData' => 'getTemplateData'
+        'worksheetIndex' => 'getWorksheetIndex',
+        'columnIndex' => 'getColumnIndex',
+        'rowIndex' => 'getRowIndex'
     ];
 
     /**
@@ -135,7 +133,7 @@ class Input implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -145,7 +143,7 @@ class Input implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -155,7 +153,7 @@ class Input implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -172,12 +170,6 @@ class Input implements ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -187,9 +179,12 @@ class Input implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['template'] = isset($data['template']) ? $data['template'] : null;
-        $this->container['htmlData'] = isset($data['htmlData']) ? $data['htmlData'] : null;
-        $this->container['templateData'] = isset($data['templateData']) ? $data['templateData'] : null;
+        parent::__construct($data);
+
+        $this->container['worksheetIndex'] = isset($data['worksheetIndex']) ? $data['worksheetIndex'] : null;
+        $this->container['columnIndex'] = isset($data['columnIndex']) ? $data['columnIndex'] : null;
+        $this->container['rowIndex'] = isset($data['rowIndex']) ? $data['rowIndex'] : null;
+        $this->container['type'] = 'Workbook';
         
     }
 
@@ -200,8 +195,17 @@ class Input implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['worksheetIndex'] === null) {
+            $invalidProperties[] = "'worksheetIndex' can't be null";
+        }
+        if ($this->container['columnIndex'] === null) {
+            $invalidProperties[] = "'columnIndex' can't be null";
+        }
+        if ($this->container['rowIndex'] === null) {
+            $invalidProperties[] = "'rowIndex' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -213,79 +217,91 @@ class Input implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
+        if ($this->container['worksheetIndex'] === null) {
+            return false;
+        }
+        if ($this->container['columnIndex'] === null) {
+            return false;
+        }
+        if ($this->container['rowIndex'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets template
+     * Gets worksheetIndex
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
+     * @return int
      */
-    public function getTemplate()
+    public function getWorksheetIndex()
     {
-        return $this->container['template'];
+        return $this->container['worksheetIndex'];
     }
 
     /**
-     * Sets template
+     * Sets worksheetIndex
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $template Get or sets template document. If property is null new empty presentation will be created.
+     * @param int $worksheetIndex Worksheet index.
      *
      * @return $this
      */
-    public function setTemplate($template)
+    public function setWorksheetIndex($worksheetIndex)
     {
-        $this->container['template'] = $template;
+        $this->container['worksheetIndex'] = $worksheetIndex;
 
         return $this;
     }
 
     /**
-     * Gets htmlData
+     * Gets columnIndex
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
+     * @return int
      */
-    public function getHtmlData()
+    public function getColumnIndex()
     {
-        return $this->container['htmlData'];
+        return $this->container['columnIndex'];
     }
 
     /**
-     * Sets htmlData
+     * Sets columnIndex
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $htmlData Get or sets html data for generate new presentation.
+     * @param int $columnIndex Column index of the first value.
      *
      * @return $this
      */
-    public function setHtmlData($htmlData)
+    public function setColumnIndex($columnIndex)
     {
-        $this->container['htmlData'] = $htmlData;
+        $this->container['columnIndex'] = $columnIndex;
 
         return $this;
     }
 
     /**
-     * Gets templateData
+     * Gets rowIndex
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\InputFile
+     * @return int
      */
-    public function getTemplateData()
+    public function getRowIndex()
     {
-        return $this->container['templateData'];
+        return $this->container['rowIndex'];
     }
 
     /**
-     * Sets templateData
+     * Sets rowIndex
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\InputFile $templateData Get or sets data for template engine.
+     * @param int $rowIndex Row index of the first value.
      *
      * @return $this
      */
-    public function setTemplateData($templateData)
+    public function setRowIndex($rowIndex)
     {
-        $this->container['templateData'] = $templateData;
+        $this->container['rowIndex'] = $rowIndex;
 
         return $this;
     }

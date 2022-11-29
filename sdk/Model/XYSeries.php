@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class XYSeries extends Series 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -58,7 +56,9 @@ class XYSeries extends Series
       */
     protected static $swaggerTypes = [
         'numberFormatOfYValues' => 'string',
-        'numberFormatOfXValues' => 'string'
+        'numberFormatOfXValues' => 'string',
+        'dataSourceForXValues' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource',
+        'dataSourceForYValues' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource'
     ];
 
     /**
@@ -68,7 +68,9 @@ class XYSeries extends Series
       */
     protected static $swaggerFormats = [
         'numberFormatOfYValues' => null,
-        'numberFormatOfXValues' => null
+        'numberFormatOfXValues' => null,
+        'dataSourceForXValues' => null,
+        'dataSourceForYValues' => null
     ];
 
     /**
@@ -99,7 +101,9 @@ class XYSeries extends Series
      */
     protected static $attributeMap = [
         'numberFormatOfYValues' => 'NumberFormatOfYValues',
-        'numberFormatOfXValues' => 'NumberFormatOfXValues'
+        'numberFormatOfXValues' => 'NumberFormatOfXValues',
+        'dataSourceForXValues' => 'DataSourceForXValues',
+        'dataSourceForYValues' => 'DataSourceForYValues'
     ];
 
     /**
@@ -109,7 +113,9 @@ class XYSeries extends Series
      */
     protected static $setters = [
         'numberFormatOfYValues' => 'setNumberFormatOfYValues',
-        'numberFormatOfXValues' => 'setNumberFormatOfXValues'
+        'numberFormatOfXValues' => 'setNumberFormatOfXValues',
+        'dataSourceForXValues' => 'setDataSourceForXValues',
+        'dataSourceForYValues' => 'setDataSourceForYValues'
     ];
 
     /**
@@ -119,7 +125,9 @@ class XYSeries extends Series
      */
     protected static $getters = [
         'numberFormatOfYValues' => 'getNumberFormatOfYValues',
-        'numberFormatOfXValues' => 'getNumberFormatOfXValues'
+        'numberFormatOfXValues' => 'getNumberFormatOfXValues',
+        'dataSourceForXValues' => 'getDataSourceForXValues',
+        'dataSourceForYValues' => 'getDataSourceForYValues'
     ];
 
     /**
@@ -180,6 +188,8 @@ class XYSeries extends Series
 
         $this->container['numberFormatOfYValues'] = isset($data['numberFormatOfYValues']) ? $data['numberFormatOfYValues'] : null;
         $this->container['numberFormatOfXValues'] = isset($data['numberFormatOfXValues']) ? $data['numberFormatOfXValues'] : null;
+        $this->container['dataSourceForXValues'] = isset($data['dataSourceForXValues']) ? $data['dataSourceForXValues'] : null;
+        $this->container['dataSourceForYValues'] = isset($data['dataSourceForYValues']) ? $data['dataSourceForYValues'] : null;
         
     }
 
@@ -255,6 +265,54 @@ class XYSeries extends Series
     public function setNumberFormatOfXValues($numberFormatOfXValues)
     {
         $this->container['numberFormatOfXValues'] = $numberFormatOfXValues;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForXValues
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForXValues()
+    {
+        return $this->container['dataSourceForXValues'];
+    }
+
+    /**
+     * Sets dataSourceForXValues
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForXValues Data source type for X Values.
+     *
+     * @return $this
+     */
+    public function setDataSourceForXValues($dataSourceForXValues)
+    {
+        $this->container['dataSourceForXValues'] = $dataSourceForXValues;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForYValues
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForYValues()
+    {
+        return $this->container['dataSourceForYValues'];
+    }
+
+    /**
+     * Sets dataSourceForYValues
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForYValues Data source type for Y Values.
+     *
+     * @return $this
+     */
+    public function setDataSourceForYValues($dataSourceForYValues)
+    {
+        $this->container['dataSourceForYValues'] = $dataSourceForYValues;
 
         return $this;
     }

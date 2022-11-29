@@ -44,8 +44,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class GeometryPaths implements ArrayAccess
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

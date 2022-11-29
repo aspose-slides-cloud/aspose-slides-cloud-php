@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class SvgExportOptions extends ExportOptions 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -65,7 +63,9 @@ class SvgExportOptions extends ExportOptions
         'jpegQuality' => 'int',
         'picturesCompression' => 'string',
         'deletePicturesCroppedAreas' => 'bool',
-        'externalFontsHandling' => 'string'
+        'externalFontsHandling' => 'string',
+        'useFrameSize' => 'bool',
+        'useFrameRotation' => 'bool'
     ];
 
     /**
@@ -82,7 +82,9 @@ class SvgExportOptions extends ExportOptions
         'jpegQuality' => 'int32',
         'picturesCompression' => null,
         'deletePicturesCroppedAreas' => null,
-        'externalFontsHandling' => null
+        'externalFontsHandling' => null,
+        'useFrameSize' => null,
+        'useFrameRotation' => null
     ];
 
     /**
@@ -120,7 +122,9 @@ class SvgExportOptions extends ExportOptions
         'jpegQuality' => 'JpegQuality',
         'picturesCompression' => 'PicturesCompression',
         'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
-        'externalFontsHandling' => 'ExternalFontsHandling'
+        'externalFontsHandling' => 'ExternalFontsHandling',
+        'useFrameSize' => 'UseFrameSize',
+        'useFrameRotation' => 'UseFrameRotation'
     ];
 
     /**
@@ -137,7 +141,9 @@ class SvgExportOptions extends ExportOptions
         'jpegQuality' => 'setJpegQuality',
         'picturesCompression' => 'setPicturesCompression',
         'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
-        'externalFontsHandling' => 'setExternalFontsHandling'
+        'externalFontsHandling' => 'setExternalFontsHandling',
+        'useFrameSize' => 'setUseFrameSize',
+        'useFrameRotation' => 'setUseFrameRotation'
     ];
 
     /**
@@ -154,7 +160,9 @@ class SvgExportOptions extends ExportOptions
         'jpegQuality' => 'getJpegQuality',
         'picturesCompression' => 'getPicturesCompression',
         'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
-        'externalFontsHandling' => 'getExternalFontsHandling'
+        'externalFontsHandling' => 'getExternalFontsHandling',
+        'useFrameSize' => 'getUseFrameSize',
+        'useFrameRotation' => 'getUseFrameRotation'
     ];
 
     /**
@@ -262,6 +270,8 @@ class SvgExportOptions extends ExportOptions
         $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
         $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
         $this->container['externalFontsHandling'] = isset($data['externalFontsHandling']) ? $data['externalFontsHandling'] : null;
+        $this->container['useFrameSize'] = isset($data['useFrameSize']) ? $data['useFrameSize'] : null;
+        $this->container['useFrameRotation'] = isset($data['useFrameRotation']) ? $data['useFrameRotation'] : null;
         $this->container['format'] = 'svg';
         
     }
@@ -576,6 +586,54 @@ class SvgExportOptions extends ExportOptions
             }
         }
         $this->container['externalFontsHandling'] = $externalFontsHandling;
+
+        return $this;
+    }
+
+    /**
+     * Gets useFrameSize
+     *
+     * @return bool
+     */
+    public function getUseFrameSize()
+    {
+        return $this->container['useFrameSize'];
+    }
+
+    /**
+     * Sets useFrameSize
+     *
+     * @param bool $useFrameSize Determines whether the text frame will be included in a rendering area or not.
+     *
+     * @return $this
+     */
+    public function setUseFrameSize($useFrameSize)
+    {
+        $this->container['useFrameSize'] = $useFrameSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets useFrameRotation
+     *
+     * @return bool
+     */
+    public function getUseFrameRotation()
+    {
+        return $this->container['useFrameRotation'];
+    }
+
+    /**
+     * Sets useFrameRotation
+     *
+     * @param bool $useFrameRotation Determines whether to perform the specified rotation of the shape when rendering or not.
+     *
+     * @return $this
+     */
+    public function setUseFrameRotation($useFrameRotation)
+    {
+        $this->container['useFrameRotation'] = $useFrameRotation;
 
         return $this;
     }

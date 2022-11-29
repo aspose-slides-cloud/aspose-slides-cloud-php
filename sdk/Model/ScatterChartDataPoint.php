@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class ScatterChartDataPoint extends DataPoint 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -58,7 +56,9 @@ class ScatterChartDataPoint extends DataPoint
       */
     protected static $swaggerTypes = [
         'xValue' => 'double',
-        'yValue' => 'double'
+        'yValue' => 'double',
+        'xValueFormula' => 'string',
+        'yValueFormula' => 'string'
     ];
 
     /**
@@ -68,7 +68,9 @@ class ScatterChartDataPoint extends DataPoint
       */
     protected static $swaggerFormats = [
         'xValue' => 'double',
-        'yValue' => 'double'
+        'yValue' => 'double',
+        'xValueFormula' => null,
+        'yValueFormula' => null
     ];
 
     /**
@@ -99,7 +101,9 @@ class ScatterChartDataPoint extends DataPoint
      */
     protected static $attributeMap = [
         'xValue' => 'XValue',
-        'yValue' => 'YValue'
+        'yValue' => 'YValue',
+        'xValueFormula' => 'XValueFormula',
+        'yValueFormula' => 'YValueFormula'
     ];
 
     /**
@@ -109,7 +113,9 @@ class ScatterChartDataPoint extends DataPoint
      */
     protected static $setters = [
         'xValue' => 'setXValue',
-        'yValue' => 'setYValue'
+        'yValue' => 'setYValue',
+        'xValueFormula' => 'setXValueFormula',
+        'yValueFormula' => 'setYValueFormula'
     ];
 
     /**
@@ -119,7 +125,9 @@ class ScatterChartDataPoint extends DataPoint
      */
     protected static $getters = [
         'xValue' => 'getXValue',
-        'yValue' => 'getYValue'
+        'yValue' => 'getYValue',
+        'xValueFormula' => 'getXValueFormula',
+        'yValueFormula' => 'getYValueFormula'
     ];
 
     /**
@@ -180,6 +188,8 @@ class ScatterChartDataPoint extends DataPoint
 
         $this->container['xValue'] = isset($data['xValue']) ? $data['xValue'] : null;
         $this->container['yValue'] = isset($data['yValue']) ? $data['yValue'] : null;
+        $this->container['xValueFormula'] = isset($data['xValueFormula']) ? $data['xValueFormula'] : null;
+        $this->container['yValueFormula'] = isset($data['yValueFormula']) ? $data['yValueFormula'] : null;
         
     }
 
@@ -267,6 +277,54 @@ class ScatterChartDataPoint extends DataPoint
     public function setYValue($yValue)
     {
         $this->container['yValue'] = $yValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets xValueFormula
+     *
+     * @return string
+     */
+    public function getXValueFormula()
+    {
+        return $this->container['xValueFormula'];
+    }
+
+    /**
+     * Sets xValueFormula
+     *
+     * @param string $xValueFormula Spreadsheet formula in A1-style.
+     *
+     * @return $this
+     */
+    public function setXValueFormula($xValueFormula)
+    {
+        $this->container['xValueFormula'] = $xValueFormula;
+
+        return $this;
+    }
+
+    /**
+     * Gets yValueFormula
+     *
+     * @return string
+     */
+    public function getYValueFormula()
+    {
+        return $this->container['yValueFormula'];
+    }
+
+    /**
+     * Sets yValueFormula
+     *
+     * @param string $yValueFormula Spreadsheet formula in A1-style.
+     *
+     * @return $this
+     */
+    public function setYValueFormula($yValueFormula)
+    {
+        $this->container['yValueFormula'] = $yValueFormula;
 
         return $this;
     }

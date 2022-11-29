@@ -34,22 +34,22 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * TextFrameFormat Class Doc Comment
+ * DataSource Class Doc Comment
  *
  * @category Class
- * @description Contains the TextFrame&#39;s formatting properties.
+ * @description Data source for chart values.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TextFrameFormat implements ArrayAccess
+class DataSource implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TextFrameFormat';
+    protected static $swaggerModelName = 'DataSource';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class TextFrameFormat implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
-        'transform' => 'string'
+        'type' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class TextFrameFormat implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'threeDFormat' => null,
-        'transform' => null
+        'type' => null
     ];
 
     /**
@@ -98,8 +96,7 @@ class TextFrameFormat implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'threeDFormat' => 'ThreeDFormat',
-        'transform' => 'Transform'
+        'type' => 'Type'
     ];
 
     /**
@@ -108,8 +105,7 @@ class TextFrameFormat implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'threeDFormat' => 'setThreeDFormat',
-        'transform' => 'setTransform'
+        'type' => 'setType'
     ];
 
     /**
@@ -118,8 +114,7 @@ class TextFrameFormat implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'threeDFormat' => 'getThreeDFormat',
-        'transform' => 'getTransform'
+        'type' => 'getType'
     ];
 
     /**
@@ -163,49 +158,8 @@ class TextFrameFormat implements ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TRANSFORM_NONE = 'None';
-    const TRANSFORM_PLAIN = 'Plain';
-    const TRANSFORM_STOP = 'Stop';
-    const TRANSFORM_TRIANGLE = 'Triangle';
-    const TRANSFORM_TRIANGLE_INVERTED = 'TriangleInverted';
-    const TRANSFORM_CHEVRON = 'Chevron';
-    const TRANSFORM_CHEVRON_INVERTED = 'ChevronInverted';
-    const TRANSFORM_RING_INSIDE = 'RingInside';
-    const TRANSFORM_RING_OUTSIDE = 'RingOutside';
-    const TRANSFORM_ARCH_UP = 'ArchUp';
-    const TRANSFORM_ARCH_DOWN = 'ArchDown';
-    const TRANSFORM_CIRCLE = 'Circle';
-    const TRANSFORM_BUTTON = 'Button';
-    const TRANSFORM_ARCH_UP_POUR = 'ArchUpPour';
-    const TRANSFORM_ARCH_DOWN_POUR = 'ArchDownPour';
-    const TRANSFORM_CIRCLE_POUR = 'CirclePour';
-    const TRANSFORM_BUTTON_POUR = 'ButtonPour';
-    const TRANSFORM_CURVE_UP = 'CurveUp';
-    const TRANSFORM_CURVE_DOWN = 'CurveDown';
-    const TRANSFORM_CAN_UP = 'CanUp';
-    const TRANSFORM_CAN_DOWN = 'CanDown';
-    const TRANSFORM_WAVE1 = 'Wave1';
-    const TRANSFORM_WAVE2 = 'Wave2';
-    const TRANSFORM_DOUBLE_WAVE1 = 'DoubleWave1';
-    const TRANSFORM_WAVE4 = 'Wave4';
-    const TRANSFORM_INFLATE = 'Inflate';
-    const TRANSFORM_DEFLATE = 'Deflate';
-    const TRANSFORM_INFLATE_BOTTOM = 'InflateBottom';
-    const TRANSFORM_DEFLATE_BOTTOM = 'DeflateBottom';
-    const TRANSFORM_INFLATE_TOP = 'InflateTop';
-    const TRANSFORM_DEFLATE_TOP = 'DeflateTop';
-    const TRANSFORM_DEFLATE_INFLATE = 'DeflateInflate';
-    const TRANSFORM_DEFLATE_INFLATE_DEFLATE = 'DeflateInflateDeflate';
-    const TRANSFORM_FADE_RIGHT = 'FadeRight';
-    const TRANSFORM_FADE_LEFT = 'FadeLeft';
-    const TRANSFORM_FADE_UP = 'FadeUp';
-    const TRANSFORM_FADE_DOWN = 'FadeDown';
-    const TRANSFORM_SLANT_UP = 'SlantUp';
-    const TRANSFORM_SLANT_DOWN = 'SlantDown';
-    const TRANSFORM_CASCADE_UP = 'CascadeUp';
-    const TRANSFORM_CASCADE_DOWN = 'CascadeDown';
-    const TRANSFORM_CUSTOM = 'Custom';
-    const TRANSFORM_NOT_DEFINED = 'NotDefined';
+    const TYPE_WORKBOOK = 'Workbook';
+    const TYPE_LITERALS = 'Literals';
     
 
     
@@ -214,52 +168,11 @@ class TextFrameFormat implements ArrayAccess
      *
      * @return string[]
      */
-    public function getTransformAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::TRANSFORM_NONE,
-            self::TRANSFORM_PLAIN,
-            self::TRANSFORM_STOP,
-            self::TRANSFORM_TRIANGLE,
-            self::TRANSFORM_TRIANGLE_INVERTED,
-            self::TRANSFORM_CHEVRON,
-            self::TRANSFORM_CHEVRON_INVERTED,
-            self::TRANSFORM_RING_INSIDE,
-            self::TRANSFORM_RING_OUTSIDE,
-            self::TRANSFORM_ARCH_UP,
-            self::TRANSFORM_ARCH_DOWN,
-            self::TRANSFORM_CIRCLE,
-            self::TRANSFORM_BUTTON,
-            self::TRANSFORM_ARCH_UP_POUR,
-            self::TRANSFORM_ARCH_DOWN_POUR,
-            self::TRANSFORM_CIRCLE_POUR,
-            self::TRANSFORM_BUTTON_POUR,
-            self::TRANSFORM_CURVE_UP,
-            self::TRANSFORM_CURVE_DOWN,
-            self::TRANSFORM_CAN_UP,
-            self::TRANSFORM_CAN_DOWN,
-            self::TRANSFORM_WAVE1,
-            self::TRANSFORM_WAVE2,
-            self::TRANSFORM_DOUBLE_WAVE1,
-            self::TRANSFORM_WAVE4,
-            self::TRANSFORM_INFLATE,
-            self::TRANSFORM_DEFLATE,
-            self::TRANSFORM_INFLATE_BOTTOM,
-            self::TRANSFORM_DEFLATE_BOTTOM,
-            self::TRANSFORM_INFLATE_TOP,
-            self::TRANSFORM_DEFLATE_TOP,
-            self::TRANSFORM_DEFLATE_INFLATE,
-            self::TRANSFORM_DEFLATE_INFLATE_DEFLATE,
-            self::TRANSFORM_FADE_RIGHT,
-            self::TRANSFORM_FADE_LEFT,
-            self::TRANSFORM_FADE_UP,
-            self::TRANSFORM_FADE_DOWN,
-            self::TRANSFORM_SLANT_UP,
-            self::TRANSFORM_SLANT_DOWN,
-            self::TRANSFORM_CASCADE_UP,
-            self::TRANSFORM_CASCADE_DOWN,
-            self::TRANSFORM_CUSTOM,
-            self::TRANSFORM_NOT_DEFINED,
+            self::TYPE_WORKBOOK,
+            self::TYPE_LITERALS,
         ];
     }
     
@@ -279,8 +192,7 @@ class TextFrameFormat implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
-        $this->container['transform'] = isset($data['transform']) ? $data['transform'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
 
@@ -293,10 +205,10 @@ class TextFrameFormat implements ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTransformAllowableValues();
-        if (!in_array($this->container['transform'], $allowedValues)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'transform', must be one of '%s'",
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -313,8 +225,8 @@ class TextFrameFormat implements ArrayAccess
     public function valid()
     {
 
-        $allowedValues = $this->getTransformAllowableValues();
-        if (!in_array($this->container['transform'], $allowedValues)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
             return false;
         }
         return true;
@@ -322,72 +234,48 @@ class TextFrameFormat implements ArrayAccess
 
 
     /**
-     * Gets threeDFormat
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat
-     */
-    public function getThreeDFormat()
-    {
-        return $this->container['threeDFormat'];
-    }
-
-    /**
-     * Sets threeDFormat
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat $threeDFormat Represents 3d effect properties for a text.
-     *
-     * @return $this
-     */
-    public function setThreeDFormat($threeDFormat)
-    {
-        $this->container['threeDFormat'] = $threeDFormat;
-
-        return $this;
-    }
-
-    /**
-     * Gets transform
+     * Gets type
      *
      * @return string
      */
-    public function getTransform()
+    public function getType()
     {
-        return $this->container['transform'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets transform
+     * Sets type
      *
-     * @param string $transform Gets or sets text wrapping shape.
+     * @param string $type type
      *
      * @return $this
      */
-    public function setTransform($transform)
+    public function setType($type)
     {
-        $allowedValues = $this->getTransformAllowableValues();
+        $allowedValues = $this->getTypeAllowableValues();
 
 
-        if (is_numeric($transform)) {
-            if ($transform >= sizeof($allowedValues)) {
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'transform', must be one of '%s'",
+                        "Invalid value for 'type', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $transform = $allowedValues[$transform];
+                $type = $allowedValues[$type];
             }
         } else {
-            if (!is_null($transform) && !in_array($transform, $allowedValues)) {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'transform', must be one of '%s'",
+                        "Invalid value for 'type', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['transform'] = $transform;
+        $this->container['type'] = $type;
 
         return $this;
     }

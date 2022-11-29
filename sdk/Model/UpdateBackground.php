@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class UpdateBackground extends Task 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

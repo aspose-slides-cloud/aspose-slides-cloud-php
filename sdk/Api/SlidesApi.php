@@ -52,7 +52,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignShapes($name, $slideIndex, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignShapes($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -66,7 +66,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->alignShapesRequest($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -96,7 +96,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignShapesAsync($name, $slideIndex, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignShapesAsync($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->alignShapesAsyncWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -106,7 +106,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignShapesAsyncWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignShapesAsyncWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->alignShapesRequest($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -167,7 +167,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function alignShapesRequest($name, $slideIndex, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function alignShapesRequest($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -228,7 +228,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function alignSpecialSlideShapes($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignSpecialSlideShapes($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -242,7 +242,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->alignSpecialSlideShapesRequest($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -272,7 +272,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignSpecialSlideShapesAsync($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignSpecialSlideShapesAsync($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->alignSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -282,7 +282,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function alignSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function alignSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->alignSpecialSlideShapesRequest($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
@@ -344,7 +344,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function alignSpecialSlideShapesRequest($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function alignSpecialSlideShapesRequest($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -414,7 +414,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         try {
             list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
@@ -428,7 +428,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder, $slides, $options);
@@ -455,7 +455,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAsync($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAsync($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         return $this->convertAsyncWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options)
             ->then(function ($response) {
@@ -465,7 +465,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAsyncWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAsyncWithHttpInfo($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->convertRequest($document, $format, $password, $storage, $fontsFolder, $slides, $options);
@@ -524,7 +524,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function convertRequest($document, $format, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    protected function convertRequest($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -577,7 +577,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function convertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         try {
             $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
@@ -589,7 +589,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAndSaveWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAndSaveWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '';
         $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
@@ -606,7 +606,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAndSaveAsync($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAndSaveAsync($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         return $this->convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options)
             ->then(function ($response) {
@@ -616,7 +616,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    public function convertAndSaveAsyncWithHttpInfo($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '';
         $httpRequest = $this->convertAndSaveRequest($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
@@ -657,7 +657,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function convertAndSaveRequest($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    protected function convertAndSaveRequest($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -9114,7 +9114,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteParagraphs($name, $slideIndex, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteParagraphs($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -9128,7 +9128,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->deleteParagraphsRequest($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -9158,7 +9158,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteParagraphsAsync($name, $slideIndex, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteParagraphsAsync($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deleteParagraphsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -9168,7 +9168,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteParagraphsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteParagraphsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->deleteParagraphsRequest($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -9228,7 +9228,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteParagraphsRequest($name, $slideIndex, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deleteParagraphsRequest($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -9455,7 +9455,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deletePortions($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deletePortions($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -9469,7 +9469,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->deletePortionsRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -9499,7 +9499,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deletePortionsAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deletePortionsAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deletePortionsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -9509,7 +9509,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deletePortionsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deletePortionsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->deletePortionsRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -9570,7 +9570,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deletePortionsRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deletePortionsRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -10067,7 +10067,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSections($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSections($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->deleteSectionsWithHttpInfo($name, $sections, $withSlides, $password, $folder, $storage);
@@ -10081,7 +10081,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSectionsWithHttpInfo($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSectionsWithHttpInfo($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
         $httpRequest = $this->deleteSectionsRequest($name, $sections, $withSlides, $password, $folder, $storage);
@@ -10111,7 +10111,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSectionsAsync($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSectionsAsync($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         return $this->deleteSectionsAsyncWithHttpInfo($name, $sections, $withSlides, $password, $folder, $storage)
             ->then(function ($response) {
@@ -10121,7 +10121,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSectionsAsyncWithHttpInfo($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSectionsAsyncWithHttpInfo($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Sections';
         $httpRequest = $this->deleteSectionsRequest($name, $sections, $withSlides, $password, $folder, $storage);
@@ -10179,7 +10179,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSectionsRequest($name, $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
+    protected function deleteSectionsRequest($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -10384,7 +10384,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteShapes($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteShapes($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deleteShapesWithHttpInfo($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
@@ -10398,7 +10398,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteShapesWithHttpInfo($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteShapesWithHttpInfo($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteShapesRequest($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
@@ -10428,7 +10428,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteShapesAsync($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteShapesAsync($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deleteShapesAsyncWithHttpInfo($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -10438,7 +10438,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteShapesAsyncWithHttpInfo($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteShapesAsyncWithHttpInfo($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteShapesRequest($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
@@ -10497,7 +10497,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteShapesRequest($name, $slideIndex, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deleteShapesRequest($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -10997,7 +10997,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSlides($name, $slides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSlides($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->deleteSlidesWithHttpInfo($name, $slides, $password, $folder, $storage);
@@ -11011,7 +11011,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSlidesWithHttpInfo($name, $slides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSlidesWithHttpInfo($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Slides';
         $httpRequest = $this->deleteSlidesRequest($name, $slides, $password, $folder, $storage);
@@ -11041,7 +11041,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSlidesAsync($name, $slides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSlidesAsync($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
         return $this->deleteSlidesAsyncWithHttpInfo($name, $slides, $password, $folder, $storage)
             ->then(function ($response) {
@@ -11051,7 +11051,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSlidesAsyncWithHttpInfo($name, $slides = null, $password = null, $folder = null, $storage = null)
+    public function deleteSlidesAsyncWithHttpInfo($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Slides';
         $httpRequest = $this->deleteSlidesRequest($name, $slides, $password, $folder, $storage);
@@ -11108,7 +11108,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSlidesRequest($name, $slides = null, $password = null, $folder = null, $storage = null)
+    protected function deleteSlidesRequest($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -12483,7 +12483,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSpecialSlideParagraphs($name, $slideIndex, $slideType, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideParagraphs($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -12497,7 +12497,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->deleteSpecialSlideParagraphsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -12527,7 +12527,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideParagraphsAsync($name, $slideIndex, $slideType, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideParagraphsAsync($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deleteSpecialSlideParagraphsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -12537,7 +12537,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideParagraphsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideParagraphsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
         $httpRequest = $this->deleteSpecialSlideParagraphsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
@@ -12598,7 +12598,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSpecialSlideParagraphsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deleteSpecialSlideParagraphsRequest($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -12844,7 +12844,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSpecialSlidePortions($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlidePortions($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -12858,7 +12858,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->deleteSpecialSlidePortionsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -12888,7 +12888,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlidePortionsAsync($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlidePortionsAsync($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deleteSpecialSlidePortionsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -12898,7 +12898,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlidePortionsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlidePortionsAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
         $httpRequest = $this->deleteSpecialSlidePortionsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
@@ -12960,7 +12960,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSpecialSlidePortionsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deleteSpecialSlidePortionsRequest($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -13199,7 +13199,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteSpecialSlideShapes($name, $slideIndex, $slideType, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideShapes($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
@@ -13213,7 +13213,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSpecialSlideShapesRequest($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
@@ -13243,7 +13243,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideShapesAsync($name, $slideIndex, $slideType, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideShapesAsync($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->deleteSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -13253,7 +13253,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function deleteSpecialSlideShapesAsyncWithHttpInfo($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->deleteSpecialSlideShapesRequest($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
@@ -13313,7 +13313,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteSpecialSlideShapesRequest($name, $slideIndex, $slideType, $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function deleteSpecialSlideShapesRequest($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -16002,7 +16002,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         try {
             list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -16016,7 +16016,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadPresentationWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function downloadPresentationWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -16043,7 +16043,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadPresentationAsync($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function downloadPresentationAsync($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         return $this->downloadPresentationAsyncWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
@@ -16053,7 +16053,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadPresentationAsyncWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function downloadPresentationAsyncWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->downloadPresentationRequest($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -16113,7 +16113,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadPresentationRequest($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    protected function downloadPresentationRequest($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -25997,11 +25997,11 @@ class SlidesApi extends ApiBase
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
@@ -26150,11 +26150,11 @@ class SlidesApi extends ApiBase
             return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
@@ -26275,7 +26275,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function importShapesFromSvg($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
+    public function importShapesFromSvg($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
@@ -26289,7 +26289,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importShapesFromSvgWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
+    public function importShapesFromSvgWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->importShapesFromSvgRequest($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
@@ -26319,7 +26319,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importShapesFromSvgAsync($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
+    public function importShapesFromSvgAsync($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
         return $this->importShapesFromSvgAsyncWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage)
             ->then(function ($response) {
@@ -26329,7 +26329,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importShapesFromSvgAsyncWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
+    public function importShapesFromSvgAsyncWithHttpInfo($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Shapes';
         $httpRequest = $this->importShapesFromSvgRequest($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
@@ -26393,7 +26393,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importShapesFromSvgRequest($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
+    protected function importShapesFromSvgRequest($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -28137,7 +28137,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function reorderSlides($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
+    public function reorderSlides($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->reorderSlidesWithHttpInfo($name, $oldPositions, $newPositions, $password, $folder, $storage);
@@ -28151,7 +28151,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function reorderSlidesWithHttpInfo($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
+    public function reorderSlidesWithHttpInfo($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Slides';
         $httpRequest = $this->reorderSlidesRequest($name, $oldPositions, $newPositions, $password, $folder, $storage);
@@ -28181,7 +28181,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function reorderSlidesAsync($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
+    public function reorderSlidesAsync($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         return $this->reorderSlidesAsyncWithHttpInfo($name, $oldPositions, $newPositions, $password, $folder, $storage)
             ->then(function ($response) {
@@ -28191,7 +28191,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function reorderSlidesAsyncWithHttpInfo($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
+    public function reorderSlidesAsyncWithHttpInfo($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Slides';
         $httpRequest = $this->reorderSlidesRequest($name, $oldPositions, $newPositions, $password, $folder, $storage);
@@ -28249,7 +28249,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function reorderSlidesRequest($name, $oldPositions = null, $newPositions = null, $password = null, $folder = null, $storage = null)
+    protected function reorderSlidesRequest($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -29421,7 +29421,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         try {
             $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -29433,7 +29433,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function savePresentationWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function savePresentationWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         $returnType = '';
         $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -29450,7 +29450,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function savePresentationAsync($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function savePresentationAsync($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         return $this->savePresentationAsyncWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides)
             ->then(function ($response) {
@@ -29460,7 +29460,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function savePresentationAsyncWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    public function savePresentationAsyncWithHttpInfo($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         $returnType = '';
         $httpRequest = $this->savePresentationRequest($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -29502,7 +29502,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function savePresentationRequest($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $slides = null)
+    protected function savePresentationRequest($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {

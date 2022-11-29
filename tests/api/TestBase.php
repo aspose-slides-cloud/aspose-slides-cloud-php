@@ -115,6 +115,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
             else if ($rule["Action"] == "Delete")
             {
                 $this->getApi()->DeleteFile($path);
+                $this->getApi()->DeleteFolder($path);
             }
         }
         return $expectedValues;

@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class PathOutputFile extends OutputFile 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

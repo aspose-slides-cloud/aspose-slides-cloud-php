@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class SlideReplaceResult extends Slide 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

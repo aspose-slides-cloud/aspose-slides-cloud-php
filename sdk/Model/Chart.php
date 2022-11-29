@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class Chart extends ShapeBase 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -61,6 +59,7 @@ class Chart extends ShapeBase
         'showDataLabelsOverMaximum' => 'bool',
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
         'categories' => '\Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]',
+        'dataSourceForCategories' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
         'backWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'sideWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
@@ -82,6 +81,7 @@ class Chart extends ShapeBase
         'showDataLabelsOverMaximum' => null,
         'series' => null,
         'categories' => null,
+        'dataSourceForCategories' => null,
         'title' => null,
         'backWall' => null,
         'sideWall' => null,
@@ -124,6 +124,7 @@ class Chart extends ShapeBase
         'showDataLabelsOverMaximum' => 'ShowDataLabelsOverMaximum',
         'series' => 'Series',
         'categories' => 'Categories',
+        'dataSourceForCategories' => 'DataSourceForCategories',
         'title' => 'Title',
         'backWall' => 'BackWall',
         'sideWall' => 'SideWall',
@@ -145,6 +146,7 @@ class Chart extends ShapeBase
         'showDataLabelsOverMaximum' => 'setShowDataLabelsOverMaximum',
         'series' => 'setSeries',
         'categories' => 'setCategories',
+        'dataSourceForCategories' => 'setDataSourceForCategories',
         'title' => 'setTitle',
         'backWall' => 'setBackWall',
         'sideWall' => 'setSideWall',
@@ -166,6 +168,7 @@ class Chart extends ShapeBase
         'showDataLabelsOverMaximum' => 'getShowDataLabelsOverMaximum',
         'series' => 'getSeries',
         'categories' => 'getCategories',
+        'dataSourceForCategories' => 'getDataSourceForCategories',
         'title' => 'getTitle',
         'backWall' => 'getBackWall',
         'sideWall' => 'getSideWall',
@@ -412,6 +415,7 @@ class Chart extends ShapeBase
         $this->container['showDataLabelsOverMaximum'] = isset($data['showDataLabelsOverMaximum']) ? $data['showDataLabelsOverMaximum'] : null;
         $this->container['series'] = isset($data['series']) ? $data['series'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['dataSourceForCategories'] = isset($data['dataSourceForCategories']) ? $data['dataSourceForCategories'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['backWall'] = isset($data['backWall']) ? $data['backWall'] : null;
         $this->container['sideWall'] = isset($data['sideWall']) ? $data['sideWall'] : null;
@@ -586,6 +590,30 @@ class Chart extends ShapeBase
     public function setCategories($categories)
     {
         $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForCategories
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForCategories()
+    {
+        return $this->container['dataSourceForCategories'];
+    }
+
+    /**
+     * Sets dataSourceForCategories
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForCategories Data source type for categories.
+     *
+     * @return $this
+     */
+    public function setDataSourceForCategories($dataSourceForCategories)
+    {
+        $this->container['dataSourceForCategories'] = $dataSourceForCategories;
 
         return $this;
     }

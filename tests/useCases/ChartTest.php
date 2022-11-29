@@ -43,10 +43,12 @@ use Aspose\Slides\Cloud\Sdk\Model\GradientFill;
 use Aspose\Slides\Cloud\Sdk\Model\GradientFillStop;
 use Aspose\Slides\Cloud\Sdk\Model\Legend;
 use Aspose\Slides\Cloud\Sdk\Model\LineFormat;
+use Aspose\Slides\Cloud\Sdk\Model\Literals;
 use Aspose\Slides\Cloud\Sdk\Model\NoFill;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
+use Aspose\Slides\Cloud\Sdk\Model\Workbook;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 
 class ChartTest extends TestBase
@@ -61,7 +63,7 @@ class ChartTest extends TestBase
         Assert::assertTrue(count($result->getCategories()) == self::categoryCount);
     }
 
-    public function testChartCreate()
+    public function testChartCreateAutoDataSource()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
@@ -86,6 +88,137 @@ class ChartTest extends TestBase
         $dataPoint13->setValue(70);
         $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
         $series2 = new OneValueSeries();
+        $dataPoint21 = new OneValueChartDataPoint();
+        $dataPoint21->setValue(55);
+        $dataPoint22 = new OneValueChartDataPoint();
+        $dataPoint22->setValue(35);
+        $dataPoint23 = new OneValueChartDataPoint();
+        $dataPoint23->setValue(90);
+        $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
+        $dto->setSeries([ $series1, $series2 ]);
+        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        Assert::assertEquals(2, count($result->getSeries()));
+        Assert::assertEquals(3, count($result->getCategories()));
+    }
+
+    public function testChartCreateWorkbook()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Chart();
+        $dto->setChartType('ClusteredColumn');
+        $dto->setWidth(400);
+        $dto->setHeight(300);
+
+        $categoryDataSource = new Workbook();
+        $categoryDataSource->setWorksheetIndex(0);
+        $categoryDataSource->setColumnIndex(0);
+        $categoryDataSource->setRowIndex(1);
+        $dto->setDataSourceForCategories($categoryDataSource);
+
+        $category1 = new ChartCategory();
+        $category1->setValue("Category 1");
+        $category2 = new ChartCategory();
+        $category2->setValue("Category 2");
+        $category3 = new ChartCategory();
+        $category3->setValue("Category 3");
+        $dto->setCategories([ $category1, $category2, $category3 ]);
+
+
+        $series1 = new OneValueSeries();
+        $series1NameDataSource = new Workbook();
+        $series1NameDataSource->setWorksheetIndex(0);
+        $series1NameDataSource->setColumnIndex(1);
+        $series1NameDataSource->setRowIndex(0);
+        $series1->setDataSourceForSeriesName($series1NameDataSource);
+
+        $values1DataSource = new Workbook();
+        $values1DataSource->setWorksheetIndex(0);
+        $values1DataSource->setColumnIndex(1);
+        $values1DataSource->setRowIndex(1);
+        $series1->setDataSourceForValues($values1DataSource);
+
+        $dataPoint11 = new OneValueChartDataPoint();
+        $dataPoint11->setValue(40);
+        $dataPoint12 = new OneValueChartDataPoint();
+        $dataPoint12->setValue(50);
+        $dataPoint13 = new OneValueChartDataPoint();
+        $dataPoint13->setValue(70);
+        $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
+
+
+        $series2 = new OneValueSeries();
+        $series2NameDataSource = new Workbook();
+        $series2NameDataSource->setWorksheetIndex(0);
+        $series2NameDataSource->setColumnIndex(2);
+        $series2NameDataSource->setRowIndex(0);
+        $series2->setDataSourceForSeriesName($series2NameDataSource);
+
+        $values2DataSource = new Workbook();
+        $values2DataSource->setWorksheetIndex(0);
+        $values2DataSource->setColumnIndex(2);
+        $values2DataSource->setRowIndex(1);
+        $series2->setDataSourceForValues($values2DataSource);
+
+        $dataPoint21 = new OneValueChartDataPoint();
+        $dataPoint21->setValue(55);
+        $dataPoint22 = new OneValueChartDataPoint();
+        $dataPoint22->setValue(35);
+        $dataPoint23 = new OneValueChartDataPoint();
+        $dataPoint23->setValue(90);
+        $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
+        $dto->setSeries([ $series1, $series2 ]);
+        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        Assert::assertEquals(2, count($result->getSeries()));
+        Assert::assertEquals(3, count($result->getCategories()));
+    }
+
+    public function testChartCreateLiterals()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Chart();
+        $dto->setChartType('ClusteredColumn');
+        $dto->setWidth(400);
+        $dto->setHeight(300);
+
+        $categoryDataSource = new Literals();
+        $dto->setDataSourceForCategories($categoryDataSource);
+
+        $category1 = new ChartCategory();
+        $category1->setValue("Category 1");
+        $category2 = new ChartCategory();
+        $category2->setValue("Category 2");
+        $category3 = new ChartCategory();
+        $category3->setValue("Category 3");
+        $dto->setCategories([ $category1, $category2, $category3 ]);
+
+
+        $series1 = new OneValueSeries();
+        $series1NameDataSource = new Literals();
+        $series1->setDataSourceForSeriesName($series1NameDataSource);
+
+        $values1DataSource = new Literals();
+        $series1->setDataSourceForValues($values1DataSource);
+
+        $dataPoint11 = new OneValueChartDataPoint();
+        $dataPoint11->setValue(40);
+        $dataPoint12 = new OneValueChartDataPoint();
+        $dataPoint12->setValue(50);
+        $dataPoint13 = new OneValueChartDataPoint();
+        $dataPoint13->setValue(70);
+        $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
+
+
+        $series2 = new OneValueSeries();
+        $series2NameDataSource = new Literals();
+        $series2->setDataSourceForSeriesName($series2NameDataSource);
+
+        $values2DataSource = new Literals();
+        $series2->setDataSourceForValues($values2DataSource);
+
         $dataPoint21 = new OneValueChartDataPoint();
         $dataPoint21->setValue(55);
         $dataPoint22 = new OneValueChartDataPoint();
@@ -549,6 +682,59 @@ class ChartTest extends TestBase
         Assert::assertEquals($dataPoint->getFillFormat()->getType(), "Solid");
         Assert::assertEquals($dataPoint->getLineFormat()->getFillFormat()->getType(), "Solid");
         Assert::assertNotEquals($dataPoint->getEffectFormat()->getBlur(), null);
+    }
+
+    public function testChartFormulas()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+
+        $dto = new Chart();
+        $dto->setChartType('ClusteredColumn');
+        $dto->setWidth(400);
+        $dto->setHeight(300);
+
+        $categoryDataSource = new Workbook();
+        $categoryDataSource->setWorksheetIndex(0);
+        $categoryDataSource->setColumnIndex(0);
+        $categoryDataSource->setRowIndex(1);
+        $dto->setDataSourceForCategories($categoryDataSource);
+
+        $category1 = new ChartCategory();
+        $category1->setValue("Category 1");
+        $category2 = new ChartCategory();
+        $category2->setValue("Category 2");
+        $category3 = new ChartCategory();
+        $category3->setValue("Category 3");
+        $dto->setCategories([ $category1, $category2, $category3 ]);
+
+
+        $series1 = new OneValueSeries();
+        $series1NameDataSource = new Workbook();
+        $series1NameDataSource->setWorksheetIndex(0);
+        $series1NameDataSource->setColumnIndex(1);
+        $series1NameDataSource->setRowIndex(0);
+        $series1->setDataSourceForSeriesName($series1NameDataSource);
+
+        $values1DataSource = new Workbook();
+        $values1DataSource->setWorksheetIndex(0);
+        $values1DataSource->setColumnIndex(1);
+        $values1DataSource->setRowIndex(1);
+        $series1->setDataSourceForValues($values1DataSource);
+
+        $dataPoint11 = new OneValueChartDataPoint();
+        $dataPoint11->setValue(40);
+        $dataPoint12 = new OneValueChartDataPoint();
+        $dataPoint12->setValue(50);
+        $dataPoint13 = new OneValueChartDataPoint();
+        $dataPoint13->setValue(0);
+        $dataPoint13->setValueFormula("SUM(B2:B3)");
+        $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
+
+        $dto->setSeries([ $series1 ]);
+        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $dataPoint = $result->getSeries()[0]->getDataPoints()[2];
+        Assert::assertEquals(90, $dataPoint->getValue());
     }
 
     public const color = "#77CEF9";

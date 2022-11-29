@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class AddMasterSlide extends Task 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

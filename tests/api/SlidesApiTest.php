@@ -29430,7 +29430,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for getViewProperties
-     * Read presentation document properties.
+     * Read presentation view properties.
      */
     public function testGetViewProperties()
     {
@@ -40039,7 +40039,7 @@ class SlidesApiTest extends TestBase
 
     /**
      * Test case for setViewProperties
-     * Update presentation document properties.
+     * Update presentation view properties.
      */
     public function testSetViewProperties()
     {

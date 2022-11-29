@@ -44,8 +44,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class Series implements ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
-
     /**
       * The original name of the model.
       *
@@ -61,6 +59,7 @@ class Series implements ArrayAccess
     protected static $swaggerTypes = [
         'type' => 'string',
         'name' => 'string',
+        'dataSourceForSeriesName' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource',
         'isColorVaried' => 'bool',
         'invertedSolidFillColor' => 'string',
         'smooth' => 'bool',
@@ -83,6 +82,7 @@ class Series implements ArrayAccess
     protected static $swaggerFormats = [
         'type' => null,
         'name' => null,
+        'dataSourceForSeriesName' => null,
         'isColorVaried' => null,
         'invertedSolidFillColor' => null,
         'smooth' => null,
@@ -126,6 +126,7 @@ class Series implements ArrayAccess
     protected static $attributeMap = [
         'type' => 'Type',
         'name' => 'Name',
+        'dataSourceForSeriesName' => 'DataSourceForSeriesName',
         'isColorVaried' => 'IsColorVaried',
         'invertedSolidFillColor' => 'InvertedSolidFillColor',
         'smooth' => 'Smooth',
@@ -148,6 +149,7 @@ class Series implements ArrayAccess
     protected static $setters = [
         'type' => 'setType',
         'name' => 'setName',
+        'dataSourceForSeriesName' => 'setDataSourceForSeriesName',
         'isColorVaried' => 'setIsColorVaried',
         'invertedSolidFillColor' => 'setInvertedSolidFillColor',
         'smooth' => 'setSmooth',
@@ -170,6 +172,7 @@ class Series implements ArrayAccess
     protected static $getters = [
         'type' => 'getType',
         'name' => 'getName',
+        'dataSourceForSeriesName' => 'getDataSourceForSeriesName',
         'isColorVaried' => 'getIsColorVaried',
         'invertedSolidFillColor' => 'getInvertedSolidFillColor',
         'smooth' => 'getSmooth',
@@ -438,6 +441,7 @@ class Series implements ArrayAccess
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['dataSourceForSeriesName'] = isset($data['dataSourceForSeriesName']) ? $data['dataSourceForSeriesName'] : null;
         $this->container['isColorVaried'] = isset($data['isColorVaried']) ? $data['isColorVaried'] : null;
         $this->container['invertedSolidFillColor'] = isset($data['invertedSolidFillColor']) ? $data['invertedSolidFillColor'] : null;
         $this->container['smooth'] = isset($data['smooth']) ? $data['smooth'] : null;
@@ -569,6 +573,30 @@ class Series implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForSeriesName
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForSeriesName()
+    {
+        return $this->container['dataSourceForSeriesName'];
+    }
+
+    /**
+     * Sets dataSourceForSeriesName
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForSeriesName Series name data source.
+     *
+     * @return $this
+     */
+    public function setDataSourceForSeriesName($dataSourceForSeriesName)
+    {
+        $this->container['dataSourceForSeriesName'] = $dataSourceForSeriesName;
 
         return $this;
     }

@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class SectionZoomFrame extends ZoomObject 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

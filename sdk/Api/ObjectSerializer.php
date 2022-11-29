@@ -332,14 +332,6 @@ class ObjectSerializer
             }
             return $data;
         } else {
-            // If a discriminator is defined and points to a valid subclass, use it.
-            $discriminator = $class::DISCRIMINATOR;
-            if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Aspose\Slides\Cloud\Sdk\Model\\' . $data->{$discriminator};
-                if (is_subclass_of($subclass, $class)) {
-                    $class = $subclass;
-                }
-            }
             foreach (ClassHierarchy::getDescendants(substr(strrchr($class, "\\"), 1)) as $subclass)
             {
                 if (ClassHierarchy::isInstanceOfClass($data, $subclass))

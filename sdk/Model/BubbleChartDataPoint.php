@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class BubbleChartDataPoint extends ScatterChartDataPoint 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -57,7 +55,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'bubbleSize' => 'double'
+        'bubbleSize' => 'double',
+        'bubbleSizeFormula' => 'string'
     ];
 
     /**
@@ -66,7 +65,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'bubbleSize' => 'double'
+        'bubbleSize' => 'double',
+        'bubbleSizeFormula' => null
     ];
 
     /**
@@ -96,7 +96,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $attributeMap = [
-        'bubbleSize' => 'BubbleSize'
+        'bubbleSize' => 'BubbleSize',
+        'bubbleSizeFormula' => 'BubbleSizeFormula'
     ];
 
     /**
@@ -105,7 +106,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $setters = [
-        'bubbleSize' => 'setBubbleSize'
+        'bubbleSize' => 'setBubbleSize',
+        'bubbleSizeFormula' => 'setBubbleSizeFormula'
     ];
 
     /**
@@ -114,7 +116,8 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
      * @var string[]
      */
     protected static $getters = [
-        'bubbleSize' => 'getBubbleSize'
+        'bubbleSize' => 'getBubbleSize',
+        'bubbleSizeFormula' => 'getBubbleSizeFormula'
     ];
 
     /**
@@ -174,6 +177,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
         parent::__construct($data);
 
         $this->container['bubbleSize'] = isset($data['bubbleSize']) ? $data['bubbleSize'] : null;
+        $this->container['bubbleSizeFormula'] = isset($data['bubbleSizeFormula']) ? $data['bubbleSizeFormula'] : null;
         
     }
 
@@ -231,6 +235,30 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     public function setBubbleSize($bubbleSize)
     {
         $this->container['bubbleSize'] = $bubbleSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets bubbleSizeFormula
+     *
+     * @return string
+     */
+    public function getBubbleSizeFormula()
+    {
+        return $this->container['bubbleSizeFormula'];
+    }
+
+    /**
+     * Sets bubbleSizeFormula
+     *
+     * @param string $bubbleSizeFormula Spreadsheet formula in A1-style.
+     *
+     * @return $this
+     */
+    public function setBubbleSizeFormula($bubbleSizeFormula)
+    {
+        $this->container['bubbleSizeFormula'] = $bubbleSizeFormula;
 
         return $this;
     }

@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class LineToPathSegment extends PathSegment 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

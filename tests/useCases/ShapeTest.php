@@ -342,15 +342,19 @@ class ShapeTest extends TestBase
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\SmartArt"));
     }
 
-        //See ChartTest for non-empty chart examples
+
     public function testChartEmpty()
     {
         $this->initialize(null, null, null);
         $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
 
         $dto = new Chart();
-        $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
-        Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Chart"));
+        try {
+            $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
+            Assert::fail("Must have failed");
+        } catch (ApiException $ex) {
+            //Cannot create an empty chart
+        }
     }
 
     public function testTableAdd()

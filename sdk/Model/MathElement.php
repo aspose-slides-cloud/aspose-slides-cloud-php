@@ -44,8 +44,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class MathElement implements ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
-
     /**
       * The original name of the model.
       *

@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class OleObjectFrame extends ShapeBase 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

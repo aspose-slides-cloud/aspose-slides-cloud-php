@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class OneValueChartDataPoint extends DataPoint 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -58,6 +56,7 @@ class OneValueChartDataPoint extends DataPoint
       */
     protected static $swaggerTypes = [
         'value' => 'double',
+        'valueFormula' => 'string',
         'setAsTotal' => 'bool',
         'invertIfNegative' => 'bool'
     ];
@@ -69,6 +68,7 @@ class OneValueChartDataPoint extends DataPoint
       */
     protected static $swaggerFormats = [
         'value' => 'double',
+        'valueFormula' => null,
         'setAsTotal' => null,
         'invertIfNegative' => null
     ];
@@ -101,6 +101,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $attributeMap = [
         'value' => 'Value',
+        'valueFormula' => 'ValueFormula',
         'setAsTotal' => 'SetAsTotal',
         'invertIfNegative' => 'InvertIfNegative'
     ];
@@ -112,6 +113,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $setters = [
         'value' => 'setValue',
+        'valueFormula' => 'setValueFormula',
         'setAsTotal' => 'setSetAsTotal',
         'invertIfNegative' => 'setInvertIfNegative'
     ];
@@ -123,6 +125,7 @@ class OneValueChartDataPoint extends DataPoint
      */
     protected static $getters = [
         'value' => 'getValue',
+        'valueFormula' => 'getValueFormula',
         'setAsTotal' => 'getSetAsTotal',
         'invertIfNegative' => 'getInvertIfNegative'
     ];
@@ -184,6 +187,7 @@ class OneValueChartDataPoint extends DataPoint
         parent::__construct($data);
 
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['valueFormula'] = isset($data['valueFormula']) ? $data['valueFormula'] : null;
         $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
         $this->container['invertIfNegative'] = isset($data['invertIfNegative']) ? $data['invertIfNegative'] : null;
         
@@ -243,6 +247,30 @@ class OneValueChartDataPoint extends DataPoint
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets valueFormula
+     *
+     * @return string
+     */
+    public function getValueFormula()
+    {
+        return $this->container['valueFormula'];
+    }
+
+    /**
+     * Sets valueFormula
+     *
+     * @param string $valueFormula Spreadsheet formula in A1-style.
+     *
+     * @return $this
+     */
+    public function setValueFormula($valueFormula)
+    {
+        $this->container['valueFormula'] = $valueFormula;
 
         return $this;
     }

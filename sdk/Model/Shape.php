@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class Shape extends GeometryShape 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *

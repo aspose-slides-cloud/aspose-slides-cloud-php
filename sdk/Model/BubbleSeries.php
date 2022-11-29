@@ -42,8 +42,6 @@ use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
  */
 class BubbleSeries extends XYSeries 
 {
-    const DISCRIMINATOR = null;
-
     /**
       * The original name of the model.
       *
@@ -58,7 +56,8 @@ class BubbleSeries extends XYSeries
       */
     protected static $swaggerTypes = [
         'dataPoints' => '\Aspose\Slides\Cloud\Sdk\Model\BubbleChartDataPoint[]',
-        'numberFormatOfBubbleSizes' => 'string'
+        'numberFormatOfBubbleSizes' => 'string',
+        'dataSourceForBubbleSizeValues' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource'
     ];
 
     /**
@@ -68,7 +67,8 @@ class BubbleSeries extends XYSeries
       */
     protected static $swaggerFormats = [
         'dataPoints' => null,
-        'numberFormatOfBubbleSizes' => null
+        'numberFormatOfBubbleSizes' => null,
+        'dataSourceForBubbleSizeValues' => null
     ];
 
     /**
@@ -99,7 +99,8 @@ class BubbleSeries extends XYSeries
      */
     protected static $attributeMap = [
         'dataPoints' => 'DataPoints',
-        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes'
+        'numberFormatOfBubbleSizes' => 'NumberFormatOfBubbleSizes',
+        'dataSourceForBubbleSizeValues' => 'DataSourceForBubbleSizeValues'
     ];
 
     /**
@@ -109,7 +110,8 @@ class BubbleSeries extends XYSeries
      */
     protected static $setters = [
         'dataPoints' => 'setDataPoints',
-        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes'
+        'numberFormatOfBubbleSizes' => 'setNumberFormatOfBubbleSizes',
+        'dataSourceForBubbleSizeValues' => 'setDataSourceForBubbleSizeValues'
     ];
 
     /**
@@ -119,7 +121,8 @@ class BubbleSeries extends XYSeries
      */
     protected static $getters = [
         'dataPoints' => 'getDataPoints',
-        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes'
+        'numberFormatOfBubbleSizes' => 'getNumberFormatOfBubbleSizes',
+        'dataSourceForBubbleSizeValues' => 'getDataSourceForBubbleSizeValues'
     ];
 
     /**
@@ -180,6 +183,7 @@ class BubbleSeries extends XYSeries
 
         $this->container['dataPoints'] = isset($data['dataPoints']) ? $data['dataPoints'] : null;
         $this->container['numberFormatOfBubbleSizes'] = isset($data['numberFormatOfBubbleSizes']) ? $data['numberFormatOfBubbleSizes'] : null;
+        $this->container['dataSourceForBubbleSizeValues'] = isset($data['dataSourceForBubbleSizeValues']) ? $data['dataSourceForBubbleSizeValues'] : null;
         $this->container['dataPointType'] = 'Bubble';
         
     }
@@ -256,6 +260,30 @@ class BubbleSeries extends XYSeries
     public function setNumberFormatOfBubbleSizes($numberFormatOfBubbleSizes)
     {
         $this->container['numberFormatOfBubbleSizes'] = $numberFormatOfBubbleSizes;
+
+        return $this;
+    }
+
+    /**
+     * Gets dataSourceForBubbleSizeValues
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\DataSource
+     */
+    public function getDataSourceForBubbleSizeValues()
+    {
+        return $this->container['dataSourceForBubbleSizeValues'];
+    }
+
+    /**
+     * Sets dataSourceForBubbleSizeValues
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\DataSource $dataSourceForBubbleSizeValues Data source type for Bubble size values.
+     *
+     * @return $this
+     */
+    public function setDataSourceForBubbleSizeValues($dataSourceForBubbleSizeValues)
+    {
+        $this->container['dataSourceForBubbleSizeValues'] = $dataSourceForBubbleSizeValues;
 
         return $this;
     }
