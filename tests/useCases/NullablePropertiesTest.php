@@ -69,12 +69,6 @@ class NullablePropertiesTest extends TestBase
         $testTitle->setText("MyTitle");
         $testDto->setTitle($testTitle);
 
-        $category1 = new ChartCategory();
-        $category1->setValue("Category 1");
-        $category2 = new ChartCategory();
-        $category2->setValue("Category 2");
-        $testDto->setCategories([ $category1, $category2 ]);
-
         $testSeries = new OneValueSeries();
         $testSeries->setType('ClusteredColumn');
         $testSeries->setDataPointType('OneValue');

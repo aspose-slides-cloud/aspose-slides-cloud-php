@@ -178,6 +178,7 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
 
         $this->container['bubbleSize'] = isset($data['bubbleSize']) ? $data['bubbleSize'] : null;
         $this->container['bubbleSizeFormula'] = isset($data['bubbleSizeFormula']) ? $data['bubbleSizeFormula'] : null;
+        $this->container['type'] = 'Bubble';
         
     }
 
@@ -190,9 +191,6 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['bubbleSize'] === null) {
-            $invalidProperties[] = "'bubbleSize' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,9 +206,6 @@ class BubbleChartDataPoint extends ScatterChartDataPoint
             return false;
         }
 
-        if ($this->container['bubbleSize'] === null) {
-            return false;
-        }
         return true;
     }
 

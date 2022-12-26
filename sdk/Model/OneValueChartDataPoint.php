@@ -190,6 +190,7 @@ class OneValueChartDataPoint extends DataPoint
         $this->container['valueFormula'] = isset($data['valueFormula']) ? $data['valueFormula'] : null;
         $this->container['setAsTotal'] = isset($data['setAsTotal']) ? $data['setAsTotal'] : null;
         $this->container['invertIfNegative'] = isset($data['invertIfNegative']) ? $data['invertIfNegative'] : null;
+        $this->container['type'] = 'OneValue';
         
     }
 
@@ -202,9 +203,6 @@ class OneValueChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -220,9 +218,6 @@ class OneValueChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['value'] === null) {
-            return false;
-        }
         return true;
     }
 

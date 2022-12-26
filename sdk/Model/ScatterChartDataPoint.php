@@ -190,6 +190,7 @@ class ScatterChartDataPoint extends DataPoint
         $this->container['yValue'] = isset($data['yValue']) ? $data['yValue'] : null;
         $this->container['xValueFormula'] = isset($data['xValueFormula']) ? $data['xValueFormula'] : null;
         $this->container['yValueFormula'] = isset($data['yValueFormula']) ? $data['yValueFormula'] : null;
+        $this->container['type'] = 'Scatter';
         
     }
 
@@ -202,12 +203,6 @@ class ScatterChartDataPoint extends DataPoint
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['xValue'] === null) {
-            $invalidProperties[] = "'xValue' can't be null";
-        }
-        if ($this->container['yValue'] === null) {
-            $invalidProperties[] = "'yValue' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,12 +218,6 @@ class ScatterChartDataPoint extends DataPoint
             return false;
         }
 
-        if ($this->container['xValue'] === null) {
-            return false;
-        }
-        if ($this->container['yValue'] === null) {
-            return false;
-        }
         return true;
     }
 

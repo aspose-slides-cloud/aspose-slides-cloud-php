@@ -60,7 +60,8 @@ class DataPoint implements ArrayAccess
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'type' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class DataPoint implements ArrayAccess
         'fillFormat' => null,
         'effectFormat' => null,
         'threeDFormat' => null,
-        'lineFormat' => null
+        'lineFormat' => null,
+        'type' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class DataPoint implements ArrayAccess
         'fillFormat' => 'FillFormat',
         'effectFormat' => 'EffectFormat',
         'threeDFormat' => 'ThreeDFormat',
-        'lineFormat' => 'LineFormat'
+        'lineFormat' => 'LineFormat',
+        'type' => 'Type'
     ];
 
     /**
@@ -117,7 +120,8 @@ class DataPoint implements ArrayAccess
         'fillFormat' => 'setFillFormat',
         'effectFormat' => 'setEffectFormat',
         'threeDFormat' => 'setThreeDFormat',
-        'lineFormat' => 'setLineFormat'
+        'lineFormat' => 'setLineFormat',
+        'type' => 'setType'
     ];
 
     /**
@@ -129,7 +133,8 @@ class DataPoint implements ArrayAccess
         'fillFormat' => 'getFillFormat',
         'effectFormat' => 'getEffectFormat',
         'threeDFormat' => 'getThreeDFormat',
-        'lineFormat' => 'getLineFormat'
+        'lineFormat' => 'getLineFormat',
+        'type' => 'getType'
     ];
 
     /**
@@ -173,8 +178,25 @@ class DataPoint implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_ONE_VALUE = 'OneValue';
+    const TYPE_SCATTER = 'Scatter';
+    const TYPE_BUBBLE = 'Bubble';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ONE_VALUE,
+            self::TYPE_SCATTER,
+            self::TYPE_BUBBLE,
+        ];
+    }
     
 
     /**
@@ -196,6 +218,7 @@ class DataPoint implements ArrayAccess
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
 
@@ -207,6 +230,14 @@ class DataPoint implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -220,6 +251,10 @@ class DataPoint implements ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -316,6 +351,53 @@ class DataPoint implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+
+
+        if (is_numeric($type)) {
+            if ($type >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $type = $allowedValues[$type];
+            }
+        } else {
+            if (!is_null($type) && !in_array($type, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'type', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

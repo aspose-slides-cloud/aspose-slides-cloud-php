@@ -112,9 +112,9 @@ class ChartTest extends TestBase
         $dto->setHeight(300);
 
         $categoryDataSource = new Workbook();
-        $categoryDataSource->setWorksheetIndex(0);
-        $categoryDataSource->setColumnIndex(0);
-        $categoryDataSource->setRowIndex(1);
+        $categoryDataSource->setWorksheetIndex(1);
+        $categoryDataSource->setColumnIndex(1);
+        $categoryDataSource->setRowIndex(2);
         $dto->setDataSourceForCategories($categoryDataSource);
 
         $category1 = new ChartCategory();
@@ -128,15 +128,15 @@ class ChartTest extends TestBase
 
         $series1 = new OneValueSeries();
         $series1NameDataSource = new Workbook();
-        $series1NameDataSource->setWorksheetIndex(0);
-        $series1NameDataSource->setColumnIndex(1);
-        $series1NameDataSource->setRowIndex(0);
+        $series1NameDataSource->setWorksheetIndex(1);
+        $series1NameDataSource->setColumnIndex(2);
+        $series1NameDataSource->setRowIndex(1);
         $series1->setDataSourceForSeriesName($series1NameDataSource);
 
         $values1DataSource = new Workbook();
-        $values1DataSource->setWorksheetIndex(0);
-        $values1DataSource->setColumnIndex(1);
-        $values1DataSource->setRowIndex(1);
+        $values1DataSource->setWorksheetIndex(1);
+        $values1DataSource->setColumnIndex(2);
+        $values1DataSource->setRowIndex(2);
         $series1->setDataSourceForValues($values1DataSource);
 
         $dataPoint11 = new OneValueChartDataPoint();
@@ -150,15 +150,15 @@ class ChartTest extends TestBase
 
         $series2 = new OneValueSeries();
         $series2NameDataSource = new Workbook();
-        $series2NameDataSource->setWorksheetIndex(0);
-        $series2NameDataSource->setColumnIndex(2);
-        $series2NameDataSource->setRowIndex(0);
+        $series2NameDataSource->setWorksheetIndex(1);
+        $series2NameDataSource->setColumnIndex(3);
+        $series2NameDataSource->setRowIndex(1);
         $series2->setDataSourceForSeriesName($series2NameDataSource);
 
         $values2DataSource = new Workbook();
-        $values2DataSource->setWorksheetIndex(0);
-        $values2DataSource->setColumnIndex(2);
-        $values2DataSource->setRowIndex(1);
+        $values2DataSource->setWorksheetIndex(1);
+        $values2DataSource->setColumnIndex(3);
+        $values2DataSource->setRowIndex(2);
         $series2->setDataSourceForValues($values2DataSource);
 
         $dataPoint21 = new OneValueChartDataPoint();
@@ -695,9 +695,9 @@ class ChartTest extends TestBase
         $dto->setHeight(300);
 
         $categoryDataSource = new Workbook();
-        $categoryDataSource->setWorksheetIndex(0);
-        $categoryDataSource->setColumnIndex(0);
-        $categoryDataSource->setRowIndex(1);
+        $categoryDataSource->setWorksheetIndex(1);
+        $categoryDataSource->setColumnIndex(1);
+        $categoryDataSource->setRowIndex(2);
         $dto->setDataSourceForCategories($categoryDataSource);
 
         $category1 = new ChartCategory();
@@ -711,15 +711,15 @@ class ChartTest extends TestBase
 
         $series1 = new OneValueSeries();
         $series1NameDataSource = new Workbook();
-        $series1NameDataSource->setWorksheetIndex(0);
-        $series1NameDataSource->setColumnIndex(1);
-        $series1NameDataSource->setRowIndex(0);
+        $series1NameDataSource->setWorksheetIndex(1);
+        $series1NameDataSource->setColumnIndex(2);
+        $series1NameDataSource->setRowIndex(1);
         $series1->setDataSourceForSeriesName($series1NameDataSource);
 
         $values1DataSource = new Workbook();
-        $values1DataSource->setWorksheetIndex(0);
-        $values1DataSource->setColumnIndex(1);
-        $values1DataSource->setRowIndex(1);
+        $values1DataSource->setWorksheetIndex(1);
+        $values1DataSource->setColumnIndex(2);
+        $values1DataSource->setRowIndex(2);
         $series1->setDataSourceForValues($values1DataSource);
 
         $dataPoint11 = new OneValueChartDataPoint();
@@ -727,7 +727,6 @@ class ChartTest extends TestBase
         $dataPoint12 = new OneValueChartDataPoint();
         $dataPoint12->setValue(50);
         $dataPoint13 = new OneValueChartDataPoint();
-        $dataPoint13->setValue(0);
         $dataPoint13->setValueFormula("SUM(B2:B3)");
         $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
 
