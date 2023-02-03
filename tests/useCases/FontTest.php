@@ -93,6 +93,27 @@ class FontTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
+    public function testCompressEmbeddedFonts()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $result = $this->getApi()->setEmbeddedFont(self::fileName, self::fontName, false, self::password, self::folderName);
+        Assert::assertTrue($result->getList()[2]->getIsEmbedded());
+        //In a real world example, you would rather get the same result by just calling SetEmbeddedFont with onlyUsed = true
+        $this->getApi()->compressEmbeddedFonts(self::fileName, self::password, self::folderName);
+    }
+
+    public function testCompressEmbeddedFontsOnline()
+    {
+        $this->initialize(null, null, null);
+        $file = fopen("TestData/".self::fileName, 'r');
+        $resultEmbedded = $this->getApi()->setEmbeddedFontOnline($file, self::fontName, false, self::password, self::folderName);
+        Assert::assertTrue($resultEmbedded->isFile());
+        $resultCompressed = $this->getApi()->compressEmbeddedFontsOnline($resultEmbedded, self::password);
+        Assert::assertTrue($resultCompressed->isFile());
+        Assert::assertTrue($resultEmbedded->getSize() > $resultCompressed->getSize());
+    }
+
     public function testDeleteEmbeddedFont()
     {
         $this->initialize(null, null, null);
@@ -111,6 +132,7 @@ class FontTest extends TestBase
         Assert::assertTrue($resultEmbedded->isFile());
         $resultDeleted = $this->getApi()->deleteEmbeddedFontOnline($resultEmbedded, self::fontName, self::password, self::folderName);
         Assert::assertTrue($resultDeleted->isFile());
+        Assert::assertTrue($resultEmbedded->getSize() > $resultDeleted->getSize());
     }
 
     public function testReplaceFont()

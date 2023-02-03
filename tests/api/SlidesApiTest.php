@@ -619,6 +619,178 @@ class SlidesApiTest extends TestBase
     }
 
     /**
+     * Test case for compressEmbeddedFonts
+     * Compresses embedded fonts by removing unused characters.
+     */
+    public function testCompressEmbeddedFonts()
+    {
+        $testname = TestUtils::getTestValue("compressEmbeddedFonts", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFonts", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("compressEmbeddedFonts", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("compressEmbeddedFonts", "storage", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFonts", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFonts($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "compressEmbeddedFonts");
+        }
+        if ($needAssertResponse) {
+            Assert::assertNull($result);
+        }
+    }
+
+    public function testCompressEmbeddedFontsInvalidname()
+    {
+        $testname = TestUtils::getTestValue("compressEmbeddedFonts", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFonts", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("compressEmbeddedFonts", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("compressEmbeddedFonts", "storage", self::$values, 'string');
+        $testname = TestUtils::invalidizeValue("name", "compressEmbeddedFonts", $testname, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFonts", "name", $testname, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFonts($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFonts", "name", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFonts", "name", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFonts", "name", self::$okToFailValues);
+        }
+    }
+
+    public function testCompressEmbeddedFontsInvalidpassword()
+    {
+        $testname = TestUtils::getTestValue("compressEmbeddedFonts", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFonts", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("compressEmbeddedFonts", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("compressEmbeddedFonts", "storage", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "compressEmbeddedFonts", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFonts", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFonts($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFonts", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFonts", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFonts", "password", self::$okToFailValues);
+        }
+    }
+
+    public function testCompressEmbeddedFontsInvalidfolder()
+    {
+        $testname = TestUtils::getTestValue("compressEmbeddedFonts", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFonts", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("compressEmbeddedFonts", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("compressEmbeddedFonts", "storage", self::$values, 'string');
+        $testfolder = TestUtils::invalidizeValue("folder", "compressEmbeddedFonts", $testfolder, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFonts", "folder", $testfolder, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFonts($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFonts", "folder", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFonts", "folder", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFonts", "folder", self::$okToFailValues);
+        }
+    }
+
+    public function testCompressEmbeddedFontsInvalidstorage()
+    {
+        $testname = TestUtils::getTestValue("compressEmbeddedFonts", "name", self::$values, 'string');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFonts", "password", self::$values, 'string');
+        $testfolder = TestUtils::getTestValue("compressEmbeddedFonts", "folder", self::$values, 'string');
+        $teststorage = TestUtils::getTestValue("compressEmbeddedFonts", "storage", self::$values, 'string');
+        $teststorage = TestUtils::invalidizeValue("storage", "compressEmbeddedFonts", $teststorage, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFonts", "storage", $teststorage, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFonts($testname, $testpassword, $testfolder, $teststorage);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFonts", "storage", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFonts", "storage", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFonts", "storage", self::$okToFailValues);
+        }
+    }
+
+    /**
+     * Test case for compressEmbeddedFontsOnline
+     * Compresses embedded fonts by removing unused characters.
+     */
+    public function testCompressEmbeddedFontsOnline()
+    {
+        $testdocument = TestUtils::getTestValue("compressEmbeddedFontsOnline", "document", self::$values, '\SplFileObject');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFontsOnline", "password", self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFontsOnline", null, null, null);
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFontsOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (Exception $ex) {
+            TestUtils::assertSuccessfulException($ex, "compressEmbeddedFontsOnline");
+        }
+        if ($needAssertResponse) {
+            Assert::assertTrue($result->isFile());
+        }
+    }
+
+    public function testCompressEmbeddedFontsOnlineInvaliddocument()
+    {
+        $testdocument = TestUtils::getTestValue("compressEmbeddedFontsOnline", "document", self::$values, '\SplFileObject');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFontsOnline", "password", self::$values, 'string');
+        $testdocument = TestUtils::invalidizeValue("document", "compressEmbeddedFontsOnline", $testdocument, self::$values, '\SplFileObject');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFontsOnline", "document", $testdocument, '\SplFileObject');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFontsOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFontsOnline", "document", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFontsOnline", "document", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFontsOnline", "document", self::$okToFailValues);
+        }
+    }
+
+    public function testCompressEmbeddedFontsOnlineInvalidpassword()
+    {
+        $testdocument = TestUtils::getTestValue("compressEmbeddedFontsOnline", "document", self::$values, '\SplFileObject');
+        $testpassword = TestUtils::getTestValue("compressEmbeddedFontsOnline", "password", self::$values, 'string');
+        $testpassword = TestUtils::invalidizeValue("password", "compressEmbeddedFontsOnline", $testpassword, self::$values, 'string');
+        list($expectedCode, $expectedMessage) = $this->initialize("compressEmbeddedFontsOnline", "password", $testpassword, 'string');
+        $needAssertResponse = false;
+        try {
+            $result = $this->getApi()->compressEmbeddedFontsOnline($testdocument, $testpassword);
+            $needAssertResponse = true;
+        } catch (ApiException $ex) {
+            TestUtils::assertException($ex, "compressEmbeddedFontsOnline", "password", $expectedCode, $expectedMessage);
+        } catch (\InvalidArgumentException $ex) {
+            TestUtils::assertInvalidArgumentException($ex, "compressEmbeddedFontsOnline", "password", $expectedCode, $expectedMessage);
+        }
+        if ($needAssertResponse) {
+            TestUtils::assertResponse("compressEmbeddedFontsOnline", "password", self::$okToFailValues);
+        }
+    }
+
+    /**
      * Test case for convert
      * Convert presentation from request content to format specified.
      */
