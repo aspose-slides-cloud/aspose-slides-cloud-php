@@ -16610,6 +16610,145 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function downloadShapeFromDto($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
+    {
+        try {
+            list($response) = $this->downloadShapeFromDtoWithHttpInfo($format, $dto);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->downloadShapeFromDtoWithHttpInfo($format, $dto);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function downloadShapeFromDtoWithHttpInfo($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadShapeFromDtoRequest($format, $dto);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function downloadShapeFromDtoAsync($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
+    {
+        return $this->downloadShapeFromDtoAsyncWithHttpInfo($format, $dto)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function downloadShapeFromDtoAsyncWithHttpInfo($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadShapeFromDtoRequest($format, $dto);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'downloadShapeFromDto'
+     *
+     * @param  string $$format Export format (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $$dto Shape DTO. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function downloadShapeFromDtoRequest($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
+    {
+        // verify the required parameter 'format' is set
+        if ($format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadShapeFromDto');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\ShapeExportFormat::getAllowableEnumValues()));
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling downloadShapeFromDto');
+        }
+
+        $resourcePath = '/slides/shape/{format}';
+        $queryParams = [];
+        $headerParams = [];
+
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function downloadShapeOnline($document, $slideIndex, $shapeIndex, $format, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null)
     {
         try {

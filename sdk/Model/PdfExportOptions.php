@@ -249,9 +249,16 @@ class PdfExportOptions extends ExportOptions
     const TEXT_COMPRESSION_NONE = 'None';
     const TEXT_COMPRESSION_FLATE = 'Flate';
     const COMPLIANCE_PDF15 = 'Pdf15';
+    const COMPLIANCE_PDF16 = 'Pdf16';
+    const COMPLIANCE_PDF17 = 'Pdf17';
     const COMPLIANCE_PDF_A1B = 'PdfA1b';
     const COMPLIANCE_PDF_A1A = 'PdfA1a';
+    const COMPLIANCE_PDF_A2B = 'PdfA2b';
+    const COMPLIANCE_PDF_A2A = 'PdfA2a';
+    const COMPLIANCE_PDF_A3B = 'PdfA3b';
+    const COMPLIANCE_PDF_A3A = 'PdfA3a';
     const COMPLIANCE_PDF_UA = 'PdfUa';
+    const COMPLIANCE_PDF_A2U = 'PdfA2u';
     const NOTES_POSITION_NONE = 'None';
     const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
     const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
@@ -283,9 +290,16 @@ class PdfExportOptions extends ExportOptions
     {
         return [
             self::COMPLIANCE_PDF15,
+            self::COMPLIANCE_PDF16,
+            self::COMPLIANCE_PDF17,
             self::COMPLIANCE_PDF_A1B,
             self::COMPLIANCE_PDF_A1A,
+            self::COMPLIANCE_PDF_A2B,
+            self::COMPLIANCE_PDF_A2A,
+            self::COMPLIANCE_PDF_A3B,
+            self::COMPLIANCE_PDF_A3A,
             self::COMPLIANCE_PDF_UA,
+            self::COMPLIANCE_PDF_A2U,
         ];
     }
     

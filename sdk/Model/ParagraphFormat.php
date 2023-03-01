@@ -29,25 +29,27 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Paragraph Class Doc Comment
+ * ParagraphFormat Class Doc Comment
  *
  * @category Class
- * @description Represents paragraph resource
+ * @description Paragraph formatting properties.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Paragraph extends ResourceBase 
+class ParagraphFormat implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Paragraph';
+    protected static $swaggerModelName = 'ParagraphFormat';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,21 +57,20 @@ class Paragraph extends ResourceBase
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'depth' => 'int',
+        'alignment' => 'string',
         'marginLeft' => 'double',
         'marginRight' => 'double',
         'spaceBefore' => 'double',
         'spaceAfter' => 'double',
         'spaceWithin' => 'double',
-        'indent' => 'double',
-        'alignment' => 'string',
         'fontAlignment' => 'string',
-        'defaultTabSize' => 'double',
-        'depth' => 'int',
-        'hangingPunctuation' => 'string',
+        'indent' => 'double',
+        'rightToLeft' => 'string',
         'eastAsianLineBreak' => 'string',
         'latinLineBreak' => 'string',
-        'rightToLeft' => 'string',
-        'portionList' => '\Aspose\Slides\Cloud\Sdk\Model\Portion[]',
+        'hangingPunctuation' => 'string',
+        'defaultTabSize' => 'double',
         'defaultPortionFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PortionFormat',
         'bulletChar' => 'string',
         'bulletHeight' => 'double',
@@ -85,21 +86,20 @@ class Paragraph extends ResourceBase
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'depth' => null,
+        'alignment' => null,
         'marginLeft' => 'double',
         'marginRight' => 'double',
         'spaceBefore' => 'double',
         'spaceAfter' => 'double',
         'spaceWithin' => 'double',
-        'indent' => 'double',
-        'alignment' => null,
         'fontAlignment' => null,
-        'defaultTabSize' => 'double',
-        'depth' => null,
-        'hangingPunctuation' => null,
+        'indent' => 'double',
+        'rightToLeft' => null,
         'eastAsianLineBreak' => null,
         'latinLineBreak' => null,
-        'rightToLeft' => null,
-        'portionList' => null,
+        'hangingPunctuation' => null,
+        'defaultTabSize' => 'double',
         'defaultPortionFormat' => null,
         'bulletChar' => null,
         'bulletHeight' => 'double',
@@ -116,7 +116,7 @@ class Paragraph extends ResourceBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -126,7 +126,7 @@ class Paragraph extends ResourceBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -136,21 +136,20 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $attributeMap = [
+        'depth' => 'Depth',
+        'alignment' => 'Alignment',
         'marginLeft' => 'MarginLeft',
         'marginRight' => 'MarginRight',
         'spaceBefore' => 'SpaceBefore',
         'spaceAfter' => 'SpaceAfter',
         'spaceWithin' => 'SpaceWithin',
-        'indent' => 'Indent',
-        'alignment' => 'Alignment',
         'fontAlignment' => 'FontAlignment',
-        'defaultTabSize' => 'DefaultTabSize',
-        'depth' => 'Depth',
-        'hangingPunctuation' => 'HangingPunctuation',
+        'indent' => 'Indent',
+        'rightToLeft' => 'RightToLeft',
         'eastAsianLineBreak' => 'EastAsianLineBreak',
         'latinLineBreak' => 'LatinLineBreak',
-        'rightToLeft' => 'RightToLeft',
-        'portionList' => 'PortionList',
+        'hangingPunctuation' => 'HangingPunctuation',
+        'defaultTabSize' => 'DefaultTabSize',
         'defaultPortionFormat' => 'DefaultPortionFormat',
         'bulletChar' => 'BulletChar',
         'bulletHeight' => 'BulletHeight',
@@ -166,21 +165,20 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $setters = [
+        'depth' => 'setDepth',
+        'alignment' => 'setAlignment',
         'marginLeft' => 'setMarginLeft',
         'marginRight' => 'setMarginRight',
         'spaceBefore' => 'setSpaceBefore',
         'spaceAfter' => 'setSpaceAfter',
         'spaceWithin' => 'setSpaceWithin',
-        'indent' => 'setIndent',
-        'alignment' => 'setAlignment',
         'fontAlignment' => 'setFontAlignment',
-        'defaultTabSize' => 'setDefaultTabSize',
-        'depth' => 'setDepth',
-        'hangingPunctuation' => 'setHangingPunctuation',
+        'indent' => 'setIndent',
+        'rightToLeft' => 'setRightToLeft',
         'eastAsianLineBreak' => 'setEastAsianLineBreak',
         'latinLineBreak' => 'setLatinLineBreak',
-        'rightToLeft' => 'setRightToLeft',
-        'portionList' => 'setPortionList',
+        'hangingPunctuation' => 'setHangingPunctuation',
+        'defaultTabSize' => 'setDefaultTabSize',
         'defaultPortionFormat' => 'setDefaultPortionFormat',
         'bulletChar' => 'setBulletChar',
         'bulletHeight' => 'setBulletHeight',
@@ -196,21 +194,20 @@ class Paragraph extends ResourceBase
      * @var string[]
      */
     protected static $getters = [
+        'depth' => 'getDepth',
+        'alignment' => 'getAlignment',
         'marginLeft' => 'getMarginLeft',
         'marginRight' => 'getMarginRight',
         'spaceBefore' => 'getSpaceBefore',
         'spaceAfter' => 'getSpaceAfter',
         'spaceWithin' => 'getSpaceWithin',
-        'indent' => 'getIndent',
-        'alignment' => 'getAlignment',
         'fontAlignment' => 'getFontAlignment',
-        'defaultTabSize' => 'getDefaultTabSize',
-        'depth' => 'getDepth',
-        'hangingPunctuation' => 'getHangingPunctuation',
+        'indent' => 'getIndent',
+        'rightToLeft' => 'getRightToLeft',
         'eastAsianLineBreak' => 'getEastAsianLineBreak',
         'latinLineBreak' => 'getLatinLineBreak',
-        'rightToLeft' => 'getRightToLeft',
-        'portionList' => 'getPortionList',
+        'hangingPunctuation' => 'getHangingPunctuation',
+        'defaultTabSize' => 'getDefaultTabSize',
         'defaultPortionFormat' => 'getDefaultPortionFormat',
         'bulletChar' => 'getBulletChar',
         'bulletHeight' => 'getBulletHeight',
@@ -228,7 +225,7 @@ class Paragraph extends ResourceBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -238,7 +235,7 @@ class Paragraph extends ResourceBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -248,7 +245,7 @@ class Paragraph extends ResourceBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -274,18 +271,18 @@ class Paragraph extends ResourceBase
     const FONT_ALIGNMENT_BOTTOM = 'Bottom';
     const FONT_ALIGNMENT_BASELINE = 'Baseline';
     const FONT_ALIGNMENT__DEFAULT = 'Default';
-    const HANGING_PUNCTUATION_FALSE = 'False';
-    const HANGING_PUNCTUATION_TRUE = 'True';
-    const HANGING_PUNCTUATION_NOT_DEFINED = 'NotDefined';
+    const RIGHT_TO_LEFT_FALSE = 'False';
+    const RIGHT_TO_LEFT_TRUE = 'True';
+    const RIGHT_TO_LEFT_NOT_DEFINED = 'NotDefined';
     const EAST_ASIAN_LINE_BREAK_FALSE = 'False';
     const EAST_ASIAN_LINE_BREAK_TRUE = 'True';
     const EAST_ASIAN_LINE_BREAK_NOT_DEFINED = 'NotDefined';
     const LATIN_LINE_BREAK_FALSE = 'False';
     const LATIN_LINE_BREAK_TRUE = 'True';
     const LATIN_LINE_BREAK_NOT_DEFINED = 'NotDefined';
-    const RIGHT_TO_LEFT_FALSE = 'False';
-    const RIGHT_TO_LEFT_TRUE = 'True';
-    const RIGHT_TO_LEFT_NOT_DEFINED = 'NotDefined';
+    const HANGING_PUNCTUATION_FALSE = 'False';
+    const HANGING_PUNCTUATION_TRUE = 'True';
+    const HANGING_PUNCTUATION_NOT_DEFINED = 'NotDefined';
     const BULLET_TYPE_NONE = 'None';
     const BULLET_TYPE_SYMBOL = 'Symbol';
     const BULLET_TYPE_NUMBERED = 'Numbered';
@@ -376,12 +373,12 @@ class Paragraph extends ResourceBase
      *
      * @return string[]
      */
-    public function getHangingPunctuationAllowableValues()
+    public function getRightToLeftAllowableValues()
     {
         return [
-            self::HANGING_PUNCTUATION_FALSE,
-            self::HANGING_PUNCTUATION_TRUE,
-            self::HANGING_PUNCTUATION_NOT_DEFINED,
+            self::RIGHT_TO_LEFT_FALSE,
+            self::RIGHT_TO_LEFT_TRUE,
+            self::RIGHT_TO_LEFT_NOT_DEFINED,
         ];
     }
     
@@ -418,12 +415,12 @@ class Paragraph extends ResourceBase
      *
      * @return string[]
      */
-    public function getRightToLeftAllowableValues()
+    public function getHangingPunctuationAllowableValues()
     {
         return [
-            self::RIGHT_TO_LEFT_FALSE,
-            self::RIGHT_TO_LEFT_TRUE,
-            self::RIGHT_TO_LEFT_NOT_DEFINED,
+            self::HANGING_PUNCTUATION_FALSE,
+            self::HANGING_PUNCTUATION_TRUE,
+            self::HANGING_PUNCTUATION_NOT_DEFINED,
         ];
     }
     
@@ -497,6 +494,12 @@ class Paragraph extends ResourceBase
     }
     
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -506,23 +509,20 @@ class Paragraph extends ResourceBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
+        $this->container['depth'] = isset($data['depth']) ? $data['depth'] : null;
+        $this->container['alignment'] = isset($data['alignment']) ? $data['alignment'] : null;
         $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
         $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
         $this->container['spaceBefore'] = isset($data['spaceBefore']) ? $data['spaceBefore'] : null;
         $this->container['spaceAfter'] = isset($data['spaceAfter']) ? $data['spaceAfter'] : null;
         $this->container['spaceWithin'] = isset($data['spaceWithin']) ? $data['spaceWithin'] : null;
-        $this->container['indent'] = isset($data['indent']) ? $data['indent'] : null;
-        $this->container['alignment'] = isset($data['alignment']) ? $data['alignment'] : null;
         $this->container['fontAlignment'] = isset($data['fontAlignment']) ? $data['fontAlignment'] : null;
-        $this->container['defaultTabSize'] = isset($data['defaultTabSize']) ? $data['defaultTabSize'] : null;
-        $this->container['depth'] = isset($data['depth']) ? $data['depth'] : null;
-        $this->container['hangingPunctuation'] = isset($data['hangingPunctuation']) ? $data['hangingPunctuation'] : null;
+        $this->container['indent'] = isset($data['indent']) ? $data['indent'] : null;
+        $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['eastAsianLineBreak'] = isset($data['eastAsianLineBreak']) ? $data['eastAsianLineBreak'] : null;
         $this->container['latinLineBreak'] = isset($data['latinLineBreak']) ? $data['latinLineBreak'] : null;
-        $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
-        $this->container['portionList'] = isset($data['portionList']) ? $data['portionList'] : null;
+        $this->container['hangingPunctuation'] = isset($data['hangingPunctuation']) ? $data['hangingPunctuation'] : null;
+        $this->container['defaultTabSize'] = isset($data['defaultTabSize']) ? $data['defaultTabSize'] : null;
         $this->container['defaultPortionFormat'] = isset($data['defaultPortionFormat']) ? $data['defaultPortionFormat'] : null;
         $this->container['bulletChar'] = isset($data['bulletChar']) ? $data['bulletChar'] : null;
         $this->container['bulletHeight'] = isset($data['bulletHeight']) ? $data['bulletHeight'] : null;
@@ -540,7 +540,7 @@ class Paragraph extends ResourceBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         $allowedValues = $this->getAlignmentAllowableValues();
         if (!in_array($this->container['alignment'], $allowedValues)) {
@@ -558,10 +558,10 @@ class Paragraph extends ResourceBase
             );
         }
 
-        $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
+        $allowedValues = $this->getRightToLeftAllowableValues();
+        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'hangingPunctuation', must be one of '%s'",
+                "invalid value for 'rightToLeft', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -582,10 +582,10 @@ class Paragraph extends ResourceBase
             );
         }
 
-        $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'rightToLeft', must be one of '%s'",
+                "invalid value for 'hangingPunctuation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -617,9 +617,6 @@ class Paragraph extends ResourceBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         $allowedValues = $this->getAlignmentAllowableValues();
         if (!in_array($this->container['alignment'], $allowedValues)) {
@@ -629,8 +626,8 @@ class Paragraph extends ResourceBase
         if (!in_array($this->container['fontAlignment'], $allowedValues)) {
             return false;
         }
-        $allowedValues = $this->getHangingPunctuationAllowableValues();
-        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
+        $allowedValues = $this->getRightToLeftAllowableValues();
+        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getEastAsianLineBreakAllowableValues();
@@ -641,8 +638,8 @@ class Paragraph extends ResourceBase
         if (!in_array($this->container['latinLineBreak'], $allowedValues)) {
             return false;
         }
-        $allowedValues = $this->getRightToLeftAllowableValues();
-        if (!in_array($this->container['rightToLeft'], $allowedValues)) {
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        if (!in_array($this->container['hangingPunctuation'], $allowedValues)) {
             return false;
         }
         $allowedValues = $this->getBulletTypeAllowableValues();
@@ -656,6 +653,77 @@ class Paragraph extends ResourceBase
         return true;
     }
 
+
+    /**
+     * Gets depth
+     *
+     * @return int
+     */
+    public function getDepth()
+    {
+        return $this->container['depth'];
+    }
+
+    /**
+     * Sets depth
+     *
+     * @param int $depth Depth.
+     *
+     * @return $this
+     */
+    public function setDepth($depth)
+    {
+        $this->container['depth'] = $depth;
+
+        return $this;
+    }
+
+    /**
+     * Gets alignment
+     *
+     * @return string
+     */
+    public function getAlignment()
+    {
+        return $this->container['alignment'];
+    }
+
+    /**
+     * Sets alignment
+     *
+     * @param string $alignment Text alignment.
+     *
+     * @return $this
+     */
+    public function setAlignment($alignment)
+    {
+        $allowedValues = $this->getAlignmentAllowableValues();
+
+
+        if (is_numeric($alignment)) {
+            if ($alignment >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $alignment = $allowedValues[$alignment];
+            }
+        } else {
+            if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'alignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['alignment'] = $alignment;
+
+        return $this;
+    }
 
     /**
      * Gets marginLeft
@@ -778,77 +846,6 @@ class Paragraph extends ResourceBase
     }
 
     /**
-     * Gets indent
-     *
-     * @return double
-     */
-    public function getIndent()
-    {
-        return $this->container['indent'];
-    }
-
-    /**
-     * Sets indent
-     *
-     * @param double $indent First line indent.
-     *
-     * @return $this
-     */
-    public function setIndent($indent)
-    {
-        $this->container['indent'] = $indent;
-
-        return $this;
-    }
-
-    /**
-     * Gets alignment
-     *
-     * @return string
-     */
-    public function getAlignment()
-    {
-        return $this->container['alignment'];
-    }
-
-    /**
-     * Sets alignment
-     *
-     * @param string $alignment Text alignment.
-     *
-     * @return $this
-     */
-    public function setAlignment($alignment)
-    {
-        $allowedValues = $this->getAlignmentAllowableValues();
-
-
-        if (is_numeric($alignment)) {
-            if ($alignment >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'alignment', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $alignment = $allowedValues[$alignment];
-            }
-        } else {
-            if (!is_null($alignment) && !in_array($alignment, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'alignment', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['alignment'] = $alignment;
-
-        return $this;
-    }
-
-    /**
      * Gets fontAlignment
      *
      * @return string
@@ -896,96 +893,72 @@ class Paragraph extends ResourceBase
     }
 
     /**
-     * Gets defaultTabSize
+     * Gets indent
      *
      * @return double
      */
-    public function getDefaultTabSize()
+    public function getIndent()
     {
-        return $this->container['defaultTabSize'];
+        return $this->container['indent'];
     }
 
     /**
-     * Sets defaultTabSize
+     * Sets indent
      *
-     * @param double $defaultTabSize Default tabulation size.
+     * @param double $indent First line indent.
      *
      * @return $this
      */
-    public function setDefaultTabSize($defaultTabSize)
+    public function setIndent($indent)
     {
-        $this->container['defaultTabSize'] = $defaultTabSize;
+        $this->container['indent'] = $indent;
 
         return $this;
     }
 
     /**
-     * Gets depth
-     *
-     * @return int
-     */
-    public function getDepth()
-    {
-        return $this->container['depth'];
-    }
-
-    /**
-     * Sets depth
-     *
-     * @param int $depth Depth.
-     *
-     * @return $this
-     */
-    public function setDepth($depth)
-    {
-        $this->container['depth'] = $depth;
-
-        return $this;
-    }
-
-    /**
-     * Gets hangingPunctuation
+     * Gets rightToLeft
      *
      * @return string
      */
-    public function getHangingPunctuation()
+    public function getRightToLeft()
     {
-        return $this->container['hangingPunctuation'];
+        return $this->container['rightToLeft'];
     }
 
     /**
-     * Sets hangingPunctuation
+     * Sets rightToLeft
      *
-     * @param string $hangingPunctuation True if hanging punctuation is used with the paragraph.
+     * @param string $rightToLeft Determines whether the Right to Left writing is used in a paragraph. No inheritance applied.
      *
      * @return $this
      */
-    public function setHangingPunctuation($hangingPunctuation)
+    public function setRightToLeft($rightToLeft)
     {
-        $allowedValues = $this->getHangingPunctuationAllowableValues();
+        $allowedValues = $this->getRightToLeftAllowableValues();
 
 
-        if (is_numeric($hangingPunctuation)) {
-            if ($hangingPunctuation >= sizeof($allowedValues)) {
+        if (is_numeric($rightToLeft)) {
+            if ($rightToLeft >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
+                        "Invalid value for 'rightToLeft', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $hangingPunctuation = $allowedValues[$hangingPunctuation];
+                $rightToLeft = $allowedValues[$rightToLeft];
             }
         } else {
-            if (!is_null($hangingPunctuation) && !in_array($hangingPunctuation, $allowedValues)) {
+            if (!is_null($rightToLeft) && !in_array($rightToLeft, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
+                        "Invalid value for 'rightToLeft', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['hangingPunctuation'] = $hangingPunctuation;
+        $this->container['rightToLeft'] = $rightToLeft;
 
         return $this;
     }
@@ -1003,7 +976,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets eastAsianLineBreak
      *
-     * @param string $eastAsianLineBreak True if East Asian line break is used with the paragraph.
+     * @param string $eastAsianLineBreak Determines whether the East Asian line break is used in a paragraph. No inheritance applied.
      *
      * @return $this
      */
@@ -1050,7 +1023,7 @@ class Paragraph extends ResourceBase
     /**
      * Sets latinLineBreak
      *
-     * @param string $latinLineBreak True if Latin line break is used with the paragraph.
+     * @param string $latinLineBreak Determines whether the Latin line break is used in a paragraph. No inheritance applied.
      *
      * @return $this
      */
@@ -1085,72 +1058,72 @@ class Paragraph extends ResourceBase
     }
 
     /**
-     * Gets rightToLeft
+     * Gets hangingPunctuation
      *
      * @return string
      */
-    public function getRightToLeft()
+    public function getHangingPunctuation()
     {
-        return $this->container['rightToLeft'];
+        return $this->container['hangingPunctuation'];
     }
 
     /**
-     * Sets rightToLeft
+     * Sets hangingPunctuation
      *
-     * @param string $rightToLeft True if right to left direction is used with the paragraph.
+     * @param string $hangingPunctuation Determines whether the hanging punctuation is used in a paragraph. No inheritance applied.
      *
      * @return $this
      */
-    public function setRightToLeft($rightToLeft)
+    public function setHangingPunctuation($hangingPunctuation)
     {
-        $allowedValues = $this->getRightToLeftAllowableValues();
+        $allowedValues = $this->getHangingPunctuationAllowableValues();
 
 
-        if (is_numeric($rightToLeft)) {
-            if ($rightToLeft >= sizeof($allowedValues)) {
+        if (is_numeric($hangingPunctuation)) {
+            if ($hangingPunctuation >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'rightToLeft', must be one of '%s'",
+                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $rightToLeft = $allowedValues[$rightToLeft];
+                $hangingPunctuation = $allowedValues[$hangingPunctuation];
             }
         } else {
-            if (!is_null($rightToLeft) && !in_array($rightToLeft, $allowedValues)) {
+            if (!is_null($hangingPunctuation) && !in_array($hangingPunctuation, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'rightToLeft', must be one of '%s'",
+                        "Invalid value for 'hangingPunctuation', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['rightToLeft'] = $rightToLeft;
+        $this->container['hangingPunctuation'] = $hangingPunctuation;
 
         return $this;
     }
 
     /**
-     * Gets portionList
+     * Gets defaultTabSize
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\Portion[]
+     * @return double
      */
-    public function getPortionList()
+    public function getDefaultTabSize()
     {
-        return $this->container['portionList'];
+        return $this->container['defaultTabSize'];
     }
 
     /**
-     * Sets portionList
+     * Sets defaultTabSize
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\Portion[] $portionList List of portion links.
+     * @param double $defaultTabSize Returns or sets default tabulation size with no inheritance.
      *
      * @return $this
      */
-    public function setPortionList($portionList)
+    public function setDefaultTabSize($defaultTabSize)
     {
-        $this->container['portionList'] = $portionList;
+        $this->container['defaultTabSize'] = $defaultTabSize;
 
         return $this;
     }

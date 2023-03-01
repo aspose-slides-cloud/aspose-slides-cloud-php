@@ -30,10 +30,12 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 
 use Aspose\Slides\Cloud\Sdk\Model\Camera;
 use Aspose\Slides\Cloud\Sdk\Model\LightRig;
+use Aspose\Slides\Cloud\Sdk\Model\ParagraphFormat;
 use Aspose\Slides\Cloud\Sdk\Model\ShapeBevel;
 use Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat;
 use Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
+use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
 use PHPUnit\Framework\Assert;
 
@@ -91,6 +93,46 @@ class TextFormatTest extends TestBase
         $textFormat->setThreeDFormat($threeDFormat);
         
         $dto->setTextFrameFormat($textFormat);
+
+        $shape = $this->getApi()->createShape(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            null,
+            null,
+            self::password,
+            self::folderName
+        );
+
+        Assert::assertEquals('Shape', $shape->getType());
+    }
+
+    public function testTextFrameFormat()
+    {
+        $this->initialize(null, null, null);
+        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        
+        $dto = new Shape();
+        $dto->setShapeType('Rectangle');
+        $dto->setX(100);
+        $dto->setY(100);
+        $dto->setHeight(100);
+        $dto->setWidth(200);
+        $dto->setText('Sample text');
+
+        $textFormat = new TextFrameFormat();
+        $textFormat->setMarginLeft(2);
+        $textFormat->setMarginRight(2);
+        $textFormat->setMarginTop(2);
+        $textFormat->setMarginBottom(2);
+        $textFormat->setCenterText("True");
+
+        $fillFormat = new SolidFill();
+        $fillFormat->setColor("#FF0000");
+        $paragraphFormat = new ParagraphFormat();
+        $paragraphFormat->setBulletFillFormat($fillFormat);
+        $textFormat->setDefaultParagraphFormat($paragraphFormat);
+	$dto->setTextFrameFormat($textFormat);
 
         $shape = $this->getApi()->createShape(
             self::fileName,

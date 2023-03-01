@@ -36,7 +36,6 @@ use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
-use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class AbstractClassTest extends TestBase
 {

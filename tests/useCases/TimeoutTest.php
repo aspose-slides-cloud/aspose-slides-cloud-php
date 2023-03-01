@@ -35,7 +35,6 @@ use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
-use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class TimeoutTest extends TestBase
 {

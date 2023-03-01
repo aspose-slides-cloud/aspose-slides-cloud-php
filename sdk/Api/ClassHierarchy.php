@@ -378,6 +378,7 @@ class ClassHierarchy
             'OuterShadowEffect' => [],
             'OutputFile' => [],
             'Paragraph' => [],
+            'ParagraphFormat' => [],
             'Paragraphs' => [],
             'PathInputFile' => ['Type' => 'Path',],
             'PathOutputFile' => ['Type' => 'Path',],

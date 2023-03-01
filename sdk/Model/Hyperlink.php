@@ -66,7 +66,8 @@ class Hyperlink implements ArrayAccess
         'history' => 'bool',
         'highlightClick' => 'bool',
         'stopSoundOnClick' => 'bool',
-        'colorSource' => 'string'
+        'colorSource' => 'string',
+        'soundBase64' => 'string'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Hyperlink implements ArrayAccess
         'history' => null,
         'highlightClick' => null,
         'stopSoundOnClick' => null,
-        'colorSource' => null
+        'colorSource' => null,
+        'soundBase64' => null
     ];
 
     /**
@@ -123,7 +125,8 @@ class Hyperlink implements ArrayAccess
         'history' => 'History',
         'highlightClick' => 'HighlightClick',
         'stopSoundOnClick' => 'StopSoundOnClick',
-        'colorSource' => 'ColorSource'
+        'colorSource' => 'ColorSource',
+        'soundBase64' => 'SoundBase64'
     ];
 
     /**
@@ -141,7 +144,8 @@ class Hyperlink implements ArrayAccess
         'history' => 'setHistory',
         'highlightClick' => 'setHighlightClick',
         'stopSoundOnClick' => 'setStopSoundOnClick',
-        'colorSource' => 'setColorSource'
+        'colorSource' => 'setColorSource',
+        'soundBase64' => 'setSoundBase64'
     ];
 
     /**
@@ -159,7 +163,8 @@ class Hyperlink implements ArrayAccess
         'history' => 'getHistory',
         'highlightClick' => 'getHighlightClick',
         'stopSoundOnClick' => 'getStopSoundOnClick',
-        'colorSource' => 'getColorSource'
+        'colorSource' => 'getColorSource',
+        'soundBase64' => 'getSoundBase64'
     ];
 
     /**
@@ -290,6 +295,7 @@ class Hyperlink implements ArrayAccess
         $this->container['highlightClick'] = isset($data['highlightClick']) ? $data['highlightClick'] : null;
         $this->container['stopSoundOnClick'] = isset($data['stopSoundOnClick']) ? $data['stopSoundOnClick'] : null;
         $this->container['colorSource'] = isset($data['colorSource']) ? $data['colorSource'] : null;
+        $this->container['soundBase64'] = isset($data['soundBase64']) ? $data['soundBase64'] : null;
         
     }
 
@@ -630,6 +636,30 @@ class Hyperlink implements ArrayAccess
             }
         }
         $this->container['colorSource'] = $colorSource;
+
+        return $this;
+    }
+
+    /**
+     * Gets soundBase64
+     *
+     * @return string
+     */
+    public function getSoundBase64()
+    {
+        return $this->container['soundBase64'];
+    }
+
+    /**
+     * Sets soundBase64
+     *
+     * @param string $soundBase64 Audio data encoded in base64. Represents the playing sound of the hyperlink.
+     *
+     * @return $this
+     */
+    public function setSoundBase64($soundBase64)
+    {
+        $this->container['soundBase64'] = $soundBase64;
 
         return $this;
     }

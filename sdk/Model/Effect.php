@@ -73,7 +73,8 @@ class Effect implements ArrayAccess
         'speed' => 'double',
         'triggerDelayTime' => 'double',
         'repeatUntilEndSlide' => 'bool',
-        'repeatUntilNextClick' => 'bool'
+        'repeatUntilNextClick' => 'bool',
+        'stopPreviousSound' => 'bool'
     ];
 
     /**
@@ -98,7 +99,8 @@ class Effect implements ArrayAccess
         'speed' => 'double',
         'triggerDelayTime' => 'double',
         'repeatUntilEndSlide' => null,
-        'repeatUntilNextClick' => null
+        'repeatUntilNextClick' => null,
+        'stopPreviousSound' => null
     ];
 
     /**
@@ -144,7 +146,8 @@ class Effect implements ArrayAccess
         'speed' => 'Speed',
         'triggerDelayTime' => 'TriggerDelayTime',
         'repeatUntilEndSlide' => 'RepeatUntilEndSlide',
-        'repeatUntilNextClick' => 'RepeatUntilNextClick'
+        'repeatUntilNextClick' => 'RepeatUntilNextClick',
+        'stopPreviousSound' => 'StopPreviousSound'
     ];
 
     /**
@@ -169,7 +172,8 @@ class Effect implements ArrayAccess
         'speed' => 'setSpeed',
         'triggerDelayTime' => 'setTriggerDelayTime',
         'repeatUntilEndSlide' => 'setRepeatUntilEndSlide',
-        'repeatUntilNextClick' => 'setRepeatUntilNextClick'
+        'repeatUntilNextClick' => 'setRepeatUntilNextClick',
+        'stopPreviousSound' => 'setStopPreviousSound'
     ];
 
     /**
@@ -194,7 +198,8 @@ class Effect implements ArrayAccess
         'speed' => 'getSpeed',
         'triggerDelayTime' => 'getTriggerDelayTime',
         'repeatUntilEndSlide' => 'getRepeatUntilEndSlide',
-        'repeatUntilNextClick' => 'getRepeatUntilNextClick'
+        'repeatUntilNextClick' => 'getRepeatUntilNextClick',
+        'stopPreviousSound' => 'getStopPreviousSound'
     ];
 
     /**
@@ -765,6 +770,7 @@ class Effect implements ArrayAccess
         $this->container['triggerDelayTime'] = isset($data['triggerDelayTime']) ? $data['triggerDelayTime'] : null;
         $this->container['repeatUntilEndSlide'] = isset($data['repeatUntilEndSlide']) ? $data['repeatUntilEndSlide'] : null;
         $this->container['repeatUntilNextClick'] = isset($data['repeatUntilNextClick']) ? $data['repeatUntilNextClick'] : null;
+        $this->container['stopPreviousSound'] = isset($data['stopPreviousSound']) ? $data['stopPreviousSound'] : null;
         
     }
 
@@ -1378,6 +1384,30 @@ class Effect implements ArrayAccess
     public function setRepeatUntilNextClick($repeatUntilNextClick)
     {
         $this->container['repeatUntilNextClick'] = $repeatUntilNextClick;
+
+        return $this;
+    }
+
+    /**
+     * Gets stopPreviousSound
+     *
+     * @return bool
+     */
+    public function getStopPreviousSound()
+    {
+        return $this->container['stopPreviousSound'];
+    }
+
+    /**
+     * Sets stopPreviousSound
+     *
+     * @param bool $stopPreviousSound This attribute specifies if the animation effect stops the previous sound.
+     *
+     * @return $this
+     */
+    public function setStopPreviousSound($stopPreviousSound)
+    {
+        $this->container['stopPreviousSound'] = $stopPreviousSound;
 
         return $this;
     }

@@ -41,7 +41,6 @@ use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
 use Aspose\Slides\Cloud\Sdk\Model\Axes;
 use Aspose\Slides\Cloud\Sdk\Model\Axis;
 use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
-use Aspose\Slides\Cloud\Sdk\Tests\Utils\TestUtils;
 
 class NullablePropertiesTest extends TestBase
 {

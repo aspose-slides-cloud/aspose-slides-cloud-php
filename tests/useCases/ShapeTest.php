@@ -1066,6 +1066,20 @@ class ShapeTest extends TestBase
         Assert::assertEquals(3, count($response->getNodes()[0]->getNodes()));
     }
 
+    public function testDownloadShapeFromDto()
+    {
+        $this->initialize(null, null, null);
+
+        $dto = new Shape();
+        $dto->setShapeType("Rectangle");
+        $dto->setWidth(400);
+        $dto->setHeight(200);
+        $dto->setText("Shape text");
+
+        $result = $this->getApi()->downloadShapeFromDto("png", $dto);
+        Assert::assertTrue($result->isFile());
+    }
+
     public const folderName = "TempSlidesSDK";
     public const fileName = "test.pptx";
     public const svgFileName = "shapes.svg";
