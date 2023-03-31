@@ -58,7 +58,8 @@ class ImageExportOptions extends ImageExportOptionsBase
         'notesPosition' => 'string',
         'commentsPosition' => 'string',
         'commentsAreaWidth' => 'int',
-        'commentsAreaColor' => 'string'
+        'commentsAreaColor' => 'string',
+        'showHiddenSlides' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class ImageExportOptions extends ImageExportOptionsBase
         'notesPosition' => null,
         'commentsPosition' => null,
         'commentsAreaWidth' => 'int32',
-        'commentsAreaColor' => null
+        'commentsAreaColor' => null,
+        'showHiddenSlides' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class ImageExportOptions extends ImageExportOptionsBase
         'notesPosition' => 'NotesPosition',
         'commentsPosition' => 'CommentsPosition',
         'commentsAreaWidth' => 'CommentsAreaWidth',
-        'commentsAreaColor' => 'CommentsAreaColor'
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showHiddenSlides' => 'ShowHiddenSlides'
     ];
 
     /**
@@ -115,7 +118,8 @@ class ImageExportOptions extends ImageExportOptionsBase
         'notesPosition' => 'setNotesPosition',
         'commentsPosition' => 'setCommentsPosition',
         'commentsAreaWidth' => 'setCommentsAreaWidth',
-        'commentsAreaColor' => 'setCommentsAreaColor'
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showHiddenSlides' => 'setShowHiddenSlides'
     ];
 
     /**
@@ -127,7 +131,8 @@ class ImageExportOptions extends ImageExportOptionsBase
         'notesPosition' => 'getNotesPosition',
         'commentsPosition' => 'getCommentsPosition',
         'commentsAreaWidth' => 'getCommentsAreaWidth',
-        'commentsAreaColor' => 'getCommentsAreaColor'
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showHiddenSlides' => 'getShowHiddenSlides'
     ];
 
     /**
@@ -224,6 +229,7 @@ class ImageExportOptions extends ImageExportOptionsBase
         $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
         $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
         $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
         $this->container['format'] = 'image';
         
     }
@@ -418,6 +424,30 @@ class ImageExportOptions extends ImageExportOptionsBase
     public function setCommentsAreaColor($commentsAreaColor)
     {
         $this->container['commentsAreaColor'] = $commentsAreaColor;
+
+        return $this;
+    }
+
+    /**
+     * Gets showHiddenSlides
+     *
+     * @return bool
+     */
+    public function getShowHiddenSlides()
+    {
+        return $this->container['showHiddenSlides'];
+    }
+
+    /**
+     * Sets showHiddenSlides
+     *
+     * @param bool $showHiddenSlides Show hidden slides. If true, hidden are exported.
+     *
+     * @return $this
+     */
+    public function setShowHiddenSlides($showHiddenSlides)
+    {
+        $this->container['showHiddenSlides'] = $showHiddenSlides;
 
         return $this;
     }

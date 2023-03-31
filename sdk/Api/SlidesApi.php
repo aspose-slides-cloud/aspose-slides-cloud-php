@@ -34775,24 +34775,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function splitAndSaveOnline($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitAndSaveOnline($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         try {
-            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
             return $response;
         } 
     }
 
     /**
      */
-    public function splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SplitDocumentResult';
-        $httpRequest = $this->splitAndSaveOnlineRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+        $httpRequest = $this->splitAndSaveOnlineRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -34819,9 +34819,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function splitAndSaveOnlineAsync($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitAndSaveOnlineAsync($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        return $this->splitAndSaveOnlineAsyncWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder)
+        return $this->splitAndSaveOnlineAsyncWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -34829,10 +34829,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function splitAndSaveOnlineAsyncWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitAndSaveOnlineAsyncWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\SplitDocumentResult';
-        $httpRequest = $this->splitAndSaveOnlineRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+        $httpRequest = $this->splitAndSaveOnlineRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -34887,11 +34887,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $$options Export options. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function splitAndSaveOnlineRequest($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    protected function splitAndSaveOnlineRequest($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -34945,6 +34946,9 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
         $_tempBody = [];
+        if (isset($options)) {
+            array_push($_tempBody, $options);
+        }
         if (isset($document)) {
             array_push($_tempBody, $document);
         }
@@ -34957,24 +34961,24 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function splitOnline($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitOnline($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         try {
-            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
             return $response;
         }
         catch(RepeatRequestException $ex) {
-            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
             return $response;
         } 
     }
 
     /**
      */
-    public function splitOnlineWithHttpInfo($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitOnlineWithHttpInfo($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->splitOnlineRequest($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+        $httpRequest = $this->splitOnlineRequest($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -34998,9 +35002,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function splitOnlineAsync($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitOnlineAsync($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        return $this->splitOnlineAsyncWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder)
+        return $this->splitOnlineAsyncWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -35008,10 +35012,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function splitOnlineAsyncWithHttpInfo($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    public function splitOnlineAsyncWithHttpInfo($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->splitOnlineRequest($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder);
+        $httpRequest = $this->splitOnlineRequest($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -35065,11 +35069,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$fontsFolder Custom fonts folder. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $$options Export options. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function splitOnlineRequest($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null)
+    protected function splitOnlineRequest($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -35119,6 +35124,9 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
         $_tempBody = [];
+        if (isset($options)) {
+            array_push($_tempBody, $options);
+        }
         if (isset($document)) {
             array_push($_tempBody, $document);
         }
