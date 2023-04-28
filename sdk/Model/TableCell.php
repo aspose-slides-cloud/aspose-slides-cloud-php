@@ -74,7 +74,9 @@ class TableCell implements ArrayAccess
         'borderDiagonalUp' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'borderDiagonalDown' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
         'columnIndex' => 'int',
-        'rowIndex' => 'int'
+        'rowIndex' => 'int',
+        'textFrameFormat' => '\Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat',
+        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
     ];
 
     /**
@@ -100,7 +102,9 @@ class TableCell implements ArrayAccess
         'borderDiagonalUp' => null,
         'borderDiagonalDown' => null,
         'columnIndex' => 'int32',
-        'rowIndex' => 'int32'
+        'rowIndex' => 'int32',
+        'textFrameFormat' => null,
+        'paragraphs' => null
     ];
 
     /**
@@ -147,7 +151,9 @@ class TableCell implements ArrayAccess
         'borderDiagonalUp' => 'BorderDiagonalUp',
         'borderDiagonalDown' => 'BorderDiagonalDown',
         'columnIndex' => 'ColumnIndex',
-        'rowIndex' => 'RowIndex'
+        'rowIndex' => 'RowIndex',
+        'textFrameFormat' => 'TextFrameFormat',
+        'paragraphs' => 'Paragraphs'
     ];
 
     /**
@@ -173,7 +179,9 @@ class TableCell implements ArrayAccess
         'borderDiagonalUp' => 'setBorderDiagonalUp',
         'borderDiagonalDown' => 'setBorderDiagonalDown',
         'columnIndex' => 'setColumnIndex',
-        'rowIndex' => 'setRowIndex'
+        'rowIndex' => 'setRowIndex',
+        'textFrameFormat' => 'setTextFrameFormat',
+        'paragraphs' => 'setParagraphs'
     ];
 
     /**
@@ -199,7 +207,9 @@ class TableCell implements ArrayAccess
         'borderDiagonalUp' => 'getBorderDiagonalUp',
         'borderDiagonalDown' => 'getBorderDiagonalDown',
         'columnIndex' => 'getColumnIndex',
-        'rowIndex' => 'getRowIndex'
+        'rowIndex' => 'getRowIndex',
+        'textFrameFormat' => 'getTextFrameFormat',
+        'paragraphs' => 'getParagraphs'
     ];
 
     /**
@@ -330,6 +340,8 @@ class TableCell implements ArrayAccess
         $this->container['borderDiagonalDown'] = isset($data['borderDiagonalDown']) ? $data['borderDiagonalDown'] : null;
         $this->container['columnIndex'] = isset($data['columnIndex']) ? $data['columnIndex'] : null;
         $this->container['rowIndex'] = isset($data['rowIndex']) ? $data['rowIndex'] : null;
+        $this->container['textFrameFormat'] = isset($data['textFrameFormat']) ? $data['textFrameFormat'] : null;
+        $this->container['paragraphs'] = isset($data['paragraphs']) ? $data['paragraphs'] : null;
         
     }
 
@@ -856,6 +868,54 @@ class TableCell implements ArrayAccess
     public function setRowIndex($rowIndex)
     {
         $this->container['rowIndex'] = $rowIndex;
+
+        return $this;
+    }
+
+    /**
+     * Gets textFrameFormat
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat
+     */
+    public function getTextFrameFormat()
+    {
+        return $this->container['textFrameFormat'];
+    }
+
+    /**
+     * Sets textFrameFormat
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat $textFrameFormat Returns TextFrame's formatting properties.
+     *
+     * @return $this
+     */
+    public function setTextFrameFormat($textFrameFormat)
+    {
+        $this->container['textFrameFormat'] = $textFrameFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets paragraphs
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     */
+    public function getParagraphs()
+    {
+        return $this->container['paragraphs'];
+    }
+
+    /**
+     * Sets paragraphs
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $paragraphs Get or sets list to paragraphs list
+     *
+     * @return $this
+     */
+    public function setParagraphs($paragraphs)
+    {
+        $this->container['paragraphs'] = $paragraphs;
 
         return $this;
     }

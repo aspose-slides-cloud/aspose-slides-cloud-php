@@ -6117,6 +6117,536 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function createTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->createTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Paragraph', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createTableCellParagraphAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->createTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->createTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'createTableCellParagraph'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $$dto Paragraph DTO. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling createTableCellParagraph');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling createTableCellParagraph');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling createTableCellParagraph');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling createTableCellParagraph');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling createTableCellParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling createTableCellParagraph');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function createTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->createTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Portion', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createTableCellPortionAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->createTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->createTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'createTableCellPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $$dto Portion DTO. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling createTableCellPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling createTableCellPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling createTableCellPortion');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling createTableCellPortion');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling createTableCellPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling createTableCellPortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling createTableCellPortion');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function createTableRow($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableRow';
+        $httpRequest = $this->createTableRowRequest($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\TableRow', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createTableRowAsync($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->createTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableRow';
+        $httpRequest = $this->createTableRowRequest($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'createTableRow'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\TableRow $$dto Table row data. (required)
+     * @param  int $$position Position. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createTableRowRequest($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling createTableRow');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling createTableRow');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling createTableRow');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling createTableRow');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($position !== null) {
+            $queryParams['position'] = ObjectSerializer::toQueryValue($position);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function createWatermark($name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, $fontHeight = null, $text = null, $fontName = null, $fontColor = null, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -13605,6 +14135,530 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideType", $slideType);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
+        $httpRequest = $this->deleteTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteTableCellParagraphAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
+        $httpRequest = $this->deleteTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteTableCellParagraph'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteTableCellParagraph');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteTableCellParagraph');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteTableCellParagraph');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling deleteTableCellParagraph');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling deleteTableCellParagraph');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling deleteTableCellParagraph');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
+        $httpRequest = $this->deleteTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Portions', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteTableCellPortionAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
+        $httpRequest = $this->deleteTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteTableCellPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling deleteTableCellPortion');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling deleteTableCellPortion');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteTableRow($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->deleteTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Table', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteTableRowAsync($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->deleteTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteTableRow'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  bool $$withAttachedRows Also delete all attached rows. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteTableRow');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteTableRow');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteTableRow');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling deleteTableRow');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($withAttachedRows !== null) {
+            $queryParams['withAttachedRows'] = ObjectSerializer::toQueryValue($withAttachedRows);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
         $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
@@ -25683,6 +26737,706 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->getTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Paragraph', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getTableCellParagraphAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->getTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getTableCellParagraph'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getTableCellParagraph');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getTableCellParagraph');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getTableCellParagraph');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling getTableCellParagraph');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling getTableCellParagraph');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling getTableCellParagraph');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getTableCellParagraphs($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
+        $httpRequest = $this->getTableCellParagraphsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getTableCellParagraphsAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getTableCellParagraphsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getTableCellParagraphsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraphs';
+        $httpRequest = $this->getTableCellParagraphsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getTableCellParagraphs'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getTableCellParagraphsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getTableCellParagraphs');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getTableCellParagraphs');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getTableCellParagraphs');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling getTableCellParagraphs');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling getTableCellParagraphs');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->getTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Portion', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getTableCellPortionAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->getTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getTableCellPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getTableCellPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getTableCellPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getTableCellPortion');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling getTableCellPortion');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling getTableCellPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling getTableCellPortion');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling getTableCellPortion');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getTableCellPortions($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
+        $httpRequest = $this->getTableCellPortionsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Portions', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getTableCellPortionsAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getTableCellPortionsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getTableCellPortionsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portions';
+        $httpRequest = $this->getTableCellPortionsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getTableCellPortions'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getTableCellPortionsRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getTableCellPortions');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getTableCellPortions');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getTableCellPortions');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling getTableCellPortions');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling getTableCellPortions');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling getTableCellPortions');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getTheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -27240,6 +28994,171 @@ class SlidesApi extends ApiBase
             $headerParams,
             ['multipart/form-data'],
             ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function mergeTableCells($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->mergeTableCellsRequest($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Table', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function mergeTableCellsAsync($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
+    {
+        return $this->mergeTableCellsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function mergeTableCellsAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->mergeTableCellsRequest($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'mergeTableCells'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $$tableCellMergeOptions Merge settings. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function mergeTableCellsRequest($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling mergeTableCells');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling mergeTableCells');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling mergeTableCells');
+        }
+        // verify the required parameter 'table_cell_merge_options' is set
+        if ($tableCellMergeOptions === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $tableCellMergeOptions when calling mergeTableCells');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/mergeCells';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        if (isset($tableCellMergeOptions)) {
+            array_push($_tempBody, $tableCellMergeOptions);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
     }
@@ -35139,6 +37058,191 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function splitTableCell($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->splitTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Table', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function splitTableCellAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
+    {
+        return $this->splitTableCellAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function splitTableCellAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Table';
+        $httpRequest = $this->splitTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'splitTableCell'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  string $$splitType Table cell split type (SplitByWidth, SplitByHeight,SplitByColSpan or SplitByRowSpan). (required)
+     * @param  float $$value Split value. In case of splitting by column or row span, the value must be an integer number. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function splitTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling splitTableCell');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling splitTableCell');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling splitTableCell');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling splitTableCell');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling splitTableCell');
+        }
+        // verify the required parameter 'split_type' is set
+        if ($splitType === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $splitType when calling splitTableCell');
+        }
+        // verify the value of enum parameter 'splitType' is valid
+        if (!in_array(strtolower($splitType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\TableCellSplitType::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $splitType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\TableCellSplitType::getAllowableEnumValues()));
+        }
+        // verify the required parameter 'value' is set
+        if ($value === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $value when calling splitTableCell');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/{splitType}/{value}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "splitType", $splitType);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "value", $value);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function storageExists($storageName)
     {
         try {
@@ -38190,6 +40294,726 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideType", $slideType);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function updateTableCell($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableCell';
+        $httpRequest = $this->updateTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\TableCell', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function updateTableCellAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->updateTableCellAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function updateTableCellAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableCell';
+        $httpRequest = $this->updateTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'updateTableCell'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\TableCell $$dto Table cell data. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateTableCellRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling updateTableCell');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling updateTableCell');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateTableCell');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling updateTableCell');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling updateTableCell');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling updateTableCell');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function updateTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->updateTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Paragraph', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function updateTableCellParagraphAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->updateTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function updateTableCellParagraphAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Paragraph';
+        $httpRequest = $this->updateTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'updateTableCellParagraph'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Paragraph $$dto Paragraph DTO. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateTableCellParagraphRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling updateTableCellParagraph');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling updateTableCellParagraph');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function updateTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->updateTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Portion', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function updateTableCellPortionAsync($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->updateTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function updateTableCellPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Portion';
+        $httpRequest = $this->updateTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'updateTableCellPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  int $$cellIndex Table cell index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\Portion $$dto Portion DTO. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateTableCellPortionRequest($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'cell_index' is set
+        if ($cellIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cellIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling updateTableCellPortion');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling updateTableCellPortion');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "cellIndex", $cellIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $_tempBody = [];
+        if (isset($dto)) {
+            array_push($_tempBody, $dto);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function updateTableRow($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableRow';
+        $httpRequest = $this->updateTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\TableRow', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function updateTableRowAsync($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
+    {
+        return $this->updateTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function updateTableRowAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\TableRow';
+        $httpRequest = $this->updateTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'updateTableRow'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$rowIndex Row index. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\TableRow $$dto Table cell data. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateTableRowRequest($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling updateTableRow');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling updateTableRow');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling updateTableRow');
+        }
+        // verify the required parameter 'row_index' is set
+        if ($rowIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $rowIndex when calling updateTableRow');
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling updateTableRow');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "rowIndex", $rowIndex);
         $_tempBody = [];
         if (isset($dto)) {
             array_push($_tempBody, $dto);
