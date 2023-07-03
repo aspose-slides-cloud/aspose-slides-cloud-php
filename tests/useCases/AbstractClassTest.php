@@ -29,30 +29,26 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
-use \Exception;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class AbstractClassTest extends TestBase
 {
     /**
      * Test case for postSlidesPipeline with two files
      */
-    public function testShape()
+    public function testShapeType()
     {
-        list($expectedCode, $expectedMessage) = $this->initialize("getSlideShape", null, null);
-        $result = $this->getApi()->getShape("test.pptx", 1, 1, "password", "TempSlidesSDK");
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getApi()->getShape(self::fileName, 1, 1, self::password, self::folderName);
         Assert::assertTrue($result->getText() == "1");
     }
 
     /**
      * Test case for postSlidesPipeline with two files
      */
-    public function testChart()
+    public function testChartType()
     {
         $chart = new Chart();
         Assert::assertTrue($chart->getType() == "Chart");

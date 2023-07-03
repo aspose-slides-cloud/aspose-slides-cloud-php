@@ -33,14 +33,13 @@ use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\PictureFrame;
 use Aspose\Slides\Cloud\Sdk\Model\PictureFill;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class WatermarkTest extends TestBase
 {
     public function testWatermarkTextStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $this->getApi()->createWatermark(self::fileName, null, null, self::watermarkText, null, null, self::password, self::folderName);
@@ -55,8 +54,7 @@ class WatermarkTest extends TestBase
 
     public function testWatermarkTextDtoStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $dto = new Shape();
@@ -73,11 +71,10 @@ class WatermarkTest extends TestBase
 
     public function testWatermarkImageStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
-        $watermarkFile = fopen("TestData/watermark.png", 'r');
+        $watermarkFile = fopen(self::watermarkPath, 'r');
         $this->getApi()->createImageWatermark(self::fileName, $watermarkFile, null, self::password, self::folderName);
         Assert::assertEquals($shapeCount + 1, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
         $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
@@ -89,13 +86,12 @@ class WatermarkTest extends TestBase
 
     public function testWatermarkImageDtoStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $dto = new PictureFrame();
         $fillFormat = new PictureFill();
-        $watermarkData = base64_encode(file_get_contents("TestData/watermark.png"));
+        $watermarkData = base64_encode(file_get_contents(self::watermarkPath));
         $fillFormat->setBase64Data($watermarkData);
         $dto->setFillFormat($fillFormat);
         $watermarkName = "myWatermark";
@@ -111,52 +107,50 @@ class WatermarkTest extends TestBase
 
     public function testWatermarkTextRequest()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $fileWithWatermarks = $this->getApi()->createWatermarkOnline($file, null, null, self::watermarkText, null, null, self::password);
         $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
-        Assert::assertNotEquals(filesize("TestData/".self::fileName), $fileWithWatermarks->getSize());
+        Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
 
     public function testWatermarkTextDtoRequest()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $dto = new Shape();
         $dto->setText(self::watermarkText);
         $fileWithWatermarks = $this->getApi()->createWatermarkOnline($file, $dto, null, null, null, null, self::password);
         $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
-        Assert::assertNotEquals(filesize("TestData/".self::fileName), $fileWithWatermarks->getSize());
+        Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
 
     public function testWatermarkImageRequest()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
-        $watermarkFile = fopen("TestData/watermark.png", 'r');
+        $file = fopen(self::localFilePath, 'r');
+        $watermarkFile = fopen(self::watermarkPath, 'r');
         $fileWithWatermarks = $this->getApi()->createImageWatermarkOnline($file, $watermarkFile, null, self::password);
         $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
-        Assert::assertNotEquals(filesize("TestData/".self::fileName), $fileWithWatermarks->getSize());
+        Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
 
     public function testWatermarkImageDtoRequest()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $dto = new PictureFrame();
         $fillFormat = new PictureFill();
-        $watermarkData = base64_encode(file_get_contents("TestData/watermark.png"));
+        $watermarkData = base64_encode(file_get_contents(self::watermarkPath));
         $fillFormat->setBase64Data($watermarkData);
         $dto->setFillFormat($fillFormat);
         $fileWithWatermarks = $this->getApi()->createImageWatermarkOnline($file, null, $dto, self::password);
         $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
-        Assert::assertNotEquals(filesize("TestData/".self::fileName), $fileWithWatermarks->getSize());
+        Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const watermarkText = "watermarkText";
     public const watermarkName = "watermark";
+    public const watermarkPath = self::localFolderName."/watermark.png";
     public const slideIndex = 1;
 }

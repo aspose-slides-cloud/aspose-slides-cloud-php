@@ -31,15 +31,13 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\HeaderFooter;
 use Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class HeaderFooterTest extends TestBase
 {
     public function testSlidesFooter()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new HeaderFooter();
         $dto->setIsFooterVisible(true);
         $dto->setFooterText("footer");
@@ -52,9 +50,7 @@ class HeaderFooterTest extends TestBase
 
     public function testSlideFooter()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new HeaderFooter();
         $dto->setIsFooterVisible(true);
         $dto->setFooterText("footer");
@@ -69,9 +65,7 @@ class HeaderFooterTest extends TestBase
 
     public function testNotesSlideFooter()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new NotesSlideHeaderFooter();
         $dto->setIsHeaderVisible(true);
         $dto->setHeaderText("header");
@@ -84,9 +78,6 @@ class HeaderFooterTest extends TestBase
         Assert::assertFalse($getResult->getIsDateTimeVisible());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const format = "png";
 }

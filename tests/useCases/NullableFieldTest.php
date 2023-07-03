@@ -28,11 +28,7 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
-use \Exception;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\Chart;
 use Aspose\Slides\Cloud\Sdk\Model\ChartCategory;
 use Aspose\Slides\Cloud\Sdk\Model\ChartTitle;
@@ -40,24 +36,20 @@ use Aspose\Slides\Cloud\Sdk\Model\OneValueSeries;
 use Aspose\Slides\Cloud\Sdk\Model\OneValueChartDataPoint;
 use Aspose\Slides\Cloud\Sdk\Model\Axes;
 use Aspose\Slides\Cloud\Sdk\Model\Axis;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
-class NullablePropertiesTest extends TestBase
+class NullableFieldTest extends TestBase
 {
     /**
      * Test case for postSlidesPipeline with two files
      */
-    public function testNullableProperties()
+    public function testDefaultChartValues()
     {
-        $folderName = "TempSlidesSDK";
-        $fileName = "test.pptx";
-        $password = "password";
         $min1  = 44.3;
         $min2 = 12;
         $max1 = 104.3;
         $max2 = 87;
-        list($expectedCode, $expectedMessage) = $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".$fileName, $folderName."/".$fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $testDto = new Chart();
         $testDto->setChartType('Line');
@@ -86,9 +78,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMaxValue($max1);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->createShape($fileName, 1, $testDto, null, null, $password, $folderName);
+        $result = $this->getApi()->createShape(self::fileName, 1, $testDto, null, null, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
+        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min1);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -98,9 +90,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMinValue($min2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape($fileName, 1, 5, $testDto, $password, $folderName);
+        $result = $this->getApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
+        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -110,9 +102,9 @@ class NullablePropertiesTest extends TestBase
         $testAxis->setMaxValue($max2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape($fileName, 1, 5, $testDto, $password, $folderName);
+        $result = $this->getApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape($fileName, 1, 5, $password, $folderName);
+        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max2);
     }

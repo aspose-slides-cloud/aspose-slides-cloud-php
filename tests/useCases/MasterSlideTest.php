@@ -35,7 +35,7 @@ use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SlideAnimation;
 use Aspose\Slides\Cloud\Sdk\Model\Effect;
 use Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class MasterSlideTest extends TestBase
 {
@@ -43,9 +43,8 @@ class MasterSlideTest extends TestBase
     {
         $sourceFile = "TemplateCV.pptx";
         $sourcePath = self::folderName."/".$sourceFile;
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $this->getApi()->CopyFile("TempTests/".$sourceFile, $sourcePath);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->CopyFile(self::tempFolderName."/".$sourceFile, $sourcePath);
 
         $masterSlides = $this->getApi()->GetMasterSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(1, count($masterSlides->getSlideList()));
@@ -63,8 +62,7 @@ class MasterSlideTest extends TestBase
 
     public function testMasterSlideShapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, self::password, self::folderName);
@@ -102,8 +100,7 @@ class MasterSlideTest extends TestBase
 
     public function testMasterSlideParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, self::shapeIndex, self::password, self::folderName);
@@ -159,8 +156,7 @@ class MasterSlideTest extends TestBase
 
     public function testMasterSlidePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
@@ -245,8 +241,7 @@ class MasterSlideTest extends TestBase
 
     public function testMasterSlideAnimation()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $animation = $this->getApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::MASTER_SLIDE, null, null, self::password, self::folderName);
@@ -279,25 +274,20 @@ class MasterSlideTest extends TestBase
         Assert::assertEquals(0, count($animation->getMainSequence()));
     }
 
-    public function testMasterSlideDeleteUnused()
+    public function testDeleteUnusedMasterSlides()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->deleteUnusedMasterSlides(self::fileName, false, self::password, self::folderName);
         Assert::assertEquals(count($result->getSlideList()), 1);
-     }
+    }
 
-     public function testMasterSlideDeleteUnusedOnline()
-     {
-        $this->initialize(null, null, null);
-        $file = fopen("TestData/".self::fileName, 'r');
+    public function testDeleteUnusedMasterSlidesOnline()
+    {
+        $file = fopen(self::localFilePath, 'r');
         $result = $this->getApi()->deleteUnusedMasterSlidesOnline($file, true, self::password);
         Assert::assertTrue($result->getSize() > 0);
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 2;
     public const shapeCount = 6;

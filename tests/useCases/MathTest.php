@@ -37,14 +37,13 @@ use Aspose\Slides\Cloud\Sdk\Model\FractionElement;
 use Aspose\Slides\Cloud\Sdk\Model\LimitElement;
 use Aspose\Slides\Cloud\Sdk\Model\TextElement;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class MathTest extends TestBase
 {
     public function testMathGet()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = $this->getApi()->getPortion(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() != null);
@@ -57,8 +56,7 @@ class MathTest extends TestBase
 
     public function testMathGetNull()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = $this->getApi()->getPortion(
             self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() == null);
@@ -66,8 +64,7 @@ class MathTest extends TestBase
 
     public function testMathCreate()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Portion();
         $math = new MathParagraph();
@@ -113,8 +110,7 @@ class MathTest extends TestBase
 
     public function testMathUpdate()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Portion();
         $math = new MathParagraph();
@@ -160,8 +156,7 @@ class MathTest extends TestBase
 
     public function testMathDownload()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $mathMl = $this->getApi()->downloadPortionAsMathMl(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($mathMl->isFile());
@@ -170,8 +165,7 @@ class MathTest extends TestBase
 
     public function testMathDownloadNull()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         try {
             $mathMl = $this->getApi()->downloadPortionAsMathMl(
                 self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
@@ -184,17 +178,13 @@ class MathTest extends TestBase
     public function testMathSave()
     {
         $outPath = self::folderName."/mathml.xml";
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $this->getApi()->savePortionAsMathMl(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, $outPath, self::password, self::folderName);
         $result = $this->getApi()->objectExists($outPath);
         Assert::assertTrue($result->getExists());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 2;
     public const shapeIndex = 3;
     public const notMathShapeIndex = 1;

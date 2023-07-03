@@ -34,14 +34,13 @@ use Aspose\Slides\Cloud\Sdk\Model\PictureFrame;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\Hyperlink;
 use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class HyperlinkTest extends TestBase
 {
     public function testHyperlinkGetShape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue($shape->getHyperlinkClick() != null);
         Assert::assertEquals("Hyperlink", $shape->getHyperlinkClick()->getActionType());
@@ -50,8 +49,7 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkGetPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = $this->getApi()->getPortion(self::fileName, self::slideIndex, self::hoverShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getHyperlinkClick() == null);
         Assert::assertTrue($portion->getHyperlinkMouseOver() != null);
@@ -60,8 +58,7 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkCreateShape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shape = new Shape();
         $hyperlink = new Hyperlink();
         $hyperlink->setActionType("Hyperlink");
@@ -75,8 +72,7 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkCreatePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = new Portion();
         $portion->setText("Link text");
         $hyperlink = new Hyperlink();
@@ -89,8 +85,7 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkDelete()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shape = new PictureFrame();
         $hyperlink = new Hyperlink();
         $hyperlink->setIsDisabled(true);
@@ -99,9 +94,6 @@ class HyperlinkTest extends TestBase
         Assert::assertTrue($updatedShape->getHyperlinkClick() == null);
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 2;
     public const shapeIndex = 2;
     public const hoverShapeIndex = 1;

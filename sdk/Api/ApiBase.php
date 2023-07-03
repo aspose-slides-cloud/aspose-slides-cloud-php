@@ -167,11 +167,17 @@ class ApiBase
                 $c = $e->getResponseBody()->getContents();
                 if ($c) {
                     $errorObject = json_decode($c);
-                    if (property_exists($errorObject, "error")) {
-                        $errorObject = $errorObject->error;
+                    if (is_object($errorObject)) {
+                        if (property_exists($errorObject, "error")) {
+                            $errorObject = $errorObject->error;
+                        }
+                        $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
+                        $e->setResponseObject($error);
+                    } else {
+                        $error = new \Aspose\Slides\Cloud\Sdk\Api\ErrorMessage();
+                        $error->setMessage($e->getMessage());
+                        $e->setResponseObject($c);
                     }
-                    $error = ObjectSerializer::deserialize($errorObject, '\Aspose\Slides\Cloud\Sdk\Api\ErrorMessage', $e->getResponseHeaders());
-                    $e->setResponseObject($error);
                 } else {
                     $error = new \Aspose\Slides\Cloud\Sdk\Api\ErrorMessage();
                     $error->setMessage($e->getMessage());

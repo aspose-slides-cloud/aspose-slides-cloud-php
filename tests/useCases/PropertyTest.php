@@ -37,14 +37,13 @@ use Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties;
 use Aspose\Slides\Cloud\Sdk\Model\SlideProperties;
 use Aspose\Slides\Cloud\Sdk\Model\ViewProperties;
 use Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class PropertyTest extends TestBase
 {
     public function testDocumentPropertiesBuiltin()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $getResult = $this->getApi()->getDocumentProperty(self::fileName, self::builtinPropertyName, self::password, self::folderName);
         Assert::assertEquals(self::builtinPropertyName, $getResult->getName());
@@ -66,8 +65,7 @@ class PropertyTest extends TestBase
 
     public function testDocumentPropertiesCustom()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $property = new DocumentProperty();
         $property->setValue(self::updatedPropertyValue);
@@ -86,8 +84,7 @@ class PropertyTest extends TestBase
 
     public function testDocumentPropertiesBulkUpdate()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $getResult = $this->getApi()->getDocumentProperties(self::fileName, self::password, self::folderName);
 
@@ -109,9 +106,7 @@ class PropertyTest extends TestBase
 
     public function testSlideProperties()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $getResult = $this->getApi()->getSlideProperties(self::fileName, self::password, self::folderName);
         $dto = new SlideProperties();
         $dto->setFirstSlideNumber($getResult->getFirstSlideNumber() + 2);
@@ -122,9 +117,7 @@ class PropertyTest extends TestBase
 
     public function testSlideSizePreset()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new SlideProperties();
         $dto->setSizeType("B4IsoPaper");
         $result = $this->getApi()->setSlideProperties(self::fileName, $dto, self::password, self::folderName);
@@ -135,9 +128,7 @@ class PropertyTest extends TestBase
 
     public function testSlideSizeCustom()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new SlideProperties();
         $dto->setWidth(800);
         $dto->setHeight(500);
@@ -149,9 +140,7 @@ class PropertyTest extends TestBase
 
     public function testProtection()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $getResult = $this->getApi()->getProtectionProperties(self::fileName, self::password, self::folderName);
         $dto = new ProtectionProperties();
         $dto->setReadOnlyRecommended(!$getResult->getReadOnlyRecommended());
@@ -162,9 +151,7 @@ class PropertyTest extends TestBase
 
     public function testDeleteProtection()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->deleteProtection(self::fileName, self::password, self::folderName);
         Assert::assertFalse($result->getReadOnlyRecommended());
         Assert::assertFalse($result->getIsEncrypted());
@@ -173,7 +160,7 @@ class PropertyTest extends TestBase
 
     public function testProtectOnline()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $dto = new ProtectionProperties();
         $dto->setReadPassword("newPassword");
         $result = $this->getApi()->setProtectionOnline($file, $dto, self::password);
@@ -182,28 +169,25 @@ class PropertyTest extends TestBase
 
     public function testUnprotectOnline()
     {
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $result = $this->getApi()->deleteProtectionOnline($file, self::password);
-        Assert::assertNotEquals(filesize("TestData/".self::fileName), $result->getSize());
+        Assert::assertNotEquals(filesize(self::localFilePath), $result->getSize());
     }
 
     public function testGetViewProperties()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getViewProperties(
             self::fileName,
             self::password,
             self::folderName
         );
-
         Assert::assertEquals('True', $response->getShowComments());
     }
 
     public function testSetViewProperties()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new ViewProperties();
         $dto->setShowComments('False');
@@ -224,8 +208,7 @@ class PropertyTest extends TestBase
 
     public function testProtectionCheck()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $getResult = $this->getApi()->getProtectionProperties(self::fileName, null, self::folderName);
         Assert::assertTrue($getResult->getIsEncrypted());
@@ -238,8 +221,7 @@ class PropertyTest extends TestBase
 
     public function testGetSlideShowProperties()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getSlideShowProperties(
             self::fileName,
             self::password,
@@ -251,8 +233,7 @@ class PropertyTest extends TestBase
 
     public function testSetSlideShowProperties()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new SlideShowProperties();
         $dto->setLoop(true);
@@ -271,10 +252,6 @@ class PropertyTest extends TestBase
         Assert::assertEquals($dto->getSlideShowType(), $response->getSlideShowType());
     }
 
-
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const builtinPropertyName = "Author";
     public const customPropertyName = "CustomProperty2";
     public const updatedPropertyValue = "New Value";

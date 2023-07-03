@@ -35,7 +35,7 @@ use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SlideAnimation;
 use Aspose\Slides\Cloud\Sdk\Model\Effect;
 use Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class LayoutSlideTest extends TestBase
 {
@@ -43,9 +43,8 @@ class LayoutSlideTest extends TestBase
     {
         $sourceFile = "TemplateCV.pptx";
         $sourcePath = self::folderName."/".$sourceFile;
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $this->getApi()->CopyFile("TempTests/".$sourceFile, $sourcePath);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->CopyFile(self::tempFolderName."/".$sourceFile, $sourcePath);
 
         $layoutSlides = $this->getApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(11, count($layoutSlides->getSlideList()));
@@ -63,8 +62,7 @@ class LayoutSlideTest extends TestBase
 
     public function testLayoutSlideShapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
@@ -102,8 +100,7 @@ class LayoutSlideTest extends TestBase
 
     public function testLayoutSlideParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
@@ -159,8 +156,7 @@ class LayoutSlideTest extends TestBase
 
     public function testLayoutSlidePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
@@ -245,8 +241,7 @@ class LayoutSlideTest extends TestBase
 
     public function testLayoutSlideAnimation()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $animation = $this->getApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, null, null, self::password, self::folderName);
@@ -279,27 +274,22 @@ class LayoutSlideTest extends TestBase
         Assert::assertEquals(0, count($animation->getMainSequence()));
     }
 
-    public function testLayoutSlideDeleteUnused()
+    public function testDeleteUnusedLayoutSlides()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $layoutSlidesBefore = $this->getApi()->getLayoutSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(count($layoutSlidesBefore->getSlideList()), self::layoutSlidesCount);
         $layoutSlidesAfter = $this->getApi()->deleteUnusedLayoutSLides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(count($layoutSlidesAfter->getSlideList()), 2);
      }
 
-     public function testLayoutSlideDeleteUnusedOnline()
+     public function testDeleteUnusedLayoutSlidesOnline()
      {
-        $this->initialize(null, null, null);
-        $file = fopen("TestData/".self::fileName, 'r');
+        $file = fopen(self::localFilePath, 'r');
         $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($file, self::password);
         Assert::assertTrue($result->getSize() > 0);
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 2;
     public const shapeCount = 6;

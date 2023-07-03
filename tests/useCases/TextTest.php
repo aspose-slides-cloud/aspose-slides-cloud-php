@@ -30,15 +30,13 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class TextTest extends TestBase
 {
     public function testTextGet()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $presentationItems = $this->getApi()->getPresentationTextItems(self::fileName, null, self::password, self::folderName);
         $presentationItemsWithEmpty = $this->getApi()->getPresentationTextItems(self::fileName, true, self::password, self::folderName);
         $slideItems = $this->getApi()->getSlideTextItems(self::fileName, self::slideIndex, null, self::password, self::folderName);
@@ -50,18 +48,16 @@ class TextTest extends TestBase
 
     public function testTextReplaceStorage()
     {
-        $this->initialize(null, null, null);
-
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $presentationResult = $this->getApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, null, self::password, self::folderName);
 
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $presentationResultIgnoreCase = $this->getApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, self::password, self::folderName);
 
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideResult = $this->getApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, null, self::password, self::folderName);
 
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideResultIgnoreCase = $this->getApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, true, self::password, self::folderName);
 
         Assert::assertTrue($presentationResultIgnoreCase->getMatches() > $presentationResult->getMatches());
@@ -71,10 +67,10 @@ class TextTest extends TestBase
 
     public function testTextReplaceRequest()
     {
-        $presentationResult = $this->getApi()->replacePresentationTextOnline(fopen("TestData/".self::fileName, 'r'), self::oldValue, self::newValue, null, self::password);
-        $presentationResultIgnoreCase = $this->getApi()->replacePresentationTextOnline(fopen("TestData/".self::fileName, 'r'), self::oldValue, self::newValue, true, self::password);
-        $slideResult = $this->getApi()->replaceSlideTextOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::oldValue, self::newValue, null, self::password);
-        $slideResultIgnoreCase = $this->getApi()->replaceSlideTextOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::oldValue, self::newValue, true, self::password);
+        $presentationResult = $this->getApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, null, self::password);
+        $presentationResultIgnoreCase = $this->getApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, true, self::password);
+        $slideResult = $this->getApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, null, self::password);
+        $slideResultIgnoreCase = $this->getApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, true, self::password);
         Assert::assertTrue($presentationResult->isFile());
         Assert::assertTrue($presentationResultIgnoreCase->isFile());
         Assert::assertTrue($slideResult->isFile());
@@ -83,8 +79,7 @@ class TextTest extends TestBase
 
     public function testHighlightShapeText()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 1;
         $slideIndex = 6;
@@ -118,8 +113,7 @@ class TextTest extends TestBase
 
     public function testHighlightShapeRegex()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 1;
         $slideIndex = 6;
@@ -151,9 +145,6 @@ class TextTest extends TestBase
         Assert::assertEquals($para->getPortionList()[1]->getHighlightColor(), self::highlightColor);
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const oldValue = "text";
     public const newValue = "new_text";
     public const slideIndex = 1;

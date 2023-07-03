@@ -59,14 +59,13 @@ use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 use Aspose\Slides\Cloud\Sdk\Model\ZoomFrame;
 use Aspose\Slides\Cloud\Sdk\Model\SectionZoomFrame;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class ShapeTest extends TestBase
 {
     public function testGetShapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->getShapes(
           self::fileName,
@@ -80,8 +79,7 @@ class ShapeTest extends TestBase
 
     public function testGetShapesByType()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->getShapes(
           self::fileName,
@@ -97,8 +95,7 @@ class ShapeTest extends TestBase
 
     public function testGetSubshapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $subShape = "4";
         $shapes = $this->getApi()->getShapes(
           self::fileName,
@@ -115,8 +112,7 @@ class ShapeTest extends TestBase
 
     public function testGetShape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shape = $this->getApi()->getShape(
           self::fileName,
@@ -131,8 +127,7 @@ class ShapeTest extends TestBase
 
     public function testGetSubshape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 4;
         $subShape = "1";
         $shape = $this->getApi()->getShape(
@@ -150,9 +145,7 @@ class ShapeTest extends TestBase
 
     public function testShapeAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $dto->setShapeType("Callout1");
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -161,9 +154,7 @@ class ShapeTest extends TestBase
 
     public function testShapeEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -175,9 +166,7 @@ class ShapeTest extends TestBase
 
     public function testGraphicalObjectEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new GraphicalObject();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -189,9 +178,7 @@ class ShapeTest extends TestBase
 
     public function testPictureFrameAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new PictureFrame();
         $format = new PictureFill();
         $format->setBase64Data("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXY5g+ffp/AAZTAsWGL27gAAAAAElFTkSuQmCC");
@@ -202,9 +189,7 @@ class ShapeTest extends TestBase
 
     public function testPictureFrameEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new PictureFrame();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -216,9 +201,7 @@ class ShapeTest extends TestBase
 
     public function testAudioFrameAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new AudioFrame();
         $dto->setBase64Data("bXAzc2FtcGxl");
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -227,9 +210,7 @@ class ShapeTest extends TestBase
 
     public function testAudioFrameEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new AudioFrame();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -241,9 +222,7 @@ class ShapeTest extends TestBase
 
     public function testVideoFrameAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new VideoFrame();
         $dto->setBase64Data("bXAzc2FtcGxl");
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -252,9 +231,7 @@ class ShapeTest extends TestBase
 
     public function testVideoFrameEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new VideoFrame();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -266,9 +243,7 @@ class ShapeTest extends TestBase
 
     public function testOleObjectFrameEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new OleObjectFrame();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -280,9 +255,7 @@ class ShapeTest extends TestBase
 
     public function testSmartArtAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new SmartArt();
         $dto->setX(0);
         $dto->setY(0);
@@ -308,9 +281,7 @@ class ShapeTest extends TestBase
 
     public function testSmartArtTextFormatting()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = new Portion();
         $portion->setText("New text");
         $portion->setFontHeight(24);
@@ -334,9 +305,7 @@ class ShapeTest extends TestBase
 
     public function testSmartArtEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new SmartArt();
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\SmartArt"));
@@ -345,9 +314,7 @@ class ShapeTest extends TestBase
 
     public function testChartEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Chart();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -359,9 +326,7 @@ class ShapeTest extends TestBase
 
     public function testTableAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Table();
         $dto->setX(30);
         $dto->setY(20);
@@ -432,9 +397,7 @@ class ShapeTest extends TestBase
 
     public function testTableEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Table();
         try {
             $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
@@ -446,9 +409,7 @@ class ShapeTest extends TestBase
 
     public function testGroupShapeEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new GroupShape();
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\GroupShape"));
@@ -456,9 +417,7 @@ class ShapeTest extends TestBase
 
     public function testConnectorAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Connector();
         $uri1 = new ResourceUri();
         $uri1->setHref("https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/shapes/1");
@@ -472,9 +431,7 @@ class ShapeTest extends TestBase
 
     public function testConnectorEmpty()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Connector();
         $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Connector"));
@@ -482,8 +439,7 @@ class ShapeTest extends TestBase
 
     public function testCreateSubshape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
@@ -511,8 +467,7 @@ class ShapeTest extends TestBase
 
     public function testUpdateShape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Shape();
         $dto->setWidth(200);
@@ -537,8 +492,7 @@ class ShapeTest extends TestBase
 
     public function testUpdateSubshape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Shape();
         $dto->setWidth(200);
@@ -578,8 +532,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteShapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->deleteShapes(
             self::fileName,
@@ -594,8 +547,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteShapesIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->deleteShapes(
             self::fileName,
@@ -610,8 +562,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteSubshapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $subShape = "4";
         $shapes = $this->getApi()->deleteShapes(
             self::fileName,
@@ -622,14 +573,12 @@ class ShapeTest extends TestBase
             null,
             $subShape
         );
-        
         Assert::assertEquals(0, count($shapes->getShapesLinks()));
     }
 
     public function testDeleteSubshapesIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $subShape = "4";
         $shapes = $this->getApi()->deleteShapes(
             self::fileName,
@@ -646,8 +595,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteShape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapes = $this->getApi()->deleteShape(
             self::fileName,
@@ -662,8 +610,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteSubshape()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 4;
         $subShape = "1";
         $response = $this->getApi()->deleteShape(
@@ -681,8 +628,7 @@ class ShapeTest extends TestBase
 
     public function testShapesAlign()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shape1 = $this->getApi()->getShape(self::fileName, 2, 1, self::password, self::folderName);
         $shape2 = $this->getApi()->getShape(self::fileName, 2, 2, self::password, self::folderName);
         Assert::assertTrue(abs($shape1->getX() - $shape2->getX()) > 1);
@@ -707,8 +653,7 @@ class ShapeTest extends TestBase
     public function testShapesAlignGroup()
     {
         $path = "4/shapes";
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $shapeIndex = 4;
         $subShape1 = "1";
@@ -737,8 +682,7 @@ class ShapeTest extends TestBase
 
     public function testShapeGeometryGet()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $paths = $this->getApi()->getShapeGeometryPath(self::fileName, 4, 2, self::password, self::folderName);
         Assert::assertTrue($paths->getPaths() != null);
         Assert::assertEquals(1, count($paths->getPaths()));
@@ -746,8 +690,7 @@ class ShapeTest extends TestBase
 
     public function testShapeGeometrySet()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new GeometryPaths();
         $path = new GeometryPath();
         $start = new MoveToPathSegment();
@@ -774,8 +717,7 @@ class ShapeTest extends TestBase
 
     public function testZoomFrameAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new ZoomFrame();
         $dto->setX(20);
@@ -800,8 +742,7 @@ class ShapeTest extends TestBase
 
     public function testSectionZoomFrameAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new SectionZoomFrame();
         $dto->setX(20);
@@ -826,8 +767,7 @@ class ShapeTest extends TestBase
 
     public function testOleObjectFrameAddByLink()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new OleObjectFrame();
         $dto->setX(20);
@@ -851,10 +791,9 @@ class ShapeTest extends TestBase
         Assert::assertEquals($dto->getLinkPath(), $shape->getLinkPath());
     }
 
-    public function testOleObjectFrameEmbedded()
+    public function testOleObjectFrameAddEmbedded()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new OleObjectFrame();
         $dto->setX(20);
@@ -880,8 +819,7 @@ class ShapeTest extends TestBase
 
     public function testGroupShapeAdd()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $subShape = "1";
         $shapes=$this->getApi()->getShapes(
@@ -983,10 +921,9 @@ class ShapeTest extends TestBase
 
     public function testImportShapesFromSvg()
     {
-        $this->initialize(null, null, null);
-        $file = fopen("TestData/".self::svgFileName, 'r');
+        $file = fopen(self::localFolderName."/".self::svgFileName, 'r');
         $slideIndex = 5;
-        $this->getApi()->CopyFile("TempTests/" . self::fileName, self::folderName . "/" . self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->importShapesFromSvg(
             self::fileName,
             $slideIndex,
@@ -1005,8 +942,7 @@ class ShapeTest extends TestBase
 
     public function testCreateSmartArtNode()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIndex = 7;
         $newNodeText = "New root node";
         $response = $this->getApi()->createSmartArtNode(self::fileName, $slideIndex, self::smartArtIndex, null, $newNodeText,
@@ -1017,8 +953,7 @@ class ShapeTest extends TestBase
 
     public function testCreateSmartArtSubNode()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIndex = 7;
         $subNodePath = "1";
         $newSubNodeText = "New sub-node";
@@ -1031,8 +966,7 @@ class ShapeTest extends TestBase
 
     public function testCreateSmartArtSubSubNode()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIndex = 7;
         $subSubNodePath = "1/nodes/1";
         $newSubNodeText = "New sub-sub-node";
@@ -1044,8 +978,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteSmartArtNode()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIndex = 7;
         $smartArtIndex = 2;
         $nodeIndex = 1;
@@ -1056,8 +989,7 @@ class ShapeTest extends TestBase
 
     public function testDeleteSmartArtSubNode()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIndex = 7;
         $nodeIndex = 1;
         $subNodePath = "2";
@@ -1068,8 +1000,6 @@ class ShapeTest extends TestBase
 
     public function testDownloadShapeFromDto()
     {
-        $this->initialize(null, null, null);
-
         $dto = new Shape();
         $dto->setShapeType("Rectangle");
         $dto->setWidth(400);
@@ -1080,10 +1010,7 @@ class ShapeTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
     public const svgFileName = "shapes.svg";
-    public const password = "password";
     public const slideIndex = 3;
     public const oleObjectFileName = "oleObject.xlsx";
     public const color = "#FFF5FF8A";

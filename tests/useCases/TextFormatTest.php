@@ -36,15 +36,14 @@ use Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat;
 use Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 use PHPUnit\Framework\Assert;
 
 class TextFormatTest extends TestBase
 {
     public function testTextFormat3D()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
@@ -107,10 +106,9 @@ class TextFormatTest extends TestBase
         Assert::assertEquals('Shape', $shape->getType());
     }
 
-    public function testTextFrameFormat()
+    public function testTextFrameFormatGeneral()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
@@ -147,8 +145,5 @@ class TextFormatTest extends TestBase
         Assert::assertEquals('Shape', $shape->getType());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
 }

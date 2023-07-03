@@ -35,58 +35,50 @@ use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class NotesSlideTest extends TestBase
 {
     public function testNotesSlideGetStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $this->getApi()->getNotesSlide(self::fileName, self::slideIndex, self::password, self::folderName);
     }
 
     public function testNotesSlideExistsStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->notesSlideExists(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertTrue($result->getExists());
     }
 
     public function testNotesSlideDownloadStorage()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->downloadNotesSlide(self::fileName, self::slideIndex, self::format, null, null, self::password, self::folderName);
         Assert::assertTrue($result->isFile());
     }
 
     public function testNotesSlideGetRequest()
     {
-        $this->getApi()->getNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
+        $this->getApi()->getNotesSlideOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::password);
     }
 
     public function testNotesSlideExistsRequest()
     {
-        $result = $this->getApi()->notesSlideExistsOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::password);
+        $result = $this->getApi()->notesSlideExistsOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::password);
         Assert::assertTrue($result->getExists());
     }
 
     public function testNotesSlideDownloadRequest()
     {
-        $result = $this->getApi()->downloadNotesSlideOnline(fopen("TestData/".self::fileName, 'r'), self::slideIndex, self::format, null, null, self::password);
+        $result = $this->getApi()->downloadNotesSlideOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::format, null, null, self::password);
         Assert::assertTrue($result->isFile());
     }
 
     public function testNotesSlideShapes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapes = $this->getApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount, count($shapes->getShapesLinks()));
@@ -123,9 +115,7 @@ class NotesSlideTest extends TestBase
 
     public function testNotesSlideParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::NOTES_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount, count($paragraphs->getParagraphLinks()));
@@ -180,9 +170,7 @@ class NotesSlideTest extends TestBase
 
     public function testNotesSlidePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $portions = $this->getApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
@@ -266,9 +254,7 @@ class NotesSlideTest extends TestBase
 
     public function testCreateNotesSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new NotesSlide();
         $dto->setText(self::notesSlideText);
         $response = $this->getApi()->createNotesSlide(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
@@ -277,9 +263,7 @@ class NotesSlideTest extends TestBase
 
     public function testUpdateNotesSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new NotesSlide();
         $dto->setText(self::notesSlideText);
         $response = $this->getApi()->updateNotesSlide(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
@@ -288,16 +272,11 @@ class NotesSlideTest extends TestBase
 
     public function testDeleteNotesSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->deleteNotesSlide(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(null, $response->getNotesSlide());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 2;
     public const shapeCount = 3;

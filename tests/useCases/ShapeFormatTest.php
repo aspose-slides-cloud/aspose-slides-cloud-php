@@ -29,7 +29,6 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\LineFormat;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
@@ -39,15 +38,13 @@ use Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat;
 use Aspose\Slides\Cloud\Sdk\Model\ShapeBevel;
 use Aspose\Slides\Cloud\Sdk\Model\Camera;
 use Aspose\Slides\Cloud\Sdk\Model\LightRig;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class ShapeFormatTest extends TestBase
 {
     public function testShapeFormatLine()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $lineFormat = new LineFormat();
         $lineFormat->setStyle("ThickThin");
@@ -63,9 +60,7 @@ class ShapeFormatTest extends TestBase
 
     public function testShapeFormatFill()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $fillFormat = new SolidFill();
         $fillFormat->setColor("#FFFFFF00");
@@ -80,9 +75,7 @@ class ShapeFormatTest extends TestBase
 
     public function testShapeFormatEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $effectFormat = new EffectFormat();
         $innerShadow = new InnerShadowEffect();
@@ -101,8 +94,7 @@ class ShapeFormatTest extends TestBase
 
     public function testShapeFormat3D()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Shape();
         $threeDFormat = new ThreeDFormat();
@@ -130,9 +122,6 @@ class ShapeFormatTest extends TestBase
         Assert::assertEquals($dto->getThreeDFormat()->getDepth(), $result->getThreeDFormat()->getDepth());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const shapeIndex = 1;
 }

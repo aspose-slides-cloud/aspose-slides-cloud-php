@@ -26,40 +26,43 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
- 
-use \Exception;
-use PHPUnit\Framework\Assert;
+namespace Aspose\Slides\Cloud\Sdk\Tests;
+
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
-use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
-use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
-class TimeoutTest extends TestBase
+class TestBase extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Test case for SaveSlideAs with little timeout
-     */
-    public function testTimeout()
+    protected function getApi()
     {
-/* unstable test
-        list($expectedCode, $expectedMessage) = $this->initialize("postSlideSaveAs", null, null);
+        if (self::$api == null)
+        {
+            $config = new Configuration();
+            $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../testConfig.json")), true);
+            $clientId = $testConfig["ClientId"];
+            $clientSecret = $testConfig["ClientSecret"];
+            $baseUrl = $testConfig["BaseUrl"];
+            $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
+            $debug = $testConfig["Debug"];
+            $config->setAppSid($clientId);
+            $config->setAppKey($clientSecret);
+            $config->setHost($baseUrl);
+            $config->setAuthHost($authBaseUrl);
+            $config->setDebug($debug);
 
-        $config = new Configuration();
-        $config->setAppSid($this->config->getClientId());
-        $config->setAppKey($this->config->getClientSecret());
-        $config->setHost($this->config->getHost());
-        $config->setAuthHost($this->config->getAuthHost());
-        $config->setDebug($this->config->getDebug());
-        $config->setTimeout(1);
-
-        $slidesApi = new SlidesApi(null, $config);
-
-        try {
-//            $result = $this->getApi()->postSlideSaveAs("test.ppt", 1, "svg", null, null, null, "password", "TempSlidesSDK");
-        } catch (Exception $ex) {
-            TestUtils::assertSuccessfulException($ex, "postSlideSaveAs");
-        }*/
+            self::$api = new SlidesApi(null, $config);
+        }
+        return self::$api;
     }
+
+    private static $api;
+
+    protected const tempFolderName = "TempTests";
+    protected const folderName = "TempSlidesSDK";
+    protected const localFolderName = "TestData";
+    protected const fileName = "test.pptx";
+    protected const tempFilePath = self::tempFolderName . "/" . self::fileName;
+    protected const filePath = self::folderName . "/" . self::fileName;
+    protected const localFilePath = self::localFolderName . "/" . self::fileName;
+    protected const password = "password";
 }

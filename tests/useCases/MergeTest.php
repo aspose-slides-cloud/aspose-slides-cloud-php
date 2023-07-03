@@ -33,27 +33,25 @@ use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest;
 use Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest;
 use Aspose\Slides\Cloud\Sdk\Model\PresentationToMerge;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class MergeTest extends TestBase
 {
-    public function testMergeStorage()
+    public function testMerge()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $this->getApi()->copyFile("TempTests/".self::fileName2, self::folderName."/".self::fileName2);
-        $this->getApi()->copyFile("TempTests/".self::fileNamePdf, self::folderName."/".self::fileNamePdf);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getApi()->copyFile(self::tempFolderName."/".self::fileNamePdf, self::folderName."/".self::fileNamePdf);
 
         $request = new PresentationsMergeRequest();
         $request->setPresentationPaths([ self::folderName."/".self::fileName2, self::folderName."/".self::fileNamePdf ]);
         $result = $this->getApi()->merge(self::fileName, $request, self::password, self::folderName);
     }
 
-    public function testMergeOrderedStorage()
+    public function testOrderedMerge()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $this->getApi()->copyFile("TempTests/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
 
         $request = new OrderedMergeRequest();
         $presentation = new PresentationToMerge();
@@ -63,24 +61,24 @@ class MergeTest extends TestBase
         $result = $this->getApi()->orderedMerge(self::fileName, $request, self::password, self::folderName);
     }
 
-    public function testMergeRequest()
+    public function testMergeOnline()
     {
-        $files = [ fopen("TestData/TemplateCV.pptx", 'r'), fopen("TestData/".self::fileName2, 'r') ];
+        $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
         $result = $this->getApi()->mergeOnline($files);
         Assert::assertTrue($result->isFile());
     }
 
-    public function testMergeAndSaveRequest()
+    public function testMergeAndSaveOnline()
     {
-        $files = [ fopen("TestData/TemplateCV.pptx", 'r'), fopen("TestData/".self::fileName2, 'r') ];
+        $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
         $this->getApi()->mergeAndSaveOnline(self::outPath, $files);
         $result = $this->getApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }
 
-    public function testMergeOrderedRequest()
+    public function testMergeOnlineWithRequest()
     {
-        $files = [ fopen("TestData/".self::fileName, 'r'), fopen("TestData/".self::fileName2, 'r') ];
+        $files = [ fopen(self::localFilePath, 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
         $request = new OrderedMergeRequest();
         $presentation1 = new PresentationToMerge();
         $presentation1->setPath(self::fileName);
@@ -93,12 +91,11 @@ class MergeTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
-    public function testMergeOrderedCombined()
+    public function testMergeOnlineCombined()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
 
-        $files = [ fopen("TestData/".self::fileName, 'r') ];
+        $files = [ fopen(self::localFilePath, 'r') ];
         $request = new OrderedMergeRequest();
         $presentation1 = new PresentationToMerge();
         $presentation1->setPath(self::fileName);
@@ -112,10 +109,9 @@ class MergeTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
-    public function testMergeOrderedUrl()
+    public function testMergeOnlineUrl()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->copyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName, self::folderName."/".self::fileName);
         
         $request = new OrderedMergeRequest();
         $presentation1 = new PresentationToMerge();
@@ -134,10 +130,7 @@ class MergeTest extends TestBase
     }
 
     public const url = "https://drive.google.com/uc?export=download&id=1ycMzd7e--Ro9H8eH2GL5fPP7-2HjX4My";
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
     public const fileName2 = "test-unprotected.pptx";
     public const fileNamePdf = "test.pdf";
-    public const password = "password";
     public const outPath = self::folderName."/merged.pptx";
 }

@@ -30,15 +30,14 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 use PHPUnit\Framework\Assert;
 
 class PortionTest extends TestBase
 {
     public function testGetPortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $response=$this->getApi()->getPortions(
             self::fileName,
@@ -53,8 +52,7 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -73,9 +71,7 @@ class PortionTest extends TestBase
 
     public function testGetPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getPortion(
             self::fileName,
             self::slideIndex,
@@ -90,8 +86,7 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -112,8 +107,7 @@ class PortionTest extends TestBase
 
     public function testCreatePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -144,8 +138,7 @@ class PortionTest extends TestBase
 
     public function testCreateSubshapePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 3;
         $subShape = "2";
@@ -181,8 +174,7 @@ class PortionTest extends TestBase
 
     public function testUpdatePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -213,8 +205,7 @@ class PortionTest extends TestBase
 
     public function testUpdateSubshapePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -250,8 +241,7 @@ class PortionTest extends TestBase
 
     public function testDeletePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->deletePortions(
             self::fileName,
@@ -266,10 +256,9 @@ class PortionTest extends TestBase
         Assert::assertEquals(0, count($response->getItems()));
     }
 
-    public function testDeletePortionsIndexes()
+    public function testDeletePortionsByIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->deletePortions(
             self::fileName,
@@ -286,8 +275,7 @@ class PortionTest extends TestBase
 
     public function testDeleteSubshapePortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
         $response = $this->getApi()->deletePortions(
@@ -305,10 +293,9 @@ class PortionTest extends TestBase
         Assert::assertEquals(0, count($response->getItems()));
     }
 
-    public function testDeleteSubshapePortionsIndexes()
+    public function testDeleteSubshapePortionsByIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -329,8 +316,7 @@ class PortionTest extends TestBase
 
     public function testDeletePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->deletePortion(
             self::fileName,
@@ -347,8 +333,7 @@ class PortionTest extends TestBase
 
     public function testDeleteSubshapePortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -369,8 +354,7 @@ class PortionTest extends TestBase
 
     public function testGetPortionRect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->getPortionRectangle(
             self::fileName,
@@ -391,9 +375,7 @@ class PortionTest extends TestBase
 
     public function testGetPortionEffective()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getPortionEffective(
             self::fileName,
             self::slideIndex,
@@ -408,8 +390,7 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortionEffective()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -428,9 +409,6 @@ class PortionTest extends TestBase
         Assert::assertEquals(18, $response->getFontHeight());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 6;
     public const shapeIndex = 2;
     public const shapePath = "3/shapes";

@@ -29,18 +29,16 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 use Aspose\Slides\Cloud\Sdk\Model\SlideAnimation;
 use Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence;
 use Aspose\Slides\Cloud\Sdk\Model\Effect;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class AnimationTest extends TestBase
 {
-    public function testAnimationGet()
+    public function testGetAnimation()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->GetAnimation(self::fileName, self::slideIndex, null, null, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
@@ -51,10 +49,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(0, count($result->getMainSequence()));
     }
 
-    public function testAnimationSet()
+    public function testSetAnimation()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new SlideAnimation();
 
         $effect1 = new Effect();
@@ -74,10 +71,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationCreateEffect()
+    public function testAnimationCreateAnimationEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
@@ -86,10 +82,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationCreateInteractiveSequence()
+    public function testCreateAnimationInteractiveSequence()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new InteractiveSequence();
         $dto->setTriggerShapeIndex(2);
         $effect = new Effect();
@@ -101,10 +96,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(self::interactiveSequenceCount + 1, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationCreateInteractiveSequenceEffect()
+    public function testCreateAnimationInteractiveSequenceEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
@@ -113,10 +107,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationUpdateEffect()
+    public function testUpdateAnimationEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
@@ -125,10 +118,9 @@ class AnimationTest extends TestBase
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationUpdateInteractiveSequenceEffect()
+    public function testUpdateAnimationInteractiveSequenceEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
@@ -137,63 +129,54 @@ class AnimationTest extends TestBase
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDelete()
+    public function testDeleteAnimation()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimation(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDeleteMainSequence()
+    public function testDeleteAnimationMainSequence()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimationMainSequence(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDeleteMainSequenceEffect()
+    public function testDeleteAnimationEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimationEffect(self::fileName, self::slideIndex, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount - 1, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDeleteInteractiveSequences()
+    public function testDeleteAnimationInteractiveSequences()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimationInteractiveSequences(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDeleteInteractiveSequence()
+    public function testDeleteAnimationInteractiveSequence()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimationInteractiveSequence(self::fileName, self::slideIndex, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount - 1, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationDeleteInteractiveSequenceEffect()
+    public function testDeleteAnimationInteractiveSequenceEffect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->DeleteAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const effectCount = 1;
     public const interactiveSequenceCount = 1;

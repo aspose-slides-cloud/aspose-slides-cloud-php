@@ -31,16 +31,14 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\PortionFormat;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 use PHPUnit\Framework\Assert;
 
 class ParagraphTest extends TestBase
 {
     public function testGetParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getParagraph(
             self::fileName,
             self::slideIndex,
@@ -54,9 +52,7 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getParagraphs(
             self::fileName,
             self::slideIndex,
@@ -69,8 +65,7 @@ class ParagraphTest extends TestBase
 
     public function testGetSubshapeParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
         $response = $this->getApi()->getParagraph(self::fileName, self::slideIndex, $shapeIndex, 1, 
@@ -80,8 +75,7 @@ class ParagraphTest extends TestBase
 
     public function testGetSubshapeParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
         $response = $this->getApi()->getParagraphs(
@@ -98,8 +92,7 @@ class ParagraphTest extends TestBase
 
     public function testCreateParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -123,8 +116,7 @@ class ParagraphTest extends TestBase
 
     public function testCreateParagraphWithPortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/" . self::fileName, self::folderName . "/" . self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $portion1Dto = new Portion();
@@ -149,8 +141,7 @@ class ParagraphTest extends TestBase
 
     public function testCreateSubshapeParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -178,8 +169,7 @@ class ParagraphTest extends TestBase
 
     public function testUpdateParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -203,8 +193,7 @@ class ParagraphTest extends TestBase
 
     public function testUpdateSubshapeParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -232,9 +221,7 @@ class ParagraphTest extends TestBase
 
     public function testDeleteParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
@@ -246,11 +233,9 @@ class ParagraphTest extends TestBase
         Assert::assertEquals(0, count($response->getParagraphLinks()));
     }
 
-    public function testDeleteParagraphsIndexes()
+    public function testDeleteParagraphsByIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
@@ -264,8 +249,7 @@ class ParagraphTest extends TestBase
 
     public function testDeleteSubshapeParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -282,10 +266,9 @@ class ParagraphTest extends TestBase
         Assert::assertEquals(0, count($response->getParagraphLinks()));
     }
 
-    public function testDeleteSubshapeParagraphsIndexes()
+    public function testDeleteSubshapeParagraphsByIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
@@ -304,9 +287,7 @@ class ParagraphTest extends TestBase
 
     public function testDeleteParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->deleteParagraph(
             self::fileName,
             self::slideIndex,
@@ -320,8 +301,7 @@ class ParagraphTest extends TestBase
 
     public function testDeleteSubshapeParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 3;
         $subShape = "1";
@@ -341,8 +321,7 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphRect()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $response = $this->getApi()->getParagraphRectangle(
             self::fileName,
@@ -362,8 +341,7 @@ class ParagraphTest extends TestBase
 
     public function testParagraphDefaultPortionFormat()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $defaultPortionFormat = new PortionFormat();
@@ -402,9 +380,7 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphEffective()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $response = $this->getApi()->getParagraphEffective(
             self::fileName,
             self::slideIndex,
@@ -418,8 +394,7 @@ class ParagraphTest extends TestBase
 
     public function testGetSubshapeParagraphEffective()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
         $response = $this->getApi()->
@@ -428,9 +403,6 @@ class ParagraphTest extends TestBase
         Assert::assertEquals(72, $response->getDefaultTabSize());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const slideIndex = 6;
     public const shapeIndex = 2;
     public const shapePath = "3/shapes";

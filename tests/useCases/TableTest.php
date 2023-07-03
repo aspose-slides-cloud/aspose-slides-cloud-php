@@ -34,14 +34,13 @@ use Aspose\Slides\Cloud\Sdk\Model\TableRow;
 use Aspose\Slides\Cloud\Sdk\Model\Portion;
 use Aspose\Slides\Cloud\Sdk\Model\Paragraph;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class TableTest extends TestBase
 {
     public function testUpdateTableCell()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $cellIndex = 1;
@@ -64,8 +63,7 @@ class TableTest extends TestBase
 
     public function testCreateTableRow()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $cell0 = new TableCell();
         $cell0->setText("Cell 1");
@@ -96,8 +94,7 @@ class TableTest extends TestBase
 
     public function testDeleteTableRow()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $withAttachedRows = true;
@@ -116,8 +113,7 @@ class TableTest extends TestBase
 
     public function testUpdateTableRow()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $dto = new TableRow();
@@ -138,8 +134,7 @@ class TableTest extends TestBase
 
     public function testMergeTableCells()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
 	$dto = new TableCellMergeOptions();
         $dto->setFirstRowIndex(1);
@@ -163,8 +158,7 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByWidth()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -187,8 +181,7 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByHeight()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -211,8 +204,7 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByColSpan()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 3;
         $cellIndex = 1;
@@ -235,8 +227,7 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByRowSpan()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $cellIndex = 3;
@@ -259,8 +250,7 @@ class TableTest extends TestBase
 
     public function testGetTableCellParagraphs()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -280,8 +270,7 @@ class TableTest extends TestBase
 
     public function testGetTableCellParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -303,8 +292,7 @@ class TableTest extends TestBase
 
     public function testCreateTableCellParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -332,8 +320,7 @@ class TableTest extends TestBase
 
     public function testUpdateTableCellParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -363,8 +350,7 @@ class TableTest extends TestBase
 
     public function testDeleteTableCellParagraph()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -386,8 +372,7 @@ class TableTest extends TestBase
 
     public function testGetTableCellPortions()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -409,8 +394,7 @@ class TableTest extends TestBase
 
     public function testGetTableCellPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -434,8 +418,7 @@ class TableTest extends TestBase
 
     public function testCreateTableCellPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -460,8 +443,7 @@ class TableTest extends TestBase
 
     public function testUpdateTableCellPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -488,8 +470,7 @@ class TableTest extends TestBase
 
     public function testDeleteTableCellPortion()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -511,10 +492,7 @@ class TableTest extends TestBase
         Assert::assertEquals(count($response->getItems()), 1);
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
     public const sourceFileName = "TemplateCV.pptx";
-    public const password = "password";
     public const slideIndex = 9;
     public const shapeIndex = 1;
     public const paragraphIndex = 1;

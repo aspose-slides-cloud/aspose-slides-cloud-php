@@ -31,24 +31,20 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\Section;
 use Aspose\Slides\Cloud\Sdk\Model\Sections;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class SectionTest extends TestBase
 {
-    public function testSectionsGet()
+    public function testGetSections()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->getSections(self::fileName, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
     }
 
-    public function testSectionsPut()
+    public function testSetSections()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Sections();
         $section1 = new Section();
         $section1->setName("Section1");
@@ -62,64 +58,49 @@ class SectionTest extends TestBase
         Assert::assertEquals($dto->getSectionList()[1]->getFirstSlideIndex() - $dto->getSectionList()[0]->getFirstSlideIndex(), count($result->getSectionList()[0]->getSlideList()));
     }
 
-    public function testSectionPost()
+    public function testCreateSection()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->createSection(self::fileName, "NewSection", 5, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount + 1, count($result->getSectionList()));
     }
 
-    public function testSectionPut()
+    public function testUpdateSection()
     {
         $sectionName = "UpdatedSection";
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->updateSection(self::fileName, 2, $sectionName, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
         Assert::assertEquals($sectionName, $result->getSectionList()[1]->getName());
     }
 
-    public function testSectionMove()
+    public function testMoveSection()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->moveSection(self::fileName, 1, 2, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
     }
 
-    public function testSectionsClear()
+    public function testClearSections()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->deleteSections(self::fileName, null, null, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getSectionList()));
     }
 
-    public function testSectionsDelete()
+    public function testDeleteSections()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->deleteSections(self::fileName, [ 2, 3 ], null, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount - 2, count($result->getSectionList()));
     }
 
-    public function testSectionDelete()
+    public function testDeleteSection()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getApi()->deleteSection(self::fileName, 2, null, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount - 1, count($result->getSectionList()));
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
-    public const password = "password";
     public const sectionCount = 3;
 }

@@ -33,14 +33,13 @@ use Aspose\Slides\Cloud\Sdk\Model\ResourceUri;
 use Aspose\Slides\Cloud\Sdk\Model\SlideBackground;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
 use PHPUnit\Framework\Assert;
-use Aspose\Slides\Cloud\Sdk\Tests\Api\TestBase;
+use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class SlideTest extends TestBase
 {
     public function testGetSlides()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slides = $this->getApi()->getSlides(
             self::fileName,
@@ -53,8 +52,7 @@ class SlideTest extends TestBase
 
     public function testGetSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slide = $this->getApi()->getSlide(
             self::fileName,
@@ -68,8 +66,7 @@ class SlideTest extends TestBase
 
     public function testCreateSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slides = $this->getApi()->createSlide(
             self::fileName,
@@ -92,8 +89,7 @@ class SlideTest extends TestBase
 
     public function testCopySlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slides = $this->getApi()->copySlide(
             self::fileName,
@@ -110,9 +106,8 @@ class SlideTest extends TestBase
 
     public function testCopySlideFromSource()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-        $this->getApi()->CopyFile("TempTests/".self::sourceFileName, self::folderName."/".self::sourceFileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->CopyFile(self::tempFolderName."/".self::sourceFileName, self::folderName."/".self::sourceFileName);
 
         $slides = $this->getApi()->copySlide(
             self::fileName,
@@ -129,9 +124,7 @@ class SlideTest extends TestBase
 
     public function testMoveSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
-
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         $slides = $this->getApi()->moveSlide(
             self::fileName,
             self::slideIndex,
@@ -144,8 +137,7 @@ class SlideTest extends TestBase
 
     public function testReorderSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $oldPositions = [1, 2, 3, 4, 5, 6];
         $newPositions = [6, 5, 4, 3, 2, 1];
@@ -162,8 +154,7 @@ class SlideTest extends TestBase
 
     public function testUpdateSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Slide();
         $layoutSlide = new ResourceUri();
@@ -182,8 +173,7 @@ class SlideTest extends TestBase
 
     public function testDeleteSlides()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slides = $this->getApi()->deleteSlides(
             self::fileName,
@@ -195,10 +185,9 @@ class SlideTest extends TestBase
         Assert::assertEquals(1, count($slides->getSlideList()));
     }
 
-    public function testDeleteSlidesIndexes()
+    public function testDeleteSlidesByIndexes()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $indexes = [1, 3, 5];
 
@@ -214,8 +203,7 @@ class SlideTest extends TestBase
 
     public function testDeleteSlide()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slides = $this->getApi()->deleteSlide(
             self::fileName,
@@ -229,8 +217,7 @@ class SlideTest extends TestBase
 
     public function testGetBackground()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $response = $this->getApi()->getBackground(
             self::fileName,
@@ -244,8 +231,7 @@ class SlideTest extends TestBase
 
     public function testSetBackground()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new SlideBackground();
         $fillFormat = new SolidFill();
@@ -266,8 +252,7 @@ class SlideTest extends TestBase
 
     public function testSetBackgroundColor()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->setBackgroundColor(
             self::fileName,
@@ -283,8 +268,7 @@ class SlideTest extends TestBase
 
     public function testDeleteBackground()
     {
-        $this->initialize(null, null, null);
-        $this->getApi()->CopyFile("TempTests/".self::fileName, self::folderName."/".self::fileName);
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
         
         $response = $this->getApi()->deleteBackground(
             self::fileName,
@@ -296,10 +280,7 @@ class SlideTest extends TestBase
         Assert::assertEquals('NoFill', $response->getFillFormat()->getType());
     }
 
-    public const folderName = "TempSlidesSDK";
-    public const fileName = "test.pptx";
     public const sourceFileName = "TemplateCV.pptx";
-    public const password = "password";
     public const slideIndex = 1;
     public const slideCount = 9;
     public const layoutSlidePath = "layoutSlides/3";
