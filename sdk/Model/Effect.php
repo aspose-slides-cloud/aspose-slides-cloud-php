@@ -74,7 +74,10 @@ class Effect implements ArrayAccess
         'triggerDelayTime' => 'double',
         'repeatUntilEndSlide' => 'bool',
         'repeatUntilNextClick' => 'bool',
-        'stopPreviousSound' => 'bool'
+        'stopPreviousSound' => 'bool',
+        'rewind' => 'bool',
+        'afterAnimationType' => 'string',
+        'afterAnimationColor' => 'string'
     ];
 
     /**
@@ -100,7 +103,10 @@ class Effect implements ArrayAccess
         'triggerDelayTime' => 'double',
         'repeatUntilEndSlide' => null,
         'repeatUntilNextClick' => null,
-        'stopPreviousSound' => null
+        'stopPreviousSound' => null,
+        'rewind' => null,
+        'afterAnimationType' => null,
+        'afterAnimationColor' => null
     ];
 
     /**
@@ -147,7 +153,10 @@ class Effect implements ArrayAccess
         'triggerDelayTime' => 'TriggerDelayTime',
         'repeatUntilEndSlide' => 'RepeatUntilEndSlide',
         'repeatUntilNextClick' => 'RepeatUntilNextClick',
-        'stopPreviousSound' => 'StopPreviousSound'
+        'stopPreviousSound' => 'StopPreviousSound',
+        'rewind' => 'Rewind',
+        'afterAnimationType' => 'AfterAnimationType',
+        'afterAnimationColor' => 'AfterAnimationColor'
     ];
 
     /**
@@ -173,7 +182,10 @@ class Effect implements ArrayAccess
         'triggerDelayTime' => 'setTriggerDelayTime',
         'repeatUntilEndSlide' => 'setRepeatUntilEndSlide',
         'repeatUntilNextClick' => 'setRepeatUntilNextClick',
-        'stopPreviousSound' => 'setStopPreviousSound'
+        'stopPreviousSound' => 'setStopPreviousSound',
+        'rewind' => 'setRewind',
+        'afterAnimationType' => 'setAfterAnimationType',
+        'afterAnimationColor' => 'setAfterAnimationColor'
     ];
 
     /**
@@ -199,7 +211,10 @@ class Effect implements ArrayAccess
         'triggerDelayTime' => 'getTriggerDelayTime',
         'repeatUntilEndSlide' => 'getRepeatUntilEndSlide',
         'repeatUntilNextClick' => 'getRepeatUntilNextClick',
-        'stopPreviousSound' => 'getStopPreviousSound'
+        'stopPreviousSound' => 'getStopPreviousSound',
+        'rewind' => 'getRewind',
+        'afterAnimationType' => 'getAfterAnimationType',
+        'afterAnimationColor' => 'getAfterAnimationColor'
     ];
 
     /**
@@ -461,6 +476,10 @@ class Effect implements ArrayAccess
     const RESTART_WHEN_NOT_ACTIVE = 'WhenNotActive';
     const RESTART_NEVER = 'Never';
     const RESTART_NOT_DEFINED = 'NotDefined';
+    const AFTER_ANIMATION_TYPE_DO_NOT_DIM = 'DoNotDim';
+    const AFTER_ANIMATION_TYPE_COLOR = 'Color';
+    const AFTER_ANIMATION_TYPE_HIDE_AFTER_ANIMATION = 'HideAfterAnimation';
+    const AFTER_ANIMATION_TYPE_HIDE_ON_NEXT_MOUSE_CLICK = 'HideOnNextMouseClick';
     
 
     
@@ -737,6 +756,21 @@ class Effect implements ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAfterAnimationTypeAllowableValues()
+    {
+        return [
+            self::AFTER_ANIMATION_TYPE_DO_NOT_DIM,
+            self::AFTER_ANIMATION_TYPE_COLOR,
+            self::AFTER_ANIMATION_TYPE_HIDE_AFTER_ANIMATION,
+            self::AFTER_ANIMATION_TYPE_HIDE_ON_NEXT_MOUSE_CLICK,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -771,6 +805,9 @@ class Effect implements ArrayAccess
         $this->container['repeatUntilEndSlide'] = isset($data['repeatUntilEndSlide']) ? $data['repeatUntilEndSlide'] : null;
         $this->container['repeatUntilNextClick'] = isset($data['repeatUntilNextClick']) ? $data['repeatUntilNextClick'] : null;
         $this->container['stopPreviousSound'] = isset($data['stopPreviousSound']) ? $data['stopPreviousSound'] : null;
+        $this->container['rewind'] = isset($data['rewind']) ? $data['rewind'] : null;
+        $this->container['afterAnimationType'] = isset($data['afterAnimationType']) ? $data['afterAnimationType'] : null;
+        $this->container['afterAnimationColor'] = isset($data['afterAnimationColor']) ? $data['afterAnimationColor'] : null;
         
     }
 
@@ -826,6 +863,14 @@ class Effect implements ArrayAccess
             );
         }
 
+        $allowedValues = $this->getAfterAnimationTypeAllowableValues();
+        if (!in_array($this->container['afterAnimationType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'afterAnimationType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -859,6 +904,10 @@ class Effect implements ArrayAccess
         }
         $allowedValues = $this->getRestartAllowableValues();
         if (!in_array($this->container['restart'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getAfterAnimationTypeAllowableValues();
+        if (!in_array($this->container['afterAnimationType'], $allowedValues)) {
             return false;
         }
         return true;
@@ -1408,6 +1457,101 @@ class Effect implements ArrayAccess
     public function setStopPreviousSound($stopPreviousSound)
     {
         $this->container['stopPreviousSound'] = $stopPreviousSound;
+
+        return $this;
+    }
+
+    /**
+     * Gets rewind
+     *
+     * @return bool
+     */
+    public function getRewind()
+    {
+        return $this->container['rewind'];
+    }
+
+    /**
+     * Sets rewind
+     *
+     * @param bool $rewind This attribute specifies if the effect will rewind when done playing.
+     *
+     * @return $this
+     */
+    public function setRewind($rewind)
+    {
+        $this->container['rewind'] = $rewind;
+
+        return $this;
+    }
+
+    /**
+     * Gets afterAnimationType
+     *
+     * @return string
+     */
+    public function getAfterAnimationType()
+    {
+        return $this->container['afterAnimationType'];
+    }
+
+    /**
+     * Sets afterAnimationType
+     *
+     * @param string $afterAnimationType Defined an after animation color for effect.
+     *
+     * @return $this
+     */
+    public function setAfterAnimationType($afterAnimationType)
+    {
+        $allowedValues = $this->getAfterAnimationTypeAllowableValues();
+
+
+        if (is_numeric($afterAnimationType)) {
+            if ($afterAnimationType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'afterAnimationType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $afterAnimationType = $allowedValues[$afterAnimationType];
+            }
+        } else {
+            if (!is_null($afterAnimationType) && !in_array($afterAnimationType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'afterAnimationType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['afterAnimationType'] = $afterAnimationType;
+
+        return $this;
+    }
+
+    /**
+     * Gets afterAnimationColor
+     *
+     * @return string
+     */
+    public function getAfterAnimationColor()
+    {
+        return $this->container['afterAnimationColor'];
+    }
+
+    /**
+     * Sets afterAnimationColor
+     *
+     * @param string $afterAnimationColor Defined an after animation color for effect. Applied when the AfterAnimationType property is set to Color.
+     *
+     * @return $this
+     */
+    public function setAfterAnimationColor($afterAnimationColor)
+    {
+        $this->container['afterAnimationColor'] = $afterAnimationColor;
 
         return $this;
     }

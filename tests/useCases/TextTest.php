@@ -30,6 +30,8 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
+use Aspose\Slides\Cloud\Sdk\Model\Portion;
+use Aspose\Slides\Cloud\Sdk\Model\PortionFormat;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class TextTest extends TestBase
@@ -75,6 +77,38 @@ class TextTest extends TestBase
         Assert::assertTrue($presentationResultIgnoreCase->isFile());
         Assert::assertTrue($slideResult->isFile());
         Assert::assertTrue($slideResultIgnoreCase->isFile());
+    }
+
+    public function testReplaceTextFormatting()
+    {
+        $oldText = "banana";
+        $newText = "orange";
+        $color = "#FFFFA500";
+        $shapeIndex = 1;
+        $paragraphIndex = 1;
+        $portionIndex = 1;
+
+        $portion = new Portion();
+        $portion->setText($oldText);
+
+        $portionFormat = new PortionFormat();
+        $portionFormat->setFontColor($color);
+
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getApi()->createPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portion, $portionIndex, self::password, self::folderName);
+        $this->getApi()->replaceTextFormatting(self::fileName, $oldText, $newText, $portionFormat, false, self::password, self::folderName);
+        $result = $this->getApi()->getPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, self::password, self::folderName);
+
+        Assert::assertEquals($newText, $result->getText());
+        Assert::assertEquals($color, $result->getFontColor());
+    }
+
+    public function testReplaceTextFormattingOnline()
+    {
+        $portionFormat = new Portionformat();
+        $portionFormat->setFontColor("#FFFFA500");
+        $result = $this->getApi()->replaceTextFormattingOnline(fopen(self::localFilePath, 'r'), "banana", "orange", $portionFormat, false, self::password);
+        Assert::assertTrue($result->isFile());
     }
 
     public function testHighlightShapeText()

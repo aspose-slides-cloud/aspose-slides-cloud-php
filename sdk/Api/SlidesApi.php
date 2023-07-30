@@ -32180,6 +32180,339 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function replaceTextFormatting($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            list($response) = $this->replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->replaceTextFormattingRequest($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\Document', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function replaceTextFormattingAsync($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->replaceTextFormattingAsyncWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function replaceTextFormattingAsyncWithHttpInfo($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
+        $httpRequest = $this->replaceTextFormattingRequest($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'replaceTextFormatting'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  string $$oldValue Text value to be replaced. (required)
+     * @param  string $$newValue Text value to replace with. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $$portionFormat Portion format. (optional)
+     * @param  bool $$withMasters Text replacement includes master slides. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replaceTextFormattingRequest($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling replaceTextFormatting');
+        }
+        // verify the required parameter 'old_value' is set
+        if ($oldValue === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $oldValue when calling replaceTextFormatting');
+        }
+        // verify the required parameter 'new_value' is set
+        if ($newValue === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $newValue when calling replaceTextFormatting');
+        }
+
+        $resourcePath = '/slides/{name}/replaceTextFormatting';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($oldValue !== null) {
+            $queryParams['oldValue'] = ObjectSerializer::toQueryValue($oldValue);
+        }
+        // query params
+        if ($newValue !== null) {
+            $queryParams['newValue'] = ObjectSerializer::toQueryValue($newValue);
+        }
+        // query params
+        if ($withMasters !== null) {
+            $queryParams['withMasters'] = ObjectSerializer::toQueryValue($withMasters);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $_tempBody = [];
+        if (isset($portionFormat)) {
+            array_push($_tempBody, $portionFormat);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function replaceTextFormattingOnline($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
+    {
+        try {
+            list($response) = $this->replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->replaceTextFormattingOnlineRequest($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function replaceTextFormattingOnlineAsync($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
+    {
+        return $this->replaceTextFormattingOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function replaceTextFormattingOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->replaceTextFormattingOnlineRequest($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'replaceTextFormattingOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$oldValue Text value to be replaced. (required)
+     * @param  string $$newValue Text value to replace with. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $$portionFormat Portion format. (optional)
+     * @param  bool $$withMasters Text replacement includes master slides. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replaceTextFormattingOnlineRequest($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling replaceTextFormattingOnline');
+        }
+        // verify the required parameter 'old_value' is set
+        if ($oldValue === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $oldValue when calling replaceTextFormattingOnline');
+        }
+        // verify the required parameter 'new_value' is set
+        if ($newValue === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $newValue when calling replaceTextFormattingOnline');
+        }
+
+        $resourcePath = '/slides/replaceTextFormatting';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($oldValue !== null) {
+            $queryParams['oldValue'] = ObjectSerializer::toQueryValue($oldValue);
+        }
+        // query params
+        if ($newValue !== null) {
+            $queryParams['newValue'] = ObjectSerializer::toQueryValue($newValue);
+        }
+        // query params
+        if ($withMasters !== null) {
+            $queryParams['withMasters'] = ObjectSerializer::toQueryValue($withMasters);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $_tempBody = [];
+        if (isset($portionFormat)) {
+            array_push($_tempBody, $portionFormat);
+        }
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function savePortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
     {
         try {
@@ -41627,7 +41960,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function updateVbaModule($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto = null, $password = null, $folder = null, $storage = null)
+    public function updateVbaModule($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
         try {
             list($response) = $this->updateVbaModuleWithHttpInfo($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
@@ -41641,7 +41974,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateVbaModuleWithHttpInfo($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto = null, $password = null, $folder = null, $storage = null)
+    public function updateVbaModuleWithHttpInfo($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\VbaModule';
         $httpRequest = $this->updateVbaModuleRequest($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
@@ -41671,7 +42004,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateVbaModuleAsync($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto = null, $password = null, $folder = null, $storage = null)
+    public function updateVbaModuleAsync($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
         return $this->updateVbaModuleAsyncWithHttpInfo($name, $moduleIndex, $moduleDto, $password, $folder, $storage)
             ->then(function ($response) {
@@ -41681,7 +42014,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function updateVbaModuleAsyncWithHttpInfo($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto = null, $password = null, $folder = null, $storage = null)
+    public function updateVbaModuleAsyncWithHttpInfo($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\VbaModule';
         $httpRequest = $this->updateVbaModuleRequest($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
@@ -41731,7 +42064,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$moduleIndex The index of the macros module to remove. (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\VbaModule $$moduleDto VBA module DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\VbaModule $$moduleDto VBA module DTO. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -41739,7 +42072,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateVbaModuleRequest($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto = null, $password = null, $folder = null, $storage = null)
+    protected function updateVbaModuleRequest($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -41748,6 +42081,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'module_index' is set
         if ($moduleIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $moduleIndex when calling updateVbaModule');
+        }
+        // verify the required parameter 'module_dto' is set
+        if ($moduleDto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $moduleDto when calling updateVbaModule');
         }
 
         $resourcePath = '/slides/{name}/vbaProject/modules/{moduleIndex}';

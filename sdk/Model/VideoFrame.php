@@ -62,7 +62,9 @@ class VideoFrame extends GeometryShape
         'rewindVideo' => 'bool',
         'volume' => 'string',
         'base64Data' => 'string',
-        'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
+        'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill',
+        'trimFromStart' => 'double',
+        'trimFromEnd' => 'double'
     ];
 
     /**
@@ -78,7 +80,9 @@ class VideoFrame extends GeometryShape
         'rewindVideo' => null,
         'volume' => null,
         'base64Data' => null,
-        'pictureFillFormat' => null
+        'pictureFillFormat' => null,
+        'trimFromStart' => 'double',
+        'trimFromEnd' => 'double'
     ];
 
     /**
@@ -115,7 +119,9 @@ class VideoFrame extends GeometryShape
         'rewindVideo' => 'RewindVideo',
         'volume' => 'Volume',
         'base64Data' => 'Base64Data',
-        'pictureFillFormat' => 'PictureFillFormat'
+        'pictureFillFormat' => 'PictureFillFormat',
+        'trimFromStart' => 'TrimFromStart',
+        'trimFromEnd' => 'TrimFromEnd'
     ];
 
     /**
@@ -131,7 +137,9 @@ class VideoFrame extends GeometryShape
         'rewindVideo' => 'setRewindVideo',
         'volume' => 'setVolume',
         'base64Data' => 'setBase64Data',
-        'pictureFillFormat' => 'setPictureFillFormat'
+        'pictureFillFormat' => 'setPictureFillFormat',
+        'trimFromStart' => 'setTrimFromStart',
+        'trimFromEnd' => 'setTrimFromEnd'
     ];
 
     /**
@@ -147,7 +155,9 @@ class VideoFrame extends GeometryShape
         'rewindVideo' => 'getRewindVideo',
         'volume' => 'getVolume',
         'base64Data' => 'getBase64Data',
-        'pictureFillFormat' => 'getPictureFillFormat'
+        'pictureFillFormat' => 'getPictureFillFormat',
+        'trimFromStart' => 'getTrimFromStart',
+        'trimFromEnd' => 'getTrimFromEnd'
     ];
 
     /**
@@ -256,6 +266,8 @@ class VideoFrame extends GeometryShape
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
+        $this->container['trimFromStart'] = isset($data['trimFromStart']) ? $data['trimFromStart'] : null;
+        $this->container['trimFromEnd'] = isset($data['trimFromEnd']) ? $data['trimFromEnd'] : null;
         $this->container['type'] = 'VideoFrame';
         
     }
@@ -546,6 +558,54 @@ class VideoFrame extends GeometryShape
     public function setPictureFillFormat($pictureFillFormat)
     {
         $this->container['pictureFillFormat'] = $pictureFillFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets trimFromStart
+     *
+     * @return double
+     */
+    public function getTrimFromStart()
+    {
+        return $this->container['trimFromStart'];
+    }
+
+    /**
+     * Sets trimFromStart
+     *
+     * @param double $trimFromStart Trim start [ms]
+     *
+     * @return $this
+     */
+    public function setTrimFromStart($trimFromStart)
+    {
+        $this->container['trimFromStart'] = $trimFromStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets trimFromEnd
+     *
+     * @return double
+     */
+    public function getTrimFromEnd()
+    {
+        return $this->container['trimFromEnd'];
+    }
+
+    /**
+     * Sets trimFromEnd
+     *
+     * @param double $trimFromEnd Trim end [ms]
+     *
+     * @return $this
+     */
+    public function setTrimFromEnd($trimFromEnd)
+    {
+        $this->container['trimFromEnd'] = $trimFromEnd;
 
         return $this;
     }
