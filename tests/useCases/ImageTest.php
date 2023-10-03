@@ -105,7 +105,24 @@ class ImageTest extends TestBase
         Assert::assertNotEquals($image->getSize(), $imagePng->getSize());
     }
 
+    public function testReplaceImage()
+    {
+        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $imageFile = fopen(self::imagePath, 'r');
+        $this->getApi()->replaceImage(self::fileName, self::imageIndex, $imageFile, self::password, self::folderName);
+    }
+
+    public function testReplaceImageRequest()
+    {
+        $file = fopen(self::localFilePath, 'r');
+        $imageFile = fopen(self::imagePath, 'r');
+        $response = $this->getApi()->replaceImageOnline($file, self::imageIndex, $imageFile, self::password);
+        Assert::assertNotNull($response);
+        Assert::assertNotEquals(0, $response->getSize());
+    }
+
     public const format = 'png';
     public const slideIndex = 1;
     public const imageIndex = 1;
+    public const imagePath = self::localFolderName."/watermark.png";
 }

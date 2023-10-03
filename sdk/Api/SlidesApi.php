@@ -5937,7 +5937,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function createSpecialSlideShape($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function createSpecialSlideShape($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         try {
             list($response) = $this->createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
@@ -5951,7 +5951,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->createSpecialSlideShapeRequest($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
@@ -5981,7 +5981,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSpecialSlideShapeAsync($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function createSpecialSlideShapeAsync($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         return $this->createSpecialSlideShapeAsyncWithHttpInfo($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape)
             ->then(function ($response) {
@@ -5991,7 +5991,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function createSpecialSlideShapeAsyncWithHttpInfo($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    public function createSpecialSlideShapeAsyncWithHttpInfo($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\ShapeBase';
         $httpRequest = $this->createSpecialSlideShapeRequest($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
@@ -6042,7 +6042,7 @@ class SlidesApi extends ApiBase
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Parent slide index. (required)
      * @param  string $$slideType Slide type (master, layout or notes). (required)
-     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $$dto Shape DTO. (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $$dto Shape DTO. (required)
      * @param  int $$shapeToClone Optional index for clone shape instead of adding a new one. (optional)
      * @param  int $$position Position of the new shape in the list. Default is at the end of the list. (optional)
      * @param  string $$password Document password. (optional)
@@ -6053,7 +6053,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSpecialSlideShapeRequest($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
+    protected function createSpecialSlideShapeRequest($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -6070,6 +6070,10 @@ class SlidesApi extends ApiBase
         // verify the value of enum parameter 'slideType' is valid
         if (!in_array(strtolower($slideType), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()))) {
             throw new \InvalidArgumentException('Invalid value for format: ' . $slideType . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SpecialSlideType::getAllowableEnumValues()));
+        }
+        // verify the required parameter 'dto' is set
+        if ($dto === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $dto when calling createSpecialSlideShape');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/{slideType}/shapes';
@@ -10701,7 +10705,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deleteProtectionOnline($document, $password)
+    public function deleteProtectionOnline($document, $password = null)
     {
         try {
             list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
@@ -10715,7 +10719,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteProtectionOnlineWithHttpInfo($document, $password)
+    public function deleteProtectionOnlineWithHttpInfo($document, $password = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->deleteProtectionOnlineRequest($document, $password);
@@ -10742,7 +10746,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteProtectionOnlineAsync($document, $password)
+    public function deleteProtectionOnlineAsync($document, $password = null)
     {
         return $this->deleteProtectionOnlineAsyncWithHttpInfo($document, $password)
             ->then(function ($response) {
@@ -10752,7 +10756,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deleteProtectionOnlineAsyncWithHttpInfo($document, $password)
+    public function deleteProtectionOnlineAsyncWithHttpInfo($document, $password = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->deleteProtectionOnlineRequest($document, $password);
@@ -10801,20 +10805,16 @@ class SlidesApi extends ApiBase
      * Create request for operation 'deleteProtectionOnline'
      *
      * @param  \SplFileObject $$document Document data. (required)
-     * @param  string $$password Presentation password. (required)
+     * @param  string $$password Presentation password. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteProtectionOnlineRequest($document, $password)
+    protected function deleteProtectionOnlineRequest($document, $password = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
             throw new \InvalidArgumentException('Missing the required parameter $document when calling deleteProtectionOnline');
-        }
-        // verify the required parameter 'password' is set
-        if ($password === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $password when calling deleteProtectionOnline');
         }
 
         $resourcePath = '/slides/protection/delete';
@@ -31508,6 +31508,271 @@ class SlidesApi extends ApiBase
         $_tempBody = [];
         if (isset($document)) {
             array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function replaceImage($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    {
+        try {
+            $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
+        }
+        catch(RepeatRequestException $ex) {
+            $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
+        } 
+    }
+
+    /**
+     */
+    public function replaceImageWithHttpInfo($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->replaceImageRequest($name, $imageIndex, $image, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function replaceImageAsync($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->replaceImageAsyncWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function replaceImageAsyncWithHttpInfo($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->replaceImageRequest($name, $imageIndex, $image, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'replaceImage'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$imageIndex Image index. (required)
+     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replaceImageRequest($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling replaceImage');
+        }
+        // verify the required parameter 'image_index' is set
+        if ($imageIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $imageIndex when calling replaceImage');
+        }
+
+        $resourcePath = '/slides/{name}/images/{imageIndex}/replace';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "imageIndex", $imageIndex);
+        $_tempBody = [];
+        if (isset($image)) {
+            array_push($_tempBody, $image);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
+    }
+    /**
+     */
+    public function replaceImageOnline($document, $imageIndex, $image = null, $password = null)
+    {
+        try {
+            list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
+            return $response;
+        }
+        catch(RepeatRequestException $ex) {
+            list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
+            return $response;
+        } 
+    }
+
+    /**
+     */
+    public function replaceImageOnlineWithHttpInfo($document, $imageIndex, $image = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->replaceImageOnlineRequest($document, $imageIndex, $image, $password);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function replaceImageOnlineAsync($document, $imageIndex, $image = null, $password = null)
+    {
+        return $this->replaceImageOnlineAsyncWithHttpInfo($document, $imageIndex, $image, $password)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function replaceImageOnlineAsyncWithHttpInfo($document, $imageIndex, $image = null, $password = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->replaceImageOnlineRequest($document, $imageIndex, $image, $password);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'replaceImageOnline'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  int $$imageIndex Image index. (required)
+     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  string $$password Password. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replaceImageOnlineRequest($document, $imageIndex, $image = null, $password = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling replaceImageOnline');
+        }
+        // verify the required parameter 'image_index' is set
+        if ($imageIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $imageIndex when calling replaceImageOnline');
+        }
+
+        $resourcePath = '/slides/images/{imageIndex}/replace';
+        $queryParams = [];
+        $headerParams = [];
+
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "imageIndex", $imageIndex);
+        $_tempBody = [];
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        if (isset($image)) {
+            array_push($_tempBody, $image);
         }
         $this->headerSelector->selectHeaders(
             $headerParams,
