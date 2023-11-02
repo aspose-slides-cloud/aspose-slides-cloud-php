@@ -38,8 +38,8 @@ class ParagraphTest extends TestBase
 {
     public function testGetParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->getParagraph(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->getParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -52,8 +52,8 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->getParagraphs(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->getParagraphs(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -65,20 +65,20 @@ class ParagraphTest extends TestBase
 
     public function testGetSubshapeParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
-        $response = $this->getApi()->getParagraph(self::fileName, self::slideIndex, $shapeIndex, 1, 
+        $response = $this->getSlidesApi()->getParagraph(self::fileName, self::slideIndex, $shapeIndex, 1, 
             self::password, self::folderName, null, $subShape);
         Assert::assertEquals(2, count($response->getPortionList()));
     }
 
     public function testGetSubshapeParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
-        $response = $this->getApi()->getParagraphs(
+        $response = $this->getSlidesApi()->getParagraphs(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -92,14 +92,14 @@ class ParagraphTest extends TestBase
 
     public function testCreateParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
         $dto->setMarginRight(2);
         $dto->setAlignment("Center");
 
-        $response = $this->getApi()->createParagraph(
+        $response = $this->getSlidesApi()->createParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -116,7 +116,7 @@ class ParagraphTest extends TestBase
 
     public function testCreateParagraphWithPortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $portion1Dto = new Portion();
@@ -126,7 +126,7 @@ class ParagraphTest extends TestBase
         $portion2Dto->setFontBold('True');
         $dto->setPortionList([$portion1Dto, $portion2Dto]);
 
-        $response = $this->getApi()->createParagraph(
+        $response = $this->getSlidesApi()->createParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -141,7 +141,7 @@ class ParagraphTest extends TestBase
 
     public function testCreateSubshapeParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -150,7 +150,7 @@ class ParagraphTest extends TestBase
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->createParagraph(
+        $response = $this->getSlidesApi()->createParagraph(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -169,14 +169,14 @@ class ParagraphTest extends TestBase
 
     public function testUpdateParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
         $dto->setMarginRight(2);
         $dto->setAlignment("Center");
 
-        $response = $this->getApi()->updateParagraph(
+        $response = $this->getSlidesApi()->updateParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -193,7 +193,7 @@ class ParagraphTest extends TestBase
 
     public function testUpdateSubshapeParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $dto->setMarginLeft(2);
@@ -202,7 +202,7 @@ class ParagraphTest extends TestBase
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->updateParagraph(
+        $response = $this->getSlidesApi()->updateParagraph(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -221,8 +221,8 @@ class ParagraphTest extends TestBase
 
     public function testDeleteParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->deleteParagraphs(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -235,8 +235,8 @@ class ParagraphTest extends TestBase
 
     public function testDeleteParagraphsByIndexes()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->deleteParagraphs(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -249,11 +249,11 @@ class ParagraphTest extends TestBase
 
     public function testDeleteSubshapeParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->deleteParagraphs(
+        $response = $this->getSlidesApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -268,11 +268,11 @@ class ParagraphTest extends TestBase
 
     public function testDeleteSubshapeParagraphsByIndexes()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->deleteParagraphs(
+        $response = $this->getSlidesApi()->deleteParagraphs(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -287,8 +287,8 @@ class ParagraphTest extends TestBase
 
     public function testDeleteParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->deleteParagraph(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->deleteParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -301,12 +301,12 @@ class ParagraphTest extends TestBase
 
     public function testDeleteSubshapeParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->deleteParagraph(
+        $response = $this->getSlidesApi()->deleteParagraph(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -321,9 +321,9 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphRect()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $response = $this->getApi()->getParagraphRectangle(
+        $response = $this->getSlidesApi()->getParagraphRectangle(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -341,7 +341,7 @@ class ParagraphTest extends TestBase
 
     public function testParagraphDefaultPortionFormat()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Paragraph();
         $defaultPortionFormat = new PortionFormat();
@@ -356,7 +356,7 @@ class ParagraphTest extends TestBase
         $dto->setPortionList([$portion1Dto, $portion2Dto]);
         $dto->setDefaultPortionFormat($defaultPortionFormat);
 
-        $response=$this->getApi()->createParagraph(
+        $response=$this->getSlidesApi()->createParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -380,8 +380,8 @@ class ParagraphTest extends TestBase
 
     public function testGetParagraphEffective()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->getParagraphEffective(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->getParagraphEffective(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -394,10 +394,10 @@ class ParagraphTest extends TestBase
 
     public function testGetSubshapeParagraphEffective()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
-        $response = $this->getApi()->
+        $response = $this->getSlidesApi()->
         getParagraphEffective(self::fileName, self::slideIndex, $shapeIndex, 1, self::password, 
             self::folderName, null, $subShape);
         Assert::assertEquals(72, $response->getDefaultTabSize());

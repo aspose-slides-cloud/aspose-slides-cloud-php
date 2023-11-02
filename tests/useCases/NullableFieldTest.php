@@ -49,7 +49,7 @@ class NullableFieldTest extends TestBase
         $min2 = 12;
         $max1 = 104.3;
         $max2 = 87;
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $testDto = new Chart();
         $testDto->setChartType('Line');
@@ -78,9 +78,9 @@ class NullableFieldTest extends TestBase
         $testAxis->setMaxValue($max1);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->createShape(self::fileName, 1, $testDto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $testDto, null, null, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min1);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -90,9 +90,9 @@ class NullableFieldTest extends TestBase
         $testAxis->setMinValue($min2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max1);
 
@@ -102,9 +102,9 @@ class NullableFieldTest extends TestBase
         $testAxis->setMaxValue($max2);
         $testAxes->setHorizontalAxis($testAxis);
         $testDto->setAxes($testAxes);
-        $result = $this->getApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, 1, 5, $testDto, self::password, self::folderName);
 
-        $result = $this->getApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, 1, 5, self::password, self::folderName);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMinValue() == $min2);
         Assert::assertTrue($result->getAxes()->getHorizontalAxis()->getMaxValue() == $max2);
     }

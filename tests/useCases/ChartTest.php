@@ -55,15 +55,15 @@ class ChartTest extends TestBase
 {
     public function testGetChart()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(count($result->getSeries()) == self::seriesCount);
         Assert::assertTrue(count($result->getCategories()) == self::categoryCount);
     }
 
     public function testCreateChartAutoDataSource()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -93,14 +93,14 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
 
     public function testCreateChartWorkbook()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -165,14 +165,14 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
 
     public function testCreateChartLiterals()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -222,14 +222,14 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
 
     public function testUpdateChart()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -259,14 +259,14 @@ class ChartTest extends TestBase
         $dataPoint23->setValue(90);
         $series2->setDataPoints([ $dataPoint21, $dataPoint22, $dataPoint23 ]);
         $dto->setSeries([ $series1, $series2 ]);
-        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(2, count($result->getSeries()));
         Assert::assertEquals(3, count($result->getCategories()));
     }
 
     public function testCreateChartSeries()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new OneValueSeries();
         $dto->setName("Series1");
@@ -279,14 +279,14 @@ class ChartTest extends TestBase
         $dataPoint4 = new OneValueChartDataPoint();
         $dataPoint4->setValue(70);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
-        $result = $this->getApi()->createChartSeries(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createChartSeries(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount + 1, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
 
     public function testUpdateChartSeries()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new OneValueSeries();
         $dataPoint1 = new OneValueChartDataPoint();
@@ -298,23 +298,23 @@ class ChartTest extends TestBase
         $dataPoint4 = new OneValueChartDataPoint();
         $dataPoint4->setValue(70);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
-        $result = $this->getApi()->updateChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
 
     public function testDeleteChartSeries()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $result = $this->getApi()->deleteChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->deleteChartSeries(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount - 1, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
     }
 
     public function testCreateChartCategory()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new ChartCategory();
         $dto->setValue("NewCategory");
@@ -325,7 +325,7 @@ class ChartTest extends TestBase
         $dataPoint3 = new OneValueChartDataPoint();
         $dataPoint3->setValue(14);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3 ]);
-        $result = $this->getApi()->createChartCategory(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createChartCategory(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount + 1, count($result->getCategories()));
         Assert::assertEquals($dto->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryCount]->getValue());
@@ -333,7 +333,7 @@ class ChartTest extends TestBase
 
     public function testUpdateChartCategory()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new ChartCategory();
         $dto->setValue("NewCategory");
@@ -344,7 +344,7 @@ class ChartTest extends TestBase
         $dataPoint3 = new OneValueChartDataPoint();
         $dataPoint3->setValue(14);
         $dto->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3 ]);
-        $result = $this->getApi()->updateChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
         Assert::assertEquals($dto->getDataPoints()[0]->getValue(), $result->getSeries()[0]->getDataPoints()[self::categoryIndex - 1]->getValue());
@@ -352,34 +352,35 @@ class ChartTest extends TestBase
 
     public function testDeleteChartCategory()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $result = $this->getApi()->deleteChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->deleteChartCategory(self::fileName, self::slideIndex, self::shapeIndex, self::categoryIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount - 1, count($result->getCategories()));
     }
 
     public function testCreateChartDataPoint()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new OneValueChartDataPoint();
         $dto->setValue(40);
         try {
-            $this->getApi()->createChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
+            $this->getSlidesApi()->createChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, $dto, self::password, self::folderName);
             Assert::fail("Must have failed");
         } catch (ApiException $ex) {
             //Must throw ApiException because adding data points only works with Scatter & Bubble charts.
+            Assert::assertNotNull($ex);
         }
     }
 
     public function testUpdateChartDataPoint()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new OneValueChartDataPoint();
         $dto->setValue(40);
-        $result = $this->getApi()->updateChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
         Assert::assertEquals(self::categoryCount, count($result->getSeries()[0]->getDataPoints()));
@@ -388,9 +389,9 @@ class ChartTest extends TestBase
 
     public function testDeleteChartDataPoint()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $result = $this->getApi()->deleteChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->deleteChartDataPoint(self::fileName, self::slideIndex, self::shapeIndex, self::seriesIndex, self::categoryIndex, self::password, self::folderName);
         Assert::assertEquals(self::seriesCount, count($result->getSeries()));
         Assert::assertEquals(self::categoryCount, count($result->getCategories()));
         Assert::assertTrue($result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::categoryIndex - 1] == null);
@@ -398,7 +399,7 @@ class ChartTest extends TestBase
 
     public function testSunburstChart()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('Sunburst');
@@ -428,14 +429,14 @@ class ChartTest extends TestBase
         $dataPoint4->setValue(80);
         $series1->setDataPoints([ $dataPoint1, $dataPoint2, $dataPoint3, $dataPoint4 ]);
         $dto->setSeries([ $series1 ]);
-        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals(1, count($result->getSeries()));
         Assert::assertEquals(4, count($result->getCategories()));
     }
 
     public function testMultiLevelChartCategory()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Chart();
         $dto->setX(100);
@@ -495,7 +496,7 @@ class ChartTest extends TestBase
 
         $dto->setCategories([$category1, $category2, $category3, $category4, $category5, $category6, $category7, $category8]);
 
-        $result = $this->getApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, self::slideIndex, $dto, null, null, self::password, self::folderName);
 
         Assert::assertEquals(1, count($result->getSeries()));
         Assert::assertEquals(8, count($result->getCategories()));
@@ -505,19 +506,19 @@ class ChartTest extends TestBase
 
     public function testHideChartLegend()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
-        $chart = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $chart = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         $chart->getLegend()->setHasLegend(false);
-        $chart = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
+        $chart = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
     
-        Assert::isFalse($chart->getLegend()->getHasLegend());
+        Assert::assertFalse($chart->getLegend()->getHasLegend());
     }
 
     public function testChartAxisGridLineFormat()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $chart = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $chart = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         
         $axes = new Axes();
 
@@ -554,7 +555,7 @@ class ChartTest extends TestBase
         
         $chart->setAxes($axes);
 
-        $chart = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
+        $chart = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $chart, self::password, self::folderName);
         
         $fillType = $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLineFormat()->getFillFormat()->getType();
         Assert::assertEquals($fillType, "NoFill");
@@ -568,19 +569,19 @@ class ChartTest extends TestBase
 
     public function testChartSeriesGroups()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(count($result->getSeriesGroups()), 1);
         $result->getSeriesGroups()[0]->setOverlap(10);
-        $result = $this->getApi()->setChartSeriesGroup(self::fileName, self::slideIndex, self::shapeIndex,
+        $result = $this->getSlidesApi()->setChartSeriesGroup(self::fileName, self::slideIndex, self::shapeIndex,
             self::seriesGroupIndex, $result->getSeriesGroups()[0], self::password, self::folderName);
         Assert::assertEquals($result->getSeriesGroups()[0]->getOverlap(), 10);
     }
 
     public function testSetChartLegend()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $legend = new Legend();
         $legend->setOverlay(true);
@@ -588,7 +589,7 @@ class ChartTest extends TestBase
         $fillFormat->setColor(self::color); 
         $legend->setFillFormat($fillFormat);
 
-        $result = $this->getApi()->setChartLegend(self::fileName, self::slideIndex, self::shapeIndex,
+        $result = $this->getSlidesApi()->setChartLegend(self::fileName, self::slideIndex, self::shapeIndex,
             $legend, self::password, self::folderName);
         
         Assert::assertTrue($result->getOverlay());
@@ -597,14 +598,14 @@ class ChartTest extends TestBase
 
     public function testSetChartAxis()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $axis = new Axis();
         $axis->setHasTitle(true);
         $axis->setIsAutomaticMaxValue(false);
         $axis->setMaxValue(10);
 
-        $result = $this->getApi()->setChartAxis(self::fileName, self::slideIndex, self::shapeIndex,
+        $result = $this->getSlidesApi()->setChartAxis(self::fileName, self::slideIndex, self::shapeIndex,
             "VerticalAxis", $axis, self::password, self::folderName);
         
         Assert::assertTrue($result->getHasTitle());
@@ -614,7 +615,7 @@ class ChartTest extends TestBase
 
     public function testSetChartWall()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $slideIdx = 8;
         $shapeIdx = 2;
@@ -623,7 +624,7 @@ class ChartTest extends TestBase
         $fillFormat->setColor(self::color); 
         $wall->setFillFormat($fillFormat);
 
-        $result = $this->getApi()->setChartWall(self::fileName, $slideIdx, $shapeIdx,
+        $result = $this->getSlidesApi()->setChartWall(self::fileName, $slideIdx, $shapeIdx,
             "BackWall", $wall, self::password, self::folderName);
         
         Assert::assertEquals($result->getFillFormat()->getType(), "Solid");
@@ -631,7 +632,7 @@ class ChartTest extends TestBase
 
     public function testUpdateDataPointFormat()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $slideIdx = 8;
         $shapeIdx = 2;
         
@@ -652,7 +653,7 @@ class ChartTest extends TestBase
         $effectFormat->setBlur($blur);
         $dto->setEffectFormat($effectFormat);
 
-        $result = $this->getApi()->updateChartDataPoint(self::fileName, $slideIdx, $shapeIdx, self::seriesIndex,
+        $result = $this->getSlidesApi()->updateChartDataPoint(self::fileName, $slideIdx, $shapeIdx, self::seriesIndex,
             self::dataPointIndex, $dto, self::password, self::folderName);
         $dataPoint = $result->getSeries()[self::seriesIndex - 1]->getDataPoints()[self::dataPointIndex - 1];
         Assert::assertEquals($dataPoint->getFillFormat()->getType(), "Solid");
@@ -662,7 +663,7 @@ class ChartTest extends TestBase
 
     public function testChartWorkbookFormulas()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Chart();
         $dto->setChartType('ClusteredColumn');
@@ -706,7 +707,7 @@ class ChartTest extends TestBase
         $series1->setDataPoints([ $dataPoint11, $dataPoint12, $dataPoint13 ]);
 
         $dto->setSeries([ $series1 ]);
-        $result = $this->getApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createShape(self::fileName, 1, $dto, null, null, self::password, self::folderName);
         $dataPoint = $result->getSeries()[0]->getDataPoints()[2];
         Assert::assertEquals(90, $dataPoint->getValue());
     }

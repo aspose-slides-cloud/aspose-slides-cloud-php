@@ -39,40 +39,42 @@ class MergeTest extends TestBase
 {
     public function testMerge()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
-        $this->getApi()->copyFile(self::tempFolderName."/".self::fileNamePdf, self::folderName."/".self::fileNamePdf);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".self::fileNamePdf, self::folderName."/".self::fileNamePdf);
 
         $request = new PresentationsMergeRequest();
         $request->setPresentationPaths([ self::folderName."/".self::fileName2, self::folderName."/".self::fileNamePdf ]);
-        $result = $this->getApi()->merge(self::fileName, $request, self::password, self::folderName);
+        $result = $this->getSlidesApi()->merge(self::fileName, $request, self::password, self::folderName);
+        Assert::assertNotNull($result);
     }
 
     public function testOrderedMerge()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
 
         $request = new OrderedMergeRequest();
         $presentation = new PresentationToMerge();
         $presentation->setPath(self::folderName."/".self::fileName2);
         $presentation->setSlides([ 2, 1 ]);
         $request->setPresentations([ $presentation ]);
-        $result = $this->getApi()->orderedMerge(self::fileName, $request, self::password, self::folderName);
+        $result = $this->getSlidesApi()->orderedMerge(self::fileName, $request, self::password, self::folderName);
+        Assert::assertNotNull($result);
     }
 
     public function testMergeOnline()
     {
         $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
-        $result = $this->getApi()->mergeOnline($files);
+        $result = $this->getSlidesApi()->mergeOnline($files);
         Assert::assertTrue($result->isFile());
     }
 
     public function testMergeAndSaveOnline()
     {
         $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
-        $this->getApi()->mergeAndSaveOnline(self::outPath, $files);
-        $result = $this->getApi()->objectExists(self::outPath);
+        $this->getSlidesApi()->mergeAndSaveOnline(self::outPath, $files);
+        $result = $this->getSlidesApi()->objectExists(self::outPath);
         Assert::assertTrue($result->getExists());
     }
 
@@ -87,13 +89,13 @@ class MergeTest extends TestBase
         $presentation2->setPath(self::fileName2);
         $presentation2->setSlides([ 1, 2 ]);
         $request->setPresentations([ $presentation1, $presentation2 ]);
-        $result = $this->getApi()->mergeOnline($files, $request);
+        $result = $this->getSlidesApi()->mergeOnline($files, $request);
         Assert::assertTrue($result->isFile());
     }
 
     public function testMergeOnlineCombined()
     {
-        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".self::fileName2, self::folderName."/".self::fileName2);
 
         $files = [ fopen(self::localFilePath, 'r') ];
         $request = new OrderedMergeRequest();
@@ -105,13 +107,13 @@ class MergeTest extends TestBase
         $presentation2->setSource("Storage");
         $presentation2->setPath(self::folderName."/".self::fileName2);
         $request->setPresentations([ $presentation1, $presentation2 ]);
-        $result = $this->getApi()->mergeOnline($files, $request);
+        $result = $this->getSlidesApi()->mergeOnline($files, $request);
         Assert::assertTrue($result->isFile());
     }
 
     public function testMergeOnlineUrl()
     {
-        $this->getApi()->copyFile(self::tempFolderName."/".self::fileName, self::folderName."/".self::fileName);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".self::fileName, self::folderName."/".self::fileName);
         
         $request = new OrderedMergeRequest();
         $presentation1 = new PresentationToMerge();
@@ -125,7 +127,7 @@ class MergeTest extends TestBase
         $presentation2->setSlides([ 1 ]);
         $request->setPresentations([ $presentation1, $presentation2 ]);
 
-        $result = $this->getApi()->mergeOnline(null, $request);
+        $result = $this->getSlidesApi()->mergeOnline(null, $request);
         Assert::assertTrue($result->isFile());
     }
 

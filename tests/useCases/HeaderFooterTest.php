@@ -37,43 +37,43 @@ class HeaderFooterTest extends TestBase
 {
     public function testSlidesFooter()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new HeaderFooter();
         $dto->setIsFooterVisible(true);
         $dto->setFooterText("footer");
         $dto->setIsDateTimeVisible(false);
-        $this->getApi()->setPresentationHeaderFooter(self::fileName, $dto, self::password, self::folderName);
-        $result = $this->getApi()->getSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
+        $this->getSlidesApi()->setPresentationHeaderFooter(self::fileName, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertTrue($result->getIsFooterVisible());
         Assert::assertFalse($result->getIsDateTimeVisible());
     }
 
     public function testSlideFooter()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new HeaderFooter();
         $dto->setIsFooterVisible(true);
         $dto->setFooterText("footer");
         $dto->setIsDateTimeVisible(false);
-        $putResult = $this->getApi()->setSlideHeaderFooter(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        $putResult = $this->getSlidesApi()->setSlideHeaderFooter(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
         Assert::assertTrue($putResult->getIsFooterVisible());
         Assert::assertFalse($putResult->getIsDateTimeVisible());
-        $getResult = $this->getApi()->getSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
+        $getResult = $this->getSlidesApi()->getSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertTrue($getResult->getIsFooterVisible());
         Assert::assertFalse($getResult->getIsDateTimeVisible());
     }
 
     public function testNotesSlideFooter()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new NotesSlideHeaderFooter();
         $dto->setIsHeaderVisible(true);
         $dto->setHeaderText("header");
         $dto->setIsDateTimeVisible(false);
-        $putResult = $this->getApi()->setNotesSlideHeaderFooter(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        $putResult = $this->getSlidesApi()->setNotesSlideHeaderFooter(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
         Assert::assertTrue($putResult->getIsHeaderVisible());
         Assert::assertFalse($putResult->getIsDateTimeVisible());
-        $getResult = $this->getApi()->getNotesSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
+        $getResult = $this->getSlidesApi()->getNotesSlideHeaderFooter(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertTrue($getResult->getIsHeaderVisible());
         Assert::assertFalse($getResult->getIsDateTimeVisible());
     }

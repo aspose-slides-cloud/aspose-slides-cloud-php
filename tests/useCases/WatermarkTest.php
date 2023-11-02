@@ -39,56 +39,56 @@ class WatermarkTest extends TestBase
 {
     public function testWatermarkTextStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
-        $this->getApi()->createWatermark(self::fileName, null, null, self::watermarkText, null, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount + 1, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
-        $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
+        $shapeCount = count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
+        $this->getSlidesApi()->createWatermark(self::fileName, null, null, self::watermarkText, null, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount + 1, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $shape = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
         Assert::assertEquals(self::watermarkText, $shape->getText());
         Assert::assertEquals(self::watermarkName, $shape->getName());
 
-        $this->getApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $this->getSlidesApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
     }
 
     public function testWatermarkTextDtoStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
+        $shapeCount = count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $dto = new Shape();
         $dto->setText(self::watermarkText);
-        $this->getApi()->createWatermark(self::fileName, $dto, null, null, null, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount + 1, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
-        $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
+        $this->getSlidesApi()->createWatermark(self::fileName, $dto, null, null, null, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount + 1, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $shape = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
         Assert::assertEquals(self::watermarkText, $shape->getText());
         Assert::assertEquals(self::watermarkName, $shape->getName());
 
-        $this->getApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $this->getSlidesApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
     }
 
     public function testWatermarkImageStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
+        $shapeCount = count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $watermarkFile = fopen(self::watermarkPath, 'r');
-        $this->getApi()->createImageWatermark(self::fileName, $watermarkFile, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount + 1, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
-        $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
+        $this->getSlidesApi()->createImageWatermark(self::fileName, $watermarkFile, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount + 1, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $shape = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
         Assert::assertEquals(self::watermarkName, $shape->getName());
 
-        $this->getApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
-        Assert::assertEquals($shapeCount, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $this->getSlidesApi()->deleteWatermark(self::fileName, null, self::password, self::folderName);
+        Assert::assertEquals($shapeCount, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
     }
 
     public function testWatermarkImageDtoStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $shapeCount = count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
+        $shapeCount = count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks());
         $dto = new PictureFrame();
         $fillFormat = new PictureFill();
         $watermarkData = base64_encode(file_get_contents(self::watermarkPath));
@@ -96,20 +96,20 @@ class WatermarkTest extends TestBase
         $dto->setFillFormat($fillFormat);
         $watermarkName = "myWatermark";
         $dto->setName($watermarkName);
-        $this->getApi()->createImageWatermark(self::fileName, null, $dto, self::password, self::folderName);
-        Assert::assertEquals($shapeCount + 1, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
-        $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
+        $this->getSlidesApi()->createImageWatermark(self::fileName, null, $dto, self::password, self::folderName);
+        Assert::assertEquals($shapeCount + 1, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $shape = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, $shapeCount + 1, self::password, self::folderName);
         Assert::assertEquals($watermarkName, $shape->getName());
 
-        $this->getApi()->deleteWatermark(self::fileName, $watermarkName, self::password, self::folderName);
-        Assert::assertEquals($shapeCount, count($this->getApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
+        $this->getSlidesApi()->deleteWatermark(self::fileName, $watermarkName, self::password, self::folderName);
+        Assert::assertEquals($shapeCount, count($this->getSlidesApi()->getShapes(self::fileName, self::slideIndex, self::password, self::folderName)->getShapesLinks()));
     }
 
     public function testWatermarkTextRequest()
     {
         $file = fopen(self::localFilePath, 'r');
-        $fileWithWatermarks = $this->getApi()->createWatermarkOnline($file, null, null, self::watermarkText, null, null, self::password);
-        $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
+        $fileWithWatermarks = $this->getSlidesApi()->createWatermarkOnline($file, null, null, self::watermarkText, null, null, self::password);
+        $fileWithNoWatermarks = $this->getSlidesApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
         Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
@@ -119,8 +119,8 @@ class WatermarkTest extends TestBase
         $file = fopen(self::localFilePath, 'r');
         $dto = new Shape();
         $dto->setText(self::watermarkText);
-        $fileWithWatermarks = $this->getApi()->createWatermarkOnline($file, $dto, null, null, null, null, self::password);
-        $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
+        $fileWithWatermarks = $this->getSlidesApi()->createWatermarkOnline($file, $dto, null, null, null, null, self::password);
+        $fileWithNoWatermarks = $this->getSlidesApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
         Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
@@ -129,8 +129,8 @@ class WatermarkTest extends TestBase
     {
         $file = fopen(self::localFilePath, 'r');
         $watermarkFile = fopen(self::watermarkPath, 'r');
-        $fileWithWatermarks = $this->getApi()->createImageWatermarkOnline($file, $watermarkFile, null, self::password);
-        $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
+        $fileWithWatermarks = $this->getSlidesApi()->createImageWatermarkOnline($file, $watermarkFile, null, self::password);
+        $fileWithNoWatermarks = $this->getSlidesApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
         Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }
@@ -143,8 +143,8 @@ class WatermarkTest extends TestBase
         $watermarkData = base64_encode(file_get_contents(self::watermarkPath));
         $fillFormat->setBase64Data($watermarkData);
         $dto->setFillFormat($fillFormat);
-        $fileWithWatermarks = $this->getApi()->createImageWatermarkOnline($file, null, $dto, self::password);
-        $fileWithNoWatermarks = $this->getApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
+        $fileWithWatermarks = $this->getSlidesApi()->createImageWatermarkOnline($file, null, $dto, self::password);
+        $fileWithNoWatermarks = $this->getSlidesApi()->deleteWatermarkOnline(fopen($fileWithWatermarks->getPathname(), 'r'), null, self::password);
         Assert::assertNotEquals(filesize(self::localFilePath), $fileWithWatermarks->getSize());
         Assert::assertTrue($fileWithWatermarks->getSize() > $fileWithNoWatermarks->getSize());
     }

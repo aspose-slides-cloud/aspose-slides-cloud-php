@@ -376,6 +376,7 @@ class ClassHierarchy
             'OleObjectFrame' => ['Type' => 'OleObjectFrame',],
             'OneValueChartDataPoint' => ['Type' => 'OneValue',],
             'OneValueSeries' => ['DataPointType' => 'OneValue',],
+            'Operation' => [],
             'OrderedMergeRequest' => [],
             'OuterShadowEffect' => [],
             'OutputFile' => [],

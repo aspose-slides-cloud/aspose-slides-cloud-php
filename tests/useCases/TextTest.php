@@ -38,11 +38,11 @@ class TextTest extends TestBase
 {
     public function testTextGet()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $presentationItems = $this->getApi()->getPresentationTextItems(self::fileName, null, self::password, self::folderName);
-        $presentationItemsWithEmpty = $this->getApi()->getPresentationTextItems(self::fileName, true, self::password, self::folderName);
-        $slideItems = $this->getApi()->getSlideTextItems(self::fileName, self::slideIndex, null, self::password, self::folderName);
-        $slideItemsWithEmpty = $this->getApi()->getSlideTextItems(self::fileName, self::slideIndex, true, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $presentationItems = $this->getSlidesApi()->getPresentationTextItems(self::fileName, null, self::password, self::folderName);
+        $presentationItemsWithEmpty = $this->getSlidesApi()->getPresentationTextItems(self::fileName, true, self::password, self::folderName);
+        $slideItems = $this->getSlidesApi()->getSlideTextItems(self::fileName, self::slideIndex, null, self::password, self::folderName);
+        $slideItemsWithEmpty = $this->getSlidesApi()->getSlideTextItems(self::fileName, self::slideIndex, true, self::password, self::folderName);
         Assert::assertTrue(count($presentationItemsWithEmpty->getItems()) > count($presentationItems->getItems()));
         Assert::assertTrue(count($presentationItems->getItems()) > count($slideItems->getItems()));
         Assert::assertTrue(count($slideItemsWithEmpty->getItems()) > count($slideItems->getItems()));
@@ -50,17 +50,17 @@ class TextTest extends TestBase
 
     public function testTextReplaceStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $presentationResult = $this->getApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, null, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $presentationResult = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, null, self::password, self::folderName);
 
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $presentationResultIgnoreCase = $this->getApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, self::password, self::folderName);
 
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $slideResult = $this->getApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, null, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $slideResult = $this->getSlidesApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, null, self::password, self::folderName);
 
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $slideResultIgnoreCase = $this->getApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, true, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $slideResultIgnoreCase = $this->getSlidesApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, true, self::password, self::folderName);
 
         Assert::assertTrue($presentationResultIgnoreCase->getMatches() > $presentationResult->getMatches());
         Assert::assertTrue($presentationResult->getMatches() > $slideResult->getMatches());
@@ -69,10 +69,10 @@ class TextTest extends TestBase
 
     public function testTextReplaceRequest()
     {
-        $presentationResult = $this->getApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, null, self::password);
-        $presentationResultIgnoreCase = $this->getApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, true, self::password);
-        $slideResult = $this->getApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, null, self::password);
-        $slideResultIgnoreCase = $this->getApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, true, self::password);
+        $presentationResult = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, null, self::password);
+        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, true, self::password);
+        $slideResult = $this->getSlidesApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, null, self::password);
+        $slideResultIgnoreCase = $this->getSlidesApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, true, self::password);
         Assert::assertTrue($presentationResult->isFile());
         Assert::assertTrue($presentationResultIgnoreCase->isFile());
         Assert::assertTrue($slideResult->isFile());
@@ -94,10 +94,10 @@ class TextTest extends TestBase
         $portionFormat = new PortionFormat();
         $portionFormat->setFontColor($color);
 
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getApi()->createPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portion, $portionIndex, self::password, self::folderName);
-        $this->getApi()->replaceTextFormatting(self::fileName, $oldText, $newText, $portionFormat, false, self::password, self::folderName);
-        $result = $this->getApi()->getPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->createPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portion, $portionIndex, self::password, self::folderName);
+        $this->getSlidesApi()->replaceTextFormatting(self::fileName, $oldText, $newText, $portionFormat, false, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getPortion(self::fileName, self::slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, self::password, self::folderName);
 
         Assert::assertEquals($newText, $result->getText());
         Assert::assertEquals($color, $result->getFontColor());
@@ -107,19 +107,19 @@ class TextTest extends TestBase
     {
         $portionFormat = new Portionformat();
         $portionFormat->setFontColor("#FFFFA500");
-        $result = $this->getApi()->replaceTextFormattingOnline(fopen(self::localFilePath, 'r'), "banana", "orange", $portionFormat, false, self::password);
+        $result = $this->getSlidesApi()->replaceTextFormattingOnline(fopen(self::localFilePath, 'r'), "banana", "orange", $portionFormat, false, self::password);
         Assert::assertTrue($result->isFile());
     }
 
     public function testHighlightShapeText()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 1;
         $slideIndex = 6;
         $paragraphIndex = 1;
 
-        $this->getApi()->highlightShapeText(
+        $this->getSlidesApi()->highlightShapeText(
             self::fileName,
             $slideIndex,
             $shapeIndex,
@@ -131,7 +131,7 @@ class TextTest extends TestBase
             self::folderName
         );
 
-        $para = $this->getApi()->getParagraph(
+        $para = $this->getSlidesApi()->getParagraph(
             self::fileName,
             $slideIndex,
             $shapeIndex,
@@ -147,13 +147,13 @@ class TextTest extends TestBase
 
     public function testHighlightShapeRegex()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 1;
         $slideIndex = 6;
         $paragraphIndex = 1;
 
-        $this->getApi()->highlightShapeRegex(
+        $this->getSlidesApi()->highlightShapeRegex(
             self::fileName,
             $slideIndex,
             $shapeIndex,
@@ -165,7 +165,7 @@ class TextTest extends TestBase
             self::folderName
         );
 
-        $para = $this->getApi()->getParagraph(
+        $para = $this->getSlidesApi()->getParagraph(
             self::fileName,
             $slideIndex,
             $shapeIndex,

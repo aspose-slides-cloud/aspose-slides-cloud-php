@@ -43,28 +43,28 @@ class LayoutSlideTest extends TestBase
     {
         $sourceFile = "TemplateCV.pptx";
         $sourcePath = self::folderName."/".$sourceFile;
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getApi()->CopyFile(self::tempFolderName."/".$sourceFile, $sourcePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFolderName."/".$sourceFile, $sourcePath);
 
-        $layoutSlides = $this->getApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
+        $layoutSlides = $this->getSlidesApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(11, count($layoutSlides->getSlideList()));
 
-        $layoutSlide = $this->getApi()->GetLayoutSlide(self::fileName, 1, self::password, self::folderName);
+        $layoutSlide = $this->getSlidesApi()->GetLayoutSlide(self::fileName, 1, self::password, self::folderName);
         Assert::assertEquals("Title Slide", $layoutSlide->getName());
 
-        $layoutSlide = $this->getApi()->CopyLayoutSlide(
+        $layoutSlide = $this->getSlidesApi()->CopyLayoutSlide(
             self::fileName, $sourcePath, 2, null, null, self::password, self::folderName);
         Assert::assertEquals("Title and Content", $layoutSlide->getName());
 
-        $layoutSlides = $this->getApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
+        $layoutSlides = $this->getSlidesApi()->GetLayoutSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(12, count($layoutSlides->getSlideList()));
     }
 
     public function testLayoutSlideShapes()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $shapes = $this->getApi()->GetSpecialSlideShapes(
+        $shapes = $this->getSlidesApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount, count($shapes->getShapesLinks()));
 
@@ -76,33 +76,33 @@ class LayoutSlideTest extends TestBase
         $dto->setShapeType("Rectangle");
         $dto->setText("New shape");
 
-        $shape = $this->getApi()->CreateSpecialSlideShape(
+        $shape = $this->getSlidesApi()->CreateSpecialSlideShape(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, $dto, null, null, self::password, self::folderName);
         Assert::assertEquals($dto->getText(), $shape->getText());
-        $shapes = $this->getApi()->GetSpecialSlideShapes(
+        $shapes = $this->getSlidesApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount + 1, count($shapes->getShapesLinks()));
         Assert::assertEquals($dto->getText(), $shape->getText());
 
         $dto->setText("Updated shape");
-        $shape = $this->getApi()->UpdateSpecialSlideShape(
+        $shape = $this->getSlidesApi()->UpdateSpecialSlideShape(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeCount + 1, $dto, self::password, self::folderName);
-        $shapes = $this->getApi()->GetSpecialSlideShapes(
+        $shapes = $this->getSlidesApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount + 1, count($shapes->getShapesLinks()));
 
-        $shape = $this->getApi()->DeleteSpecialSlideShape(
+        $shape = $this->getSlidesApi()->DeleteSpecialSlideShape(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeCount + 1, self::password, self::folderName);
-        $shapes = $this->getApi()->GetSpecialSlideShapes(
+        $shapes = $this->getSlidesApi()->GetSpecialSlideShapes(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(self::shapeCount, count($shapes->getShapesLinks()));
     }
 
     public function testLayoutSlideParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
+        $paragraphs = $this->getSlidesApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount, count($paragraphs->getParagraphLinks()));
 
@@ -111,7 +111,7 @@ class LayoutSlideTest extends TestBase
         $portion = new Portion();
         $portion->setText("New paragraph");
         $dto->setPortionList([ $portion ]);
-        $paragraph = $this->getApi()->CreateSpecialSlideParagraph(
+        $paragraph = $this->getSlidesApi()->CreateSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -121,13 +121,13 @@ class LayoutSlideTest extends TestBase
             self::password,
             self::folderName);
         Assert::assertEquals($dto->getAlignment(), $paragraph->getAlignment());
-        $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
+        $paragraphs = $this->getSlidesApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount + 1, count($paragraphs->getParagraphLinks()));
 
         $dto = new Paragraph();
         $dto->setAlignment("Center");
-        $paragraph = $this->getApi()->UpdateSpecialSlideParagraph(
+        $paragraph = $this->getSlidesApi()->UpdateSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -137,11 +137,11 @@ class LayoutSlideTest extends TestBase
             self::password,
             self::folderName);
         Assert::assertEquals($dto->getAlignment(), $paragraph->getAlignment());
-        $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
+        $paragraphs = $this->getSlidesApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount + 1, count($paragraphs->getParagraphLinks()));
 
-        $this->getApi()->DeleteSpecialSlideParagraph(
+        $this->getSlidesApi()->DeleteSpecialSlideParagraph(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -149,16 +149,16 @@ class LayoutSlideTest extends TestBase
             self::paragraphCount + 1,
             self::password,
             self::folderName);
-        $paragraphs = $this->getApi()->GetSpecialSlideParagraphs(
+        $paragraphs = $this->getSlidesApi()->GetSpecialSlideParagraphs(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(self::paragraphCount, count($paragraphs->getParagraphLinks()));
     }
 
     public function testLayoutSlidePortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $portions = $this->getApi()->GetSpecialSlidePortions(
+        $portions = $this->getSlidesApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -171,7 +171,7 @@ class LayoutSlideTest extends TestBase
         $dto = new Portion();
         $dto->setFontBold("True");
         $dto->setText("New portion");
-        $portion = $this->getApi()->CreateSpecialSlidePortion(
+        $portion = $this->getSlidesApi()->CreateSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -183,7 +183,7 @@ class LayoutSlideTest extends TestBase
             self::folderName);
         Assert::assertEquals($dto->getFontBold(), $portion->getFontBold());
         Assert::assertEquals($dto->getText(), $portion->getText());
-        $portions = $this->getApi()->GetSpecialSlidePortions(
+        $portions = $this->getSlidesApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -196,7 +196,7 @@ class LayoutSlideTest extends TestBase
         $dto2 = new Portion();
         $dto2->setFontHeight(22);
         $dto2->setText("Updated portion");
-        $portion = $this->getApi()->UpdateSpecialSlidePortion(
+        $portion = $this->getSlidesApi()->UpdateSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -209,7 +209,7 @@ class LayoutSlideTest extends TestBase
         Assert::assertEquals($dto->getFontBold(), $portion->getFontBold());
         Assert::assertEquals($dto2->getFontHeight(), $portion->getFontHeight());
         Assert::assertEquals($dto2->getText(), $portion->getText());
-        $portions = $this->getApi()->GetSpecialSlidePortions(
+        $portions = $this->getSlidesApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -219,7 +219,7 @@ class LayoutSlideTest extends TestBase
             self::folderName);
         Assert::assertEquals(self::portionCount + 1, count($portions->getItems()));
 
-        $this->getApi()->DeleteSpecialSlidePortion(
+        $this->getSlidesApi()->DeleteSpecialSlidePortion(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -228,7 +228,7 @@ class LayoutSlideTest extends TestBase
             self::portionCount + 1,
             self::password,
             self::folderName);
-        $portions = $this->getApi()->GetSpecialSlidePortions(
+        $portions = $this->getSlidesApi()->GetSpecialSlidePortions(
             self::fileName,
             self::slideIndex,
             SpecialSlideType::LAYOUT_SLIDE,
@@ -241,9 +241,9 @@ class LayoutSlideTest extends TestBase
 
     public function testLayoutSlideAnimation()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $animation = $this->getApi()->GetSpecialSlideAnimation(
+        $animation = $this->getSlidesApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, null, null, self::password, self::folderName);
         Assert::assertEquals(1, count($animation->getMainSequence()));
 
@@ -255,38 +255,38 @@ class LayoutSlideTest extends TestBase
         $effect2->setType("Appear");
         $effect2->setShapeIndex(3);
         $dto->setMainSequence([ $effect1, $effect2 ]);
-        $animation = $this->getApi()->SetSpecialSlideAnimation(
+        $animation = $this->getSlidesApi()->SetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, $dto, self::password, self::folderName);
         Assert::assertEquals(count($dto->getMainSequence()), count($animation->getMainSequence()));
-        $animation = $this->getApi()->GetSpecialSlideAnimation(
+        $animation = $this->getSlidesApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 3, null, self::password, self::folderName);
         Assert::assertEquals(1, count($animation->getMainSequence()));
 
-        $animation = $this->getApi()->DeleteSpecialSlideAnimationEffect(
+        $animation = $this->getSlidesApi()->DeleteSpecialSlideAnimationEffect(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 2, self::password, self::folderName);
         Assert::assertEquals(count($dto->getMainSequence()) - 1, count($animation->getMainSequence()));
-        $animation = $this->getApi()->GetSpecialSlideAnimation(
+        $animation = $this->getSlidesApi()->GetSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, 3, null, self::password, self::folderName);
         Assert::assertEquals(0, count($animation->getMainSequence()));
 
-        $animation = $this->getApi()->DeleteSpecialSlideAnimation(
+        $animation = $this->getSlidesApi()->DeleteSpecialSlideAnimation(
             self::fileName, self::slideIndex, SpecialSlideType::LAYOUT_SLIDE, self::password, self::folderName);
         Assert::assertEquals(0, count($animation->getMainSequence()));
     }
 
     public function testDeleteUnusedLayoutSlides()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $layoutSlidesBefore = $this->getApi()->getLayoutSlides(self::fileName, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $layoutSlidesBefore = $this->getSlidesApi()->getLayoutSlides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(count($layoutSlidesBefore->getSlideList()), self::layoutSlidesCount);
-        $layoutSlidesAfter = $this->getApi()->deleteUnusedLayoutSLides(self::fileName, self::password, self::folderName);
+        $layoutSlidesAfter = $this->getSlidesApi()->deleteUnusedLayoutSLides(self::fileName, self::password, self::folderName);
         Assert::assertEquals(count($layoutSlidesAfter->getSlideList()), 2);
      }
 
      public function testDeleteUnusedLayoutSlidesOnline()
      {
         $file = fopen(self::localFilePath, 'r');
-        $result = $this->getApi()->deleteUnusedLayoutSlidesOnline($file, self::password);
+        $result = $this->getSlidesApi()->deleteUnusedLayoutSlidesOnline($file, self::password);
         Assert::assertTrue($result->getSize() > 0);
     }
 

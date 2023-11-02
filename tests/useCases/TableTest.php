@@ -40,14 +40,14 @@ class TableTest extends TestBase
 {
     public function testUpdateTableCell()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $cellIndex = 1;
         $dto = new TableCell();
         $dto->setText("Test text");
 
-        $response = $this->getApi()->updateTableCell(
+        $response = $this->getSlidesApi()->updateTableCell(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -63,7 +63,7 @@ class TableTest extends TestBase
 
     public function testCreateTableRow()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $cell0 = new TableCell();
         $cell0->setText("Cell 1");
@@ -78,7 +78,7 @@ class TableTest extends TestBase
         $dto->setMinimalHeight(30);
         $dto->setCells([$cell0, $cell1, $cell2, $cell3]);
 
-        $response = $this->getApi()->createTableRow(
+        $response = $this->getSlidesApi()->createTableRow(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -94,11 +94,11 @@ class TableTest extends TestBase
 
     public function testDeleteTableRow()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $withAttachedRows = true;
-        $response = $this->getApi()->deleteTableRow(
+        $response = $this->getSlidesApi()->deleteTableRow(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -113,13 +113,13 @@ class TableTest extends TestBase
 
     public function testUpdateTableRow()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $dto = new TableRow();
         $dto->setMinimalHeight(30);
 
-        $response = $this->getApi()->updateTableRow(
+        $response = $this->getSlidesApi()->updateTableRow(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -134,7 +134,7 @@ class TableTest extends TestBase
 
     public function testMergeTableCells()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
 	$dto = new TableCellMergeOptions();
         $dto->setFirstRowIndex(1);
@@ -143,7 +143,7 @@ class TableTest extends TestBase
         $dto->setLastCellIndex(2);
         $dto->setAllowSplitting(true);
 
-        $response = $this->getApi()->mergeTableCells(
+        $response = $this->getSlidesApi()->mergeTableCells(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -158,13 +158,13 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByWidth()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $cellWidth = 10;
 
-        $response = $this->getApi()->splitTableCell(
+        $response = $this->getSlidesApi()->splitTableCell(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -181,13 +181,13 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByHeight()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $cellHeight = 10;
 
-        $response = $this->getApi()->splitTableCell(
+        $response = $this->getSlidesApi()->splitTableCell(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -204,13 +204,13 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByColSpan()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 3;
         $cellIndex = 1;
         $colSpan = 1;
 
-        $response = $this->getApi()->splitTableCell(
+        $response = $this->getSlidesApi()->splitTableCell(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -227,13 +227,13 @@ class TableTest extends TestBase
 
     public function testSplitTableCellsByRowSpan()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 2;
         $cellIndex = 3;
         $rowSpan = 1;
 
-        $response = $this->getApi()->splitTableCell(
+        $response = $this->getSlidesApi()->splitTableCell(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -250,12 +250,12 @@ class TableTest extends TestBase
 
     public function testGetTableCellParagraphs()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
 
-        $response = $this->getApi()->getTableCellParagraphs(
+        $response = $this->getSlidesApi()->getTableCellParagraphs(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -270,13 +270,13 @@ class TableTest extends TestBase
 
     public function testGetTableCellParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $paragraphIndex = 1;
 
-        $response = $this->getApi()->getTableCellParagraph(
+        $response = $this->getSlidesApi()->getTableCellParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -292,7 +292,7 @@ class TableTest extends TestBase
 
     public function testCreateTableCellParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -304,7 +304,7 @@ class TableTest extends TestBase
         $dto = new Paragraph();
         $dto->setPortionList([$portion0, $portion1]);
 
-        $response = $this->getApi()->createTableCellParagraph(
+        $response = $this->getSlidesApi()->createTableCellParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -320,7 +320,7 @@ class TableTest extends TestBase
 
     public function testUpdateTableCellParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -333,7 +333,7 @@ class TableTest extends TestBase
         $dto = new Paragraph();
         $dto->setPortionList([$portion0, $portion1]);
 
-        $response = $this->getApi()->updateTableCellParagraph(
+        $response = $this->getSlidesApi()->updateTableCellParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -350,13 +350,13 @@ class TableTest extends TestBase
 
     public function testDeleteTableCellParagraph()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $paragraphIndex = 1;
 
-        $response = $this->getApi()->deleteTableCellParagraph(
+        $response = $this->getSlidesApi()->deleteTableCellParagraph(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -372,13 +372,13 @@ class TableTest extends TestBase
 
     public function testGetTableCellPortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $paragraphIndex = 1;
 
-        $response = $this->getApi()->getTableCellPortions(
+        $response = $this->getSlidesApi()->getTableCellPortions(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -394,14 +394,14 @@ class TableTest extends TestBase
 
     public function testGetTableCellPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $paragraphIndex = 1;
         $portionIndex = 1;
 
-        $response = $this->getApi()->getTableCellPortion(
+        $response = $this->getSlidesApi()->getTableCellPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -418,7 +418,7 @@ class TableTest extends TestBase
 
     public function testCreateTableCellPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -426,7 +426,7 @@ class TableTest extends TestBase
         $dto = new Portion();
         $dto->setText("Portion 1");
 
-        $response = $this->getApi()->createTableCellPortion(
+        $response = $this->getSlidesApi()->createTableCellPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -443,7 +443,7 @@ class TableTest extends TestBase
 
     public function testUpdateTableCellPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
@@ -452,7 +452,7 @@ class TableTest extends TestBase
         $dto = new Portion();
         $dto->setText("Portion 1");
 
-        $response = $this->getApi()->updateTableCellPortion(
+        $response = $this->getSlidesApi()->updateTableCellPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -470,14 +470,14 @@ class TableTest extends TestBase
 
     public function testDeleteTableCellPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $rowIndex = 1;
         $cellIndex = 1;
         $paragraphIndex = 1;
         $portionIndex = 1;
 
-        $response = $this->getApi()->deleteTableCellPortion(
+        $response = $this->getSlidesApi()->deleteTableCellPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,

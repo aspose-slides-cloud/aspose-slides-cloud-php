@@ -36,23 +36,23 @@ class SplitTest extends TestBase
 {
     public function testSplitStorage()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $result = $this->getApi()->split(self::fileName, null, null, null, null, null, null, null, self::password, self::folderName);
-        $resultFromTo = $this->getApi()->split(self::fileName, null, null, null, null, 2, 3, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->split(self::fileName, null, null, null, null, null, null, null, self::password, self::folderName);
+        $resultFromTo = $this->getSlidesApi()->split(self::fileName, null, null, null, null, 2, 3, null, self::password, self::folderName);
         Assert::assertEquals(2, count($resultFromTo->getSlides()));
         Assert::assertTrue(count($result->getSlides()) > count($resultFromTo->getSlides()));
 
         $url = $result->getSlides()[0]->getHref();
         $path = substr($url, strpos($url, "/storage/file/") + strlen("/storage/file/"));
-        $resultExists = $this->getApi()->objectExists($path);
+        $resultExists = $this->getSlidesApi()->objectExists($path);
         Assert::assertTrue($resultExists->getExists());
     }
 
     public function testSplitRequest()
     {
-        $result = $this->getApi()->splitOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, null, self::password);
-        $resultFromTo = $this->getApi()->splitOnline(fopen(self::localFilePath, 'r'), self::format, null, null, 2, 3, self::password);
+        $result = $this->getSlidesApi()->splitOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, null, self::password);
+        $resultFromTo = $this->getSlidesApi()->splitOnline(fopen(self::localFilePath, 'r'), self::format, null, null, 2, 3, self::password);
         Assert::assertTrue($result->isFile());
         Assert::assertTrue($resultFromTo->isFile());
         Assert::assertNotEquals($result->getSize(), $resultFromTo->getSize());
@@ -74,27 +74,27 @@ class SplitTest extends TestBase
 
     public function testSplitAndSaveRequest()
     {
-        $result = $this->getApi()->splitAndSaveOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, null, null, self::password);
-        $resultFromTo = $this->getApi()->splitAndSaveOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, 2, 3, self::password);
+        $result = $this->getSlidesApi()->splitAndSaveOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, null, null, self::password);
+        $resultFromTo = $this->getSlidesApi()->splitAndSaveOnline(fopen(self::localFilePath, 'r'), self::format, null, null, null, 2, 3, self::password);
         Assert::assertEquals(2, count($resultFromTo->getSlides()));
         Assert::assertTrue(count($result->getSlides()) > count($resultFromTo->getSlides()));
 
         $url = $result->getSlides()[0]->getHref();
         $path = substr($url, strpos($url, "/storage/file/") + strlen("/storage/file/"));
-        $resultExists = $this->getApi()->objectExists($path);
+        $resultExists = $this->getSlidesApi()->objectExists($path);
         Assert::assertTrue($resultExists->getExists());
     }
 
     public function testSplitWithOptions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $options = new PdfExportOptions();
         $options->setJpegQuality(50);
-        $result = $this->getApi()->split(self::fileName, $options, self::format, null, null, null, null, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->split(self::fileName, $options, self::format, null, null, null, null, null, self::password, self::folderName);
         $url = $result->getSlides()[0]->getHref();
         $path = substr($url, strpos($url, "/storage/file/") + strlen("/storage/file/"));
-        $resultExists = $this->getApi()->objectExists($path);
+        $resultExists = $this->getSlidesApi()->objectExists($path);
         Assert::assertTrue($resultExists->getExists());
     }
 

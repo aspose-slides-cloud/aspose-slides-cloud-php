@@ -294,7 +294,7 @@ class ObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTime(date(\DATE_ATOM, preg_match("/^[1-9][0-9]*$/", $data)[0]));
+                return new \DateTime($data);
             } else {
                 return null;
             }

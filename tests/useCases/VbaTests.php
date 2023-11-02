@@ -36,7 +36,7 @@ class VbaTest extends TestBase
 {
     public function testCreateVbaModule()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $vbaModule = new VbaModule();
         $vbaModule->setName("Module1");
         $vbaModule->setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
@@ -49,47 +49,47 @@ class VbaTest extends TestBase
         $reference1->setLibId("*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
         $vbaModule->setReferences([$reference0, $reference1]);
 
-        $result = $this->getApi()->createVbaModule(self::fileName, $vbaModule, self::password, self::folderName);
+        $result = $this->getSlidesApi()->createVbaModule(self::fileName, $vbaModule, self::password, self::folderName);
         echo "\"" . $result->getName() . "\" has been created\n" . $result->getSelfUri()->getHref();
     }
 
     public function testDeleteVbaModule()
     {
         $fileName = "macros.pptm";
-        $this->getApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
+        $this->getSlidesApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
         $moduleIndex = 1;
 
-        $result = $this->getApi()->deleteVbaModule($fileName, $moduleIndex, null, self::folderName);
+        $result = $this->getSlidesApi()->deleteVbaModule($fileName, $moduleIndex, null, self::folderName);
         echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
     }
 
     public function testGetVbaModule()
     {
         $fileName = "macros.pptm";
-        $this->getApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
+        $this->getSlidesApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
         $moduleIndex = 1;
 
-        $result = $this->getApi()->getVbaModule($fileName, $moduleIndex, null, self::folderName);
+        $result = $this->getSlidesApi()->getVbaModule($fileName, $moduleIndex, null, self::folderName);
         echo "Module: " . $result->getName() . "\n" . $result->getSourceCode();
     }
 
     public function testGetVbaProject()
     {
         $fileName = "macros.pptm";
-        $this->getApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
+        $this->getSlidesApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
 
-        $result = $this->getApi()->getVbaProject($fileName, null, self::folderName);
+        $result = $this->getSlidesApi()->getVbaProject($fileName, null, self::folderName);
         echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
     }
 
     public function testUpdateVbaModule()
     {
         $fileName = "macros.pptm";
-        $this->getApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
+        $this->getSlidesApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
         $vbaModule = new VbaModule();
         $vbaModule->setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
         $moduleIndex = 1;
-        $result = $this->getApi()->updateVbaModule($fileName, $moduleIndex, $vbaModule, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateVbaModule($fileName, $moduleIndex, $vbaModule, self::password, self::folderName);
         echo "\"" . $result->getName() . "\" has been updated\n" . $result->getSelfUri()->getHref();
     }
 }

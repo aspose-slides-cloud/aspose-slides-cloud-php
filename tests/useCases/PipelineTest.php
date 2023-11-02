@@ -69,7 +69,7 @@ class PipelineTest extends TestBase
 
         $files = [ fopen("TestData/TemplatingCVDataWithBase64.xml", 'r'), fopen("TestData/TemplateCV.pptx", 'r') ];
 
-        $result = $this->getApi()->pipeline($pipeline, $files);
+        $result = $this->getSlidesApi()->pipeline($pipeline, $files);
         Assert::assertTrue($result->isFile());
     }
 }

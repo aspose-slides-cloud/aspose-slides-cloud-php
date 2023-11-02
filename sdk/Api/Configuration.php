@@ -136,7 +136,7 @@ class Configuration
      * Version of Aspose.Slides Cloud API
      *
      */
-    protected $clientVersion = '23.9.0';
+    protected $clientVersion = '23.10.0';
 
     /*
      * Constructor
@@ -514,7 +514,7 @@ class Configuration
         $report  = 'PHP SDK (Aspose\Slides) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 23.9.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 23.10.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

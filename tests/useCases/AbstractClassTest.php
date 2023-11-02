@@ -40,8 +40,8 @@ class AbstractClassTest extends TestBase
      */
     public function testShapeType()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->getShape(self::fileName, 1, 1, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->getShape(self::fileName, 1, 1, self::password, self::folderName);
         Assert::assertTrue($result->getText() == "1");
     }
 

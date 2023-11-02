@@ -43,8 +43,8 @@ class MathTest extends TestBase
 {
     public function testMathGet()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $portion = $this->getApi()->getPortion(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $portion = $this->getSlidesApi()->getPortion(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() != null);
         Assert::assertTrue($portion->getMathParagraph()->getMathBlockList() != null);
@@ -56,15 +56,15 @@ class MathTest extends TestBase
 
     public function testMathGetNull()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $portion = $this->getApi()->getPortion(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $portion = $this->getSlidesApi()->getPortion(
             self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() == null);
     }
 
     public function testMathCreate()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Portion();
         $math = new MathParagraph();
@@ -99,7 +99,7 @@ class MathTest extends TestBase
         $math->setMathBlockList([ $block ]);
         $dto->setMathParagraph($math);
 
-        $portion = $this->getApi()->createPortion(self::fileName, 1, 1, 1, $dto, null, self::password, self::folderName);
+        $portion = $this->getSlidesApi()->createPortion(self::fileName, 1, 1, 1, $dto, null, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() != null);
         Assert::assertTrue($portion->getMathParagraph()->getMathBlockList() != null);
         Assert::assertEquals(1, count($portion->getMathParagraph()->getMathBlockList()));
@@ -110,7 +110,7 @@ class MathTest extends TestBase
 
     public function testMathUpdate()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Portion();
         $math = new MathParagraph();
@@ -145,7 +145,7 @@ class MathTest extends TestBase
         $math->setMathBlockList([ $block ]);
         $dto->setMathParagraph($math);
 
-        $portion = $this->getApi()->updatePortion(self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, $dto, self::password, self::folderName);
+        $portion = $this->getSlidesApi()->updatePortion(self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, $dto, self::password, self::folderName);
         Assert::assertTrue($portion->getMathParagraph() != null);
         Assert::assertTrue($portion->getMathParagraph()->getMathBlockList() != null);
         Assert::assertEquals(1, count($portion->getMathParagraph()->getMathBlockList()));
@@ -156,8 +156,8 @@ class MathTest extends TestBase
 
     public function testMathDownload()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $mathMl = $this->getApi()->downloadPortionAsMathMl(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $mathMl = $this->getSlidesApi()->downloadPortionAsMathMl(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($mathMl->isFile());
         Assert::assertTrue($mathMl->getSize() > 0);
@@ -165,23 +165,24 @@ class MathTest extends TestBase
 
     public function testMathDownloadNull()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         try {
-            $mathMl = $this->getApi()->downloadPortionAsMathMl(
+            $mathMl = $this->getSlidesApi()->downloadPortionAsMathMl(
                 self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
             Assert::fail("Must have failed");
         } catch (ApiException $ex) {
             //Cannot convert an ordinary portion to MathML
+            Assert::assertNotNull($ex);
         }
     }
 
     public function testMathSave()
     {
         $outPath = self::folderName."/mathml.xml";
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getApi()->savePortionAsMathMl(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->savePortionAsMathMl(
             self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, $outPath, self::password, self::folderName);
-        $result = $this->getApi()->objectExists($outPath);
+        $result = $this->getSlidesApi()->objectExists($outPath);
         Assert::assertTrue($result->getExists());
     }
 

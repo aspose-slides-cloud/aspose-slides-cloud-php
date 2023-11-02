@@ -40,8 +40,8 @@ class HyperlinkTest extends TestBase
 {
     public function testHyperlinkGetShape()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $shape = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $shape = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue($shape->getHyperlinkClick() != null);
         Assert::assertEquals("Hyperlink", $shape->getHyperlinkClick()->getActionType());
         Assert::assertTrue($shape->getHyperlinkMouseOver() == null);
@@ -49,8 +49,8 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkGetPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $portion = $this->getApi()->getPortion(self::fileName, self::slideIndex, self::hoverShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $portion = $this->getSlidesApi()->getPortion(self::fileName, self::slideIndex, self::hoverShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
         Assert::assertTrue($portion->getHyperlinkClick() == null);
         Assert::assertTrue($portion->getHyperlinkMouseOver() != null);
         Assert::assertEquals("JumpLastSlide", $portion->getHyperlinkMouseOver()->getActionType());
@@ -58,13 +58,13 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkCreateShape()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shape = new Shape();
         $hyperlink = new Hyperlink();
         $hyperlink->setActionType("Hyperlink");
         $hyperlink->setExternalUrl("https://docs.aspose.cloud/slides");
         $shape->setHyperlinkClick($hyperlink);
-        $updatedShape = $this->getApi()->updateShape(self::fileName, 1, 1, $shape, self::password, self::folderName);
+        $updatedShape = $this->getSlidesApi()->updateShape(self::fileName, 1, 1, $shape, self::password, self::folderName);
         Assert::assertTrue($shape->getHyperlinkClick() != null);
         Assert::assertEquals("Hyperlink", $shape->getHyperlinkClick()->getActionType());
         Assert::assertTrue($shape->getHyperlinkMouseOver() == null);
@@ -72,25 +72,25 @@ class HyperlinkTest extends TestBase
 
     public function testHyperlinkCreatePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $portion = new Portion();
         $portion->setText("Link text");
         $hyperlink = new Hyperlink();
         $hyperlink->setActionType("JumpLastSlide");
         $portion->setHyperlinkMouseOver($hyperlink);
-        $updatedPortion = $this->getApi()->createPortion(self::fileName, 1, 1, 1, $portion, null, self::password, self::folderName);
+        $updatedPortion = $this->getSlidesApi()->createPortion(self::fileName, 1, 1, 1, $portion, null, self::password, self::folderName);
         Assert::assertTrue($updatedPortion->getHyperlinkMouseOver() != null);
         Assert::assertEquals("JumpLastSlide", $updatedPortion->getHyperlinkMouseOver()->getActionType());
     }
 
     public function testHyperlinkDelete()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shape = new PictureFrame();
         $hyperlink = new Hyperlink();
         $hyperlink->setIsDisabled(true);
         $shape->setHyperlinkClick($hyperlink);
-        $updatedShape = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $shape, self::password, self::folderName);
+        $updatedShape = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $shape, self::password, self::folderName);
         Assert::assertTrue($updatedShape->getHyperlinkClick() == null);
     }
 

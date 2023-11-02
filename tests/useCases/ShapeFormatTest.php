@@ -44,30 +44,30 @@ class ShapeFormatTest extends TestBase
 {
     public function testShapeFormatLine()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $lineFormat = new LineFormat();
         $lineFormat->setStyle("ThickThin");
         $lineFormat->setWidth(7);
         $lineFormat->setDashStyle("Dash");
         $dto->setLineFormat($lineFormat);
-        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
         Assert::assertEquals($dto->getLineFormat()->getWidth(), $result->getLineFormat()->getWidth());
     }
 
     public function testShapeFormatFill()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $fillFormat = new SolidFill();
         $fillFormat->setColor("#FFFFFF00");
         $dto->setFillFormat($fillFormat);
-        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
         Assert::assertTrue(is_a($result->getFillFormat(), "Aspose\\Slides\\Cloud\\Sdk\\Model\\SolidFill"));
         Assert::assertEquals($dto->getFillFormat()->getColor(), $result->getFillFormat()->getColor());
@@ -75,7 +75,7 @@ class ShapeFormatTest extends TestBase
 
     public function testShapeFormatEffect()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Shape();
         $effectFormat = new EffectFormat();
         $innerShadow = new InnerShadowEffect();
@@ -85,16 +85,16 @@ class ShapeFormatTest extends TestBase
         $innerShadow->setShadowColor("#FFFFFF00");
         $effectFormat->setInnerShadow($innerShadow);
         $dto->setEffectFormat($effectFormat);
-        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
         Assert::assertEquals($dto->getEffectFormat()->getInnerShadow()->getDirection(), $result->getEffectFormat()->getInnerShadow()->getDirection());
     }
 
     public function testShapeFormat3D()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
         $dto = new Shape();
         $threeDFormat = new ThreeDFormat();
@@ -115,9 +115,9 @@ class ShapeFormatTest extends TestBase
         $lightRig->setDirection("Top");
         $threeDFormat->setLightRig($lightRig);
         $dto->setThreeDFormat($threeDFormat);
-        $result = $this->getApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
-        $result = $this->getApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
         Assert::assertEquals($dto->getThreeDFormat()->getDepth(), $result->getThreeDFormat()->getDepth());
     }

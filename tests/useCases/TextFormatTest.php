@@ -43,7 +43,7 @@ class TextFormatTest extends TestBase
 {
     public function testTextFormat3D()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
@@ -93,7 +93,7 @@ class TextFormatTest extends TestBase
         
         $dto->setTextFrameFormat($textFormat);
 
-        $shape = $this->getApi()->createShape(
+        $shape = $this->getSlidesApi()->createShape(
             self::fileName,
             self::slideIndex,
             $dto,
@@ -108,7 +108,7 @@ class TextFormatTest extends TestBase
 
     public function testTextFrameFormatGeneral()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
@@ -132,7 +132,7 @@ class TextFormatTest extends TestBase
         $textFormat->setDefaultParagraphFormat($paragraphFormat);
 	$dto->setTextFrameFormat($textFormat);
 
-        $shape = $this->getApi()->createShape(
+        $shape = $this->getSlidesApi()->createShape(
             self::fileName,
             self::slideIndex,
             $dto,

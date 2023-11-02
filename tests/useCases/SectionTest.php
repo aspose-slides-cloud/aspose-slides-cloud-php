@@ -37,14 +37,14 @@ class SectionTest extends TestBase
 {
     public function testGetSections()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->getSections(self::fileName, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->getSections(self::fileName, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
     }
 
     public function testSetSections()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $dto = new Sections();
         $section1 = new Section();
         $section1->setName("Section1");
@@ -53,52 +53,52 @@ class SectionTest extends TestBase
         $section2->setName("Section2");
         $section2->setFirstSlideIndex(3);
         $dto->setSectionList([ $section1, $section2 ]);
-        $result = $this->getApi()->setSections(self::fileName, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->setSections(self::fileName, $dto, self::password, self::folderName);
         Assert::assertEquals(count($dto->getSectionList()), count($result->getSectionList()));
         Assert::assertEquals($dto->getSectionList()[1]->getFirstSlideIndex() - $dto->getSectionList()[0]->getFirstSlideIndex(), count($result->getSectionList()[0]->getSlideList()));
     }
 
     public function testCreateSection()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->createSection(self::fileName, "NewSection", 5, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->createSection(self::fileName, "NewSection", 5, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount + 1, count($result->getSectionList()));
     }
 
     public function testUpdateSection()
     {
         $sectionName = "UpdatedSection";
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->updateSection(self::fileName, 2, $sectionName, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->updateSection(self::fileName, 2, $sectionName, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
         Assert::assertEquals($sectionName, $result->getSectionList()[1]->getName());
     }
 
     public function testMoveSection()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->moveSection(self::fileName, 1, 2, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->moveSection(self::fileName, 1, 2, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount, count($result->getSectionList()));
     }
 
     public function testClearSections()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->deleteSections(self::fileName, null, null, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->deleteSections(self::fileName, null, null, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getSectionList()));
     }
 
     public function testDeleteSections()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->deleteSections(self::fileName, [ 2, 3 ], null, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->deleteSections(self::fileName, [ 2, 3 ], null, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount - 2, count($result->getSectionList()));
     }
 
     public function testDeleteSection()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->deleteSection(self::fileName, 2, null, self::password, self::folderName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->deleteSection(self::fileName, 2, null, self::password, self::folderName);
         Assert::assertEquals(self::sectionCount - 1, count($result->getSectionList()));
     }
 

@@ -30,12 +30,13 @@ namespace Aspose\Slides\Cloud\Sdk\Tests;
 
 use Aspose\Slides\Cloud\Sdk\Api\Configuration;
 use Aspose\Slides\Cloud\Sdk\Api\SlidesApi;
+use Aspose\Slides\Cloud\Sdk\Api\SlidesAsyncApi;
 
-class TestBase extends \PHPUnit_Framework_TestCase
+class TestBase extends \PHPUnit\Framework\TestCase
 {
-    protected function getApi()
+    protected function getSlidesApi()
     {
-        if (self::$api == null)
+        if (self::$slidesApi == null)
         {
             $config = new Configuration();
             $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../testConfig.json")), true);
@@ -50,12 +51,35 @@ class TestBase extends \PHPUnit_Framework_TestCase
             $config->setAuthHost($authBaseUrl);
             $config->setDebug($debug);
 
-            self::$api = new SlidesApi(null, $config);
+            self::$slidesApi = new SlidesApi(null, $config);
         }
-        return self::$api;
+        return self::$slidesApi;
     }
 
-    private static $api;
+    protected function getSlidesAsyncApi()
+    {
+        if (self::$slidesAsyncApi == null)
+        {
+            $config = new Configuration();
+            $testConfig = \GuzzleHttp\json_decode(file_get_contents(realpath(__DIR__."/../testConfig.json")), true);
+            $clientId = $testConfig["ClientId"];
+            $clientSecret = $testConfig["ClientSecret"];
+            $baseUrl = array_key_exists("AsyncBaseUrl", $testConfig) ? $testConfig["AsyncBaseUrl"] : $testConfig["BaseUrl"];
+            $authBaseUrl = array_key_exists("AuthBaseUrl", $testConfig) ? $testConfig["AuthBaseUrl"] : $baseUrl;
+            $debug = $testConfig["Debug"];
+            $config->setAppSid($clientId);
+            $config->setAppKey($clientSecret);
+            $config->setHost($baseUrl);
+            $config->setAuthHost($authBaseUrl);
+            $config->setDebug($debug);
+
+            self::$slidesAsyncApi = new SlidesAsyncApi(null, $config);
+        }
+        return self::$slidesAsyncApi;
+    }
+
+    private static $slidesApi;
+    private static $slidesAsyncApi;
 
     protected const tempFolderName = "TempTests";
     protected const folderName = "TempSlidesSDK";

@@ -38,20 +38,20 @@ class AnimationTest extends TestBase
 {
     public function testGetAnimation()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->GetAnimation(self::fileName, self::slideIndex, null, null, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->GetAnimation(self::fileName, self::slideIndex, null, null, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
-        $result = $this->getApi()->GetAnimation(self::fileName, self::slideIndex, 3, null, self::password, self::folderName);
+        $result = $this->getSlidesApi()->GetAnimation(self::fileName, self::slideIndex, 3, null, self::password, self::folderName);
         Assert::assertEquals(1, count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
-        $result = $this->getApi()->GetAnimation(self::fileName, self::slideIndex, 3, 1, self::password, self::folderName);
+        $result = $this->getSlidesApi()->GetAnimation(self::fileName, self::slideIndex, 3, 1, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getMainSequence()));
     }
 
     public function testSetAnimation()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new SlideAnimation();
 
         $effect1 = new Effect();
@@ -66,113 +66,113 @@ class AnimationTest extends TestBase
         $effect2->setShapeIndex(4);
         $dto->setMainSequence([ $effect1, $effect2 ]);
         $dto->setInteractiveSequences([]);
-        $result = $this->getApi()->SetAnimation(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->SetAnimation(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(count($dto->getMainSequence()), count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
     public function testAnimationCreateAnimationEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
-        $result = $this->getApi()->CreateAnimationEffect(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->CreateAnimationEffect(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::effectCount + 1, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testCreateAnimationInteractiveSequence()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new InteractiveSequence();
         $dto->setTriggerShapeIndex(2);
         $effect = new Effect();
         $effect->setType("Blast");
         $effect->setShapeIndex(3);
         $dto->setEffects([ $effect ]);
-        $result = $this->getApi()->CreateAnimationInteractiveSequence(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->CreateAnimationInteractiveSequence(self::fileName, self::slideIndex, $dto, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount + 1, count($result->getInteractiveSequences()));
     }
 
     public function testCreateAnimationInteractiveSequenceEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
-        $result = $this->getApi()->CreateAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->CreateAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, $dto, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testUpdateAnimationEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
-        $result = $this->getApi()->UpdateAnimationEffect(self::fileName, self::slideIndex, 1, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->UpdateAnimationEffect(self::fileName, self::slideIndex, 1, $dto, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testUpdateAnimationInteractiveSequenceEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();
         $dto->setType("Blast");
         $dto->setShapeIndex(3);
-        $result = $this->getApi()->UpdateAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, 1, $dto, self::password, self::folderName);
+        $result = $this->getSlidesApi()->UpdateAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, 1, $dto, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimation()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimation(self::fileName, self::slideIndex, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimation(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimationMainSequence()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimationMainSequence(self::fileName, self::slideIndex, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimationMainSequence(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(0, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimationEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimationEffect(self::fileName, self::slideIndex, 1, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimationEffect(self::fileName, self::slideIndex, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount - 1, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimationInteractiveSequences()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimationInteractiveSequences(self::fileName, self::slideIndex, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimationInteractiveSequences(self::fileName, self::slideIndex, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimationInteractiveSequence()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimationInteractiveSequence(self::fileName, self::slideIndex, 1, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimationInteractiveSequence(self::fileName, self::slideIndex, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount - 1, count($result->getInteractiveSequences()));
     }
 
     public function testDeleteAnimationInteractiveSequenceEffect()
     {
-        $this->getApi()->CopyFile(self::tempFilePath, self::filePath);
-        $result = $this->getApi()->DeleteAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, 1, self::password, self::folderName);
+        $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->DeleteAnimationInteractiveSequenceEffect(self::fileName, self::slideIndex, 1, 1, self::password, self::folderName);
         Assert::assertEquals(self::effectCount, count($result->getMainSequence()));
         Assert::assertEquals(self::interactiveSequenceCount, count($result->getInteractiveSequences()));
     }

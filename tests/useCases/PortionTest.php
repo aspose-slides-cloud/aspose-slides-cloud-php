@@ -37,9 +37,9 @@ class PortionTest extends TestBase
 {
     public function testGetPortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
-        $response=$this->getApi()->getPortions(
+        $response=$this->getSlidesApi()->getPortions(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -52,11 +52,11 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response=$this->getApi()->getPortions(
+        $response=$this->getSlidesApi()->getPortions(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -71,8 +71,8 @@ class PortionTest extends TestBase
 
     public function testGetPortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->getPortion(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->getPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -86,11 +86,11 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->getPortion(
+        $response = $this->getSlidesApi()->getPortion(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -107,7 +107,7 @@ class PortionTest extends TestBase
 
     public function testCreatePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -118,7 +118,7 @@ class PortionTest extends TestBase
         $fillFormat->setColor(self::fontColor);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->createPortion(
+        $response = $this->getSlidesApi()->createPortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -138,7 +138,7 @@ class PortionTest extends TestBase
 
     public function testCreateSubshapePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $shapeIndex = 3;
         $subShape = "2";
@@ -152,7 +152,7 @@ class PortionTest extends TestBase
         $fillFormat->setColor(self::fontColor);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->createPortion(
+        $response = $this->getSlidesApi()->createPortion(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -174,7 +174,7 @@ class PortionTest extends TestBase
 
     public function testUpdatePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -185,7 +185,7 @@ class PortionTest extends TestBase
         $fillFormat->setColor(self::fontColor);
         $dto->setFillFormat($fillFormat);
 
-        $response = $this->getApi()->updatePortion(
+        $response = $this->getSlidesApi()->updatePortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -205,7 +205,7 @@ class PortionTest extends TestBase
 
     public function testUpdateSubshapePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
         $dto = new Portion();
         $dto->setText(self::newPortionText);
@@ -219,7 +219,7 @@ class PortionTest extends TestBase
         $shapeIndex = 3;
         $subShape = "2";
 
-        $response = $this->getApi()->updatePortion(
+        $response = $this->getSlidesApi()->updatePortion(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -241,9 +241,9 @@ class PortionTest extends TestBase
 
     public function testDeletePortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
-        $response = $this->getApi()->deletePortions(
+        $response = $this->getSlidesApi()->deletePortions(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -258,9 +258,9 @@ class PortionTest extends TestBase
 
     public function testDeletePortionsByIndexes()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
-        $response = $this->getApi()->deletePortions(
+        $response = $this->getSlidesApi()->deletePortions(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -275,10 +275,10 @@ class PortionTest extends TestBase
 
     public function testDeleteSubshapePortions()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
-        $response = $this->getApi()->deletePortions(
+        $response = $this->getSlidesApi()->deletePortions(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -295,11 +295,11 @@ class PortionTest extends TestBase
 
     public function testDeleteSubshapePortionsByIndexes()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->deletePortions(
+        $response = $this->getSlidesApi()->deletePortions(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -316,9 +316,9 @@ class PortionTest extends TestBase
 
     public function testDeletePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
-        $response = $this->getApi()->deletePortion(
+        $response = $this->getSlidesApi()->deletePortion(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -333,11 +333,11 @@ class PortionTest extends TestBase
 
     public function testDeleteSubshapePortion()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->deletePortion(
+        $response = $this->getSlidesApi()->deletePortion(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
@@ -354,9 +354,9 @@ class PortionTest extends TestBase
 
     public function testGetPortionRect()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         
-        $response = $this->getApi()->getPortionRectangle(
+        $response = $this->getSlidesApi()->getPortionRectangle(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -375,8 +375,8 @@ class PortionTest extends TestBase
 
     public function testGetPortionEffective()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
-        $response = $this->getApi()->getPortionEffective(
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $response = $this->getSlidesApi()->getPortionEffective(
             self::fileName,
             self::slideIndex,
             self::shapeIndex,
@@ -390,11 +390,11 @@ class PortionTest extends TestBase
 
     public function testGetSubshapePortionEffective()
     {
-        $this->getApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $shapeIndex = 3;
         $subShape = "1";
 
-        $response = $this->getApi()->getPortionEffective(
+        $response = $this->getSlidesApi()->getPortionEffective(
             self::fileName,
             self::slideIndex,
             $shapeIndex,
