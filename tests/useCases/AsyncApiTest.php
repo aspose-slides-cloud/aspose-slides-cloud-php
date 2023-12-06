@@ -78,6 +78,99 @@ class AsyncApiTest extends TestBase
         Assert::assertTrue($converted->isFile());
     }
 
+    public function testAsyncConvertAndSave()
+    {
+        $operationId = $this->getSlidesAsyncApi()->startConvertAndSave(fopen(self::localFilePath, 'r'), self::format, self::outPath, self::password);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNull($operation->getError());
+
+        $result = $this->getSlidesApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testAsyncSavePresentation()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $operationId = $this->getSlidesAsyncApi()->startSavePresentation(self::fileName, self::format, self::outPath, null, self::password, self::folderName);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNull($operation->getError());
+
+        $result = $this->getSlidesApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testAsyncMerge()
+    {
+        $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
+        $operationId = $this->getSlidesAsyncApi()->startMerge($files);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNotNull($operation->getProgress());
+        Assert::assertEquals(2, $operation->getProgress()->getStepCount());
+        Assert::assertEquals($operation->getProgress()->getStepCount(), $operation->getProgress()->getStepIndex());
+        Assert::assertNull($operation->getError());
+
+        $converted = $this->getSlidesAsyncApi()->getOperationResult($operationId);
+        Assert::assertTrue($converted->isFile());
+    }
+
+    public function testAsyncMergeAndSave()
+    {
+        $files = [ fopen(self::localFolderName."/TemplateCV.pptx", 'r'), fopen(self::localFolderName."/".self::fileName2, 'r') ];
+        $operationId = $this->getSlidesAsyncApi()->startMergeAndSave(self::outPath, $files);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNotNull($operation->getProgress());
+        Assert::assertEquals(2, $operation->getProgress()->getStepCount());
+        Assert::assertEquals($operation->getProgress()->getStepCount(), $operation->getProgress()->getStepIndex());
+        Assert::assertNull($operation->getError());
+
+        $result = $this->getSlidesApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
     public function testAsyncBadOperation()
     {
         $operationId = $this->getSlidesAsyncApi()->startDownloadPresentation("IDoNotExist.pptx", self::format);
@@ -96,6 +189,8 @@ class AsyncApiTest extends TestBase
         Assert::assertNotNull($operation->getError());
     }
 
+    public const outPath = self::folderName."/converted.pdf";
+    public const fileName2 = "test-unprotected.pptx";
     public const format = ExportFormat::PDF;
     public const timeout = 3;
     public const maxTries = 10;

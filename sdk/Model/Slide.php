@@ -58,6 +58,7 @@ class Slide extends ResourceBase
         'width' => 'double',
         'height' => 'double',
         'showMasterShapes' => 'bool',
+        'slideShowTransition' => '\Aspose\Slides\Cloud\Sdk\Model\SlideShowTransition',
         'layoutSlide' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'theme' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
@@ -77,6 +78,7 @@ class Slide extends ResourceBase
         'width' => 'double',
         'height' => 'double',
         'showMasterShapes' => null,
+        'slideShowTransition' => null,
         'layoutSlide' => null,
         'shapes' => null,
         'theme' => null,
@@ -117,6 +119,7 @@ class Slide extends ResourceBase
         'width' => 'Width',
         'height' => 'Height',
         'showMasterShapes' => 'ShowMasterShapes',
+        'slideShowTransition' => 'SlideShowTransition',
         'layoutSlide' => 'LayoutSlide',
         'shapes' => 'Shapes',
         'theme' => 'Theme',
@@ -136,6 +139,7 @@ class Slide extends ResourceBase
         'width' => 'setWidth',
         'height' => 'setHeight',
         'showMasterShapes' => 'setShowMasterShapes',
+        'slideShowTransition' => 'setSlideShowTransition',
         'layoutSlide' => 'setLayoutSlide',
         'shapes' => 'setShapes',
         'theme' => 'setTheme',
@@ -155,6 +159,7 @@ class Slide extends ResourceBase
         'width' => 'getWidth',
         'height' => 'getHeight',
         'showMasterShapes' => 'getShowMasterShapes',
+        'slideShowTransition' => 'getSlideShowTransition',
         'layoutSlide' => 'getLayoutSlide',
         'shapes' => 'getShapes',
         'theme' => 'getTheme',
@@ -224,6 +229,7 @@ class Slide extends ResourceBase
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['showMasterShapes'] = isset($data['showMasterShapes']) ? $data['showMasterShapes'] : null;
+        $this->container['slideShowTransition'] = isset($data['slideShowTransition']) ? $data['slideShowTransition'] : null;
         $this->container['layoutSlide'] = isset($data['layoutSlide']) ? $data['layoutSlide'] : null;
         $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
         $this->container['theme'] = isset($data['theme']) ? $data['theme'] : null;
@@ -349,6 +355,30 @@ class Slide extends ResourceBase
     public function setShowMasterShapes($showMasterShapes)
     {
         $this->container['showMasterShapes'] = $showMasterShapes;
+
+        return $this;
+    }
+
+    /**
+     * Gets slideShowTransition
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlideShowTransition
+     */
+    public function getSlideShowTransition()
+    {
+        return $this->container['slideShowTransition'];
+    }
+
+    /**
+     * Sets slideShowTransition
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlideShowTransition $slideShowTransition Specifies if shapes of the master slide should be shown on the slide. True by default.
+     *
+     * @return $this
+     */
+    public function setSlideShowTransition($slideShowTransition)
+    {
+        $this->container['slideShowTransition'] = $slideShowTransition;
 
         return $this;
     }

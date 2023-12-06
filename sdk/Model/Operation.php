@@ -59,6 +59,7 @@ class Operation implements ArrayAccess
         'id' => 'string',
         'method' => 'string',
         'status' => 'string',
+        'progress' => '\Aspose\Slides\Cloud\Sdk\Model\OperationProgress',
         'created' => '\DateTime',
         'enqueued' => '\DateTime',
         'started' => '\DateTime',
@@ -77,6 +78,7 @@ class Operation implements ArrayAccess
         'id' => 'guid',
         'method' => null,
         'status' => null,
+        'progress' => null,
         'created' => 'date-time',
         'enqueued' => 'date-time',
         'started' => 'date-time',
@@ -116,6 +118,7 @@ class Operation implements ArrayAccess
         'id' => 'Id',
         'method' => 'Method',
         'status' => 'Status',
+        'progress' => 'Progress',
         'created' => 'Created',
         'enqueued' => 'Enqueued',
         'started' => 'Started',
@@ -134,6 +137,7 @@ class Operation implements ArrayAccess
         'id' => 'setId',
         'method' => 'setMethod',
         'status' => 'setStatus',
+        'progress' => 'setProgress',
         'created' => 'setCreated',
         'enqueued' => 'setEnqueued',
         'started' => 'setStarted',
@@ -152,6 +156,7 @@ class Operation implements ArrayAccess
         'id' => 'getId',
         'method' => 'getMethod',
         'status' => 'getStatus',
+        'progress' => 'getProgress',
         'created' => 'getCreated',
         'enqueued' => 'getEnqueued',
         'started' => 'getStarted',
@@ -204,6 +209,10 @@ class Operation implements ArrayAccess
 
     const METHOD_CONVERT = 'Convert';
     const METHOD_DOWNLOAD_PRESENTATION = 'DownloadPresentation';
+    const METHOD_CONVERT_AND_SAVE = 'ConvertAndSave';
+    const METHOD_SAVE_PRESENTATION = 'SavePresentation';
+    const METHOD_MERGE = 'Merge';
+    const METHOD_MERGE_AND_SAVE = 'MergeAndSave';
     const STATUS_CREATED = 'Created';
     const STATUS_ENQUEUED = 'Enqueued';
     const STATUS_STARTED = 'Started';
@@ -223,6 +232,10 @@ class Operation implements ArrayAccess
         return [
             self::METHOD_CONVERT,
             self::METHOD_DOWNLOAD_PRESENTATION,
+            self::METHOD_CONVERT_AND_SAVE,
+            self::METHOD_SAVE_PRESENTATION,
+            self::METHOD_MERGE,
+            self::METHOD_MERGE_AND_SAVE,
         ];
     }
     
@@ -262,6 +275,7 @@ class Operation implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
         $this->container['enqueued'] = isset($data['enqueued']) ? $data['enqueued'] : null;
         $this->container['started'] = isset($data['started']) ? $data['started'] : null;
@@ -453,6 +467,30 @@ class Operation implements ArrayAccess
             }
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets progress
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\OperationProgress
+     */
+    public function getProgress()
+    {
+        return $this->container['progress'];
+    }
+
+    /**
+     * Sets progress
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OperationProgress $progress progress
+     *
+     * @return $this
+     */
+    public function setProgress($progress)
+    {
+        $this->container['progress'] = $progress;
 
         return $this;
     }

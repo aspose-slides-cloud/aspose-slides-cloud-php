@@ -31518,7 +31518,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function replaceImage($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    public function replaceImage($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
         try {
             $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
@@ -31530,7 +31530,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageWithHttpInfo($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    public function replaceImageWithHttpInfo($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
         $returnType = '';
         $httpRequest = $this->replaceImageRequest($name, $imageIndex, $image, $password, $folder, $storage);
@@ -31547,7 +31547,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageAsync($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    public function replaceImageAsync($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
         return $this->replaceImageAsyncWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage)
             ->then(function ($response) {
@@ -31557,7 +31557,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageAsyncWithHttpInfo($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    public function replaceImageAsyncWithHttpInfo($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
         $returnType = '';
         $httpRequest = $this->replaceImageRequest($name, $imageIndex, $image, $password, $folder, $storage);
@@ -31588,7 +31588,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  int $$imageIndex Image index. (required)
-     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  \SplFileObject $$image Image data. (required)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -31596,7 +31596,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function replaceImageRequest($name, $imageIndex, $image = null, $password = null, $folder = null, $storage = null)
+    protected function replaceImageRequest($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -31605,6 +31605,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'image_index' is set
         if ($imageIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $imageIndex when calling replaceImage');
+        }
+        // verify the required parameter 'image' is set
+        if ($image === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $image when calling replaceImage');
         }
 
         $resourcePath = '/slides/{name}/images/{imageIndex}/replace';
@@ -31639,7 +31643,7 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function replaceImageOnline($document, $imageIndex, $image = null, $password = null)
+    public function replaceImageOnline($document, $imageIndex, $image, $password = null)
     {
         try {
             list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
@@ -31653,7 +31657,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageOnlineWithHttpInfo($document, $imageIndex, $image = null, $password = null)
+    public function replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->replaceImageOnlineRequest($document, $imageIndex, $image, $password);
@@ -31680,7 +31684,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageOnlineAsync($document, $imageIndex, $image = null, $password = null)
+    public function replaceImageOnlineAsync($document, $imageIndex, $image, $password = null)
     {
         return $this->replaceImageOnlineAsyncWithHttpInfo($document, $imageIndex, $image, $password)
             ->then(function ($response) {
@@ -31690,7 +31694,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replaceImageOnlineAsyncWithHttpInfo($document, $imageIndex, $image = null, $password = null)
+    public function replaceImageOnlineAsyncWithHttpInfo($document, $imageIndex, $image, $password = null)
     {
         $returnType = '\SplFileObject';
         $httpRequest = $this->replaceImageOnlineRequest($document, $imageIndex, $image, $password);
@@ -31740,13 +31744,13 @@ class SlidesApi extends ApiBase
      *
      * @param  \SplFileObject $$document Document data. (required)
      * @param  int $$imageIndex Image index. (required)
-     * @param  \SplFileObject $$image Image data. (optional)
+     * @param  \SplFileObject $$image Image data. (required)
      * @param  string $$password Password. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function replaceImageOnlineRequest($document, $imageIndex, $image = null, $password = null)
+    protected function replaceImageOnlineRequest($document, $imageIndex, $image, $password = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -31755,6 +31759,10 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'image_index' is set
         if ($imageIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $imageIndex when calling replaceImageOnline');
+        }
+        // verify the required parameter 'image' is set
+        if ($image === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $image when calling replaceImageOnline');
         }
 
         $resourcePath = '/slides/images/{imageIndex}/replace';

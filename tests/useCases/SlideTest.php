@@ -29,6 +29,7 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 
 use Aspose\Slides\Cloud\Sdk\Model\Slide;
+use Aspose\Slides\Cloud\Sdk\Model\SlideShowTransition;
 use Aspose\Slides\Cloud\Sdk\Model\ResourceUri;
 use Aspose\Slides\Cloud\Sdk\Model\SlideBackground;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
@@ -169,6 +170,26 @@ class SlideTest extends TestBase
             self::folderName
         );
         Assert::assertTrue(strpos($slide->getLayoutSlide()->getHref(), self::layoutSlidePath) > 0);
+    }
+
+    public function testSetSlideTransition()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+
+        $dto = new Slide();
+        $transition = new SlideShowTransition();
+        $transition->setType('Circle');
+        $transition->setSpeed('Medium');
+        $dto->setSlideShowTransition($transition);
+
+        $slide = $this->getSlidesApi()->updateSlide(
+            self::fileName,
+            self::slideIndex,
+            $dto,
+            self::password,
+            self::folderName
+        );
+        Assert::assertEquals($transition->getType(), $slide->getSlideShowTransition()->getType());
     }
 
     public function testDeleteSlides()
