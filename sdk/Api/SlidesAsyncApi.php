@@ -54,14 +54,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function getOperationResult($id)
     {
-        try {
-            list($response) = $this->getOperationResultWithHttpInfo($id);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getOperationResultWithHttpInfo($id);
-            return $response;
-        } 
+        list($response) = $this->getOperationResultWithHttpInfo($id);
+        return $response;
     }
 
     /**
@@ -181,14 +175,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function getOperationStatus($id)
     {
-        try {
-            list($response) = $this->getOperationStatusWithHttpInfo($id);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getOperationStatusWithHttpInfo($id);
-            return $response;
-        } 
+        list($response) = $this->getOperationStatusWithHttpInfo($id);
+        return $response;
     }
 
     /**
@@ -311,14 +299,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startConvert($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->startConvertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startConvertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        } 
+        list($response) = $this->startConvertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
+        return $response;
     }
 
     /**
@@ -477,14 +459,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startConvertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->startConvertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startConvertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        } 
+        list($response) = $this->startConvertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
+        return $response;
     }
 
     /**
@@ -652,14 +628,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startDownloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
-        try {
-            list($response) = $this->startDownloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startDownloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        } 
+        list($response) = $this->startDownloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
+        return $response;
     }
 
     /**
@@ -821,14 +791,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startMerge(array $files = null, \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request = null, $storage = null)
     {
-        try {
-            list($response) = $this->startMergeWithHttpInfo($files, $request, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startMergeWithHttpInfo($files, $request, $storage);
-            return $response;
-        } 
+        list($response) = $this->startMergeWithHttpInfo($files, $request, $storage);
+        return $response;
     }
 
     /**
@@ -959,14 +923,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startMergeAndSave($outPath, array $files = null, \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request = null, $storage = null)
     {
-        try {
-            list($response) = $this->startMergeAndSaveWithHttpInfo($outPath, $files, $request, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startMergeAndSaveWithHttpInfo($outPath, $files, $request, $storage);
-            return $response;
-        } 
+        list($response) = $this->startMergeAndSaveWithHttpInfo($outPath, $files, $request, $storage);
+        return $response;
     }
 
     /**
@@ -1106,14 +1064,8 @@ class SlidesAsyncApi extends ApiBase
      */
     public function startSavePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
-        try {
-            list($response) = $this->startSavePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->startSavePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        } 
+        list($response) = $this->startSavePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
+        return $response;
     }
 
     /**

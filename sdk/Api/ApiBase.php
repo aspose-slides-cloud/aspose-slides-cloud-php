@@ -36,6 +36,7 @@ use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Stream;
 use Monolog\Logger;
 
 /**
@@ -76,6 +77,26 @@ class ApiBase
 
     protected function httpCall(Request $request)
     {
+        try {
+            return $this->httpCallOnce($request);
+        } catch (RepeatRequestException $e) {
+            try {
+                return $this->httpCallOnce($request);
+            } catch (RepeatRequestException $e) {
+                $stream = new Stream(fopen('php://memory', 'r+'));
+                throw new ApiException(sprintf('[%d] Unauthorized (%s)', 401, $request->getUri()), 401, [], $stream);
+            }
+        }
+    }
+
+    protected function httpCallOnce(Request $request)
+    {
+        if ($this->config->getAppSid() != null || $this->config->getAccessToken() != null) {
+            if ($this->config->getAccessToken() == null) {
+                $this->requestToken();
+            }
+            $request = $request->withHeader('Authorization', 'Bearer '.$this->config->getAccessToken());
+        }
         $options = $this->createHttpClientOption();
         try {
             $response = $this->client->send($request, $options);
@@ -140,12 +161,6 @@ class ApiBase
      */
     protected function createRequest($resourcePath, $queryParams, $headers, $httpBody, $httpMethod)
     {
-        if ($this->config->getAppSid() != null || $this->config->getAccessToken() != null) {
-            if ($this->config->getAccessToken() == null) {
-                $this->requestToken();
-            }
-            $headers['Authorization'] = 'Bearer '.$this->config->getAccessToken();
-        }
         $headers['x-aspose-client'] = $this->config->getUserAgent()." v".$this->config->getClientVersion();
         if ($this->config->getTimeout()) {
             $headers['x-aspose-timeout'] = $this->config->getTimeout();

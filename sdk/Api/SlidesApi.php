@@ -54,14 +54,8 @@ class SlidesApi extends ApiBase
      */
     public function alignShapes($name, $slideIndex, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->alignShapesWithHttpInfo($name, $slideIndex, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -230,14 +224,8 @@ class SlidesApi extends ApiBase
      */
     public function alignSpecialSlideShapes($name, $slideIndex, $slideType, $alignmentType, $alignToSlide = null, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->alignSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $alignmentType, $alignToSlide, $shapes, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -416,12 +404,7 @@ class SlidesApi extends ApiBase
      */
     public function compressEmbeddedFonts($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->compressEmbeddedFontsWithHttpInfo($name, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->compressEmbeddedFontsWithHttpInfo($name, $password, $folder, $storage);
-        } 
+        $this->compressEmbeddedFontsWithHttpInfo($name, $password, $folder, $storage);
     }
 
     /**
@@ -527,14 +510,8 @@ class SlidesApi extends ApiBase
      */
     public function compressEmbeddedFontsOnline($document, $password = null)
     {
-        try {
-            list($response) = $this->compressEmbeddedFontsOnlineWithHttpInfo($document, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->compressEmbeddedFontsOnlineWithHttpInfo($document, $password);
-            return $response;
-        } 
+        list($response) = $this->compressEmbeddedFontsOnlineWithHttpInfo($document, $password);
+        return $response;
     }
 
     /**
@@ -661,14 +638,8 @@ class SlidesApi extends ApiBase
      */
     public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
-            return $response;
-        } 
+        list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
+        return $response;
     }
 
     /**
@@ -824,12 +795,7 @@ class SlidesApi extends ApiBase
      */
     public function convertAndSave($document, $format, $outPath, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
-        } 
+        $this->convertAndSaveWithHttpInfo($document, $format, $outPath, $password, $storage, $fontsFolder, $slides, $options);
     }
 
     /**
@@ -965,12 +931,7 @@ class SlidesApi extends ApiBase
      */
     public function copyFile($srcPath, $destPath, $srcStorageName = null, $destStorageName = null, $versionId = null)
     {
-        try {
-            $this->copyFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->copyFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
-        } 
+        $this->copyFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
     }
 
     /**
@@ -1085,12 +1046,7 @@ class SlidesApi extends ApiBase
      */
     public function copyFolder($srcPath, $destPath, $srcStorageName = null, $destStorageName = null)
     {
-        try {
-            $this->copyFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->copyFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
-        } 
+        $this->copyFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
     }
 
     /**
@@ -1200,14 +1156,8 @@ class SlidesApi extends ApiBase
      */
     public function copyLayoutSlide($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword = null, $cloneFromStorage = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->copyLayoutSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->copyLayoutSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->copyLayoutSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -1373,14 +1323,8 @@ class SlidesApi extends ApiBase
      */
     public function copyMasterSlide($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword = null, $cloneFromStorage = null, $applyToAll = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->copyMasterSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $applyToAll, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->copyMasterSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $applyToAll, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->copyMasterSlideWithHttpInfo($name, $cloneFrom, $cloneFromPosition, $cloneFromPassword, $cloneFromStorage, $applyToAll, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -1551,14 +1495,8 @@ class SlidesApi extends ApiBase
      */
     public function copySlide($name, $slideToCopy, $position = null, $source = null, $sourcePassword = null, $sourceStorage = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->copySlideWithHttpInfo($name, $slideToCopy, $position, $source, $sourcePassword, $sourceStorage, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->copySlideWithHttpInfo($name, $slideToCopy, $position, $source, $sourcePassword, $sourceStorage, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->copySlideWithHttpInfo($name, $slideToCopy, $position, $source, $sourcePassword, $sourceStorage, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -1725,14 +1663,8 @@ class SlidesApi extends ApiBase
      */
     public function createAnimationEffect($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createAnimationEffectWithHttpInfo($name, $slideIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createAnimationEffectWithHttpInfo($name, $slideIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createAnimationEffectWithHttpInfo($name, $slideIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -1884,14 +1816,8 @@ class SlidesApi extends ApiBase
      */
     public function createAnimationInteractiveSequence($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence $sequence, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequence, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequence, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequence, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2043,14 +1969,8 @@ class SlidesApi extends ApiBase
      */
     public function createAnimationInteractiveSequenceEffect($name, $slideIndex, $sequenceIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2208,14 +2128,8 @@ class SlidesApi extends ApiBase
      */
     public function createChartCategory($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $category, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $category, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $category, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2373,14 +2287,8 @@ class SlidesApi extends ApiBase
      */
     public function createChartDataPoint($name, $slideIndex, $shapeIndex, $seriesIndex, \Aspose\Slides\Cloud\Sdk\Model\DataPoint $dataPoint, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $dataPoint, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $dataPoint, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $dataPoint, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2544,14 +2452,8 @@ class SlidesApi extends ApiBase
      */
     public function createChartSeries($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Series $series, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $series, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $series, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $series, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2709,14 +2611,8 @@ class SlidesApi extends ApiBase
      */
     public function createComment($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createCommentWithHttpInfo($name, $slideIndex, $dto, $shapeIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -2873,14 +2769,8 @@ class SlidesApi extends ApiBase
      */
     public function createCommentOnline($document, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideCommentBase $dto, $shapeIndex = null, $password = null)
     {
-        try {
-            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password);
-            return $response;
-        } 
+        list($response) = $this->createCommentOnlineWithHttpInfo($document, $slideIndex, $dto, $shapeIndex, $password);
+        return $response;
     }
 
     /**
@@ -3026,12 +2916,7 @@ class SlidesApi extends ApiBase
      */
     public function createFolder($path, $storageName = null)
     {
-        try {
-            $this->createFolderWithHttpInfo($path, $storageName);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->createFolderWithHttpInfo($path, $storageName);
-        } 
+        $this->createFolderWithHttpInfo($path, $storageName);
     }
 
     /**
@@ -3127,12 +3012,7 @@ class SlidesApi extends ApiBase
      */
     public function createImageWatermark($name, $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->createImageWatermarkWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->createImageWatermarkWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage);
-        } 
+        $this->createImageWatermarkWithHttpInfo($name, $image, $pictureFrame, $password, $folder, $storage);
     }
 
     /**
@@ -3246,14 +3126,8 @@ class SlidesApi extends ApiBase
      */
     public function createImageWatermarkOnline($document, $image = null, \Aspose\Slides\Cloud\Sdk\Model\PictureFrame $pictureFrame = null, $password = null)
     {
-        try {
-            list($response) = $this->createImageWatermarkOnlineWithHttpInfo($document, $image, $pictureFrame, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createImageWatermarkOnlineWithHttpInfo($document, $image, $pictureFrame, $password);
-            return $response;
-        } 
+        list($response) = $this->createImageWatermarkOnlineWithHttpInfo($document, $image, $pictureFrame, $password);
+        return $response;
     }
 
     /**
@@ -3388,14 +3262,8 @@ class SlidesApi extends ApiBase
      */
     public function createNotesSlide($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -3547,14 +3415,8 @@ class SlidesApi extends ApiBase
      */
     public function createParagraph($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -3722,14 +3584,8 @@ class SlidesApi extends ApiBase
      */
     public function createPortion($name, $slideIndex, $shapeIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -3903,14 +3759,8 @@ class SlidesApi extends ApiBase
      */
     public function createPresentation($name, $data = null, $inputPassword = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createPresentationWithHttpInfo($name, $data, $inputPassword, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createPresentationWithHttpInfo($name, $data, $inputPassword, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createPresentationWithHttpInfo($name, $data, $inputPassword, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -4057,14 +3907,8 @@ class SlidesApi extends ApiBase
      */
     public function createPresentationFromSource($name, $sourcePath = null, $sourcePassword = null, $sourceStorage = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createPresentationFromSourceWithHttpInfo($name, $sourcePath, $sourcePassword, $sourceStorage, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createPresentationFromSourceWithHttpInfo($name, $sourcePath, $sourcePassword, $sourceStorage, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createPresentationFromSourceWithHttpInfo($name, $sourcePath, $sourcePassword, $sourceStorage, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -4217,14 +4061,8 @@ class SlidesApi extends ApiBase
      */
     public function createPresentationFromTemplate($name, $templatePath, $data = null, $templatePassword = null, $templateStorage = null, $isImageDataEmbedded = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createPresentationFromTemplateWithHttpInfo($name, $templatePath, $data, $templatePassword, $templateStorage, $isImageDataEmbedded, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createPresentationFromTemplateWithHttpInfo($name, $templatePath, $data, $templatePassword, $templateStorage, $isImageDataEmbedded, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createPresentationFromTemplateWithHttpInfo($name, $templatePath, $data, $templatePassword, $templateStorage, $isImageDataEmbedded, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -4390,14 +4228,8 @@ class SlidesApi extends ApiBase
      */
     public function createSection($name, $sectionName, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSectionWithHttpInfo($name, $sectionName, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSectionWithHttpInfo($name, $sectionName, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSectionWithHttpInfo($name, $sectionName, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -4553,14 +4385,8 @@ class SlidesApi extends ApiBase
      */
     public function createShape($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto = null, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createShapeWithHttpInfo($name, $slideIndex, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createShapeWithHttpInfo($name, $slideIndex, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createShapeWithHttpInfo($name, $slideIndex, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -4723,14 +4549,8 @@ class SlidesApi extends ApiBase
      */
     public function createSlide($name, $layoutAlias = null, $position = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSlideWithHttpInfo($name, $layoutAlias, $position, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSlideWithHttpInfo($name, $layoutAlias, $position, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSlideWithHttpInfo($name, $layoutAlias, $position, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -4878,14 +4698,8 @@ class SlidesApi extends ApiBase
      */
     public function createSmartArtNode($name, $slideIndex, $smartArtIndex, $subNode = null, $text = null, $position = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $subNode, $text, $position, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $subNode, $text, $position, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $subNode, $text, $position, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -5050,14 +4864,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlideAnimationEffect($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -5219,14 +5027,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlideAnimationInteractiveSequence($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\InteractiveSequence $sequence, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequence, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequence, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequence, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -5388,14 +5190,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlideAnimationInteractiveSequenceEffect($name, $slideIndex, $slideType, $sequenceIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -5563,14 +5359,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlideParagraph($name, $slideIndex, $slideType, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -5748,14 +5538,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlidePortion($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -5939,14 +5723,8 @@ class SlidesApi extends ApiBase
      */
     public function createSpecialSlideShape($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $shapeToClone = null, $position = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->createSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $dto, $shapeToClone, $position, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -6123,14 +5901,8 @@ class SlidesApi extends ApiBase
      */
     public function createTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -6300,14 +6072,8 @@ class SlidesApi extends ApiBase
      */
     public function createTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -6483,14 +6249,8 @@ class SlidesApi extends ApiBase
      */
     public function createTableRow($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $position = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $position, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -6653,14 +6413,8 @@ class SlidesApi extends ApiBase
      */
     public function createVbaModule($name, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->createVbaModuleWithHttpInfo($name, $moduleDto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createVbaModuleWithHttpInfo($name, $moduleDto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->createVbaModuleWithHttpInfo($name, $moduleDto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -6806,12 +6560,7 @@ class SlidesApi extends ApiBase
      */
     public function createWatermark($name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, $fontHeight = null, $text = null, $fontName = null, $fontColor = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
-        } 
+        $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
     }
 
     /**
@@ -6941,14 +6690,8 @@ class SlidesApi extends ApiBase
      */
     public function createWatermarkOnline($document, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, $fontHeight = null, $text = null, $fontName = null, $fontColor = null, $password = null)
     {
-        try {
-            list($response) = $this->createWatermarkOnlineWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->createWatermarkOnlineWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
-            return $response;
-        } 
+        list($response) = $this->createWatermarkOnlineWithHttpInfo($document, $shape, $fontHeight, $text, $fontName, $fontColor, $password);
+        return $response;
     }
 
     /**
@@ -7099,14 +6842,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimation($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -7250,14 +6987,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimationEffect($name, $slideIndex, $effectIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -7407,14 +7138,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimationInteractiveSequence($name, $slideIndex, $sequenceIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequenceIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequenceIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $sequenceIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -7564,14 +7289,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimationInteractiveSequenceEffect($name, $slideIndex, $sequenceIndex, $effectIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -7727,14 +7446,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimationInteractiveSequences($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -7878,14 +7591,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteAnimationMainSequence($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteAnimationMainSequenceWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteAnimationMainSequenceWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteAnimationMainSequenceWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -8029,14 +7736,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteBackground($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -8180,14 +7881,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteChartCategory($name, $slideIndex, $shapeIndex, $categoryIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -8343,14 +8038,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteChartDataPoint($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -8512,14 +8201,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteChartSeries($name, $slideIndex, $shapeIndex, $seriesIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -8675,12 +8358,7 @@ class SlidesApi extends ApiBase
      */
     public function deleteComments($name, $author = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->deleteCommentsWithHttpInfo($name, $author, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->deleteCommentsWithHttpInfo($name, $author, $password, $folder, $storage);
-        } 
+        $this->deleteCommentsWithHttpInfo($name, $author, $password, $folder, $storage);
     }
 
     /**
@@ -8791,14 +8469,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteCommentsOnline($document, $author = null, $password = null)
     {
-        try {
-            list($response) = $this->deleteCommentsOnlineWithHttpInfo($document, $author, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteCommentsOnlineWithHttpInfo($document, $author, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteCommentsOnlineWithHttpInfo($document, $author, $password);
+        return $response;
     }
 
     /**
@@ -8930,14 +8602,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteDocumentProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -9075,14 +8741,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteDocumentProperty($name, $propertyName, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -9226,14 +8886,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteEmbeddedFont($name, $fontName, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteEmbeddedFontWithHttpInfo($name, $fontName, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteEmbeddedFontWithHttpInfo($name, $fontName, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteEmbeddedFontWithHttpInfo($name, $fontName, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -9377,14 +9031,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteEmbeddedFontOnline($document, $fontName, $password = null)
     {
-        try {
-            list($response) = $this->deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteEmbeddedFontOnlineWithHttpInfo($document, $fontName, $password);
+        return $response;
     }
 
     /**
@@ -9517,12 +9165,7 @@ class SlidesApi extends ApiBase
      */
     public function deleteFile($path, $storageName = null, $versionId = null)
     {
-        try {
-            $this->deleteFileWithHttpInfo($path, $storageName, $versionId);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->deleteFileWithHttpInfo($path, $storageName, $versionId);
-        } 
+        $this->deleteFileWithHttpInfo($path, $storageName, $versionId);
     }
 
     /**
@@ -9623,12 +9266,7 @@ class SlidesApi extends ApiBase
      */
     public function deleteFolder($path, $storageName = null, $recursive = null)
     {
-        try {
-            $this->deleteFolderWithHttpInfo($path, $storageName, $recursive);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->deleteFolderWithHttpInfo($path, $storageName, $recursive);
-        } 
+        $this->deleteFolderWithHttpInfo($path, $storageName, $recursive);
     }
 
     /**
@@ -9729,14 +9367,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteNotesSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -9880,14 +9512,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteParagraph($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -10048,14 +9674,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteParagraphs($name, $slideIndex, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -10215,14 +9835,8 @@ class SlidesApi extends ApiBase
      */
     public function deletePortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deletePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deletePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deletePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -10389,14 +10003,8 @@ class SlidesApi extends ApiBase
      */
     public function deletePortions($name, $slideIndex, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deletePortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -10562,14 +10170,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteProtection($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteProtectionWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteProtectionWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteProtectionWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -10707,14 +10309,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteProtectionOnline($document, $password = null)
     {
-        try {
-            list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteProtectionOnlineWithHttpInfo($document, $password);
+        return $response;
     }
 
     /**
@@ -10841,14 +10437,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSection($name, $sectionIndex, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSectionWithHttpInfo($name, $sectionIndex, $withSlides, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSectionWithHttpInfo($name, $sectionIndex, $withSlides, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSectionWithHttpInfo($name, $sectionIndex, $withSlides, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -10997,14 +10587,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSections($name, array $sections = null, $withSlides = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSectionsWithHttpInfo($name, $sections, $withSlides, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSectionsWithHttpInfo($name, $sections, $withSlides, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSectionsWithHttpInfo($name, $sections, $withSlides, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -11152,14 +10736,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteShape($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -11314,14 +10892,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteShapes($name, $slideIndex, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteShapesWithHttpInfo($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteShapesWithHttpInfo($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteShapesWithHttpInfo($name, $slideIndex, $shapes, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -11475,14 +11047,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -11626,14 +11192,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSlideComments($name, $slideIndex, $author = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSlideCommentsWithHttpInfo($name, $slideIndex, $author, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSlideCommentsWithHttpInfo($name, $slideIndex, $author, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSlideCommentsWithHttpInfo($name, $slideIndex, $author, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -11782,14 +11342,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSlideCommentsOnline($document, $slideIndex, $author = null, $password = null)
     {
-        try {
-            list($response) = $this->deleteSlideCommentsOnlineWithHttpInfo($document, $slideIndex, $author, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSlideCommentsOnlineWithHttpInfo($document, $slideIndex, $author, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteSlideCommentsOnlineWithHttpInfo($document, $slideIndex, $author, $password);
+        return $response;
     }
 
     /**
@@ -11927,14 +11481,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSlides($name, array $slides = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSlidesWithHttpInfo($name, $slides, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSlidesWithHttpInfo($name, $slides, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSlidesWithHttpInfo($name, $slides, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12077,14 +11625,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSmartArtNode($name, $slideIndex, $smartArtIndex, $nodeIndex, $subNode = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $nodeIndex, $subNode, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $nodeIndex, $subNode, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSmartArtNodeWithHttpInfo($name, $slideIndex, $smartArtIndex, $nodeIndex, $subNode, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12245,14 +11787,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimation($name, $slideIndex, $slideType, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12406,14 +11942,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimationEffect($name, $slideIndex, $slideType, $effectIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12573,14 +12103,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimationInteractiveSequence($name, $slideIndex, $slideType, $sequenceIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12740,14 +12264,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimationInteractiveSequenceEffect($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -12913,14 +12431,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimationInteractiveSequences($name, $slideIndex, $slideType, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationInteractiveSequencesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -13074,14 +12586,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideAnimationMainSequence($name, $slideIndex, $slideType, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideAnimationMainSequenceWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideAnimationMainSequenceWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideAnimationMainSequenceWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -13235,14 +12741,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideParagraph($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -13413,14 +12913,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideParagraphs($name, $slideIndex, $slideType, $shapeIndex, array $paragraphs = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphs, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -13590,14 +13084,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlidePortion($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -13774,14 +13262,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlidePortions($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, array $portions = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portions, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -13957,14 +13439,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideShape($name, $slideIndex, $slideType, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -14129,14 +13605,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteSpecialSlideShapes($name, $slideIndex, $slideType, array $shapes = null, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->deleteSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $shapes, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -14300,14 +13770,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -14475,14 +13939,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -14656,14 +14114,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteTableRow($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $withAttachedRows, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -14824,14 +14276,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteUnusedLayoutSlides($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteUnusedLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteUnusedLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteUnusedLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -14969,14 +14415,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteUnusedLayoutSlidesOnline($document, $password = null)
     {
-        try {
-            list($response) = $this->deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteUnusedLayoutSlidesOnlineWithHttpInfo($document, $password);
+        return $response;
     }
 
     /**
@@ -15103,14 +14543,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteUnusedMasterSlides($name, $ignorePreserveField = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteUnusedMasterSlidesWithHttpInfo($name, $ignorePreserveField, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteUnusedMasterSlidesWithHttpInfo($name, $ignorePreserveField, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteUnusedMasterSlidesWithHttpInfo($name, $ignorePreserveField, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -15253,14 +14687,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteUnusedMasterSlidesOnline($document, $ignorePreserveField = null, $password = null)
     {
-        try {
-            list($response) = $this->deleteUnusedMasterSlidesOnlineWithHttpInfo($document, $ignorePreserveField, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteUnusedMasterSlidesOnlineWithHttpInfo($document, $ignorePreserveField, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteUnusedMasterSlidesOnlineWithHttpInfo($document, $ignorePreserveField, $password);
+        return $response;
     }
 
     /**
@@ -15392,14 +14820,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteVbaModule($name, $moduleIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->deleteVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->deleteVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -15543,12 +14965,7 @@ class SlidesApi extends ApiBase
      */
     public function deleteWatermark($name, $shapeName = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
-        } 
+        $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
     }
 
     /**
@@ -15659,14 +15076,8 @@ class SlidesApi extends ApiBase
      */
     public function deleteWatermarkOnline($document, $shapeName = null, $password = null)
     {
-        try {
-            list($response) = $this->deleteWatermarkOnlineWithHttpInfo($document, $shapeName, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->deleteWatermarkOnlineWithHttpInfo($document, $shapeName, $password);
-            return $response;
-        } 
+        list($response) = $this->deleteWatermarkOnlineWithHttpInfo($document, $shapeName, $password);
+        return $response;
     }
 
     /**
@@ -15798,14 +15209,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadFile($path, $storageName = null, $versionId = null)
     {
-        try {
-            list($response) = $this->downloadFileWithHttpInfo($path, $storageName, $versionId);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadFileWithHttpInfo($path, $storageName, $versionId);
-            return $response;
-        } 
+        list($response) = $this->downloadFileWithHttpInfo($path, $storageName, $versionId);
+        return $response;
     }
 
     /**
@@ -15935,14 +15340,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImage($name, $index, $format, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->downloadImageWithHttpInfo($name, $index, $format, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImageWithHttpInfo($name, $index, $format, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->downloadImageWithHttpInfo($name, $index, $format, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -16093,14 +15492,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImageDefaultFormat($name, $index, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->downloadImageDefaultFormatWithHttpInfo($name, $index, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImageDefaultFormatWithHttpInfo($name, $index, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->downloadImageDefaultFormatWithHttpInfo($name, $index, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -16241,14 +15634,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImageDefaultFormatOnline($document, $index, $password = null)
     {
-        try {
-            list($response) = $this->downloadImageDefaultFormatOnlineWithHttpInfo($document, $index, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImageDefaultFormatOnlineWithHttpInfo($document, $index, $password);
-            return $response;
-        } 
+        list($response) = $this->downloadImageDefaultFormatOnlineWithHttpInfo($document, $index, $password);
+        return $response;
     }
 
     /**
@@ -16381,14 +15768,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImageOnline($document, $index, $format, $password = null)
     {
-        try {
-            list($response) = $this->downloadImageOnlineWithHttpInfo($document, $index, $format, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImageOnlineWithHttpInfo($document, $index, $format, $password);
-            return $response;
-        } 
+        list($response) = $this->downloadImageOnlineWithHttpInfo($document, $index, $format, $password);
+        return $response;
     }
 
     /**
@@ -16531,14 +15912,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImages($name, $format, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->downloadImagesWithHttpInfo($name, $format, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImagesWithHttpInfo($name, $format, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->downloadImagesWithHttpInfo($name, $format, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -16683,14 +16058,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImagesDefaultFormat($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->downloadImagesDefaultFormatWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImagesDefaultFormatWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->downloadImagesDefaultFormatWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -16825,14 +16194,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImagesDefaultFormatOnline($document, $password = null)
     {
-        try {
-            list($response) = $this->downloadImagesDefaultFormatOnlineWithHttpInfo($document, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImagesDefaultFormatOnlineWithHttpInfo($document, $password);
-            return $response;
-        } 
+        list($response) = $this->downloadImagesDefaultFormatOnlineWithHttpInfo($document, $password);
+        return $response;
     }
 
     /**
@@ -16959,14 +16322,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadImagesOnline($document, $format, $password = null)
     {
-        try {
-            list($response) = $this->downloadImagesOnlineWithHttpInfo($document, $format, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadImagesOnlineWithHttpInfo($document, $format, $password);
-            return $response;
-        } 
+        list($response) = $this->downloadImagesOnlineWithHttpInfo($document, $format, $password);
+        return $response;
     }
 
     /**
@@ -17103,14 +16460,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadNotesSlide($name, $slideIndex, $format, $width = null, $height = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->downloadNotesSlideWithHttpInfo($name, $slideIndex, $format, $width, $height, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadNotesSlideWithHttpInfo($name, $slideIndex, $format, $width, $height, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->downloadNotesSlideWithHttpInfo($name, $slideIndex, $format, $width, $height, $password, $folder, $storage, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -17276,14 +16627,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadNotesSlideOnline($document, $slideIndex, $format, $width = null, $height = null, $password = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->downloadNotesSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadNotesSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->downloadNotesSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -17441,14 +16786,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadPortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -17607,14 +16946,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
-        try {
-            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
-            return $response;
-        } 
+        list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
+        return $response;
     }
 
     /**
@@ -17773,14 +17106,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadShape($name, $slideIndex, $shapeIndex, $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $subShape = null)
     {
-        try {
-            list($response) = $this->downloadShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-            return $response;
-        } 
+        list($response) = $this->downloadShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
+        return $response;
     }
 
     /**
@@ -17970,14 +17297,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadShapeFromDto($format, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto)
     {
-        try {
-            list($response) = $this->downloadShapeFromDtoWithHttpInfo($format, $dto);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadShapeFromDtoWithHttpInfo($format, $dto);
-            return $response;
-        } 
+        list($response) = $this->downloadShapeFromDtoWithHttpInfo($format, $dto);
+        return $response;
     }
 
     /**
@@ -18109,14 +17430,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadShapeOnline($document, $slideIndex, $shapeIndex, $format, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null)
     {
-        try {
-            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
-            return $response;
-        } 
+        list($response) = $this->downloadShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
+        return $response;
     }
 
     /**
@@ -18298,14 +17613,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadSlide($name, $slideIndex, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->downloadSlideWithHttpInfo($name, $slideIndex, $format, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadSlideWithHttpInfo($name, $slideIndex, $format, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->downloadSlideWithHttpInfo($name, $slideIndex, $format, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -18475,14 +17784,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadSlideOnline($document, $slideIndex, $format, $width = null, $height = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->downloadSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $storage, $fontsFolder, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $storage, $fontsFolder, $options);
-            return $response;
-        } 
+        list($response) = $this->downloadSlideOnlineWithHttpInfo($document, $slideIndex, $format, $width, $height, $password, $storage, $fontsFolder, $options);
+        return $response;
     }
 
     /**
@@ -18649,14 +17952,8 @@ class SlidesApi extends ApiBase
      */
     public function downloadSpecialSlideShape($name, $slideIndex, $slideType, $shapeIndex, $format, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $subShape = null)
     {
-        try {
-            list($response) = $this->downloadSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->downloadSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-            return $response;
-        } 
+        list($response) = $this->downloadSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
+        return $response;
     }
 
     /**
@@ -18856,14 +18153,8 @@ class SlidesApi extends ApiBase
      */
     public function getAnimation($name, $slideIndex, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getAnimationWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -19017,14 +18308,8 @@ class SlidesApi extends ApiBase
      */
     public function getApiInfo()
     {
-        try {
-            list($response) = $this->getApiInfoWithHttpInfo();
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getApiInfoWithHttpInfo();
-            return $response;
-        } 
+        list($response) = $this->getApiInfoWithHttpInfo();
+        return $response;
     }
 
     /**
@@ -19141,14 +18426,8 @@ class SlidesApi extends ApiBase
      */
     public function getBackground($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -19292,14 +18571,8 @@ class SlidesApi extends ApiBase
      */
     public function getColorScheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getColorSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getColorSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getColorSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -19443,14 +18716,8 @@ class SlidesApi extends ApiBase
      */
     public function getDiscUsage($storageName = null)
     {
-        try {
-            list($response) = $this->getDiscUsageWithHttpInfo($storageName);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getDiscUsageWithHttpInfo($storageName);
-            return $response;
-        } 
+        list($response) = $this->getDiscUsageWithHttpInfo($storageName);
+        return $response;
     }
 
     /**
@@ -19572,14 +18839,8 @@ class SlidesApi extends ApiBase
      */
     public function getDocumentProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getDocumentPropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -19717,14 +18978,8 @@ class SlidesApi extends ApiBase
      */
     public function getDocumentProperty($name, $propertyName, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getDocumentPropertyWithHttpInfo($name, $propertyName, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -19868,14 +19123,8 @@ class SlidesApi extends ApiBase
      */
     public function getFileVersions($path, $storageName = null)
     {
-        try {
-            list($response) = $this->getFileVersionsWithHttpInfo($path, $storageName);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFileVersionsWithHttpInfo($path, $storageName);
-            return $response;
-        } 
+        list($response) = $this->getFileVersionsWithHttpInfo($path, $storageName);
+        return $response;
     }
 
     /**
@@ -20003,14 +19252,8 @@ class SlidesApi extends ApiBase
      */
     public function getFilesList($path, $storageName = null)
     {
-        try {
-            list($response) = $this->getFilesListWithHttpInfo($path, $storageName);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFilesListWithHttpInfo($path, $storageName);
-            return $response;
-        } 
+        list($response) = $this->getFilesListWithHttpInfo($path, $storageName);
+        return $response;
     }
 
     /**
@@ -20138,14 +19381,8 @@ class SlidesApi extends ApiBase
      */
     public function getFontScheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getFontSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFontSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getFontSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -20289,14 +19526,8 @@ class SlidesApi extends ApiBase
      */
     public function getFonts($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getFontsWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFontsWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getFontsWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -20434,14 +19665,8 @@ class SlidesApi extends ApiBase
      */
     public function getFontsOnline($document, $password = null)
     {
-        try {
-            list($response) = $this->getFontsOnlineWithHttpInfo($document, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFontsOnlineWithHttpInfo($document, $password);
-            return $response;
-        } 
+        list($response) = $this->getFontsOnlineWithHttpInfo($document, $password);
+        return $response;
     }
 
     /**
@@ -20571,14 +19796,8 @@ class SlidesApi extends ApiBase
      */
     public function getFormatScheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getFormatSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getFormatSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getFormatSchemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -20722,14 +19941,8 @@ class SlidesApi extends ApiBase
      */
     public function getLayoutSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getLayoutSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getLayoutSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getLayoutSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -20873,14 +20086,8 @@ class SlidesApi extends ApiBase
      */
     public function getLayoutSlides($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getLayoutSlidesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -21018,14 +20225,8 @@ class SlidesApi extends ApiBase
      */
     public function getMasterSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getMasterSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getMasterSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getMasterSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -21169,14 +20370,8 @@ class SlidesApi extends ApiBase
      */
     public function getMasterSlides($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getMasterSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getMasterSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getMasterSlidesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -21314,14 +20509,8 @@ class SlidesApi extends ApiBase
      */
     public function getNotesSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getNotesSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -21465,14 +20654,8 @@ class SlidesApi extends ApiBase
      */
     public function getNotesSlideHeaderFooter($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -21616,14 +20799,8 @@ class SlidesApi extends ApiBase
      */
     public function getNotesSlideOnline($document, $slideIndex, $password = null)
     {
-        try {
-            list($response) = $this->getNotesSlideOnlineWithHttpInfo($document, $slideIndex, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getNotesSlideOnlineWithHttpInfo($document, $slideIndex, $password);
-            return $response;
-        } 
+        list($response) = $this->getNotesSlideOnlineWithHttpInfo($document, $slideIndex, $password);
+        return $response;
     }
 
     /**
@@ -21759,14 +20936,8 @@ class SlidesApi extends ApiBase
      */
     public function getParagraph($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -21927,14 +21098,8 @@ class SlidesApi extends ApiBase
      */
     public function getParagraphEffective($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getParagraphEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getParagraphEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getParagraphEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -22095,14 +21260,8 @@ class SlidesApi extends ApiBase
      */
     public function getParagraphRectangle($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getParagraphRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -22258,14 +21417,8 @@ class SlidesApi extends ApiBase
      */
     public function getParagraphs($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -22420,14 +21573,8 @@ class SlidesApi extends ApiBase
      */
     public function getPlaceholder($name, $slideIndex, $placeholderIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPlaceholderWithHttpInfo($name, $slideIndex, $placeholderIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPlaceholderWithHttpInfo($name, $slideIndex, $placeholderIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPlaceholderWithHttpInfo($name, $slideIndex, $placeholderIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -22577,14 +21724,8 @@ class SlidesApi extends ApiBase
      */
     public function getPlaceholders($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPlaceholdersWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPlaceholdersWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPlaceholdersWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -22728,14 +21869,8 @@ class SlidesApi extends ApiBase
      */
     public function getPortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -22902,14 +22037,8 @@ class SlidesApi extends ApiBase
      */
     public function getPortionEffective($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getPortionEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPortionEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getPortionEffectiveWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -23076,14 +22205,8 @@ class SlidesApi extends ApiBase
      */
     public function getPortionRectangle($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPortionRectangleWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -23245,14 +22368,8 @@ class SlidesApi extends ApiBase
      */
     public function getPortions($name, $slideIndex, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -23413,14 +22530,8 @@ class SlidesApi extends ApiBase
      */
     public function getPresentation($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPresentationWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPresentationWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPresentationWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -23558,14 +22669,8 @@ class SlidesApi extends ApiBase
      */
     public function getPresentationImages($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPresentationImagesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPresentationImagesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPresentationImagesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -23703,14 +22808,8 @@ class SlidesApi extends ApiBase
      */
     public function getPresentationTextItems($name, $withEmpty = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getPresentationTextItemsWithHttpInfo($name, $withEmpty, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getPresentationTextItemsWithHttpInfo($name, $withEmpty, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getPresentationTextItemsWithHttpInfo($name, $withEmpty, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -23853,14 +22952,8 @@ class SlidesApi extends ApiBase
      */
     public function getProtectionProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getProtectionPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getProtectionPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getProtectionPropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -23998,14 +23091,8 @@ class SlidesApi extends ApiBase
      */
     public function getSections($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSectionsWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSectionsWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSectionsWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -24143,14 +23230,8 @@ class SlidesApi extends ApiBase
      */
     public function getShape($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -24305,14 +23386,8 @@ class SlidesApi extends ApiBase
      */
     public function getShapeGeometryPath($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -24462,14 +23537,8 @@ class SlidesApi extends ApiBase
      */
     public function getShapes($name, $slideIndex, $password = null, $folder = null, $storage = null, $shapeType = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getShapesWithHttpInfo($name, $slideIndex, $password, $folder, $storage, $shapeType, $subShape);
+        return $response;
     }
 
     /**
@@ -24627,14 +23696,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlide($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -24778,14 +23841,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideComments($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideCommentsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideCommentsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideCommentsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -24929,14 +23986,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideHeaderFooter($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideHeaderFooterWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25080,14 +24131,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideImages($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideImagesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideImagesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideImagesWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25231,14 +24276,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlidePropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlidePropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlidePropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25376,14 +24415,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideShowProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideShowPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideShowPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideShowPropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25521,14 +24554,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlideTextItems($name, $slideIndex, $withEmpty = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlideTextItemsWithHttpInfo($name, $slideIndex, $withEmpty, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlideTextItemsWithHttpInfo($name, $slideIndex, $withEmpty, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlideTextItemsWithHttpInfo($name, $slideIndex, $withEmpty, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25677,14 +24704,8 @@ class SlidesApi extends ApiBase
      */
     public function getSlides($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSlidesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSlidesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25822,14 +24843,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlideAnimation($name, $slideIndex, $slideType, $shapeIndex = null, $paragraphIndex = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -25993,14 +25008,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlideParagraph($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -26171,14 +25180,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlideParagraphs($name, $slideIndex, $slideType, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlideParagraphsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -26343,14 +25346,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlidePortion($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -26527,14 +25524,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlidePortions($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlidePortionsWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -26705,14 +25696,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlideShape($name, $slideIndex, $slideType, $shapeIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -26877,14 +25862,8 @@ class SlidesApi extends ApiBase
      */
     public function getSpecialSlideShapes($name, $slideIndex, $slideType, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->getSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->getSpecialSlideShapesWithHttpInfo($name, $slideIndex, $slideType, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -27043,14 +26022,8 @@ class SlidesApi extends ApiBase
      */
     public function getTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -27218,14 +26191,8 @@ class SlidesApi extends ApiBase
      */
     public function getTableCellParagraphs($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getTableCellParagraphsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -27387,14 +26354,8 @@ class SlidesApi extends ApiBase
      */
     public function getTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -27568,14 +26529,8 @@ class SlidesApi extends ApiBase
      */
     public function getTableCellPortions($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getTableCellPortionsWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -27743,14 +26698,8 @@ class SlidesApi extends ApiBase
      */
     public function getTheme($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getThemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getThemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getThemeWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -27894,14 +26843,8 @@ class SlidesApi extends ApiBase
      */
     public function getVbaModule($name, $moduleIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getVbaModuleWithHttpInfo($name, $moduleIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28045,14 +26988,8 @@ class SlidesApi extends ApiBase
      */
     public function getVbaProject($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getVbaProjectWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getVbaProjectWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getVbaProjectWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28190,14 +27127,8 @@ class SlidesApi extends ApiBase
      */
     public function getViewProperties($name, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->getViewPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->getViewPropertiesWithHttpInfo($name, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->getViewPropertiesWithHttpInfo($name, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28335,14 +27266,8 @@ class SlidesApi extends ApiBase
      */
     public function highlightShapeRegex($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->highlightShapeRegexWithHttpInfo($name, $slideIndex, $shapeIndex, $regex, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28520,14 +27445,8 @@ class SlidesApi extends ApiBase
      */
     public function highlightShapeText($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly = null, $ignoreCase = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->highlightShapeTextWithHttpInfo($name, $slideIndex, $shapeIndex, $text, $color, $wholeWordsOnly, $ignoreCase, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28705,14 +27624,8 @@ class SlidesApi extends ApiBase
      */
     public function importFromHtml($name, $html = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->importFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->importFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->importFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -28858,14 +27771,8 @@ class SlidesApi extends ApiBase
      */
     public function importFromPdf($name, $pdf, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -29015,14 +27922,8 @@ class SlidesApi extends ApiBase
      */
     public function importShapesFromSvg($name, $slideIndex, $image = null, $x = null, $y = null, $width = null, $height = null, array $shapes = null, $group = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->importShapesFromSvgWithHttpInfo($name, $slideIndex, $image, $x, $y, $width, $height, $shapes, $group, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -29200,14 +28101,8 @@ class SlidesApi extends ApiBase
      */
     public function merge($name, \Aspose\Slides\Cloud\Sdk\Model\PresentationsMergeRequest $request, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->mergeWithHttpInfo($name, $request, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->mergeWithHttpInfo($name, $request, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->mergeWithHttpInfo($name, $request, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -29353,12 +28248,7 @@ class SlidesApi extends ApiBase
      */
     public function mergeAndSaveOnline($outPath, array $files = null, \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request = null, $storage = null)
     {
-        try {
-            $this->mergeAndSaveOnlineWithHttpInfo($outPath, $files, $request, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->mergeAndSaveOnlineWithHttpInfo($outPath, $files, $request, $storage);
-        } 
+        $this->mergeAndSaveOnlineWithHttpInfo($outPath, $files, $request, $storage);
     }
 
     /**
@@ -29466,14 +28356,8 @@ class SlidesApi extends ApiBase
      */
     public function mergeOnline(array $files = null, \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request = null, $storage = null)
     {
-        try {
-            list($response) = $this->mergeOnlineWithHttpInfo($files, $request, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->mergeOnlineWithHttpInfo($files, $request, $storage);
-            return $response;
-        } 
+        list($response) = $this->mergeOnlineWithHttpInfo($files, $request, $storage);
+        return $response;
     }
 
     /**
@@ -29601,14 +28485,8 @@ class SlidesApi extends ApiBase
      */
     public function mergeTableCells($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCellMergeOptions $tableCellMergeOptions, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->mergeTableCellsWithHttpInfo($name, $slideIndex, $shapeIndex, $tableCellMergeOptions, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -29766,12 +28644,7 @@ class SlidesApi extends ApiBase
      */
     public function moveFile($srcPath, $destPath, $srcStorageName = null, $destStorageName = null, $versionId = null)
     {
-        try {
-            $this->moveFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->moveFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
-        } 
+        $this->moveFileWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName, $versionId);
     }
 
     /**
@@ -29886,12 +28759,7 @@ class SlidesApi extends ApiBase
      */
     public function moveFolder($srcPath, $destPath, $srcStorageName = null, $destStorageName = null)
     {
-        try {
-            $this->moveFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->moveFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
-        } 
+        $this->moveFolderWithHttpInfo($srcPath, $destPath, $srcStorageName, $destStorageName);
     }
 
     /**
@@ -30001,14 +28869,8 @@ class SlidesApi extends ApiBase
      */
     public function moveSection($name, $sectionIndex, $newPosition, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->moveSectionWithHttpInfo($name, $sectionIndex, $newPosition, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->moveSectionWithHttpInfo($name, $sectionIndex, $newPosition, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->moveSectionWithHttpInfo($name, $sectionIndex, $newPosition, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -30161,14 +29023,8 @@ class SlidesApi extends ApiBase
      */
     public function moveSlide($name, $slideIndex, $newPosition, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->moveSlideWithHttpInfo($name, $slideIndex, $newPosition, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->moveSlideWithHttpInfo($name, $slideIndex, $newPosition, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->moveSlideWithHttpInfo($name, $slideIndex, $newPosition, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -30321,14 +29177,8 @@ class SlidesApi extends ApiBase
      */
     public function notesSlideExists($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->notesSlideExistsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->notesSlideExistsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->notesSlideExistsWithHttpInfo($name, $slideIndex, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -30472,14 +29322,8 @@ class SlidesApi extends ApiBase
      */
     public function notesSlideExistsOnline($document, $slideIndex, $password = null)
     {
-        try {
-            list($response) = $this->notesSlideExistsOnlineWithHttpInfo($document, $slideIndex, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->notesSlideExistsOnlineWithHttpInfo($document, $slideIndex, $password);
-            return $response;
-        } 
+        list($response) = $this->notesSlideExistsOnlineWithHttpInfo($document, $slideIndex, $password);
+        return $response;
     }
 
     /**
@@ -30615,14 +29459,8 @@ class SlidesApi extends ApiBase
      */
     public function objectExists($path, $storageName = null, $versionId = null)
     {
-        try {
-            list($response) = $this->objectExistsWithHttpInfo($path, $storageName, $versionId);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->objectExistsWithHttpInfo($path, $storageName, $versionId);
-            return $response;
-        } 
+        list($response) = $this->objectExistsWithHttpInfo($path, $storageName, $versionId);
+        return $response;
     }
 
     /**
@@ -30755,14 +29593,8 @@ class SlidesApi extends ApiBase
      */
     public function orderedMerge($name, \Aspose\Slides\Cloud\Sdk\Model\OrderedMergeRequest $request, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->orderedMergeWithHttpInfo($name, $request, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->orderedMergeWithHttpInfo($name, $request, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->orderedMergeWithHttpInfo($name, $request, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -30908,14 +29740,8 @@ class SlidesApi extends ApiBase
      */
     public function pipeline(\Aspose\Slides\Cloud\Sdk\Model\Pipeline $pipeline, array $files = null)
     {
-        try {
-            list($response) = $this->pipelineWithHttpInfo($pipeline, $files);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->pipelineWithHttpInfo($pipeline, $files);
-            return $response;
-        } 
+        list($response) = $this->pipelineWithHttpInfo($pipeline, $files);
+        return $response;
     }
 
     /**
@@ -31042,14 +29868,8 @@ class SlidesApi extends ApiBase
      */
     public function reorderSlides($name, array $oldPositions = null, array $newPositions = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->reorderSlidesWithHttpInfo($name, $oldPositions, $newPositions, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->reorderSlidesWithHttpInfo($name, $oldPositions, $newPositions, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->reorderSlidesWithHttpInfo($name, $oldPositions, $newPositions, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -31197,14 +30017,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceFont($name, $sourceFont, $targetFont, $embed = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->replaceFontWithHttpInfo($name, $sourceFont, $targetFont, $embed, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceFontWithHttpInfo($name, $sourceFont, $targetFont, $embed, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->replaceFontWithHttpInfo($name, $sourceFont, $targetFont, $embed, $password, $folder, $storage, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -31364,14 +30178,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceFontOnline($document, $sourceFont, $targetFont, $embed = null, $password = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->replaceFontOnlineWithHttpInfo($document, $sourceFont, $targetFont, $embed, $password, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceFontOnlineWithHttpInfo($document, $sourceFont, $targetFont, $embed, $password, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->replaceFontOnlineWithHttpInfo($document, $sourceFont, $targetFont, $embed, $password, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -31520,12 +30328,7 @@ class SlidesApi extends ApiBase
      */
     public function replaceImage($name, $imageIndex, $image, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
-        } 
+        $this->replaceImageWithHttpInfo($name, $imageIndex, $image, $password, $folder, $storage);
     }
 
     /**
@@ -31645,14 +30448,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceImageOnline($document, $imageIndex, $image, $password = null)
     {
-        try {
-            list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
-            return $response;
-        } 
+        list($response) = $this->replaceImageOnlineWithHttpInfo($document, $imageIndex, $image, $password);
+        return $response;
     }
 
     /**
@@ -31793,14 +30590,8 @@ class SlidesApi extends ApiBase
      */
     public function replacePresentationText($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -31961,14 +30752,8 @@ class SlidesApi extends ApiBase
      */
     public function replacePresentationTextOnline($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
     {
-        try {
-            list($response) = $this->replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $password);
-            return $response;
-        } 
+        list($response) = $this->replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $password);
+        return $response;
     }
 
     /**
@@ -32118,14 +30903,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceSlideText($name, $slideIndex, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->replaceSlideTextWithHttpInfo($name, $slideIndex, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceSlideTextWithHttpInfo($name, $slideIndex, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->replaceSlideTextWithHttpInfo($name, $slideIndex, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -32292,14 +31071,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceSlideTextOnline($document, $slideIndex, $oldValue, $newValue, $ignoreCase = null, $password = null)
     {
-        try {
-            list($response) = $this->replaceSlideTextOnlineWithHttpInfo($document, $slideIndex, $oldValue, $newValue, $ignoreCase, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceSlideTextOnlineWithHttpInfo($document, $slideIndex, $oldValue, $newValue, $ignoreCase, $password);
-            return $response;
-        } 
+        list($response) = $this->replaceSlideTextOnlineWithHttpInfo($document, $slideIndex, $oldValue, $newValue, $ignoreCase, $password);
+        return $response;
     }
 
     /**
@@ -32455,14 +31228,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceTextFormatting($name, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->replaceTextFormattingWithHttpInfo($name, $oldValue, $newValue, $portionFormat, $withMasters, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -32627,14 +31394,8 @@ class SlidesApi extends ApiBase
      */
     public function replaceTextFormattingOnline($document, $oldValue, $newValue, \Aspose\Slides\Cloud\Sdk\Model\PortionFormat $portionFormat = null, $withMasters = null, $password = null)
     {
-        try {
-            list($response) = $this->replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
-            return $response;
-        } 
+        list($response) = $this->replaceTextFormattingOnlineWithHttpInfo($document, $oldValue, $newValue, $portionFormat, $withMasters, $password);
+        return $response;
     }
 
     /**
@@ -32788,12 +31549,7 @@ class SlidesApi extends ApiBase
      */
     public function savePortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
     {
-        try {
-            $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
-        } 
+        $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
     }
 
     /**
@@ -32932,12 +31688,7 @@ class SlidesApi extends ApiBase
      */
     public function savePresentation($name, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
-        try {
-            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
-        } 
+        $this->savePresentationWithHttpInfo($name, $format, $outPath, $options, $password, $folder, $storage, $fontsFolder, $slides);
     }
 
     /**
@@ -33076,12 +31827,7 @@ class SlidesApi extends ApiBase
      */
     public function saveShape($name, $slideIndex, $shapeIndex, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $subShape = null)
     {
-        try {
-            $this->saveShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->saveShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-        } 
+        $this->saveShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
     }
 
     /**
@@ -33251,12 +31997,7 @@ class SlidesApi extends ApiBase
      */
     public function saveShapeOnline($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null)
     {
-        try {
-            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
-        } 
+        $this->saveShapeOnlineWithHttpInfo($document, $slideIndex, $shapeIndex, $format, $outPath, $scaleX, $scaleY, $bounds, $password, $storage, $fontsFolder, $options);
     }
 
     /**
@@ -33418,12 +32159,7 @@ class SlidesApi extends ApiBase
      */
     public function saveSlide($name, $slideIndex, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            $this->saveSlideWithHttpInfo($name, $slideIndex, $format, $outPath, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->saveSlideWithHttpInfo($name, $slideIndex, $format, $outPath, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
-        } 
+        $this->saveSlideWithHttpInfo($name, $slideIndex, $format, $outPath, $options, $width, $height, $password, $folder, $storage, $fontsFolder);
     }
 
     /**
@@ -33573,12 +32309,7 @@ class SlidesApi extends ApiBase
      */
     public function saveSlideOnline($document, $slideIndex, $format, $outPath, $width = null, $height = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            $this->saveSlideOnlineWithHttpInfo($document, $slideIndex, $format, $outPath, $width, $height, $password, $storage, $fontsFolder, $options);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->saveSlideOnlineWithHttpInfo($document, $slideIndex, $format, $outPath, $width, $height, $password, $storage, $fontsFolder, $options);
-        } 
+        $this->saveSlideOnlineWithHttpInfo($document, $slideIndex, $format, $outPath, $width, $height, $password, $storage, $fontsFolder, $options);
     }
 
     /**
@@ -33725,12 +32456,7 @@ class SlidesApi extends ApiBase
      */
     public function saveSpecialSlideShape($name, $slideIndex, $slideType, $shapeIndex, $format, $outPath, \Aspose\Slides\Cloud\Sdk\Model\IShapeExportOptions $options = null, $scaleX = null, $scaleY = null, $bounds = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, $subShape = null)
     {
-        try {
-            $this->saveSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-        }
-        catch(RepeatRequestException $ex) {
-            $this->saveSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
-        } 
+        $this->saveSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $format, $outPath, $options, $scaleX, $scaleY, $bounds, $password, $folder, $storage, $fontsFolder, $subShape);
     }
 
     /**
@@ -33910,14 +32636,8 @@ class SlidesApi extends ApiBase
      */
     public function setAnimation($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideAnimation $animation, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setAnimationWithHttpInfo($name, $slideIndex, $animation, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setAnimationWithHttpInfo($name, $slideIndex, $animation, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setAnimationWithHttpInfo($name, $slideIndex, $animation, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34069,14 +32789,8 @@ class SlidesApi extends ApiBase
      */
     public function setBackground($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\SlideBackground $background, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setBackgroundWithHttpInfo($name, $slideIndex, $background, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setBackgroundWithHttpInfo($name, $slideIndex, $background, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setBackgroundWithHttpInfo($name, $slideIndex, $background, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34228,14 +32942,8 @@ class SlidesApi extends ApiBase
      */
     public function setBackgroundColor($name, $slideIndex, $color, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setBackgroundColorWithHttpInfo($name, $slideIndex, $color, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setBackgroundColorWithHttpInfo($name, $slideIndex, $color, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setBackgroundColorWithHttpInfo($name, $slideIndex, $color, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34388,14 +33096,8 @@ class SlidesApi extends ApiBase
      */
     public function setChartAxis($name, $slideIndex, $shapeIndex, $axisType, \Aspose\Slides\Cloud\Sdk\Model\Axis $axis, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setChartAxisWithHttpInfo($name, $slideIndex, $shapeIndex, $axisType, $axis, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setChartAxisWithHttpInfo($name, $slideIndex, $shapeIndex, $axisType, $axis, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setChartAxisWithHttpInfo($name, $slideIndex, $shapeIndex, $axisType, $axis, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34563,14 +33265,8 @@ class SlidesApi extends ApiBase
      */
     public function setChartLegend($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\Legend $legend, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setChartLegendWithHttpInfo($name, $slideIndex, $shapeIndex, $legend, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setChartLegendWithHttpInfo($name, $slideIndex, $shapeIndex, $legend, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setChartLegendWithHttpInfo($name, $slideIndex, $shapeIndex, $legend, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34728,14 +33424,8 @@ class SlidesApi extends ApiBase
      */
     public function setChartSeriesGroup($name, $slideIndex, $shapeIndex, $seriesGroupIndex, \Aspose\Slides\Cloud\Sdk\Model\ChartSeriesGroup $seriesGroup, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setChartSeriesGroupWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesGroupIndex, $seriesGroup, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setChartSeriesGroupWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesGroupIndex, $seriesGroup, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setChartSeriesGroupWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesGroupIndex, $seriesGroup, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -34899,14 +33589,8 @@ class SlidesApi extends ApiBase
      */
     public function setChartWall($name, $slideIndex, $shapeIndex, $chartWallType, \Aspose\Slides\Cloud\Sdk\Model\ChartWall $chartWall, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setChartWallWithHttpInfo($name, $slideIndex, $shapeIndex, $chartWallType, $chartWall, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setChartWallWithHttpInfo($name, $slideIndex, $shapeIndex, $chartWallType, $chartWall, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setChartWallWithHttpInfo($name, $slideIndex, $shapeIndex, $chartWallType, $chartWall, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -35074,14 +33758,8 @@ class SlidesApi extends ApiBase
      */
     public function setDocumentProperties($name, \Aspose\Slides\Cloud\Sdk\Model\DocumentProperties $properties, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setDocumentPropertiesWithHttpInfo($name, $properties, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setDocumentPropertiesWithHttpInfo($name, $properties, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setDocumentPropertiesWithHttpInfo($name, $properties, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -35227,14 +33905,8 @@ class SlidesApi extends ApiBase
      */
     public function setDocumentProperty($name, $propertyName, \Aspose\Slides\Cloud\Sdk\Model\DocumentProperty $property, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setDocumentPropertyWithHttpInfo($name, $propertyName, $property, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setDocumentPropertyWithHttpInfo($name, $propertyName, $property, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setDocumentPropertyWithHttpInfo($name, $propertyName, $property, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -35386,14 +34058,8 @@ class SlidesApi extends ApiBase
      */
     public function setEmbeddedFont($name, $fontName, $onlyUsed = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->setEmbeddedFontWithHttpInfo($name, $fontName, $onlyUsed, $password, $folder, $storage, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -35547,14 +34213,8 @@ class SlidesApi extends ApiBase
      */
     public function setEmbeddedFontFromRequest($font, $name, $onlyUsed = null, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setEmbeddedFontFromRequestWithHttpInfo($font, $name, $onlyUsed, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setEmbeddedFontFromRequestWithHttpInfo($font, $name, $onlyUsed, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setEmbeddedFontFromRequestWithHttpInfo($font, $name, $onlyUsed, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -35705,14 +34365,8 @@ class SlidesApi extends ApiBase
      */
     public function setEmbeddedFontFromRequestOnline($document, $font, $onlyUsed = null, $password = null)
     {
-        try {
-            list($response) = $this->setEmbeddedFontFromRequestOnlineWithHttpInfo($document, $font, $onlyUsed, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setEmbeddedFontFromRequestOnlineWithHttpInfo($document, $font, $onlyUsed, $password);
-            return $response;
-        } 
+        list($response) = $this->setEmbeddedFontFromRequestOnlineWithHttpInfo($document, $font, $onlyUsed, $password);
+        return $response;
     }
 
     /**
@@ -35852,14 +34506,8 @@ class SlidesApi extends ApiBase
      */
     public function setEmbeddedFontOnline($document, $fontName, $onlyUsed = null, $password = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed, $password, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed, $password, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->setEmbeddedFontOnlineWithHttpInfo($document, $fontName, $onlyUsed, $password, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -36002,14 +34650,8 @@ class SlidesApi extends ApiBase
      */
     public function setNotesSlideHeaderFooter($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\NotesSlideHeaderFooter $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setNotesSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -36161,14 +34803,8 @@ class SlidesApi extends ApiBase
      */
     public function setPresentationHeaderFooter($name, \Aspose\Slides\Cloud\Sdk\Model\HeaderFooter $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setPresentationHeaderFooterWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setPresentationHeaderFooterWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setPresentationHeaderFooterWithHttpInfo($name, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -36314,14 +34950,8 @@ class SlidesApi extends ApiBase
      */
     public function setProtection($name, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setProtectionWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setProtectionWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setProtectionWithHttpInfo($name, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -36467,14 +35097,8 @@ class SlidesApi extends ApiBase
      */
     public function setProtectionOnline($document, \Aspose\Slides\Cloud\Sdk\Model\ProtectionProperties $dto, $password = null)
     {
-        try {
-            list($response) = $this->setProtectionOnlineWithHttpInfo($document, $dto, $password);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setProtectionOnlineWithHttpInfo($document, $dto, $password);
-            return $response;
-        } 
+        list($response) = $this->setProtectionOnlineWithHttpInfo($document, $dto, $password);
+        return $response;
     }
 
     /**
@@ -36609,14 +35233,8 @@ class SlidesApi extends ApiBase
      */
     public function setSections($name, \Aspose\Slides\Cloud\Sdk\Model\Sections $sections, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setSectionsWithHttpInfo($name, $sections, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setSectionsWithHttpInfo($name, $sections, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setSectionsWithHttpInfo($name, $sections, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -36762,14 +35380,8 @@ class SlidesApi extends ApiBase
      */
     public function setShapeGeometryPath($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\GeometryPaths $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setShapeGeometryPathWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -36927,14 +35539,8 @@ class SlidesApi extends ApiBase
      */
     public function setSlideHeaderFooter($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\HeaderFooter $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setSlideHeaderFooterWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -37086,14 +35692,8 @@ class SlidesApi extends ApiBase
      */
     public function setSlideProperties($name, \Aspose\Slides\Cloud\Sdk\Model\SlideProperties $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setSlidePropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setSlidePropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setSlidePropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -37239,14 +35839,8 @@ class SlidesApi extends ApiBase
      */
     public function setSlideShowProperties($name, \Aspose\Slides\Cloud\Sdk\Model\SlideShowProperties $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setSlideShowPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setSlideShowPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setSlideShowPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -37392,14 +35986,8 @@ class SlidesApi extends ApiBase
      */
     public function setSpecialSlideAnimation($name, $slideIndex, $slideType, \Aspose\Slides\Cloud\Sdk\Model\SlideAnimation $animation, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $animation, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $animation, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setSpecialSlideAnimationWithHttpInfo($name, $slideIndex, $slideType, $animation, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -37561,14 +36149,8 @@ class SlidesApi extends ApiBase
      */
     public function setViewProperties($name, \Aspose\Slides\Cloud\Sdk\Model\ViewProperties $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->setViewPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->setViewPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->setViewPropertiesWithHttpInfo($name, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -37714,14 +36296,8 @@ class SlidesApi extends ApiBase
      */
     public function split($name, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $format = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
     {
-        try {
-            list($response) = $this->splitWithHttpInfo($name, $options, $format, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->splitWithHttpInfo($name, $options, $format, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
-            return $response;
-        } 
+        list($response) = $this->splitWithHttpInfo($name, $options, $format, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
+        return $response;
     }
 
     /**
@@ -37902,14 +36478,8 @@ class SlidesApi extends ApiBase
      */
     public function splitAndSaveOnline($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
-            return $response;
-        } 
+        list($response) = $this->splitAndSaveOnlineWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
+        return $response;
     }
 
     /**
@@ -38088,14 +36658,8 @@ class SlidesApi extends ApiBase
      */
     public function splitOnline($document, $format, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
-        try {
-            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
-            return $response;
-        } 
+        list($response) = $this->splitOnlineWithHttpInfo($document, $format, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
+        return $response;
     }
 
     /**
@@ -38266,14 +36830,8 @@ class SlidesApi extends ApiBase
      */
     public function splitTableCell($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->splitTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $splitType, $value, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -38451,14 +37009,8 @@ class SlidesApi extends ApiBase
      */
     public function storageExists($storageName)
     {
-        try {
-            list($response) = $this->storageExistsWithHttpInfo($storageName);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->storageExistsWithHttpInfo($storageName);
-            return $response;
-        } 
+        list($response) = $this->storageExistsWithHttpInfo($storageName);
+        return $response;
     }
 
     /**
@@ -38581,14 +37133,8 @@ class SlidesApi extends ApiBase
      */
     public function updateAnimationEffect($name, $slideIndex, $effectIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateAnimationEffectWithHttpInfo($name, $slideIndex, $effectIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -38746,14 +37292,8 @@ class SlidesApi extends ApiBase
      */
     public function updateAnimationInteractiveSequenceEffect($name, $slideIndex, $sequenceIndex, $effectIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -38917,14 +37457,8 @@ class SlidesApi extends ApiBase
      */
     public function updateChartCategory($name, $slideIndex, $shapeIndex, $categoryIndex, \Aspose\Slides\Cloud\Sdk\Model\ChartCategory $category, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $category, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $category, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateChartCategoryWithHttpInfo($name, $slideIndex, $shapeIndex, $categoryIndex, $category, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -39088,14 +37622,8 @@ class SlidesApi extends ApiBase
      */
     public function updateChartDataPoint($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, \Aspose\Slides\Cloud\Sdk\Model\DataPoint $dataPoint, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $dataPoint, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $dataPoint, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateChartDataPointWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $pointIndex, $dataPoint, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -39265,14 +37793,8 @@ class SlidesApi extends ApiBase
      */
     public function updateChartSeries($name, $slideIndex, $shapeIndex, $seriesIndex, \Aspose\Slides\Cloud\Sdk\Model\Series $series, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $series, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $series, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateChartSeriesWithHttpInfo($name, $slideIndex, $shapeIndex, $seriesIndex, $series, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -39436,14 +37958,8 @@ class SlidesApi extends ApiBase
      */
     public function updateLayoutSlide($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\LayoutSlide $slideDto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateLayoutSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateLayoutSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateLayoutSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -39595,14 +38111,8 @@ class SlidesApi extends ApiBase
      */
     public function updateNotesSlide($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\NotesSlide $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateNotesSlideWithHttpInfo($name, $slideIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -39754,14 +38264,8 @@ class SlidesApi extends ApiBase
      */
     public function updateParagraph($name, $slideIndex, $shapeIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updateParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updateParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -39930,14 +38434,8 @@ class SlidesApi extends ApiBase
      */
     public function updatePortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updatePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updatePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updatePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -40112,14 +38610,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSection($name, $sectionIndex, $sectionName, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateSectionWithHttpInfo($name, $sectionIndex, $sectionName, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSectionWithHttpInfo($name, $sectionIndex, $sectionName, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateSectionWithHttpInfo($name, $sectionIndex, $sectionName, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -40272,14 +38764,8 @@ class SlidesApi extends ApiBase
      */
     public function updateShape($name, $slideIndex, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updateShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updateShapeWithHttpInfo($name, $slideIndex, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -40442,14 +38928,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSlide($name, $slideIndex, \Aspose\Slides\Cloud\Sdk\Model\Slide $slideDto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateSlideWithHttpInfo($name, $slideIndex, $slideDto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -40601,14 +39081,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSpecialSlideAnimationEffect($name, $slideIndex, $slideType, $effectIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateSpecialSlideAnimationEffectWithHttpInfo($name, $slideIndex, $slideType, $effectIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -40776,14 +39250,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSpecialSlideAnimationInteractiveSequenceEffect($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, \Aspose\Slides\Cloud\Sdk\Model\Effect $effect, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateSpecialSlideAnimationInteractiveSequenceEffectWithHttpInfo($name, $slideIndex, $slideType, $sequenceIndex, $effectIndex, $effect, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -40957,14 +39425,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSpecialSlideParagraph($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updateSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updateSpecialSlideParagraphWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -41143,14 +39605,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSpecialSlidePortion($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updateSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updateSpecialSlidePortionWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -41335,14 +39791,8 @@ class SlidesApi extends ApiBase
      */
     public function updateSpecialSlideShape($name, $slideIndex, $slideType, $shapeIndex, \Aspose\Slides\Cloud\Sdk\Model\ShapeBase $dto, $password = null, $folder = null, $storage = null, $subShape = null)
     {
-        try {
-            list($response) = $this->updateSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
-            return $response;
-        } 
+        list($response) = $this->updateSpecialSlideShapeWithHttpInfo($name, $slideIndex, $slideType, $shapeIndex, $dto, $password, $folder, $storage, $subShape);
+        return $response;
     }
 
     /**
@@ -41515,14 +39965,8 @@ class SlidesApi extends ApiBase
      */
     public function updateTableCell($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, \Aspose\Slides\Cloud\Sdk\Model\TableCell $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateTableCellWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -41692,14 +40136,8 @@ class SlidesApi extends ApiBase
      */
     public function updateTableCellParagraph($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, \Aspose\Slides\Cloud\Sdk\Model\Paragraph $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateTableCellParagraphWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -41875,14 +40313,8 @@ class SlidesApi extends ApiBase
      */
     public function updateTableCellPortion($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, \Aspose\Slides\Cloud\Sdk\Model\Portion $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateTableCellPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $cellIndex, $paragraphIndex, $portionIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -42064,14 +40496,8 @@ class SlidesApi extends ApiBase
      */
     public function updateTableRow($name, $slideIndex, $shapeIndex, $rowIndex, \Aspose\Slides\Cloud\Sdk\Model\TableRow $dto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateTableRowWithHttpInfo($name, $slideIndex, $shapeIndex, $rowIndex, $dto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -42235,14 +40661,8 @@ class SlidesApi extends ApiBase
      */
     public function updateVbaModule($name, $moduleIndex, \Aspose\Slides\Cloud\Sdk\Model\VbaModule $moduleDto, $password = null, $folder = null, $storage = null)
     {
-        try {
-            list($response) = $this->updateVbaModuleWithHttpInfo($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->updateVbaModuleWithHttpInfo($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
-            return $response;
-        } 
+        list($response) = $this->updateVbaModuleWithHttpInfo($name, $moduleIndex, $moduleDto, $password, $folder, $storage);
+        return $response;
     }
 
     /**
@@ -42394,14 +40814,8 @@ class SlidesApi extends ApiBase
      */
     public function uploadFile($path, $file, $storageName = null)
     {
-        try {
-            list($response) = $this->uploadFileWithHttpInfo($path, $file, $storageName);
-            return $response;
-        }
-        catch(RepeatRequestException $ex) {
-            list($response) = $this->uploadFileWithHttpInfo($path, $file, $storageName);
-            return $response;
-        } 
+        list($response) = $this->uploadFileWithHttpInfo($path, $file, $storageName);
+        return $response;
     }
 
     /**

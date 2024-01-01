@@ -152,6 +152,14 @@ class ShapeTest extends TestBase
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
     }
 
+    public function testShapeLoadAndSave()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $dto = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, 1, self::password, self::folderName);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, 1, $dto, self::password, self::folderName);
+        Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Chart"));
+    }
+
     public function testShapeEmpty()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
