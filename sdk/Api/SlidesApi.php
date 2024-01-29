@@ -18424,6 +18424,134 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getAvailableFonts($fontsFolder = null, $storage = null)
+    {
+        list($response) = $this->getAvailableFontsWithHttpInfo($fontsFolder, $storage);
+        return $response;
+    }
+
+    /**
+     */
+    public function getAvailableFontsWithHttpInfo($fontsFolder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getAvailableFontsRequest($fontsFolder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FontsData', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getAvailableFontsAsync($fontsFolder = null, $storage = null)
+    {
+        return $this->getAvailableFontsAsyncWithHttpInfo($fontsFolder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getAvailableFontsAsyncWithHttpInfo($fontsFolder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FontsData';
+        $httpRequest = $this->getAvailableFontsRequest($fontsFolder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getAvailableFonts'
+     *
+     * @param  string $$fontsFolder Storage folder for custom fonts. (optional)
+     * @param  string $$storage Storage for custom fonts. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAvailableFontsRequest($fontsFolder = null, $storage = null)
+    {
+
+        $resourcePath = '/slides/fonts/available';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($fontsFolder !== null) {
+            $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getBackground($name, $slideIndex, $password = null, $folder = null, $storage = null)
     {
         list($response) = $this->getBackgroundWithHttpInfo($name, $slideIndex, $password, $folder, $storage);

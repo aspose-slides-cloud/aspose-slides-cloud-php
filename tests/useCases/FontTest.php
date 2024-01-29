@@ -34,6 +34,12 @@ use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
 
 class FontTest extends TestBase
 {
+    public function testGetAvailableFonts()
+    {
+        $result = $this->getSlidesApi()->getAvailableFonts();
+        Assert::assertTrue(count($result->getList()) > 1);
+        Assert::assertTrue($result->getList()[0]->getIsCustom() == null);
+    }
 
     public function testGetFonts()
     {

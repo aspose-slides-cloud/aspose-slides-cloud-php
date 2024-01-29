@@ -58,7 +58,8 @@ class FontData implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'fontName' => 'string',
-        'isEmbedded' => 'bool'
+        'isEmbedded' => 'bool',
+        'isCustom' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class FontData implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'fontName' => null,
-        'isEmbedded' => null
+        'isEmbedded' => null,
+        'isCustom' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class FontData implements ArrayAccess
      */
     protected static $attributeMap = [
         'fontName' => 'FontName',
-        'isEmbedded' => 'IsEmbedded'
+        'isEmbedded' => 'IsEmbedded',
+        'isCustom' => 'IsCustom'
     ];
 
     /**
@@ -109,7 +112,8 @@ class FontData implements ArrayAccess
      */
     protected static $setters = [
         'fontName' => 'setFontName',
-        'isEmbedded' => 'setIsEmbedded'
+        'isEmbedded' => 'setIsEmbedded',
+        'isCustom' => 'setIsCustom'
     ];
 
     /**
@@ -119,7 +123,8 @@ class FontData implements ArrayAccess
      */
     protected static $getters = [
         'fontName' => 'getFontName',
-        'isEmbedded' => 'getIsEmbedded'
+        'isEmbedded' => 'getIsEmbedded',
+        'isCustom' => 'getIsCustom'
     ];
 
     /**
@@ -184,6 +189,7 @@ class FontData implements ArrayAccess
     {
         $this->container['fontName'] = isset($data['fontName']) ? $data['fontName'] : null;
         $this->container['isEmbedded'] = isset($data['isEmbedded']) ? $data['isEmbedded'] : null;
+        $this->container['isCustom'] = isset($data['isCustom']) ? $data['isCustom'] : null;
         
     }
 
@@ -256,6 +262,30 @@ class FontData implements ArrayAccess
     public function setIsEmbedded($isEmbedded)
     {
         $this->container['isEmbedded'] = $isEmbedded;
+
+        return $this;
+    }
+
+    /**
+     * Gets isCustom
+     *
+     * @return bool
+     */
+    public function getIsCustom()
+    {
+        return $this->container['isCustom'];
+    }
+
+    /**
+     * Sets isCustom
+     *
+     * @param bool $isCustom Returns true for a custom font (contained in fontsFolder directory).
+     *
+     * @return $this
+     */
+    public function setIsCustom($isCustom)
+    {
+        $this->container['isCustom'] = $isCustom;
 
         return $this;
     }
