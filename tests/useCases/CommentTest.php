@@ -151,7 +151,7 @@ class CommentTest extends TestBase
         $childComment->setAuthor(self::author);
         $childComment->setText(self::childCommentText);
         $childComment->setStatus("Resolved");
-
+-
         $comment = new SlideModernComment();
         $comment->setAuthor(self::author);
         $comment->setText(self::commentText);
@@ -163,6 +163,13 @@ class CommentTest extends TestBase
         $result = $this->getSlidesApi()->createComment(self::fileName, 3, $comment, self::shapeIndex, self::password, self::folderName);
         Assert::assertEquals(1, count($result->getList()));
         Assert::assertEquals($result->getList()[0]->getType(), "Modern");
+    }
+
+    public function testGetCommentAuthors()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $result = $this->getSlidesApi()->getCommentAuthors(self::fileName, self::password, self::folderName);
+        Assert::assertEquals(1, count($result->getList()));
     }
 
     public const slideIndex = 1;

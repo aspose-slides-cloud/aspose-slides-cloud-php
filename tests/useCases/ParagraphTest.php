@@ -319,7 +319,7 @@ class ParagraphTest extends TestBase
         Assert::assertEquals(1, count($response->getParagraphLinks()));
     }
 
-    public function testGetParagraphRect()
+    public function testGetParagraphRectangle()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
 
