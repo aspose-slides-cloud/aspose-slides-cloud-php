@@ -32,22 +32,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SaveSlide Class Doc Comment
+ * NotesCommentsLayoutingOptions Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Notes &amp;amp; comments layouting options.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaveSlide extends Task 
+class NotesCommentsLayoutingOptions extends SlidesLayoutOptions 
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaveSlide';
+    protected static $swaggerModelName = 'NotesCommentsLayoutingOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +55,11 @@ class SaveSlide extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'format' => 'string',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions',
-        'width' => 'int',
-        'height' => 'int',
-        'position' => 'int'
+        'notesPosition' => 'string',
+        'commentsPosition' => 'string',
+        'commentsAreaWidth' => 'int',
+        'commentsAreaColor' => 'string',
+        'showCommentsByNoAuthor' => 'bool'
     ];
 
     /**
@@ -69,12 +68,11 @@ class SaveSlide extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'output' => null,
-        'format' => null,
-        'options' => null,
-        'width' => 'int32',
-        'height' => 'int32',
-        'position' => 'int32'
+        'notesPosition' => null,
+        'commentsPosition' => null,
+        'commentsAreaWidth' => 'int32',
+        'commentsAreaColor' => null,
+        'showCommentsByNoAuthor' => null
     ];
 
     /**
@@ -104,12 +102,11 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'output' => 'Output',
-        'format' => 'Format',
-        'options' => 'Options',
-        'width' => 'Width',
-        'height' => 'Height',
-        'position' => 'Position'
+        'notesPosition' => 'NotesPosition',
+        'commentsPosition' => 'CommentsPosition',
+        'commentsAreaWidth' => 'CommentsAreaWidth',
+        'commentsAreaColor' => 'CommentsAreaColor',
+        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
     ];
 
     /**
@@ -118,12 +115,11 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $setters = [
-        'output' => 'setOutput',
-        'format' => 'setFormat',
-        'options' => 'setOptions',
-        'width' => 'setWidth',
-        'height' => 'setHeight',
-        'position' => 'setPosition'
+        'notesPosition' => 'setNotesPosition',
+        'commentsPosition' => 'setCommentsPosition',
+        'commentsAreaWidth' => 'setCommentsAreaWidth',
+        'commentsAreaColor' => 'setCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
     ];
 
     /**
@@ -132,12 +128,11 @@ class SaveSlide extends Task
      * @var string[]
      */
     protected static $getters = [
-        'output' => 'getOutput',
-        'format' => 'getFormat',
-        'options' => 'getOptions',
-        'width' => 'getWidth',
-        'height' => 'getHeight',
-        'position' => 'getPosition'
+        'notesPosition' => 'getNotesPosition',
+        'commentsPosition' => 'getCommentsPosition',
+        'commentsAreaWidth' => 'getCommentsAreaWidth',
+        'commentsAreaColor' => 'getCommentsAreaColor',
+        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
     ];
 
     /**
@@ -181,30 +176,12 @@ class SaveSlide extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_MD = 'Md';
+    const NOTES_POSITION_NONE = 'None';
+    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
+    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
+    const COMMENTS_POSITION_NONE = 'None';
+    const COMMENTS_POSITION_BOTTOM = 'Bottom';
+    const COMMENTS_POSITION_RIGHT = 'Right';
     
 
     
@@ -213,33 +190,26 @@ class SaveSlide extends Task
      *
      * @return string[]
      */
-    public function getFormatAllowableValues()
+    public function getNotesPositionAllowableValues()
     {
         return [
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_TIFF,
-            self::FORMAT_HTML,
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POTX,
-            self::FORMAT_POT,
-            self::FORMAT_POTM,
-            self::FORMAT_SVG,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-            self::FORMAT_HTML5,
-            self::FORMAT_MD,
+            self::NOTES_POSITION_NONE,
+            self::NOTES_POSITION_BOTTOM_FULL,
+            self::NOTES_POSITION_BOTTOM_TRUNCATED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCommentsPositionAllowableValues()
+    {
+        return [
+            self::COMMENTS_POSITION_NONE,
+            self::COMMENTS_POSITION_BOTTOM,
+            self::COMMENTS_POSITION_RIGHT,
         ];
     }
     
@@ -255,13 +225,12 @@ class SaveSlide extends Task
     {
         parent::__construct($data);
 
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
-        $this->container['type'] = 'SaveSlide';
+        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
+        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
+        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
+        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
+        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
+        $this->container['layoutType'] = 'NotesComments';
         
     }
 
@@ -274,20 +243,22 @@ class SaveSlide extends Task
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
+                "invalid value for 'notesPosition', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'commentsPosition', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -303,14 +274,12 @@ class SaveSlide extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
+        $allowedValues = $this->getNotesPositionAllowableValues();
+        if (!in_array($this->container['notesPosition'], $allowedValues)) {
             return false;
         }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['position'] === null) {
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
         return true;
@@ -318,168 +287,167 @@ class SaveSlide extends Task
 
 
     /**
-     * Gets output
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
-     */
-    public function getOutput()
-    {
-        return $this->container['output'];
-    }
-
-    /**
-     * Sets output
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output to save the slide to.
-     *
-     * @return $this
-     */
-    public function setOutput($output)
-    {
-        $this->container['output'] = $output;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
+     * Gets notesPosition
      *
      * @return string
      */
-    public function getFormat()
+    public function getNotesPosition()
     {
-        return $this->container['format'];
+        return $this->container['notesPosition'];
     }
 
     /**
-     * Sets format
+     * Sets notesPosition
      *
-     * @param string $format Save format.
+     * @param string $notesPosition Gets or sets the position of the notes on the page.
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setNotesPosition($notesPosition)
     {
-        $allowedValues = $this->getFormatAllowableValues();
+        $allowedValues = $this->getNotesPositionAllowableValues();
 
 
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
+        if (is_numeric($notesPosition)) {
+            if ($notesPosition >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'notesPosition', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $format = $allowedValues[$format];
+                $notesPosition = $allowedValues[$notesPosition];
             }
         } else {
-            if (!in_array($format, $allowedValues)) {
+            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
+                        "Invalid value for 'notesPosition', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['format'] = $format;
+        $this->container['notesPosition'] = $notesPosition;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets commentsPosition
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
+     * @return string
      */
-    public function getOptions()
+    public function getCommentsPosition()
     {
-        return $this->container['options'];
+        return $this->container['commentsPosition'];
     }
 
     /**
-     * Sets options
+     * Sets commentsPosition
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
+     * @param string $commentsPosition Gets or sets the position of the comments on the page.
      *
      * @return $this
      */
-    public function setOptions($options)
+    public function setCommentsPosition($commentsPosition)
     {
-        $this->container['options'] = $options;
+        $allowedValues = $this->getCommentsPositionAllowableValues();
+
+
+        if (is_numeric($commentsPosition)) {
+            if ($commentsPosition >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $commentsPosition = $allowedValues[$commentsPosition];
+            }
+        } else {
+            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'commentsPosition', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['commentsPosition'] = $commentsPosition;
 
         return $this;
     }
 
     /**
-     * Gets width
+     * Gets commentsAreaWidth
      *
      * @return int
      */
-    public function getWidth()
+    public function getCommentsAreaWidth()
     {
-        return $this->container['width'];
+        return $this->container['commentsAreaWidth'];
     }
 
     /**
-     * Sets width
+     * Sets commentsAreaWidth
      *
-     * @param int $width Result width for saving to an image format.
+     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setWidth($width)
+    public function setCommentsAreaWidth($commentsAreaWidth)
     {
-        $this->container['width'] = $width;
+        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
 
         return $this;
     }
 
     /**
-     * Gets height
+     * Gets commentsAreaColor
      *
-     * @return int
+     * @return string
      */
-    public function getHeight()
+    public function getCommentsAreaColor()
     {
-        return $this->container['height'];
+        return $this->container['commentsAreaColor'];
     }
 
     /**
-     * Sets height
+     * Sets commentsAreaColor
      *
-     * @param int $height Result height for saving to an image format.
+     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
      *
      * @return $this
      */
-    public function setHeight($height)
+    public function setCommentsAreaColor($commentsAreaColor)
     {
-        $this->container['height'] = $height;
+        $this->container['commentsAreaColor'] = $commentsAreaColor;
 
         return $this;
     }
 
     /**
-     * Gets position
+     * Gets showCommentsByNoAuthor
      *
-     * @return int
+     * @return bool
      */
-    public function getPosition()
+    public function getShowCommentsByNoAuthor()
     {
-        return $this->container['position'];
+        return $this->container['showCommentsByNoAuthor'];
     }
 
     /**
-     * Sets position
+     * Sets showCommentsByNoAuthor
      *
-     * @param int $position Slide index.
+     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
      *
      * @return $this
      */
-    public function setPosition($position)
+    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
     {
-        $this->container['position'] = $position;
+        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
 
         return $this;
     }

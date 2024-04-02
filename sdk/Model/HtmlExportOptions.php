@@ -62,11 +62,7 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'int',
         'picturesCompression' => 'string',
         'deletePicturesCroppedAreas' => 'bool',
-        'notesPosition' => 'string',
-        'commentsPosition' => 'string',
-        'commentsAreaWidth' => 'int',
-        'commentsAreaColor' => 'string',
-        'showCommentsByNoAuthor' => 'bool'
+        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions'
     ];
 
     /**
@@ -82,11 +78,7 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'byte',
         'picturesCompression' => null,
         'deletePicturesCroppedAreas' => null,
-        'notesPosition' => null,
-        'commentsPosition' => null,
-        'commentsAreaWidth' => 'int32',
-        'commentsAreaColor' => null,
-        'showCommentsByNoAuthor' => null
+        'slidesLayoutOptions' => null
     ];
 
     /**
@@ -123,11 +115,7 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'JpegQuality',
         'picturesCompression' => 'PicturesCompression',
         'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
-        'notesPosition' => 'NotesPosition',
-        'commentsPosition' => 'CommentsPosition',
-        'commentsAreaWidth' => 'CommentsAreaWidth',
-        'commentsAreaColor' => 'CommentsAreaColor',
-        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'SlidesLayoutOptions'
     ];
 
     /**
@@ -143,11 +131,7 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'setJpegQuality',
         'picturesCompression' => 'setPicturesCompression',
         'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
-        'notesPosition' => 'setNotesPosition',
-        'commentsPosition' => 'setCommentsPosition',
-        'commentsAreaWidth' => 'setCommentsAreaWidth',
-        'commentsAreaColor' => 'setCommentsAreaColor',
-        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'setSlidesLayoutOptions'
     ];
 
     /**
@@ -163,11 +147,7 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'getJpegQuality',
         'picturesCompression' => 'getPicturesCompression',
         'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
-        'notesPosition' => 'getNotesPosition',
-        'commentsPosition' => 'getCommentsPosition',
-        'commentsAreaWidth' => 'getCommentsAreaWidth',
-        'commentsAreaColor' => 'getCommentsAreaColor',
-        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'getSlidesLayoutOptions'
     ];
 
     /**
@@ -217,12 +197,6 @@ class HtmlExportOptions extends ExportOptions
     const PICTURES_COMPRESSION_DPI96 = 'Dpi96';
     const PICTURES_COMPRESSION_DPI72 = 'Dpi72';
     const PICTURES_COMPRESSION_DOCUMENT_RESOLUTION = 'DocumentResolution';
-    const NOTES_POSITION_NONE = 'None';
-    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
-    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
-    const COMMENTS_POSITION_NONE = 'None';
-    const COMMENTS_POSITION_BOTTOM = 'Bottom';
-    const COMMENTS_POSITION_RIGHT = 'Right';
     
 
     
@@ -240,34 +214,6 @@ class HtmlExportOptions extends ExportOptions
             self::PICTURES_COMPRESSION_DPI96,
             self::PICTURES_COMPRESSION_DPI72,
             self::PICTURES_COMPRESSION_DOCUMENT_RESOLUTION,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNotesPositionAllowableValues()
-    {
-        return [
-            self::NOTES_POSITION_NONE,
-            self::NOTES_POSITION_BOTTOM_FULL,
-            self::NOTES_POSITION_BOTTOM_TRUNCATED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCommentsPositionAllowableValues()
-    {
-        return [
-            self::COMMENTS_POSITION_NONE,
-            self::COMMENTS_POSITION_BOTTOM,
-            self::COMMENTS_POSITION_RIGHT,
         ];
     }
     
@@ -290,11 +236,7 @@ class HtmlExportOptions extends ExportOptions
         $this->container['jpegQuality'] = isset($data['jpegQuality']) ? $data['jpegQuality'] : null;
         $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
         $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
-        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
-        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
-        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
-        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
-        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
+        $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
         $this->container['format'] = 'html';
         
     }
@@ -316,22 +258,6 @@ class HtmlExportOptions extends ExportOptions
             );
         }
 
-        $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notesPosition'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'notesPosition', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'commentsPosition', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -349,14 +275,6 @@ class HtmlExportOptions extends ExportOptions
 
         $allowedValues = $this->getPicturesCompressionAllowableValues();
         if (!in_array($this->container['picturesCompression'], $allowedValues)) {
-            return false;
-        }
-        $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notesPosition'], $allowedValues)) {
-            return false;
-        }
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
             return false;
         }
         return true;
@@ -555,167 +473,25 @@ class HtmlExportOptions extends ExportOptions
     }
 
     /**
-     * Gets notesPosition
+     * Gets slidesLayoutOptions
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions
      */
-    public function getNotesPosition()
+    public function getSlidesLayoutOptions()
     {
-        return $this->container['notesPosition'];
+        return $this->container['slidesLayoutOptions'];
     }
 
     /**
-     * Sets notesPosition
+     * Sets slidesLayoutOptions
      *
-     * @param string $notesPosition Gets or sets the position of the notes on the page.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions $slidesLayoutOptions Slides layouting options
      *
      * @return $this
      */
-    public function setNotesPosition($notesPosition)
+    public function setSlidesLayoutOptions($slidesLayoutOptions)
     {
-        $allowedValues = $this->getNotesPositionAllowableValues();
-
-
-        if (is_numeric($notesPosition)) {
-            if ($notesPosition >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'notesPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $notesPosition = $allowedValues[$notesPosition];
-            }
-        } else {
-            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'notesPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['notesPosition'] = $notesPosition;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsPosition
-     *
-     * @return string
-     */
-    public function getCommentsPosition()
-    {
-        return $this->container['commentsPosition'];
-    }
-
-    /**
-     * Sets commentsPosition
-     *
-     * @param string $commentsPosition Gets or sets the position of the comments on the page.
-     *
-     * @return $this
-     */
-    public function setCommentsPosition($commentsPosition)
-    {
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-
-
-        if (is_numeric($commentsPosition)) {
-            if ($commentsPosition >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'commentsPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $commentsPosition = $allowedValues[$commentsPosition];
-            }
-        } else {
-            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'commentsPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['commentsPosition'] = $commentsPosition;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsAreaWidth
-     *
-     * @return int
-     */
-    public function getCommentsAreaWidth()
-    {
-        return $this->container['commentsAreaWidth'];
-    }
-
-    /**
-     * Sets commentsAreaWidth
-     *
-     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-     *
-     * @return $this
-     */
-    public function setCommentsAreaWidth($commentsAreaWidth)
-    {
-        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsAreaColor
-     *
-     * @return string
-     */
-    public function getCommentsAreaColor()
-    {
-        return $this->container['commentsAreaColor'];
-    }
-
-    /**
-     * Sets commentsAreaColor
-     *
-     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-     *
-     * @return $this
-     */
-    public function setCommentsAreaColor($commentsAreaColor)
-    {
-        $this->container['commentsAreaColor'] = $commentsAreaColor;
-
-        return $this;
-    }
-
-    /**
-     * Gets showCommentsByNoAuthor
-     *
-     * @return bool
-     */
-    public function getShowCommentsByNoAuthor()
-    {
-        return $this->container['showCommentsByNoAuthor'];
-    }
-
-    /**
-     * Sets showCommentsByNoAuthor
-     *
-     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
-     *
-     * @return $this
-     */
-    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
-    {
-        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
+        $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
 
         return $this;
     }

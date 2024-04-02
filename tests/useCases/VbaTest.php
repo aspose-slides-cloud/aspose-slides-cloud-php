@@ -28,6 +28,7 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
 
+use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\VbaModule;
 use Aspose\Slides\Cloud\Sdk\Model\VbaReference;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
@@ -50,7 +51,7 @@ class VbaTest extends TestBase
         $vbaModule->setReferences([$reference0, $reference1]);
 
         $result = $this->getSlidesApi()->createVbaModule(self::fileName, $vbaModule, self::password, self::folderName);
-        echo "\"" . $result->getName() . "\" has been created\n" . $result->getSelfUri()->getHref();
+        Assert::assertNotNull($result);
     }
 
     public function testDeleteVbaModule()
@@ -60,7 +61,7 @@ class VbaTest extends TestBase
         $moduleIndex = 1;
 
         $result = $this->getSlidesApi()->deleteVbaModule($fileName, $moduleIndex, null, self::folderName);
-        echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
+        Assert::assertEquals(0, count($result->getModules()));
     }
 
     public function testGetVbaModule()
@@ -70,7 +71,7 @@ class VbaTest extends TestBase
         $moduleIndex = 1;
 
         $result = $this->getSlidesApi()->getVbaModule($fileName, $moduleIndex, null, self::folderName);
-        echo "Module: " . $result->getName() . "\n" . $result->getSourceCode();
+        Assert::assertEquals("Module1", $result->getName());
     }
 
     public function testGetVbaProject()
@@ -79,7 +80,7 @@ class VbaTest extends TestBase
         $this->getSlidesApi()->copyFile(self::tempFolderName . "/" . $fileName, self::folderName . "/" . $fileName);
 
         $result = $this->getSlidesApi()->getVbaProject($fileName, null, self::folderName);
-        echo "VBA project contains: " . count($result->getModules()) . " module(s), and " . count($result->getReferences()) . " references";
+        Assert::assertEquals(1, count($result->getModules()));
     }
 
     public function testUpdateVbaModule()
@@ -90,6 +91,6 @@ class VbaTest extends TestBase
         $vbaModule->setSourceCode("Sub Test() MsgBox \"Test\" End Sub");
         $moduleIndex = 1;
         $result = $this->getSlidesApi()->updateVbaModule($fileName, $moduleIndex, $vbaModule, self::password, self::folderName);
-        echo "\"" . $result->getName() . "\" has been updated\n" . $result->getSelfUri()->getHref();
+        Assert::assertEquals("Module1", $result->getName());
     }
 }

@@ -60,6 +60,7 @@ class Effect implements ArrayAccess
         'type' => 'string',
         'subtype' => 'string',
         'presetClassType' => 'string',
+        'animateTextType' => 'string',
         'shapeIndex' => 'int',
         'paragraphIndex' => 'int',
         'triggerType' => 'string',
@@ -89,6 +90,7 @@ class Effect implements ArrayAccess
         'type' => null,
         'subtype' => null,
         'presetClassType' => null,
+        'animateTextType' => null,
         'shapeIndex' => 'int32',
         'paragraphIndex' => 'int32',
         'triggerType' => null,
@@ -139,6 +141,7 @@ class Effect implements ArrayAccess
         'type' => 'Type',
         'subtype' => 'Subtype',
         'presetClassType' => 'PresetClassType',
+        'animateTextType' => 'AnimateTextType',
         'shapeIndex' => 'ShapeIndex',
         'paragraphIndex' => 'ParagraphIndex',
         'triggerType' => 'TriggerType',
@@ -168,6 +171,7 @@ class Effect implements ArrayAccess
         'type' => 'setType',
         'subtype' => 'setSubtype',
         'presetClassType' => 'setPresetClassType',
+        'animateTextType' => 'setAnimateTextType',
         'shapeIndex' => 'setShapeIndex',
         'paragraphIndex' => 'setParagraphIndex',
         'triggerType' => 'setTriggerType',
@@ -197,6 +201,7 @@ class Effect implements ArrayAccess
         'type' => 'getType',
         'subtype' => 'getSubtype',
         'presetClassType' => 'getPresetClassType',
+        'animateTextType' => 'getAnimateTextType',
         'shapeIndex' => 'getShapeIndex',
         'paragraphIndex' => 'getParagraphIndex',
         'triggerType' => 'getTriggerType',
@@ -469,6 +474,9 @@ class Effect implements ArrayAccess
     const PRESET_CLASS_TYPE_PATH = 'Path';
     const PRESET_CLASS_TYPE_MEDIA_CALL = 'MediaCall';
     const PRESET_CLASS_TYPE_OLE_ACTION_VERBS = 'OLEActionVerbs';
+    const ANIMATE_TEXT_TYPE_ALL_AT_ONCE = 'AllAtOnce';
+    const ANIMATE_TEXT_TYPE_BY_WORD = 'ByWord';
+    const ANIMATE_TEXT_TYPE_BY_LETTER = 'ByLetter';
     const TRIGGER_TYPE_AFTER_PREVIOUS = 'AfterPrevious';
     const TRIGGER_TYPE_ON_CLICK = 'OnClick';
     const TRIGGER_TYPE_WITH_PREVIOUS = 'WithPrevious';
@@ -732,6 +740,20 @@ class Effect implements ArrayAccess
      *
      * @return string[]
      */
+    public function getAnimateTextTypeAllowableValues()
+    {
+        return [
+            self::ANIMATE_TEXT_TYPE_ALL_AT_ONCE,
+            self::ANIMATE_TEXT_TYPE_BY_WORD,
+            self::ANIMATE_TEXT_TYPE_BY_LETTER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
     public function getTriggerTypeAllowableValues()
     {
         return [
@@ -790,6 +812,7 @@ class Effect implements ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['subtype'] = isset($data['subtype']) ? $data['subtype'] : null;
         $this->container['presetClassType'] = isset($data['presetClassType']) ? $data['presetClassType'] : null;
+        $this->container['animateTextType'] = isset($data['animateTextType']) ? $data['animateTextType'] : null;
         $this->container['shapeIndex'] = isset($data['shapeIndex']) ? $data['shapeIndex'] : null;
         $this->container['paragraphIndex'] = isset($data['paragraphIndex']) ? $data['paragraphIndex'] : null;
         $this->container['triggerType'] = isset($data['triggerType']) ? $data['triggerType'] : null;
@@ -844,6 +867,14 @@ class Effect implements ArrayAccess
             );
         }
 
+        $allowedValues = $this->getAnimateTextTypeAllowableValues();
+        if (!in_array($this->container['animateTextType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'animateTextType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['shapeIndex'] === null) {
             $invalidProperties[] = "'shapeIndex' can't be null";
         }
@@ -893,6 +924,10 @@ class Effect implements ArrayAccess
         }
         $allowedValues = $this->getPresetClassTypeAllowableValues();
         if (!in_array($this->container['presetClassType'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getAnimateTextTypeAllowableValues();
+        if (!in_array($this->container['animateTextType'], $allowedValues)) {
             return false;
         }
         if ($this->container['shapeIndex'] === null) {
@@ -1051,6 +1086,53 @@ class Effect implements ArrayAccess
             }
         }
         $this->container['presetClassType'] = $presetClassType;
+
+        return $this;
+    }
+
+    /**
+     * Gets animateTextType
+     *
+     * @return string
+     */
+    public function getAnimateTextType()
+    {
+        return $this->container['animateTextType'];
+    }
+
+    /**
+     * Sets animateTextType
+     *
+     * @param string $animateTextType Preset class type.
+     *
+     * @return $this
+     */
+    public function setAnimateTextType($animateTextType)
+    {
+        $allowedValues = $this->getAnimateTextTypeAllowableValues();
+
+
+        if (is_numeric($animateTextType)) {
+            if ($animateTextType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'animateTextType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $animateTextType = $allowedValues[$animateTextType];
+            }
+        } else {
+            if (!is_null($animateTextType) && !in_array($animateTextType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'animateTextType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['animateTextType'] = $animateTextType;
 
         return $this;
     }

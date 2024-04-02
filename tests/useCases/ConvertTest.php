@@ -34,6 +34,7 @@ use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule;
 use Aspose\Slides\Cloud\Sdk\Model\PdfExportOptions;
 use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
+use Aspose\Slides\Cloud\Sdk\Model\HandoutLayoutingOptions;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class ConvertTest extends TestBase
@@ -208,6 +209,22 @@ class ConvertTest extends TestBase
         $exportOptions->setFontFallbackRules([$fontFallbackRule1, $fontFallbackRule2]);
 
         $response = $this->getSlidesApi()->downloadPresentation(self::fileName, "png", $exportOptions, self::password, self::folderName);
+        Assert::assertTrue($response->isFile());
+        Assert::assertTrue($response->getSize() > 0);
+    }
+
+    public function testConvertWithSlideLayoutOptions()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+
+        $slidesLayoutOptions = new HandoutLayoutingOptions();
+        $slidesLayoutOptions->setHandout("Handouts2");
+        $slidesLayoutOptions->setPrintSlideNumbers(true);
+        
+        $exportOptions = new PdfExportOptions();
+        $exportOptions->setSlidesLayoutOptions($slidesLayoutOptions);
+
+        $response = $this->getSlidesApi()->downloadPresentation(self::fileName, "pdf", $exportOptions, self::password, self::folderName);
         Assert::assertTrue($response->isFile());
         Assert::assertTrue($response->getSize() > 0);
     }

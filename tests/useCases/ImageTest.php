@@ -30,6 +30,7 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
+use Aspose\Slides\Cloud\Sdk\Api\ApiException;
 
 class ImageTest extends TestBase
 {
@@ -120,6 +121,25 @@ class ImageTest extends TestBase
         $response = $this->getSlidesApi()->replaceImageOnline($file, self::imageIndex, $imageFile, self::password);
         Assert::assertNotNull($response);
         Assert::assertNotEquals(0, $response->getSize());
+    }
+
+    public function testDeletePictureCroppedAreas()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->deletePictureCroppedAreas(self::fileName, 2, 2, self::password, self::folderName);
+        Assert::assertTrue(true);
+    }
+
+    public function testDeletePictureCroppedAreasWrongShapeType()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        try {
+            $this->getSlidesApi()->deletePictureCroppedAreas(self::fileName, 2, 3, self::password, self::folderName);
+            Assert::fail("DeletePictureCroppedAreas applies only to picture frames");
+        } catch (ApiException $ex) {
+            //Must be a PictureFrame
+            Assert::assertNotNull($ex);
+        }
     }
 
     public const format = 'png';

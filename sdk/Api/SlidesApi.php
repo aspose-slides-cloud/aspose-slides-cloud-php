@@ -9833,6 +9833,132 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deletePictureCroppedAreas($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    {
+        $this->deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+    }
+
+    /**
+     */
+    public function deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deletePictureCroppedAreasAsync($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    {
+        return $this->deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deletePictureCroppedAreas'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
+     * @param  string $$password Document password. (required)
+     * @param  string $$folder Document folder. (required)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deletePictureCroppedAreas');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deletePictureCroppedAreas');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deletePictureCroppedAreas');
+        }
+        // verify the required parameter 'password' is set
+        if ($password === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $password when calling deletePictureCroppedAreas');
+        }
+        // verify the required parameter 'folder' is set
+        if ($folder === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $folder when calling deletePictureCroppedAreas');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/pictureCroppedAreas';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
     public function deletePortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null, $subShape = null)
     {
         list($response) = $this->deletePortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage, $subShape);

@@ -56,7 +56,9 @@ class Html5ExportOptions extends ExportOptions
       */
     protected static $swaggerTypes = [
         'animateTransitions' => 'bool',
-        'animateShapes' => 'bool'
+        'animateShapes' => 'bool',
+        'embedImages' => 'bool',
+        'notesCommentsLayouting' => '\Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions'
     ];
 
     /**
@@ -66,7 +68,9 @@ class Html5ExportOptions extends ExportOptions
       */
     protected static $swaggerFormats = [
         'animateTransitions' => null,
-        'animateShapes' => null
+        'animateShapes' => null,
+        'embedImages' => null,
+        'notesCommentsLayouting' => null
     ];
 
     /**
@@ -97,7 +101,9 @@ class Html5ExportOptions extends ExportOptions
      */
     protected static $attributeMap = [
         'animateTransitions' => 'AnimateTransitions',
-        'animateShapes' => 'AnimateShapes'
+        'animateShapes' => 'AnimateShapes',
+        'embedImages' => 'EmbedImages',
+        'notesCommentsLayouting' => 'NotesCommentsLayouting'
     ];
 
     /**
@@ -107,7 +113,9 @@ class Html5ExportOptions extends ExportOptions
      */
     protected static $setters = [
         'animateTransitions' => 'setAnimateTransitions',
-        'animateShapes' => 'setAnimateShapes'
+        'animateShapes' => 'setAnimateShapes',
+        'embedImages' => 'setEmbedImages',
+        'notesCommentsLayouting' => 'setNotesCommentsLayouting'
     ];
 
     /**
@@ -117,7 +125,9 @@ class Html5ExportOptions extends ExportOptions
      */
     protected static $getters = [
         'animateTransitions' => 'getAnimateTransitions',
-        'animateShapes' => 'getAnimateShapes'
+        'animateShapes' => 'getAnimateShapes',
+        'embedImages' => 'getEmbedImages',
+        'notesCommentsLayouting' => 'getNotesCommentsLayouting'
     ];
 
     /**
@@ -178,6 +188,8 @@ class Html5ExportOptions extends ExportOptions
 
         $this->container['animateTransitions'] = isset($data['animateTransitions']) ? $data['animateTransitions'] : null;
         $this->container['animateShapes'] = isset($data['animateShapes']) ? $data['animateShapes'] : null;
+        $this->container['embedImages'] = isset($data['embedImages']) ? $data['embedImages'] : null;
+        $this->container['notesCommentsLayouting'] = isset($data['notesCommentsLayouting']) ? $data['notesCommentsLayouting'] : null;
         $this->container['format'] = 'html5';
         
     }
@@ -254,6 +266,54 @@ class Html5ExportOptions extends ExportOptions
     public function setAnimateShapes($animateShapes)
     {
         $this->container['animateShapes'] = $animateShapes;
+
+        return $this;
+    }
+
+    /**
+     * Gets embedImages
+     *
+     * @return bool
+     */
+    public function getEmbedImages()
+    {
+        return $this->container['embedImages'];
+    }
+
+    /**
+     * Sets embedImages
+     *
+     * @param bool $embedImages Gets or sets embed images option.
+     *
+     * @return $this
+     */
+    public function setEmbedImages($embedImages)
+    {
+        $this->container['embedImages'] = $embedImages;
+
+        return $this;
+    }
+
+    /**
+     * Gets notesCommentsLayouting
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions
+     */
+    public function getNotesCommentsLayouting()
+    {
+        return $this->container['notesCommentsLayouting'];
+    }
+
+    /**
+     * Sets notesCommentsLayouting
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions $notesCommentsLayouting Slides layouting options
+     *
+     * @return $this
+     */
+    public function setNotesCommentsLayouting($notesCommentsLayouting)
+    {
+        $this->container['notesCommentsLayouting'] = $notesCommentsLayouting;
 
         return $this;
     }

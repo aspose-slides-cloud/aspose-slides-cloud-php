@@ -191,6 +191,7 @@ class Save extends Task
     const FORMAT_FODP = 'Fodp';
     const FORMAT_XAML = 'Xaml';
     const FORMAT_MPEG4 = 'Mpeg4';
+    const FORMAT_MD = 'Md';
     
 
     
@@ -227,6 +228,7 @@ class Save extends Task
             self::FORMAT_FODP,
             self::FORMAT_XAML,
             self::FORMAT_MPEG4,
+            self::FORMAT_MD,
         ];
     }
     

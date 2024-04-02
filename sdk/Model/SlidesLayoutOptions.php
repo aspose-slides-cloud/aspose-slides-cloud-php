@@ -29,25 +29,27 @@
 
 namespace Aspose\Slides\Cloud\Sdk\Model;
 
+
+use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ImageExportOptions Class Doc Comment
+ * SlidesLayoutOptions Class Doc Comment
  *
  * @category Class
- * @description Provides options that control how a presentation is saved in an image format.
+ * @description Slides layouting options.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ImageExportOptions extends ImageExportOptionsBase 
+class SlidesLayoutOptions implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ImageExportOptions';
+    protected static $swaggerModelName = 'SlidesLayoutOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +57,7 @@ class ImageExportOptions extends ImageExportOptionsBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'showHiddenSlides' => 'bool',
-        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions'
+        'layoutType' => 'string'
     ];
 
     /**
@@ -65,8 +66,7 @@ class ImageExportOptions extends ImageExportOptionsBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'showHiddenSlides' => null,
-        'slidesLayoutOptions' => null
+        'layoutType' => null
     ];
 
     /**
@@ -76,7 +76,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes + parent::swaggerTypes();
+        return self::$swaggerTypes;
     }
 
     /**
@@ -86,7 +86,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats + parent::swaggerFormats();
+        return self::$swaggerFormats;
     }
 
     /**
@@ -96,8 +96,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'showHiddenSlides' => 'ShowHiddenSlides',
-        'slidesLayoutOptions' => 'SlidesLayoutOptions'
+        'layoutType' => 'LayoutType'
     ];
 
     /**
@@ -106,8 +105,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $setters = [
-        'showHiddenSlides' => 'setShowHiddenSlides',
-        'slidesLayoutOptions' => 'setSlidesLayoutOptions'
+        'layoutType' => 'setLayoutType'
     ];
 
     /**
@@ -116,8 +114,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $getters = [
-        'showHiddenSlides' => 'getShowHiddenSlides',
-        'slidesLayoutOptions' => 'getSlidesLayoutOptions'
+        'layoutType' => 'getLayoutType'
     ];
 
     /**
@@ -128,7 +125,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -138,7 +135,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -148,7 +145,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -161,10 +158,31 @@ class ImageExportOptions extends ImageExportOptionsBase
         return self::$swaggerModelName;
     }
 
+    const LAYOUT_TYPE_NOTES_COMMENTS = 'NotesComments';
+    const LAYOUT_TYPE_HANDOUT = 'Handout';
     
 
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLayoutTypeAllowableValues()
+    {
+        return [
+            self::LAYOUT_TYPE_NOTES_COMMENTS,
+            self::LAYOUT_TYPE_HANDOUT,
+        ];
+    }
+    
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -174,11 +192,7 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public function __construct(array $data = null)
     {
-        parent::__construct($data);
-
-        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
-        $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
-        $this->container['format'] = 'image';
+        $this->container['layoutType'] = isset($data['layoutType']) ? $data['layoutType'] : null;
         
     }
 
@@ -189,7 +203,15 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
+
+        $allowedValues = $this->getLayoutTypeAllowableValues();
+        if (!in_array($this->container['layoutType'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'layoutType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -202,58 +224,58 @@ class ImageExportOptions extends ImageExportOptionsBase
      */
     public function valid()
     {
-        if (!parent::valid()) {
+
+        $allowedValues = $this->getLayoutTypeAllowableValues();
+        if (!in_array($this->container['layoutType'], $allowedValues)) {
             return false;
         }
-
         return true;
     }
 
 
     /**
-     * Gets showHiddenSlides
+     * Gets layoutType
      *
-     * @return bool
+     * @return string
      */
-    public function getShowHiddenSlides()
+    public function getLayoutType()
     {
-        return $this->container['showHiddenSlides'];
+        return $this->container['layoutType'];
     }
 
     /**
-     * Sets showHiddenSlides
+     * Sets layoutType
      *
-     * @param bool $showHiddenSlides Show hidden slides. If true, hidden are exported.
+     * @param string $layoutType layoutType
      *
      * @return $this
      */
-    public function setShowHiddenSlides($showHiddenSlides)
+    public function setLayoutType($layoutType)
     {
-        $this->container['showHiddenSlides'] = $showHiddenSlides;
+        $allowedValues = $this->getLayoutTypeAllowableValues();
 
-        return $this;
-    }
 
-    /**
-     * Gets slidesLayoutOptions
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions
-     */
-    public function getSlidesLayoutOptions()
-    {
-        return $this->container['slidesLayoutOptions'];
-    }
-
-    /**
-     * Sets slidesLayoutOptions
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions $slidesLayoutOptions Slides layouting options
-     *
-     * @return $this
-     */
-    public function setSlidesLayoutOptions($slidesLayoutOptions)
-    {
-        $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
+        if (is_numeric($layoutType)) {
+            if ($layoutType >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layoutType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $layoutType = $allowedValues[$layoutType];
+            }
+        } else {
+            if (!is_null($layoutType) && !in_array($layoutType, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'layoutType', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['layoutType'] = $layoutType;
 
         return $this;
     }

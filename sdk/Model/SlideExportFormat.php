@@ -68,6 +68,7 @@ class SlideExportFormat
     const FODP = 'Fodp';
     const XAML = 'Xaml';
     const HTML5 = 'Html5';
+    const MD = 'Md';
     
     /**
      * Gets allowable values of the enum
@@ -99,6 +100,7 @@ class SlideExportFormat
             self::FODP,
             self::XAML,
             self::HTML5,
+            self::MD,
         ];
     }
 }

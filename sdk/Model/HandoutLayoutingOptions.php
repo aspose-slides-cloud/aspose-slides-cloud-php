@@ -32,22 +32,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ImageExportOptions Class Doc Comment
+ * HandoutLayoutingOptions Class Doc Comment
  *
  * @category Class
- * @description Provides options that control how a presentation is saved in an image format.
+ * @description Handout layouting options
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ImageExportOptions extends ImageExportOptionsBase 
+class HandoutLayoutingOptions extends SlidesLayoutOptions 
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ImageExportOptions';
+    protected static $swaggerModelName = 'HandoutLayoutingOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +55,10 @@ class ImageExportOptions extends ImageExportOptionsBase
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'showHiddenSlides' => 'bool',
-        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions'
+        'handout' => 'string',
+        'printSlideNumbers' => 'bool',
+        'printComments' => 'bool',
+        'printFrameSlide' => 'bool'
     ];
 
     /**
@@ -65,8 +67,10 @@ class ImageExportOptions extends ImageExportOptionsBase
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'showHiddenSlides' => null,
-        'slidesLayoutOptions' => null
+        'handout' => null,
+        'printSlideNumbers' => null,
+        'printComments' => null,
+        'printFrameSlide' => null
     ];
 
     /**
@@ -96,8 +100,10 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $attributeMap = [
-        'showHiddenSlides' => 'ShowHiddenSlides',
-        'slidesLayoutOptions' => 'SlidesLayoutOptions'
+        'handout' => 'Handout',
+        'printSlideNumbers' => 'PrintSlideNumbers',
+        'printComments' => 'PrintComments',
+        'printFrameSlide' => 'PrintFrameSlide'
     ];
 
     /**
@@ -106,8 +112,10 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $setters = [
-        'showHiddenSlides' => 'setShowHiddenSlides',
-        'slidesLayoutOptions' => 'setSlidesLayoutOptions'
+        'handout' => 'setHandout',
+        'printSlideNumbers' => 'setPrintSlideNumbers',
+        'printComments' => 'setPrintComments',
+        'printFrameSlide' => 'setPrintFrameSlide'
     ];
 
     /**
@@ -116,8 +124,10 @@ class ImageExportOptions extends ImageExportOptionsBase
      * @var string[]
      */
     protected static $getters = [
-        'showHiddenSlides' => 'getShowHiddenSlides',
-        'slidesLayoutOptions' => 'getSlidesLayoutOptions'
+        'handout' => 'getHandout',
+        'printSlideNumbers' => 'getPrintSlideNumbers',
+        'printComments' => 'getPrintComments',
+        'printFrameSlide' => 'getPrintFrameSlide'
     ];
 
     /**
@@ -161,8 +171,37 @@ class ImageExportOptions extends ImageExportOptionsBase
         return self::$swaggerModelName;
     }
 
+    const HANDOUT_HANDOUTS1 = 'Handouts1';
+    const HANDOUT_HANDOUTS2 = 'Handouts2';
+    const HANDOUT_HANDOUTS3 = 'Handouts3';
+    const HANDOUT_HANDOUTS4_HORIZONTAL = 'Handouts4Horizontal';
+    const HANDOUT_HANDOUTS4_VERTICAL = 'Handouts4Vertical';
+    const HANDOUT_HANDOUTS6_HORIZONTAL = 'Handouts6Horizontal';
+    const HANDOUT_HANDOUTS6_VERTICAL = 'Handouts6Vertical';
+    const HANDOUT_HANDOUTS9_HORIZONTAL = 'Handouts9Horizontal';
+    const HANDOUT_HANDOUTS9_VERTICAL = 'Handouts9Vertical';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getHandoutAllowableValues()
+    {
+        return [
+            self::HANDOUT_HANDOUTS1,
+            self::HANDOUT_HANDOUTS2,
+            self::HANDOUT_HANDOUTS3,
+            self::HANDOUT_HANDOUTS4_HORIZONTAL,
+            self::HANDOUT_HANDOUTS4_VERTICAL,
+            self::HANDOUT_HANDOUTS6_HORIZONTAL,
+            self::HANDOUT_HANDOUTS6_VERTICAL,
+            self::HANDOUT_HANDOUTS9_HORIZONTAL,
+            self::HANDOUT_HANDOUTS9_VERTICAL,
+        ];
+    }
     
 
 
@@ -176,9 +215,11 @@ class ImageExportOptions extends ImageExportOptionsBase
     {
         parent::__construct($data);
 
-        $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
-        $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
-        $this->container['format'] = 'image';
+        $this->container['handout'] = isset($data['handout']) ? $data['handout'] : null;
+        $this->container['printSlideNumbers'] = isset($data['printSlideNumbers']) ? $data['printSlideNumbers'] : null;
+        $this->container['printComments'] = isset($data['printComments']) ? $data['printComments'] : null;
+        $this->container['printFrameSlide'] = isset($data['printFrameSlide']) ? $data['printFrameSlide'] : null;
+        $this->container['layoutType'] = 'Handout';
         
     }
 
@@ -190,6 +231,14 @@ class ImageExportOptions extends ImageExportOptionsBase
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getHandoutAllowableValues();
+        if (!in_array($this->container['handout'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'handout', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -206,54 +255,129 @@ class ImageExportOptions extends ImageExportOptionsBase
             return false;
         }
 
+        $allowedValues = $this->getHandoutAllowableValues();
+        if (!in_array($this->container['handout'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets showHiddenSlides
+     * Gets handout
      *
-     * @return bool
+     * @return string
      */
-    public function getShowHiddenSlides()
+    public function getHandout()
     {
-        return $this->container['showHiddenSlides'];
+        return $this->container['handout'];
     }
 
     /**
-     * Sets showHiddenSlides
+     * Sets handout
      *
-     * @param bool $showHiddenSlides Show hidden slides. If true, hidden are exported.
+     * @param string $handout Specified how many pages and in what sequence will be placed on the page.
      *
      * @return $this
      */
-    public function setShowHiddenSlides($showHiddenSlides)
+    public function setHandout($handout)
     {
-        $this->container['showHiddenSlides'] = $showHiddenSlides;
+        $allowedValues = $this->getHandoutAllowableValues();
+
+
+        if (is_numeric($handout)) {
+            if ($handout >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'handout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $handout = $allowedValues[$handout];
+            }
+        } else {
+            if (!is_null($handout) && !in_array($handout, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'handout', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['handout'] = $handout;
 
         return $this;
     }
 
     /**
-     * Gets slidesLayoutOptions
+     * Gets printSlideNumbers
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions
+     * @return bool
      */
-    public function getSlidesLayoutOptions()
+    public function getPrintSlideNumbers()
     {
-        return $this->container['slidesLayoutOptions'];
+        return $this->container['printSlideNumbers'];
     }
 
     /**
-     * Sets slidesLayoutOptions
+     * Sets printSlideNumbers
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions $slidesLayoutOptions Slides layouting options
+     * @param bool $printSlideNumbers True to print the displayed slide numbers.
      *
      * @return $this
      */
-    public function setSlidesLayoutOptions($slidesLayoutOptions)
+    public function setPrintSlideNumbers($printSlideNumbers)
     {
-        $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
+        $this->container['printSlideNumbers'] = $printSlideNumbers;
+
+        return $this;
+    }
+
+    /**
+     * Gets printComments
+     *
+     * @return bool
+     */
+    public function getPrintComments()
+    {
+        return $this->container['printComments'];
+    }
+
+    /**
+     * Sets printComments
+     *
+     * @param bool $printComments True to display comments on slide.
+     *
+     * @return $this
+     */
+    public function setPrintComments($printComments)
+    {
+        $this->container['printComments'] = $printComments;
+
+        return $this;
+    }
+
+    /**
+     * Gets printFrameSlide
+     *
+     * @return bool
+     */
+    public function getPrintFrameSlide()
+    {
+        return $this->container['printFrameSlide'];
+    }
+
+    /**
+     * Sets printFrameSlide
+     *
+     * @param bool $printFrameSlide True to draw frames around the displayed slides.
+     *
+     * @return $this
+     */
+    public function setPrintFrameSlide($printFrameSlide)
+    {
+        $this->container['printFrameSlide'] = $printFrameSlide;
 
         return $this;
     }

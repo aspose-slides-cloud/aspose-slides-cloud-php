@@ -60,11 +60,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         'dpiY' => 'int',
         'showHiddenSlides' => 'bool',
         'pixelFormat' => 'string',
-        'notesPosition' => 'string',
-        'commentsPosition' => 'string',
-        'commentsAreaWidth' => 'int',
-        'commentsAreaColor' => 'string',
-        'showCommentsByNoAuthor' => 'bool'
+        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions',
+        'bwConversionMode' => 'string'
     ];
 
     /**
@@ -78,11 +75,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         'dpiY' => 'int32',
         'showHiddenSlides' => null,
         'pixelFormat' => null,
-        'notesPosition' => null,
-        'commentsPosition' => null,
-        'commentsAreaWidth' => 'int32',
-        'commentsAreaColor' => null,
-        'showCommentsByNoAuthor' => null
+        'slidesLayoutOptions' => null,
+        'bwConversionMode' => null
     ];
 
     /**
@@ -117,11 +111,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         'dpiY' => 'DpiY',
         'showHiddenSlides' => 'ShowHiddenSlides',
         'pixelFormat' => 'PixelFormat',
-        'notesPosition' => 'NotesPosition',
-        'commentsPosition' => 'CommentsPosition',
-        'commentsAreaWidth' => 'CommentsAreaWidth',
-        'commentsAreaColor' => 'CommentsAreaColor',
-        'showCommentsByNoAuthor' => 'ShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'SlidesLayoutOptions',
+        'bwConversionMode' => 'BwConversionMode'
     ];
 
     /**
@@ -135,11 +126,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         'dpiY' => 'setDpiY',
         'showHiddenSlides' => 'setShowHiddenSlides',
         'pixelFormat' => 'setPixelFormat',
-        'notesPosition' => 'setNotesPosition',
-        'commentsPosition' => 'setCommentsPosition',
-        'commentsAreaWidth' => 'setCommentsAreaWidth',
-        'commentsAreaColor' => 'setCommentsAreaColor',
-        'showCommentsByNoAuthor' => 'setShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'setSlidesLayoutOptions',
+        'bwConversionMode' => 'setBwConversionMode'
     ];
 
     /**
@@ -153,11 +141,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         'dpiY' => 'getDpiY',
         'showHiddenSlides' => 'getShowHiddenSlides',
         'pixelFormat' => 'getPixelFormat',
-        'notesPosition' => 'getNotesPosition',
-        'commentsPosition' => 'getCommentsPosition',
-        'commentsAreaWidth' => 'getCommentsAreaWidth',
-        'commentsAreaColor' => 'getCommentsAreaColor',
-        'showCommentsByNoAuthor' => 'getShowCommentsByNoAuthor'
+        'slidesLayoutOptions' => 'getSlidesLayoutOptions',
+        'bwConversionMode' => 'getBwConversionMode'
     ];
 
     /**
@@ -212,12 +197,14 @@ class TiffExportOptions extends ImageExportOptionsBase
     const PIXEL_FORMAT_FORMAT8BPP_INDEXED = 'Format8bppIndexed';
     const PIXEL_FORMAT_FORMAT24BPP_RGB = 'Format24bppRgb';
     const PIXEL_FORMAT_FORMAT32BPP_ARGB = 'Format32bppArgb';
-    const NOTES_POSITION_NONE = 'None';
-    const NOTES_POSITION_BOTTOM_FULL = 'BottomFull';
-    const NOTES_POSITION_BOTTOM_TRUNCATED = 'BottomTruncated';
-    const COMMENTS_POSITION_NONE = 'None';
-    const COMMENTS_POSITION_BOTTOM = 'Bottom';
-    const COMMENTS_POSITION_RIGHT = 'Right';
+    const BW_CONVERSION_MODE__DEFAULT = 'Default';
+    const BW_CONVERSION_MODE_DITHERING = 'Dithering';
+    const BW_CONVERSION_MODE_DITHERING_FLOYD_STEINBERG = 'DitheringFloydSteinberg';
+    const BW_CONVERSION_MODE_AUTO = 'Auto';
+    const BW_CONVERSION_MODE_AUTO_OTSU = 'AutoOtsu';
+    const BW_CONVERSION_MODE_THRESHOLD25 = 'Threshold25';
+    const BW_CONVERSION_MODE_THRESHOLD50 = 'Threshold50';
+    const BW_CONVERSION_MODE_THRESHOLD75 = 'Threshold75';
     
 
     
@@ -259,26 +246,17 @@ class TiffExportOptions extends ImageExportOptionsBase
      *
      * @return string[]
      */
-    public function getNotesPositionAllowableValues()
+    public function getBwConversionModeAllowableValues()
     {
         return [
-            self::NOTES_POSITION_NONE,
-            self::NOTES_POSITION_BOTTOM_FULL,
-            self::NOTES_POSITION_BOTTOM_TRUNCATED,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCommentsPositionAllowableValues()
-    {
-        return [
-            self::COMMENTS_POSITION_NONE,
-            self::COMMENTS_POSITION_BOTTOM,
-            self::COMMENTS_POSITION_RIGHT,
+            self::BW_CONVERSION_MODE__DEFAULT,
+            self::BW_CONVERSION_MODE_DITHERING,
+            self::BW_CONVERSION_MODE_DITHERING_FLOYD_STEINBERG,
+            self::BW_CONVERSION_MODE_AUTO,
+            self::BW_CONVERSION_MODE_AUTO_OTSU,
+            self::BW_CONVERSION_MODE_THRESHOLD25,
+            self::BW_CONVERSION_MODE_THRESHOLD50,
+            self::BW_CONVERSION_MODE_THRESHOLD75,
         ];
     }
     
@@ -299,11 +277,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         $this->container['dpiY'] = isset($data['dpiY']) ? $data['dpiY'] : null;
         $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
         $this->container['pixelFormat'] = isset($data['pixelFormat']) ? $data['pixelFormat'] : null;
-        $this->container['notesPosition'] = isset($data['notesPosition']) ? $data['notesPosition'] : null;
-        $this->container['commentsPosition'] = isset($data['commentsPosition']) ? $data['commentsPosition'] : null;
-        $this->container['commentsAreaWidth'] = isset($data['commentsAreaWidth']) ? $data['commentsAreaWidth'] : null;
-        $this->container['commentsAreaColor'] = isset($data['commentsAreaColor']) ? $data['commentsAreaColor'] : null;
-        $this->container['showCommentsByNoAuthor'] = isset($data['showCommentsByNoAuthor']) ? $data['showCommentsByNoAuthor'] : null;
+        $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
+        $this->container['bwConversionMode'] = isset($data['bwConversionMode']) ? $data['bwConversionMode'] : null;
         $this->container['format'] = 'tiff';
         
     }
@@ -333,18 +308,10 @@ class TiffExportOptions extends ImageExportOptionsBase
             );
         }
 
-        $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notesPosition'], $allowedValues)) {
+        $allowedValues = $this->getBwConversionModeAllowableValues();
+        if (!in_array($this->container['bwConversionMode'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'notesPosition', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'commentsPosition', must be one of '%s'",
+                "invalid value for 'bwConversionMode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -372,12 +339,8 @@ class TiffExportOptions extends ImageExportOptionsBase
         if (!in_array($this->container['pixelFormat'], $allowedValues)) {
             return false;
         }
-        $allowedValues = $this->getNotesPositionAllowableValues();
-        if (!in_array($this->container['notesPosition'], $allowedValues)) {
-            return false;
-        }
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-        if (!in_array($this->container['commentsPosition'], $allowedValues)) {
+        $allowedValues = $this->getBwConversionModeAllowableValues();
+        if (!in_array($this->container['bwConversionMode'], $allowedValues)) {
             return false;
         }
         return true;
@@ -551,167 +514,72 @@ class TiffExportOptions extends ImageExportOptionsBase
     }
 
     /**
-     * Gets notesPosition
+     * Gets slidesLayoutOptions
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions
      */
-    public function getNotesPosition()
+    public function getSlidesLayoutOptions()
     {
-        return $this->container['notesPosition'];
+        return $this->container['slidesLayoutOptions'];
     }
 
     /**
-     * Sets notesPosition
+     * Sets slidesLayoutOptions
      *
-     * @param string $notesPosition Gets or sets the position of the notes on the page.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions $slidesLayoutOptions Slides layouting options
      *
      * @return $this
      */
-    public function setNotesPosition($notesPosition)
+    public function setSlidesLayoutOptions($slidesLayoutOptions)
     {
-        $allowedValues = $this->getNotesPositionAllowableValues();
+        $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets bwConversionMode
+     *
+     * @return string
+     */
+    public function getBwConversionMode()
+    {
+        return $this->container['bwConversionMode'];
+    }
+
+    /**
+     * Sets bwConversionMode
+     *
+     * @param string $bwConversionMode Specifies the algorithm for converting a color image into a black and white image. This option will applied only if Aspose.Slides.Export.TiffOptions.CompressionType is set to Aspose.Slides.Export.TiffCompressionTypes.CCITT4 or Aspose.Slides.Export.TiffCompressionTypes.CCITT3.
+     *
+     * @return $this
+     */
+    public function setBwConversionMode($bwConversionMode)
+    {
+        $allowedValues = $this->getBwConversionModeAllowableValues();
 
 
-        if (is_numeric($notesPosition)) {
-            if ($notesPosition >= sizeof($allowedValues)) {
+        if (is_numeric($bwConversionMode)) {
+            if ($bwConversionMode >= sizeof($allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        "Invalid value for 'bwConversionMode', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
-                $notesPosition = $allowedValues[$notesPosition];
+                $bwConversionMode = $allowedValues[$bwConversionMode];
             }
         } else {
-            if (!is_null($notesPosition) && !in_array($notesPosition, $allowedValues)) {
+            if (!is_null($bwConversionMode) && !in_array($bwConversionMode, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
-                        "Invalid value for 'notesPosition', must be one of '%s'",
+                        "Invalid value for 'bwConversionMode', must be one of '%s'",
                         implode("', '", $allowedValues)
                     )
                 );
             }
         }
-        $this->container['notesPosition'] = $notesPosition;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsPosition
-     *
-     * @return string
-     */
-    public function getCommentsPosition()
-    {
-        return $this->container['commentsPosition'];
-    }
-
-    /**
-     * Sets commentsPosition
-     *
-     * @param string $commentsPosition Gets or sets the position of the comments on the page.
-     *
-     * @return $this
-     */
-    public function setCommentsPosition($commentsPosition)
-    {
-        $allowedValues = $this->getCommentsPositionAllowableValues();
-
-
-        if (is_numeric($commentsPosition)) {
-            if ($commentsPosition >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'commentsPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $commentsPosition = $allowedValues[$commentsPosition];
-            }
-        } else {
-            if (!is_null($commentsPosition) && !in_array($commentsPosition, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'commentsPosition', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['commentsPosition'] = $commentsPosition;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsAreaWidth
-     *
-     * @return int
-     */
-    public function getCommentsAreaWidth()
-    {
-        return $this->container['commentsAreaWidth'];
-    }
-
-    /**
-     * Sets commentsAreaWidth
-     *
-     * @param int $commentsAreaWidth Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-     *
-     * @return $this
-     */
-    public function setCommentsAreaWidth($commentsAreaWidth)
-    {
-        $this->container['commentsAreaWidth'] = $commentsAreaWidth;
-
-        return $this;
-    }
-
-    /**
-     * Gets commentsAreaColor
-     *
-     * @return string
-     */
-    public function getCommentsAreaColor()
-    {
-        return $this->container['commentsAreaColor'];
-    }
-
-    /**
-     * Sets commentsAreaColor
-     *
-     * @param string $commentsAreaColor Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-     *
-     * @return $this
-     */
-    public function setCommentsAreaColor($commentsAreaColor)
-    {
-        $this->container['commentsAreaColor'] = $commentsAreaColor;
-
-        return $this;
-    }
-
-    /**
-     * Gets showCommentsByNoAuthor
-     *
-     * @return bool
-     */
-    public function getShowCommentsByNoAuthor()
-    {
-        return $this->container['showCommentsByNoAuthor'];
-    }
-
-    /**
-     * Sets showCommentsByNoAuthor
-     *
-     * @param bool $showCommentsByNoAuthor True if comments that have no author are displayed. (Applies only if comments are displayed).
-     *
-     * @return $this
-     */
-    public function setShowCommentsByNoAuthor($showCommentsByNoAuthor)
-    {
-        $this->container['showCommentsByNoAuthor'] = $showCommentsByNoAuthor;
+        $this->container['bwConversionMode'] = $bwConversionMode;
 
         return $this;
     }

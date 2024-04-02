@@ -61,6 +61,7 @@ class ShapeBase extends ResourceBase
         'alternativeText' => 'string',
         'alternativeTextTitle' => 'string',
         'hidden' => 'bool',
+        'isDecorative' => 'bool',
         'x' => 'double',
         'y' => 'double',
         'zOrderPosition' => 'int',
@@ -85,6 +86,7 @@ class ShapeBase extends ResourceBase
         'alternativeText' => null,
         'alternativeTextTitle' => null,
         'hidden' => null,
+        'isDecorative' => null,
         'x' => 'double',
         'y' => 'double',
         'zOrderPosition' => 'int32',
@@ -130,6 +132,7 @@ class ShapeBase extends ResourceBase
         'alternativeText' => 'AlternativeText',
         'alternativeTextTitle' => 'AlternativeTextTitle',
         'hidden' => 'Hidden',
+        'isDecorative' => 'IsDecorative',
         'x' => 'X',
         'y' => 'Y',
         'zOrderPosition' => 'ZOrderPosition',
@@ -154,6 +157,7 @@ class ShapeBase extends ResourceBase
         'alternativeText' => 'setAlternativeText',
         'alternativeTextTitle' => 'setAlternativeTextTitle',
         'hidden' => 'setHidden',
+        'isDecorative' => 'setIsDecorative',
         'x' => 'setX',
         'y' => 'setY',
         'zOrderPosition' => 'setZOrderPosition',
@@ -178,6 +182,7 @@ class ShapeBase extends ResourceBase
         'alternativeText' => 'getAlternativeText',
         'alternativeTextTitle' => 'getAlternativeTextTitle',
         'hidden' => 'getHidden',
+        'isDecorative' => 'getIsDecorative',
         'x' => 'getX',
         'y' => 'getY',
         'zOrderPosition' => 'getZOrderPosition',
@@ -295,6 +300,7 @@ class ShapeBase extends ResourceBase
         $this->container['alternativeText'] = isset($data['alternativeText']) ? $data['alternativeText'] : null;
         $this->container['alternativeTextTitle'] = isset($data['alternativeTextTitle']) ? $data['alternativeTextTitle'] : null;
         $this->container['hidden'] = isset($data['hidden']) ? $data['hidden'] : null;
+        $this->container['isDecorative'] = isset($data['isDecorative']) ? $data['isDecorative'] : null;
         $this->container['x'] = isset($data['x']) ? $data['x'] : null;
         $this->container['y'] = isset($data['y']) ? $data['y'] : null;
         $this->container['zOrderPosition'] = isset($data['zOrderPosition']) ? $data['zOrderPosition'] : null;
@@ -494,6 +500,30 @@ class ShapeBase extends ResourceBase
     public function setHidden($hidden)
     {
         $this->container['hidden'] = $hidden;
+
+        return $this;
+    }
+
+    /**
+     * Gets isDecorative
+     *
+     * @return bool
+     */
+    public function getIsDecorative()
+    {
+        return $this->container['isDecorative'];
+    }
+
+    /**
+     * Sets isDecorative
+     *
+     * @param bool $isDecorative Gets or sets 'Mark as decorative' option.
+     *
+     * @return $this
+     */
+    public function setIsDecorative($isDecorative)
+    {
+        $this->container['isDecorative'] = $isDecorative;
 
         return $this;
     }

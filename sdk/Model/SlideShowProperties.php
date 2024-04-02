@@ -61,6 +61,7 @@ class SlideShowProperties extends ResourceBase
         'penColor' => 'string',
         'showAnimation' => 'bool',
         'showNarration' => 'bool',
+        'showMediaControls' => 'bool',
         'useTimings' => 'bool',
         'slideShowType' => 'string',
         'showScrollbar' => 'bool'
@@ -78,6 +79,7 @@ class SlideShowProperties extends ResourceBase
         'penColor' => null,
         'showAnimation' => null,
         'showNarration' => null,
+        'showMediaControls' => null,
         'useTimings' => null,
         'slideShowType' => null,
         'showScrollbar' => null
@@ -116,6 +118,7 @@ class SlideShowProperties extends ResourceBase
         'penColor' => 'PenColor',
         'showAnimation' => 'ShowAnimation',
         'showNarration' => 'ShowNarration',
+        'showMediaControls' => 'ShowMediaControls',
         'useTimings' => 'UseTimings',
         'slideShowType' => 'SlideShowType',
         'showScrollbar' => 'ShowScrollbar'
@@ -133,6 +136,7 @@ class SlideShowProperties extends ResourceBase
         'penColor' => 'setPenColor',
         'showAnimation' => 'setShowAnimation',
         'showNarration' => 'setShowNarration',
+        'showMediaControls' => 'setShowMediaControls',
         'useTimings' => 'setUseTimings',
         'slideShowType' => 'setSlideShowType',
         'showScrollbar' => 'setShowScrollbar'
@@ -150,6 +154,7 @@ class SlideShowProperties extends ResourceBase
         'penColor' => 'getPenColor',
         'showAnimation' => 'getShowAnimation',
         'showNarration' => 'getShowNarration',
+        'showMediaControls' => 'getShowMediaControls',
         'useTimings' => 'getUseTimings',
         'slideShowType' => 'getSlideShowType',
         'showScrollbar' => 'getShowScrollbar'
@@ -234,6 +239,7 @@ class SlideShowProperties extends ResourceBase
         $this->container['penColor'] = isset($data['penColor']) ? $data['penColor'] : null;
         $this->container['showAnimation'] = isset($data['showAnimation']) ? $data['showAnimation'] : null;
         $this->container['showNarration'] = isset($data['showNarration']) ? $data['showNarration'] : null;
+        $this->container['showMediaControls'] = isset($data['showMediaControls']) ? $data['showMediaControls'] : null;
         $this->container['useTimings'] = isset($data['useTimings']) ? $data['useTimings'] : null;
         $this->container['slideShowType'] = isset($data['slideShowType']) ? $data['slideShowType'] : null;
         $this->container['showScrollbar'] = isset($data['showScrollbar']) ? $data['showScrollbar'] : null;
@@ -420,6 +426,30 @@ class SlideShowProperties extends ResourceBase
     public function setShowNarration($showNarration)
     {
         $this->container['showNarration'] = $showNarration;
+
+        return $this;
+    }
+
+    /**
+     * Gets showMediaControls
+     *
+     * @return bool
+     */
+    public function getShowMediaControls()
+    {
+        return $this->container['showMediaControls'];
+    }
+
+    /**
+     * Sets showMediaControls
+     *
+     * @param bool $showMediaControls Show media controls.
+     *
+     * @return $this
+     */
+    public function setShowMediaControls($showMediaControls)
+    {
+        $this->container['showMediaControls'] = $showMediaControls;
 
         return $this;
     }
