@@ -157,8 +157,8 @@ class MathTest extends TestBase
     public function testMathDownload()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
-        $mathMl = $this->getSlidesApi()->downloadPortionAsMathMl(
-            self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
+        $mathMl = $this->getSlidesApi()->downloadMathPortion(
+            self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, "MathML", self::password, self::folderName);
         Assert::assertTrue($mathMl->isFile());
         Assert::assertTrue($mathMl->getSize() > 0);
     }
@@ -167,8 +167,8 @@ class MathTest extends TestBase
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         try {
-            $mathMl = $this->getSlidesApi()->downloadPortionAsMathMl(
-                self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, self::password, self::folderName);
+            $mathMl = $this->getSlidesApi()->downloadMathPortion(
+                self::fileName, self::slideIndex, self::notMathShapeIndex, self::paragraphIndex, self::portionIndex, "MathML", self::password, self::folderName);
             Assert::fail("Must have failed");
         } catch (ApiException $ex) {
             //Cannot convert an ordinary portion to MathML
@@ -180,8 +180,8 @@ class MathTest extends TestBase
     {
         $outPath = self::folderName."/mathml.xml";
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getSlidesApi()->savePortionAsMathMl(
-            self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, $outPath, self::password, self::folderName);
+        $this->getSlidesApi()->saveMathPortion(
+            self::fileName, self::slideIndex, self::shapeIndex, self::paragraphIndex, self::portionIndex, "MathML", $outPath, self::password, self::folderName);
         $result = $this->getSlidesApi()->objectExists($outPath);
         Assert::assertTrue($result->getExists());
     }

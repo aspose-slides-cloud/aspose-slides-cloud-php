@@ -61,6 +61,7 @@ class DataPoint implements ArrayAccess
         'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
         'threeDFormat' => '\Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat',
         'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat',
+        'marker' => '\Aspose\Slides\Cloud\Sdk\Model\SeriesMarker',
         'type' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class DataPoint implements ArrayAccess
         'effectFormat' => null,
         'threeDFormat' => null,
         'lineFormat' => null,
+        'marker' => null,
         'type' => null
     ];
 
@@ -108,6 +110,7 @@ class DataPoint implements ArrayAccess
         'effectFormat' => 'EffectFormat',
         'threeDFormat' => 'ThreeDFormat',
         'lineFormat' => 'LineFormat',
+        'marker' => 'Marker',
         'type' => 'Type'
     ];
 
@@ -121,6 +124,7 @@ class DataPoint implements ArrayAccess
         'effectFormat' => 'setEffectFormat',
         'threeDFormat' => 'setThreeDFormat',
         'lineFormat' => 'setLineFormat',
+        'marker' => 'setMarker',
         'type' => 'setType'
     ];
 
@@ -134,6 +138,7 @@ class DataPoint implements ArrayAccess
         'effectFormat' => 'getEffectFormat',
         'threeDFormat' => 'getThreeDFormat',
         'lineFormat' => 'getLineFormat',
+        'marker' => 'getMarker',
         'type' => 'getType'
     ];
 
@@ -218,6 +223,7 @@ class DataPoint implements ArrayAccess
         $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
         $this->container['threeDFormat'] = isset($data['threeDFormat']) ? $data['threeDFormat'] : null;
         $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['marker'] = isset($data['marker']) ? $data['marker'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         
     }
@@ -351,6 +357,30 @@ class DataPoint implements ArrayAccess
     public function setLineFormat($lineFormat)
     {
         $this->container['lineFormat'] = $lineFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets marker
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SeriesMarker
+     */
+    public function getMarker()
+    {
+        return $this->container['marker'];
+    }
+
+    /**
+     * Sets marker
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SeriesMarker $marker Gets or sets the marker.
+     *
+     * @return $this
+     */
+    public function setMarker($marker)
+    {
+        $this->container['marker'] = $marker;
 
         return $this;
     }

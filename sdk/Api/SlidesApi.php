@@ -9833,14 +9833,14 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function deletePictureCroppedAreas($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    public function deletePictureCroppedAreas($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         $this->deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
     }
 
     /**
      */
-    public function deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    public function deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         $returnType = '';
         $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
@@ -9857,7 +9857,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deletePictureCroppedAreasAsync($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    public function deletePictureCroppedAreasAsync($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         return $this->deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
             ->then(function ($response) {
@@ -9867,7 +9867,7 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    public function deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         $returnType = '';
         $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
@@ -9899,14 +9899,14 @@ class SlidesApi extends ApiBase
      * @param  string $$name Document name. (required)
      * @param  int $$slideIndex Slide index. (required)
      * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
-     * @param  string $$password Document password. (required)
-     * @param  string $$folder Document folder. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Presentation storage. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage = null)
+    protected function deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -9919,14 +9919,6 @@ class SlidesApi extends ApiBase
         // verify the required parameter 'shape_index' is set
         if ($shapeIndex === null) {
             throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deletePictureCroppedAreas');
-        }
-        // verify the required parameter 'password' is set
-        if ($password === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $password when calling deletePictureCroppedAreas');
-        }
-        // verify the required parameter 'folder' is set
-        if ($folder === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $folder when calling deletePictureCroppedAreas');
         }
 
         $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/pictureCroppedAreas';
@@ -9953,7 +9945,7 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
-            ['multipart/form-data']);
+            ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
     }
@@ -16575,6 +16567,176 @@ class SlidesApi extends ApiBase
         if (isset($document)) {
             array_push($_tempBody, $document);
         }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function downloadMathPortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password = null, $folder = null, $storage = null)
+    {
+        list($response) = $this->downloadMathPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password, $folder, $storage);
+        return $response;
+    }
+
+    /**
+     */
+    public function downloadMathPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function downloadMathPortionAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password = null, $folder = null, $storage = null)
+    {
+        return $this->downloadMathPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function downloadMathPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'downloadMathPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$format Format. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Document storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function downloadMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling downloadMathPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling downloadMathPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling downloadMathPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling downloadMathPortion');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling downloadMathPortion');
+        }
+        // verify the required parameter 'format' is set
+        if ($format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling downloadMathPortion');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\MathFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\MathFormat::getAllowableEnumValues()));
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/{format}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['multipart/form-data'],
@@ -31937,6 +32099,155 @@ class SlidesApi extends ApiBase
             ['multipart/form-data']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function saveMathPortion($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        $this->saveMathPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password, $folder, $storage);
+    }
+
+    /**
+     */
+    public function saveMathPortionWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->saveMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function saveMathPortionAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        return $this->saveMathPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function saveMathPortionAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->saveMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'saveMathPortion'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index. (required)
+     * @param  int $$paragraphIndex Paragraph index. (required)
+     * @param  int $$portionIndex Portion index. (required)
+     * @param  string $$format Format. (required)
+     * @param  string $$outPath Path to save result. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Presentation folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function saveMathPortionRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $format, $outPath, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling saveMathPortion');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling saveMathPortion');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling saveMathPortion');
+        }
+        // verify the required parameter 'paragraph_index' is set
+        if ($paragraphIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling saveMathPortion');
+        }
+        // verify the required parameter 'portion_index' is set
+        if ($portionIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling saveMathPortion');
+        }
+        // verify the required parameter 'format' is set
+        if ($format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling saveMathPortion');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\MathFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\MathFormat::getAllowableEnumValues()));
+        }
+        // verify the required parameter 'out_path' is set
+        if ($outPath === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $outPath when calling saveMathPortion');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/{format}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($outPath !== null) {
+            $queryParams['outPath'] = ObjectSerializer::toQueryValue($outPath);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
     /**
      */
