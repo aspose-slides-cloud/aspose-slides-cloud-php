@@ -60,6 +60,7 @@ class Chart extends ShapeBase
         'series' => '\Aspose\Slides\Cloud\Sdk\Model\Series[]',
         'categories' => '\Aspose\Slides\Cloud\Sdk\Model\ChartCategory[]',
         'dataSourceForCategories' => '\Aspose\Slides\Cloud\Sdk\Model\DataSource',
+        'hasTitle' => 'bool',
         'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
         'backWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
         'sideWall' => '\Aspose\Slides\Cloud\Sdk\Model\ChartWall',
@@ -82,6 +83,7 @@ class Chart extends ShapeBase
         'series' => null,
         'categories' => null,
         'dataSourceForCategories' => null,
+        'hasTitle' => null,
         'title' => null,
         'backWall' => null,
         'sideWall' => null,
@@ -125,6 +127,7 @@ class Chart extends ShapeBase
         'series' => 'Series',
         'categories' => 'Categories',
         'dataSourceForCategories' => 'DataSourceForCategories',
+        'hasTitle' => 'HasTitle',
         'title' => 'Title',
         'backWall' => 'BackWall',
         'sideWall' => 'SideWall',
@@ -147,6 +150,7 @@ class Chart extends ShapeBase
         'series' => 'setSeries',
         'categories' => 'setCategories',
         'dataSourceForCategories' => 'setDataSourceForCategories',
+        'hasTitle' => 'setHasTitle',
         'title' => 'setTitle',
         'backWall' => 'setBackWall',
         'sideWall' => 'setSideWall',
@@ -169,6 +173,7 @@ class Chart extends ShapeBase
         'series' => 'getSeries',
         'categories' => 'getCategories',
         'dataSourceForCategories' => 'getDataSourceForCategories',
+        'hasTitle' => 'getHasTitle',
         'title' => 'getTitle',
         'backWall' => 'getBackWall',
         'sideWall' => 'getSideWall',
@@ -416,6 +421,7 @@ class Chart extends ShapeBase
         $this->container['series'] = isset($data['series']) ? $data['series'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['dataSourceForCategories'] = isset($data['dataSourceForCategories']) ? $data['dataSourceForCategories'] : null;
+        $this->container['hasTitle'] = isset($data['hasTitle']) ? $data['hasTitle'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['backWall'] = isset($data['backWall']) ? $data['backWall'] : null;
         $this->container['sideWall'] = isset($data['sideWall']) ? $data['sideWall'] : null;
@@ -614,6 +620,30 @@ class Chart extends ShapeBase
     public function setDataSourceForCategories($dataSourceForCategories)
     {
         $this->container['dataSourceForCategories'] = $dataSourceForCategories;
+
+        return $this;
+    }
+
+    /**
+     * Gets hasTitle
+     *
+     * @return bool
+     */
+    public function getHasTitle()
+    {
+        return $this->container['hasTitle'];
+    }
+
+    /**
+     * Sets hasTitle
+     *
+     * @param bool $hasTitle True if the chart has a title.
+     *
+     * @return $this
+     */
+    public function setHasTitle($hasTitle)
+    {
+        $this->container['hasTitle'] = $hasTitle;
 
         return $this;
     }

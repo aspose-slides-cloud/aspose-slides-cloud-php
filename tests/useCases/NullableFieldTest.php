@@ -55,8 +55,8 @@ class NullableFieldTest extends TestBase
         $testDto->setChartType('Line');
         $testDto->setWidth(400);
         $testDto->setHeight(300);
+        $testDto->setHasTitle(true);
         $testTitle = new ChartTitle();
-        $testTitle->setHasTitle(true);
         $testTitle->setText("MyTitle");
         $testDto->setTitle($testTitle);
 

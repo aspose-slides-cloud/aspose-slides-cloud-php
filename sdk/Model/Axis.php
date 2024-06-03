@@ -59,6 +59,7 @@ class Axis implements ArrayAccess
     protected static $swaggerTypes = [
         'isVisible' => 'bool',
         'hasTitle' => 'bool',
+        'title' => '\Aspose\Slides\Cloud\Sdk\Model\ChartTitle',
         'position' => 'string',
         'displayUnit' => 'string',
         'baseUnitScale' => 'string',
@@ -105,6 +106,7 @@ class Axis implements ArrayAccess
     protected static $swaggerFormats = [
         'isVisible' => null,
         'hasTitle' => null,
+        'title' => null,
         'position' => null,
         'displayUnit' => null,
         'baseUnitScale' => null,
@@ -172,6 +174,7 @@ class Axis implements ArrayAccess
     protected static $attributeMap = [
         'isVisible' => 'IsVisible',
         'hasTitle' => 'HasTitle',
+        'title' => 'Title',
         'position' => 'Position',
         'displayUnit' => 'DisplayUnit',
         'baseUnitScale' => 'BaseUnitScale',
@@ -218,6 +221,7 @@ class Axis implements ArrayAccess
     protected static $setters = [
         'isVisible' => 'setIsVisible',
         'hasTitle' => 'setHasTitle',
+        'title' => 'setTitle',
         'position' => 'setPosition',
         'displayUnit' => 'setDisplayUnit',
         'baseUnitScale' => 'setBaseUnitScale',
@@ -264,6 +268,7 @@ class Axis implements ArrayAccess
     protected static $getters = [
         'isVisible' => 'getIsVisible',
         'hasTitle' => 'getHasTitle',
+        'title' => 'getTitle',
         'position' => 'getPosition',
         'displayUnit' => 'getDisplayUnit',
         'baseUnitScale' => 'getBaseUnitScale',
@@ -562,6 +567,7 @@ class Axis implements ArrayAccess
     {
         $this->container['isVisible'] = isset($data['isVisible']) ? $data['isVisible'] : null;
         $this->container['hasTitle'] = isset($data['hasTitle']) ? $data['hasTitle'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['displayUnit'] = isset($data['displayUnit']) ? $data['displayUnit'] : null;
         $this->container['baseUnitScale'] = isset($data['baseUnitScale']) ? $data['baseUnitScale'] : null;
@@ -790,6 +796,30 @@ class Axis implements ArrayAccess
     public function setHasTitle($hasTitle)
     {
         $this->container['hasTitle'] = $hasTitle;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return \Aspose\Slides\Cloud\Sdk\Model\ChartTitle
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param \Aspose\Slides\Cloud\Sdk\Model\ChartTitle $title Axis title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
 
         return $this;
     }

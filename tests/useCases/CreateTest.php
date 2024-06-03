@@ -29,6 +29,7 @@
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
+use Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class CreateTest extends TestBase
@@ -82,7 +83,7 @@ class CreateTest extends TestBase
     public function testCreateFromPdf()
     {
         $this->getSlidesApi()->DeleteFile(self::filePath);
-        $created = $this->getSlidesApi()->importFromPdf(self::fileName, fopen(self::localFolderName."/".self::pdfFileName, 'r'), null, self::folderName);
+        $created = $this->getSlidesApi()->importFromPdf(self::fileName, fopen(self::localFolderName."/".self::pdfFileName, 'r'), null, null, self::folderName);
         Assert::assertNotNull($created);
     }
 
@@ -90,7 +91,9 @@ class CreateTest extends TestBase
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $result1 = $this->getSlidesApi()->getSlides(self::fileName, self::password, self::folderName);
-        $this->getSlidesApi()->importFromPdf(self::fileName, fopen(self::localFolderName."/".self::pdfFileName, 'r'), self::password, self::folderName);
+        $options = new PdfImportOptions();
+        $options->setDetectTables(false);
+        $this->getSlidesApi()->importFromPdf(self::fileName, fopen(self::localFolderName."/".self::pdfFileName, 'r'), $options, self::password, self::folderName);
         $result2 = $this->getSlidesApi()->getSlides(self::fileName, self::password, self::folderName);
         Assert::assertTrue(count($result2->getSlideList()) > count($result1->getSlideList()));
     }

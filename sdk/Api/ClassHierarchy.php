@@ -399,6 +399,7 @@ class ClassHierarchy
             'PathSegment' => [],
             'PatternFill' => ['Type' => 'Pattern',],
             'PdfExportOptions' => ['Format' => 'pdf',],
+            'PdfImportOptions' => [],
             'PictureFill' => ['Type' => 'Picture',],
             'PictureFrame' => ['Type' => 'PictureFrame',],
             'Pipeline' => [],

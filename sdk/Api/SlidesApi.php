@@ -28324,18 +28324,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function importFromPdf($name, $pdf, $password = null, $folder = null, $storage = null)
+    public function importFromPdf($name, $pdf, \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $options = null, $password = null, $folder = null, $storage = null)
     {
-        list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $password, $folder, $storage);
+        list($response) = $this->importFromPdfWithHttpInfo($name, $pdf, $options, $password, $folder, $storage);
         return $response;
     }
 
     /**
      */
-    public function importFromPdfWithHttpInfo($name, $pdf, $password = null, $folder = null, $storage = null)
+    public function importFromPdfWithHttpInfo($name, $pdf, \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $options = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->importFromPdfRequest($name, $pdf, $password, $folder, $storage);
+        $httpRequest = $this->importFromPdfRequest($name, $pdf, $options, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -28366,9 +28366,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromPdfAsync($name, $pdf, $password = null, $folder = null, $storage = null)
+    public function importFromPdfAsync($name, $pdf, \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $options = null, $password = null, $folder = null, $storage = null)
     {
-        return $this->importFromPdfAsyncWithHttpInfo($name, $pdf, $password, $folder, $storage)
+        return $this->importFromPdfAsyncWithHttpInfo($name, $pdf, $options, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -28376,10 +28376,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromPdfAsyncWithHttpInfo($name, $pdf, $password = null, $folder = null, $storage = null)
+    public function importFromPdfAsyncWithHttpInfo($name, $pdf, \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $options = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->importFromPdfRequest($name, $pdf, $password, $folder, $storage);
+        $httpRequest = $this->importFromPdfRequest($name, $pdf, $options, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -28426,6 +28426,7 @@ class SlidesApi extends ApiBase
      *
      * @param  string $$name Document name. (required)
      * @param  \SplFileObject $$pdf PDF data. (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $$options Import options. (optional)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -28433,7 +28434,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importFromPdfRequest($name, $pdf, $password = null, $folder = null, $storage = null)
+    protected function importFromPdfRequest($name, $pdf, \Aspose\Slides\Cloud\Sdk\Model\PdfImportOptions $options = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -28463,6 +28464,9 @@ class SlidesApi extends ApiBase
 
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
         $_tempBody = [];
+        if (isset($options)) {
+            array_push($_tempBody, $options);
+        }
         if (isset($pdf)) {
             array_push($_tempBody, $pdf);
         }

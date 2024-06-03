@@ -34,22 +34,22 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * ChartTitle Class Doc Comment
+ * PdfImportOptions Class Doc Comment
  *
  * @category Class
- * @description Represents chart title
+ * @description PDF import options.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ChartTitle implements ArrayAccess
+class PdfImportOptions implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ChartTitle';
+    protected static $swaggerModelName = 'PdfImportOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,15 +57,7 @@ class ChartTitle implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'text' => 'string',
-        'x' => 'double',
-        'y' => 'double',
-        'width' => 'double',
-        'height' => 'double',
-        'overlay' => 'bool',
-        'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
-        'effectFormat' => '\Aspose\Slides\Cloud\Sdk\Model\EffectFormat',
-        'lineFormat' => '\Aspose\Slides\Cloud\Sdk\Model\LineFormat'
+        'detectTables' => 'bool'
     ];
 
     /**
@@ -74,15 +66,7 @@ class ChartTitle implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'text' => null,
-        'x' => 'double',
-        'y' => 'double',
-        'width' => 'double',
-        'height' => 'double',
-        'overlay' => null,
-        'fillFormat' => null,
-        'effectFormat' => null,
-        'lineFormat' => null
+        'detectTables' => null
     ];
 
     /**
@@ -112,15 +96,7 @@ class ChartTitle implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'Text',
-        'x' => 'X',
-        'y' => 'Y',
-        'width' => 'Width',
-        'height' => 'Height',
-        'overlay' => 'Overlay',
-        'fillFormat' => 'FillFormat',
-        'effectFormat' => 'EffectFormat',
-        'lineFormat' => 'LineFormat'
+        'detectTables' => 'DetectTables'
     ];
 
     /**
@@ -129,15 +105,7 @@ class ChartTitle implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText',
-        'x' => 'setX',
-        'y' => 'setY',
-        'width' => 'setWidth',
-        'height' => 'setHeight',
-        'overlay' => 'setOverlay',
-        'fillFormat' => 'setFillFormat',
-        'effectFormat' => 'setEffectFormat',
-        'lineFormat' => 'setLineFormat'
+        'detectTables' => 'setDetectTables'
     ];
 
     /**
@@ -146,15 +114,7 @@ class ChartTitle implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText',
-        'x' => 'getX',
-        'y' => 'getY',
-        'width' => 'getWidth',
-        'height' => 'getHeight',
-        'overlay' => 'getOverlay',
-        'fillFormat' => 'getFillFormat',
-        'effectFormat' => 'getEffectFormat',
-        'lineFormat' => 'getLineFormat'
+        'detectTables' => 'getDetectTables'
     ];
 
     /**
@@ -217,15 +177,7 @@ class ChartTitle implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
-        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['overlay'] = isset($data['overlay']) ? $data['overlay'] : null;
-        $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
-        $this->container['effectFormat'] = isset($data['effectFormat']) ? $data['effectFormat'] : null;
-        $this->container['lineFormat'] = isset($data['lineFormat']) ? $data['lineFormat'] : null;
+        $this->container['detectTables'] = isset($data['detectTables']) ? $data['detectTables'] : null;
         
     }
 
@@ -238,6 +190,9 @@ class ChartTitle implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['detectTables'] === null) {
+            $invalidProperties[] = "'detectTables' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -250,222 +205,33 @@ class ChartTitle implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['detectTables'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets text
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string $text Get or sets the text.
-     *
-     * @return $this
-     */
-    public function setText($text)
-    {
-        $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets x
-     *
-     * @return double
-     */
-    public function getX()
-    {
-        return $this->container['x'];
-    }
-
-    /**
-     * Sets x
-     *
-     * @param double $x the X location
-     *
-     * @return $this
-     */
-    public function setX($x)
-    {
-        $this->container['x'] = $x;
-
-        return $this;
-    }
-
-    /**
-     * Gets y
-     *
-     * @return double
-     */
-    public function getY()
-    {
-        return $this->container['y'];
-    }
-
-    /**
-     * Sets y
-     *
-     * @param double $y the Y location
-     *
-     * @return $this
-     */
-    public function setY($y)
-    {
-        $this->container['y'] = $y;
-
-        return $this;
-    }
-
-    /**
-     * Gets width
-     *
-     * @return double
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     *
-     * @param double $width Width
-     *
-     * @return $this
-     */
-    public function setWidth($width)
-    {
-        $this->container['width'] = $width;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return double
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param double $height Height
-     *
-     * @return $this
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
-
-        return $this;
-    }
-
-    /**
-     * Gets overlay
+     * Gets detectTables
      *
      * @return bool
      */
-    public function getOverlay()
+    public function getDetectTables()
     {
-        return $this->container['overlay'];
+        return $this->container['detectTables'];
     }
 
     /**
-     * Sets overlay
+     * Sets detectTables
      *
-     * @param bool $overlay true if other elements are allowed to overlay the legend
+     * @param bool $detectTables True to detect tables.
      *
      * @return $this
      */
-    public function setOverlay($overlay)
+    public function setDetectTables($detectTables)
     {
-        $this->container['overlay'] = $overlay;
-
-        return $this;
-    }
-
-    /**
-     * Gets fillFormat
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\FillFormat
-     */
-    public function getFillFormat()
-    {
-        return $this->container['fillFormat'];
-    }
-
-    /**
-     * Sets fillFormat
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\FillFormat $fillFormat Get or sets the fill format.
-     *
-     * @return $this
-     */
-    public function setFillFormat($fillFormat)
-    {
-        $this->container['fillFormat'] = $fillFormat;
-
-        return $this;
-    }
-
-    /**
-     * Gets effectFormat
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\EffectFormat
-     */
-    public function getEffectFormat()
-    {
-        return $this->container['effectFormat'];
-    }
-
-    /**
-     * Sets effectFormat
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\EffectFormat $effectFormat Get or sets the effect format.
-     *
-     * @return $this
-     */
-    public function setEffectFormat($effectFormat)
-    {
-        $this->container['effectFormat'] = $effectFormat;
-
-        return $this;
-    }
-
-    /**
-     * Gets lineFormat
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\LineFormat
-     */
-    public function getLineFormat()
-    {
-        return $this->container['lineFormat'];
-    }
-
-    /**
-     * Sets lineFormat
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\LineFormat $lineFormat Get or sets the line format.
-     *
-     * @return $this
-     */
-    public function setLineFormat($lineFormat)
-    {
-        $this->container['lineFormat'] = $lineFormat;
+        $this->container['detectTables'] = $detectTables;
 
         return $this;
     }
