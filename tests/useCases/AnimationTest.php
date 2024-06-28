@@ -71,7 +71,7 @@ class AnimationTest extends TestBase
         Assert::assertEquals(0, count($result->getInteractiveSequences()));
     }
 
-    public function testAnimationCreateAnimationEffect()
+    public function testCreateAnimationEffect()
     {
         $this->getSlidesApi()->CopyFile(self::tempFilePath, self::filePath);
         $dto = new Effect();

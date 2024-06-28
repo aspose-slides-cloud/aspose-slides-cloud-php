@@ -69,7 +69,9 @@ class PdfExportOptions extends ExportOptions
         'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions',
         'imageTransparentColor' => 'string',
         'applyImageTransparent' => 'bool',
-        'accessPermissions' => '\Aspose\Slides\Cloud\Sdk\Model\AccessPermissions'
+        'accessPermissions' => '\Aspose\Slides\Cloud\Sdk\Model\AccessPermissions',
+        'hideInk' => 'bool',
+        'interpretMaskOpAsOpacity' => 'bool'
     ];
 
     /**
@@ -92,7 +94,9 @@ class PdfExportOptions extends ExportOptions
         'slidesLayoutOptions' => null,
         'imageTransparentColor' => null,
         'applyImageTransparent' => null,
-        'accessPermissions' => null
+        'accessPermissions' => null,
+        'hideInk' => null,
+        'interpretMaskOpAsOpacity' => null
     ];
 
     /**
@@ -136,7 +140,9 @@ class PdfExportOptions extends ExportOptions
         'slidesLayoutOptions' => 'SlidesLayoutOptions',
         'imageTransparentColor' => 'ImageTransparentColor',
         'applyImageTransparent' => 'ApplyImageTransparent',
-        'accessPermissions' => 'AccessPermissions'
+        'accessPermissions' => 'AccessPermissions',
+        'hideInk' => 'HideInk',
+        'interpretMaskOpAsOpacity' => 'InterpretMaskOpAsOpacity'
     ];
 
     /**
@@ -159,7 +165,9 @@ class PdfExportOptions extends ExportOptions
         'slidesLayoutOptions' => 'setSlidesLayoutOptions',
         'imageTransparentColor' => 'setImageTransparentColor',
         'applyImageTransparent' => 'setApplyImageTransparent',
-        'accessPermissions' => 'setAccessPermissions'
+        'accessPermissions' => 'setAccessPermissions',
+        'hideInk' => 'setHideInk',
+        'interpretMaskOpAsOpacity' => 'setInterpretMaskOpAsOpacity'
     ];
 
     /**
@@ -182,7 +190,9 @@ class PdfExportOptions extends ExportOptions
         'slidesLayoutOptions' => 'getSlidesLayoutOptions',
         'imageTransparentColor' => 'getImageTransparentColor',
         'applyImageTransparent' => 'getApplyImageTransparent',
-        'accessPermissions' => 'getAccessPermissions'
+        'accessPermissions' => 'getAccessPermissions',
+        'hideInk' => 'getHideInk',
+        'interpretMaskOpAsOpacity' => 'getInterpretMaskOpAsOpacity'
     ];
 
     /**
@@ -304,6 +314,8 @@ class PdfExportOptions extends ExportOptions
         $this->container['imageTransparentColor'] = isset($data['imageTransparentColor']) ? $data['imageTransparentColor'] : null;
         $this->container['applyImageTransparent'] = isset($data['applyImageTransparent']) ? $data['applyImageTransparent'] : null;
         $this->container['accessPermissions'] = isset($data['accessPermissions']) ? $data['accessPermissions'] : null;
+        $this->container['hideInk'] = isset($data['hideInk']) ? $data['hideInk'] : null;
+        $this->container['interpretMaskOpAsOpacity'] = isset($data['interpretMaskOpAsOpacity']) ? $data['interpretMaskOpAsOpacity'] : null;
         $this->container['format'] = 'pdf';
         
     }
@@ -762,6 +774,54 @@ class PdfExportOptions extends ExportOptions
     public function setAccessPermissions($accessPermissions)
     {
         $this->container['accessPermissions'] = $accessPermissions;
+
+        return $this;
+    }
+
+    /**
+     * Gets hideInk
+     *
+     * @return bool
+     */
+    public function getHideInk()
+    {
+        return $this->container['hideInk'];
+    }
+
+    /**
+     * Sets hideInk
+     *
+     * @param bool $hideInk True to hide Ink elements in exported document.
+     *
+     * @return $this
+     */
+    public function setHideInk($hideInk)
+    {
+        $this->container['hideInk'] = $hideInk;
+
+        return $this;
+    }
+
+    /**
+     * Gets interpretMaskOpAsOpacity
+     *
+     * @return bool
+     */
+    public function getInterpretMaskOpAsOpacity()
+    {
+        return $this->container['interpretMaskOpAsOpacity'];
+    }
+
+    /**
+     * Sets interpretMaskOpAsOpacity
+     *
+     * @param bool $interpretMaskOpAsOpacity True to use ROP operation or Opacity for rendering brush.
+     *
+     * @return $this
+     */
+    public function setInterpretMaskOpAsOpacity($interpretMaskOpAsOpacity)
+    {
+        $this->container['interpretMaskOpAsOpacity'] = $interpretMaskOpAsOpacity;
 
         return $this;
     }

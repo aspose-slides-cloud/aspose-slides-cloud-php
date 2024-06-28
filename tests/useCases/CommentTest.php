@@ -115,7 +115,7 @@ class CommentTest extends TestBase
         Assert::assertNotEquals(filesize(self::localFilePath), $outputDocument->getSize());
     }
 
-    public function testCreateModerComment()
+    public function testCreateModernComment()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         

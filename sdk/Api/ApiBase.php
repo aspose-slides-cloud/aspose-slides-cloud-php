@@ -253,6 +253,12 @@ class ApiBase
         foreach ($headers as $name => $value) {
             $logInfo .= $name.': '.(is_array($value) ? implode(",", $value) : $value)."\n";
         }
+        if (is_object($body) && get_class($body) == "SplFileObject") {
+            return $logInfo .= "Body: binary (".$body->getSize()." bytes).\n";
+        }
+        if (is_object($body) && get_class($body) == "GuzzleHttp\\Psr7\\MultipartStream") {
+            return $logInfo .= "Body: multipart\n";
+        }
         return $logInfo .= "Body: ".$body."\n";
     }
 }

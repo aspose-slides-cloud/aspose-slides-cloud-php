@@ -61,7 +61,6 @@ class Operation implements ArrayAccess
         'status' => 'string',
         'progress' => '\Aspose\Slides\Cloud\Sdk\Model\OperationProgress',
         'created' => '\DateTime',
-        'enqueued' => '\DateTime',
         'started' => '\DateTime',
         'failed' => '\DateTime',
         'canceled' => '\DateTime',
@@ -80,7 +79,6 @@ class Operation implements ArrayAccess
         'status' => null,
         'progress' => null,
         'created' => 'date-time',
-        'enqueued' => 'date-time',
         'started' => 'date-time',
         'failed' => 'date-time',
         'canceled' => 'date-time',
@@ -120,7 +118,6 @@ class Operation implements ArrayAccess
         'status' => 'Status',
         'progress' => 'Progress',
         'created' => 'Created',
-        'enqueued' => 'Enqueued',
         'started' => 'Started',
         'failed' => 'Failed',
         'canceled' => 'Canceled',
@@ -139,7 +136,6 @@ class Operation implements ArrayAccess
         'status' => 'setStatus',
         'progress' => 'setProgress',
         'created' => 'setCreated',
-        'enqueued' => 'setEnqueued',
         'started' => 'setStarted',
         'failed' => 'setFailed',
         'canceled' => 'setCanceled',
@@ -158,7 +154,6 @@ class Operation implements ArrayAccess
         'status' => 'getStatus',
         'progress' => 'getProgress',
         'created' => 'getCreated',
-        'enqueued' => 'getEnqueued',
         'started' => 'getStarted',
         'failed' => 'getFailed',
         'canceled' => 'getCanceled',
@@ -277,7 +272,6 @@ class Operation implements ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['progress'] = isset($data['progress']) ? $data['progress'] : null;
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
-        $this->container['enqueued'] = isset($data['enqueued']) ? $data['enqueued'] : null;
         $this->container['started'] = isset($data['started']) ? $data['started'] : null;
         $this->container['failed'] = isset($data['failed']) ? $data['failed'] : null;
         $this->container['canceled'] = isset($data['canceled']) ? $data['canceled'] : null;
@@ -515,30 +509,6 @@ class Operation implements ArrayAccess
     public function setCreated($created)
     {
         $this->container['created'] = $created;
-
-        return $this;
-    }
-
-    /**
-     * Gets enqueued
-     *
-     * @return \DateTime
-     */
-    public function getEnqueued()
-    {
-        return $this->container['enqueued'];
-    }
-
-    /**
-     * Sets enqueued
-     *
-     * @param \DateTime $enqueued enqueued
-     *
-     * @return $this
-     */
-    public function setEnqueued($enqueued)
-    {
-        $this->container['enqueued'] = $enqueued;
 
         return $this;
     }

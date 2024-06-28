@@ -460,7 +460,7 @@ class ShapeTest extends TestBase
         $dto = new Shape();
         $dto->setShapeType('Rectangle');
         $dto->setX(200);
-        $dto->setX(200);
+        $dto->setY(200);
         $dto->setWidth(50);
         $dto->setHeight(50);
 
@@ -490,6 +490,7 @@ class ShapeTest extends TestBase
         $dto->setHeight(200);
         $fillFormat = new SolidFill();
         $fillFormat->setColor(self::color);
+        $dto->setFillFormat($fillFormat);
 
         $response = $this->getSlidesApi()->updateShape(
             self::fileName,
