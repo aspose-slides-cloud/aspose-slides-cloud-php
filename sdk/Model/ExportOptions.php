@@ -58,6 +58,7 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'defaultRegularFont' => 'string',
+        'gradientStyle' => 'string',
         'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
         'fontSubstRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[]',
         'format' => 'string'
@@ -70,6 +71,7 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'defaultRegularFont' => null,
+        'gradientStyle' => null,
         'fontFallbackRules' => null,
         'fontSubstRules' => null,
         'format' => null
@@ -103,6 +105,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $attributeMap = [
         'defaultRegularFont' => 'DefaultRegularFont',
+        'gradientStyle' => 'GradientStyle',
         'fontFallbackRules' => 'FontFallbackRules',
         'fontSubstRules' => 'FontSubstRules',
         'format' => 'Format'
@@ -115,6 +118,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $setters = [
         'defaultRegularFont' => 'setDefaultRegularFont',
+        'gradientStyle' => 'setGradientStyle',
         'fontFallbackRules' => 'setFontFallbackRules',
         'fontSubstRules' => 'setFontSubstRules',
         'format' => 'setFormat'
@@ -127,6 +131,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $getters = [
         'defaultRegularFont' => 'getDefaultRegularFont',
+        'gradientStyle' => 'getGradientStyle',
         'fontFallbackRules' => 'getFontFallbackRules',
         'fontSubstRules' => 'getFontSubstRules',
         'format' => 'getFormat'
@@ -173,8 +178,23 @@ class ExportOptions implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const GRADIENT_STYLE__DEFAULT = 'Default';
+    const GRADIENT_STYLE_POWER_POINT_UI = 'PowerPointUI';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGradientStyleAllowableValues()
+    {
+        return [
+            self::GRADIENT_STYLE__DEFAULT,
+            self::GRADIENT_STYLE_POWER_POINT_UI,
+        ];
+    }
     
 
     /**
@@ -193,6 +213,7 @@ class ExportOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
+        $this->container['gradientStyle'] = isset($data['gradientStyle']) ? $data['gradientStyle'] : null;
         $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
         $this->container['fontSubstRules'] = isset($data['fontSubstRules']) ? $data['fontSubstRules'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
@@ -208,6 +229,14 @@ class ExportOptions implements ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getGradientStyleAllowableValues();
+        if (!in_array($this->container['gradientStyle'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'gradientStyle', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -220,6 +249,10 @@ class ExportOptions implements ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getGradientStyleAllowableValues();
+        if (!in_array($this->container['gradientStyle'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -244,6 +277,53 @@ class ExportOptions implements ArrayAccess
     public function setDefaultRegularFont($defaultRegularFont)
     {
         $this->container['defaultRegularFont'] = $defaultRegularFont;
+
+        return $this;
+    }
+
+    /**
+     * Gets gradientStyle
+     *
+     * @return string
+     */
+    public function getGradientStyle()
+    {
+        return $this->container['gradientStyle'];
+    }
+
+    /**
+     * Sets gradientStyle
+     *
+     * @param string $gradientStyle Default regular font for rendering the presentation.
+     *
+     * @return $this
+     */
+    public function setGradientStyle($gradientStyle)
+    {
+        $allowedValues = $this->getGradientStyleAllowableValues();
+
+
+        if (is_numeric($gradientStyle)) {
+            if ($gradientStyle >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'gradientStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $gradientStyle = $allowedValues[$gradientStyle];
+            }
+        } else {
+            if (!is_null($gradientStyle) && !in_array($gradientStyle, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'gradientStyle', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['gradientStyle'] = $gradientStyle;
 
         return $this;
     }

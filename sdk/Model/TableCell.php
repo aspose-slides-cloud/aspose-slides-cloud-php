@@ -64,6 +64,7 @@ class TableCell implements ArrayAccess
         'marginRight' => 'double',
         'marginLeft' => 'double',
         'marginBottom' => 'double',
+        'transparency' => 'double',
         'textAnchorType' => 'string',
         'textVerticalType' => 'string',
         'fillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\FillFormat',
@@ -92,6 +93,7 @@ class TableCell implements ArrayAccess
         'marginRight' => 'double',
         'marginLeft' => 'double',
         'marginBottom' => 'double',
+        'transparency' => 'double',
         'textAnchorType' => null,
         'textVerticalType' => null,
         'fillFormat' => null,
@@ -141,6 +143,7 @@ class TableCell implements ArrayAccess
         'marginRight' => 'MarginRight',
         'marginLeft' => 'MarginLeft',
         'marginBottom' => 'MarginBottom',
+        'transparency' => 'Transparency',
         'textAnchorType' => 'TextAnchorType',
         'textVerticalType' => 'TextVerticalType',
         'fillFormat' => 'FillFormat',
@@ -169,6 +172,7 @@ class TableCell implements ArrayAccess
         'marginRight' => 'setMarginRight',
         'marginLeft' => 'setMarginLeft',
         'marginBottom' => 'setMarginBottom',
+        'transparency' => 'setTransparency',
         'textAnchorType' => 'setTextAnchorType',
         'textVerticalType' => 'setTextVerticalType',
         'fillFormat' => 'setFillFormat',
@@ -197,6 +201,7 @@ class TableCell implements ArrayAccess
         'marginRight' => 'getMarginRight',
         'marginLeft' => 'getMarginLeft',
         'marginBottom' => 'getMarginBottom',
+        'transparency' => 'getTransparency',
         'textAnchorType' => 'getTextAnchorType',
         'textVerticalType' => 'getTextVerticalType',
         'fillFormat' => 'getFillFormat',
@@ -329,6 +334,7 @@ class TableCell implements ArrayAccess
         $this->container['marginRight'] = isset($data['marginRight']) ? $data['marginRight'] : null;
         $this->container['marginLeft'] = isset($data['marginLeft']) ? $data['marginLeft'] : null;
         $this->container['marginBottom'] = isset($data['marginBottom']) ? $data['marginBottom'] : null;
+        $this->container['transparency'] = isset($data['transparency']) ? $data['transparency'] : null;
         $this->container['textAnchorType'] = isset($data['textAnchorType']) ? $data['textAnchorType'] : null;
         $this->container['textVerticalType'] = isset($data['textVerticalType']) ? $data['textVerticalType'] : null;
         $this->container['fillFormat'] = isset($data['fillFormat']) ? $data['fillFormat'] : null;
@@ -558,6 +564,30 @@ class TableCell implements ArrayAccess
     public function setMarginBottom($marginBottom)
     {
         $this->container['marginBottom'] = $marginBottom;
+
+        return $this;
+    }
+
+    /**
+     * Gets transparency
+     *
+     * @return double
+     */
+    public function getTransparency()
+    {
+        return $this->container['transparency'];
+    }
+
+    /**
+     * Sets transparency
+     *
+     * @param double $transparency Transparency.
+     *
+     * @return $this
+     */
+    public function setTransparency($transparency)
+    {
+        $this->container['transparency'] = $transparency;
 
         return $this;
     }

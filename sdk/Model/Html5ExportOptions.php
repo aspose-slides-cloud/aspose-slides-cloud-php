@@ -58,7 +58,8 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'bool',
         'animateShapes' => 'bool',
         'embedImages' => 'bool',
-        'notesCommentsLayouting' => '\Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions'
+        'notesCommentsLayouting' => '\Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions',
+        'templatesPath' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => null,
         'animateShapes' => null,
         'embedImages' => null,
-        'notesCommentsLayouting' => null
+        'notesCommentsLayouting' => null,
+        'templatesPath' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'AnimateTransitions',
         'animateShapes' => 'AnimateShapes',
         'embedImages' => 'EmbedImages',
-        'notesCommentsLayouting' => 'NotesCommentsLayouting'
+        'notesCommentsLayouting' => 'NotesCommentsLayouting',
+        'templatesPath' => 'TemplatesPath'
     ];
 
     /**
@@ -115,7 +118,8 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'setAnimateTransitions',
         'animateShapes' => 'setAnimateShapes',
         'embedImages' => 'setEmbedImages',
-        'notesCommentsLayouting' => 'setNotesCommentsLayouting'
+        'notesCommentsLayouting' => 'setNotesCommentsLayouting',
+        'templatesPath' => 'setTemplatesPath'
     ];
 
     /**
@@ -127,7 +131,8 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'getAnimateTransitions',
         'animateShapes' => 'getAnimateShapes',
         'embedImages' => 'getEmbedImages',
-        'notesCommentsLayouting' => 'getNotesCommentsLayouting'
+        'notesCommentsLayouting' => 'getNotesCommentsLayouting',
+        'templatesPath' => 'getTemplatesPath'
     ];
 
     /**
@@ -190,6 +195,7 @@ class Html5ExportOptions extends ExportOptions
         $this->container['animateShapes'] = isset($data['animateShapes']) ? $data['animateShapes'] : null;
         $this->container['embedImages'] = isset($data['embedImages']) ? $data['embedImages'] : null;
         $this->container['notesCommentsLayouting'] = isset($data['notesCommentsLayouting']) ? $data['notesCommentsLayouting'] : null;
+        $this->container['templatesPath'] = isset($data['templatesPath']) ? $data['templatesPath'] : null;
         $this->container['format'] = 'html5';
         
     }
@@ -314,6 +320,30 @@ class Html5ExportOptions extends ExportOptions
     public function setNotesCommentsLayouting($notesCommentsLayouting)
     {
         $this->container['notesCommentsLayouting'] = $notesCommentsLayouting;
+
+        return $this;
+    }
+
+    /**
+     * Gets templatesPath
+     *
+     * @return string
+     */
+    public function getTemplatesPath()
+    {
+        return $this->container['templatesPath'];
+    }
+
+    /**
+     * Sets templatesPath
+     *
+     * @param string $templatesPath Path to custom templates
+     *
+     * @return $this
+     */
+    public function setTemplatesPath($templatesPath)
+    {
+        $this->container['templatesPath'] = $templatesPath;
 
         return $this;
     }

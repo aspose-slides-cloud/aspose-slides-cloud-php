@@ -256,9 +256,6 @@ class Slide extends ResourceBase
         if ($this->container['height'] === null) {
             $invalidProperties[] = "'height' can't be null";
         }
-        if ($this->container['showMasterShapes'] === null) {
-            $invalidProperties[] = "'showMasterShapes' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -278,9 +275,6 @@ class Slide extends ResourceBase
             return false;
         }
         if ($this->container['height'] === null) {
-            return false;
-        }
-        if ($this->container['showMasterShapes'] === null) {
             return false;
         }
         return true;

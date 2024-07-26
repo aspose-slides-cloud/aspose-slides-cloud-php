@@ -205,6 +205,7 @@ class SaveSlide extends Task
     const FORMAT_XAML = 'Xaml';
     const FORMAT_HTML5 = 'Html5';
     const FORMAT_MD = 'Md';
+    const FORMAT_XML = 'Xml';
     
 
     
@@ -240,6 +241,7 @@ class SaveSlide extends Task
             self::FORMAT_XAML,
             self::FORMAT_HTML5,
             self::FORMAT_MD,
+            self::FORMAT_XML,
         ];
     }
     

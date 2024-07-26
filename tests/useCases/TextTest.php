@@ -51,10 +51,13 @@ class TextTest extends TestBase
     public function testTextReplaceStorage()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
-        $presentationResult = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, null, self::password, self::folderName);
+        $presentationResult = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, null, null, self::password, self::folderName);
 
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
-        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, self::password, self::folderName);
+        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, null, self::password, self::folderName);
+
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $presentationResultWholeWords = $this->getSlidesApi()->replacePresentationText(self::fileName, self::oldValue, self::newValue, true, true, self::password, self::folderName);
 
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $slideResult = $this->getSlidesApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, null, self::password, self::folderName);
@@ -63,14 +66,15 @@ class TextTest extends TestBase
         $slideResultIgnoreCase = $this->getSlidesApi()->replaceSlideText(self::fileName, self::slideIndex, self::oldValue, self::newValue, true, self::password, self::folderName);
 
         Assert::assertTrue($presentationResultIgnoreCase->getMatches() > $presentationResult->getMatches());
+        Assert::assertTrue($presentationResultIgnoreCase->getMatches() > $presentationResultWholeWords->getMatches());
         Assert::assertTrue($presentationResult->getMatches() > $slideResult->getMatches());
         Assert::assertTrue($slideResultIgnoreCase->getMatches() > $slideResult->getMatches());
     }
 
     public function testTextReplaceRequest()
     {
-        $presentationResult = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, null, self::password);
-        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, true, self::password);
+        $presentationResult = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, null, null, self::password);
+        $presentationResultIgnoreCase = $this->getSlidesApi()->replacePresentationTextOnline(fopen(self::localFilePath, 'r'), self::oldValue, self::newValue, true, null, self::password);
         $slideResult = $this->getSlidesApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, null, self::password);
         $slideResultIgnoreCase = $this->getSlidesApi()->replaceSlideTextOnline(fopen(self::localFilePath, 'r'), self::slideIndex, self::oldValue, self::newValue, true, self::password);
         Assert::assertTrue($presentationResult->isFile());

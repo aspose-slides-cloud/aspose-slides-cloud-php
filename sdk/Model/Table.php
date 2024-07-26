@@ -64,7 +64,8 @@ class Table extends ShapeBase
         'lastCol' => 'bool',
         'lastRow' => 'bool',
         'rightToLeft' => 'bool',
-        'verticalBanding' => 'bool'
+        'verticalBanding' => 'bool',
+        'transparency' => 'double'
     ];
 
     /**
@@ -82,7 +83,8 @@ class Table extends ShapeBase
         'lastCol' => null,
         'lastRow' => null,
         'rightToLeft' => null,
-        'verticalBanding' => null
+        'verticalBanding' => null,
+        'transparency' => 'double'
     ];
 
     /**
@@ -121,7 +123,8 @@ class Table extends ShapeBase
         'lastCol' => 'LastCol',
         'lastRow' => 'LastRow',
         'rightToLeft' => 'RightToLeft',
-        'verticalBanding' => 'VerticalBanding'
+        'verticalBanding' => 'VerticalBanding',
+        'transparency' => 'Transparency'
     ];
 
     /**
@@ -139,7 +142,8 @@ class Table extends ShapeBase
         'lastCol' => 'setLastCol',
         'lastRow' => 'setLastRow',
         'rightToLeft' => 'setRightToLeft',
-        'verticalBanding' => 'setVerticalBanding'
+        'verticalBanding' => 'setVerticalBanding',
+        'transparency' => 'setTransparency'
     ];
 
     /**
@@ -157,7 +161,8 @@ class Table extends ShapeBase
         'lastCol' => 'getLastCol',
         'lastRow' => 'getLastRow',
         'rightToLeft' => 'getRightToLeft',
-        'verticalBanding' => 'getVerticalBanding'
+        'verticalBanding' => 'getVerticalBanding',
+        'transparency' => 'getTransparency'
     ];
 
     /**
@@ -389,6 +394,7 @@ class Table extends ShapeBase
         $this->container['lastRow'] = isset($data['lastRow']) ? $data['lastRow'] : null;
         $this->container['rightToLeft'] = isset($data['rightToLeft']) ? $data['rightToLeft'] : null;
         $this->container['verticalBanding'] = isset($data['verticalBanding']) ? $data['verticalBanding'] : null;
+        $this->container['transparency'] = isset($data['transparency']) ? $data['transparency'] : null;
         $this->container['type'] = 'Table';
         
     }
@@ -692,6 +698,30 @@ class Table extends ShapeBase
     public function setVerticalBanding($verticalBanding)
     {
         $this->container['verticalBanding'] = $verticalBanding;
+
+        return $this;
+    }
+
+    /**
+     * Gets transparency
+     *
+     * @return double
+     */
+    public function getTransparency()
+    {
+        return $this->container['transparency'];
+    }
+
+    /**
+     * Sets transparency
+     *
+     * @param double $transparency Transparency.
+     *
+     * @return $this
+     */
+    public function setTransparency($transparency)
+    {
+        $this->container['transparency'] = $transparency;
 
         return $this;
     }

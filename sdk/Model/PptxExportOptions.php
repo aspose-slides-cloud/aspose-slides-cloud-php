@@ -55,7 +55,8 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conformance' => 'string'
+        'conformance' => 'string',
+        'zip64Mode' => 'string'
     ];
 
     /**
@@ -64,7 +65,8 @@ class PptxExportOptions extends ExportOptions
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conformance' => null
+        'conformance' => null,
+        'zip64Mode' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $attributeMap = [
-        'conformance' => 'Conformance'
+        'conformance' => 'Conformance',
+        'zip64Mode' => 'Zip64Mode'
     ];
 
     /**
@@ -103,7 +106,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $setters = [
-        'conformance' => 'setConformance'
+        'conformance' => 'setConformance',
+        'zip64Mode' => 'setZip64Mode'
     ];
 
     /**
@@ -112,7 +116,8 @@ class PptxExportOptions extends ExportOptions
      * @var string[]
      */
     protected static $getters = [
-        'conformance' => 'getConformance'
+        'conformance' => 'getConformance',
+        'zip64Mode' => 'getZip64Mode'
     ];
 
     /**
@@ -159,6 +164,9 @@ class PptxExportOptions extends ExportOptions
     const CONFORMANCE_ECMA376 = 'Ecma376';
     const CONFORMANCE_ISO29500_TRANSITIONAL = 'Iso29500Transitional';
     const CONFORMANCE_ISO29500_STRICT = 'Iso29500Strict';
+    const ZIP64_MODE_NEVER = 'Never';
+    const ZIP64_MODE_IF_NECESSARY = 'IfNecessary';
+    const ZIP64_MODE_ALWAYS = 'Always';
     
 
     
@@ -176,6 +184,20 @@ class PptxExportOptions extends ExportOptions
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getZip64ModeAllowableValues()
+    {
+        return [
+            self::ZIP64_MODE_NEVER,
+            self::ZIP64_MODE_IF_NECESSARY,
+            self::ZIP64_MODE_ALWAYS,
+        ];
+    }
+    
 
 
     /**
@@ -189,6 +211,7 @@ class PptxExportOptions extends ExportOptions
         parent::__construct($data);
 
         $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
+        $this->container['zip64Mode'] = isset($data['zip64Mode']) ? $data['zip64Mode'] : null;
         $this->container['format'] = 'pptx';
         
     }
@@ -206,6 +229,14 @@ class PptxExportOptions extends ExportOptions
         if (!in_array($this->container['conformance'], $allowedValues)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'conformance', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getZip64ModeAllowableValues();
+        if (!in_array($this->container['zip64Mode'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'zip64Mode', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -229,6 +260,10 @@ class PptxExportOptions extends ExportOptions
         if (!in_array($this->container['conformance'], $allowedValues)) {
             return false;
         }
+        $allowedValues = $this->getZip64ModeAllowableValues();
+        if (!in_array($this->container['zip64Mode'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -246,7 +281,7 @@ class PptxExportOptions extends ExportOptions
     /**
      * Sets conformance
      *
-     * @param string $conformance The conformance class to which the PresentationML document conforms. Read/write Conformance.
+     * @param string $conformance The conformance class to which the PresentationML document conforms.
      *
      * @return $this
      */
@@ -276,6 +311,53 @@ class PptxExportOptions extends ExportOptions
             }
         }
         $this->container['conformance'] = $conformance;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip64Mode
+     *
+     * @return string
+     */
+    public function getZip64Mode()
+    {
+        return $this->container['zip64Mode'];
+    }
+
+    /**
+     * Sets zip64Mode
+     *
+     * @param string $zip64Mode Specifies whether the ZIP64 format is used for the Presentation document. The default value is Zip64Mode.IfNecessary.
+     *
+     * @return $this
+     */
+    public function setZip64Mode($zip64Mode)
+    {
+        $allowedValues = $this->getZip64ModeAllowableValues();
+
+
+        if (is_numeric($zip64Mode)) {
+            if ($zip64Mode >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'zip64Mode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $zip64Mode = $allowedValues[$zip64Mode];
+            }
+        } else {
+            if (!is_null($zip64Mode) && !in_array($zip64Mode, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'zip64Mode', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['zip64Mode'] = $zip64Mode;
 
         return $this;
     }

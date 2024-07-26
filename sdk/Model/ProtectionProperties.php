@@ -214,12 +214,6 @@ class ProtectionProperties extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['isWriteProtected'] === null) {
-            $invalidProperties[] = "'isWriteProtected' can't be null";
-        }
-        if ($this->container['isEncrypted'] === null) {
-            $invalidProperties[] = "'isEncrypted' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -235,12 +229,6 @@ class ProtectionProperties extends ResourceBase
             return false;
         }
 
-        if ($this->container['isWriteProtected'] === null) {
-            return false;
-        }
-        if ($this->container['isEncrypted'] === null) {
-            return false;
-        }
         return true;
     }
 

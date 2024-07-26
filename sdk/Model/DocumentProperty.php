@@ -196,9 +196,6 @@ class DocumentProperty extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['builtIn'] === null) {
-            $invalidProperties[] = "'builtIn' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -214,9 +211,6 @@ class DocumentProperty extends ResourceBase
             return false;
         }
 
-        if ($this->container['builtIn'] === null) {
-            return false;
-        }
         return true;
     }
 

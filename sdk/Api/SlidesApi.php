@@ -17072,166 +17072,6 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadPortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
-    {
-        list($response) = $this->downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-        return $response;
-    }
-
-    /**
-     */
-    public function downloadPortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-        try {
-            $response = $this->httpCall($httpRequest);
-            $responseBody = $response->getBody();
-            $content = $responseBody; //stream goes to serializer
-            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
-            if ($this->config->getDebug()) {
-                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
-            }
-            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                default: $this->handleApiException($e);
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     */
-    public function downloadPortionAsMathMlAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
-    {
-        return $this->downloadPortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage)
-            ->then(function ($response) {
-                return $response[0];
-            });
-    }
-
-    /**
-     */
-    public function downloadPortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password, $folder, $storage);
-
-        return $this->client
-            ->sendAsync($httpRequest, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-                    if ($this->config->getDebug()) {
-                        $this->writeResponseLog(
-                            $response->getStatusCode(),
-                            $response->getHeaders(),
-                            ObjectSerializer::deserialize($content, $returnType, []));
-                    }
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody());
-                });
-    }
-
-    /**
-     * Create request for operation 'downloadPortionAsMathMl'
-     *
-     * @param  string $$name Document name. (required)
-     * @param  int $$slideIndex Slide index. (required)
-     * @param  int $$shapeIndex Shape index. (required)
-     * @param  int $$paragraphIndex Paragraph index. (required)
-     * @param  int $$portionIndex Portion index. (required)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$folder Document folder. (optional)
-     * @param  string $$storage Document storage. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function downloadPortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $password = null, $folder = null, $storage = null)
-    {
-        // verify the required parameter 'name' is set
-        if ($name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $name when calling downloadPortionAsMathMl');
-        }
-        // verify the required parameter 'slide_index' is set
-        if ($slideIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling downloadPortionAsMathMl');
-        }
-        // verify the required parameter 'shape_index' is set
-        if ($shapeIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling downloadPortionAsMathMl');
-        }
-        // verify the required parameter 'paragraph_index' is set
-        if ($paragraphIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling downloadPortionAsMathMl');
-        }
-        // verify the required parameter 'portion_index' is set
-        if ($portionIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling downloadPortionAsMathMl');
-        }
-
-        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml';
-        $queryParams = [];
-        $headerParams = [];
-
-        // query params
-        if ($folder !== null) {
-            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
-        }
-        // header params
-        if ($password !== null) {
-            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
-        }
-
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
-        $_tempBody = [];
-        $this->headerSelector->selectHeaders(
-            $headerParams,
-            ['multipart/form-data'],
-            ['application/json']);
-        $httpBody = ObjectSerializer::createBody($_tempBody);
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
-    }
-    /**
-     */
     public function downloadPresentation($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $password = null, $folder = null, $storage = null, $fontsFolder = null, array $slides = null)
     {
         list($response) = $this->downloadPresentationWithHttpInfo($name, $format, $options, $password, $folder, $storage, $fontsFolder, $slides);
@@ -20488,6 +20328,121 @@ class SlidesApi extends ApiBase
         $this->headerSelector->selectHeaders(
             $headerParams,
             ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
+    public function getHtml5Templates()
+    {
+        list($response) = $this->getHtml5TemplatesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     */
+    public function getHtml5TemplatesWithHttpInfo()
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->getHtml5TemplatesRequest();
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getHtml5TemplatesAsync()
+    {
+        return $this->getHtml5TemplatesAsyncWithHttpInfo()
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getHtml5TemplatesAsyncWithHttpInfo()
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->getHtml5TemplatesRequest();
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getHtml5Templates'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getHtml5TemplatesRequest()
+    {
+
+        $resourcePath = '/slides/html5Templates';
+        $queryParams = [];
+        $headerParams = [];
+
+
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
             ['application/json']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
@@ -31147,18 +31102,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function replacePresentationText($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    public function replacePresentationText($name, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null, $folder = null, $storage = null)
     {
-        list($response) = $this->replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
+        list($response) = $this->replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password, $folder, $storage);
         return $response;
     }
 
     /**
      */
-    public function replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    public function replacePresentationTextWithHttpInfo($name, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentReplaceResult';
-        $httpRequest = $this->replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
+        $httpRequest = $this->replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password, $folder, $storage);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -31185,9 +31140,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replacePresentationTextAsync($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    public function replacePresentationTextAsync($name, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null, $folder = null, $storage = null)
     {
-        return $this->replacePresentationTextAsyncWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage)
+        return $this->replacePresentationTextAsyncWithHttpInfo($name, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password, $folder, $storage)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -31195,10 +31150,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replacePresentationTextAsyncWithHttpInfo($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    public function replacePresentationTextAsyncWithHttpInfo($name, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null, $folder = null, $storage = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\DocumentReplaceResult';
-        $httpRequest = $this->replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase, $password, $folder, $storage);
+        $httpRequest = $this->replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password, $folder, $storage);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -31247,6 +31202,7 @@ class SlidesApi extends ApiBase
      * @param  string $$oldValue Text value to be replaced. (required)
      * @param  string $$newValue Text value to replace with. (required)
      * @param  bool $$ignoreCase True if character case must be ignored. (optional, default to false)
+     * @param  bool $$wholeWordsOnly True to replace whole words only. (optional, default to false)
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
@@ -31254,7 +31210,7 @@ class SlidesApi extends ApiBase
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase = null, $password = null, $folder = null, $storage = null)
+    protected function replacePresentationTextRequest($name, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null, $folder = null, $storage = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -31286,6 +31242,10 @@ class SlidesApi extends ApiBase
             $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($ignoreCase);
         }
         // query params
+        if ($wholeWordsOnly !== null) {
+            $queryParams['wholeWordsOnly'] = ObjectSerializer::toQueryValue($wholeWordsOnly);
+        }
+        // query params
         if ($folder !== null) {
             $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
         }
@@ -31309,18 +31269,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function replacePresentationTextOnline($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
+    public function replacePresentationTextOnline($document, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null)
     {
-        list($response) = $this->replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $password);
+        list($response) = $this->replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password);
         return $response;
     }
 
     /**
      */
-    public function replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
+    public function replacePresentationTextOnlineWithHttpInfo($document, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase, $password);
+        $httpRequest = $this->replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -31344,9 +31304,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replacePresentationTextOnlineAsync($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
+    public function replacePresentationTextOnlineAsync($document, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null)
     {
-        return $this->replacePresentationTextOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $password)
+        return $this->replacePresentationTextOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -31354,10 +31314,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function replacePresentationTextOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
+    public function replacePresentationTextOnlineAsyncWithHttpInfo($document, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase, $password);
+        $httpRequest = $this->replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase, $wholeWordsOnly, $password);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -31406,12 +31366,13 @@ class SlidesApi extends ApiBase
      * @param  string $$oldValue Text value to be replaced. (required)
      * @param  string $$newValue Text value to replace with. (required)
      * @param  bool $$ignoreCase True if character case must be ignored. (optional, default to false)
+     * @param  bool $$wholeWordsOnly True to replace whole words only. (optional, default to false)
      * @param  string $$password Document password. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase = null, $password = null)
+    protected function replacePresentationTextOnlineRequest($document, $oldValue, $newValue, $ignoreCase = null, $wholeWordsOnly = null, $password = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -31441,6 +31402,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($ignoreCase !== null) {
             $queryParams['ignoreCase'] = ObjectSerializer::toQueryValue($ignoreCase);
+        }
+        // query params
+        if ($wholeWordsOnly !== null) {
+            $queryParams['wholeWordsOnly'] = ObjectSerializer::toQueryValue($wholeWordsOnly);
         }
         // header params
         if ($password !== null) {
@@ -32245,145 +32210,6 @@ class SlidesApi extends ApiBase
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
         $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
-        $_tempBody = [];
-        $this->headerSelector->selectHeaders(
-            $headerParams,
-            ['application/json'],
-            ['application/json']);
-        $httpBody = ObjectSerializer::createBody($_tempBody);
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
-    }
-    /**
-     */
-    public function savePortionAsMathMl($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
-    {
-        $this->savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
-    }
-
-    /**
-     */
-    public function savePortionAsMathMlWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '';
-        $httpRequest = $this->savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
-        try {
-            $response = $this->httpCall($httpRequest);
-            return [null, $response->getStatusCode(), $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default: $this->handleApiException($e);
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     */
-    public function savePortionAsMathMlAsync($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
-    {
-        return $this->savePortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage)
-            ->then(function ($response) {
-                return $response[0];
-            });
-    }
-
-    /**
-     */
-    public function savePortionAsMathMlAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '';
-        $httpRequest = $this->savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password, $folder, $storage);
-
-        return $this->client
-            ->sendAsync($httpRequest, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody());
-                });
-    }
-
-    /**
-     * Create request for operation 'savePortionAsMathMl'
-     *
-     * @param  string $$name Document name. (required)
-     * @param  int $$slideIndex Slide index. (required)
-     * @param  int $$shapeIndex Shape index. (required)
-     * @param  int $$paragraphIndex Paragraph index. (required)
-     * @param  int $$portionIndex Portion index. (required)
-     * @param  string $$outPath Path to save result. (required)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$folder Presentation folder. (optional)
-     * @param  string $$storage Presentation storage. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function savePortionAsMathMlRequest($name, $slideIndex, $shapeIndex, $paragraphIndex, $portionIndex, $outPath, $password = null, $folder = null, $storage = null)
-    {
-        // verify the required parameter 'name' is set
-        if ($name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $name when calling savePortionAsMathMl');
-        }
-        // verify the required parameter 'slide_index' is set
-        if ($slideIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling savePortionAsMathMl');
-        }
-        // verify the required parameter 'shape_index' is set
-        if ($shapeIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling savePortionAsMathMl');
-        }
-        // verify the required parameter 'paragraph_index' is set
-        if ($paragraphIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $paragraphIndex when calling savePortionAsMathMl');
-        }
-        // verify the required parameter 'portion_index' is set
-        if ($portionIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $portionIndex when calling savePortionAsMathMl');
-        }
-        // verify the required parameter 'out_path' is set
-        if ($outPath === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $outPath when calling savePortionAsMathMl');
-        }
-
-        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml';
-        $queryParams = [];
-        $headerParams = [];
-
-        // query params
-        if ($outPath !== null) {
-            $queryParams['outPath'] = ObjectSerializer::toQueryValue($outPath);
-        }
-        // query params
-        if ($folder !== null) {
-            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
-        }
-        // header params
-        if ($password !== null) {
-            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
-        }
-
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "paragraphIndex", $paragraphIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "portionIndex", $portionIndex);
         $_tempBody = [];
         $this->headerSelector->selectHeaders(
             $headerParams,

@@ -28,11 +28,12 @@
 
 
 namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
- 
+
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
 use Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule;
 use Aspose\Slides\Cloud\Sdk\Model\PdfExportOptions;
+use Aspose\Slides\Cloud\Sdk\Model\Html5ExportOptions;
 use Aspose\Slides\Cloud\Sdk\Model\ImageExportOptions;
 use Aspose\Slides\Cloud\Sdk\Model\HandoutLayoutingOptions;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
@@ -225,6 +226,29 @@ class ConvertTest extends TestBase
         $exportOptions->setSlidesLayoutOptions($slidesLayoutOptions);
 
         $response = $this->getSlidesApi()->downloadPresentation(self::fileName, "pdf", $exportOptions, self::password, self::folderName);
+        Assert::assertTrue($response->isFile());
+        Assert::assertTrue($response->getSize() > 0);
+    }
+
+    public function testConvertWithCustomHtml5Templates()
+    {
+        $templatesPath = "Html5Templates";
+        $templateFileName = "pictureFrame.html";
+        $this->getSlidesApi()->createFolder($templatesPath);
+        $this->getSlidesApi()->copyFile(self::tempFolderName."/".$templateFileName, $templatesPath."/".$templateFileName);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+
+        $exportOptions = new Html5ExportOptions();
+        $exportOptions->setTemplatesPath($templatesPath);
+        $exportOptions->setAnimateTransitions(true);
+        $response = $this->getSlidesApi()->downloadPresentation(self::fileName, "html5", $exportOptions, self::password, self::folderName);
+        Assert::assertTrue($response->isFile());
+        Assert::assertTrue($response->getSize() > 0);
+    }
+
+    public function testGetHtml5Templates()
+    {
+        $response = $this->getSlidesApi()->getHtml5Templates();
         Assert::assertTrue($response->isFile());
         Assert::assertTrue($response->getSize() > 0);
     }

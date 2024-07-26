@@ -192,6 +192,7 @@ class Save extends Task
     const FORMAT_XAML = 'Xaml';
     const FORMAT_MPEG4 = 'Mpeg4';
     const FORMAT_MD = 'Md';
+    const FORMAT_XML = 'Xml';
     
 
     
@@ -229,6 +230,7 @@ class Save extends Task
             self::FORMAT_XAML,
             self::FORMAT_MPEG4,
             self::FORMAT_MD,
+            self::FORMAT_XML,
         ];
     }
     

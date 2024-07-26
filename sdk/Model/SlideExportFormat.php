@@ -69,6 +69,7 @@ class SlideExportFormat
     const XAML = 'Xaml';
     const HTML5 = 'Html5';
     const MD = 'Md';
+    const XML = 'Xml';
     
     /**
      * Gets allowable values of the enum
@@ -101,6 +102,7 @@ class SlideExportFormat
             self::XAML,
             self::HTML5,
             self::MD,
+            self::XML,
         ];
     }
 }

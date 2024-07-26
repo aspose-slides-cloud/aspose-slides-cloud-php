@@ -226,9 +226,6 @@ class TableCellMergeOptions implements ArrayAccess
         if ($this->container['lastCellIndex'] === null) {
             $invalidProperties[] = "'lastCellIndex' can't be null";
         }
-        if ($this->container['allowSplitting'] === null) {
-            $invalidProperties[] = "'allowSplitting' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -251,9 +248,6 @@ class TableCellMergeOptions implements ArrayAccess
             return false;
         }
         if ($this->container['lastCellIndex'] === null) {
-            return false;
-        }
-        if ($this->container['allowSplitting'] === null) {
             return false;
         }
         return true;

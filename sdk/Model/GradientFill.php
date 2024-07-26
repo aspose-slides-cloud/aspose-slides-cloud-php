@@ -280,9 +280,6 @@ class GradientFill extends FillFormat
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['direction'] === null) {
-            $invalidProperties[] = "'direction' can't be null";
-        }
         $allowedValues = $this->getDirectionAllowableValues();
         if (!in_array($this->container['direction'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -291,9 +288,6 @@ class GradientFill extends FillFormat
             );
         }
 
-        if ($this->container['shape'] === null) {
-            $invalidProperties[] = "'shape' can't be null";
-        }
         $allowedValues = $this->getShapeAllowableValues();
         if (!in_array($this->container['shape'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -302,15 +296,6 @@ class GradientFill extends FillFormat
             );
         }
 
-        if ($this->container['linearAngle'] === null) {
-            $invalidProperties[] = "'linearAngle' can't be null";
-        }
-        if ($this->container['isScaled'] === null) {
-            $invalidProperties[] = "'isScaled' can't be null";
-        }
-        if ($this->container['tileFlip'] === null) {
-            $invalidProperties[] = "'tileFlip' can't be null";
-        }
         $allowedValues = $this->getTileFlipAllowableValues();
         if (!in_array($this->container['tileFlip'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -334,27 +319,12 @@ class GradientFill extends FillFormat
             return false;
         }
 
-        if ($this->container['direction'] === null) {
-            return false;
-        }
         $allowedValues = $this->getDirectionAllowableValues();
         if (!in_array($this->container['direction'], $allowedValues)) {
             return false;
         }
-        if ($this->container['shape'] === null) {
-            return false;
-        }
         $allowedValues = $this->getShapeAllowableValues();
         if (!in_array($this->container['shape'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['linearAngle'] === null) {
-            return false;
-        }
-        if ($this->container['isScaled'] === null) {
-            return false;
-        }
-        if ($this->container['tileFlip'] === null) {
             return false;
         }
         $allowedValues = $this->getTileFlipAllowableValues();
@@ -398,7 +368,7 @@ class GradientFill extends FillFormat
                 $direction = $allowedValues[$direction];
             }
         } else {
-            if (!in_array($direction, $allowedValues)) {
+            if (!is_null($direction) && !in_array($direction, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'direction', must be one of '%s'",
@@ -445,7 +415,7 @@ class GradientFill extends FillFormat
                 $shape = $allowedValues[$shape];
             }
         } else {
-            if (!in_array($shape, $allowedValues)) {
+            if (!is_null($shape) && !in_array($shape, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'shape', must be one of '%s'",
@@ -564,7 +534,7 @@ class GradientFill extends FillFormat
                 $tileFlip = $allowedValues[$tileFlip];
             }
         } else {
-            if (!in_array($tileFlip, $allowedValues)) {
+            if (!is_null($tileFlip) && !in_array($tileFlip, $allowedValues)) {
                 throw new \InvalidArgumentException(
                     sprintf(
                         "Invalid value for 'tileFlip', must be one of '%s'",

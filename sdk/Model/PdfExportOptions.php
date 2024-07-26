@@ -71,7 +71,8 @@ class PdfExportOptions extends ExportOptions
         'applyImageTransparent' => 'bool',
         'accessPermissions' => '\Aspose\Slides\Cloud\Sdk\Model\AccessPermissions',
         'hideInk' => 'bool',
-        'interpretMaskOpAsOpacity' => 'bool'
+        'interpretMaskOpAsOpacity' => 'bool',
+        'rasterizeUnsupportedFontStyles' => 'bool'
     ];
 
     /**
@@ -96,7 +97,8 @@ class PdfExportOptions extends ExportOptions
         'applyImageTransparent' => null,
         'accessPermissions' => null,
         'hideInk' => null,
-        'interpretMaskOpAsOpacity' => null
+        'interpretMaskOpAsOpacity' => null,
+        'rasterizeUnsupportedFontStyles' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class PdfExportOptions extends ExportOptions
         'applyImageTransparent' => 'ApplyImageTransparent',
         'accessPermissions' => 'AccessPermissions',
         'hideInk' => 'HideInk',
-        'interpretMaskOpAsOpacity' => 'InterpretMaskOpAsOpacity'
+        'interpretMaskOpAsOpacity' => 'InterpretMaskOpAsOpacity',
+        'rasterizeUnsupportedFontStyles' => 'RasterizeUnsupportedFontStyles'
     ];
 
     /**
@@ -167,7 +170,8 @@ class PdfExportOptions extends ExportOptions
         'applyImageTransparent' => 'setApplyImageTransparent',
         'accessPermissions' => 'setAccessPermissions',
         'hideInk' => 'setHideInk',
-        'interpretMaskOpAsOpacity' => 'setInterpretMaskOpAsOpacity'
+        'interpretMaskOpAsOpacity' => 'setInterpretMaskOpAsOpacity',
+        'rasterizeUnsupportedFontStyles' => 'setRasterizeUnsupportedFontStyles'
     ];
 
     /**
@@ -192,7 +196,8 @@ class PdfExportOptions extends ExportOptions
         'applyImageTransparent' => 'getApplyImageTransparent',
         'accessPermissions' => 'getAccessPermissions',
         'hideInk' => 'getHideInk',
-        'interpretMaskOpAsOpacity' => 'getInterpretMaskOpAsOpacity'
+        'interpretMaskOpAsOpacity' => 'getInterpretMaskOpAsOpacity',
+        'rasterizeUnsupportedFontStyles' => 'getRasterizeUnsupportedFontStyles'
     ];
 
     /**
@@ -316,6 +321,7 @@ class PdfExportOptions extends ExportOptions
         $this->container['accessPermissions'] = isset($data['accessPermissions']) ? $data['accessPermissions'] : null;
         $this->container['hideInk'] = isset($data['hideInk']) ? $data['hideInk'] : null;
         $this->container['interpretMaskOpAsOpacity'] = isset($data['interpretMaskOpAsOpacity']) ? $data['interpretMaskOpAsOpacity'] : null;
+        $this->container['rasterizeUnsupportedFontStyles'] = isset($data['rasterizeUnsupportedFontStyles']) ? $data['rasterizeUnsupportedFontStyles'] : null;
         $this->container['format'] = 'pdf';
         
     }
@@ -822,6 +828,30 @@ class PdfExportOptions extends ExportOptions
     public function setInterpretMaskOpAsOpacity($interpretMaskOpAsOpacity)
     {
         $this->container['interpretMaskOpAsOpacity'] = $interpretMaskOpAsOpacity;
+
+        return $this;
+    }
+
+    /**
+     * Gets rasterizeUnsupportedFontStyles
+     *
+     * @return bool
+     */
+    public function getRasterizeUnsupportedFontStyles()
+    {
+        return $this->container['rasterizeUnsupportedFontStyles'];
+    }
+
+    /**
+     * Sets rasterizeUnsupportedFontStyles
+     *
+     * @param bool $rasterizeUnsupportedFontStyles True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.
+     *
+     * @return $this
+     */
+    public function setRasterizeUnsupportedFontStyles($rasterizeUnsupportedFontStyles)
+    {
+        $this->container['rasterizeUnsupportedFontStyles'] = $rasterizeUnsupportedFontStyles;
 
         return $this;
     }
