@@ -65,7 +65,7 @@ class Operation implements ArrayAccess
         'failed' => '\DateTime',
         'canceled' => '\DateTime',
         'finished' => '\DateTime',
-        'error' => 'string'
+        'error' => '\Aspose\Slides\Cloud\Sdk\Model\OperationError'
     ];
 
     /**
@@ -208,6 +208,8 @@ class Operation implements ArrayAccess
     const METHOD_SAVE_PRESENTATION = 'SavePresentation';
     const METHOD_MERGE = 'Merge';
     const METHOD_MERGE_AND_SAVE = 'MergeAndSave';
+    const METHOD_SPLIT = 'Split';
+    const METHOD_UPLOAD_AND_SPLIT = 'UploadAndSplit';
     const STATUS_CREATED = 'Created';
     const STATUS_ENQUEUED = 'Enqueued';
     const STATUS_STARTED = 'Started';
@@ -231,6 +233,8 @@ class Operation implements ArrayAccess
             self::METHOD_SAVE_PRESENTATION,
             self::METHOD_MERGE,
             self::METHOD_MERGE_AND_SAVE,
+            self::METHOD_SPLIT,
+            self::METHOD_UPLOAD_AND_SPLIT,
         ];
     }
     
@@ -612,7 +616,7 @@ class Operation implements ArrayAccess
     /**
      * Gets error
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\OperationError
      */
     public function getError()
     {
@@ -622,7 +626,7 @@ class Operation implements ArrayAccess
     /**
      * Sets error
      *
-     * @param string $error error
+     * @param \Aspose\Slides\Cloud\Sdk\Model\OperationError $error error
      *
      * @return $this
      */

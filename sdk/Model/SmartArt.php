@@ -651,9 +651,6 @@ class SmartArt extends ShapeBase
             );
         }
 
-        if ($this->container['isReversed'] === null) {
-            $invalidProperties[] = "'isReversed' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -688,9 +685,6 @@ class SmartArt extends ShapeBase
         }
         $allowedValues = $this->getColorStyleAllowableValues();
         if (!in_array($this->container['colorStyle'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['isReversed'] === null) {
             return false;
         }
         return true;

@@ -45,14 +45,14 @@ class FontTest extends TestBase
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         $result = $this->getSlidesApi()->getFonts(self::fileName, self::password, self::folderName);
-        Assert::assertTrue(count($result->getList()) == 3);
+        Assert::assertTrue(count($result->getList()) == 4);
     }
 
     public function testGetFontsOnline()
     {
         $file = fopen(self::localFilePath, 'r');
         $result = $this->getSlidesApi()->getFontsONline($file, self::password, self::folderName);
-        Assert::assertTrue(count($result->getList()) == 3);
+        Assert::assertTrue(count($result->getList()) == 4);
     }
 
     public function testSetEmbeddedFont()

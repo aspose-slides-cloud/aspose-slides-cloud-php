@@ -31,6 +31,7 @@ namespace Aspose\Slides\Cloud\Sdk\Tests\UseCases;
  
 use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\ExportFormat;
+use Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat;
 use Aspose\Slides\Cloud\Sdk\Tests\TestBase;
 
 class AsyncApiTest extends TestBase
@@ -168,6 +169,53 @@ class AsyncApiTest extends TestBase
         Assert::assertNull($operation->getError());
 
         $result = $this->getSlidesApi()->objectExists(self::outPath);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testAsyncSplit()
+    {
+        $outFolder = "splitResult";
+        $this->getSlidesApi()->deleteFolder($outFolder, null, true);
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $operationId = $this->getSlidesAsyncApi()->startSplit(self::fileName, SlideExportFormat::PNG, null, null, null, null, null, $outFolder, self::password, self::folderName);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNull($operation->getError());
+
+        $result = $this->getSlidesApi()->objectExists($outFolder);
+        Assert::assertTrue($result->getExists());
+    }
+
+    public function testAsyncUploadAndSplit()
+    {
+        $outFolder = "splitResult";
+        $this->getSlidesApi()->deleteFolder($outFolder, null, true);
+        $operationId = $this->getSlidesAsyncApi()->startUploadAndSplit(fopen(self::localFilePath, 'r'), SlideExportFormat::PNG, $outFolder, null, null, null, null, self::password);
+
+        for ($i = 0; $i < self::maxTries; $i++)
+        {
+            sleep(self::timeout);
+            $operation = $this->getSlidesAsyncApi()->getOperationStatus($operationId);
+            if ($operation->getStatus() != "Created" && $operation->getStatus() != "Enqueued" && $operation->getStatus() != "Started")
+            {
+                break;
+            }
+        }
+
+        Assert::assertEquals("Finished", $operation->getStatus());
+        Assert::assertNull($operation->getError());
+
+        $result = $this->getSlidesApi()->objectExists($outFolder);
         Assert::assertTrue($result->getExists());
     }
 

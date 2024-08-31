@@ -1232,4 +1232,367 @@ class SlidesAsyncApi extends ApiBase
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
+    /**
+     */
+    public function startSplit($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    {
+        list($response) = $this->startSplitWithHttpInfo($name, $format, $options, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
+        return $response;
+    }
+
+    /**
+     */
+    public function startSplitWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    {
+        $returnType = 'string';
+        $httpRequest = $this->startSplitRequest($name, $format, $options, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function startSplitAsync($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    {
+        return $this->startSplitAsyncWithHttpInfo($name, $format, $options, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function startSplitAsyncWithHttpInfo($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    {
+        $returnType = 'string';
+        $httpRequest = $this->startSplitRequest($name, $format, $options, $width, $height, $from, $to, $destFolder, $password, $folder, $storage, $fontsFolder);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'startSplit'
+     *
+     * @param  string $$name (required)
+     * @param  string $$format (required)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $$options (optional)
+     * @param  int $$width (optional)
+     * @param  int $$height (optional)
+     * @param  int $$from (optional)
+     * @param  int $$to (optional)
+     * @param  string $$destFolder (optional)
+     * @param  string $$password (optional)
+     * @param  string $$folder (optional)
+     * @param  string $$storage (optional)
+     * @param  string $$fontsFolder (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function startSplitRequest($name, $format, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null, $width = null, $height = null, $from = null, $to = null, $destFolder = null, $password = null, $folder = null, $storage = null, $fontsFolder = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling startSplit');
+        }
+        // verify the required parameter 'format' is set
+        if ($format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling startSplit');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
+
+        $resourcePath = '/slides/async/{name}/split/{format}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($width !== null) {
+            $queryParams['width'] = ObjectSerializer::toQueryValue($width);
+        }
+        // query params
+        if ($height !== null) {
+            $queryParams['height'] = ObjectSerializer::toQueryValue($height);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if ($destFolder !== null) {
+            $queryParams['destFolder'] = ObjectSerializer::toQueryValue($destFolder);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($fontsFolder !== null) {
+            $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
+        if (isset($options)) {
+            array_push($_tempBody, $options);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function startUploadAndSplit($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    {
+        list($response) = $this->startUploadAndSplitWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
+        return $response;
+    }
+
+    /**
+     */
+    public function startUploadAndSplitWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    {
+        $returnType = 'string';
+        $httpRequest = $this->startUploadAndSplitRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function startUploadAndSplitAsync($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    {
+        return $this->startUploadAndSplitAsyncWithHttpInfo($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function startUploadAndSplitAsyncWithHttpInfo($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    {
+        $returnType = 'string';
+        $httpRequest = $this->startUploadAndSplitRequest($document, $format, $destFolder, $width, $height, $from, $to, $password, $storage, $fontsFolder, $options);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'startUploadAndSplit'
+     *
+     * @param  \SplFileObject $$document Document data. (required)
+     * @param  string $$format (required)
+     * @param  string $$destFolder (optional, default to )
+     * @param  int $$width (optional)
+     * @param  int $$height (optional)
+     * @param  int $$from (optional)
+     * @param  int $$to (optional)
+     * @param  string $$password (optional)
+     * @param  string $$storage (optional)
+     * @param  string $$fontsFolder (optional)
+     * @param  \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $$options (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function startUploadAndSplitRequest($document, $format, $destFolder = null, $width = null, $height = null, $from = null, $to = null, $password = null, $storage = null, $fontsFolder = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
+    {
+        // verify the required parameter 'document' is set
+        if ($document === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $document when calling startUploadAndSplit');
+        }
+        // verify the required parameter 'format' is set
+        if ($format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $format when calling startUploadAndSplit');
+        }
+        // verify the value of enum parameter 'format' is valid
+        if (!in_array(strtolower($format), array_map('strtolower', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()))) {
+            throw new \InvalidArgumentException('Invalid value for format: ' . $format . '. Must be one of the following: ' . implode(',', \Aspose\Slides\Cloud\Sdk\Model\SlideExportFormat::getAllowableEnumValues()));
+        }
+
+        $resourcePath = '/slides/async/split/{format}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($destFolder !== null) {
+            $queryParams['destFolder'] = ObjectSerializer::toQueryValue($destFolder);
+        }
+        // query params
+        if ($width !== null) {
+            $queryParams['width'] = ObjectSerializer::toQueryValue($width);
+        }
+        // query params
+        if ($height !== null) {
+            $queryParams['height'] = ObjectSerializer::toQueryValue($height);
+        }
+        // query params
+        if ($from !== null) {
+            $queryParams['from'] = ObjectSerializer::toQueryValue($from);
+        }
+        // query params
+        if ($to !== null) {
+            $queryParams['to'] = ObjectSerializer::toQueryValue($to);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($fontsFolder !== null) {
+            $queryParams['fontsFolder'] = ObjectSerializer::toQueryValue($fontsFolder);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "format", $format);
+        $_tempBody = [];
+        if (isset($options)) {
+            array_push($_tempBody, $options);
+        }
+        if (isset($document)) {
+            array_push($_tempBody, $document);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
 }

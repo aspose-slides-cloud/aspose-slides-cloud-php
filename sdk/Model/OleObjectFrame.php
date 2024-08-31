@@ -233,9 +233,6 @@ class OleObjectFrame extends ShapeBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['isObjectIcon'] === null) {
-            $invalidProperties[] = "'isObjectIcon' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -251,9 +248,6 @@ class OleObjectFrame extends ShapeBase
             return false;
         }
 
-        if ($this->container['isObjectIcon'] === null) {
-            return false;
-        }
         return true;
     }
 

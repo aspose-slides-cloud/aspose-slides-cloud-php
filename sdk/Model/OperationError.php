@@ -34,22 +34,21 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * SmartArtNode Class Doc Comment
+ * OperationError Class Doc Comment
  *
  * @category Class
- * @description Smart art node.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SmartArtNode implements ArrayAccess
+class OperationError implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SmartArtNode';
+    protected static $swaggerModelName = 'OperationError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +56,10 @@ class SmartArtNode implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'nodes' => '\Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[]',
-        'shapes' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
-        'isAssistant' => 'bool',
-        'text' => 'string',
-        'orgChartLayout' => 'string',
-        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri'
+        'code' => 'string',
+        'description' => 'string',
+        'httpStatusCode' => 'int',
+        'message' => 'string'
     ];
 
     /**
@@ -71,12 +68,10 @@ class SmartArtNode implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'nodes' => null,
-        'shapes' => null,
-        'isAssistant' => null,
-        'text' => null,
-        'orgChartLayout' => null,
-        'paragraphs' => null
+        'code' => null,
+        'description' => null,
+        'httpStatusCode' => 'int32',
+        'message' => null
     ];
 
     /**
@@ -106,12 +101,10 @@ class SmartArtNode implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'nodes' => 'Nodes',
-        'shapes' => 'Shapes',
-        'isAssistant' => 'IsAssistant',
-        'text' => 'Text',
-        'orgChartLayout' => 'OrgChartLayout',
-        'paragraphs' => 'Paragraphs'
+        'code' => 'Code',
+        'description' => 'Description',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message'
     ];
 
     /**
@@ -120,12 +113,10 @@ class SmartArtNode implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'nodes' => 'setNodes',
-        'shapes' => 'setShapes',
-        'isAssistant' => 'setIsAssistant',
-        'text' => 'setText',
-        'orgChartLayout' => 'setOrgChartLayout',
-        'paragraphs' => 'setParagraphs'
+        'code' => 'setCode',
+        'description' => 'setDescription',
+        'httpStatusCode' => 'setHttpStatusCode',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -134,12 +125,10 @@ class SmartArtNode implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'nodes' => 'getNodes',
-        'shapes' => 'getShapes',
-        'isAssistant' => 'getIsAssistant',
-        'text' => 'getText',
-        'orgChartLayout' => 'getOrgChartLayout',
-        'paragraphs' => 'getParagraphs'
+        'code' => 'getCode',
+        'description' => 'getDescription',
+        'httpStatusCode' => 'getHttpStatusCode',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -183,29 +172,8 @@ class SmartArtNode implements ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const ORG_CHART_LAYOUT_INITIAL = 'Initial';
-    const ORG_CHART_LAYOUT_STANDART = 'Standart';
-    const ORG_CHART_LAYOUT_BOTH_HANGING = 'BothHanging';
-    const ORG_CHART_LAYOUT_LEFT_HANGING = 'LeftHanging';
-    const ORG_CHART_LAYOUT_RIGHT_HANGING = 'RightHanging';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOrgChartLayoutAllowableValues()
-    {
-        return [
-            self::ORG_CHART_LAYOUT_INITIAL,
-            self::ORG_CHART_LAYOUT_STANDART,
-            self::ORG_CHART_LAYOUT_BOTH_HANGING,
-            self::ORG_CHART_LAYOUT_LEFT_HANGING,
-            self::ORG_CHART_LAYOUT_RIGHT_HANGING,
-        ];
-    }
     
 
     /**
@@ -223,12 +191,10 @@ class SmartArtNode implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['nodes'] = isset($data['nodes']) ? $data['nodes'] : null;
-        $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
-        $this->container['isAssistant'] = isset($data['isAssistant']) ? $data['isAssistant'] : null;
-        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
-        $this->container['orgChartLayout'] = isset($data['orgChartLayout']) ? $data['orgChartLayout'] : null;
-        $this->container['paragraphs'] = isset($data['paragraphs']) ? $data['paragraphs'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['httpStatusCode'] = isset($data['httpStatusCode']) ? $data['httpStatusCode'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         
     }
 
@@ -241,17 +207,9 @@ class SmartArtNode implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['orgChartLayout'] === null) {
-            $invalidProperties[] = "'orgChartLayout' can't be null";
+        if ($this->container['httpStatusCode'] === null) {
+            $invalidProperties[] = "'httpStatusCode' can't be null";
         }
-        $allowedValues = $this->getOrgChartLayoutAllowableValues();
-        if (!in_array($this->container['orgChartLayout'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'orgChartLayout', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -264,11 +222,7 @@ class SmartArtNode implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['orgChartLayout'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getOrgChartLayoutAllowableValues();
-        if (!in_array($this->container['orgChartLayout'], $allowedValues)) {
+        if ($this->container['httpStatusCode'] === null) {
             return false;
         }
         return true;
@@ -276,168 +230,97 @@ class SmartArtNode implements ArrayAccess
 
 
     /**
-     * Gets nodes
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[]
-     */
-    public function getNodes()
-    {
-        return $this->container['nodes'];
-    }
-
-    /**
-     * Sets nodes
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\SmartArtNode[] $nodes Node list.
-     *
-     * @return $this
-     */
-    public function setNodes($nodes)
-    {
-        $this->container['nodes'] = $nodes;
-
-        return $this;
-    }
-
-    /**
-     * Gets shapes
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
-     */
-    public function getShapes()
-    {
-        return $this->container['shapes'];
-    }
-
-    /**
-     * Sets shapes
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $shapes Gets or sets the link to shapes.
-     *
-     * @return $this
-     */
-    public function setShapes($shapes)
-    {
-        $this->container['shapes'] = $shapes;
-
-        return $this;
-    }
-
-    /**
-     * Gets isAssistant
-     *
-     * @return bool
-     */
-    public function getIsAssistant()
-    {
-        return $this->container['isAssistant'];
-    }
-
-    /**
-     * Sets isAssistant
-     *
-     * @param bool $isAssistant True for and assistant node.
-     *
-     * @return $this
-     */
-    public function setIsAssistant($isAssistant)
-    {
-        $this->container['isAssistant'] = $isAssistant;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
+     * Gets code
      *
      * @return string
      */
-    public function getText()
+    public function getCode()
     {
-        return $this->container['text'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets text
+     * Sets code
      *
-     * @param string $text Node text.
+     * @param string $code code
      *
      * @return $this
      */
-    public function setText($text)
+    public function setCode($code)
     {
-        $this->container['text'] = $text;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets orgChartLayout
+     * Gets description
      *
      * @return string
      */
-    public function getOrgChartLayout()
+    public function getDescription()
     {
-        return $this->container['orgChartLayout'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets orgChartLayout
+     * Sets description
      *
-     * @param string $orgChartLayout Organization chart layout type associated with current node.
+     * @param string $description description
      *
      * @return $this
      */
-    public function setOrgChartLayout($orgChartLayout)
+    public function setDescription($description)
     {
-        $allowedValues = $this->getOrgChartLayoutAllowableValues();
-
-
-        if (is_numeric($orgChartLayout)) {
-            if ($orgChartLayout >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'orgChartLayout', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $orgChartLayout = $allowedValues[$orgChartLayout];
-            }
-        } else {
-            if (!in_array($orgChartLayout, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'orgChartLayout', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['orgChartLayout'] = $orgChartLayout;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets paragraphs
+     * Gets httpStatusCode
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     * @return int
      */
-    public function getParagraphs()
+    public function getHttpStatusCode()
     {
-        return $this->container['paragraphs'];
+        return $this->container['httpStatusCode'];
     }
 
     /**
-     * Sets paragraphs
+     * Sets httpStatusCode
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $paragraphs Get or sets list to paragraphs list
+     * @param int $httpStatusCode httpStatusCode
      *
      * @return $this
      */
-    public function setParagraphs($paragraphs)
+    public function setHttpStatusCode($httpStatusCode)
     {
-        $this->container['paragraphs'] = $paragraphs;
+        $this->container['httpStatusCode'] = $httpStatusCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
 
         return $this;
     }
