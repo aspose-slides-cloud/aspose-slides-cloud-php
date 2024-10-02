@@ -323,9 +323,6 @@ class ShapeBase extends ResourceBase
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['zOrderPosition'] === null) {
-            $invalidProperties[] = "'zOrderPosition' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
             $invalidProperties[] = sprintf(
@@ -349,9 +346,6 @@ class ShapeBase extends ResourceBase
             return false;
         }
 
-        if ($this->container['zOrderPosition'] === null) {
-            return false;
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($this->container['type'], $allowedValues)) {
             return false;

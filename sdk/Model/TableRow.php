@@ -202,12 +202,6 @@ class TableRow implements ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['minimalHeight'] === null) {
-            $invalidProperties[] = "'minimalHeight' can't be null";
-        }
-        if ($this->container['height'] === null) {
-            $invalidProperties[] = "'height' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -220,12 +214,6 @@ class TableRow implements ArrayAccess
     public function valid()
     {
 
-        if ($this->container['minimalHeight'] === null) {
-            return false;
-        }
-        if ($this->container['height'] === null) {
-            return false;
-        }
         return true;
     }
 

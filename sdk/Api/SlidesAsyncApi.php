@@ -52,6 +52,137 @@ class SlidesAsyncApi extends ApiBase
 
     /**
      */
+    public function download($path, $storageName = null, $versionId = null)
+    {
+        list($response) = $this->downloadWithHttpInfo($path, $storageName, $versionId);
+        return $response;
+    }
+
+    /**
+     */
+    public function downloadWithHttpInfo($path, $storageName = null, $versionId = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadRequest($path, $storageName, $versionId);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody; //stream goes to serializer
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\SplFileObject', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function downloadAsync($path, $storageName = null, $versionId = null)
+    {
+        return $this->downloadAsyncWithHttpInfo($path, $storageName, $versionId)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function downloadAsyncWithHttpInfo($path, $storageName = null, $versionId = null)
+    {
+        $returnType = '\SplFileObject';
+        $httpRequest = $this->downloadRequest($path, $storageName, $versionId);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'download'
+     *
+     * @param  string $$path (required)
+     * @param  string $$storageName (optional)
+     * @param  string $$versionId (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function downloadRequest($path, $storageName = null, $versionId = null)
+    {
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling download');
+        }
+
+        $resourcePath = '/slides/async/storage/file/{path}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($storageName !== null) {
+            $queryParams['storageName'] = ObjectSerializer::toQueryValue($storageName);
+        }
+        // query params
+        if ($versionId !== null) {
+            $queryParams['versionId'] = ObjectSerializer::toQueryValue($versionId);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['multipart/form-data'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getOperationResult($id)
     {
         list($response) = $this->getOperationResultWithHttpInfo($id);
@@ -1594,5 +1725,142 @@ class SlidesAsyncApi extends ApiBase
             ['multipart/form-data']);
         $httpBody = ObjectSerializer::createBody($_tempBody);
         return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
+    public function upload($path, $file, $storageName = null)
+    {
+        list($response) = $this->uploadWithHttpInfo($path, $file, $storageName);
+        return $response;
+    }
+
+    /**
+     */
+    public function uploadWithHttpInfo($path, $file, $storageName = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FilesUploadResult';
+        $httpRequest = $this->uploadRequest($path, $file, $storageName);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\FilesUploadResult', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function uploadAsync($path, $file, $storageName = null)
+    {
+        return $this->uploadAsyncWithHttpInfo($path, $file, $storageName)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function uploadAsyncWithHttpInfo($path, $file, $storageName = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\FilesUploadResult';
+        $httpRequest = $this->uploadRequest($path, $file, $storageName);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'upload'
+     *
+     * @param  string $$path (required)
+     * @param  \SplFileObject $$file File to upload (required)
+     * @param  string $$storageName (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function uploadRequest($path, $file, $storageName = null)
+    {
+        // verify the required parameter 'path' is set
+        if ($path === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $path when calling upload');
+        }
+        // verify the required parameter 'file' is set
+        if ($file === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $file when calling upload');
+        }
+
+        $resourcePath = '/slides/async/storage/file/{path}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($storageName !== null) {
+            $queryParams['storageName'] = ObjectSerializer::toQueryValue($storageName);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "path", $path);
+        $_tempBody = [];
+        if (isset($file)) {
+            array_push($_tempBody, $file);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['multipart/form-data']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'PUT');
     }
 }
