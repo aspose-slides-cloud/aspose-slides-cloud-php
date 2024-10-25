@@ -25,7 +25,11 @@
         "psr-4": {
             "Aspose\\Slides\\Cloud\\Sdk\\": "sdk/",
             "Aspose\\Slides\\Cloud\\Sdk\\Model\\": "sdk/model/",
-            "Aspose\\Slides\\Cloud\\Sdk\\Api\\": "sdk/api/",
+            "Aspose\\Slides\\Cloud\\Sdk\\Api\\": "sdk/api/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Aspose\\Slides\\Cloud\\Sdk\\Tests\\": "tests/",
             "Aspose\\Slides\\Cloud\\Sdk\\Tests\\Api\\": "tests/api/",
             "Aspose\\Slides\\Cloud\\Sdk\\Tests\\UseCases\\": "tests/usecases/",
