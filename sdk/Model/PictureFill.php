@@ -60,6 +60,12 @@ class PictureFill extends FillFormat
         'cropRight' => 'double',
         'cropTop' => 'double',
         'dpi' => 'int',
+        'tileOffsetX' => 'double',
+        'tileOffsetY' => 'double',
+        'tileScaleX' => 'double',
+        'tileScaleY' => 'double',
+        'tileAlignment' => 'string',
+        'tileFlip' => 'string',
         'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'base64Data' => 'string',
         'svgData' => 'string',
@@ -78,6 +84,12 @@ class PictureFill extends FillFormat
         'cropRight' => 'double',
         'cropTop' => 'double',
         'dpi' => 'int32',
+        'tileOffsetX' => 'double',
+        'tileOffsetY' => 'double',
+        'tileScaleX' => 'double',
+        'tileScaleY' => 'double',
+        'tileAlignment' => null,
+        'tileFlip' => null,
         'image' => null,
         'base64Data' => null,
         'svgData' => null,
@@ -117,6 +129,12 @@ class PictureFill extends FillFormat
         'cropRight' => 'CropRight',
         'cropTop' => 'CropTop',
         'dpi' => 'Dpi',
+        'tileOffsetX' => 'TileOffsetX',
+        'tileOffsetY' => 'TileOffsetY',
+        'tileScaleX' => 'TileScaleX',
+        'tileScaleY' => 'TileScaleY',
+        'tileAlignment' => 'TileAlignment',
+        'tileFlip' => 'TileFlip',
         'image' => 'Image',
         'base64Data' => 'Base64Data',
         'svgData' => 'SvgData',
@@ -135,6 +153,12 @@ class PictureFill extends FillFormat
         'cropRight' => 'setCropRight',
         'cropTop' => 'setCropTop',
         'dpi' => 'setDpi',
+        'tileOffsetX' => 'setTileOffsetX',
+        'tileOffsetY' => 'setTileOffsetY',
+        'tileScaleX' => 'setTileScaleX',
+        'tileScaleY' => 'setTileScaleY',
+        'tileAlignment' => 'setTileAlignment',
+        'tileFlip' => 'setTileFlip',
         'image' => 'setImage',
         'base64Data' => 'setBase64Data',
         'svgData' => 'setSvgData',
@@ -153,6 +177,12 @@ class PictureFill extends FillFormat
         'cropRight' => 'getCropRight',
         'cropTop' => 'getCropTop',
         'dpi' => 'getDpi',
+        'tileOffsetX' => 'getTileOffsetX',
+        'tileOffsetY' => 'getTileOffsetY',
+        'tileScaleX' => 'getTileScaleX',
+        'tileScaleY' => 'getTileScaleY',
+        'tileAlignment' => 'getTileAlignment',
+        'tileFlip' => 'getTileFlip',
         'image' => 'getImage',
         'base64Data' => 'getBase64Data',
         'svgData' => 'getSvgData',
@@ -201,10 +231,62 @@ class PictureFill extends FillFormat
         return self::$swaggerModelName;
     }
 
+    const TILE_ALIGNMENT_TOP_LEFT = 'TopLeft';
+    const TILE_ALIGNMENT_TOP = 'Top';
+    const TILE_ALIGNMENT_TOP_RIGHT = 'TopRight';
+    const TILE_ALIGNMENT_LEFT = 'Left';
+    const TILE_ALIGNMENT_CENTER = 'Center';
+    const TILE_ALIGNMENT_RIGHT = 'Right';
+    const TILE_ALIGNMENT_BOTTOM_LEFT = 'BottomLeft';
+    const TILE_ALIGNMENT_BOTTOM = 'Bottom';
+    const TILE_ALIGNMENT_BOTTOM_RIGHT = 'BottomRight';
+    const TILE_ALIGNMENT_NOT_DEFINED = 'NotDefined';
+    const TILE_FLIP_NO_FLIP = 'NoFlip';
+    const TILE_FLIP_FLIP_X = 'FlipX';
+    const TILE_FLIP_FLIP_Y = 'FlipY';
+    const TILE_FLIP_FLIP_BOTH = 'FlipBoth';
+    const TILE_FLIP_NOT_DEFINED = 'NotDefined';
     const PICTURE_FILL_MODE_TILE = 'Tile';
     const PICTURE_FILL_MODE_STRETCH = 'Stretch';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTileAlignmentAllowableValues()
+    {
+        return [
+            self::TILE_ALIGNMENT_TOP_LEFT,
+            self::TILE_ALIGNMENT_TOP,
+            self::TILE_ALIGNMENT_TOP_RIGHT,
+            self::TILE_ALIGNMENT_LEFT,
+            self::TILE_ALIGNMENT_CENTER,
+            self::TILE_ALIGNMENT_RIGHT,
+            self::TILE_ALIGNMENT_BOTTOM_LEFT,
+            self::TILE_ALIGNMENT_BOTTOM,
+            self::TILE_ALIGNMENT_BOTTOM_RIGHT,
+            self::TILE_ALIGNMENT_NOT_DEFINED,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTileFlipAllowableValues()
+    {
+        return [
+            self::TILE_FLIP_NO_FLIP,
+            self::TILE_FLIP_FLIP_X,
+            self::TILE_FLIP_FLIP_Y,
+            self::TILE_FLIP_FLIP_BOTH,
+            self::TILE_FLIP_NOT_DEFINED,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -236,6 +318,12 @@ class PictureFill extends FillFormat
         $this->container['cropRight'] = isset($data['cropRight']) ? $data['cropRight'] : null;
         $this->container['cropTop'] = isset($data['cropTop']) ? $data['cropTop'] : null;
         $this->container['dpi'] = isset($data['dpi']) ? $data['dpi'] : null;
+        $this->container['tileOffsetX'] = isset($data['tileOffsetX']) ? $data['tileOffsetX'] : null;
+        $this->container['tileOffsetY'] = isset($data['tileOffsetY']) ? $data['tileOffsetY'] : null;
+        $this->container['tileScaleX'] = isset($data['tileScaleX']) ? $data['tileScaleX'] : null;
+        $this->container['tileScaleY'] = isset($data['tileScaleY']) ? $data['tileScaleY'] : null;
+        $this->container['tileAlignment'] = isset($data['tileAlignment']) ? $data['tileAlignment'] : null;
+        $this->container['tileFlip'] = isset($data['tileFlip']) ? $data['tileFlip'] : null;
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['svgData'] = isset($data['svgData']) ? $data['svgData'] : null;
@@ -269,6 +357,22 @@ class PictureFill extends FillFormat
         if ($this->container['dpi'] === null) {
             $invalidProperties[] = "'dpi' can't be null";
         }
+        $allowedValues = $this->getTileAlignmentAllowableValues();
+        if (!in_array($this->container['tileAlignment'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tileAlignment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTileFlipAllowableValues();
+        if (!in_array($this->container['tileFlip'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tileFlip', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['pictureFillMode'] === null) {
             $invalidProperties[] = "'pictureFillMode' can't be null";
         }
@@ -308,6 +412,14 @@ class PictureFill extends FillFormat
             return false;
         }
         if ($this->container['dpi'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getTileAlignmentAllowableValues();
+        if (!in_array($this->container['tileAlignment'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getTileFlipAllowableValues();
+        if (!in_array($this->container['tileFlip'], $allowedValues)) {
             return false;
         }
         if ($this->container['pictureFillMode'] === null) {
@@ -437,6 +549,196 @@ class PictureFill extends FillFormat
     public function setDpi($dpi)
     {
         $this->container['dpi'] = $dpi;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileOffsetX
+     *
+     * @return double
+     */
+    public function getTileOffsetX()
+    {
+        return $this->container['tileOffsetX'];
+    }
+
+    /**
+     * Sets tileOffsetX
+     *
+     * @param double $tileOffsetX The horizontal offset of the texture from the shape's origin in points. A positive value moves the texture to the right, while a negative value moves it to the left.
+     *
+     * @return $this
+     */
+    public function setTileOffsetX($tileOffsetX)
+    {
+        $this->container['tileOffsetX'] = $tileOffsetX;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileOffsetY
+     *
+     * @return double
+     */
+    public function getTileOffsetY()
+    {
+        return $this->container['tileOffsetY'];
+    }
+
+    /**
+     * Sets tileOffsetY
+     *
+     * @param double $tileOffsetY The vertical offset of the texture from the shape's origin in points. A positive value moves the texture down, while a negative value moves it up.
+     *
+     * @return $this
+     */
+    public function setTileOffsetY($tileOffsetY)
+    {
+        $this->container['tileOffsetY'] = $tileOffsetY;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileScaleX
+     *
+     * @return double
+     */
+    public function getTileScaleX()
+    {
+        return $this->container['tileScaleX'];
+    }
+
+    /**
+     * Sets tileScaleX
+     *
+     * @param double $tileScaleX The horizontal scale for the texture fill as a percentage.
+     *
+     * @return $this
+     */
+    public function setTileScaleX($tileScaleX)
+    {
+        $this->container['tileScaleX'] = $tileScaleX;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileScaleY
+     *
+     * @return double
+     */
+    public function getTileScaleY()
+    {
+        return $this->container['tileScaleY'];
+    }
+
+    /**
+     * Sets tileScaleY
+     *
+     * @param double $tileScaleY The vertical scale for the texture fill as a percentage.
+     *
+     * @return $this
+     */
+    public function setTileScaleY($tileScaleY)
+    {
+        $this->container['tileScaleY'] = $tileScaleY;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileAlignment
+     *
+     * @return string
+     */
+    public function getTileAlignment()
+    {
+        return $this->container['tileAlignment'];
+    }
+
+    /**
+     * Sets tileAlignment
+     *
+     * @param string $tileAlignment The way texture is aligned within the shape. This setting controls the starting point of the texture pattern and how it repeats across the shape.
+     *
+     * @return $this
+     */
+    public function setTileAlignment($tileAlignment)
+    {
+        $allowedValues = $this->getTileAlignmentAllowableValues();
+
+
+        if (is_numeric($tileAlignment)) {
+            if ($tileAlignment >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileAlignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $tileAlignment = $allowedValues[$tileAlignment];
+            }
+        } else {
+            if (!is_null($tileAlignment) && !in_array($tileAlignment, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileAlignment', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['tileAlignment'] = $tileAlignment;
+
+        return $this;
+    }
+
+    /**
+     * Gets tileFlip
+     *
+     * @return string
+     */
+    public function getTileFlip()
+    {
+        return $this->container['tileFlip'];
+    }
+
+    /**
+     * Sets tileFlip
+     *
+     * @param string $tileFlip Flips the texture tile around its horizontal, vertical or both axis.
+     *
+     * @return $this
+     */
+    public function setTileFlip($tileFlip)
+    {
+        $allowedValues = $this->getTileFlipAllowableValues();
+
+
+        if (is_numeric($tileFlip)) {
+            if ($tileFlip >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileFlip', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $tileFlip = $allowedValues[$tileFlip];
+            }
+        } else {
+            if (!is_null($tileFlip) && !in_array($tileFlip, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'tileFlip', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['tileFlip'] = $tileFlip;
 
         return $this;
     }

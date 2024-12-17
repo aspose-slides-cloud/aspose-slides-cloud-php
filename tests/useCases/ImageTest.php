@@ -123,10 +123,17 @@ class ImageTest extends TestBase
         Assert::assertNotEquals(0, $response->getSize());
     }
 
+    public function testCompressImage()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $this->getSlidesApi()->compressImage(self::fileName, 2, 2, 150, false, self::password, self::folderName);
+        Assert::assertTrue(true);
+    }
+
     public function testDeletePictureCroppedAreas()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
-        $this->getSlidesApi()->deletePictureCroppedAreas(self::fileName, 2, 2, self::password, self::folderName);
+        $this->getSlidesApi()->compressImage(self::fileName, 2, 2, null, true, self::password, self::folderName);
         Assert::assertTrue(true);
     }
 
@@ -134,8 +141,8 @@ class ImageTest extends TestBase
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
         try {
-            $this->getSlidesApi()->deletePictureCroppedAreas(self::fileName, 2, 3, self::password, self::folderName);
-            Assert::fail("DeletePictureCroppedAreas applies only to picture frames");
+            $this->getSlidesApi()->compressImage(self::fileName, 2, 3, null, true, self::password, self::folderName);
+            Assert::fail("CompressImage applies only to picture frames");
         } catch (ApiException $ex) {
             //Must be a PictureFrame
             Assert::assertNotNull($ex);

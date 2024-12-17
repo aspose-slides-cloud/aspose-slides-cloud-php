@@ -98,6 +98,9 @@ class ApiBase
             $request = $request->withHeader('Authorization', 'Bearer '.$this->config->getAccessToken());
         }
         $options = $this->createHttpClientOption();
+        if ($this->config->getHttpRequestTimeout()) {
+            $options['timeout'] = $this->config->getHttpRequestTimeout();
+        }
         try {
             $response = $this->client->send($request, $options);
         } catch (RequestException $e) {

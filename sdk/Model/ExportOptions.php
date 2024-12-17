@@ -58,6 +58,7 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'defaultRegularFont' => 'string',
+        'deleteEmbeddedBinaryObjects' => 'bool',
         'gradientStyle' => 'string',
         'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
         'fontSubstRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[]',
@@ -71,6 +72,7 @@ class ExportOptions implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'defaultRegularFont' => null,
+        'deleteEmbeddedBinaryObjects' => null,
         'gradientStyle' => null,
         'fontFallbackRules' => null,
         'fontSubstRules' => null,
@@ -105,6 +107,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $attributeMap = [
         'defaultRegularFont' => 'DefaultRegularFont',
+        'deleteEmbeddedBinaryObjects' => 'DeleteEmbeddedBinaryObjects',
         'gradientStyle' => 'GradientStyle',
         'fontFallbackRules' => 'FontFallbackRules',
         'fontSubstRules' => 'FontSubstRules',
@@ -118,6 +121,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $setters = [
         'defaultRegularFont' => 'setDefaultRegularFont',
+        'deleteEmbeddedBinaryObjects' => 'setDeleteEmbeddedBinaryObjects',
         'gradientStyle' => 'setGradientStyle',
         'fontFallbackRules' => 'setFontFallbackRules',
         'fontSubstRules' => 'setFontSubstRules',
@@ -131,6 +135,7 @@ class ExportOptions implements ArrayAccess
      */
     protected static $getters = [
         'defaultRegularFont' => 'getDefaultRegularFont',
+        'deleteEmbeddedBinaryObjects' => 'getDeleteEmbeddedBinaryObjects',
         'gradientStyle' => 'getGradientStyle',
         'fontFallbackRules' => 'getFontFallbackRules',
         'fontSubstRules' => 'getFontSubstRules',
@@ -213,6 +218,7 @@ class ExportOptions implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['defaultRegularFont'] = isset($data['defaultRegularFont']) ? $data['defaultRegularFont'] : null;
+        $this->container['deleteEmbeddedBinaryObjects'] = isset($data['deleteEmbeddedBinaryObjects']) ? $data['deleteEmbeddedBinaryObjects'] : null;
         $this->container['gradientStyle'] = isset($data['gradientStyle']) ? $data['gradientStyle'] : null;
         $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
         $this->container['fontSubstRules'] = isset($data['fontSubstRules']) ? $data['fontSubstRules'] : null;
@@ -277,6 +283,30 @@ class ExportOptions implements ArrayAccess
     public function setDefaultRegularFont($defaultRegularFont)
     {
         $this->container['defaultRegularFont'] = $defaultRegularFont;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleteEmbeddedBinaryObjects
+     *
+     * @return bool
+     */
+    public function getDeleteEmbeddedBinaryObjects()
+    {
+        return $this->container['deleteEmbeddedBinaryObjects'];
+    }
+
+    /**
+     * Sets deleteEmbeddedBinaryObjects
+     *
+     * @param bool $deleteEmbeddedBinaryObjects True to delete delete all embedded binary objects.
+     *
+     * @return $this
+     */
+    public function setDeleteEmbeddedBinaryObjects($deleteEmbeddedBinaryObjects)
+    {
+        $this->container['deleteEmbeddedBinaryObjects'] = $deleteEmbeddedBinaryObjects;
 
         return $this;
     }

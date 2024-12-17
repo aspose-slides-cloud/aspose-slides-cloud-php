@@ -266,6 +266,7 @@ class Effect implements ArrayAccess
     const TYPE_APPEAR = 'Appear';
     const TYPE_CURVE_UP_DOWN = 'CurveUpDown';
     const TYPE_ASCEND = 'Ascend';
+    const TYPE_FLOAT_UP = 'FloatUp';
     const TYPE_BLAST = 'Blast';
     const TYPE_BLINDS = 'Blinds';
     const TYPE_BLINK = 'Blink';
@@ -298,6 +299,7 @@ class Effect implements ArrayAccess
     const TYPE_DARKEN = 'Darken';
     const TYPE_DESATURATE = 'Desaturate';
     const TYPE_DESCEND = 'Descend';
+    const TYPE_FLOATDOWN = 'Floatdown';
     const TYPE_DIAMOND = 'Diamond';
     const TYPE_DISSOLVE = 'Dissolve';
     const TYPE_EASE_IN_OUT = 'EaseInOut';
@@ -424,6 +426,8 @@ class Effect implements ArrayAccess
     const SUBTYPE_BOTTOM_LEFT = 'BottomLeft';
     const SUBTYPE_BOTTOM_RIGHT = 'BottomRight';
     const SUBTYPE_CENTER = 'Center';
+    const SUBTYPE_OBJECT_CENTER = 'ObjectCenter';
+    const SUBTYPE_SLIDE_CENTER = 'SlideCenter';
     const SUBTYPE_CLOCKWISE = 'Clockwise';
     const SUBTYPE_COUNTER_CLOCKWISE = 'CounterClockwise';
     const SUBTYPE_GRADUAL_AND_CYCLE_CLOCKWISE = 'GradualAndCycleClockwise';
@@ -502,6 +506,7 @@ class Effect implements ArrayAccess
             self::TYPE_APPEAR,
             self::TYPE_CURVE_UP_DOWN,
             self::TYPE_ASCEND,
+            self::TYPE_FLOAT_UP,
             self::TYPE_BLAST,
             self::TYPE_BLINDS,
             self::TYPE_BLINK,
@@ -534,6 +539,7 @@ class Effect implements ArrayAccess
             self::TYPE_DARKEN,
             self::TYPE_DESATURATE,
             self::TYPE_DESCEND,
+            self::TYPE_FLOATDOWN,
             self::TYPE_DIAMOND,
             self::TYPE_DISSOLVE,
             self::TYPE_EASE_IN_OUT,
@@ -671,6 +677,8 @@ class Effect implements ArrayAccess
             self::SUBTYPE_BOTTOM_LEFT,
             self::SUBTYPE_BOTTOM_RIGHT,
             self::SUBTYPE_CENTER,
+            self::SUBTYPE_OBJECT_CENTER,
+            self::SUBTYPE_SLIDE_CENTER,
             self::SUBTYPE_CLOCKWISE,
             self::SUBTYPE_COUNTER_CLOCKWISE,
             self::SUBTYPE_GRADUAL_AND_CYCLE_CLOCKWISE,

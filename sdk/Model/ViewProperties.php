@@ -63,7 +63,8 @@ class ViewProperties extends ResourceBase
         'restoredTop' => '\Aspose\Slides\Cloud\Sdk\Model\NormalViewRestoredProperties',
         'slideViewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties',
         'notesViewProperties' => '\Aspose\Slides\Cloud\Sdk\Model\CommonSlideViewProperties',
-        'showComments' => 'string'
+        'showComments' => 'string',
+        'gridSpacing' => 'double'
     ];
 
     /**
@@ -80,7 +81,8 @@ class ViewProperties extends ResourceBase
         'restoredTop' => null,
         'slideViewProperties' => null,
         'notesViewProperties' => null,
-        'showComments' => null
+        'showComments' => null,
+        'gridSpacing' => 'double'
     ];
 
     /**
@@ -118,7 +120,8 @@ class ViewProperties extends ResourceBase
         'restoredTop' => 'RestoredTop',
         'slideViewProperties' => 'SlideViewProperties',
         'notesViewProperties' => 'NotesViewProperties',
-        'showComments' => 'ShowComments'
+        'showComments' => 'ShowComments',
+        'gridSpacing' => 'GridSpacing'
     ];
 
     /**
@@ -135,7 +138,8 @@ class ViewProperties extends ResourceBase
         'restoredTop' => 'setRestoredTop',
         'slideViewProperties' => 'setSlideViewProperties',
         'notesViewProperties' => 'setNotesViewProperties',
-        'showComments' => 'setShowComments'
+        'showComments' => 'setShowComments',
+        'gridSpacing' => 'setGridSpacing'
     ];
 
     /**
@@ -152,7 +156,8 @@ class ViewProperties extends ResourceBase
         'restoredTop' => 'getRestoredTop',
         'slideViewProperties' => 'getSlideViewProperties',
         'notesViewProperties' => 'getNotesViewProperties',
-        'showComments' => 'getShowComments'
+        'showComments' => 'getShowComments',
+        'gridSpacing' => 'getGridSpacing'
     ];
 
     /**
@@ -300,6 +305,7 @@ class ViewProperties extends ResourceBase
         $this->container['slideViewProperties'] = isset($data['slideViewProperties']) ? $data['slideViewProperties'] : null;
         $this->container['notesViewProperties'] = isset($data['notesViewProperties']) ? $data['notesViewProperties'] : null;
         $this->container['showComments'] = isset($data['showComments']) ? $data['showComments'] : null;
+        $this->container['gridSpacing'] = isset($data['gridSpacing']) ? $data['gridSpacing'] : null;
         
     }
 
@@ -683,6 +689,30 @@ class ViewProperties extends ResourceBase
             }
         }
         $this->container['showComments'] = $showComments;
+
+        return $this;
+    }
+
+    /**
+     * Gets gridSpacing
+     *
+     * @return double
+     */
+    public function getGridSpacing()
+    {
+        return $this->container['gridSpacing'];
+    }
+
+    /**
+     * Sets gridSpacing
+     *
+     * @param double $gridSpacing The grid spacing that should be used for the grid underlying the presentation document, in points.
+     *
+     * @return $this
+     */
+    public function setGridSpacing($gridSpacing)
+    {
+        $this->container['gridSpacing'] = $gridSpacing;
 
         return $this;
     }

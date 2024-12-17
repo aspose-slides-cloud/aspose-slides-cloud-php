@@ -303,6 +303,7 @@ class ClassHierarchy
             'DocumentProperties' => [],
             'DocumentProperty' => [],
             'DocumentReplaceResult' => [],
+            'DrawingGuide' => [],
             'DuotoneEffect' => ['Type' => 'Duotone',],
             'Effect' => [],
             'EffectFormat' => [],

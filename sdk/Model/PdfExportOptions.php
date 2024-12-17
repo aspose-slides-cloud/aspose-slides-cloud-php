@@ -72,7 +72,8 @@ class PdfExportOptions extends ExportOptions
         'accessPermissions' => '\Aspose\Slides\Cloud\Sdk\Model\AccessPermissions',
         'hideInk' => 'bool',
         'interpretMaskOpAsOpacity' => 'bool',
-        'rasterizeUnsupportedFontStyles' => 'bool'
+        'rasterizeUnsupportedFontStyles' => 'bool',
+        'includeOleData' => 'bool'
     ];
 
     /**
@@ -98,7 +99,8 @@ class PdfExportOptions extends ExportOptions
         'accessPermissions' => null,
         'hideInk' => null,
         'interpretMaskOpAsOpacity' => null,
-        'rasterizeUnsupportedFontStyles' => null
+        'rasterizeUnsupportedFontStyles' => null,
+        'includeOleData' => null
     ];
 
     /**
@@ -145,7 +147,8 @@ class PdfExportOptions extends ExportOptions
         'accessPermissions' => 'AccessPermissions',
         'hideInk' => 'HideInk',
         'interpretMaskOpAsOpacity' => 'InterpretMaskOpAsOpacity',
-        'rasterizeUnsupportedFontStyles' => 'RasterizeUnsupportedFontStyles'
+        'rasterizeUnsupportedFontStyles' => 'RasterizeUnsupportedFontStyles',
+        'includeOleData' => 'IncludeOleData'
     ];
 
     /**
@@ -171,7 +174,8 @@ class PdfExportOptions extends ExportOptions
         'accessPermissions' => 'setAccessPermissions',
         'hideInk' => 'setHideInk',
         'interpretMaskOpAsOpacity' => 'setInterpretMaskOpAsOpacity',
-        'rasterizeUnsupportedFontStyles' => 'setRasterizeUnsupportedFontStyles'
+        'rasterizeUnsupportedFontStyles' => 'setRasterizeUnsupportedFontStyles',
+        'includeOleData' => 'setIncludeOleData'
     ];
 
     /**
@@ -197,7 +201,8 @@ class PdfExportOptions extends ExportOptions
         'accessPermissions' => 'getAccessPermissions',
         'hideInk' => 'getHideInk',
         'interpretMaskOpAsOpacity' => 'getInterpretMaskOpAsOpacity',
-        'rasterizeUnsupportedFontStyles' => 'getRasterizeUnsupportedFontStyles'
+        'rasterizeUnsupportedFontStyles' => 'getRasterizeUnsupportedFontStyles',
+        'includeOleData' => 'getIncludeOleData'
     ];
 
     /**
@@ -322,6 +327,7 @@ class PdfExportOptions extends ExportOptions
         $this->container['hideInk'] = isset($data['hideInk']) ? $data['hideInk'] : null;
         $this->container['interpretMaskOpAsOpacity'] = isset($data['interpretMaskOpAsOpacity']) ? $data['interpretMaskOpAsOpacity'] : null;
         $this->container['rasterizeUnsupportedFontStyles'] = isset($data['rasterizeUnsupportedFontStyles']) ? $data['rasterizeUnsupportedFontStyles'] : null;
+        $this->container['includeOleData'] = isset($data['includeOleData']) ? $data['includeOleData'] : null;
         $this->container['format'] = 'pdf';
         
     }
@@ -852,6 +858,30 @@ class PdfExportOptions extends ExportOptions
     public function setRasterizeUnsupportedFontStyles($rasterizeUnsupportedFontStyles)
     {
         $this->container['rasterizeUnsupportedFontStyles'] = $rasterizeUnsupportedFontStyles;
+
+        return $this;
+    }
+
+    /**
+     * Gets includeOleData
+     *
+     * @return bool
+     */
+    public function getIncludeOleData()
+    {
+        return $this->container['includeOleData'];
+    }
+
+    /**
+     * Sets includeOleData
+     *
+     * @param bool $includeOleData True to convert all OLE data from the presentation to embedded files in the resulting PDF.
+     *
+     * @return $this
+     */
+    public function setIncludeOleData($includeOleData)
+    {
+        $this->container['includeOleData'] = $includeOleData;
 
         return $this;
     }

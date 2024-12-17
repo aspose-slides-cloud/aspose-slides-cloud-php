@@ -636,6 +636,134 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function compressImage($name, $slideIndex, $shapeIndex, $resolution = null, $deletePictureCroppedAreas = null, $password = null, $folder = null, $storage = null)
+    {
+        $this->compressImageWithHttpInfo($name, $slideIndex, $shapeIndex, $resolution, $deletePictureCroppedAreas, $password, $folder, $storage);
+    }
+
+    /**
+     */
+    public function compressImageWithHttpInfo($name, $slideIndex, $shapeIndex, $resolution = null, $deletePictureCroppedAreas = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->compressImageRequest($name, $slideIndex, $shapeIndex, $resolution, $deletePictureCroppedAreas, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function compressImageAsync($name, $slideIndex, $shapeIndex, $resolution = null, $deletePictureCroppedAreas = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->compressImageAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $resolution, $deletePictureCroppedAreas, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function compressImageAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $resolution = null, $deletePictureCroppedAreas = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->compressImageRequest($name, $slideIndex, $shapeIndex, $resolution, $deletePictureCroppedAreas, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'compressImage'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
+     * @param  float $$resolution Target resolution in DPI. (optional)
+     * @param  bool $$deletePictureCroppedAreas true to delete picture cropped areas. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function compressImageRequest($name, $slideIndex, $shapeIndex, $resolution = null, $deletePictureCroppedAreas = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling compressImage');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling compressImage');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling compressImage');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/compressImage';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($resolution !== null) {
+            $queryParams['resolution'] = ObjectSerializer::toQueryValue($resolution);
+        }
+        // query params
+        if ($deletePictureCroppedAreas !== null) {
+            $queryParams['deletePictureCroppedAreas'] = ObjectSerializer::toQueryValue($deletePictureCroppedAreas);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function convert($document, $format, $password = null, $storage = null, $fontsFolder = null, array $slides = null, \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options = null)
     {
         list($response) = $this->convertWithHttpInfo($document, $format, $password, $storage, $fontsFolder, $slides, $options);
@@ -24147,7 +24275,7 @@ class SlidesApi extends ApiBase
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
      * @param  string $$shapeType Shape type. (optional)
-     * @param  string $$subShape Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2). (optional)
+     * @param  string $$subShape Sub-shape path (e.g. \&quot;3\&quot;, \&quot;3/shapes/2\&quot;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

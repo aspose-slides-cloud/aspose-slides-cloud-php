@@ -34,22 +34,22 @@ use \ArrayAccess;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * CommonSlideViewProperties Class Doc Comment
+ * DrawingGuide Class Doc Comment
  *
  * @category Class
- * @description Slide view properties.
+ * @description Drawing guide.
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CommonSlideViewProperties implements ArrayAccess
+class DrawingGuide implements ArrayAccess
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CommonSlideViewProperties';
+    protected static $swaggerModelName = 'DrawingGuide';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,8 @@ class CommonSlideViewProperties implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'scale' => 'int',
-        'variableScale' => 'bool',
-        'drawingGuides' => '\Aspose\Slides\Cloud\Sdk\Model\DrawingGuide[]'
+        'orientation' => 'string',
+        'position' => 'double'
     ];
 
     /**
@@ -68,9 +67,8 @@ class CommonSlideViewProperties implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'scale' => 'int32',
-        'variableScale' => null,
-        'drawingGuides' => null
+        'orientation' => null,
+        'position' => 'double'
     ];
 
     /**
@@ -100,9 +98,8 @@ class CommonSlideViewProperties implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'scale' => 'Scale',
-        'variableScale' => 'VariableScale',
-        'drawingGuides' => 'DrawingGuides'
+        'orientation' => 'Orientation',
+        'position' => 'Position'
     ];
 
     /**
@@ -111,9 +108,8 @@ class CommonSlideViewProperties implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'scale' => 'setScale',
-        'variableScale' => 'setVariableScale',
-        'drawingGuides' => 'setDrawingGuides'
+        'orientation' => 'setOrientation',
+        'position' => 'setPosition'
     ];
 
     /**
@@ -122,9 +118,8 @@ class CommonSlideViewProperties implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'scale' => 'getScale',
-        'variableScale' => 'getVariableScale',
-        'drawingGuides' => 'getDrawingGuides'
+        'orientation' => 'getOrientation',
+        'position' => 'getPosition'
     ];
 
     /**
@@ -168,8 +163,23 @@ class CommonSlideViewProperties implements ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ORIENTATION_HORIZONTAL = 'Horizontal';
+    const ORIENTATION_VERTICAL = 'Vertical';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOrientationAllowableValues()
+    {
+        return [
+            self::ORIENTATION_HORIZONTAL,
+            self::ORIENTATION_VERTICAL,
+        ];
+    }
     
 
     /**
@@ -187,9 +197,8 @@ class CommonSlideViewProperties implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['scale'] = isset($data['scale']) ? $data['scale'] : null;
-        $this->container['variableScale'] = isset($data['variableScale']) ? $data['variableScale'] : null;
-        $this->container['drawingGuides'] = isset($data['drawingGuides']) ? $data['drawingGuides'] : null;
+        $this->container['orientation'] = isset($data['orientation']) ? $data['orientation'] : null;
+        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         
     }
 
@@ -202,6 +211,20 @@ class CommonSlideViewProperties implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['orientation'] === null) {
+            $invalidProperties[] = "'orientation' can't be null";
+        }
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!in_array($this->container['orientation'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'orientation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['position'] === null) {
+            $invalidProperties[] = "'position' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -214,78 +237,87 @@ class CommonSlideViewProperties implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['orientation'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!in_array($this->container['orientation'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['position'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets scale
+     * Gets orientation
      *
-     * @return int
+     * @return string
      */
-    public function getScale()
+    public function getOrientation()
     {
-        return $this->container['scale'];
+        return $this->container['orientation'];
     }
 
     /**
-     * Sets scale
+     * Sets orientation
      *
-     * @param int $scale The view scaling ratio (percentage).
+     * @param string $orientation Last used view mode.
      *
      * @return $this
      */
-    public function setScale($scale)
+    public function setOrientation($orientation)
     {
-        $this->container['scale'] = $scale;
+        $allowedValues = $this->getOrientationAllowableValues();
+
+
+        if (is_numeric($orientation)) {
+            if ($orientation >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orientation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $orientation = $allowedValues[$orientation];
+            }
+        } else {
+            if (!in_array($orientation, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'orientation', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['orientation'] = $orientation;
 
         return $this;
     }
 
     /**
-     * Gets variableScale
+     * Gets position
      *
-     * @return bool
+     * @return double
      */
-    public function getVariableScale()
+    public function getPosition()
     {
-        return $this->container['variableScale'];
+        return $this->container['position'];
     }
 
     /**
-     * Sets variableScale
+     * Sets position
      *
-     * @param bool $variableScale True if the view content should automatically scale to best fit the current window size.
+     * @param double $position Horizontal bar state.
      *
      * @return $this
      */
-    public function setVariableScale($variableScale)
+    public function setPosition($position)
     {
-        $this->container['variableScale'] = $variableScale;
-
-        return $this;
-    }
-
-    /**
-     * Gets drawingGuides
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\DrawingGuide[]
-     */
-    public function getDrawingGuides()
-    {
-        return $this->container['drawingGuides'];
-    }
-
-    /**
-     * Sets drawingGuides
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\DrawingGuide[] $drawingGuides Drawing guides
-     *
-     * @return $this
-     */
-    public function setDrawingGuides($drawingGuides)
-    {
-        $this->container['drawingGuides'] = $drawingGuides;
+        $this->container['position'] = $position;
 
         return $this;
     }

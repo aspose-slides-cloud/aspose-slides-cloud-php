@@ -56,7 +56,7 @@ class Shape extends GeometryShape
       */
     protected static $swaggerTypes = [
         'text' => 'string',
-        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
+        'paragraphs' => '\Aspose\Slides\Cloud\Sdk\Model\Paragraph[]',
         'textFrameFormat' => '\Aspose\Slides\Cloud\Sdk\Model\TextFrameFormat'
     ];
 
@@ -243,7 +243,7 @@ class Shape extends GeometryShape
     /**
      * Gets paragraphs
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ResourceUri
+     * @return \Aspose\Slides\Cloud\Sdk\Model\Paragraph[]
      */
     public function getParagraphs()
     {
@@ -253,7 +253,7 @@ class Shape extends GeometryShape
     /**
      * Sets paragraphs
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ResourceUri $paragraphs Get or sets list to paragraphs list
+     * @param \Aspose\Slides\Cloud\Sdk\Model\Paragraph[] $paragraphs Get or sets list to paragraphs list
      *
      * @return $this
      */
