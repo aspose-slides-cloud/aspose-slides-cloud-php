@@ -72,6 +72,7 @@ class ExportFormat
     const MPEG4 = 'Mpeg4';
     const MD = 'Md';
     const XML = 'Xml';
+    const EMF = 'Emf';
     
     /**
      * Gets allowable values of the enum
@@ -107,6 +108,7 @@ class ExportFormat
             self::MPEG4,
             self::MD,
             self::XML,
+            self::EMF,
         ];
     }
 }

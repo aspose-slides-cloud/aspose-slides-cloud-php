@@ -32,6 +32,7 @@ use PHPUnit\Framework\Assert;
 use Aspose\Slides\Cloud\Sdk\Model\Shape;
 use Aspose\Slides\Cloud\Sdk\Model\LineFormat;
 use Aspose\Slides\Cloud\Sdk\Model\SolidFill;
+use Aspose\Slides\Cloud\Sdk\Model\PictureFill;
 use Aspose\Slides\Cloud\Sdk\Model\EffectFormat;
 use Aspose\Slides\Cloud\Sdk\Model\InnerShadowEffect;
 use Aspose\Slides\Cloud\Sdk\Model\ThreeDFormat;
@@ -71,6 +72,22 @@ class ShapeFormatTest extends TestBase
         Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
         Assert::assertTrue(is_a($result->getFillFormat(), "Aspose\\Slides\\Cloud\\Sdk\\Model\\SolidFill"));
         Assert::assertEquals($dto->getFillFormat()->getColor(), $result->getFillFormat()->getColor());
+    }
+
+    public function testShapeFormatPictureFill()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $dto = new Shape();
+        $fillFormat = new PictureFill();
+        $pictureData = base64_encode(file_get_contents(self::picturePath));
+        $fillFormat->setBase64Data($pictureData);
+        $fillFormat->setResolution(150);
+        $dto->setFillFormat($fillFormat);
+        $result = $this->getSlidesApi()->updateShape(self::fileName, self::slideIndex, self::shapeIndex, $dto, self::password, self::folderName);
+        Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
+        $result = $this->getSlidesApi()->getShape(self::fileName, self::slideIndex, self::shapeIndex, self::password, self::folderName);
+        Assert::assertTrue(is_a($result, "Aspose\\Slides\\Cloud\\Sdk\\Model\\Shape"));
+        Assert::assertTrue(is_a($result->getFillFormat(), "Aspose\\Slides\\Cloud\\Sdk\\Model\\PictureFill"));
     }
 
     public function testShapeFormatEffect()
@@ -124,4 +141,5 @@ class ShapeFormatTest extends TestBase
 
     public const slideIndex = 1;
     public const shapeIndex = 1;
+    public const picturePath = self::localFolderName."/watermark.png";
 }

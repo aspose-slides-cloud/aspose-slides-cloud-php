@@ -64,9 +64,14 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'bool',
         'playMode' => 'string',
         'volume' => 'string',
+        'volumeValue' => 'double',
         'base64Data' => 'string',
         'playAcrossSlides' => 'bool',
         'rewindAudio' => 'bool',
+        'fadeInDuration' => 'double',
+        'fadeOutDuration' => 'double',
+        'trimFromStart' => 'double',
+        'trimFromEnd' => 'double',
         'pictureFillFormat' => '\Aspose\Slides\Cloud\Sdk\Model\PictureFill'
     ];
 
@@ -85,9 +90,14 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => null,
         'playMode' => null,
         'volume' => null,
+        'volumeValue' => 'double',
         'base64Data' => null,
         'playAcrossSlides' => null,
         'rewindAudio' => null,
+        'fadeInDuration' => 'double',
+        'fadeOutDuration' => 'double',
+        'trimFromStart' => 'double',
+        'trimFromEnd' => 'double',
         'pictureFillFormat' => null
     ];
 
@@ -127,9 +137,14 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'PlayLoopMode',
         'playMode' => 'PlayMode',
         'volume' => 'Volume',
+        'volumeValue' => 'VolumeValue',
         'base64Data' => 'Base64Data',
         'playAcrossSlides' => 'PlayAcrossSlides',
         'rewindAudio' => 'RewindAudio',
+        'fadeInDuration' => 'FadeInDuration',
+        'fadeOutDuration' => 'FadeOutDuration',
+        'trimFromStart' => 'TrimFromStart',
+        'trimFromEnd' => 'TrimFromEnd',
         'pictureFillFormat' => 'PictureFillFormat'
     ];
 
@@ -148,9 +163,14 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'setPlayLoopMode',
         'playMode' => 'setPlayMode',
         'volume' => 'setVolume',
+        'volumeValue' => 'setVolumeValue',
         'base64Data' => 'setBase64Data',
         'playAcrossSlides' => 'setPlayAcrossSlides',
         'rewindAudio' => 'setRewindAudio',
+        'fadeInDuration' => 'setFadeInDuration',
+        'fadeOutDuration' => 'setFadeOutDuration',
+        'trimFromStart' => 'setTrimFromStart',
+        'trimFromEnd' => 'setTrimFromEnd',
         'pictureFillFormat' => 'setPictureFillFormat'
     ];
 
@@ -169,9 +189,14 @@ class AudioFrame extends GeometryShape
         'playLoopMode' => 'getPlayLoopMode',
         'playMode' => 'getPlayMode',
         'volume' => 'getVolume',
+        'volumeValue' => 'getVolumeValue',
         'base64Data' => 'getBase64Data',
         'playAcrossSlides' => 'getPlayAcrossSlides',
         'rewindAudio' => 'getRewindAudio',
+        'fadeInDuration' => 'getFadeInDuration',
+        'fadeOutDuration' => 'getFadeOutDuration',
+        'trimFromStart' => 'getTrimFromStart',
+        'trimFromEnd' => 'getTrimFromEnd',
         'pictureFillFormat' => 'getPictureFillFormat'
     ];
 
@@ -282,9 +307,14 @@ class AudioFrame extends GeometryShape
         $this->container['playLoopMode'] = isset($data['playLoopMode']) ? $data['playLoopMode'] : null;
         $this->container['playMode'] = isset($data['playMode']) ? $data['playMode'] : null;
         $this->container['volume'] = isset($data['volume']) ? $data['volume'] : null;
+        $this->container['volumeValue'] = isset($data['volumeValue']) ? $data['volumeValue'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['playAcrossSlides'] = isset($data['playAcrossSlides']) ? $data['playAcrossSlides'] : null;
         $this->container['rewindAudio'] = isset($data['rewindAudio']) ? $data['rewindAudio'] : null;
+        $this->container['fadeInDuration'] = isset($data['fadeInDuration']) ? $data['fadeInDuration'] : null;
+        $this->container['fadeOutDuration'] = isset($data['fadeOutDuration']) ? $data['fadeOutDuration'] : null;
+        $this->container['trimFromStart'] = isset($data['trimFromStart']) ? $data['trimFromStart'] : null;
+        $this->container['trimFromEnd'] = isset($data['trimFromEnd']) ? $data['trimFromEnd'] : null;
         $this->container['pictureFillFormat'] = isset($data['pictureFillFormat']) ? $data['pictureFillFormat'] : null;
         $this->container['type'] = 'AudioFrame';
         
@@ -605,6 +635,30 @@ class AudioFrame extends GeometryShape
     }
 
     /**
+     * Gets volumeValue
+     *
+     * @return double
+     */
+    public function getVolumeValue()
+    {
+        return $this->container['volumeValue'];
+    }
+
+    /**
+     * Sets volumeValue
+     *
+     * @param double $volumeValue Audio volume percent.
+     *
+     * @return $this
+     */
+    public function setVolumeValue($volumeValue)
+    {
+        $this->container['volumeValue'] = $volumeValue;
+
+        return $this;
+    }
+
+    /**
      * Gets base64Data
      *
      * @return string
@@ -672,6 +726,102 @@ class AudioFrame extends GeometryShape
     public function setRewindAudio($rewindAudio)
     {
         $this->container['rewindAudio'] = $rewindAudio;
+
+        return $this;
+    }
+
+    /**
+     * Gets fadeInDuration
+     *
+     * @return double
+     */
+    public function getFadeInDuration()
+    {
+        return $this->container['fadeInDuration'];
+    }
+
+    /**
+     * Sets fadeInDuration
+     *
+     * @param double $fadeInDuration Time duration for the initial fade-in of the media in milliseconds.
+     *
+     * @return $this
+     */
+    public function setFadeInDuration($fadeInDuration)
+    {
+        $this->container['fadeInDuration'] = $fadeInDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets fadeOutDuration
+     *
+     * @return double
+     */
+    public function getFadeOutDuration()
+    {
+        return $this->container['fadeOutDuration'];
+    }
+
+    /**
+     * Sets fadeOutDuration
+     *
+     * @param double $fadeOutDuration Time duration for the ending fade-out of the media in milliseconds.
+     *
+     * @return $this
+     */
+    public function setFadeOutDuration($fadeOutDuration)
+    {
+        $this->container['fadeOutDuration'] = $fadeOutDuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets trimFromStart
+     *
+     * @return double
+     */
+    public function getTrimFromStart()
+    {
+        return $this->container['trimFromStart'];
+    }
+
+    /**
+     * Sets trimFromStart
+     *
+     * @param double $trimFromStart Time duration to be removed from the beginning of the media during playback in milliseconds.
+     *
+     * @return $this
+     */
+    public function setTrimFromStart($trimFromStart)
+    {
+        $this->container['trimFromStart'] = $trimFromStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets trimFromEnd
+     *
+     * @return double
+     */
+    public function getTrimFromEnd()
+    {
+        return $this->container['trimFromEnd'];
+    }
+
+    /**
+     * Sets trimFromEnd
+     *
+     * @param double $trimFromEnd Time duration to be removed from the end of the media during playback in milliseconds.
+     *
+     * @return $this
+     */
+    public function setTrimFromEnd($trimFromEnd)
+    {
+        $this->container['trimFromEnd'] = $trimFromEnd;
 
         return $this;
     }

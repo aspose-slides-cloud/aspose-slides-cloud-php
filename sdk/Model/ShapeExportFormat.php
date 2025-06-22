@@ -51,6 +51,7 @@ class ShapeExportFormat
     const BMP = 'Bmp';
     const TIFF = 'Tiff';
     const SVG = 'Svg';
+    const EMF = 'Emf';
     
     /**
      * Gets allowable values of the enum
@@ -65,6 +66,7 @@ class ShapeExportFormat
             self::BMP,
             self::TIFF,
             self::SVG,
+            self::EMF,
         ];
     }
 }

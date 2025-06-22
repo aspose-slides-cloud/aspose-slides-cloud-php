@@ -106,6 +106,27 @@ class ImageTest extends TestBase
         Assert::assertNotEquals($image->getSize(), $imagePng->getSize());
     }
 
+    public function testImageDownloadQuality()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $imageGood = $this->getSlidesApi()->downloadImage(self::fileName, self::imageIndex, 'Jpeg', self::password, self::folderName, null, 100);
+        $imageBad = $this->getSlidesApi()->downloadImage(self::fileName, self::imageIndex, 'Jpeg', self::password, self::folderName, null, 50);
+        Assert::assertTrue($imageGood->isFile());
+        Assert::assertTrue($imageBad->isFile());
+        Assert::assertTrue($imageGood->getSize() > $imageBad->getSize());
+    }
+
+    public function testImageDownloadQualityUseless()
+    {
+        $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);
+        $imageGood = $this->getSlidesApi()->downloadImage(self::fileName, self::imageIndex, 'Png', self::password, self::folderName, null, 100);
+        $imageBad = $this->getSlidesApi()->downloadImage(self::fileName, self::imageIndex, 'Png', self::password, self::folderName, null, 50);
+        Assert::assertTrue($imageGood->isFile());
+        Assert::assertTrue($imageBad->isFile());
+        //Quality property only has effect on Jpeg images so these two must be identical
+        Assert::assertEquals($imageGood->getSize(), $imageBad->getSize());
+    }
+
     public function testReplaceImage()
     {
         $this->getSlidesApi()->copyFile(self::tempFilePath, self::filePath);

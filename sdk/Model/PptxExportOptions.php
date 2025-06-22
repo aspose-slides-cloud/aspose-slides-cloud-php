@@ -56,7 +56,8 @@ class PptxExportOptions extends ExportOptions
       */
     protected static $swaggerTypes = [
         'conformance' => 'string',
-        'zip64Mode' => 'string'
+        'zip64Mode' => 'string',
+        'refreshThumbnail' => 'bool'
     ];
 
     /**
@@ -66,7 +67,8 @@ class PptxExportOptions extends ExportOptions
       */
     protected static $swaggerFormats = [
         'conformance' => null,
-        'zip64Mode' => null
+        'zip64Mode' => null,
+        'refreshThumbnail' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class PptxExportOptions extends ExportOptions
      */
     protected static $attributeMap = [
         'conformance' => 'Conformance',
-        'zip64Mode' => 'Zip64Mode'
+        'zip64Mode' => 'Zip64Mode',
+        'refreshThumbnail' => 'RefreshThumbnail'
     ];
 
     /**
@@ -107,7 +110,8 @@ class PptxExportOptions extends ExportOptions
      */
     protected static $setters = [
         'conformance' => 'setConformance',
-        'zip64Mode' => 'setZip64Mode'
+        'zip64Mode' => 'setZip64Mode',
+        'refreshThumbnail' => 'setRefreshThumbnail'
     ];
 
     /**
@@ -117,7 +121,8 @@ class PptxExportOptions extends ExportOptions
      */
     protected static $getters = [
         'conformance' => 'getConformance',
-        'zip64Mode' => 'getZip64Mode'
+        'zip64Mode' => 'getZip64Mode',
+        'refreshThumbnail' => 'getRefreshThumbnail'
     ];
 
     /**
@@ -212,6 +217,7 @@ class PptxExportOptions extends ExportOptions
 
         $this->container['conformance'] = isset($data['conformance']) ? $data['conformance'] : null;
         $this->container['zip64Mode'] = isset($data['zip64Mode']) ? $data['zip64Mode'] : null;
+        $this->container['refreshThumbnail'] = isset($data['refreshThumbnail']) ? $data['refreshThumbnail'] : null;
         $this->container['format'] = 'pptx';
         
     }
@@ -358,6 +364,30 @@ class PptxExportOptions extends ExportOptions
             }
         }
         $this->container['zip64Mode'] = $zip64Mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets refreshThumbnail
+     *
+     * @return bool
+     */
+    public function getRefreshThumbnail()
+    {
+        return $this->container['refreshThumbnail'];
+    }
+
+    /**
+     * Sets refreshThumbnail
+     *
+     * @param bool $refreshThumbnail True to refresh the presentation thumbnail on save
+     *
+     * @return $this
+     */
+    public function setRefreshThumbnail($refreshThumbnail)
+    {
+        $this->container['refreshThumbnail'] = $refreshThumbnail;
 
         return $this;
     }

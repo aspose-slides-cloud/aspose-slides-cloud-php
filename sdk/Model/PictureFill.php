@@ -69,6 +69,8 @@ class PictureFill extends FillFormat
         'image' => '\Aspose\Slides\Cloud\Sdk\Model\ResourceUri',
         'base64Data' => 'string',
         'svgData' => 'string',
+        'deletePictureCroppedAreas' => 'bool',
+        'resolution' => 'double',
         'pictureFillMode' => 'string',
         'imageTransformList' => '\Aspose\Slides\Cloud\Sdk\Model\ImageTransformEffect[]'
     ];
@@ -93,6 +95,8 @@ class PictureFill extends FillFormat
         'image' => null,
         'base64Data' => null,
         'svgData' => null,
+        'deletePictureCroppedAreas' => null,
+        'resolution' => 'double',
         'pictureFillMode' => null,
         'imageTransformList' => null
     ];
@@ -138,6 +142,8 @@ class PictureFill extends FillFormat
         'image' => 'Image',
         'base64Data' => 'Base64Data',
         'svgData' => 'SvgData',
+        'deletePictureCroppedAreas' => 'DeletePictureCroppedAreas',
+        'resolution' => 'Resolution',
         'pictureFillMode' => 'PictureFillMode',
         'imageTransformList' => 'ImageTransformList'
     ];
@@ -162,6 +168,8 @@ class PictureFill extends FillFormat
         'image' => 'setImage',
         'base64Data' => 'setBase64Data',
         'svgData' => 'setSvgData',
+        'deletePictureCroppedAreas' => 'setDeletePictureCroppedAreas',
+        'resolution' => 'setResolution',
         'pictureFillMode' => 'setPictureFillMode',
         'imageTransformList' => 'setImageTransformList'
     ];
@@ -186,6 +194,8 @@ class PictureFill extends FillFormat
         'image' => 'getImage',
         'base64Data' => 'getBase64Data',
         'svgData' => 'getSvgData',
+        'deletePictureCroppedAreas' => 'getDeletePictureCroppedAreas',
+        'resolution' => 'getResolution',
         'pictureFillMode' => 'getPictureFillMode',
         'imageTransformList' => 'getImageTransformList'
     ];
@@ -327,6 +337,8 @@ class PictureFill extends FillFormat
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['base64Data'] = isset($data['base64Data']) ? $data['base64Data'] : null;
         $this->container['svgData'] = isset($data['svgData']) ? $data['svgData'] : null;
+        $this->container['deletePictureCroppedAreas'] = isset($data['deletePictureCroppedAreas']) ? $data['deletePictureCroppedAreas'] : null;
+        $this->container['resolution'] = isset($data['resolution']) ? $data['resolution'] : null;
         $this->container['pictureFillMode'] = isset($data['pictureFillMode']) ? $data['pictureFillMode'] : null;
         $this->container['imageTransformList'] = isset($data['imageTransformList']) ? $data['imageTransformList'] : null;
         $this->container['type'] = 'Picture';
@@ -811,6 +823,54 @@ class PictureFill extends FillFormat
     public function setSvgData($svgData)
     {
         $this->container['svgData'] = $svgData;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletePictureCroppedAreas
+     *
+     * @return bool
+     */
+    public function getDeletePictureCroppedAreas()
+    {
+        return $this->container['deletePictureCroppedAreas'];
+    }
+
+    /**
+     * Sets deletePictureCroppedAreas
+     *
+     * @param bool $deletePictureCroppedAreas true to delete picture cropped areas on save.
+     *
+     * @return $this
+     */
+    public function setDeletePictureCroppedAreas($deletePictureCroppedAreas)
+    {
+        $this->container['deletePictureCroppedAreas'] = $deletePictureCroppedAreas;
+
+        return $this;
+    }
+
+    /**
+     * Gets resolution
+     *
+     * @return double
+     */
+    public function getResolution()
+    {
+        return $this->container['resolution'];
+    }
+
+    /**
+     * Sets resolution
+     *
+     * @param double $resolution true to compress the picture image with the specified resolution (in dpi) on save.
+     *
+     * @return $this
+     */
+    public function setResolution($resolution)
+    {
+        $this->container['resolution'] = $resolution;
 
         return $this;
     }

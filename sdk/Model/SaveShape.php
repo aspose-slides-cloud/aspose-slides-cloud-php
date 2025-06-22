@@ -177,6 +177,7 @@ class SaveShape extends Task
     const FORMAT_BMP = 'Bmp';
     const FORMAT_TIFF = 'Tiff';
     const FORMAT_SVG = 'Svg';
+    const FORMAT_EMF = 'Emf';
     
 
     
@@ -194,6 +195,7 @@ class SaveShape extends Task
             self::FORMAT_BMP,
             self::FORMAT_TIFF,
             self::FORMAT_SVG,
+            self::FORMAT_EMF,
         ];
     }
     

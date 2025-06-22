@@ -62,7 +62,8 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'int',
         'picturesCompression' => 'string',
         'deletePicturesCroppedAreas' => 'bool',
-        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions'
+        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions',
+        'disableFontLigatures' => 'bool'
     ];
 
     /**
@@ -78,7 +79,8 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'byte',
         'picturesCompression' => null,
         'deletePicturesCroppedAreas' => null,
-        'slidesLayoutOptions' => null
+        'slidesLayoutOptions' => null,
+        'disableFontLigatures' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'JpegQuality',
         'picturesCompression' => 'PicturesCompression',
         'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
-        'slidesLayoutOptions' => 'SlidesLayoutOptions'
+        'slidesLayoutOptions' => 'SlidesLayoutOptions',
+        'disableFontLigatures' => 'DisableFontLigatures'
     ];
 
     /**
@@ -131,7 +134,8 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'setJpegQuality',
         'picturesCompression' => 'setPicturesCompression',
         'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
-        'slidesLayoutOptions' => 'setSlidesLayoutOptions'
+        'slidesLayoutOptions' => 'setSlidesLayoutOptions',
+        'disableFontLigatures' => 'setDisableFontLigatures'
     ];
 
     /**
@@ -147,7 +151,8 @@ class HtmlExportOptions extends ExportOptions
         'jpegQuality' => 'getJpegQuality',
         'picturesCompression' => 'getPicturesCompression',
         'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
-        'slidesLayoutOptions' => 'getSlidesLayoutOptions'
+        'slidesLayoutOptions' => 'getSlidesLayoutOptions',
+        'disableFontLigatures' => 'getDisableFontLigatures'
     ];
 
     /**
@@ -237,6 +242,7 @@ class HtmlExportOptions extends ExportOptions
         $this->container['picturesCompression'] = isset($data['picturesCompression']) ? $data['picturesCompression'] : null;
         $this->container['deletePicturesCroppedAreas'] = isset($data['deletePicturesCroppedAreas']) ? $data['deletePicturesCroppedAreas'] : null;
         $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
+        $this->container['disableFontLigatures'] = isset($data['disableFontLigatures']) ? $data['disableFontLigatures'] : null;
         $this->container['format'] = 'html';
         
     }
@@ -492,6 +498,30 @@ class HtmlExportOptions extends ExportOptions
     public function setSlidesLayoutOptions($slidesLayoutOptions)
     {
         $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets disableFontLigatures
+     *
+     * @return bool
+     */
+    public function getDisableFontLigatures()
+    {
+        return $this->container['disableFontLigatures'];
+    }
+
+    /**
+     * Sets disableFontLigatures
+     *
+     * @param bool $disableFontLigatures true to disable ligatures in the rendered output.
+     *
+     * @return $this
+     */
+    public function setDisableFontLigatures($disableFontLigatures)
+    {
+        $this->container['disableFontLigatures'] = $disableFontLigatures;
 
         return $this;
     }

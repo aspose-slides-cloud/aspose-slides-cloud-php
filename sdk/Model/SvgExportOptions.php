@@ -65,7 +65,8 @@ class SvgExportOptions extends ExportOptions
         'deletePicturesCroppedAreas' => 'bool',
         'externalFontsHandling' => 'string',
         'useFrameSize' => 'bool',
-        'useFrameRotation' => 'bool'
+        'useFrameRotation' => 'bool',
+        'disableFontLigatures' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class SvgExportOptions extends ExportOptions
         'deletePicturesCroppedAreas' => null,
         'externalFontsHandling' => null,
         'useFrameSize' => null,
-        'useFrameRotation' => null
+        'useFrameRotation' => null,
+        'disableFontLigatures' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class SvgExportOptions extends ExportOptions
         'deletePicturesCroppedAreas' => 'DeletePicturesCroppedAreas',
         'externalFontsHandling' => 'ExternalFontsHandling',
         'useFrameSize' => 'UseFrameSize',
-        'useFrameRotation' => 'UseFrameRotation'
+        'useFrameRotation' => 'UseFrameRotation',
+        'disableFontLigatures' => 'DisableFontLigatures'
     ];
 
     /**
@@ -143,7 +146,8 @@ class SvgExportOptions extends ExportOptions
         'deletePicturesCroppedAreas' => 'setDeletePicturesCroppedAreas',
         'externalFontsHandling' => 'setExternalFontsHandling',
         'useFrameSize' => 'setUseFrameSize',
-        'useFrameRotation' => 'setUseFrameRotation'
+        'useFrameRotation' => 'setUseFrameRotation',
+        'disableFontLigatures' => 'setDisableFontLigatures'
     ];
 
     /**
@@ -162,7 +166,8 @@ class SvgExportOptions extends ExportOptions
         'deletePicturesCroppedAreas' => 'getDeletePicturesCroppedAreas',
         'externalFontsHandling' => 'getExternalFontsHandling',
         'useFrameSize' => 'getUseFrameSize',
-        'useFrameRotation' => 'getUseFrameRotation'
+        'useFrameRotation' => 'getUseFrameRotation',
+        'disableFontLigatures' => 'getDisableFontLigatures'
     ];
 
     /**
@@ -272,6 +277,7 @@ class SvgExportOptions extends ExportOptions
         $this->container['externalFontsHandling'] = isset($data['externalFontsHandling']) ? $data['externalFontsHandling'] : null;
         $this->container['useFrameSize'] = isset($data['useFrameSize']) ? $data['useFrameSize'] : null;
         $this->container['useFrameRotation'] = isset($data['useFrameRotation']) ? $data['useFrameRotation'] : null;
+        $this->container['disableFontLigatures'] = isset($data['disableFontLigatures']) ? $data['disableFontLigatures'] : null;
         $this->container['format'] = 'svg';
         
     }
@@ -634,6 +640,30 @@ class SvgExportOptions extends ExportOptions
     public function setUseFrameRotation($useFrameRotation)
     {
         $this->container['useFrameRotation'] = $useFrameRotation;
+
+        return $this;
+    }
+
+    /**
+     * Gets disableFontLigatures
+     *
+     * @return bool
+     */
+    public function getDisableFontLigatures()
+    {
+        return $this->container['disableFontLigatures'];
+    }
+
+    /**
+     * Sets disableFontLigatures
+     *
+     * @param bool $disableFontLigatures true to disable ligatures in the rendered output.
+     *
+     * @return $this
+     */
+    public function setDisableFontLigatures($disableFontLigatures)
+    {
+        $this->container['disableFontLigatures'] = $disableFontLigatures;
 
         return $this;
     }

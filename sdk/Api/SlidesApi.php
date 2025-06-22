@@ -6686,6 +6686,170 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function createVideoCaptionTrack($name, $slideIndex, $shapeIndex, $label, $data = null, $password = null, $folder = null, $storage = null)
+    {
+        list($response) = $this->createVideoCaptionTrackWithHttpInfo($name, $slideIndex, $shapeIndex, $label, $data, $password, $folder, $storage);
+        return $response;
+    }
+
+    /**
+     */
+    public function createVideoCaptionTrackWithHttpInfo($name, $slideIndex, $shapeIndex, $label, $data = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\CaptionTrack';
+        $httpRequest = $this->createVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $label, $data, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\CaptionTrack', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function createVideoCaptionTrackAsync($name, $slideIndex, $shapeIndex, $label, $data = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->createVideoCaptionTrackAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $label, $data, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function createVideoCaptionTrackAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $label, $data = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\CaptionTrack';
+        $httpRequest = $this->createVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $label, $data, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'createVideoCaptionTrack'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
+     * @param  string $$label Caption track label. (required)
+     * @param  string $$data Caption track data. (optional)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $label, $data = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling createVideoCaptionTrack');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling createVideoCaptionTrack');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling createVideoCaptionTrack');
+        }
+        // verify the required parameter 'label' is set
+        if ($label === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $label when calling createVideoCaptionTrack');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($label !== null) {
+            $queryParams['label'] = ObjectSerializer::toQueryValue($label);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        if (isset($data)) {
+            array_push($_tempBody, $data);
+        }
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'POST');
+    }
+    /**
+     */
     public function createWatermark($name, \Aspose\Slides\Cloud\Sdk\Model\Shape $shape = null, $fontHeight = null, $text = null, $fontName = null, $fontColor = null, $password = null, $folder = null, $storage = null)
     {
         $this->createWatermarkWithHttpInfo($name, $shape, $fontHeight, $text, $fontName, $fontColor, $password, $folder, $storage);
@@ -9942,124 +10106,6 @@ class SlidesApi extends ApiBase
         // query params
         if ($subShape !== null) {
             $queryParams['subShape'] = ObjectSerializer::toQueryValue($subShape);
-        }
-        // header params
-        if ($password !== null) {
-            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
-        }
-
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
-        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
-        $_tempBody = [];
-        $this->headerSelector->selectHeaders(
-            $headerParams,
-            ['application/json'],
-            ['application/json']);
-        $httpBody = ObjectSerializer::createBody($_tempBody);
-        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
-    }
-    /**
-     */
-    public function deletePictureCroppedAreas($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
-    {
-        $this->deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
-    }
-
-    /**
-     */
-    public function deletePictureCroppedAreasWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '';
-        $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
-        try {
-            $response = $this->httpCall($httpRequest);
-            return [null, $response->getStatusCode(), $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                default: $this->handleApiException($e);
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     */
-    public function deletePictureCroppedAreasAsync($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
-    {
-        return $this->deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
-            ->then(function ($response) {
-                return $response[0];
-            });
-    }
-
-    /**
-     */
-    public function deletePictureCroppedAreasAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
-    {
-        $returnType = '';
-        $httpRequest = $this->deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
-
-        return $this->client
-            ->sendAsync($httpRequest, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    if ($exception instanceof RepeatRequestException) {
-                        $this->refreshToken();
-                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
-                    }
-                    throw new ApiException(
-                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody());
-                });
-    }
-
-    /**
-     * Create request for operation 'deletePictureCroppedAreas'
-     *
-     * @param  string $$name Document name. (required)
-     * @param  int $$slideIndex Slide index. (required)
-     * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
-     * @param  string $$password Document password. (optional)
-     * @param  string $$folder Document folder. (optional)
-     * @param  string $$storage Presentation storage. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function deletePictureCroppedAreasRequest($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
-    {
-        // verify the required parameter 'name' is set
-        if ($name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $name when calling deletePictureCroppedAreas');
-        }
-        // verify the required parameter 'slide_index' is set
-        if ($slideIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deletePictureCroppedAreas');
-        }
-        // verify the required parameter 'shape_index' is set
-        if ($shapeIndex === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deletePictureCroppedAreas');
-        }
-
-        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/pictureCroppedAreas';
-        $queryParams = [];
-        $headerParams = [];
-
-        // query params
-        if ($folder !== null) {
-            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
-        }
-        // query params
-        if ($storage !== null) {
-            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
         }
         // header params
         if ($password !== null) {
@@ -15209,6 +15255,248 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function deleteVideoCaptionTrack($name, $slideIndex, $shapeIndex, $captionsIndex, $password = null, $folder = null, $storage = null)
+    {
+        $this->deleteVideoCaptionTrackWithHttpInfo($name, $slideIndex, $shapeIndex, $captionsIndex, $password, $folder, $storage);
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTrackWithHttpInfo($name, $slideIndex, $shapeIndex, $captionsIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $captionsIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTrackAsync($name, $slideIndex, $shapeIndex, $captionsIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteVideoCaptionTrackAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $captionsIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTrackAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $captionsIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $captionsIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteVideoCaptionTrack'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a video frame). (required)
+     * @param  int $$captionsIndex Captions track index. (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteVideoCaptionTrackRequest($name, $slideIndex, $shapeIndex, $captionsIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteVideoCaptionTrack');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteVideoCaptionTrack');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteVideoCaptionTrack');
+        }
+        // verify the required parameter 'captions_index' is set
+        if ($captionsIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $captionsIndex when calling deleteVideoCaptionTrack');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks/{captionsIndex}';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "captionsIndex", $captionsIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
+    public function deleteVideoCaptionTracks($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        $this->deleteVideoCaptionTracksWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTracksWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTracksAsync($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        return $this->deleteVideoCaptionTracksAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function deleteVideoCaptionTracksAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '';
+        $httpRequest = $this->deleteVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'deleteVideoCaptionTracks'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a video frame). (required)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling deleteVideoCaptionTracks');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling deleteVideoCaptionTracks');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling deleteVideoCaptionTracks');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'DELETE');
+    }
+    /**
+     */
     public function deleteWatermark($name, $shapeName = null, $password = null, $folder = null, $storage = null)
     {
         $this->deleteWatermarkWithHttpInfo($name, $shapeName, $password, $folder, $storage);
@@ -15584,18 +15872,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadImage($name, $index, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImage($name, $index, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
-        list($response) = $this->downloadImageWithHttpInfo($name, $index, $format, $password, $folder, $storage);
+        list($response) = $this->downloadImageWithHttpInfo($name, $index, $format, $password, $folder, $storage, $quality);
         return $response;
     }
 
     /**
      */
-    public function downloadImageWithHttpInfo($name, $index, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImageWithHttpInfo($name, $index, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImageRequest($name, $index, $format, $password, $folder, $storage);
+        $httpRequest = $this->downloadImageRequest($name, $index, $format, $password, $folder, $storage, $quality);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -15619,9 +15907,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImageAsync($name, $index, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImageAsync($name, $index, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
-        return $this->downloadImageAsyncWithHttpInfo($name, $index, $format, $password, $folder, $storage)
+        return $this->downloadImageAsyncWithHttpInfo($name, $index, $format, $password, $folder, $storage, $quality)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -15629,10 +15917,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImageAsyncWithHttpInfo($name, $index, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImageAsyncWithHttpInfo($name, $index, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImageRequest($name, $index, $format, $password, $folder, $storage);
+        $httpRequest = $this->downloadImageRequest($name, $index, $format, $password, $folder, $storage, $quality);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -15683,11 +15971,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
+     * @param  int $$quality Image quality (0 to 100; has effect only on Jpeg format). (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadImageRequest($name, $index, $format, $password = null, $folder = null, $storage = null)
+    protected function downloadImageRequest($name, $index, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -15717,6 +16006,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($quality !== null) {
+            $queryParams['quality'] = ObjectSerializer::toQueryValue($quality);
         }
         // header params
         if ($password !== null) {
@@ -16012,18 +16305,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadImageOnline($document, $index, $format, $password = null)
+    public function downloadImageOnline($document, $index, $format, $password = null, $quality = null)
     {
-        list($response) = $this->downloadImageOnlineWithHttpInfo($document, $index, $format, $password);
+        list($response) = $this->downloadImageOnlineWithHttpInfo($document, $index, $format, $password, $quality);
         return $response;
     }
 
     /**
      */
-    public function downloadImageOnlineWithHttpInfo($document, $index, $format, $password = null)
+    public function downloadImageOnlineWithHttpInfo($document, $index, $format, $password = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImageOnlineRequest($document, $index, $format, $password);
+        $httpRequest = $this->downloadImageOnlineRequest($document, $index, $format, $password, $quality);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -16047,9 +16340,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImageOnlineAsync($document, $index, $format, $password = null)
+    public function downloadImageOnlineAsync($document, $index, $format, $password = null, $quality = null)
     {
-        return $this->downloadImageOnlineAsyncWithHttpInfo($document, $index, $format, $password)
+        return $this->downloadImageOnlineAsyncWithHttpInfo($document, $index, $format, $password, $quality)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -16057,10 +16350,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImageOnlineAsyncWithHttpInfo($document, $index, $format, $password = null)
+    public function downloadImageOnlineAsyncWithHttpInfo($document, $index, $format, $password = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImageOnlineRequest($document, $index, $format, $password);
+        $httpRequest = $this->downloadImageOnlineRequest($document, $index, $format, $password, $quality);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -16109,11 +16402,12 @@ class SlidesApi extends ApiBase
      * @param  int $$index Image index. (required)
      * @param  string $$format Export format (png, jpg, gif). (required)
      * @param  string $$password Document password. (optional)
+     * @param  int $$quality Image quality (0 to 100; has effect only on Jpeg format). (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadImageOnlineRequest($document, $index, $format, $password = null)
+    protected function downloadImageOnlineRequest($document, $index, $format, $password = null, $quality = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -16136,6 +16430,10 @@ class SlidesApi extends ApiBase
         $queryParams = [];
         $headerParams = [];
 
+        // query params
+        if ($quality !== null) {
+            $queryParams['quality'] = ObjectSerializer::toQueryValue($quality);
+        }
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
@@ -16156,18 +16454,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadImages($name, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImages($name, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
-        list($response) = $this->downloadImagesWithHttpInfo($name, $format, $password, $folder, $storage);
+        list($response) = $this->downloadImagesWithHttpInfo($name, $format, $password, $folder, $storage, $quality);
         return $response;
     }
 
     /**
      */
-    public function downloadImagesWithHttpInfo($name, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImagesWithHttpInfo($name, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImagesRequest($name, $format, $password, $folder, $storage);
+        $httpRequest = $this->downloadImagesRequest($name, $format, $password, $folder, $storage, $quality);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -16191,9 +16489,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImagesAsync($name, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImagesAsync($name, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
-        return $this->downloadImagesAsyncWithHttpInfo($name, $format, $password, $folder, $storage)
+        return $this->downloadImagesAsyncWithHttpInfo($name, $format, $password, $folder, $storage, $quality)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -16201,10 +16499,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImagesAsyncWithHttpInfo($name, $format, $password = null, $folder = null, $storage = null)
+    public function downloadImagesAsyncWithHttpInfo($name, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImagesRequest($name, $format, $password, $folder, $storage);
+        $httpRequest = $this->downloadImagesRequest($name, $format, $password, $folder, $storage, $quality);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -16254,11 +16552,12 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
+     * @param  int $$quality Image quality (0 to 100; has effect only on Jpeg format). (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadImagesRequest($name, $format, $password = null, $folder = null, $storage = null)
+    protected function downloadImagesRequest($name, $format, $password = null, $folder = null, $storage = null, $quality = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -16284,6 +16583,10 @@ class SlidesApi extends ApiBase
         // query params
         if ($storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($quality !== null) {
+            $queryParams['quality'] = ObjectSerializer::toQueryValue($quality);
         }
         // header params
         if ($password !== null) {
@@ -16566,18 +16869,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function downloadImagesOnline($document, $format, $password = null)
+    public function downloadImagesOnline($document, $format, $password = null, $quality = null)
     {
-        list($response) = $this->downloadImagesOnlineWithHttpInfo($document, $format, $password);
+        list($response) = $this->downloadImagesOnlineWithHttpInfo($document, $format, $password, $quality);
         return $response;
     }
 
     /**
      */
-    public function downloadImagesOnlineWithHttpInfo($document, $format, $password = null)
+    public function downloadImagesOnlineWithHttpInfo($document, $format, $password = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImagesOnlineRequest($document, $format, $password);
+        $httpRequest = $this->downloadImagesOnlineRequest($document, $format, $password, $quality);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -16601,9 +16904,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImagesOnlineAsync($document, $format, $password = null)
+    public function downloadImagesOnlineAsync($document, $format, $password = null, $quality = null)
     {
-        return $this->downloadImagesOnlineAsyncWithHttpInfo($document, $format, $password)
+        return $this->downloadImagesOnlineAsyncWithHttpInfo($document, $format, $password, $quality)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -16611,10 +16914,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function downloadImagesOnlineAsyncWithHttpInfo($document, $format, $password = null)
+    public function downloadImagesOnlineAsyncWithHttpInfo($document, $format, $password = null, $quality = null)
     {
         $returnType = '\SplFileObject';
-        $httpRequest = $this->downloadImagesOnlineRequest($document, $format, $password);
+        $httpRequest = $this->downloadImagesOnlineRequest($document, $format, $password, $quality);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -16662,11 +16965,12 @@ class SlidesApi extends ApiBase
      * @param  \SplFileObject $$document Document data. (required)
      * @param  string $$format Export format (png, jpg, gif). (required)
      * @param  string $$password Document password. (optional)
+     * @param  int $$quality Image quality (0 to 100; has effect only on Jpeg format). (optional, default to 100)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadImagesOnlineRequest($document, $format, $password = null)
+    protected function downloadImagesOnlineRequest($document, $format, $password = null, $quality = null)
     {
         // verify the required parameter 'document' is set
         if ($document === null) {
@@ -16685,6 +16989,10 @@ class SlidesApi extends ApiBase
         $queryParams = [];
         $headerParams = [];
 
+        // query params
+        if ($quality !== null) {
+            $queryParams['quality'] = ObjectSerializer::toQueryValue($quality);
+        }
         // header params
         if ($password !== null) {
             $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
@@ -27763,6 +28071,162 @@ class SlidesApi extends ApiBase
     }
     /**
      */
+    public function getVideoCaptionTracks($name, $slideIndex, $shapeIndex, $includeData = null, $password = null, $folder = null, $storage = null)
+    {
+        list($response) = $this->getVideoCaptionTracksWithHttpInfo($name, $slideIndex, $shapeIndex, $includeData, $password, $folder, $storage);
+        return $response;
+    }
+
+    /**
+     */
+    public function getVideoCaptionTracksWithHttpInfo($name, $slideIndex, $shapeIndex, $includeData = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\CaptionTracks';
+        $httpRequest = $this->getVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $includeData, $password, $folder, $storage);
+        try {
+            $response = $this->httpCall($httpRequest);
+            $responseBody = $response->getBody();
+            $content = $responseBody->getContents();
+            if ($returnType !== 'string') {
+                $content = json_decode($content);
+            }
+            $deserializedContent = ObjectSerializer::deserialize($content, $returnType, []);
+            if ($this->config->getDebug()) {
+                $this->writeResponseLog($response->getStatusCode(), $response->getHeaders(), $deserializedContent);
+            }
+            return [$deserializedContent, $response->getStatusCode(), $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize($e->getResponseBody(), '\Aspose\Slides\Cloud\Sdk\Model\CaptionTracks', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                default: $this->handleApiException($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     */
+    public function getVideoCaptionTracksAsync($name, $slideIndex, $shapeIndex, $includeData = null, $password = null, $folder = null, $storage = null)
+    {
+        return $this->getVideoCaptionTracksAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $includeData, $password, $folder, $storage)
+            ->then(function ($response) {
+                return $response[0];
+            });
+    }
+
+    /**
+     */
+    public function getVideoCaptionTracksAsyncWithHttpInfo($name, $slideIndex, $shapeIndex, $includeData = null, $password = null, $folder = null, $storage = null)
+    {
+        $returnType = '\Aspose\Slides\Cloud\Sdk\Model\CaptionTracks';
+        $httpRequest = $this->getVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $includeData, $password, $folder, $storage);
+
+        return $this->client
+            ->sendAsync($httpRequest, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+                    if ($this->config->getDebug()) {
+                        $this->writeResponseLog(
+                            $response->getStatusCode(),
+                            $response->getHeaders(),
+                            ObjectSerializer::deserialize($content, $returnType, []));
+                    }
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    if ($exception instanceof RepeatRequestException) {
+                        $this->refreshToken();
+                        throw new RepeatRequestException("Request must be retried", $statusCode, $response->getHeaders(), $response->getBody());
+                    }
+                    throw new ApiException(
+                        sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody());
+                });
+    }
+
+    /**
+     * Create request for operation 'getVideoCaptionTracks'
+     *
+     * @param  string $$name Document name. (required)
+     * @param  int $$slideIndex Slide index. (required)
+     * @param  int $$shapeIndex Shape index (must refer to a picture frame). (required)
+     * @param  bool $$includeData true to include caption data string values in the response. (optional, default to false)
+     * @param  string $$password Document password. (optional)
+     * @param  string $$folder Document folder. (optional)
+     * @param  string $$storage Presentation storage. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getVideoCaptionTracksRequest($name, $slideIndex, $shapeIndex, $includeData = null, $password = null, $folder = null, $storage = null)
+    {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling getVideoCaptionTracks');
+        }
+        // verify the required parameter 'slide_index' is set
+        if ($slideIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $slideIndex when calling getVideoCaptionTracks');
+        }
+        // verify the required parameter 'shape_index' is set
+        if ($shapeIndex === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $shapeIndex when calling getVideoCaptionTracks');
+        }
+
+        $resourcePath = '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/captionTracks';
+        $queryParams = [];
+        $headerParams = [];
+
+        // query params
+        if ($includeData !== null) {
+            $queryParams['includeData'] = ObjectSerializer::toQueryValue($includeData);
+        }
+        // query params
+        if ($folder !== null) {
+            $queryParams['folder'] = ObjectSerializer::toQueryValue($folder);
+        }
+        // query params
+        if ($storage !== null) {
+            $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // header params
+        if ($password !== null) {
+            $headerParams['password'] = ObjectSerializer::toHeaderValue($password);
+        }
+
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "name", $name);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "slideIndex", $slideIndex);
+        $resourcePath = ObjectSerializer::addPathValue($resourcePath, "shapeIndex", $shapeIndex);
+        $_tempBody = [];
+        $this->headerSelector->selectHeaders(
+            $headerParams,
+            ['application/json'],
+            ['application/json']);
+        $httpBody = ObjectSerializer::createBody($_tempBody);
+        return $this->createRequest($resourcePath, $queryParams, $headerParams, $httpBody, 'GET');
+    }
+    /**
+     */
     public function getViewProperties($name, $password = null, $folder = null, $storage = null)
     {
         list($response) = $this->getViewPropertiesWithHttpInfo($name, $password, $folder, $storage);
@@ -28584,18 +29048,18 @@ class SlidesApi extends ApiBase
     }
     /**
      */
-    public function importFromHtml($name, $html = null, $password = null, $folder = null, $storage = null)
+    public function importFromHtml($name, $html = null, $password = null, $folder = null, $storage = null, $position = null, $useSlideWithIndexAsStart = null)
     {
-        list($response) = $this->importFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage);
+        list($response) = $this->importFromHtmlWithHttpInfo($name, $html, $password, $folder, $storage, $position, $useSlideWithIndexAsStart);
         return $response;
     }
 
     /**
      */
-    public function importFromHtmlWithHttpInfo($name, $html = null, $password = null, $folder = null, $storage = null)
+    public function importFromHtmlWithHttpInfo($name, $html = null, $password = null, $folder = null, $storage = null, $position = null, $useSlideWithIndexAsStart = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->importFromHtmlRequest($name, $html, $password, $folder, $storage);
+        $httpRequest = $this->importFromHtmlRequest($name, $html, $password, $folder, $storage, $position, $useSlideWithIndexAsStart);
         try {
             $response = $this->httpCall($httpRequest);
             $responseBody = $response->getBody();
@@ -28626,9 +29090,9 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromHtmlAsync($name, $html = null, $password = null, $folder = null, $storage = null)
+    public function importFromHtmlAsync($name, $html = null, $password = null, $folder = null, $storage = null, $position = null, $useSlideWithIndexAsStart = null)
     {
-        return $this->importFromHtmlAsyncWithHttpInfo($name, $html, $password, $folder, $storage)
+        return $this->importFromHtmlAsyncWithHttpInfo($name, $html, $password, $folder, $storage, $position, $useSlideWithIndexAsStart)
             ->then(function ($response) {
                 return $response[0];
             });
@@ -28636,10 +29100,10 @@ class SlidesApi extends ApiBase
 
     /**
      */
-    public function importFromHtmlAsyncWithHttpInfo($name, $html = null, $password = null, $folder = null, $storage = null)
+    public function importFromHtmlAsyncWithHttpInfo($name, $html = null, $password = null, $folder = null, $storage = null, $position = null, $useSlideWithIndexAsStart = null)
     {
         $returnType = '\Aspose\Slides\Cloud\Sdk\Model\Document';
-        $httpRequest = $this->importFromHtmlRequest($name, $html, $password, $folder, $storage);
+        $httpRequest = $this->importFromHtmlRequest($name, $html, $password, $folder, $storage, $position, $useSlideWithIndexAsStart);
 
         return $this->client
             ->sendAsync($httpRequest, $this->createHttpClientOption())
@@ -28689,11 +29153,13 @@ class SlidesApi extends ApiBase
      * @param  string $$password Document password. (optional)
      * @param  string $$folder Document folder. (optional)
      * @param  string $$storage Document storage. (optional)
+     * @param  int $$position Slide index before which the HTML should be added (add to the end by default). (optional)
+     * @param  bool $$useSlideWithIndexAsStart true to insert data starting from an empty space on the slide with the specified index; false to add data to the created slides. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function importFromHtmlRequest($name, $html = null, $password = null, $folder = null, $storage = null)
+    protected function importFromHtmlRequest($name, $html = null, $password = null, $folder = null, $storage = null, $position = null, $useSlideWithIndexAsStart = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null) {
@@ -28711,6 +29177,14 @@ class SlidesApi extends ApiBase
         // query params
         if ($storage !== null) {
             $queryParams['storage'] = ObjectSerializer::toQueryValue($storage);
+        }
+        // query params
+        if ($position !== null) {
+            $queryParams['position'] = ObjectSerializer::toQueryValue($position);
+        }
+        // query params
+        if ($useSlideWithIndexAsStart !== null) {
+            $queryParams['useSlideWithIndexAsStart'] = ObjectSerializer::toQueryValue($useSlideWithIndexAsStart);
         }
         // header params
         if ($password !== null) {

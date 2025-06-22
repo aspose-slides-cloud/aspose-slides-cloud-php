@@ -61,7 +61,10 @@ class MarkdownExportOptions extends ExportOptions
         'imagesSaveFolderName' => 'string',
         'showSlideNumber' => 'bool',
         'showComments' => 'bool',
-        'showHiddenSlides' => 'bool'
+        'showHiddenSlides' => 'bool',
+        'removeEmptyLines' => 'bool',
+        'handleRepeatedSpaces' => 'string',
+        'slideNumberFormat' => 'string'
     ];
 
     /**
@@ -76,7 +79,10 @@ class MarkdownExportOptions extends ExportOptions
         'imagesSaveFolderName' => null,
         'showSlideNumber' => null,
         'showComments' => null,
-        'showHiddenSlides' => null
+        'showHiddenSlides' => null,
+        'removeEmptyLines' => null,
+        'handleRepeatedSpaces' => null,
+        'slideNumberFormat' => null
     ];
 
     /**
@@ -112,7 +118,10 @@ class MarkdownExportOptions extends ExportOptions
         'imagesSaveFolderName' => 'ImagesSaveFolderName',
         'showSlideNumber' => 'ShowSlideNumber',
         'showComments' => 'ShowComments',
-        'showHiddenSlides' => 'ShowHiddenSlides'
+        'showHiddenSlides' => 'ShowHiddenSlides',
+        'removeEmptyLines' => 'RemoveEmptyLines',
+        'handleRepeatedSpaces' => 'HandleRepeatedSpaces',
+        'slideNumberFormat' => 'SlideNumberFormat'
     ];
 
     /**
@@ -127,7 +136,10 @@ class MarkdownExportOptions extends ExportOptions
         'imagesSaveFolderName' => 'setImagesSaveFolderName',
         'showSlideNumber' => 'setShowSlideNumber',
         'showComments' => 'setShowComments',
-        'showHiddenSlides' => 'setShowHiddenSlides'
+        'showHiddenSlides' => 'setShowHiddenSlides',
+        'removeEmptyLines' => 'setRemoveEmptyLines',
+        'handleRepeatedSpaces' => 'setHandleRepeatedSpaces',
+        'slideNumberFormat' => 'setSlideNumberFormat'
     ];
 
     /**
@@ -142,7 +154,10 @@ class MarkdownExportOptions extends ExportOptions
         'imagesSaveFolderName' => 'getImagesSaveFolderName',
         'showSlideNumber' => 'getShowSlideNumber',
         'showComments' => 'getShowComments',
-        'showHiddenSlides' => 'getShowHiddenSlides'
+        'showHiddenSlides' => 'getShowHiddenSlides',
+        'removeEmptyLines' => 'getRemoveEmptyLines',
+        'handleRepeatedSpaces' => 'getHandleRepeatedSpaces',
+        'slideNumberFormat' => 'getSlideNumberFormat'
     ];
 
     /**
@@ -216,6 +231,9 @@ class MarkdownExportOptions extends ExportOptions
     const NEW_LINE_TYPE_WINDOWS = 'Windows';
     const NEW_LINE_TYPE_UNIX = 'Unix';
     const NEW_LINE_TYPE_MAC = 'Mac';
+    const HANDLE_REPEATED_SPACES_NONE = 'None';
+    const HANDLE_REPEATED_SPACES_ALTERNATE_SPACES_TO_NBSP = 'AlternateSpacesToNbsp';
+    const HANDLE_REPEATED_SPACES_MULTIPLE_SPACES_TO_NBSP = 'MultipleSpacesToNbsp';
     
 
     
@@ -282,6 +300,20 @@ class MarkdownExportOptions extends ExportOptions
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getHandleRepeatedSpacesAllowableValues()
+    {
+        return [
+            self::HANDLE_REPEATED_SPACES_NONE,
+            self::HANDLE_REPEATED_SPACES_ALTERNATE_SPACES_TO_NBSP,
+            self::HANDLE_REPEATED_SPACES_MULTIPLE_SPACES_TO_NBSP,
+        ];
+    }
+    
 
 
     /**
@@ -301,6 +333,9 @@ class MarkdownExportOptions extends ExportOptions
         $this->container['showSlideNumber'] = isset($data['showSlideNumber']) ? $data['showSlideNumber'] : null;
         $this->container['showComments'] = isset($data['showComments']) ? $data['showComments'] : null;
         $this->container['showHiddenSlides'] = isset($data['showHiddenSlides']) ? $data['showHiddenSlides'] : null;
+        $this->container['removeEmptyLines'] = isset($data['removeEmptyLines']) ? $data['removeEmptyLines'] : null;
+        $this->container['handleRepeatedSpaces'] = isset($data['handleRepeatedSpaces']) ? $data['handleRepeatedSpaces'] : null;
+        $this->container['slideNumberFormat'] = isset($data['slideNumberFormat']) ? $data['slideNumberFormat'] : null;
         $this->container['format'] = 'md';
         
     }
@@ -338,6 +373,14 @@ class MarkdownExportOptions extends ExportOptions
             );
         }
 
+        $allowedValues = $this->getHandleRepeatedSpacesAllowableValues();
+        if (!in_array($this->container['handleRepeatedSpaces'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'handleRepeatedSpaces', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -363,6 +406,10 @@ class MarkdownExportOptions extends ExportOptions
         }
         $allowedValues = $this->getNewLineTypeAllowableValues();
         if (!in_array($this->container['newLineType'], $allowedValues)) {
+            return false;
+        }
+        $allowedValues = $this->getHandleRepeatedSpacesAllowableValues();
+        if (!in_array($this->container['handleRepeatedSpaces'], $allowedValues)) {
             return false;
         }
         return true;
@@ -602,6 +649,101 @@ class MarkdownExportOptions extends ExportOptions
     public function setShowHiddenSlides($showHiddenSlides)
     {
         $this->container['showHiddenSlides'] = $showHiddenSlides;
+
+        return $this;
+    }
+
+    /**
+     * Gets removeEmptyLines
+     *
+     * @return bool
+     */
+    public function getRemoveEmptyLines()
+    {
+        return $this->container['removeEmptyLines'];
+    }
+
+    /**
+     * Sets removeEmptyLines
+     *
+     * @param bool $removeEmptyLines true to remove empty or whitespace-only lines from the final Markdown output. Default is false.
+     *
+     * @return $this
+     */
+    public function setRemoveEmptyLines($removeEmptyLines)
+    {
+        $this->container['removeEmptyLines'] = $removeEmptyLines;
+
+        return $this;
+    }
+
+    /**
+     * Gets handleRepeatedSpaces
+     *
+     * @return string
+     */
+    public function getHandleRepeatedSpaces()
+    {
+        return $this->container['handleRepeatedSpaces'];
+    }
+
+    /**
+     * Sets handleRepeatedSpaces
+     *
+     * @param string $handleRepeatedSpaces Specifies how repeated space characters are preserved to maintain visual alignment.
+     *
+     * @return $this
+     */
+    public function setHandleRepeatedSpaces($handleRepeatedSpaces)
+    {
+        $allowedValues = $this->getHandleRepeatedSpacesAllowableValues();
+
+
+        if (is_numeric($handleRepeatedSpaces)) {
+            if ($handleRepeatedSpaces >= sizeof($allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'handleRepeatedSpaces', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+                $handleRepeatedSpaces = $allowedValues[$handleRepeatedSpaces];
+            }
+        } else {
+            if (!is_null($handleRepeatedSpaces) && !in_array($handleRepeatedSpaces, $allowedValues)) {
+                throw new \InvalidArgumentException(
+                    sprintf(
+                        "Invalid value for 'handleRepeatedSpaces', must be one of '%s'",
+                        implode("', '", $allowedValues)
+                    )
+                );
+            }
+        }
+        $this->container['handleRepeatedSpaces'] = $handleRepeatedSpaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets slideNumberFormat
+     *
+     * @return string
+     */
+    public function getSlideNumberFormat()
+    {
+        return $this->container['slideNumberFormat'];
+    }
+
+    /**
+     * Sets slideNumberFormat
+     *
+     * @param string $slideNumberFormat The format of slide number headers.
+     *
+     * @return $this
+     */
+    public function setSlideNumberFormat($slideNumberFormat)
+    {
+        $this->container['slideNumberFormat'] = $slideNumberFormat;
 
         return $this;
     }

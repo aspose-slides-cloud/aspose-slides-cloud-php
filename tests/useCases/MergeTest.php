@@ -131,7 +131,7 @@ class MergeTest extends TestBase
         Assert::assertTrue($result->isFile());
     }
 
-    public const url = "https://drive.google.com/uc?export=download&id=1ycMzd7e--Ro9H8eH2GL5fPP7-2HjX4My";
+    public const url = "https://www.dropbox.com/scl/fi/nz3yt2wpg4eugiw12bz3g/info.pptx?rlkey=wju4vbi6h46q8733tzzvfgufz&e=1&st=pqt66x86&dl=1";
     public const fileName2 = "test-unprotected.pptx";
     public const fileNamePdf = "test.pdf";
     public const outPath = self::folderName."/merged.pptx";

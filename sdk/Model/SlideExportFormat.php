@@ -70,6 +70,7 @@ class SlideExportFormat
     const HTML5 = 'Html5';
     const MD = 'Md';
     const XML = 'Xml';
+    const EMF = 'Emf';
     
     /**
      * Gets allowable values of the enum
@@ -103,6 +104,7 @@ class SlideExportFormat
             self::HTML5,
             self::MD,
             self::XML,
+            self::EMF,
         ];
     }
 }

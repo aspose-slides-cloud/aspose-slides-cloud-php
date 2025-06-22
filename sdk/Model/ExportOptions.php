@@ -62,6 +62,7 @@ class ExportOptions implements ArrayAccess
         'gradientStyle' => 'string',
         'fontFallbackRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontFallbackRule[]',
         'fontSubstRules' => '\Aspose\Slides\Cloud\Sdk\Model\FontSubstRule[]',
+        'skipJavaScriptLinks' => 'bool',
         'format' => 'string'
     ];
 
@@ -76,6 +77,7 @@ class ExportOptions implements ArrayAccess
         'gradientStyle' => null,
         'fontFallbackRules' => null,
         'fontSubstRules' => null,
+        'skipJavaScriptLinks' => null,
         'format' => null
     ];
 
@@ -111,6 +113,7 @@ class ExportOptions implements ArrayAccess
         'gradientStyle' => 'GradientStyle',
         'fontFallbackRules' => 'FontFallbackRules',
         'fontSubstRules' => 'FontSubstRules',
+        'skipJavaScriptLinks' => 'SkipJavaScriptLinks',
         'format' => 'Format'
     ];
 
@@ -125,6 +128,7 @@ class ExportOptions implements ArrayAccess
         'gradientStyle' => 'setGradientStyle',
         'fontFallbackRules' => 'setFontFallbackRules',
         'fontSubstRules' => 'setFontSubstRules',
+        'skipJavaScriptLinks' => 'setSkipJavaScriptLinks',
         'format' => 'setFormat'
     ];
 
@@ -139,6 +143,7 @@ class ExportOptions implements ArrayAccess
         'gradientStyle' => 'getGradientStyle',
         'fontFallbackRules' => 'getFontFallbackRules',
         'fontSubstRules' => 'getFontSubstRules',
+        'skipJavaScriptLinks' => 'getSkipJavaScriptLinks',
         'format' => 'getFormat'
     ];
 
@@ -222,6 +227,7 @@ class ExportOptions implements ArrayAccess
         $this->container['gradientStyle'] = isset($data['gradientStyle']) ? $data['gradientStyle'] : null;
         $this->container['fontFallbackRules'] = isset($data['fontFallbackRules']) ? $data['fontFallbackRules'] : null;
         $this->container['fontSubstRules'] = isset($data['fontSubstRules']) ? $data['fontSubstRules'] : null;
+        $this->container['skipJavaScriptLinks'] = isset($data['skipJavaScriptLinks']) ? $data['skipJavaScriptLinks'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         
     }
@@ -402,6 +408,30 @@ class ExportOptions implements ArrayAccess
     public function setFontSubstRules($fontSubstRules)
     {
         $this->container['fontSubstRules'] = $fontSubstRules;
+
+        return $this;
+    }
+
+    /**
+     * Gets skipJavaScriptLinks
+     *
+     * @return bool
+     */
+    public function getSkipJavaScriptLinks()
+    {
+        return $this->container['skipJavaScriptLinks'];
+    }
+
+    /**
+     * Sets skipJavaScriptLinks
+     *
+     * @param bool $skipJavaScriptLinks True to skip hyperlinks with javascript calls when saving the presentation.
+     *
+     * @return $this
+     */
+    public function setSkipJavaScriptLinks($skipJavaScriptLinks)
+    {
+        $this->container['skipJavaScriptLinks'] = $skipJavaScriptLinks;
 
         return $this;
     }

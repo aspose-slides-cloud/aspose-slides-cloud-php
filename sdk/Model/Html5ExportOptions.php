@@ -58,8 +58,9 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'bool',
         'animateShapes' => 'bool',
         'embedImages' => 'bool',
-        'notesCommentsLayouting' => '\Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions',
-        'templatesPath' => 'string'
+        'slidesLayoutOptions' => '\Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions',
+        'templatesPath' => 'string',
+        'disableFontLigatures' => 'bool'
     ];
 
     /**
@@ -71,8 +72,9 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => null,
         'animateShapes' => null,
         'embedImages' => null,
-        'notesCommentsLayouting' => null,
-        'templatesPath' => null
+        'slidesLayoutOptions' => null,
+        'templatesPath' => null,
+        'disableFontLigatures' => null
     ];
 
     /**
@@ -105,8 +107,9 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'AnimateTransitions',
         'animateShapes' => 'AnimateShapes',
         'embedImages' => 'EmbedImages',
-        'notesCommentsLayouting' => 'NotesCommentsLayouting',
-        'templatesPath' => 'TemplatesPath'
+        'slidesLayoutOptions' => 'SlidesLayoutOptions',
+        'templatesPath' => 'TemplatesPath',
+        'disableFontLigatures' => 'DisableFontLigatures'
     ];
 
     /**
@@ -118,8 +121,9 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'setAnimateTransitions',
         'animateShapes' => 'setAnimateShapes',
         'embedImages' => 'setEmbedImages',
-        'notesCommentsLayouting' => 'setNotesCommentsLayouting',
-        'templatesPath' => 'setTemplatesPath'
+        'slidesLayoutOptions' => 'setSlidesLayoutOptions',
+        'templatesPath' => 'setTemplatesPath',
+        'disableFontLigatures' => 'setDisableFontLigatures'
     ];
 
     /**
@@ -131,8 +135,9 @@ class Html5ExportOptions extends ExportOptions
         'animateTransitions' => 'getAnimateTransitions',
         'animateShapes' => 'getAnimateShapes',
         'embedImages' => 'getEmbedImages',
-        'notesCommentsLayouting' => 'getNotesCommentsLayouting',
-        'templatesPath' => 'getTemplatesPath'
+        'slidesLayoutOptions' => 'getSlidesLayoutOptions',
+        'templatesPath' => 'getTemplatesPath',
+        'disableFontLigatures' => 'getDisableFontLigatures'
     ];
 
     /**
@@ -194,8 +199,9 @@ class Html5ExportOptions extends ExportOptions
         $this->container['animateTransitions'] = isset($data['animateTransitions']) ? $data['animateTransitions'] : null;
         $this->container['animateShapes'] = isset($data['animateShapes']) ? $data['animateShapes'] : null;
         $this->container['embedImages'] = isset($data['embedImages']) ? $data['embedImages'] : null;
-        $this->container['notesCommentsLayouting'] = isset($data['notesCommentsLayouting']) ? $data['notesCommentsLayouting'] : null;
+        $this->container['slidesLayoutOptions'] = isset($data['slidesLayoutOptions']) ? $data['slidesLayoutOptions'] : null;
         $this->container['templatesPath'] = isset($data['templatesPath']) ? $data['templatesPath'] : null;
+        $this->container['disableFontLigatures'] = isset($data['disableFontLigatures']) ? $data['disableFontLigatures'] : null;
         $this->container['format'] = 'html5';
         
     }
@@ -301,25 +307,25 @@ class Html5ExportOptions extends ExportOptions
     }
 
     /**
-     * Gets notesCommentsLayouting
+     * Gets slidesLayoutOptions
      *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions
+     * @return \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions
      */
-    public function getNotesCommentsLayouting()
+    public function getSlidesLayoutOptions()
     {
-        return $this->container['notesCommentsLayouting'];
+        return $this->container['slidesLayoutOptions'];
     }
 
     /**
-     * Sets notesCommentsLayouting
+     * Sets slidesLayoutOptions
      *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\NotesCommentsLayoutingOptions $notesCommentsLayouting Slides layouting options
+     * @param \Aspose\Slides\Cloud\Sdk\Model\SlidesLayoutOptions $slidesLayoutOptions Slides layouting options
      *
      * @return $this
      */
-    public function setNotesCommentsLayouting($notesCommentsLayouting)
+    public function setSlidesLayoutOptions($slidesLayoutOptions)
     {
-        $this->container['notesCommentsLayouting'] = $notesCommentsLayouting;
+        $this->container['slidesLayoutOptions'] = $slidesLayoutOptions;
 
         return $this;
     }
@@ -344,6 +350,30 @@ class Html5ExportOptions extends ExportOptions
     public function setTemplatesPath($templatesPath)
     {
         $this->container['templatesPath'] = $templatesPath;
+
+        return $this;
+    }
+
+    /**
+     * Gets disableFontLigatures
+     *
+     * @return bool
+     */
+    public function getDisableFontLigatures()
+    {
+        return $this->container['disableFontLigatures'];
+    }
+
+    /**
+     * Sets disableFontLigatures
+     *
+     * @param bool $disableFontLigatures true to disable ligatures in the rendered output.
+     *
+     * @return $this
+     */
+    public function setDisableFontLigatures($disableFontLigatures)
+    {
+        $this->container['disableFontLigatures'] = $disableFontLigatures;
 
         return $this;
     }

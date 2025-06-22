@@ -32,22 +32,22 @@ namespace Aspose\Slides\Cloud\Sdk\Model;
 use \Aspose\Slides\Cloud\Sdk\Api\ObjectSerializer;
 
 /**
- * Save Class Doc Comment
+ * CaptionTracks Class Doc Comment
  *
  * @category Class
- * @description Save slide task.
+ * @description Represents list of Links to Paragraphs resources
  * @package  Aspose\Slides\Cloud\Sdk
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Save extends Task 
+class CaptionTracks extends ResourceBase 
 {
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Save';
+    protected static $swaggerModelName = 'CaptionTracks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +55,7 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'format' => 'string',
-        'output' => '\Aspose\Slides\Cloud\Sdk\Model\OutputFile',
-        'options' => '\Aspose\Slides\Cloud\Sdk\Model\ExportOptions'
+        'items' => '\Aspose\Slides\Cloud\Sdk\Model\CaptionTrack[]'
     ];
 
     /**
@@ -66,9 +64,7 @@ class Save extends Task
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'format' => null,
-        'output' => null,
-        'options' => null
+        'items' => null
     ];
 
     /**
@@ -98,9 +94,7 @@ class Save extends Task
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'Format',
-        'output' => 'Output',
-        'options' => 'Options'
+        'items' => 'Items'
     ];
 
     /**
@@ -109,9 +103,7 @@ class Save extends Task
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'output' => 'setOutput',
-        'options' => 'setOptions'
+        'items' => 'setItems'
     ];
 
     /**
@@ -120,9 +112,7 @@ class Save extends Task
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'output' => 'getOutput',
-        'options' => 'getOptions'
+        'items' => 'getItems'
     ];
 
     /**
@@ -166,75 +156,8 @@ class Save extends Task
         return self::$swaggerModelName;
     }
 
-    const FORMAT_PDF = 'Pdf';
-    const FORMAT_XPS = 'Xps';
-    const FORMAT_TIFF = 'Tiff';
-    const FORMAT_PPTX = 'Pptx';
-    const FORMAT_ODP = 'Odp';
-    const FORMAT_OTP = 'Otp';
-    const FORMAT_PPT = 'Ppt';
-    const FORMAT_PPS = 'Pps';
-    const FORMAT_PPSX = 'Ppsx';
-    const FORMAT_PPTM = 'Pptm';
-    const FORMAT_PPSM = 'Ppsm';
-    const FORMAT_POT = 'Pot';
-    const FORMAT_POTX = 'Potx';
-    const FORMAT_POTM = 'Potm';
-    const FORMAT_HTML = 'Html';
-    const FORMAT_HTML5 = 'Html5';
-    const FORMAT_SWF = 'Swf';
-    const FORMAT_SVG = 'Svg';
-    const FORMAT_JPEG = 'Jpeg';
-    const FORMAT_PNG = 'Png';
-    const FORMAT_GIF = 'Gif';
-    const FORMAT_BMP = 'Bmp';
-    const FORMAT_FODP = 'Fodp';
-    const FORMAT_XAML = 'Xaml';
-    const FORMAT_MPEG4 = 'Mpeg4';
-    const FORMAT_MD = 'Md';
-    const FORMAT_XML = 'Xml';
-    const FORMAT_EMF = 'Emf';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_XPS,
-            self::FORMAT_TIFF,
-            self::FORMAT_PPTX,
-            self::FORMAT_ODP,
-            self::FORMAT_OTP,
-            self::FORMAT_PPT,
-            self::FORMAT_PPS,
-            self::FORMAT_PPSX,
-            self::FORMAT_PPTM,
-            self::FORMAT_PPSM,
-            self::FORMAT_POT,
-            self::FORMAT_POTX,
-            self::FORMAT_POTM,
-            self::FORMAT_HTML,
-            self::FORMAT_HTML5,
-            self::FORMAT_SWF,
-            self::FORMAT_SVG,
-            self::FORMAT_JPEG,
-            self::FORMAT_PNG,
-            self::FORMAT_GIF,
-            self::FORMAT_BMP,
-            self::FORMAT_FODP,
-            self::FORMAT_XAML,
-            self::FORMAT_MPEG4,
-            self::FORMAT_MD,
-            self::FORMAT_XML,
-            self::FORMAT_EMF,
-        ];
-    }
     
 
 
@@ -248,10 +171,7 @@ class Save extends Task
     {
         parent::__construct($data);
 
-        $this->container['format'] = isset($data['format']) ? $data['format'] : null;
-        $this->container['output'] = isset($data['output']) ? $data['output'] : null;
-        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['type'] = 'Save';
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         
     }
 
@@ -263,17 +183,6 @@ class Save extends Task
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'format', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -290,108 +199,30 @@ class Save extends Task
             return false;
         }
 
-        if ($this->container['format'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($this->container['format'], $allowedValues)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets format
+     * Gets items
      *
-     * @return string
+     * @return \Aspose\Slides\Cloud\Sdk\Model\CaptionTrack[]
      */
-    public function getFormat()
+    public function getItems()
     {
-        return $this->container['format'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets format
+     * Sets items
      *
-     * @param string $format Format.
+     * @param \Aspose\Slides\Cloud\Sdk\Model\CaptionTrack[] $items List of caption tracks.
      *
      * @return $this
      */
-    public function setFormat($format)
+    public function setItems($items)
     {
-        $allowedValues = $this->getFormatAllowableValues();
-
-
-        if (is_numeric($format)) {
-            if ($format >= sizeof($allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-                $format = $allowedValues[$format];
-            }
-        } else {
-            if (!in_array($format, $allowedValues)) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        "Invalid value for 'format', must be one of '%s'",
-                        implode("', '", $allowedValues)
-                    )
-                );
-            }
-        }
-        $this->container['format'] = $format;
-
-        return $this;
-    }
-
-    /**
-     * Gets output
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\OutputFile
-     */
-    public function getOutput()
-    {
-        return $this->container['output'];
-    }
-
-    /**
-     * Sets output
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\OutputFile $output Output file.
-     *
-     * @return $this
-     */
-    public function setOutput($output)
-    {
-        $this->container['output'] = $output;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return \Aspose\Slides\Cloud\Sdk\Model\ExportOptions
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param \Aspose\Slides\Cloud\Sdk\Model\ExportOptions $options Save options.
-     *
-     * @return $this
-     */
-    public function setOptions($options)
-    {
-        $this->container['options'] = $options;
+        $this->container['items'] = $items;
 
         return $this;
     }
